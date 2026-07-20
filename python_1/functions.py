@@ -61,6 +61,11 @@ def greet_user(username, location):
 greet_user('Kiona','Cali')
 
 
+#Count down timer froM Mostafa's Teachback 7/15/2026
+import time
+for i in range (10,0,-1):
+    print(i)
+    time.sleep(1)
 
-
+print("time off")
 
