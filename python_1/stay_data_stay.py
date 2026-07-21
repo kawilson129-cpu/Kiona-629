@@ -56,6 +56,32 @@ while user_name !=correct_username or user_password !=correct_password:
 #Show user the start message
 print("Welcome " + user_name + " to Stay Data Stay, where your data stays with you and does not get left behind! Let's get started!")
 
+#Invalid attempts counter to limit the number of incorrect entries
+invalid_attempts = 0
+trip_status = ""
+
+while invalid_attempts < 3:
+
+    trip_status = input(
+        "Are you currently on a trip or hotel stay?\n\n"
+        "Press 1 for Yes\n"
+        "Press 0 for No\n\n"
+        "Choice: ").strip()
+
+    if trip_status in ("0", "1"):
+        break
+
+    invalid_attempts += 1
+
+    if invalid_attempts < 3:
+        print(
+            "\nInvalid entry."
+            "\nPlease enter either 1 or 0.")
+
+        print(
+            "Attempts remaining:",
+            3 - invalid_attempts)
+
 # Ask user if they are currently on vacation or staying somewhere
 
 trip_status = input(
@@ -676,7 +702,7 @@ if trip_status == "0":
 
     print("Travel with confidence.".center(60))
     print("Leave with memories...".center(60))
-    print("Not your data.".center(60))
+    print("and with your data intact.".center(60))
 
     print()
     print("Stay secure.".center(60))
@@ -685,7 +711,7 @@ if trip_status == "0":
 
     print("-" * 60)
 
-if trip_status not in ("0", "1"):
+if invalid_attempts == 3:
 
     print("\n")
     print("=" * 60)
@@ -702,7 +728,7 @@ if trip_status not in ("0", "1"):
     print()
     print("Travel with confidence.".center(60))
     print("Leave with memories...".center(60))
-    print("Not your data.".center(60))
+    print("and with your data intact.".center(60))
 
     print()
     print("Stay secure.".center(60))
