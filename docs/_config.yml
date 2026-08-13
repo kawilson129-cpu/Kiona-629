@@ -3,7 +3,7 @@ description: "Portfolio showcasing secure backend systems, automation, and case 
 url: "https://kakradetome.github.io"
 baseurl: "/Kay-s-3-Week-Dae-Projects"   # must match repo name exactly
 
-theme: jekyll-theme-tactile
+theme: jekyll-theme-dinky
 permalink: pretty
 
 # GitHub Pages-safe plugins
