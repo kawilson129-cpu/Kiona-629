@@ -3,44 +3,25 @@ layout: default
 title: Home
 ---
 
-<div class="dae-brand">
-  <img src="{{ '/assets/images/dae_logo_color.jpeg' | relative_url }}" alt="dae logo">
-</div>
+<section class="hero-section fade-in">
+  <span class="eyebrow">Security Engineer & Privacy Advocate</span>
+  <h1>Designing systems for <span class="champagne-accent">digital safety.</span></h1>
+  <p class="hero-subtext">Kiona Wilson is a developer focused on privacy protection and secure infrastructure.</p>
+</section>
 
-<nav class="portfolio-nav" aria-label="Portfolio navigation">
-  <a href="{{ '/' | relative_url }}">Home</a>
-  <span aria-hidden="true"> · </span>
-  <a href="{{ '/about.html' | relative_url }}">About</a>
-  <span aria-hidden="true"> · </span>
-  <a href="{{ '/projects.html' | relative_url }}">Projects</a>
-  <span aria-hidden="true"> · </span>
-  <a href="{{ '/contact.html' | relative_url }}">Contact</a>
-</nav>
+<section class="fade-in">
+  <h2>Privacy should be the <span class="champagne-accent">default.</span></h2>
+  <p>In an increasingly connected world, protecting personal data is not just a feature. It is a fundamental right. My work focuses on building tools that empower users to control their digital footprint without complexity.</p>
+</section>
 
-# Stay Data Stay
-
-**Privacy Protection for Travelers**
-
-Stay Data Stay is an application designed to help you protect your digital privacy while traveling. It provides timely reminders to log out of your online accounts from shared devices or hotel Wi-Fi before you check out.
-
-## About the Project
-
-This application helps prevent unauthorized access to your online accounts by reminding you to log out before checkout. 
-
-### Key Features
-
-- **Stay Summary:** Record your hotel details and length of stay.
-- **Account Activity Log:** Keep track of which accounts you've logged into during your trip.
-- **Automated Reminders:** Get notifications on your final day and optional lead-up days to ensure you never leave your data behind.
-
-## How it Works
-
-1. **Log In:** Secure access to your session.
-2. **Record Stay:** Input your hotel and room information.
-3. **Log Accounts:** Select services like Netflix, Spotify, or Gmail that you've used.
-4. **Set Reminders:** Choose when you want to be notified to log out.
-5. **Stay Secure:** Receive reminders and log out before you depart!
-
----
-*Leave with your memories... not your data.*
-
+<section class="fade-in">
+  <div class="project-grid">
+    <a href="{{ '/projects.html' | relative_url }}" class="project-card">
+      <div class="project-image-wrap">
+        <img src="https://core-normal.traeapi.us/api/ide/v1/text_to_image?prompt=luxury%20minimalist%20security%20interface%20on%20a%20clean%20desk%20champagne%20lighting&image_size=landscape_16_9" alt="Stay Data Stay Project">
+      </div>
+      <span class="project-meta">Application Logic / Security</span>
+      <h3 class="project-title">Stay Data Stay</h3>
+    </a>
+  </div>
+</section>

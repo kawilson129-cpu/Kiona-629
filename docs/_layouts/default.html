@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: 'en-US' }}">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% seo %}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
+  </head>
+  <body class="luxury-editorial">
+    <nav class="editorial-nav">
+      <div class="nav-container">
+        <a href="{{ '/' | relative_url }}" class="nav-logo">
+          <img src="{{ '/assets/images/dae_logo_color.jpeg' | relative_url }}" alt="dae logo" style="height: 24px; width: auto; vertical-align: middle; margin-right: 12px; filter: invert(1);">
+          {{ site.title }}
+        </a>
+        <div class="nav-links">
+          <a href="{{ '/' | relative_url }}" {% if page.url == '/' %}class="active"{% endif %}>Home</a>
+          <a href="{{ '/about.html' | relative_url }}" {% if page.url == '/about.html' %}class="active"{% endif %}>About</a>
+          <a href="{{ '/projects.html' | relative_url }}" {% if page.url == '/projects.html' %}class="active"{% endif %}>Projects</a>
+          <a href="{{ '/contact.html' | relative_url }}" {% if page.url == '/contact.html' %}class="active"{% endif %}>Contact</a>
+        </div>
+      </div>
+    </nav>
+
+    <main class="editorial-main">
+      {{ content }}
+    </main>
+
+    <footer class="editorial-footer">
+      <div class="footer-container">
+        <p>&copy; {{ site.time | date: '%Y' }} {{ site.title }}. Built with intention.</p>
+      </div>
+    </footer>
+
+    <script src="https://unpkg.com/lenis@1.1.9/dist/lenis.min.js"></script>
+    <script>
+      const lenis = new Lenis();
+      function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
+      requestAnimationFrame(raf);
+    </script>
+  </body>
+</html>
