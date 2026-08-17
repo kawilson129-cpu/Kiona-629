@@ -1,1 +1,11 @@
-theme: minima
+title: Kiona Wilson | Stay Data Stay
+email: kawilson120@gmail.com
+description: Privacy Protection for Travelers. Stay secure, stay protected, stay data stay.
+baseurl: ""
+url: "https://kawilson129-cpu.github.io"
+github_username: kawilson129-cpu
+
+theme: jekyll-theme-cayman
+show_downloads: false
+plugins:
+  - jekyll-feed
