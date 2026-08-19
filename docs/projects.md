@@ -43,11 +43,10 @@ title: Projects
     </div>
     <div class="project-card">
       <div class="project-image-wrap" style="aspect-ratio: 1/1;">
-        <img src="https://core-normal.traeapi.us/api/ide/v1/text_to_image?prompt=weather%20mapping%20application%20minimalist%20editorial%20luxury%20aesthetic&image_size=square_hd" alt="Destiny Guru Project">
+        <img src="https://core-normal.traeapi.us/api/ide/v1/text_to_image?prompt=clean%20minimalist%20coding%20workspace%20luxury%20aesthetic&image_size=square_hd" alt="Unix Project">
       </div>
-      <span class="project-meta">Logic Systems · Python</span>
-      <h3 class="project-title">Destiny Guru</h3>
-      <p style="font-size: 0.875rem; margin-top: 1rem;">An ultimate guide to weather mapping that helps users navigate their daily commute safely based on real-time weather conditions.</p>
+      <span class="project-meta">Infrastructure</span>
+      <h3 class="project-title">Unix Engineering</h3>
     </div>
   </div>
 </section>
