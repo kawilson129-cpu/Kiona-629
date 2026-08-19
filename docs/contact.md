@@ -21,6 +21,10 @@ title: Contact
             <span style="font-size: 0.75rem; text-transform: uppercase; color: var(--accent-deep);">GitHub</span><br>
             <a href="https://github.com/{{ site.github_username }}" style="font-size: 1.5rem; text-decoration: none; color: var(--text-color);">@{{ site.github_username }}</a>
           </li>
+          <li style="margin-bottom: 2rem;">
+            <span style="font-size: 0.75rem; text-transform: uppercase; color: var(--accent-deep);">LinkedIn</span><br>
+            <a href="{{ site.linkedin_url }}" style="font-size: 1.5rem; text-decoration: none; color: var(--text-color);">Kiona Wilson</a>
+          </li>
         </ul>
       </div>
     </div>
