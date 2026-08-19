@@ -32,21 +32,86 @@ title: Projects
 </section>
 
 <section class="fade-in">
-  <div class="project-grid" style="grid-template-columns: repeat(2, 1fr);">
+
+  <span class="eyebrow">More Projects</span>
+
+  <h2>
+    Building security solutions with
+    <span class="champagne-accent">purpose.</span>
+  </h2>
+
+  <div class="project-grid" style="margin-top: 3rem;">
+
+    <!-- PHISHCOACH -->
     <div class="project-card">
+
       <div class="project-image-wrap" style="aspect-ratio: 1/1;">
-        <img src="https://core-normal.traeapi.us/api/ide/v1/text_to_image?prompt=cybersecurity%20awareness%20tool%20minimalist%20editorial%20champagne%20lighting&image_size=square_hd" alt="PhishCoach Project">
+        <img
+          src="{{ '/assets/images/project-placeholder.svg' | relative_url }}"
+          alt="PhishCoach cybersecurity awareness project">
       </div>
-      <span class="project-meta">Security Awareness · Python</span>
-      <h3 class="project-title">PhishCoach</h3>
-      <p style="font-size: 0.875rem; margin-top: 1rem;">A beginner-friendly phishing email awareness tool that scans content for red flags and integrates with the VirusTotal API for real-time URL analysis.</p>
+
+      <span class="project-meta">
+        Security Awareness · Python · VirusTotal API
+      </span>
+
+      <h3 class="project-title">
+        PhishCoach
+      </h3>
+
+      <p style="font-size: 0.875rem; margin-top: 1rem;">
+        A beginner-friendly phishing awareness tool designed to help users
+        recognize common warning signs in suspicious emails. PhishCoach
+        analyzes email content for potential red flags and uses the VirusTotal
+        API to support URL analysis and security awareness.
+      </p>
+
+      <!-- Replace the URL below with the PhishCoach repository URL -->
+      <a href="#"
+         style="display: inline-block; margin-top: 1.5rem; text-decoration: none;
+         color: var(--text-color); font-weight: 500;
+         border-bottom: 1px solid var(--text-color);">
+        View Project →
+      </a>
+
     </div>
+
+
+    <!-- DEREXI POLICY PILOT -->
     <div class="project-card">
+
       <div class="project-image-wrap" style="aspect-ratio: 1/1;">
-        <img src="https://core-normal.traeapi.us/api/ide/v1/text_to_image?prompt=clean%20minimalist%20coding%20workspace%20luxury%20aesthetic&image_size=square_hd" alt="Unix Project">
+        <img
+          src="{{ '/assets/images/project-placeholder.svg' | relative_url }}"
+          alt="DeRexi Policy Pilot policy governance assistant project">
       </div>
-      <span class="project-meta">Infrastructure</span>
-      <h3 class="project-title">Unix Engineering</h3>
+
+      <span class="project-meta">
+        Information Security · Policy Governance · Incident Assistance
+      </span>
+
+      <h3 class="project-title">
+        DeRexi: Policy Pilot
+      </h3>
+
+      <p style="font-size: 0.875rem; margin-top: 1rem;">
+        A policy-governance assistant designed to help employees find trusted
+        company policy guidance, identify the appropriate policy owner, and
+        respond to potential security incidents. The project combines policy
+        retrieval, employee guidance, escalation workflows, and incident
+        assistance into one security-focused experience.
+      </p>
+
+      <!-- Replace the URL below with the DeRexi repository URL -->
+      <a href="#"
+         style="display: inline-block; margin-top: 1.5rem; text-decoration: none;
+         color: var(--text-color); font-weight: 500;
+         border-bottom: 1px solid var(--text-color);">
+        View Project →
+      </a>
+
     </div>
+
   </div>
+
 </section>
