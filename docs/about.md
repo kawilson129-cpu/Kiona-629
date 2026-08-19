@@ -9,8 +9,8 @@ title: About
   
   <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-top: 4rem;">
     <div>
-      <p>I am a security-focused developer dedicated to building applications that protect user privacy and data integrity. My approach combines rigorous logic with a human-centric perspective on digital safety.</p>
-      <p>Currently pursuing a degree in Security Engineering (Graduating August 2026), I specialize in creating tools that make privacy accessible and reminders meaningful.</p>
+      <p>I’m an aspiring Information Security Analyst with a growing focus on incident response, security awareness, and practical cybersecurity solutions. I’m especially interested in the space where technology, people, and process meet—building tools that make security guidance easier to understand and act on.</p>
+      <p>Through the DAE Cybersecurity Program, I’m expanding my technical skills while developing hands-on projects that solve real-world security and privacy challenges. My work includes phishing-awareness tools, privacy-focused applications, and DeRexi: Policy Pilot, a policy-governance assistant designed to connect employees with trusted policy guidance and incident-response support.</p>
     </div>
     <div class="project-image-wrap" style="aspect-ratio: 1/1;">
       <img src="https://core-normal.traeapi.us/api/ide/v1/text_to_image?prompt=portrait%20of%20a%20professional%20developer%20clean%20minimalist%20editorial%20lighting%20champagne%20tones&image_size=square_hd" alt="Kiona Wilson Profile">
