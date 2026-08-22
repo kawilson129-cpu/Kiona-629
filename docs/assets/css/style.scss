@@ -269,6 +269,31 @@ section {
   display: none;
 }
 
+.resume-callout {
+  max-width: 760px;
+}
+
+.resume-callout p {
+  max-width: 60ch;
+}
+
+.resume-link {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding-bottom: 0.35rem;
+  color: var(--text-color);
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  border-bottom: 1px solid var(--text-color);
+  transition: color 0.25s ease, border-color 0.25s ease;
+}
+
+.resume-link:hover {
+  color: var(--accent-deep);
+  border-color: var(--accent-deep);
+}
+
 /* RESPONSIVE */
 
 @media (max-width: 768px) {
@@ -375,5 +400,13 @@ section {
     font-size: 1.1rem;
     line-height: 1.5;
     max-width: 100%;
+  }
+
+  .resume-callout {
+    margin-top: 1rem;
+  }
+
+  .resume-callout h2 {
+    font-size: 2.25rem;
   }
 }
