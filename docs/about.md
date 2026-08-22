@@ -35,8 +35,8 @@ title: About
 
     <div class="project-image-wrap" style="aspect-ratio: 1/1;">
       <img
-        src="{{ '/assets/images/profile-placeholder.svg' | relative_url }}"
-        alt="Kiona Wilson Profile Photo">
+        src="{{ '/assets/images/kiona-wilson-headshot.jpeg' | relative_url }}"
+        alt="Professional headshot of Kiona Wilson"
     </div>
 
   </div>
