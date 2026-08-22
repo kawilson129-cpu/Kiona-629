@@ -358,4 +358,22 @@ section {
   .editorial-main {
     padding-top: 10vh;
   }
+
+  .hero-section {
+    min-height: auto;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  h1 {
+    font-size: clamp(2.75rem, 12vw, 4rem);
+    line-height: 1.05;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-subtext {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    max-width: 100%;
+  }
 }
