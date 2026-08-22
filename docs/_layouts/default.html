@@ -16,13 +16,38 @@
           <img src="{{ '/assets/images/dae_logo_color.jpeg' | relative_url }}" alt="dae logo" style="height: 24px; width: auto; vertical-align: middle; margin-right: 12px;">
           {{ site.title }}
         </a>
-        <div class="nav-links">
-          <a href="{{ '/' | relative_url }}" {% if page.url == '/' %}class="active"{% endif %}>Home</a>
-          <a href="{{ '/about.html' | relative_url }}" {% if page.url == '/about.html' %}class="active"{% endif %}>About</a>
-          <a href="{{ '/projects.html' | relative_url }}" {% if page.url == '/projects.html' %}class="active"{% endif %}>Projects</a>
-          <a href="{{ '/contact.html' | relative_url }}" {% if page.url == '/contact.html' %}class="active"{% endif %}>Contact</a>
-        </div>
+      <div class="nav-links">
+        <a href="{{ '/' | relative_url }}" {% if page.url == '/' %}class="active"{% endif %}>Home</a>
+        <a href="{{ '/about.html' | relative_url }}" {% if page.url == '/about.html' %}class="active"{% endif %}>About</a>
+        <a href="{{ '/projects.html' | relative_url }}" {% if page.url == '/projects.html' %}class="active"{% endif %}>Projects</a>
+        <a href="{{ '/contact.html' | relative_url }}" {% if page.url == '/contact.html' %}class="active"{% endif %}>Contact</a>
       </div>
+
+      <button class="mobile-menu-toggle"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="mobile-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      </div>
+
+      <div class="mobile-menu" id="mobile-menu">
+
+  <button class="mobile-menu-close"
+          aria-label="Close navigation menu">
+    ×
+  </button>
+
+  <div class="mobile-menu-links">
+    <a href="{{ '/' | relative_url }}">Home</a>
+    <a href="{{ '/about.html' | relative_url }}">About</a>
+    <a href="{{ '/projects.html' | relative_url }}">Projects</a>
+    <a href="{{ '/contact.html' | relative_url }}">Contact</a>
+  </div>
+
+</div>    
     </nav>
 
     <main class="editorial-main">
@@ -43,6 +68,23 @@
         requestAnimationFrame(raf);
       }
       requestAnimationFrame(raf);
+    </script>
+    <script>
+      const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+      const mobileMenu = document.querySelector('.mobile-menu');
+      const mobileMenuClose = document.querySelector('.mobile-menu-close');
+
+      mobileMenuToggle.addEventListener('click', () => {
+        mobileMenu.classList.add('open');
+        mobileMenuToggle.setAttribute('aria-expanded', 'true');
+        document.body.classList.add('menu-open');
+      });
+
+      mobileMenuClose.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+        mobileMenuToggle.setAttribute('aria-expanded', 'false');
+        document.body.classList.remove('menu-open');
+      });
     </script>
   </body>
 </html>
