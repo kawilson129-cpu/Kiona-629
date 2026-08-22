@@ -47,36 +47,24 @@ title: Home
 
 
 <section class="fade-in">
-  <span class="eyebrow">Featured Work</span>
 
-  <div class="project-grid" style="margin-top: 2rem;">
-    <a href="{{ '/projects.html' | relative_url }}" class="project-card">
+  <span class="eyebrow">Selected Work</span>
 
-      <div class="project-image-wrap">
-        <img
-          src="{{ '/assets/images/project-placeholder.svg' | relative_url }}"
-          alt="Stay Data Stay Project">
-      </div>
+  <h2>
+    Security designed around
+    <span class="champagne-accent">real life.</span>
+  </h2>
 
-      <span class="project-meta">
-        Privacy · Python · Application Logic
-      </span>
-
-      <h3 class="project-title">
-        Stay Data Stay
-      </h3>
-
-      <p style="font-size: 0.875rem; margin-top: 1rem;">
-        A privacy-focused application designed to help travelers remember
-        which accounts they accessed during a hotel stay and log out before
-        leaving shared devices behind.
-      </p>
-
-    </a>
-  </div>
+  <p>
+    Explore projects focused on security awareness, digital privacy,
+    policy governance, and incident response—each designed around helping
+    people make safer decisions with technology.
+  </p>
 
   <a href="{{ '/projects.html' | relative_url }}"
-     style="display: inline-block; margin-top: 2rem; text-decoration: none; color: var(--text-color); font-weight: 500; border-bottom: 1px solid var(--text-color);">
+     style="display: inline-block; margin-top: 2rem; text-decoration: none;
+     color: var(--text-color); font-weight: 500;
+     border-bottom: 1px solid var(--text-color);">
     Explore My Projects →
   </a>
 </section>
