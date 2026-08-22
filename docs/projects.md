@@ -28,7 +28,7 @@ title: Projects
 
     <div class="project-image-wrap" style="aspect-ratio: 16/10;">
       <img
-        src="{{ '/assets/images/project-placeholder.svg' | relative_url }}"
+        src="{{ '/assets/images/phishcoach-project.png' | relative_url }}"
         alt="PhishCoach cybersecurity awareness project">
     </div>
 

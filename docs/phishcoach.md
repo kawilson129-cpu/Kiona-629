@@ -21,7 +21,7 @@ title: PhishCoach
 
   <div class="project-image-wrap" style="aspect-ratio: 16/9;">
     <img
-      src="{{ '/assets/images/project-placeholder.svg' | relative_url }}"
+      src="{{ '/assets/images/phishcoach-hero.png' | relative_url }}"
       alt="PhishCoach Project">
   </div>
 
