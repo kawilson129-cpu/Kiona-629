@@ -298,6 +298,10 @@ section {
 
 @media (max-width: 768px) {
 
+  :root {
+  --section-gap: 3rem;
+  }
+  
   .nav-links {
     display: none;
   }
