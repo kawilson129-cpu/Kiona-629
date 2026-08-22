@@ -148,32 +148,6 @@ title: DeRexi: Policy Pilot
 
 <section class="fade-in">
 
-  <span class="eyebrow">Incident Assistance</span>
-
-  <h2>
-    Recognizing when a policy question may be
-    <span class="champagne-accent">a security event.</span>
-  </h2>
-
-  <p>
-    A key part of the MVP is incident assistance. The system is being designed
-    to recognize statements that may indicate a security incident and shift
-    from normal policy guidance to approved reporting and escalation
-    instructions.
-  </p>
-
-  <p>
-    For example, if an employee indicates that they clicked a suspicious link,
-    the goal is not simply to return a policy document. Instead, the experience
-    should help the employee understand the appropriate next step and where the
-    incident should be reported.
-  </p>
-
-</section>
-
-
-<section class="fade-in">
-
   <span class="eyebrow">Core MVP Components</span>
 
   <div class="project-grid" style="margin-top: 3rem;">
@@ -226,34 +200,79 @@ title: DeRexi: Policy Pilot
 
 <section class="fade-in">
 
-  <span class="eyebrow">Policy Health Dashboard</span>
+  <span class="eyebrow">Inside the MVP</span>
 
   <h2>
-    Turning policy management into
-    <span class="champagne-accent">actionable visibility.</span>
+    A closer look at the
+    <span class="champagne-accent">core experience.</span>
   </h2>
 
-  <p>
-    The Policy Health Dashboard is designed to give administrators a clearer
-    view of how policies are functioning across the organization—not simply
-    whether a document exists, but whether it is current, owned, understood,
-    and providing employees with the guidance they need.
-  </p>
+  <div style="margin-top: 3rem;">
 
-  <p>
-    The dashboard can surface information such as policy ownership, review
-    status, employee feedback, recurring clarification needs, and areas where
-    guidance may be outdated or unclear. This gives administrators a way to
-    identify potential gaps before they become larger governance or security
-    concerns.
-  </p>
+    <div style="margin-bottom: 3rem;">
+      <h3 class="champagne-accent">01</h3>
+      <h3>Policy Management</h3>
 
-  <p>
-    By combining employee-facing policy assistance with administrative insight,
-    DeRexi is designed to support both sides of policy governance: helping
-    employees find trusted guidance while also helping policy owners understand
-    where that guidance may need attention or improvement.
-  </p>
+      <p>
+        DeRexi is designed to organize approved company policies and maintain
+        trusted policy information so employees are guided by the correct
+        organizational sources. This creates the foundation for reliable
+        retrieval, ownership tracking, and future version management.
+      </p>
+    </div>
+
+
+    <div style="margin-bottom: 3rem;">
+      <h3 class="champagne-accent">02</h3>
+      <h3>Policy Search & Retrieval</h3>
+
+      <p>
+        Employees can ask questions in everyday language while DeRexi works to
+        identify the most relevant approved policy guidance and supporting
+        source, reducing the need to search through multiple documents manually.
+      </p>
+    </div>
+
+
+    <div style="margin-bottom: 3rem;">
+      <h3 class="champagne-accent">03</h3>
+      <h3>Clarification & Routing</h3>
+
+      <p>
+        When DeRexi cannot confidently resolve a question, the workflow is
+        designed to avoid guessing. Instead, employees can see the appropriate
+        policy owner or department and use dedicated clarification workflows to
+        reach the right person.
+      </p>
+    </div>
+
+
+    <div style="margin-bottom: 3rem;">
+      <h3 class="champagne-accent">04</h3>
+      <h3>Incident Assistance</h3>
+
+      <p>
+        When employee language suggests a potential security incident, DeRexi
+        is designed to recognize that the situation requires more than ordinary
+        policy lookup and direct the employee toward approved reporting and
+        escalation guidance.
+      </p>
+    </div>
+
+
+    <div style="margin-bottom: 3rem;">
+      <h3 class="champagne-accent">05</h3>
+      <h3>Policy Health Dashboard</h3>
+
+      <p>
+        The dashboard gives administrators visibility into policy ownership,
+        review needs, employee feedback, and recurring areas of confusion so
+        they can identify where policies may need clarification, attention, or
+        improvement.
+      </p>
+    </div>
+
+  </div>
 
 </section>
 
