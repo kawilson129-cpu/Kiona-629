@@ -3,49 +3,63 @@ layout: default
 title: Projects
 ---
 
-<section class="fade-in">
-  <span class="eyebrow">Case Study</span>
-  <h1>Stay Data <span class="champagne-accent">Stay</span></h1>
-  
-  <div style="margin-top: 4rem;">
-    <div class="project-image-wrap" style="aspect-ratio: 21/9;">
-      <img src="https://core-normal.traeapi.us/api/ide/v1/text_to_image?prompt=luxury%20digital%20interface%20showing%20security%20reminders%20elegant%20UI%20champagne%20accents&image_size=landscape_16_9" alt="Stay Data Stay Hero">
-    </div>
-    
-    <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 6rem; margin-top: 4rem;">
-      <div>
-        <h2>Privacy Protection for Travelers</h2>
-        <p>Stay Data Stay is an application designed to help you protect your digital privacy while traveling. It provides timely reminders to log out of your online accounts from shared devices or hotel Wi-Fi before you check out.</p>
-        <p>The application tracks hotel stays, room numbers, and account activity to ensure that no digital footprint is left behind.</p>
-      </div>
-      <div>
-        <span class="eyebrow">Details</span>
-        <ul style="list-style: none; font-size: 0.875rem; color: var(--text-secondary);">
-          <li style="margin-bottom: 1rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem;">Role: Lead Developer</li>
-          <li style="margin-bottom: 1rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem;">Stack: Python / logic</li>
-          <li style="margin-bottom: 1rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem;">Year: 2026</li>
-        </ul>
-        <a href="https://github.com/kawilson129-cpu/Kiona-629" style="text-decoration: none; color: var(--text-color); font-weight: 500; border-bottom: 1px solid var(--text-color);">View Repository</a>
-      </div>
-    </div>
-  </div>
+<section class="hero-section fade-in">
+  <span class="eyebrow">Selected Work</span>
+
+  <h1>
+    Projects built with
+    <span class="champagne-accent">security in mind.</span>
+  </h1>
+
+  <p class="hero-subtext">
+    A collection of cybersecurity and privacy-focused projects that reflect my
+    growing interests in security awareness, digital privacy, policy governance,
+    and incident response.
+  </p>
 </section>
 
+
 <section class="fade-in">
 
-  <span class="eyebrow">More Projects</span>
+  <div class="project-grid">
 
-  <h2>
-    Building security solutions with
-    <span class="champagne-accent">purpose.</span>
-  </h2>
+    <!-- STAY DATA STAY -->
+    <div class="project-card">
 
-  <div class="project-grid" style="margin-top: 3rem;">
+      <div class="project-image-wrap" style="aspect-ratio: 16/10;">
+        <img
+          src="{{ '/assets/images/project-placeholder.svg' | relative_url }}"
+          alt="Stay Data Stay Project">
+      </div>
+
+      <span class="project-meta">
+        Digital Privacy · Python · Application Logic
+      </span>
+
+      <h3 class="project-title">
+        Stay Data Stay
+      </h3>
+
+      <p style="font-size: 0.875rem; margin-top: 1rem;">
+        A privacy awareness application designed to help travelers remember
+        which personal accounts they accessed during a stay and securely log
+        out before leaving their accommodations.
+      </p>
+
+      <a href="{{ '/stay-data-stay.html' | relative_url }}"
+         style="display: inline-block; margin-top: 1.5rem; text-decoration: none;
+         color: var(--text-color); font-weight: 500;
+         border-bottom: 1px solid var(--text-color);">
+        View Project →
+      </a>
+
+    </div>
+
 
     <!-- PHISHCOACH -->
     <div class="project-card">
 
-      <div class="project-image-wrap" style="aspect-ratio: 1/1;">
+      <div class="project-image-wrap" style="aspect-ratio: 16/10;">
         <img
           src="{{ '/assets/images/project-placeholder.svg' | relative_url }}"
           alt="PhishCoach cybersecurity awareness project">
@@ -61,13 +75,11 @@ title: Projects
 
       <p style="font-size: 0.875rem; margin-top: 1rem;">
         A beginner-friendly phishing awareness tool designed to help users
-        recognize common warning signs in suspicious emails. PhishCoach
-        analyzes email content for potential red flags and uses the VirusTotal
-        API to support URL analysis and security awareness.
+        recognize common warning signs in suspicious emails and evaluate
+        potentially risky links.
       </p>
 
-      <!-- Replace the URL below with the PhishCoach repository URL -->
-      <a href="#"
+      <a href="{{ '/phishcoach.html' | relative_url }}"
          style="display: inline-block; margin-top: 1.5rem; text-decoration: none;
          color: var(--text-color); font-weight: 500;
          border-bottom: 1px solid var(--text-color);">
@@ -80,10 +92,10 @@ title: Projects
     <!-- DEREXI POLICY PILOT -->
     <div class="project-card">
 
-      <div class="project-image-wrap" style="aspect-ratio: 1/1;">
+      <div class="project-image-wrap" style="aspect-ratio: 16/10;">
         <img
           src="{{ '/assets/images/project-placeholder.svg' | relative_url }}"
-          alt="DeRexi Policy Pilot policy governance assistant project">
+          alt="DeRexi Policy Pilot project">
       </div>
 
       <span class="project-meta">
@@ -95,15 +107,12 @@ title: Projects
       </h3>
 
       <p style="font-size: 0.875rem; margin-top: 1rem;">
-        A policy-governance assistant designed to help employees find trusted
-        company policy guidance, identify the appropriate policy owner, and
-        respond to potential security incidents. The project combines policy
-        retrieval, employee guidance, escalation workflows, and incident
-        assistance into one security-focused experience.
+        A policy-governance assistant currently in development to help employees
+        find trusted policy guidance, identify the correct policy owner, and
+        respond appropriately when a potential security incident occurs.
       </p>
 
-      <!-- Replace the URL below with the DeRexi repository URL -->
-      <a href="#"
+      <a href="{{ '/derexi-policy-pilot.html' | relative_url }}"
          style="display: inline-block; margin-top: 1.5rem; text-decoration: none;
          color: var(--text-color); font-weight: 500;
          border-bottom: 1px solid var(--text-color);">
