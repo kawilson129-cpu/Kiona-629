@@ -40,6 +40,29 @@ title: About
   </div>
 </section>
 
+<section class="fade-in resume-callout">
+
+  <span class="eyebrow">Professional Profile</span>
+
+  <h2>
+    Experience beyond the
+    <span class="champagne-accent">projects.</span>
+  </h2>
+
+  <p>
+    My professional background combines financial operations, process
+    management, documentation, quality control, and cross-functional
+    collaboration with a growing cybersecurity project portfolio.
+  </p>
+
+  <a href="{{ '/assets/files/kiona-wilson-resume.pdf' | relative_url }}"
+     target="_blank"
+     rel="noopener noreferrer"
+     class="resume-link">
+    View Résumé ↗
+  </a>
+
+</section>
 
 <section class="fade-in">
   <span class="eyebrow">Areas of Interest</span>
