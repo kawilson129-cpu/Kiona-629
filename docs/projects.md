@@ -94,7 +94,7 @@ title: Projects
 
     <div class="project-image-wrap" style="aspect-ratio: 16/10;">
       <img
-        src="{{ '/assets/images/derexi-policy-pilot-hero.png' | relative_url }}"
+        src="{{ '/assets/images/derexi-policy-pilot-hero-project.png' | relative_url }}"
         alt="DeRexi Policy Pilot project">
     </div>
 
