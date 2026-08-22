@@ -210,10 +210,52 @@ title: DeRexi: Policy Pilot
       </p>
     </div>
 
+    <div class="project-card">
+      <h3 class="project-title">Policy Health Dashboard</h3>
+      <p style="font-size: 0.875rem; margin-top: 1rem;">
+        Give administrators visibility into the overall health of the policy
+        environment by surfacing policy status, ownership, review needs,
+        employee feedback, and areas where guidance may require clarification
+        or improvement.
+      </p>
+    </div>
+
   </div>
 
 </section>
 
+<section class="fade-in">
+
+  <span class="eyebrow">Policy Health Dashboard</span>
+
+  <h2>
+    Turning policy management into
+    <span class="champagne-accent">actionable visibility.</span>
+  </h2>
+
+  <p>
+    The Policy Health Dashboard is designed to give administrators a clearer
+    view of how policies are functioning across the organization—not simply
+    whether a document exists, but whether it is current, owned, understood,
+    and providing employees with the guidance they need.
+  </p>
+
+  <p>
+    The dashboard can surface information such as policy ownership, review
+    status, employee feedback, recurring clarification needs, and areas where
+    guidance may be outdated or unclear. This gives administrators a way to
+    identify potential gaps before they become larger governance or security
+    concerns.
+  </p>
+
+  <p>
+    By combining employee-facing policy assistance with administrative insight,
+    DeRexi is designed to support both sides of policy governance: helping
+    employees find trusted guidance while also helping policy owners understand
+    where that guidance may need attention or improvement.
+  </p>
+
+</section>
 
 <section class="fade-in">
 
