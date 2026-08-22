@@ -23,7 +23,7 @@ title: DeRexi: Policy Pilot
 
   <div class="project-image-wrap" style="aspect-ratio: 16/9;">
     <img
-      src="{{ '/assets/images/project-placeholder.svg' | relative_url }}"
+      src="{{ '/assets/images/derexi-policy-pilot-hero.png' | relative_url }}"
       alt="DeRexi Policy Pilot Project">
   </div>
 
