@@ -90,8 +90,9 @@ p {
   width: 100%;
   padding: 2rem var(--padding-x);
   z-index: 1000;
-  mix-blend-mode: difference;
-  color: #fff; /* White against black difference */
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  border-bottom: 1px solid var(--border-color);
 }
 
 .nav-container {
