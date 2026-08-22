@@ -103,6 +103,22 @@ p {
   margin: 0 auto;
 }
 
+.about-grid,
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  margin-top: 4rem;
+}
+
+@media (max-width: 900px) {
+  .about-grid,
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
 .nav-logo {
   font-size: 1.25rem;
   font-weight: 500;

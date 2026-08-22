@@ -7,7 +7,7 @@ title: Contact
   <span class="eyebrow">Connect</span>
   <h1>Let's start a <span class="champagne-accent">conversation.</span></h1>
   
-  <div style="margin-top: 4rem; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;">
+  <div class="contact-grid">
     <div>
       <p>I am always open to discussing new projects, security challenges, or privacy-focused initiatives.</p>
       

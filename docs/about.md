@@ -7,7 +7,7 @@ title: About
   <span class="eyebrow">The Story</span>
   <h1>Kiona <span class="champagne-accent">Wilson</span></h1>
 
-  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-top: 4rem;">
+  <div class="about-grid">
     
     <div>
       <p>
