@@ -61,7 +61,7 @@ title: Projects
 
     <div class="project-image-wrap" style="aspect-ratio: 16/10;">
       <img
-        src="{{ '/assets/images/project-placeholder.svg' | relative_url }}"
+        src="{{ '/assets/images/stay-data-stay-project.png' | relative_url }}"
         alt="Stay Data Stay Project">
     </div>
 
