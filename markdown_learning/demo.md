@@ -70,3 +70,7 @@ Mardown lets me write and format headings and change the title of URL links
 ## html Is Compatible with Markdown
 
 <marquee>Hello<marquee>
+
+## We Learn How to Color Our Text
+
+<span style="color:rgb(221, 27, 140)">Hello World!<span>
