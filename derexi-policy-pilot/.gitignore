@@ -1,0 +1,12 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Environment secrets (keep the example)
+.env
+!.env.example
+
+# OS
+.DS_Store

@@ -1,2 +1,19 @@
 
 unix_1
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+
+# Environment secrets
+.env
+!.env.example
+
+# OS
+.DS_Store
+
+# Local tooling / editor state
+.opencode/

@@ -8,9 +8,17 @@ GitHub Pages portfolio site for Kiona Wilson (DAE Cybersecurity student, Graduat
 
 ## Repo structure
 
-The Jekyll site lives in `docs/`. Everything else is coursework artifacts.
+The Jekyll site lives in `docs/`. The **canonical DeRexi codebase lives in `derexi-policy-pilot/` at the repo root** — develop the project there. Everything else is coursework artifacts and semester-week progress snapshots.
 
 ```
+derexi-policy-pilot/           # CANONICAL DeRexi codebase — edit HERE
+  backend/                     # FastAPI: database.py, models.py, schemas.py, main.py
+  docs/database-design.md      # Week 3 design deliverable
+  design/                      # Week 1 mockup + Week 2 design docs (copies)
+  README.md                    # setup / run / endpoint map
+  requirements.txt             # runtime deps
+  requirements-dev.txt         # + httpx (smoke tests)
+
 docs/                          # Jekyll site (Markdown, SCSS, images)
   _config.yml                  # Jekyll config, baseurl: /Kiona-629
   _layouts/default.html        # Single layout template
@@ -26,11 +34,12 @@ docs/                          # Jekyll site (Markdown, SCSS, images)
   contact.md                   # Contact page
 
 semester_1/                    # Sem 1: Keynote status updates
-semester_2/                    # Sem 2: Design doc, career exploration, Keynote updates
-semester_3/                    # Sem 3: DeRexi development, GitHub Pages assignment
+semester_2/                    # Sem 2: Project design doc, career exploration, Keynote updates
+semester_3/                    # Sem 3 ARCHIVE (progress snapshot — do NOT develop here)
   DeRexi_Week 1/               # DeRexi home screen mockup
   DeRexi_Week 2/               # Design docs: personas, data maps, system components
-  DeRexi_Week 3/               # Backend scaffolding (empty .py files)
+  DeRexi_Week 3/               # Snapshot of the codebase as it stood in Sem 3
+semester_4/                    # Sem 4: DeRexi_Week 5 (in progress), status updates
 
 cyber_threats_and_vulnerabilities_1/  # CT+V: malware reports, APT38/MITRE report, vuln assessment
 network_security _1/                 # NS: topologies, core components, network fundamentals, access control
@@ -47,9 +56,13 @@ markdown_learning/                   # Markdown learning demo
 
 ## Active project: DeRexi: Policy Pilot
 
-**Status:** Week 3 of 12-week SDLC. Backend scaffolding created (empty files). Design phase mostly complete.
+**Status:** Week 3 database design scheme COMPLETE; Week 4 backend COMPLETE. Now in Week 5 of 12-week SDLC, catching up on Week 4 deliverables.
 
 **What it is:** A policy-governance and incident-assistance assistant for employees. When someone has a policy question or suspects a security incident, DeRexi connects them with the right guidance and the right person.
+
+**Built for:** financial institutions / banks. Fictional institution is **Aurum Capital Bank** (Latin *aurum*, "gold"), a federally chartered private bank with Lending and Wealth Management divisions. Policy content follows federal banking regulations (GLBA/Reg P, GLBA Safeguards Rule, BSA/AML, CIP/KYC, SAR, OFAC, UDAAP, Reg Z, Reg B/ECOA, Reg E & CC).
+
+**Supabase:** project "DeRexi: Policy Pilot", ref `vnumvjamqtuxlctjdzoe`, org `icljwbqrpcjhfnbkrhwr`, region us-east-1, Postgres 17. 14 tables, all migrations-backed, all RLS-enabled. Schema + seed fully documented.
 
 **5 User Personas:**
 1. Alex Chen — IT Help Desk Analyst (front-line, triage)
@@ -65,13 +78,23 @@ markdown_learning/                   # Markdown learning demo
 4. Incident Assistance — detect incident language, trigger reporting/escalation
 5. Policy Health Dashboard — admin visibility into policy status/feedback
 
-**Code location:** `semester_3/DeRexi_Week 3/derexi-policy-pilot/` (backend/ is empty scaffolding)
+**Code location (canonical):** `derexi-policy-pilot/`
+- `docs/database-design.md` — full schema design (Week 3 deliverable)
+- `backend/` — FastAPI + SQLAlchemy 2.0: `database.py`, `models.py`, `schemas.py`, `main.py`
+- `backend/.env.example` — copy to `backend/.env`, add Supabase `DATABASE_URL` (git-ignored)
+- `README.md`, `requirements.txt`, `requirements-dev.txt` — setup/run instructions
+- Archive snapshot (do NOT edit): `semester_3/DeRexi_Week 3/derexi-policy-pilot/`
 
-**Design docs (PDFs):** `semester_3/DeRexi_Week 2/`
+**Design docs:** `derexi-policy-pilot/design/` (copies; originals live in `semester_3/DeRexi_Week 2/`)
 - DeRexi Conceptual Data Map
 - DeRexi Core System Components (V.2, V.3)
 - DeRexi's Internal Application Structure
 - Meet the DeRexi Users (personas)
+- DeRexi Week 1 home-screen mockup
+
+**Security reports:** `derexi-policy-pilot/design/reports/` (copies; originals stay in course folders)
+- `network-security/` — NS Assignment 2 (Core System Components V.1/V.2/V.3), NS Assignment 4 (Access Control Measures)
+- `cyber-threats-and-vulnerabilities/` — CT+V Assignment 1 (APT38 FASTCash MITRE report), CT+V Assignment 2 (Vulnerability Assessment)
 
 **Portfolio page:** `docs/derexi-policy-pilot.md` (already live on site)
 
