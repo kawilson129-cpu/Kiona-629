@@ -1,0 +1,101 @@
+[
+  {
+    "id": 1,
+    "full_name": "Dana Brooks",
+    "email": "dana.brooks@aurumbank.com",
+    "department_id": 1,
+    "department": "Compliance",
+    "role_id": 3,
+    "role": "System Administrator"
+  },
+  {
+    "id": 2,
+    "full_name": "Lucy Chen",
+    "email": "lucy.chen@aurumbank.com",
+    "department_id": 2,
+    "department": "Information Technology",
+    "role_id": 3,
+    "role": "System Administrator"
+  },
+  {
+    "id": 3,
+    "full_name": "Tom Bennett",
+    "email": "tom.bennett@aurumbank.com",
+    "department_id": 3,
+    "department": "Operations",
+    "role_id": 1,
+    "role": "Employee"
+  },
+  {
+    "id": 4,
+    "full_name": "Maya Patel",
+    "email": "maya.patel@aurumbank.com",
+    "department_id": 1,
+    "department": "Compliance",
+    "role_id": 2,
+    "role": "Policy Owner"
+  },
+  {
+    "id": 5,
+    "full_name": "Elena Rodriguez",
+    "email": "elena.rodriguez@aurumbank.com",
+    "department_id": 4,
+    "department": "Human Resources",
+    "role_id": 1,
+    "role": "Employee"
+  },
+  {
+    "id": 6,
+    "full_name": "Alex Chen",
+    "email": "alex.chen@aurumbank.com",
+    "department_id": 2,
+    "department": "Information Technology",
+    "role_id": 1,
+    "role": "Employee"
+  },
+  {
+    "id": 7,
+    "full_name": "Chris Tanaka",
+    "email": "chris.tanaka@aurumbank.com",
+    "department_id": 2,
+    "department": "Information Technology",
+    "role_id": 1,
+    "role": "Employee"
+  },
+  {
+    "id": 8,
+    "full_name": "Sam Okonkwo",
+    "email": "sam.okonkwo@aurumbank.com",
+    "department_id": 6,
+    "department": "Lending",
+    "role_id": 1,
+    "role": "Employee"
+  },
+  {
+    "id": 9,
+    "full_name": "Jordan Rivera",
+    "email": "jordan.rivera@aurumbank.com",
+    "department_id": 4,
+    "department": "Human Resources",
+    "role_id": 1,
+    "role": "Employee"
+  },
+  {
+    "id": 10,
+    "full_name": "Gabrielle Fontaine",
+    "email": "gabrielle.fontaine@aurumbank.com",
+    "department_id": 7,
+    "department": "Wealth Management",
+    "role_id": 1,
+    "role": "Employee"
+  },
+  {
+    "id": 11,
+    "full_name": "Marcus Webb",
+    "email": "marcus.webb@aurumbank.com",
+    "department_id": 6,
+    "department": "Lending",
+    "role_id": 2,
+    "role": "Policy Owner"
+  }
+]

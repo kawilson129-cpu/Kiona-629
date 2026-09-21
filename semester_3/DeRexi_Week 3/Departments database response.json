@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "name": "Compliance"
+  },
+  {
+    "id": 2,
+    "name": "Information Technology"
+  },
+  {
+    "id": 3,
+    "name": "Operations"
+  },
+  {
+    "id": 4,
+    "name": "Human Resources"
+  },
+  {
+    "id": 5,
+    "name": "Marketing"
+  },
+  {
+    "id": 6,
+    "name": "Lending"
+  },
+  {
+    "id": 7,
+    "name": "Wealth Management"
+  }
+]
