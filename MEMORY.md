@@ -51,6 +51,8 @@ DeRexi Week 3 (database design scheme + design doc) and Week 4 (FastAPI backend)
 - Reorg used **copy, not move**, so `semester_3/DeRexi_Week 3/derexi-policy-pilot/` stays intact as the Sem 3 archive; root copy is now the source of truth
 - Seeding rows with explicit IDs left identity sequences behind → fixed with migration `fix_identity_sequences`; also `departments.created_at` was missing (original dashboard table) → added via migration
 - "Current version" resolution is **deterministic**: order by `created_at DESC, id DESC`. Applied in `policy_to_dict`, `SEARCH_SQL`, and the dashboard `reviews_due` CTE after seeded policy 11 had tied `created_at` timestamps (v1.0/v2.0)
+- Retrieval guard in `/ask` adds a **substantive-keyword evidence gate** on top of the 0.22 threshold (threshold stays fixed): `substantive_keywords()` (len>=4 minus `GENERIC_STOPWORDS`) must appear in the top candidate's title+body (`contains_keyword`, with singular fallback), else route to clarification. Non-confident message: "The policy library does not contain enough information..."
+- Confident `/ask` answers are now guidance-first + citation-last via `make_guidance()` (best-matching complete sentence) — no longer a raw "Based on {title}: {excerpt}" dump
 
 ## Conversation History
 <!-- Append new entries below. Each session gets a timestamped block. -->
@@ -107,3 +109,9 @@ DeRexi Week 3 (database design scheme + design doc) and Week 4 (FastAPI backend)
 - Same tiebug existed in `SEARCH_SQL` (`/policies/search`, `/ask`) and the dashboard `reviews_due` CTE; Kiona approved applying the same tiebreaker → both now `ORDER BY pv.created_at DESC, pv.id DESC`
 - Verified via direct query: current-version CTE picks v2.0 (id 12) with tiebreaker vs v1.0 (id 11) without; dashboard + search endpoints still green; `py_compile` clean
 - No schema changes
+
+### September 21, 2026 (later) — Retrieval-quality guard + answer restructure
+- Diagnosed why the gym question ("Does Aurum Capital Bank reimburse employees for gym memberships?") outscored the phishing question: `word_similarity(q, body)` is a best-local-alignment metric; generic tokens (Aurum/Capital/Bank/employees) present in every policy spike `ws_body` (0.3973) at the same time the true topic words (reimburse/membership — 0 policies contain them) never appear. Scores interleave (0.2427 vs 0.2402) so no single threshold can separate them
+- Implemented in `/ask`: `GENERIC_STOPWORDS` + `substantive_keywords()` + `contains_keyword()` evidence gate (keyword must appear in top candidate title+body, plural-strip fallback); no evidence → `needs_clarification: true` with "policy library does not contain enough information..." message
+- Rewrote confident answers: `make_guidance()` picks the best complete policy sentence → "Here's what you should do: {sentence}\nReference: {Title} (v{version}) — review the full policy..."
+- Verified: gym→clarify (conf 0.2427 kept), phishing→answers with Report Phishing SOC guidance + citation, phished/report→answers, loan-records regression still answers; `/policies/search` untouched; `py_compile` clean; no schema changes

@@ -105,6 +105,60 @@ def make_excerpt(body: str, question: str, length: int = 260) -> str:
     return body[:length].rstrip() + ("..." if len(body) > length else "")
 
 
+# Function words and institution vocabulary that must not, on their own, count
+# as evidence a policy answers a question.
+GENERIC_STOPWORDS = frozenset({
+    "a", "an", "the", "and", "or", "if", "but", "of", "to", "for", "with",
+    "from", "by", "in", "on", "at", "is", "are", "was", "were", "am", "be",
+    "been", "being", "do", "does", "did", "doing", "what", "when", "where",
+    "which", "why", "how", "who", "whom", "whose", "can", "could", "will",
+    "would", "should", "shall", "may", "might", "must", "that", "this",
+    "these", "those", "there", "here", "not", "no", "yes", "all", "any",
+    "some", "each", "every", "you", "your", "yours", "we", "our", "ours",
+    "i", "me", "my", "he", "him", "she", "her", "it", "its", "they", "them",
+    "their", "us", "have", "has", "had", "get", "got", "make", "about",
+    "into", "over", "under", "please", "want", "need", "know", "tell", "ask",
+    "policy", "policies", "rule", "rules", "law", "laws", "regulation",
+    "bank", "banks", "company", "companies", "organization", "employee",
+    "employees", "staff", "person", "people", "aurum", "capital",
+})
+
+
+def substantive_keywords(question: str) -> list:
+    """Return the question's substantive tokens (generic words removed)."""
+    words = re.findall(r"[a-z]{4,}", question.lower())
+    return sorted({w for w in words if w not in GENERIC_STOPWORDS})
+
+
+def contains_keyword(haystack: str, keywords: list) -> bool:
+    """True if any keyword (or its singular form) appears in the haystack."""
+    for keyword in keywords:
+        if keyword in haystack:
+            return True
+        if keyword.endswith("s") and keyword[:-1] in haystack:
+            return True
+    return False
+
+
+def make_guidance(body: str, question: str, max_length: int = 240) -> str:
+    """Return the single policy sentence that best addresses the question."""
+    body = " ".join(body.split())
+    sentences = re.split(r"(?<=[.!?])\s+", body)
+    keywords = set(substantive_keywords(question))
+    best, best_hits = None, 0
+    for sentence in sentences:
+        if len(sentence) < 20:
+            continue
+        hits = len(keywords & set(re.findall(r"[a-z]{4,}", sentence.lower())))
+        if best is None or hits > best_hits:
+            best, best_hits = sentence, hits
+    if best is None:
+        best = sentences[0] if sentences else body
+    if len(best) > max_length:
+        best = best[:max_length].rstrip() + "..."
+    return best
+
+
 def policy_to_dict(policy: Policy, db: Session) -> dict:
     latest = (
         db.query(PolicyVersion)
@@ -330,14 +384,19 @@ def ask(payload: schemas.AskRequest, db: Session = Depends(get_db)) -> dict:
 
     results = db.execute(SEARCH_SQL, {"q": question, "limit": 3}).mappings().all()
     top_score = float(results[0]["score"]) if results else 0.0
+    top = results[0] if results else None
     confident = bool(results) and top_score >= CONFIDENCE_THRESHOLD
+    if confident:
+        haystack = " ".join([top["title"], top["body"]]).lower()
+        keywords = substantive_keywords(question)
+        confident = bool(keywords) and contains_keyword(haystack, keywords)
 
     if confident:
-        top = results[0]
-        excerpt = make_excerpt(top["body"], question)
+        guidance = make_guidance(top["body"], question)
         answer = (
-            f"Based on the {top['title']} (v{top['version_no']}): {excerpt} "
-            "Review the full policy for complete guidance."
+            f"Here's what you should do: {guidance}"
+            f"\nReference: {top['title']} (v{top['version_no']}) — review the "
+            "full policy for complete guidance."
         )
         derexi_message = Message(conversation_id=conversation.id, sender="derexi", body=answer)
         db.add(derexi_message)
@@ -399,8 +458,9 @@ def ask(payload: schemas.AskRequest, db: Session = Depends(get_db)) -> dict:
         ).scalar()
 
     answer = (
-        "I could not find an approved policy that confidently answers this question, "
-        "so I have routed it to a policy owner for clarification rather than guess."
+        "The policy library does not contain enough information to answer this "
+        "confidently, so I have routed it to a policy owner for clarification "
+        "rather than guess."
     )
     derexi_message = Message(conversation_id=conversation.id, sender="derexi", body=answer)
     db.add(derexi_message)
