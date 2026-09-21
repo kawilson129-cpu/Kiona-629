@@ -23,6 +23,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy import func, text
 from sqlalchemy.orm import Session
 
+import ai
 import schemas
 from database import get_db
 from models import (
@@ -392,12 +393,21 @@ def ask(payload: schemas.AskRequest, db: Session = Depends(get_db)) -> dict:
         confident = bool(keywords) and contains_keyword(haystack, keywords)
 
     if confident:
-        guidance = make_guidance(top["body"], question)
-        answer = (
-            f"Here's what you should do: {guidance}"
-            f"\nReference: {top['title']} (v{top['version_no']}) — review the "
-            "full policy for complete guidance."
-        )
+        context = [
+            {"title": row["title"], "version_no": row["version_no"], "body": row["body"]}
+            for row in results[:3]
+            if float(row["score"]) >= CONFIDENCE_THRESHOLD
+        ]
+        llm_answer = ai.generate_answer(question, context) if context else None
+        if llm_answer:
+            answer = f"{llm_answer}\nReference: {top['title']} (v{top['version_no']})"
+        else:
+            guidance = make_guidance(top["body"], question)
+            answer = (
+                f"Here's what you should do: {guidance}"
+                f"\nReference: {top['title']} (v{top['version_no']}) — review the "
+                "full policy for complete guidance."
+            )
         derexi_message = Message(conversation_id=conversation.id, sender="derexi", body=answer)
         db.add(derexi_message)
         db.flush()

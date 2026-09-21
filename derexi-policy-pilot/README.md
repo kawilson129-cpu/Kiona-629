@@ -30,6 +30,7 @@ derexi-policy-pilot/
     ├── database.py           # engine, session, Base
     ├── models.py             # SQLAlchemy ORM models (14 tables)
     ├── schemas.py            # Pydantic request models
+    ├── ai.py                 # optional OpenAI agent (Responses API)
     └── main.py               # FastAPI app and endpoints
 ```
 
@@ -48,6 +49,7 @@ pip install -r requirements-dev.txt   # optional, for the smoke tests
 
 cp backend/.env.example backend/.env
 # edit backend/.env and paste your Supabase connection string
+# (optional) add OPENAI_API_KEY to enable plain-English AI answers
 ```
 
 ## Run
@@ -91,3 +93,9 @@ curl -s http://127.0.0.1:8000/dashboard/policy-health
 - `backend/.env` holds the database password and is git-ignored.
 - Policy answers are retrieved from the latest approved `policy_versions`; every
   answer records its source in `policy_citations`.
+- **Plain-English answers (optional OpenAI agent):** with `OPENAI_API_KEY` set in
+  `backend/.env`, `POST /ask` asks the OpenAI Responses API (`ai.py`) to rewrite
+  the retrieved guidance in plain English. `store=False` keeps policy text out of
+  OpenAI storage. `OPENAI_MODEL` defaults to `gpt-4o-mini`. Without a key (or on
+  API error) the endpoint falls back to extracted rule-based guidance, so the
+  RAG flow always works offline.
