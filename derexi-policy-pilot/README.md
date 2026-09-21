@@ -33,9 +33,9 @@ derexi-policy-pilot/
     └── main.py               # FastAPI app and endpoints
 ```
 
-This folder is the **canonical codebase** for DeRexi. Semester-week snapshots
-(e.g. `semester_3/DeRexi_Week 3/`) are kept as progress history and are not
-where development should continue.
+This folder is the **single canonical copy** of the DeRexi codebase. The duplicate
+project folder formerly kept in `semester_3/DeRexi_Week 3/` was removed after the
+root folder was confirmed to be a complete superset.
 
 ## Setup
 

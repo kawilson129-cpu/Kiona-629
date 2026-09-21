@@ -38,7 +38,7 @@ semester_2/                    # Sem 2: Project design doc, career exploration, 
 semester_3/                    # Sem 3 ARCHIVE (progress snapshot — do NOT develop here)
   DeRexi_Week 1/               # DeRexi home screen mockup
   DeRexi_Week 2/               # Design docs: personas, data maps, system components
-  DeRexi_Week 3/               # Snapshot of the codebase as it stood in Sem 3
+  DeRexi_Week 3/               # Sem 3 Week 3 deliverables (project code lives in root derexi-policy-pilot/)
 semester_4/                    # Sem 4: DeRexi_Week 5 (in progress), status updates
 
 cyber_threats_and_vulnerabilities_1/  # CT+V: malware reports, APT38/MITRE report, vuln assessment
@@ -83,7 +83,7 @@ markdown_learning/                   # Markdown learning demo
 - `backend/` — FastAPI + SQLAlchemy 2.0: `database.py`, `models.py`, `schemas.py`, `main.py`
 - `backend/.env.example` — copy to `backend/.env`, add Supabase `DATABASE_URL` (git-ignored)
 - `README.md`, `requirements.txt`, `requirements-dev.txt` — setup/run instructions
-- Archive snapshot (do NOT edit): `semester_3/DeRexi_Week 3/derexi-policy-pilot/`
+- No duplicate archive: the Sem 3 project copy (`semester_3/DeRexi_Week 3/derexi-policy-pilot/`) was removed after the root folder became canonical
 
 **Design docs:** `derexi-policy-pilot/design/` (copies; originals live in `semester_3/DeRexi_Week 2/`)
 - DeRexi Conceptual Data Map

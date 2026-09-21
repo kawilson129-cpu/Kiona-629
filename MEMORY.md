@@ -48,7 +48,7 @@ DeRexi Week 3 (database design scheme + design doc) and Week 4 (FastAPI backend)
 - Backend stack: FastAPI + SQLAlchemy 2.0 + psycopg2 + pydantic v2; run with `uvicorn main:app --reload`
 - Search = `pg_trgm` blended score `0.6*word_similarity(q,body) + 0.4*similarity(q,title)`; confidence threshold 0.22 (matches score ≥0.27, non-matches ~0.17)
 - **Canonical codebase = `derexi-policy-pilot/` at the repo root.** Semester folders are progress snapshots and must not be developed in
-- Reorg used **copy, not move**, so `semester_3/DeRexi_Week 3/derexi-policy-pilot/` stays intact as the Sem 3 archive; root copy is now the source of truth
+- Reorg used **copy** so nothing was lost during consolidation, then the duplicate `semester_3/DeRexi_Week 3/derexi-policy-pilot/` copy was **deleted** after a diff confirmed the root folder was a complete superset (and that root `main.py` was newer). Root `derexi-policy-pilot/` is the single source of truth
 - Seeding rows with explicit IDs left identity sequences behind → fixed with migration `fix_identity_sequences`; also `departments.created_at` was missing (original dashboard table) → added via migration
 - "Current version" resolution is **deterministic**: order by `created_at DESC, id DESC`. Applied in `policy_to_dict`, `SEARCH_SQL`, and the dashboard `reviews_due` CTE after seeded policy 11 had tied `created_at` timestamps (v1.0/v2.0)
 - Retrieval guard in `/ask` adds a **substantive-keyword evidence gate** on top of the 0.22 threshold (threshold stays fixed): `substantive_keywords()` (len>=4 minus `GENERIC_STOPWORDS`) must appear in the top candidate's title+body (`contains_keyword`, with singular fallback), else route to clarification. Non-confident message: "The policy library does not contain enough information..."
@@ -100,7 +100,7 @@ DeRexi Week 3 (database design scheme + design doc) and Week 4 (FastAPI backend)
 - Created root `derexi-policy-pilot/` (copy of the Sem 3 codebase): `backend/`, `docs/database-design.md`, `design/` (copied Week 1 mockup + Week 2 design docs), `README.md`, `requirements.txt`, `requirements-dev.txt`, `.gitignore`
 - Created fresh `.venv` at the root project and installed deps (+ httpx); verified the canonical project runs end-to-end from its new location
 - Updated `README.md` setup paths, `AGENTS.md` (repo structure + code location), and `MEMORY.md`
-- Left `semester_3/DeRexi_Week 3/derexi-policy-pilot/` untouched as the Sem 3 archive (copy, not move)
+- Diffed root vs Sem 3 copy before deletion: nothing was only-in-Sem-3; root `main.py` was ahead (tiebreaker + retrieval guards). Kiona removed `semester_3/DeRexi_Week 3/derexi-policy-pilot/`; references scrubbed from AGENTS.md/MEMORY.md/README
 - Copied the DeRexi NS + CT+V assignment reports into `derexi-policy-pilot/design/reports/` (`network-security/`, `cyber-threats-and-vulnerabilities/`); originals untouched
 
 ### September 21, 2026 — Deterministic "current version" resolution
