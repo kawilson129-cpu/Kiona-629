@@ -1,0 +1,37 @@
+{
+  "id": 11,
+  "title": "Wealth Management & Private Banking Suitability",
+  "summary": "Suitability, confidentiality, and conflict-of-interest standards for private clients.",
+  "status": "in_review",
+  "category_id": 4,
+  "category": "Wealth Management & Private Banking",
+  "owner_id": 10,
+  "owner": "Gabrielle Fontaine",
+  "latest_version": "2.0",
+  "review_date": "2026-10-01",
+  "requires_review": true,
+  "created_at": "2026-09-17T19:55:43.734641+00:00",
+  "updated_at": "2026-09-17T19:55:43.734641+00:00",
+  "versions": [
+    {
+      "id": 11,
+      "version_no": "1.0",
+      "title": "Wealth Management & Private Banking Suitability",
+      "body": "Aurum Capital Bank's Wealth Management and Private Banking division serves high-net-worth clients with banking, lending, trust, and investment solutions.\n\nBefore recommending any product or strategy, advisors must understand the client's financial situation, objectives, risk tolerance, time horizon, and liquidity needs, and must document that understanding in the client file. Recommendations must be suitable and consistent with the documented profile.\n\nClient information is protected under the Bank's privacy and information security policies. Advisors must avoid and disclose material conflicts of interest and must never place the Bank's interests ahead of the client's. Complex or concentrated strategies require review by the Private Bank Investment Committee.\n\nAccount activity is monitored for unusual or inconsistent transactions, and concerns are escalated to Compliance.",
+      "effective_date": "2025-06-01",
+      "review_date": "2025-06-01",
+      "requires_review": true,
+      "created_at": "2026-09-17T19:55:43.734641+00:00"
+    },
+    {
+      "id": 12,
+      "version_no": "2.0",
+      "title": "Wealth Management & Private Banking Suitability",
+      "body": "Aurum Capital Bank's Wealth Management and Private Banking division serves high-net-worth clients with banking, lending, trust, and investment solutions.\n\nBefore recommending any product or strategy, advisors must understand the client's financial situation, objectives, risk tolerance, time horizon, and liquidity needs, and must document that understanding in the client file. Recommendations must be suitable and consistent with the documented profile.\n\nClient information is protected under the Bank's privacy and information security policies. Advisors must avoid and disclose material conflicts of interest and must never place the Bank's interests ahead of the client's. Complex, concentrated, or alternative-investment strategies require review by the Private Bank Investment Committee.\n\nAccount activity is monitored for unusual or inconsistent transactions. Advisors must escalate suspected elder financial exploitation to Compliance and, where appropriate, to Adult Protective Services. Concerns are documented and retained for five years.",
+      "effective_date": "2026-07-01",
+      "review_date": "2026-10-01",
+      "requires_review": true,
+      "created_at": "2026-09-17T19:55:43.734641+00:00"
+    }
+  ]
+}

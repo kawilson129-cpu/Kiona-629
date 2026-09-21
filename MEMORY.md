@@ -50,6 +50,7 @@ DeRexi Week 3 (database design scheme + design doc) and Week 4 (FastAPI backend)
 - **Canonical codebase = `derexi-policy-pilot/` at the repo root.** Semester folders are progress snapshots and must not be developed in
 - Reorg used **copy, not move**, so `semester_3/DeRexi_Week 3/derexi-policy-pilot/` stays intact as the Sem 3 archive; root copy is now the source of truth
 - Seeding rows with explicit IDs left identity sequences behind → fixed with migration `fix_identity_sequences`; also `departments.created_at` was missing (original dashboard table) → added via migration
+- "Current version" resolution is **deterministic**: order by `created_at DESC, id DESC`. Applied in `policy_to_dict`, `SEARCH_SQL`, and the dashboard `reviews_due` CTE after seeded policy 11 had tied `created_at` timestamps (v1.0/v2.0)
 
 ## Conversation History
 <!-- Append new entries below. Each session gets a timestamped block. -->
@@ -99,3 +100,10 @@ DeRexi Week 3 (database design scheme + design doc) and Week 4 (FastAPI backend)
 - Updated `README.md` setup paths, `AGENTS.md` (repo structure + code location), and `MEMORY.md`
 - Left `semester_3/DeRexi_Week 3/derexi-policy-pilot/` untouched as the Sem 3 archive (copy, not move)
 - Copied the DeRexi NS + CT+V assignment reports into `derexi-policy-pilot/design/reports/` (`network-security/`, `cyber-threats-and-vulnerabilities/`); originals untouched
+
+### September 21, 2026 — Deterministic "current version" resolution
+- Found seeded edge case: policy 11 had v1.0 (id 11) and v2.0 (id 12) with **identical `created_at`** timestamps; `policy_to_dict` ordered by `created_at DESC` only, so `GET /policies/11` nondeterministically reported `latest_version: 1.0`
+- Fixed with secondary key `id DESC` in `policy_to_dict` (verified `GET /policies/11` → `latest_version 2.0`, `review_date 2026-10-01`)
+- Same tiebug existed in `SEARCH_SQL` (`/policies/search`, `/ask`) and the dashboard `reviews_due` CTE; Kiona approved applying the same tiebreaker → both now `ORDER BY pv.created_at DESC, pv.id DESC`
+- Verified via direct query: current-version CTE picks v2.0 (id 12) with tiebreaker vs v1.0 (id 11) without; dashboard + search endpoints still green; `py_compile` clean
+- No schema changes

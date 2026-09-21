@@ -75,7 +75,7 @@ SEARCH_SQL = text(
                pv.version_no,
                pv.body
         FROM policy_versions pv
-        ORDER BY pv.policy_id, pv.created_at DESC
+        ORDER BY pv.policy_id, pv.created_at DESC, pv.id DESC
     )
     SELECT cv.policy_id,
            p.title,
@@ -109,7 +109,7 @@ def policy_to_dict(policy: Policy, db: Session) -> dict:
     latest = (
         db.query(PolicyVersion)
         .filter(PolicyVersion.policy_id == policy.id)
-        .order_by(PolicyVersion.created_at.desc())
+        .order_by(PolicyVersion.created_at.desc(), PolicyVersion.id.desc())
         .first()
     )
     return {
@@ -686,7 +686,7 @@ def policy_health(db: Session = Depends(get_db)) -> dict:
             WITH current_versions AS (
                 SELECT DISTINCT ON (pv.policy_id) pv.policy_id, pv.review_date, pv.requires_review
                 FROM policy_versions pv
-                ORDER BY pv.policy_id, pv.created_at DESC
+                ORDER BY pv.policy_id, pv.created_at DESC, pv.id DESC
             )
             SELECT count(*) AS count
             FROM current_versions cv
