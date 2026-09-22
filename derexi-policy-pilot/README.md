@@ -31,6 +31,7 @@ derexi-policy-pilot/
     ├── models.py             # SQLAlchemy ORM models (14 tables)
     ├── schemas.py            # Pydantic request models
     ├── ai.py                 # optional AI agent (OpenAI-compatible)
+    ├── static/               # Week 6 employee UI (index.html, style.css, app.js)
     └── main.py               # FastAPI app and endpoints
 ```
 
@@ -60,6 +61,7 @@ uvicorn main:app --reload
 ```
 
 - API base: http://127.0.0.1:8000
+- Employee UI: http://127.0.0.1:8000/ui
 - Interactive docs: http://127.0.0.1:8000/docs
 
 ## Endpoints by MVP component
@@ -73,6 +75,21 @@ uvicorn main:app --reload
 | 5. Health Dashboard | `POST /feedback`, `GET /dashboard/policy-health` |
 
 Reference data: `GET /departments`, `GET /roles`, `GET /users`, `GET /health`.
+
+## Employee UI (Week 6)
+
+A lightweight single-page employee screen served by FastAPI from `backend/static/` at
+`/ui` — no frontend build tooling. It is a thin vanilla HTML/CSS/JS client for
+`POST /ask`, rendered in the DeRexi editorial style:
+
+- Question composer → **Ask DeRexi** (with loading state)
+- Employee-facing answer card
+- **Policy Reference** card (policy title + version + excerpt) from `citations`
+- Warm amber **clarification** card when `needs_clarification` is true
+- Restrained error state for network / API failures
+
+It defaults to demo employee **Sam Okonkwo (user 8)**; the API also exposes
+`GET /users` if user selection is added later.
 
 ## Quick test
 

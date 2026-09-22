@@ -16,10 +16,12 @@ from __future__ import annotations
 
 import re
 from datetime import datetime, timezone
+from pathlib import Path
 from typing import Optional
 
 from fastapi import Depends, FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 from sqlalchemy import func, text
 from sqlalchemy.orm import Session
 
@@ -61,6 +63,10 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# Employee UI (Week 6): vanilla HTML/CSS/JS served at /ui.
+STATIC_DIR = Path(__file__).resolve().parent / "static"
+app.mount("/ui", StaticFiles(directory=STATIC_DIR, html=True), name="ui")
 
 
 # ---------------------------------------------------------------------------

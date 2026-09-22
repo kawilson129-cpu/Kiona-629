@@ -1,21 +1,21 @@
 # MEMORY.md
 
 ## Last Updated
-September 17, 2026
+September 22, 2026
 
 ## Current Focus
-DeRexi Week 3 (database design scheme + design doc) and Week 4 (FastAPI backend) COMPLETE and verified end-to-end against the live Supabase DB. The codebase now lives in the **canonical root folder `derexi-policy-pilot/`**. Ready for Week 5 — frontend/UI work.
+DeRexi Weeks 3–4 (schema + FastAPI backend) COMPLETE and verified; **Week 5** (AI search/retrieval validation report) submitted; **plain-English AI answers now live via the free Groq tier** (gpt-oss-120b); **Week 6 employee UI shipped** — a polished vanilla HTML/CSS/JS screen at `/ui` (served by FastAPI from `backend/static/`). Codebase lives in the **canonical root folder `derexi-policy-pilot/`**. Next: remaining MVP components (incident-language detection, etc.), security hardening, testing.
 
 ## Where Kiona Stands (as of last update)
 
 ### DeRexi: Policy Pilot
-- **SDLC Progress:** Week 5 of 12 (caught up on Week 3 + Week 4 deliverables)
-- **Current phase:** Backend built → testing/running locally → frontend next
-- **What's done:** Home screen mockup (Week 1); design docs (Week 2); full Supabase schema + design doc + seeded banking handbook (Week 3); FastAPI backend with all 5 components (Week 4); backend tested end-to-end against live DB (all endpoints green)
-- **What's next:** Frontend/UI, incident-language detection, security hardening, testing, docs, release
+- **SDLC Progress:** Week 6 of 12 (caught up on Week 3 + Week 4 + Week 5 deliverables)
+- **Current phase:** Employee UI shipped → next MVP components (incident-language detection), hardening, testing
+- **What's done:** Home screen mockup (Week 1); design docs (Week 2); full Supabase schema + design doc + seeded banking handbook (Week 3); FastAPI backend with all 5 components (Week 4); backend tested end-to-end against live DB (all endpoints green); Week 5 validation report; plain-English AI answers via free Groq tier; **Week 6 employee UI at `/ui`**
+- **What's next:** Incident-language detection (Component 4), security hardening, testing, docs, release
 - **Blockers:** none — `backend/.env` is set and the API runs
 - **Monday board export:** Kiona offered to share — needs to be incorporated when provided
-- **Key files:** `derexi-policy-pilot/` (canonical codebase at repo root), `derexi-policy-pilot/design/` + `semester_3/DeRexi_Week 2/` (design PDFs), `semester_4/DeRexi_Week 5/` (empty, current week)
+- **Key files:** `derexi-policy-pilot/` (canonical codebase at repo root — add `backend/static/` Week 6 UI), `derexi-policy-pilot/design/` + `semester_3/DeRexi_Week 2/` (design PDFs), `semester_4/DeRexi_Week 5/` (validation report PDF, current week)
 
 ### Supabase (DeRexi project)
 - **Org:** DeRexi (`icljwbqrpcjhfnbkrhwr`)
@@ -115,3 +115,22 @@ DeRexi Week 3 (database design scheme + design doc) and Week 4 (FastAPI backend)
 - Implemented in `/ask`: `GENERIC_STOPWORDS` + `substantive_keywords()` + `contains_keyword()` evidence gate (keyword must appear in top candidate title+body, plural-strip fallback); no evidence → `needs_clarification: true` with "policy library does not contain enough information..." message
 - Rewrote confident answers: `make_guidance()` picks the best complete policy sentence → "Here's what you should do: {sentence}\nReference: {Title} (v{version}) — review the full policy..."
 - Verified: gym→clarify (conf 0.2427 kept), phishing→answers with Report Phishing SOC guidance + citation, phished/report→answers, loan-records regression still answers; `/policies/search` untouched; `py_compile` clean; no schema changes
+
+### September 22, 2026 — OpenAI/Groq AI agent + connection checks + cleanup
+- Kiona deleted `semester_3/DeRexi_Week 3/derexi-policy-pilot/` (root was confirmed a superset); scrubbed its references from AGENTS.md, MEMORY.md, root README; committed by Kiona (87e4dae)
+- Week 5 validation report PDF landed in `semester_4/DeRexi_Week 5/` (committed 3afdd63)
+- Added optional AI agent for plain-English answers. First pass used the OpenAI **Responses API** (`ai.py`, wired into the confident `/ask` path with a rule-based fallback; `client.responses.create`); committed as 42d7e86
+- Diagnosed a user-reported 500: exercised all 24 endpoints + simulated a bad API key — nothing reproduces a 500 in current code; flagged `POST /policies` and `PATCH /incidents/{id}` as the only craftable 500 sources (unguarded FK violations); advised restarting uvicorn to the latest code
+- Kiona realized the OpenAI API is paid and wanted a free, close-to-OpenAI alternative. Researched Sept-2026 options (OpenAI/Anthropic/xAI have no free tier; Cerebras/Together went paid; free = Gemini, Groq, OpenRouter, Cloudflare, Mistral)
+- Kiona chose **Groq**: `ai.py` switched from Responses API to universal **Chat Completions** (`chat.completions.create`) with an `OPENAI_BASE_URL` override so any OpenAI-compatible provider works. Verified against a stub endpoint (`/v1/chat/completions`, system+user messages, temperature 0.2, max_tokens 400) and re-verified the no-key fallback + zoom route-to-clarify
+- `.env.example` + README now document the free Groq config (`OPENAI_BASE_URL=https://api.groq.com/openai/v1`, `OPENAI_MODEL=gpt-oss-120b`, key from console.groq.com, phone verify, no card). Kiona needs to paste her real Groq key into `backend/.env`
+- Re-verified Supabase connection with the new password: app-level pooler connection OK (0.57s, PG 17.6), 14 tables, 16 policies, project reachable — no fixes needed
+- Committed + pushed to GitHub main: `0ae1274 "Point DeRexi AI at free Groq tier"`
+
+### September 22, 2026 (later) — Week 6: Employee UI shipped
+- Kiona approved the Week 6 plan: **a polished, minimal vanilla HTML/CSS/JS employee screen** served by FastAPI at `/ui` — no build tooling, no backend redesign, no auth/dashboard/database/RAG changes
+- Built `backend/static/index.html`, `style.css`, `app.js` in the DeRexi editorial style (ported the portfolio site's tokens: cream `#FAF9F6`, champagne `#C9B495`/`#E8D5B5`, ink `#1D1B17`; Fraunces serif display + Plus Jakarta Sans body; film-grain + warm glow overlays; double-bezel card shells; custom `cubic-bezier` motion; `prefers-reduced-motion` support). Marks the Compliant AI-slop-free checks: no generic chat UI, no default shadows/borders
+- Screens: wordmark bar → hero ("Policy guidance, when you need it.") → double-bezel question composer with dark **Ask DeRexi** pill (nested icon circle, spinner state, Cmd/Ctrl+Enter submit) → states: loading card, answer card, **Policy Reference** card (title + v{n} chip + 3-line excerpt from `citations[0]`), warm amber **clarification** card ("Routed to a policy owner"), restrained error card with retry. Demos as Sam Okonkwo (user 8)
+- `main.py`: added `StaticFiles` mount at `/ui` (`html=True`) + `from fastapi.staticfiles import StaticFiles` / `from pathlib import Path`; README updated (layout tree, Run URLs, new Employee UI section)
+- Verified: `py_compile` + `node --check` clean; live boot test — `/ui`, `/ui/style.css`, `/ui/app.js` all 200; real `POST /ask` returns both answered (Phishing citation payload) and clarification shapes; bad user → 404 caught by the UI error state. No schema/DB changes
+- Next for Week 7+: incident-language detection (Component 4 UI/workflow), then hardening/testing
