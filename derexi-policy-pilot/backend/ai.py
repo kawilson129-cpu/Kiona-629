@@ -1,11 +1,19 @@
-"""OpenAI-backed plain-English answers for DeRexi (optional).
+"""OpenAI-compatible answer generation for DeRexi (optional).
 
-When ``OPENAI_API_KEY`` is set, the ``/ask`` endpoint turns the retrieved
-policy context into a concise, plain-English answer using the OpenAI
-Responses API (https://developers.openai.com/docs/guides/migrate-to-responses).
-Storage is disabled (``store=False``) so the bank's policy text is never kept
-in OpenAI's systems. If the key is missing or a call fails, the backend falls
-back to the rule-based guidance in ``main.py`` so retrieval keeps working.
+When ``OPENAI_API_KEY`` is set, the ``/ask`` endpoint sends the retrieved
+policy context to an OpenAI-compatible Chat Completions API and returns a
+concise, plain-English rewrite of the guidance.
+
+Any provider exposing an OpenAI-compatible ``/chat/completions`` endpoint works
+via ``OPENAI_BASE_URL``. The default configuration targets the paid OpenAI
+platform; the free Groq tier (no credit card; phone verification at signup)
+hosts OpenAI's open-weight ``gpt-oss`` models at $0:
+
+    OPENAI_BASE_URL=https://api.groq.com/openai/v1
+    OPENAI_MODEL=gpt-oss-120b
+
+If the key is missing or the call fails, the backend falls back to the
+rule-based guidance in ``main.py`` so retrieval keeps working offline.
 """
 
 from __future__ import annotations
@@ -18,6 +26,7 @@ from dotenv import load_dotenv
 load_dotenv(Path(__file__).resolve().parent / ".env")
 
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+OPENAI_BASE_URL = os.getenv("OPENAI_BASE_URL") or "https://api.openai.com/v1"
 OPENAI_MODEL = os.getenv("OPENAI_MODEL") or "gpt-4o-mini"
 
 INSTRUCTIONS = (
@@ -36,7 +45,7 @@ def generate_answer(question: str, context: list[dict]) -> str | None:
     """Return a plain-English answer for ``question`` grounded in ``context``.
 
     ``context`` is a list of retrieved policies, each a dict with keys
-    ``title``, ``version_no`` and ``body``. Returns None when OpenAI is not
+    ``title``, ``version_no`` and ``body``. Returns None when no API key is
     configured, the SDK is unavailable, or the request fails, letting callers
     fall back to rule-based guidance.
     """
@@ -53,15 +62,17 @@ def generate_answer(question: str, context: list[dict]) -> str | None:
             f"QUESTION: {question}\n\n"
             f"POLICY LIBRARY CONTEXT:\n{source_block}"
         )
-        client = OpenAI(api_key=OPENAI_API_KEY, timeout=30)
-        response = client.responses.create(
+        client = OpenAI(api_key=OPENAI_API_KEY, base_url=OPENAI_BASE_URL, timeout=30)
+        completion = client.chat.completions.create(
             model=OPENAI_MODEL,
-            instructions=INSTRUCTIONS,
-            input=[{"role": "user", "content": prompt}],
-            store=False,
             temperature=0.2,
+            max_tokens=400,
+            messages=[
+                {"role": "system", "content": INSTRUCTIONS},
+                {"role": "user", "content": prompt},
+            ],
         )
-        text = (response.output_text or "").strip()
+        text = (completion.choices[0].message.content or "").strip()
         return text or None
     except Exception:
         return None

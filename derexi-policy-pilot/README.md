@@ -30,7 +30,7 @@ derexi-policy-pilot/
     ├── database.py           # engine, session, Base
     ├── models.py             # SQLAlchemy ORM models (14 tables)
     ├── schemas.py            # Pydantic request models
-    ├── ai.py                 # optional OpenAI agent (Responses API)
+    ├── ai.py                 # optional AI agent (OpenAI-compatible)
     └── main.py               # FastAPI app and endpoints
 ```
 
@@ -93,9 +93,12 @@ curl -s http://127.0.0.1:8000/dashboard/policy-health
 - `backend/.env` holds the database password and is git-ignored.
 - Policy answers are retrieved from the latest approved `policy_versions`; every
   answer records its source in `policy_citations`.
-- **Plain-English answers (optional OpenAI agent):** with `OPENAI_API_KEY` set in
-  `backend/.env`, `POST /ask` asks the OpenAI Responses API (`ai.py`) to rewrite
-  the retrieved guidance in plain English. `store=False` keeps policy text out of
-  OpenAI storage. `OPENAI_MODEL` defaults to `gpt-4o-mini`. Without a key (or on
-  API error) the endpoint falls back to extracted rule-based guidance, so the
-  RAG flow always works offline.
+- **Plain-English answers (optional AI agent):** with `OPENAI_API_KEY` set in
+  `backend/.env`, `POST /ask` sends the retrieved policy context to an
+  OpenAI-compatible Chat Completions endpoint (`ai.py`) and returns a plain-English
+  rewrite. **Free tier:** Groq hosts OpenAI's open-weight `gpt-oss` models at $0 —
+  set `OPENAI_BASE_URL=https://api.groq.com/openai/v1`, `OPENAI_MODEL=gpt-oss-120b`
+  (key from https://console.groq.com, no credit card, phone verification). The paid
+  OpenAI platform works too (`OPENAI_BASE_URL=https://api.openai.com/v1`,
+  `OPENAI_MODEL=gpt-4o-mini`). Without a key (or on API error) the endpoint falls
+  back to rule-based guidance, so the RAG flow always works offline.
