@@ -15,6 +15,14 @@
   var els = {};
   regions.forEach(function (id) { els[id] = document.getElementById(id); });
 
+  // Inner text nodes so the card chrome (eyebrow, glyph, retry button) survives.
+  els['answer-body'] = document.getElementById('answer-body');
+  els['clarification-body'] = document.getElementById('clarification-body');
+  els['error-body'] = document.getElementById('error-body');
+  els['ref-version'] = document.getElementById('ref-version');
+  els['ref-title'] = document.getElementById('ref-title');
+  els['ref-excerpt'] = document.getElementById('ref-excerpt');
+
   var lastQuestion = null;
 
   function setBusy(busy) {
@@ -38,36 +46,66 @@
     return idx === -1 ? trim(text) : trim(text.slice(0, idx));
   }
 
+  function setText(node, value, fallback) {
+    if (node) node.textContent = trim(value) || (fallback || '');
+  }
+
+  function renderReference(data) {
+    var cit = (Array.isArray(data.citations) && data.citations.length)
+      ? data.citations[0]
+      : null;
+    if (!cit || typeof cit !== 'object') {
+      els['reference'].hidden = true;
+      return;
+    }
+    var title = trim(cit.title);
+    var excerpt = trim(cit.excerpt);
+    var version = trim(cit.version_no);
+    if (!title && !excerpt) {
+      // A citation object with no usable text is treated as absent.
+      els['reference'].hidden = true;
+      return;
+    }
+    setText(els['ref-title'], title, 'Aurum Capital Bank policy');
+    setText(els['ref-excerpt'], excerpt, '');
+    setText(els['ref-version'], version ? 'v' + version : '', '');
+    // Hide the version chip entirely when the backend omits a version number.
+    els['ref-version'].hidden = !version;
+    els['reference'].hidden = false;
+  }
+
   function render(data) {
-    if (!data) return;
+    if (!data || typeof data !== 'object') {
+      showError('DeRexi returned an empty response. Please try again in a moment.');
+      return;
+    }
 
     if (data.needs_clarification) {
       showRegion('clarification', function () {
-        els.clarification.textContent = data.answer || '';
+        setText(els['clarification-body'], data.answer,
+          'This question needs a little more context. DeRexi has routed it to a policy owner who will connect you with the right guidance.');
       });
       return;
     }
 
-    // Employee-facing answer
     var body = stripReference(data.answer);
+    if (!body && !(Array.isArray(data.citations) && data.citations.length)) {
+      showError('DeRexi did not find a confident answer for this question. Please try rephrasing, and a policy owner can help if it persists.');
+      return;
+    }
+
     showRegion('answer', function () {
-      els['answer'].textContent = body;
+      setText(els['answer-body'], data.answer,
+        'DeRexi did not return a text answer for this question.');
     });
 
-    // Policy reference card when a citation exists
-    var cit = (data.citations && data.citations.length) ? data.citations[0] : null;
-    if (cit) {
-      els['ref-version'].textContent = cit.version_no ? 'v' + cit.version_no : '';
-      els['ref-title'].textContent = cit.title || '';
-      els['ref-excerpt'].textContent = cit.excerpt || '';
-      els['reference'].hidden = false;
-    }
+    renderReference(data);
   }
 
   function showError(message) {
     showRegion('error', function () {
-      els['error'].textContent =
-        message || 'DeRexi could not be reached. Please try again in a moment.';
+      setText(els['error-body'], message,
+        'DeRexi could not be reached. Please try again in a moment.');
     });
   }
 

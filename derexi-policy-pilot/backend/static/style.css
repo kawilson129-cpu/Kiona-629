@@ -1,6 +1,7 @@
 /* ---------------------------------------------------------------------------
    DeRexi · Employee Policy Assistant
-   Editorial luxe system — warm cream, espresso ink, champagne accents.
+   Editorial luxe system — warm cream, espresso, champagne.
+   Balance: ~70% cream / 20% espresso / 10% champagne.
    ------------------------------------------------------------------------- */
 
 :root {
@@ -9,6 +10,13 @@
   --card-hi: #FFFFFF;
   --ink: #1D1B17;
   --ink-2: #6E675C;
+
+  --espresso: #221D17;
+  --espresso-2: #2A241C;
+  --espresso-3: #191511;
+  --ivory: #F5EFE4;
+  --ivory-muted: rgba(245, 239, 228, 0.58);
+
   --champagne: #C9B495;
   --champagne-soft: #E8D5B5;
   --champagne-tint: rgba(201, 180, 149, 0.16);
@@ -26,6 +34,7 @@
   --radius-lg: 28px;
   --radius-sm: 20px;
   --shadow-soft: 0 1px 2px rgba(29, 27, 23, 0.03), 0 24px 48px -28px rgba(29, 27, 23, 0.18);
+  --shadow-deep: 0 2px 4px rgba(16, 13, 9, 0.10), 0 34px 64px -30px rgba(16, 13, 9, 0.55);
 }
 
 * {
@@ -49,6 +58,11 @@ body {
   overflow-x: hidden;
   display: flex;
   flex-direction: column;
+}
+
+::selection {
+  background: var(--champagne-soft);
+  color: var(--espresso);
 }
 
 .grain,
@@ -82,49 +96,59 @@ body {
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  padding: 1.4rem clamp(1.25rem, 5vw, 3.5rem);
-  border-bottom: 1px solid var(--line);
-  background: var(--cream);
-  background: color-mix(in srgb, var(--cream) 90%, transparent);
+  padding: 1.25rem clamp(1.25rem, 5vw, 3.5rem);
+  border-bottom: 1px solid rgba(232, 213, 181, 0.14);
+  background: var(--espresso);
+  box-shadow: 0 1px 0 rgba(25, 21, 17, 0.4), 0 18px 40px -30px rgba(16, 13, 9, 0.7);
 }
 
 .brand {
   display: inline-flex;
-  align-items: center;
+  align-items: baseline;
   gap: 0.7rem;
   text-decoration: none;
-  color: inherit;
+  color: var(--ivory);
 }
 
-.brand-mark {
-  width: 22px;
-  height: 22px;
-  color: var(--champagne);
-}
-
-.brand-name {
+/* DeRe·x·i wordmark — gold "x" */
+.wmark {
+  display: inline-flex;
+  align-items: baseline;
   font-family: var(--font-display);
+  font-size: 1.55rem;
   font-weight: 500;
-  font-size: 1.35rem;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.015em;
+  line-height: 1;
 }
 
-.brand-dot {
+.wmark-serif { color: var(--ivory); }
+
+.wmark-x {
+  font-style: italic;
+  font-weight: 500;
+  color: var(--champagne-soft);
+  transform: translateY(0.02em);
+}
+
+.brand-sep {
   color: var(--champagne);
+  font-size: 1rem;
+  line-height: 1;
+  transform: translateY(-0.06em);
 }
 
 .brand-region {
   font-size: 0.78rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--ink-2);
+  color: var(--ivory-muted);
 }
 
 .topbar-meta {
   font-size: 0.72rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--ink-2);
+  color: var(--ivory-muted);
   white-space: nowrap;
 }
 
@@ -259,7 +283,7 @@ h1 {
   padding: 0.5rem 0.55rem 0.5rem 1.4rem;
   border: none;
   border-radius: 999px;
-  background: var(--ink);
+  background: var(--espresso);
   color: var(--champagne-soft);
   font-family: var(--font-sans);
   font-size: 0.95rem;
@@ -272,7 +296,7 @@ h1 {
 }
 
 .ask-btn:not(:disabled):hover {
-  background: #2A2621;
+  background: var(--espresso-2);
   color: #F2E4CB;
   transform: translateY(-1px);
 }
@@ -292,14 +316,14 @@ h1 {
   width: 38px;
   height: 38px;
   border-radius: 50%;
-  background: var(--champagne-tint);
+  background: rgba(232, 213, 181, 0.14);
   color: var(--champagne-soft);
   transition: transform 0.45s var(--ease), background-color 0.45s var(--ease);
 }
 
 .ask-btn:hover .ask-btn-circle {
   background: var(--champagne-soft);
-  color: var(--ink);
+  color: var(--espresso);
   transform: translate(2px, -2px);
 }
 
@@ -312,7 +336,7 @@ h1 {
   width: 16px;
   height: 16px;
   border-radius: 50%;
-  border: 2px solid var(--champagne-tint);
+  border: 2px solid rgba(232, 213, 181, 0.2);
   border-top-color: var(--champagne-soft);
   animation: spin 0.7s linear infinite;
 }
@@ -353,7 +377,9 @@ h1 {
   display: flex;
   align-items: center;
   gap: 1.1rem;
-  background: var(--card);
+  background:
+    linear-gradient(150deg, rgba(232, 213, 181, 0.10), rgba(232, 213, 181, 0.03)),
+    var(--card);
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
   padding: 1.4rem 1.6rem;
@@ -394,30 +420,36 @@ h1 {
   color: var(--ink-2);
 }
 
-/* answer */
+/* answer — espresso card, ivory text, champagne kicker */
 .answer-card {
-  background: var(--card);
-  border: 1px solid var(--line);
+  background:
+    linear-gradient(170deg, var(--espresso-2) 0%, var(--espresso) 68%);
+  border: 1px solid rgba(232, 213, 181, 0.14);
   border-radius: var(--radius-lg);
-  padding: 2rem 2.2rem;
-  box-shadow: var(--shadow-soft);
+  padding: 2.2rem 2.4rem;
+  box-shadow: var(--shadow-deep);
+}
+
+.answer-card .card-eyebrow {
+  color: var(--champagne-soft);
 }
 
 .answer-body {
   font-size: 1.05rem;
   line-height: 1.75;
-  color: var(--ink);
+  color: var(--ivory);
   white-space: pre-line;
 }
 
-/* policy reference */
+/* policy reference — champagne-tinted ivory, gold version chip */
 .reference-card {
   background:
-    linear-gradient(160deg, rgba(232, 213, 181, 0.18), rgba(232, 213, 181, 0.06)),
+    linear-gradient(165deg, rgba(232, 213, 181, 0.30), rgba(250, 243, 228, 0.55)),
     var(--card);
-  border: 1px solid var(--line);
+  border: 1px solid rgba(168, 123, 51, 0.20);
   border-radius: var(--radius-lg);
   padding: 1.5rem 2rem;
+  box-shadow: 0 1px 2px rgba(29, 27, 23, 0.02), 0 22px 44px -30px rgba(168, 123, 51, 0.35);
 }
 
 .ref-label {
@@ -434,7 +466,7 @@ h1 {
   font-weight: 600;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--champagne);
+  color: var(--amber);
 }
 
 .ref-chip {
@@ -443,8 +475,8 @@ h1 {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--amber-ink);
-  background: var(--amber-tint);
-  border: 1px solid rgba(168, 123, 51, 0.28);
+  background: linear-gradient(135deg, #F7E7C4, #FAF0D8);
+  border: 1px solid rgba(168, 123, 51, 0.34);
   border-radius: 999px;
   padding: 0.28rem 0.8rem;
   white-space: nowrap;
@@ -552,6 +584,7 @@ h1 {
   z-index: 1;
   width: min(100%, 780px);
   margin: 0 auto;
+  margin-top: auto;
   padding: 2rem clamp(1.25rem, 5vw, 2rem) 2.5rem;
   display: flex;
   align-items: baseline;
@@ -565,9 +598,10 @@ h1 {
 .foot-name {
   font-family: var(--font-display);
   font-size: 0.85rem;
+  font-weight: 500;
   letter-spacing: 0.04em;
   text-transform: none;
-  color: var(--ink);
+  color: var(--espresso);
 }
 
 .foot-sep { color: var(--champagne); }

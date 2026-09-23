@@ -12,6 +12,9 @@ approved incident reporting and escalation.
 - **Database:** Supabase Postgres 17 (project ref `vnumvjamqtuxlctjdzoe`)
 - **Backend:** FastAPI + SQLAlchemy 2.0 + psycopg2
 - **Search:** Postgres `pg_trgm` trigram similarity (see `docs/database-design.md`)
+- **Policy library:** 43 approved policies — original handbook (16) plus a
+  post-audit Phase 2 expansion (27) across HR, Technology, InfoSec, and Lending for
+  Compliance. The Regulation B / ECOA policy was expanded to v1.1 (2026-10-01).
 
 ## Layout
 
@@ -90,6 +93,13 @@ A lightweight single-page employee screen served by FastAPI from `backend/static
 
 It defaults to demo employee **Sam Okonkwo (user 8)**; the API also exposes
 `GET /users` if user selection is added later.
+
+The Week 7 refresh re-branded the screen to the DeRexi espresso/champagne identity:
+solid espresso header with the **DeRe·x·i** serif wordmark (gold `x`), an espresso
+answer card with ivory text and a champagne kicker, a champagne-tinted ivory Policy
+Reference card with a gold version chip, warm amber clarification, and a restrained
+error state with the retry button intact. Rendering is defensive: missing, empty, or
+non-array citations and absent answer text never break the UI.
 
 ## Quick test
 

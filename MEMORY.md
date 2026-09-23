@@ -1,21 +1,21 @@
 # MEMORY.md
 
 ## Last Updated
-September 22, 2026
+September 23, 2026
 
 ## Current Focus
-DeRexi Weeks 3–4 (schema + FastAPI backend) COMPLETE and verified; **Week 5** (AI search/retrieval validation report) submitted; **plain-English AI answers now live via the free Groq tier** (gpt-oss-120b); **Week 6 employee UI shipped** — a polished vanilla HTML/CSS/JS screen at `/ui` (served by FastAPI from `backend/static/`). Codebase lives in the **canonical root folder `derexi-policy-pilot/`**. Next: remaining MVP components (incident-language detection, etc.), security hardening, testing.
+DeRexi Weeks 3–4 (schema + FastAPI backend) COMPLETE and verified; **Week 5** (AI search/retrieval validation report) submitted; **Week 6 employee UI shipped** at `/ui`; **Phase 2 (Week 7) policy corpus + UI expansion done**: owner roles normalized, 27 new policies + Reg B v1.1 seeded (43 policies / 45 versions), and the `/ui` re-branded to the DeRexi espresso/champagne identity with hardened JS. Codebase lives in the **canonical root folder `derexi-policy-pilot/`**. Next per plan: fix/decide on the Reg B incomplete-application retrieval miss, report findings, then remaining MVP components (incident-language detection), hardening, testing.
 
 ## Where Kiona Stands (as of last update)
 
 ### DeRexi: Policy Pilot
-- **SDLC Progress:** Week 6 of 12 (caught up on Week 3 + Week 4 + Week 5 deliverables)
-- **Current phase:** Employee UI shipped → next MVP components (incident-language detection), hardening, testing
-- **What's done:** Home screen mockup (Week 1); design docs (Week 2); full Supabase schema + design doc + seeded banking handbook (Week 3); FastAPI backend with all 5 components (Week 4); backend tested end-to-end against live DB (all endpoints green); Week 5 validation report; plain-English AI answers via free Groq tier; **Week 6 employee UI at `/ui`**
-- **What's next:** Incident-language detection (Component 4), security hardening, testing, docs, release
-- **Blockers:** none — `backend/.env` is set and the API runs
+- **SDLC Progress:** Week 7 of 12 (caught up on Week 3 + 4 + 5 deliverables, Week 6 UI, Phase 2 corpus+UI staged)
+- **Current phase:** Phase 2 policy/UI expansion (data + UI staged, uncommitted) → report findings → remaining MVP components, hardening, testing
+- **What's done:** Home screen mockup (Week 1); design docs (Week 2); full Supabase schema + design doc + seeded banking handbook (Week 3); FastAPI backend with all 5 components (Week 4); backend tested end-to-end against live DB (all endpoints green); Week 5 validation report; plain-English AI answers via free Groq tier; **Week 6 employee UI at `/ui`**; **Phase 2: 27 new policies + Reg B v1.1 + owner-role normalization + UI re-brand (staged, uncommitted)**
+- **What's next:** decide/fix the Reg B incomplete-application retrieval miss; incident-language detection (Component 4), security hardening, testing, docs, release
+- **Blockers:** none — `backend/.env` is set and the API runs; DO NOT commit/push Phase 2 until Kiona approves
 - **Monday board export:** Kiona offered to share — needs to be incorporated when provided
-- **Key files:** `derexi-policy-pilot/` (canonical codebase at repo root — add `backend/static/` Week 6 UI), `derexi-policy-pilot/design/` + `semester_3/DeRexi_Week 2/` (design PDFs), `semester_4/DeRexi_Week 5/` (validation report PDF, current week)
+- **Key files:** `derexi-policy-pilot/` (canonical codebase at repo root — add `backend/static/` Week 6/Week 7 UI), `derexi-policy-pilot/design/` + `semester_3/DeRexi_Week 2/` (design PDFs), `semester_4/DeRexi_Week 5/` (validation report PDF)
 
 ### Supabase (DeRexi project)
 - **Org:** DeRexi (`icljwbqrpcjhfnbkrhwr`)
@@ -23,8 +23,8 @@ DeRexi Weeks 3–4 (schema + FastAPI backend) COMPLETE and verified; **Week 5** 
 - **Backend connection decision:** Direct DB / service role (RLS bypassed by backend; RLS still enabled + read policies for authenticated)
 - **14 tables total** (3 pre-existing + 11 new), all RLS-enabled, all covered by migrations
 - **Fictional bank seeded:** Aurum Capital Bank (Latin *aurum*, "gold") — federally chartered private bank with Lending + Wealth Management divisions. All user emails use `@aurumbank.com`
-- **Seed:** 7 policy categories, 16 policies (17 versions), 6 incident categories, 7 departments, 11 users, demo conversations/citations/clarifications/incidents/feedback
-- **Policies follow real federal banking regs:** GLBA/Reg P, GLBA Safeguards Rule, BSA/AML, CIP/KYC, SAR, OFAC, UDAAP, Reg Z (TILA), Reg B (ECOA), Reg E & CC, private banking suitability
+- **Seed (after Phase 2):** 7 policy categories, **43 policies / 45 versions**, 6 incident categories, 7 departments, **12 users** (added Rachel Sampson, Operations Policy Owner), demo conversations/citations/clarifications/incidents/feedback
+- **Policies follow real federal banking regs:** GLBA/Reg P, GLBA Safeguards Rule, BSA/AML, CIP/KYC, SAR, OFAC, UDAAP, Reg Z (TILA), Reg B (ECOA) v1.1, Reg E & CC, private banking suitability
 - **Advisors:** clean except platform-managed `rls_auto_enable()` (safe, leave)
 
 ### Portfolio Site
@@ -53,6 +53,9 @@ DeRexi Weeks 3–4 (schema + FastAPI backend) COMPLETE and verified; **Week 5** 
 - "Current version" resolution is **deterministic**: order by `created_at DESC, id DESC`. Applied in `policy_to_dict`, `SEARCH_SQL`, and the dashboard `reviews_due` CTE after seeded policy 11 had tied `created_at` timestamps (v1.0/v2.0)
 - Retrieval guard in `/ask` adds a **substantive-keyword evidence gate** on top of the 0.22 threshold (threshold stays fixed): `substantive_keywords()` (len>=4 minus `GENERIC_STOPWORDS`) must appear in the top candidate's title+body (`contains_keyword`, with singular fallback), else route to clarification. Non-confident message: "The policy library does not contain enough information..."
 - Confident `/ask` answers are now guidance-first + citation-last via `make_guidance()` (best-matching complete sentence) — no longer a raw "Based on {title}: {excerpt}" dump
+- **Phase 2 seed mechanics:** bulk seeds run through SQL `INSERT … SELECT` from a CTE (auto-generated ids — never explicit; keeps identity sequences ahead). Long single migrations risk tool-transmission corruption — keep batches small (≤6 policies) and verify after each. The HR batch's 15th policy was lost/mangled once and fixed by a repair migration
+- **Phase 2 ownership:** new HR→Jordan Rivera, Lending→Marcus Webb (incl. Reg B owner), Wealth→Gabrielle Fontaine, platform/IT→Lucy Chen, InfoSec/SOC→Chris Tanaka, business continuity→Rachel Sampson (new Ops Policy Owner), AI→Alex Chen, data classification→Dana Brooks. Dana + Lucy stay System Administrators
+- **Phase 2 RAG constraint:** retrieval (pg_trgm, 0.22 gate, evidence gate) must NOT be altered because policies were added. A full-sentence Reg B query was confidently mis-citing Incident Response (0.2246) because sentence length diluted the Reg B score below the gate. **Resolved content-only**: two Reg B v1.1 body-copy migrations (`improve_regb_v11_incomplete_application_wording`, `improve_regb_v11_all_required_information_wording`) added employee-facing phrasing; all three Reg B phrasings now retrieve Reg B v1.1 top (0.256/0.425/0.447) and the other five scenarios are unchanged. R3 needed a 2nd pass ("all required information" phrasing beat Appraisals' "provide information" overlap). Lesson: species-level near-ties under pg_trgm often resolve via natural policy wording, not score changes
 
 ## Conversation History
 <!-- Append new entries below. Each session gets a timestamped block. -->
@@ -134,3 +137,12 @@ DeRexi Weeks 3–4 (schema + FastAPI backend) COMPLETE and verified; **Week 5** 
 - `main.py`: added `StaticFiles` mount at `/ui` (`html=True`) + `from fastapi.staticfiles import StaticFiles` / `from pathlib import Path`; README updated (layout tree, Run URLs, new Employee UI section)
 - Verified: `py_compile` + `node --check` clean; live boot test — `/ui`, `/ui/style.css`, `/ui/app.js` all 200; real `POST /ask` returns both answered (Phishing citation payload) and clarification shapes; bad user → 404 caught by the UI error state. No schema/DB changes
 - Next for Week 7+: incident-language detection (Component 4 UI/workflow), then hardening/testing
+
+### September 23, 2026 — Phase 2: policy corpus + UI (Week 7) expansion
+- Kiona approved the Phase 1 audit outcome and Phase 2 plan (4 tasks: owner roles, 27-policy expansion, UI refresh, regression tests)
+- **1) Roles:** migration `normalize_policy_owner_roles` — Chris Tanaka, Jordan Rivera, Gabrielle Fontaine → Policy Owner; created **Rachel Sampson (id 12, Operations Policy Owner)**; verified 12 users; Dana/Lucy stay SysAdmins
+- **2) Corpus:** applied 4 seed migrations (HR 15, Technology 4, InfoSec 6, Lending 2 + Reg B v1.1). The HR batch was transmitted mangled (15th policy lost, Sick Leave body merged); repaired via `fix_hr_seed_holidays_sick_leave`. Verified: **43 policies / 45 versions**, 0 duplicate titles, 0 orphan versions/policies, per-category counts correct, Reg B current version = 1.1. New policies effective 2026-10-01, review 2027-09-30, v1.0, approved, auto ids only
+- **3) UI (Week 7 refresh):** `index.html` — espresso `#221D17` opaque header + **DeRe·x·i** Fraunces wordmark with gold `x`; `style.css` — 70/20/10 cream/espresso/champagne palette, espresso answer card (ivory text, champagne kicker), champagne-tinted ivory reference card with gold `v`-chip, warm amber clarification, restrained error, reduced-motion preserved; `app.js` hardened — now targets `#answer-body`/`#clarification-body`/`#error-body` (fixes the wipe-chrome-if-textContent-set-on-section bug that also destroyed the retry button), null-safe citations (non-array/empty/missing fields), hides version chip when `version_no` absent, falls back gracefully when answer/citations missing
+- **4) Regression sweep (user 8):** PTO → confident (PTO v1.0, 0.323) ✓; parental leave → confident (Parental Leave v1.0, 0.298, "16 weeks") ✓; unsupported wifi → routed (0.171) ✓ by design; phishing without keyword → routed (0.155) but WITH the word "phishing" → confident correct (0.237) ✓; AI-tool question → routed (0.186) ✓ safe but AI policy unreachable in natural phrasing (pg_trgm lexical gap; "What AI tools are approved for bank work?" ranks AI 2nd at 0.337) ✓ safe/by-design; **Reg B "missing document" → FAIL**: confidently answered from Incident Response & Breach Reporting (0.2246) — wrong policy for the question (Reg B v1.1 scored 0.201 with the full sentence, 0.269 with the short topic phrase)
+- Docs updated: `README.md` (43-policy library + Week 7 UI), `docs/database-design.md` §8/§9 (seed counts + migrations 8–16), `MEMORY.md`. `.env` still ignored; only `backend/static/*` shows modified in git — **not committed (awaiting Kiona)**
+- Reg B false-positive resolved **content-only** (option 2, RAG untouched): two body-copy migrations; reran all 3 Reg B phrasings + 5 other scenarios — Reg B v1.1 now top (0.256/0.425/0.447), answers cite it, no new false matches. Remaining open items: not committed; AI-tool question still routes (0.186) as a documented pg_trgm phrasing limitation

@@ -351,11 +351,11 @@ dashboard can be tested end to end.
 |---|---|---|
 | Departments | 7 | incl. Lending and Wealth Management |
 | Roles | 3 | Employee, Policy Owner, System Administrator |
-| Users | 11 | all 5 personas + admin staff |
+| Users | 12 | 11 original + Rachel Sampson (Operations Policy Owner, added in Phase 2) |
 | Policy categories | 7 | Privacy, AML & Financial Crime, Lending & Credit, Wealth Management, InfoSec & Ops, Acceptable Use, HR & Conduct |
-| Policies | 16 | 17 versions (Wealth policy has v1.0 and v2.0) |
+| Policies | 43 | 45 versions — original 16 + 27 Phase 2 expansions (Reg B and Wealth each have 2 versions) |
 | Incident categories | 6 | phishing, malware, lost device, compromise, data loss, insider threat |
-| Demo conversations / messages | 4 / 7 | incl. citations and one routed escalation |
+| Demo conversations / messages | — | see `conversations` / `messages` tables |
 | Demo incidents | 2 | phishing click, lost device |
 | Demo feedback | 3 | 2 helpful, 1 not helpful |
 
@@ -363,6 +363,17 @@ dashboard can be tested end to end.
 (16 CFR 314), BSA/AML (31 CFR Ch. X), CIP/KYC (31 CFR 1020.220), SAR (31 CFR 1020.320),
 OFAC sanctions, UDAAP (Dodd-Frank §1031 / 12 CFR 1014), Regulation Z (TILA), Regulation B
 (ECOA), Regulation E, Regulation CC.
+
+**Phase 2 corpus expansion (2026):** The handbook grew from 16 to 43 approved policies in a
+post-audit expansion (owner roles normalized first — the Operations continuity policies went
+to the new Operations Policy Owner Rachel Sampson). 15 Human Resources, 4 Acceptable Use &
+Technology, 6 Information Security & Operations, and 2 Lending for Compliance policies were
+added, and the Fair Lending & Equal Credit Opportunity (Regulation B / ECOA) policy was
+expanded as **version 1.1** (incomplete-application 30-day notice, specific adverse-action
+reasons, ECOA notice, credit-score disclosure, signature/spousal rules §1002.13; effective
+2026-10-01, review 2027-01-05). Ownership assignments: HR→Jordan Rivera, Lending→Marcus Webb,
+Wealth→Gabrielle Fontaine, Compliance→Maya Patel, InfoSec/SOC→Chris Tanaka, platform/IT→Lucy
+Chen, business continuity→Rachel Sampson, AI→Alex Chen, data classification→Dana Brooks.
 
 ---
 
@@ -375,8 +386,17 @@ OFAC sanctions, UDAAP (Dodd-Frank §1031 / 12 CFR 1014), Regulation Z (TILA), Re
 | 3 | `conversation_and_retrieval_schema` | `conversations`, `messages`, `policy_citations` + indexes + RLS |
 | 4 | `clarification_and_incident_schema` | `clarification_requests`, `clarification_replies`, `incident_categories`, `incident_reports` + RLS |
 | 5 | `feedback_and_search_support` | `feedback` + `pg_trgm` + trigram GIN indexes + RLS |
-| 6 | `seed_banking_policy_handbook` | The full Aurum Capital Bank handbook and demo data |
+| 6 | `seed_banking_policy_handbook` | The original Aurum Capital Bank handbook and demo data |
 | 7 | `rename_bank_to_aurum_capital` | Renamed institution in policy text; moved emails to `@aurumbank.com` |
+| 8 | `normalize_policy_owner_roles` | Phase 2: Chris Tanaka, Jordan Rivera, Gabrielle Fontaine → Policy Owner; created Rachel Sampson (Operations Policy Owner) |
+| 9 | `seed_hr_policy_expansion` | 15 HR & Conduct policies (leave, benefits, conduct) |
+| 10 | `fix_hr_seed_holidays_sick_leave` | Repair of the HR batch: restored Sick Leave body; added Paid Holidays & Floating Holidays |
+| 11 | `seed_technology_policy_expansion` | 4 Acceptable Use & Technology policies (AI, cloud/SaaS, SSDL, mobile/BYOD) |
+| 12 | `seed_infosec_policy_expansion_1` | Data Classification; IAM/Privileged Access; Vulnerability & Patch |
+| 13 | `seed_infosec_policy_expansion_2` | Logging & Audit; Third-Party/Vendor Risk; Backup/Recovery/Continuity |
+| 14 | `seed_lending_policy_expansion_and_regb_v11` | Fair Lending Monitoring; Appraisals & Valuation Independence; Reg B v1.1 expansion |
+| 15 | `improve_regb_v11_incomplete_application_wording` | Reg B v1.1 body copy: employee-friendly incomplete-application guidance (missing documents / information needed; 30-day notice) — **content only, RAG untouched** |
+| 16 | `improve_regb_v11_all_required_information_wording` | Reg B v1.1 body copy (2nd pass): "has not provided all required information" phrasing — **content only, RAG untouched** |
 
 ---
 
