@@ -123,9 +123,12 @@ curl -s http://127.0.0.1:8000/dashboard/policy-health
 - **Plain-English answers (optional AI agent):** with `OPENAI_API_KEY` set in
   `backend/.env`, `POST /ask` sends the retrieved policy context to an
   OpenAI-compatible Chat Completions endpoint (`ai.py`) and returns a plain-English
-  rewrite. **Free tier:** Groq hosts OpenAI's open-weight `gpt-oss` models at $0 —
-  set `OPENAI_BASE_URL=https://api.groq.com/openai/v1`, `OPENAI_MODEL=gpt-oss-120b`
-  (key from https://console.groq.com, no credit card, phone verification). The paid
-  OpenAI platform works too (`OPENAI_BASE_URL=https://api.openai.com/v1`,
-  `OPENAI_MODEL=gpt-4o-mini`). Without a key (or on API error) the endpoint falls
-  back to rule-based guidance, so the RAG flow always works offline.
+  rewrite. **Recommended: OpenRouter** (one key, hundreds of models; key from
+  https://openrouter.ai/keys) — set `OPENAI_BASE_URL=https://openrouter.ai/api/v1`,
+  `OPENAI_MODEL=openai/gpt-4o-mini`. **Free tier:** Groq hosts OpenAI's open-weight
+  `gpt-oss` models at $0 — `OPENAI_BASE_URL=https://api.groq.com/openai/v1`,
+  `OPENAI_MODEL=gpt-oss-120b` (key from https://console.groq.com, no credit card,
+  phone verification). The paid OpenAI platform works too
+  (`OPENAI_BASE_URL=https://api.openai.com/v1`, `OPENAI_MODEL=gpt-4o-mini`).
+  Without a key (or on API error) the endpoint falls back to rule-based guidance,
+  so the RAG flow always works offline.

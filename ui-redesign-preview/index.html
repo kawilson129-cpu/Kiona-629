@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>DeRexi · Policy &amp; Governance — Aurum Capital Bank</title>
-  <meta name="description" content="Internal policy search and incident assistance. Aurum Capital Bank.">
+  <meta name="description" content="Internal policy search and incident assistance preview. Aurum Capital Bank.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -43,7 +43,7 @@
       <div class="persona">
         <label class="persona-label" for="persona-select">Signed in as</label>
         <div class="select-shell">
-          <select id="persona-select" class="select persona-select" aria-label="Choose role">
+          <select id="persona-select" class="select persona-select" aria-label="Choose role to preview">
             <option value="8">Sam Okonkwo · Employee</option>
             <option value="4">Maya Patel · Policy Owner</option>
             <option value="6">Alex Chen · Employee</option>
@@ -64,12 +64,13 @@
   <footer class="foot" aria-label="Page footer">
     <span>AURUM&nbsp;CAPITAL&nbsp;BANK</span>
     <span class="regs">Policy content follows federal banking regulation: GLBA / Reg&nbsp;P, Safeguards Rule, BSA/AML, CIP, SAR, OFAC, UDAAP, Reg&nbsp;Z, Reg&nbsp;B, Reg&nbsp;E&nbsp;&amp;&nbsp;CC.</span>
-    <span class="js-recon-mode">Live register</span>
+    <span class="js-recon-mode">Preview mode</span>
   </footer>
 
   <!-- Toasts ---------------------------------------------------------------->
   <div class="toast-region js-toasts" aria-live="polite" aria-atomic="false"></div>
 
+  <script src="mock-data.js"></script>
   <script src="app.js"></script>
 </body>
 </html>

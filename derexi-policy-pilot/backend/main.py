@@ -225,6 +225,22 @@ def list_roles(db: Session = Depends(get_db)) -> list:
     return [{"id": r.id, "name": r.name} for r in db.query(Role).order_by(Role.id).all()]
 
 
+@app.get("/categories")
+def list_policy_categories(db: Session = Depends(get_db)) -> list:
+    rows = db.execute(
+        text(
+            """
+            SELECT c.id, c.name, count(p.id) AS count
+            FROM policy_categories c
+            LEFT JOIN policies p ON p.category_id = c.id
+            GROUP BY c.id, c.name
+            ORDER BY c.id
+            """
+        )
+    ).mappings().all()
+    return [{"id": r["id"], "name": r["name"], "count": r["count"]} for r in rows]
+
+
 @app.get("/users")
 def list_users(db: Session = Depends(get_db)) -> list:
     users = db.query(User).order_by(User.id).all()

@@ -1,6 +1,8 @@
 (function () {
   'use strict';
 
+  var LIVE_BASE = 'http://127.0.0.1:8000';
+
   var qa = function (sel) { return document.querySelector(sel); };
   var qaa = function (sel) { return Array.prototype.slice.call(document.querySelectorAll(sel)); };
 
@@ -67,8 +69,9 @@
   }
 
   /* ---------------------------------------------------------------- state */
+  var MODE = /[?&]live=1/.test(location.search) ? 'live' : 'mock';
   var state = {
-    mode: 'live',
+    mode: MODE,
     users: [],
     roles: [],
     personaId: null,
@@ -78,9 +81,10 @@
 
   function api(path, opts) {
     opts = opts || {};
+    if (state.mode === 'mock') return window.DEREXI_MOCK.call(path, opts);
     var cfg = { method: opts.method || 'GET' };
     if (opts.body) { cfg.headers = { 'Content-Type': 'application/json' }; cfg.body = opts.body; }
-    return fetch(path, cfg).then(function (r) {
+    return fetch(LIVE_BASE + path, cfg).then(function (r) {
       if (!r.ok) throw new Error('HTTP ' + r.status);
       return r.json();
     });
@@ -123,7 +127,7 @@
   /* ---------------------------------------------------------------- topbar */
   function setRecon() {
     var el = qa('.js-recon-mode');
-    if (el) el.textContent = 'Live register';
+    if (el) el.textContent = MODE === 'live' ? 'Live API · 127.0.0.1:8000' : 'Preview · Seeded demo data';
     var today = qa('.js-today');
     if (today) today.textContent = fmtToday();
   }
@@ -203,9 +207,9 @@
     var wrap = h('div', { class: 'gate-wrap js-gate', style: 'position:fixed;inset:0;z-index:80;background:var(--paper-0);overflow:auto' });
     var grid = h('div', { class: 'gate' });
     var head = h('div', { class: 'view-head' });
-    head.appendChild(h('p', { class: 'view-kicker', text: 'DeRexi · Policy & Governance' }));
+    head.appendChild(h('p', { class: 'view-kicker', text: 'DeRexi · Policy & Governance — Preview' }));
     head.appendChild(h('h1', { class: 'view-title', html: 'Choose whose desk <em>you sit at</em>' }));
-    head.appendChild(h('p', { class: 'view-sub', text: 'The board changes with the role. Employees get Ask and Library; Policy Owners and System Administrators also get Governance.' }));
+    head.appendChild(h('p', { class: 'view-sub', text: 'The board changes with the role. Employees get Ask and Library; Policy Owners and System Administrators also get Governance. The cards below are a seeded snapshot of the production library.' }));
 
     if (closable) {
       var closeBtn = h('button', { type: 'button', class: 'gate-close', html: icon('close'), 'aria-label': 'Close roster' });
@@ -276,7 +280,7 @@
       state.thread.push({ sender: 'user', body: q });
       replay(view);
       showThinking(view);
-      api('/ask', { method: 'POST', body: JSON.stringify({ user_id: state.personaId, question: q }) }).then(function (r) {
+      api('/ask', { method: 'POST', body: JSON.stringify({ question: q }) }).then(function (r) {
         state.lastAsk = r;
         removeThinking();
         state.thread.push({ sender: 'derexi', body: r.answer, result: r });
@@ -997,7 +1001,8 @@
           }
         }
       });
-      restorePersona();
+      if (!AUTO) state.personaId = null;
+      else restorePersona();
       buildPersonaSelect();
       refreshNav();
       render();
@@ -1006,10 +1011,12 @@
       app.innerHTML = '';
       app.appendChild(h('div', { class: 'empty card' }, [
         h('div', { class: 'mark', text: 'The register could not be opened' }),
-        h('div', { class: 'ok', text: err.message })
+        h('div', { class: 'ok', text: err.message + (state.mode === 'live' ? ' — are you running uvicorn on :8000? Try the file without ?live=1.' : '') })
       ]));
     });
   });
+
+  var AUTO = /[?&]auto=1/.test(location.search);
 
   function isSwapGate() {
     var gate = qa('.js-gate');
@@ -1017,7 +1024,7 @@
   }
 
   function restorePersona() {
-    var saved = localStorage.getItem('derexi.personaId');
+    var saved = localStorage.getItem('derexi_preview_persona');
     if (saved) {
       var id = parseInt(saved, 10);
       for (var i = 0; i < state.users.length; i++) if (state.users[i].id === id) { state.personaId = id; return; }
