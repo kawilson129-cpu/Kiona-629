@@ -56,6 +56,43 @@ cp backend/.env.example backend/.env
 # (optional) add OPENAI_API_KEY to enable plain-English AI answers
 ```
 
+### Windows setup
+
+The runtime dependencies are the same on every OS — `requirements.txt` covers all
+of them (`fastapi`, `uvicorn[standard]`, `SQLAlchemy`, `psycopg2-binary`, `pydantic`,
+`python-dotenv`, `openai`). **Do not copy the `.venv` folder between machines**: a
+virtual environment is machine-specific (absolute paths, a symlink to your Python
+binary, native compiled libraries) and will never activate or run on a different OS
+or Python. Rebuild it instead — this is a one-time setup:
+
+```powershell
+# PowerShell, from the derexi-policy-pilot folder
+python -m venv .venv
+.venv\Scripts\Activate.ps1          # cmd.exe uses: .venv\Scripts\activate.bat
+python -m pip install -r requirements.txt
+python -m pip install -r requirements-dev.txt   # optional, smoke tests only
+
+Copy-Item backend\.env.example backend\.env
+# edit backend\.env, paste your Supabase connection string
+# (optional) add OPENAI_API_KEY to enable plain-English AI answers
+
+cd backend
+uvicorn main:app --reload
+```
+
+After the one-time setup, every later session is just:
+
+```powershell
+cd derexi-policy-pilot
+.venv\Scripts\Activate.ps1
+cd backend
+uvicorn main:app --reload
+```
+
+Requires Python 3.9+ installed from python.org (with "Add Python to PATH"
+checked). `psycopg2-binary` and `uvicorn[standard]` ship Windows wheels, so no
+compiler is needed.
+
 ## Run
 
 ```bash
