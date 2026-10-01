@@ -9,7 +9,7 @@ from __future__ import annotations
 from datetime import date
 from typing import Optional
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 
 class PolicyVersionCreate(BaseModel):
@@ -42,23 +42,29 @@ class PolicyVersionAdd(BaseModel):
 
 
 class AskRequest(BaseModel):
+    model_config = ConfigDict(str_strip_whitespace=True)
+
     user_id: int
-    question: str = Field(min_length=2)
-    topic: Optional[str] = None
+    question: str = Field(min_length=2, max_length=1000)
+    topic: Optional[str] = Field(default=None, max_length=1000)
 
 
 class ClarificationCreate(BaseModel):
+    model_config = ConfigDict(str_strip_whitespace=True)
+
     user_id: int
     message_id: Optional[int] = None
     conversation_id: Optional[int] = None
     policy_id: Optional[int] = None
-    reason: Optional[str] = None
+    reason: Optional[str] = Field(default=None, min_length=1, max_length=1000)
     assigned_to: Optional[int] = None
 
 
 class ClarificationReplyCreate(BaseModel):
+    model_config = ConfigDict(str_strip_whitespace=True)
+
     sender_id: int
-    body: str = Field(min_length=1)
+    body: str = Field(min_length=1, max_length=2000)
 
 
 class IncidentCreate(BaseModel):

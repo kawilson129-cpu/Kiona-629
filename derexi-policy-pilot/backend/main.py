@@ -277,7 +277,7 @@ def list_policies(
 
 @app.get("/policies/search")
 def search_policies(
-    q: str = Query(min_length=2),
+    q: str = Query(min_length=2, max_length=1000),
     limit: int = Query(default=5, ge=1, le=20),
     db: Session = Depends(get_db),
 ) -> list:
@@ -392,6 +392,8 @@ def ask(payload: schemas.AskRequest, db: Session = Depends(get_db)) -> dict:
         raise HTTPException(status_code=404, detail="User not found")
 
     question = payload.question.strip()
+    if not question:
+        raise HTTPException(status_code=422, detail="Question must not be empty")
 
     conversation = Conversation(
         user_id=user.id,
