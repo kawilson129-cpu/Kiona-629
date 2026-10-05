@@ -1,0 +1,10 @@
+Aurum Capital Bank - Sample Policy Document
+==========================================
+
+Policy ID: ACB-SAMPLE-001
+Owner: BSA/AML Compliance Officer
+
+1. Employees must escalate any suspicious customer transaction to
+   the BSA/AML Compliance Officer within one business day.
+2. Suspicious activity must never be discussed with the customer.
+3. All escalations must be recorded in the compliance case log.
