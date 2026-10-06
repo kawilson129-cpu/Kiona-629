@@ -1,12 +1,23 @@
 # MEMORY.md
 
 ## Last Updated
-September 24, 2026
+October 4, 2026
 
 ## Current Focus
-**UI REDESIGN PREVIEW ("The Ledger") BUILT in `ui-redesign-preview/` at repo root** — full interactive takeover of the DeRexi front end in an editorial-treasury style (paper/espresso/gold, Fraunces + Plus Jakarta Sans + JetBrains Mono, hairline rules, status stamps, ink "Ask" surface, persona roster gate). Serves seeded prod-snapshot data by default; `index.html?live=1` points the same adapter at `http://127.0.0.1:8000`. Awaiting Kiona's **visual sign-off** in the browser before anything is promoted into `backend/static/`. Nothing committed (Week 6 → Phase 2 UI + the new preview all still uncommitted per Kiona's approval gate). After sign-off: promote `style.css`/`app.js` into `backend/static/`, drop mock adapter, wire real auth user, then continue MVP components (incident-language detection), hardening, testing.
+**SSD1 input validation — code DONE, live tests ON HOLD (back burner by Kiona's instruction).** All validation changes committed (`5d20215`), server restarted on new code. **Type 1 tests (Policy Assistant/search) all 5 PASS; Type 2 (clarification/reply) tests 6–11 NOT YET RUN, evidence table NOT delivered.** Do not resume this unprompted — Kiona will say when. Current focus: next course assignment (Cryptography rubric prompt incoming). Also done this session: Windows setup docs in README (`51fdc0b`), Cryptography lab 1 + README (`471e66f`). Awaiting next prompt.
+
+### Recent commits (this session)
+- `51fdc0b` Document Windows setup for DeRexi backend
+- `a61ebcb`/`2938665` Cryptography lab 1 + rename (committed by Kiona)
+- `471e66f` Cryptography lab 1 README
+- `5d20215` SSD1 input validation security controls (schemas.py + main.py)
 
 ## Where Kiona Stands (as of last update)
+
+### UI Redesign Preview (from Sept 24, still awaiting sign-off)
+**UI REDESIGN PREVIEW ("The Ledger") BUILT in `ui-redesign-preview/` at repo root** — full interactive takeover of the DeRexi front end in an editorial-treasury style (paper/espresso/gold, Fraunces + Plus Jakarta Sans + JetBrains Mono, hairline rules, status stamps, ink "Ask" surface, persona roster gate). Serves seeded prod-snapshot data by default; `index.html?live=1` points the same adapter at `http://127.0.0.1:8000`. Awaiting Kiona's **visual sign-off** in the browser before anything is promoted into `backend/static/`. After sign-off: promote `style.css`/`app.js` into `backend/static/`, drop mock adapter, wire real auth user. NOTE: a full design review was delivered Sept 24 with 13 findings (italic descender clipping, AA contrast fails in ink surface, duplicate suggestion intent, empty conversation well, etc.) — no fixes applied yet, waiting on Kiona's own list.
+
+### Project Status (Sept 24 baseline)
 
 ### DeRexi: Policy Pilot
 - **SDLC Progress:** Week 7 of 12 (caught up on Week 3 + 4 + 5 deliverables, Week 6 UI, Phase 2 corpus+UI staged)

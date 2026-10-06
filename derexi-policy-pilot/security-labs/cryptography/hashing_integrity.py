@@ -1,5 +1,5 @@
 """
-DeRexi: Policy Pilot -- Cryptography Lab 1
+DeRexi: Policy Pilot -- Cryptography Lab 3
 ==========================================
 
 A beginner-friendly demonstration of three everyday security tools:
@@ -343,7 +343,7 @@ def demonstrate_file_integrity() -> None:
 
 def main() -> None:
     print()
-    print("DeRexi: Policy Pilot - Cryptography Lab 1")
+    print("DeRexi: Policy Pilot - Cryptography Lab 3")
     print("Classroom demonstration - no real credentials are used.")
     print()
 
