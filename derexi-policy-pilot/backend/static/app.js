@@ -73,7 +73,8 @@
     roles: [],
     personaId: null,
     thread: [],
-    lastAsk: null
+    lastAsk: null,
+    assistMode: 'ask'
   };
 
   function api(path, opts) {
@@ -256,94 +257,247 @@
     var head = h('div', { class: 'view-head' });
     head.appendChild(h('p', { class: 'view-kicker', text: 'Policy Assistant' }));
     head.appendChild(h('h1', { class: 'view-title', html: 'Ask in plain words, <em>get guidance in ink</em>' }));
-    head.appendChild(h('p', { class: 'view-sub', text: 'Ask a policy question or describe an incident. DeRexi cites the governing policy, and routes to its owner when it can\u2019t answer with confidence.' }));
+    head.appendChild(h('p', { class: 'view-sub', text: 'Ask a policy question or report a security incident. DeRexi cites the governing policy, routes to its owner when it can\u2019t answer with confidence, and logs incident reports for the security desk.' }));
 
-    var ta = h('textarea', { rows: '2', placeholder: 'Example: How much paid time off do I get after my first year?', value: '' });
-    ta.setAttribute('aria-label', 'Your policy question');
-    var askBtn = h('button', { type: 'button', class: 'send-btn', html: icon('send') + '<span>Ask DeRexi</span>' });
-    askBtn.setAttribute('aria-label', 'Ask DeRexi');
-    var composer = h('div', { class: 'composer' }, [ta, askBtn]);
-
-    function buildChip(label, fn) {
-      return h('button', { type: 'button', class: 'chip', onclick: fn.bind(null, label), text: label });
-    }
-
-    function submitInto(value) {
-      var q = String(value || '').trim();
-      if (!q) return;
-      ta.value = '';
-      askBtn.disabled = true;
-      state.thread.push({ sender: 'user', body: q });
-      replay(view);
-      showThinking(view);
-      api('/ask', { method: 'POST', body: JSON.stringify({ user_id: state.personaId, question: q }) }).then(function (r) {
-        state.lastAsk = r;
-        removeThinking();
-        state.thread.push({ sender: 'derexi', body: r.answer, result: r });
-        replay(view);
-        askBtn.disabled = false;
-        safeFocus(ta);
-      }).catch(function (err) {
-        removeThinking();
-        state.thread.push({ sender: 'derexi', body: 'DeRexi could not reach the policy engine (' + err.message + ').', result: null });
-        replay(view);
-        askBtn.disabled = false;
-      });
-    }
-
-    ta.addEventListener('keydown', function (e) {
-      if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); submitInto(ta.value); }
-    });
-    askBtn.addEventListener('click', function () { submitInto(ta.value); });
-
-    var hints = h('div', { class: 'ask-hint' }, [
-      h('span', { class: 'ask-hint-label', text: 'Try' }),
-      buildChip('How much paid time off?', submitInto),
-      buildChip('Parental leave details', submitInto),
-      buildChip('Can I use ChatGPT for work tasks?', submitInto),
-      buildChip('A credit application is missing documents', submitInto),
-      buildChip('Lost laptop', submitInto)
+    var tabs = h('div', { class: 'tabs', role: 'tablist' }, [
+      assistTab('Ask a question', 'ask'),
+      assistTab('Report an incident', 'report')
     ]);
 
-    var surface = h('section', { class: 'ask-surface' });
-    var inner = h('div', { class: 'ask-inner' });
-    inner.appendChild(composer);
-    inner.appendChild(hints);
-    surface.appendChild(inner);
-
-    var sec = h('section', { class: 'section' });
-    var secHead = h('div', { class: 'section-head' });
-    secHead.appendChild(h('h2', { class: 'section-title', text: 'This conversation' }));
-    var clr = h('button', { type: 'button', class: 'btn btn-ghost' + (state.thread.length ? '' : ' is-hidden'), onclick: function () { state.thread = []; state.lastAsk = null; render(); }, html: icon('clr') + '<span style="margin-left:7px">Clear</span>' });
-    secHead.appendChild(h('span', null, [clr]));
-    sec.appendChild(secHead);
-    var threadRoot = h('div', { class: 'thread' });
-    state.thread.forEach(function (m) { threadRoot.appendChild(buildMsg(m)); });
-    sec.appendChild(threadRoot);
-
-    var suggestsSec = h('section', { class: 'section' });
-    suggestsSec.appendChild(h('div', { class: 'section-head' }, [
-      h('h2', { class: 'section-title', text: 'Common questions' }),
-      h('span', { class: 'section-meta', text: 'Curated' })
-    ]));
-    var sugRow = h('div', { class: 'suggests' });
-    SUGGESTS.forEach(function (s) {
-      sugRow.appendChild(h('button', { type: 'button', class: 'suggest', onclick: function () { askSuggested(s); }, text: s }));
-    });
-    suggestsSec.appendChild(sugRow);
-
     view.appendChild(head);
-    view.appendChild(surface);
-    view.appendChild(sec);
-    view.appendChild(suggestsSec);
+    view.appendChild(tabs);
+    if (state.assistMode === 'report') view.appendChild(buildReportSection());
+    else buildAskSection(view);
     app.appendChild(view);
 
-    function replay(root) {
-      var thr = qa('.thread', root);
-      if (!thr) return;
-      thr.innerHTML = '';
-      state.thread.forEach(function (m) { thr.appendChild(buildMsg(m)); });
-      thr.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    qaa('.tabs .tab').forEach(function (t) {
+      t.classList.toggle('is-current', t.dataset.tab === (state.assistMode || 'ask'));
+    });
+
+    function assistTab(label, key) {
+      var t = h('button', { type: 'button', class: 'tab', role: 'tab', dataset: { tab: key }, text: label });
+      t.addEventListener('click', function () {
+        if (state.assistMode === key) return;
+        state.assistMode = key;
+        render();
+      });
+      return t;
+    }
+
+    function buildAskSection(view) {
+      var ta = h('textarea', { rows: '2', placeholder: 'Example: How much paid time off do I get after my first year?', value: '' });
+      ta.setAttribute('aria-label', 'Your policy question');
+      var askBtn = h('button', { type: 'button', class: 'send-btn', html: icon('send') + '<span>Ask DeRexi</span>' });
+      askBtn.setAttribute('aria-label', 'Ask DeRexi');
+      var composer = h('div', { class: 'composer' }, [ta, askBtn]);
+
+      function buildChip(label, fn) {
+        return h('button', { type: 'button', class: 'chip', onclick: fn.bind(null, label), text: label });
+      }
+
+      function submitInto(value) {
+        var q = String(value || '').trim();
+        if (!q) return;
+        ta.value = '';
+        askBtn.disabled = true;
+        state.thread.push({ sender: 'user', body: q });
+        replay(view);
+        showThinking(view);
+        api('/ask', { method: 'POST', body: JSON.stringify({ user_id: state.personaId, question: q }) }).then(function (r) {
+          state.lastAsk = r;
+          removeThinking();
+          state.thread.push({ sender: 'derexi', body: r.answer, result: r });
+          replay(view);
+          askBtn.disabled = false;
+          safeFocus(ta);
+        }).catch(function (err) {
+          removeThinking();
+          state.thread.push({ sender: 'derexi', body: 'DeRexi could not reach the policy engine (' + err.message + ').', result: null });
+          replay(view);
+          askBtn.disabled = false;
+        });
+      }
+
+      ta.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); submitInto(ta.value); }
+      });
+      askBtn.addEventListener('click', function () { submitInto(ta.value); });
+
+      var hints = h('div', { class: 'ask-hint' }, [
+        h('span', { class: 'ask-hint-label', text: 'Try' }),
+        buildChip('How much paid time off?', submitInto),
+        buildChip('Parental leave details', submitInto),
+        buildChip('Can I use ChatGPT for work tasks?', submitInto),
+        buildChip('A credit application is missing documents', submitInto),
+        buildChip('Lost laptop', submitInto)
+      ]);
+
+      var surface = h('section', { class: 'ask-surface' });
+      var inner = h('div', { class: 'ask-inner' });
+      inner.appendChild(composer);
+      inner.appendChild(hints);
+      surface.appendChild(inner);
+
+      var sec = h('section', { class: 'section' });
+      var secHead = h('div', { class: 'section-head' });
+      secHead.appendChild(h('h2', { class: 'section-title', text: 'This conversation' }));
+      var clr = h('button', { type: 'button', class: 'btn btn-ghost' + (state.thread.length ? '' : ' is-hidden'), onclick: function () { state.thread = []; state.lastAsk = null; render(); }, html: icon('clr') + '<span style="margin-left:7px">Clear</span>' });
+      secHead.appendChild(h('span', null, [clr]));
+      sec.appendChild(secHead);
+      var threadRoot = h('div', { class: 'thread' });
+      state.thread.forEach(function (m) { threadRoot.appendChild(buildMsg(m)); });
+      sec.appendChild(threadRoot);
+
+      var suggestsSec = h('section', { class: 'section' });
+      suggestsSec.appendChild(h('div', { class: 'section-head' }, [
+        h('h2', { class: 'section-title', text: 'Common questions' }),
+        h('span', { class: 'section-meta', text: 'Curated' })
+      ]));
+      var sugRow = h('div', { class: 'suggests' });
+      SUGGESTS.forEach(function (s) {
+        sugRow.appendChild(h('button', { type: 'button', class: 'suggest', onclick: function () { askSuggested(s); }, text: s }));
+      });
+      suggestsSec.appendChild(sugRow);
+
+      view.appendChild(surface);
+      view.appendChild(sec);
+      view.appendChild(suggestsSec);
+
+      function replay(root) {
+        var thr = qa('.thread', root);
+        if (!thr) return;
+        thr.innerHTML = '';
+        state.thread.forEach(function (m) { thr.appendChild(buildMsg(m)); });
+        thr.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+
+    function buildReportSection() {
+      var wrap = h('div', null);
+
+      var form = h('div', { class: 'report-form' });
+
+      var catField = h('div', { class: 'field' });
+      catField.appendChild(h('label', { for: 'inc-cat', text: 'Incident category' }));
+      var catSel = h('select', { id: 'inc-cat', name: 'category' });
+      catSel.appendChild(h('option', { value: '', text: 'Select a category\u2026' }));
+      catField.appendChild(catSel);
+
+      var descField = h('div', { class: 'field' });
+      descField.appendChild(h('label', { for: 'inc-desc', text: 'What happened?' }));
+      var ta = h('textarea', { id: 'inc-desc', rows: '4', placeholder: 'Describe the incident in your own words. Include what you saw and when.', value: '' });
+      descField.appendChild(ta);
+
+      var submit = h('button', { type: 'button', class: 'send-btn', html: icon('flag') + '<span>Report incident</span>' });
+      submit.setAttribute('aria-label', 'Report incident');
+
+      form.appendChild(catField);
+      form.appendChild(descField);
+      form.appendChild(h('div', { class: 'report-note', text: 'Severity is assigned by the security team from the category. Do not include passwords or card numbers.' }));
+      form.appendChild(submit);
+      wrap.appendChild(form);
+
+      var out = h('div', { class: 'report-out' });
+      wrap.appendChild(out);
+
+      var mine = h('section', { class: 'section' });
+      mine.appendChild(h('div', { class: 'section-head' }, [
+        h('h2', { class: 'section-title', text: 'Your reports' }),
+        h('span', { class: 'section-meta', text: 'Live' })
+      ]));
+      var mineRoot = h('div', null);
+      mine.appendChild(mineRoot);
+      wrap.appendChild(mine);
+
+      api('/incident-categories').then(function (cats) {
+        (cats || []).forEach(function (c) {
+          catSel.appendChild(h('option', { value: String(c.id), text: c.name }));
+        });
+      }).catch(function () {});
+
+      function loadMine() {
+        api('/incidents?reporter_id=' + state.personaId).then(function (list) {
+          mineRoot.innerHTML = '';
+          var pane = h('div', { class: 'pane' });
+          pane.appendChild(h('div', { class: 'pane-head' }, [
+            h('h3', { text: 'Your reports' }),
+            h('span', { class: 'badge', text: String((list || []).length) })
+          ]));
+          var body = h('div', { class: 'pane-body' });
+          if (!list || !list.length) {
+            body.appendChild(h('div', { class: 'empty' }, [h('div', { class: 'ok', text: 'You have not reported any incidents.' })]));
+          } else {
+            var rows = h('div', { class: 'my-reports' });
+            list.forEach(function (inc) {
+              rows.appendChild(h('div', { class: 'inc-row' }, [
+                h('div', { class: 'inc-top' }, [
+                  h('span', { class: 'id', text: '#I-' + String(inc.id).padStart(3, '0') }),
+                  h('span', { class: 'stamp ' + stampCls(inc.status), html: '<span class="dot"></span>' + escText(inc.status) }),
+                  inc.severity ? h('span', { class: 'stamp ' + stampCls(inc.severity), html: '<span class="dot"></span>' + escText(inc.severity) }) : null
+                ]),
+                h('div', { class: 'inc-q', text: inc.category || 'Uncategorized' }),
+                h('div', { class: 'inc-desc', text: inc.description }),
+                h('div', { class: 'inc-meta' }, [
+                  h('span', { text: 'Reported ' + fmtDate(inc.created_at) }),
+                  inc.assignee ? h('span', { text: 'Handler \u00b7 ' + inc.assignee }) : null
+                ])
+              ]));
+            });
+            body.appendChild(rows);
+          }
+          pane.appendChild(body);
+          mineRoot.appendChild(pane);
+        }).catch(function (err) {
+          mineRoot.innerHTML = '';
+          mineRoot.appendChild(h('div', { class: 'empty card' }, [
+            h('div', { class: 'mark', text: 'Reports unavailable' }),
+            h('div', { class: 'ok', text: err.message })
+          ]));
+        });
+      }
+
+      function renderConfirm(inc) {
+        out.innerHTML = '';
+        var card = h('div', { class: 'card card-pad report-confirm' });
+        card.appendChild(h('div', { class: 'inc-top' }, [
+          h('span', { class: 'id', text: '#I-' + String(inc.id).padStart(3, '0') }),
+          h('span', { class: 'stamp ' + stampCls(inc.status), html: '<span class="dot"></span>' + escText(inc.status) }),
+          inc.severity ? h('span', { class: 'stamp ' + stampCls(inc.severity), html: '<span class="dot"></span>' + escText(inc.severity) }) : null
+        ]));
+        card.appendChild(h('div', { class: 'inc-q', text: 'Report received' }));
+        card.appendChild(h('div', { class: 'inc-desc', text: 'Your report is logged and will be reviewed by a security handler. Track its status under \u201cYour reports\u201d below.' }));
+        if (inc.guidance) {
+          card.appendChild(h('div', { class: 'report-guidance' }, [
+            h('div', { class: 'g-title', text: inc.guidance.title + ' (v' + inc.guidance.version_no + ')' }),
+            h('div', { class: 'g-excerpt', text: inc.guidance.excerpt }),
+            h('button', { type: 'button', class: 'btn btn-ghost', text: 'Open policy', onclick: function () { openDrawer(inc.guidance.policy_id); } })
+          ]));
+        }
+        out.appendChild(card);
+      }
+
+      submit.addEventListener('click', function () {
+        var desc = ta.value.trim();
+        if (!catSel.value) { toast('Choose an incident category first.'); return; }
+        if (desc.length < 2) { toast('Describe the incident before submitting.'); return; }
+        submit.disabled = true;
+        api('/incidents', {
+          method: 'POST',
+          body: JSON.stringify({ reporter_id: state.personaId, category_id: parseInt(catSel.value, 10), description: desc })
+        }).then(function (inc) {
+          submit.disabled = false;
+          ta.value = '';
+          catSel.value = '';
+          renderConfirm(inc);
+          loadMine();
+        }).catch(function (err) {
+          submit.disabled = false;
+          toast('Could not submit report (' + err.message + ')');
+        });
+      });
+
+      loadMine();
+      return wrap;
     }
   }
 

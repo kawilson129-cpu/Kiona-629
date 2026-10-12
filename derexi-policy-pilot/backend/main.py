@@ -687,6 +687,7 @@ def list_incident_categories(db: Session = Depends(get_db)) -> list:
 def list_incidents(
     status: Optional[str] = Query(default=None),
     severity: Optional[str] = Query(default=None),
+    reporter_id: Optional[int] = Query(default=None),
     db: Session = Depends(get_db),
 ) -> list:
     query = db.query(IncidentReport)
@@ -694,6 +695,8 @@ def list_incidents(
         query = query.filter(IncidentReport.status == status)
     if severity:
         query = query.filter(IncidentReport.severity == severity)
+    if reporter_id:
+        query = query.filter(IncidentReport.reporter_id == reporter_id)
     return [_incident_dict(i) for i in query.order_by(IncidentReport.created_at.desc()).all()]
 
 
@@ -716,16 +719,41 @@ def _incident_dict(incident: IncidentReport) -> dict:
     }
 
 
+def incident_guidance(db: Session, description: str) -> Optional[dict]:
+    """Best-matching approved policy to guide the employee during an incident.
+
+    Reuses the same trigram retrieval as /ask so guidance stays policy-grounded.
+    Returns None when no approved policy clears the confidence threshold.
+    """
+    results = db.execute(SEARCH_SQL, {"q": description, "limit": 3}).mappings().all()
+    if not results:
+        return None
+    top = results[0]
+    if float(top["score"]) < CONFIDENCE_THRESHOLD:
+        return None
+    return {
+        "policy_id": top["policy_id"],
+        "title": top["title"],
+        "version_no": top["version_no"],
+        "excerpt": make_excerpt(top["body"], description),
+        "score": round(float(top["score"]), 4),
+    }
+
+
 @app.post("/incidents", status_code=201)
 def create_incident(payload: schemas.IncidentCreate, db: Session = Depends(get_db)) -> dict:
     if not db.get(User, payload.reporter_id):
         raise HTTPException(status_code=404, detail="Reporter not found")
 
-    severity = payload.severity
-    if payload.category_id and "severity" not in payload.model_fields_set:
+    category = None
+    if payload.category_id is not None:
         category = db.get(IncidentCategory, payload.category_id)
-        if category:
-            severity = category.default_severity
+        if not category:
+            raise HTTPException(status_code=404, detail="Incident category not found")
+
+    severity = payload.severity
+    if category and "severity" not in payload.model_fields_set:
+        severity = category.default_severity
 
     incident = IncidentReport(
         reporter_id=payload.reporter_id,
@@ -738,7 +766,10 @@ def create_incident(payload: schemas.IncidentCreate, db: Session = Depends(get_d
     )
     db.add(incident)
     db.commit()
-    return _incident_dict(incident)
+
+    result = _incident_dict(incident)
+    result["guidance"] = incident_guidance(db, payload.description)
+    return result
 
 
 @app.patch("/incidents/{incident_id}")

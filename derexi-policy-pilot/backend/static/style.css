@@ -924,3 +924,57 @@ button {
     scroll-behavior: auto !important;
   }
 }
+
+/* Week 8 Stage 1 — employee incident reporting ---------------------------- */
+.report-form {
+  display: grid;
+  gap: 16px;
+  max-width: 720px;
+  padding: 24px;
+  background: var(--paper-1);
+  border: 1px solid var(--rule);
+  border-radius: var(--r-card);
+  box-shadow: var(--shadow-1), inset 0 1px 0 rgba(255,255,255,0.6);
+}
+.report-form .field { display: grid; gap: 8px; }
+.report-form label {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+.report-form select,
+.report-form textarea {
+  width: 100%;
+  color: var(--ink);
+  background: var(--paper-0);
+  border: 1px solid var(--rule);
+  border-radius: 14px;
+  padding: 12px 14px;
+  font: inherit;
+  line-height: 1.5;
+}
+.report-form select { border-radius: var(--r-pill); }
+.report-form textarea { resize: vertical; }
+.report-form select:focus,
+.report-form textarea:focus {
+  outline: none;
+  border-color: var(--champagne);
+  box-shadow: 0 0 0 3px var(--gold-tint);
+}
+.report-form .send-btn { justify-self: start; }
+.report-note { font-size: 12.5px; color: var(--ink-3); }
+.report-out { margin-top: 20px; display: grid; gap: 14px; }
+.report-confirm { border-left: 3px solid var(--gold-deep); }
+.report-guidance {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--rule);
+  display: grid;
+  gap: 8px;
+}
+.report-guidance .g-title { font-family: var(--serif); font-size: 17px; font-weight: 500; }
+.report-guidance .g-excerpt { font-size: 13.5px; color: var(--ink-2); line-height: 1.55; }
+.report-guidance .btn { justify-self: start; }
+.my-reports { display: grid; gap: 10px; }
