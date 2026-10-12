@@ -1,0 +1,21 @@
+=== TLS WEB SERVER (standalone) ===
+  TLS enabled:            yes (HTTPS)
+  Host:                   127.0.0.1  (localhost only)
+  Port:                   8443
+  Server name:            derexi-tls-demo.local
+  Certificate subject:    CN=derexi-tls-demo.local, O=Aurum Capital Bank
+  Certificate issuer:     CN=derexi-tls-demo.local (self-signed)
+  Certificate validity:   2026-10-11T23:00:52Z -> 2027-10-11T23:05:52Z
+  Signature algorithm:    RSA with SHA256
+  Minimum TLS version:    TLS 1.2
+  Certificate file:       DEMO_ONLY_tls_cert.pem
+  Private key file:       DEMO_ONLY_tls_key.pem (DEMO ONLY, permissions 0600)
+
+  Connect from another terminal with:
+    python tls_demo_client.py
+    curl --cacert DEMO_ONLY_tls_cert.pem https://derexi-tls-demo.local:8443/ --resolve derexi-tls-demo.local:8443:127.0.0.1
+
+  Press Ctrl-C to stop.
+
+    [server] "GET /secure HTTP/1.1" 200 -
+    [server] "GET /secure HTTP/1.1" 200 -
