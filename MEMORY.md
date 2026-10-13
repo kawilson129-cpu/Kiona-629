@@ -1,7 +1,7 @@
 # MEMORY.md
 
 ## Last Updated
-October 11, 2026
+October 12, 2026
 
 ## Current Focus
 **Two final coursework items: (1) SSD1 Criterion #6 — evidence package WRITTEN (`secure_software_development_1/SSD 1 Assignment 6/SSD1_Assignment_6_Evidence.md`), ready for ChatGPT layout; (2) Cryptography 1 Criterion #6 — Wireshark TLS 1.3 capture done, two-page PDF generator ready, BLOCKED awaiting Kiona's 5 screenshots A–E.** Crypto Labs 1–3 committed; Labs 4–6 complete + verified but still UNCOMMITTED.
@@ -38,7 +38,8 @@ October 11, 2026
 - **Backend connection decision:** Direct DB / service role (RLS bypassed by backend; RLS still enabled + read policies for authenticated)
 - **14 tables total** (3 pre-existing + 11 new), all RLS-enabled, all covered by migrations
 - **Fictional bank seeded:** Aurum Capital Bank (Latin *aurum*, "gold") — federally chartered private bank with Lending + Wealth Management divisions. All user emails use `@aurumbank.com`
-- **Seed (after Phase 2):** 7 policy categories, **43 policies / 45 versions**, 6 incident categories, 7 departments, **12 users** (added Rachel Sampson, Operations Policy Owner), demo conversations/citations/clarifications/incidents/feedback
+- **Seed (Phase 2):** 7 policy categories, 43 policies / 45 versions, 6 incident categories, 7 departments, 12 users (added Rachel Sampson, Operations Policy Owner), demo conversations/citations/clarifications/incidents/feedback
+- **Teachback policy library (Oct 12):** +6 consolidated policies → **49 policies / 51 versions**. See `derexi-policy-pilot/policies/` and the Oct 12 session block below
 - **Policies follow real federal banking regs:** GLBA/Reg P, GLBA Safeguards Rule, BSA/AML, CIP/KYC, SAR, OFAC, UDAAP, Reg Z (TILA), Reg B (ECOA) v1.1, Reg E & CC, private banking suitability
 - **Advisors:** clean except platform-managed `rls_auto_enable()` (safe, leave)
 
@@ -213,3 +214,19 @@ October 11, 2026
 - **Key discrepancy logged:** SSD1 A#1 & A#5 reports claim CORS was narrowed to explicit origins, but the committed canonical code is still wildcard (`git log -S allow_origins` → only touched in initial commit `54c75d4`; commit `cf3cfda` "harden CORS" diff contains only a PDF + `.DS_Store`). Reported as NOT IMPLEMENTED (report/code mismatch).
 - CSS SonarQube findings still present (unremediated): `backend/static/style.css:121` `.ledger num` invalid selector; duplicate `.gate` at lines 802 & 843.
 - No commits/pushes made. Next: user drops A–E screenshots → build crypto C1A6 PDF; SSD1 markdown is ready to hand to ChatGPT for layout.
+
+### October 12, 2026 — DeRexi teachback policy library (6 consolidated policies)
+- Task: add six consolidated Aurum Capital Bank policies for a live teachback so employees can ask NL questions and get grounded guidance. Constraint: additive only — preserve all existing functionality, schema, personas, RLS, policies.
+- **Inspected** the canonical `derexi-policy-pilot/backend/` (main.py `/ask` + `SEARCH_SQL` pg_trgm blended score, 0.22 threshold + substantive-keyword evidence gate; `POST /policies` = ingestion pipeline), DB (43 policies, 7 categories, 12 users, 7 depts), and ran the 12 teachback questions against the **existing** corpus — confirmed large overlaps and weak/wrong current hits (most <0.22 → would route).
+- **Overlap decision (safe):** none of the six titles/IDs match an existing policy; added them as **NEW** policy records (no overwrite, no version edits to existing policies). Overlaps are partial/topic-level only (IT-002 ↔ #38 IAM; HR-001 ↔ #18–32; LND-001 ↔ #8/#9/#43/#44; COMP-001 ↔ #1/#30; IT-001 umbrella ↔ #2/#12/#13/#14/#33/#34/#36/#37). Reported, not acted on. Existing policies untouched.
+- **Created** `derexi-policy-pilot/policies/` — six full markdown policies (bank name, ID, dept, owner, version, effective/review dates, approval status, purpose, scope, requirements, step-by-step procedures, responsibilities, exceptions/escalation, related policies, FAQ) + `ingest_policies.py`. IDs: ACB-IT-001, ACB-IT-002, ACB-LND-001, ACB-HR-001, ACB-OPS-001, ACB-COMP-001.
+- **Integrated via the existing pipeline** (`POST /policies`, idempotent script skips existing titles): created policy ids **45–50**, all `approved`, v1.0, effective 2026-10-01, review 2027-09-30, `requires_review=false`; owners mapped to existing users (Chris Tanaka 7, Marcus Webb 11, Jordan Rivera 9, Rachel Sampson 12, Maya Patel 4); categories 6/5/3/7/5/1. No new users/depts/categories. **49 policies / 51 versions, 0 dup titles, 0 orphan versions.** pg_trgm GIN indexes auto-maintained (no reindex step).
+- **Validated** all 12 teachback questions through live `/ask`: every one returns the intended policy as **top citation at 0.611–0.703** (well above 0.22) with a matching `Reference:` line; 18 policy_citations persisted. No-match control ("reimburse gym memberships") correctly `needs_clarification=True` (routed to Jordan Rivera, clarification #35). Regression spot-checks (phishing, CIP, PTO, AML) still return their existing policies first — new policies only secondary.
+- **Known issue (pre-existing, not introduced):** AI answer *phrasing* is inconsistent on Kiona's configured free OpenRouter reasoning model (`nvidia/nemotron-3-ultra-550b-a55b:free`) — some answers truncate or leak chain-of-thought (Q1/Q4/Q9), and 2 calls fell back to rule-based guidance (Q7/Q12). Retrieval/citations are correct regardless. Recommend a non-reasoning model or bumping `max_tokens` (ai.py:69) — not changed.
+- Files added (uncommitted): `derexi-policy-pilot/policies/*.md` (6) + `ingest_policies.py`. No push, no commit, no .env/schema/RLS/auth/UI changes.
+
+### October 12, 2026 (later) — Teachback AI answer-quality fix (ai.py)
+- Diagnosed the answer-quality problem from the prior session (Q1 truncated, Q4/Q9 exposed reasoning, 2 fallbacks). **Root cause = reasoning model + `max_tokens` budget**, not parsing or the provider. `nvidia/nemotron-3-ultra-550b-a55b:free` emits hidden `reasoning_tokens` that are **counted against `max_tokens=400`**; with the real 3-policy context reasoning alone was 471–523 tokens → `finish_reason=length`. Q1 cut to "When an internal"; Q4/Q9 spilled chain-of-thought into `message.content`.
+- **Fix (code only, smallest safe correction):** in `backend/ai.py` `generate_answer()` — when `OPENAI_BASE_URL` is OpenRouter, pass `extra_body={"reasoning": {"enabled": False}}`; raised `max_tokens` 400 → 700 for margin. Only `message.content` is ever read, so reasoning fields are never surfaced. **No change to provider, model, API key, `.env`, fallback behavior, retrieval, citations, auth, tables, policies, ingestion, search, messaging, incidents, or roles.**
+- Verified via raw repro: reasoning disabled → `reasoning_tokens=0`, `finish_reason=stop`, full answers (461–623 chars). Then re-ran all 12 teachback questions through live `/ask`: every one returns the intended policy as top citation (0.611–0.703), complete and grounded, **no reasoning text, no truncation**; Q1/Q4/Q9 now clean. Unrelated control ("reimburse gym memberships") still routes to a policy owner. Precision check script auto-flags short/no-end-punctuation/reasoning markers → **0 failures**.
+- `ai.py` compiles clean; only `ai.py` + `MEMORY.md` modified (uncommitted). Server runs `uvicorn main:app --port 8000 --reload`, so the fix is live. **No commit/push/deploy.**

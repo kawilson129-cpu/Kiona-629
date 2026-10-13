@@ -63,14 +63,28 @@ def generate_answer(question: str, context: list[dict]) -> str | None:
             f"POLICY LIBRARY CONTEXT:\n{source_block}"
         )
         client = OpenAI(api_key=OPENAI_API_KEY, base_url=OPENAI_BASE_URL, timeout=30)
+
+        # Reasoning models (e.g. OpenRouter's Nemotron tier) spend part of the
+        # ``max_tokens`` budget on hidden reasoning tokens. With a long policy
+        # context that reasoning can exhaust the budget, which truncates the
+        # answer and can spill the model's chain-of-thought into ``content``.
+        # OpenRouter supports a per-request ``reasoning`` control, so disable it
+        # and return only the final answer. Other providers are left untouched,
+        # and only ``message.content`` is ever used -- reasoning fields are never
+        # surfaced to employees.
+        request_kwargs: dict = {}
+        if "openrouter.ai" in OPENAI_BASE_URL:
+            request_kwargs["extra_body"] = {"reasoning": {"enabled": False}}
+
         completion = client.chat.completions.create(
             model=OPENAI_MODEL,
             temperature=0.2,
-            max_tokens=400,
+            max_tokens=700,
             messages=[
                 {"role": "system", "content": INSTRUCTIONS},
                 {"role": "user", "content": prompt},
             ],
+            **request_kwargs,
         )
         text = (completion.choices[0].message.content or "").strip()
         return text or None
