@@ -597,11 +597,132 @@ def list_clarifications(
     ]
 
 
+# ---------------------------------------------------------------------------
+# 3b. Messages read model (persisted clarification correspondence)
+# ---------------------------------------------------------------------------
+# A "message thread" is a clarification request: the employee who asked
+# (clarification_requests.user_id) and the policy owner it was routed to
+# (clarification_requests.assigned_to). Replies live in clarification_replies.
+# The originating question text is the linked messages.body (message_id); when
+# that link is absent we fall back to the stored reason.
+MESSAGES_SQL = text(
+    """
+    SELECT cr.id,
+           cr.status,
+           cr.policy_id,
+           p.title AS policy_title,
+           cr.user_id,
+           ru.first_name || ' ' || ru.last_name AS requester,
+           cr.assigned_to,
+           au.first_name || ' ' || au.last_name AS assignee,
+           cr.reason,
+           cr.created_at,
+           cr.resolved_at,
+           m.body AS question,
+           COALESCE(c.reply_count, 0) AS reply_count,
+           lr.last_body,
+           lr.last_sender,
+           lr.last_sender_id,
+           lr.last_at,
+           GREATEST(cr.created_at, COALESCE(lr.last_at, cr.created_at)) AS updated_at
+    FROM clarification_requests cr
+    LEFT JOIN policies p ON p.id = cr.policy_id
+    LEFT JOIN users ru ON ru.id = cr.user_id
+    LEFT JOIN users au ON au.id = cr.assigned_to
+    LEFT JOIN messages m ON m.id = cr.message_id
+    LEFT JOIN LATERAL (
+        SELECT count(*) AS reply_count
+        FROM clarification_replies r
+        WHERE r.request_id = cr.id
+    ) c ON true
+    LEFT JOIN LATERAL (
+        SELECT r.body AS last_body,
+               r.sender_id AS last_sender_id,
+               r.created_at AS last_at,
+               ls.first_name || ' ' || ls.last_name AS last_sender
+        FROM clarification_replies r
+        JOIN users ls ON ls.id = r.sender_id
+        WHERE r.request_id = cr.id
+        ORDER BY r.created_at DESC, r.id DESC
+        LIMIT 1
+    ) lr ON true
+    WHERE cr.assigned_to = :uid OR cr.user_id = :uid
+    ORDER BY updated_at DESC
+    """
+)
+
+
+@app.get("/messages")
+def list_messages(user_id: int = Query(...), db: Session = Depends(get_db)) -> dict:
+    """Threads for one user: routed work (inbox) and their own questions (sent)."""
+    if not db.get(User, user_id):
+        raise HTTPException(status_code=404, detail="User not found")
+
+    inbox: list = []
+    sent: list = []
+    for row in db.execute(MESSAGES_SQL, {"uid": user_id}).mappings().all():
+        last_reply = None
+        if row["last_body"] is not None:
+            last_reply = {
+                "sender": row["last_sender"],
+                "sender_id": row["last_sender_id"],
+                "body": row["last_body"],
+                "created_at": row["last_at"].isoformat() if row["last_at"] else None,
+            }
+        item = {
+            "id": row["id"],
+            "status": row["status"],
+            "policy_id": row["policy_id"],
+            "policy_title": row["policy_title"],
+            "subject": row["policy_title"],
+            "user_id": row["user_id"],
+            "requester": row["requester"],
+            "assigned_to": row["assigned_to"],
+            "assignee": row["assignee"],
+            "reason": row["reason"],
+            "question": row["question"] or row["reason"],
+            "reply_count": int(row["reply_count"] or 0),
+            "last_reply": last_reply,
+            "created_at": row["created_at"].isoformat() if row["created_at"] else None,
+            "resolved_at": row["resolved_at"].isoformat() if row["resolved_at"] else None,
+            "updated_at": row["updated_at"].isoformat() if row["updated_at"] else None,
+        }
+        # A person's own request is "sent" to them; a request routed to their
+        # desk is inbox. Self-assigned requests count once, as sent.
+        if row["user_id"] == user_id:
+            sent.append(item)
+        elif row["assigned_to"] == user_id:
+            inbox.append(item)
+
+    return {"user_id": user_id, "inbox": inbox, "sent": sent}
+
+
 @app.post("/clarifications", status_code=201)
 def create_clarification(payload: schemas.ClarificationCreate, db: Session = Depends(get_db)) -> dict:
     if not db.get(User, payload.user_id):
         raise HTTPException(status_code=404, detail="User not found")
-    request = ClarificationRequest(**payload.model_dump())
+
+    data = payload.model_dump()
+    # Route to the policy's accountable owner when the caller does not name one.
+    if data.get("assigned_to") is None and data.get("policy_id") is not None:
+        data["assigned_to"] = db.execute(
+            text("select owner_id from policies where id = :pid"), {"pid": data["policy_id"]}
+        ).scalar()
+    if data.get("assigned_to") is None:
+        data["assigned_to"] = db.execute(
+            text(
+                """
+                select u.id
+                from users u
+                join roles r on r.id = u.role_id
+                where r.name = 'Policy Owner'
+                order by u.id
+                limit 1
+                """
+            )
+        ).scalar()
+
+    request = ClarificationRequest(**data)
     db.add(request)
     db.commit()
     return {"id": request.id, "status": request.status, "assigned_to": request.assigned_to}
@@ -612,11 +733,22 @@ def get_clarification(request_id: int, db: Session = Depends(get_db)) -> dict:
     request = db.get(ClarificationRequest, request_id)
     if not request:
         raise HTTPException(status_code=404, detail="Clarification request not found")
+
+    question = None
+    if request.message_id:
+        origin = db.get(Message, request.message_id)
+        if origin:
+            question = origin.body
+    policy_title = request.policy.title if request.policy else None
+
     return {
         "id": request.id,
         "user_id": request.user_id,
         "requester": request.requester.full_name if request.requester else None,
         "policy_id": request.policy_id,
+        "policy_title": policy_title,
+        "subject": policy_title,
+        "question": question or request.reason,
         "reason": request.reason,
         "status": request.status,
         "assigned_to": request.assigned_to,
@@ -645,6 +777,11 @@ def add_clarification_reply(
         raise HTTPException(status_code=404, detail="Clarification request not found")
     if not db.get(User, payload.sender_id):
         raise HTTPException(status_code=404, detail="Sender not found")
+    if payload.sender_id not in (request.user_id, request.assigned_to):
+        raise HTTPException(
+            status_code=403,
+            detail="Only the requester or the assigned policy owner may reply to this thread.",
+        )
 
     reply = ClarificationReply(
         request_id=request_id, sender_id=payload.sender_id, body=payload.body

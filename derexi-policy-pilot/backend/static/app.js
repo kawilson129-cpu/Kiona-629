@@ -77,7 +77,8 @@
     assistMode: 'ask',
     msgTab: 'inbox',
     openThreadId: null,
-    demoReplies: {}
+    messagesData: { inbox: [], sent: [] },
+    threadData: null
   };
 
   function api(path, opts) {
@@ -621,343 +622,49 @@
   }
 
   /* ---------------------------------------------------------------- messages
-     Week 7 Messages -- DEMONSTRATION ONLY.
+     Internal Messages -- persisted clarification correspondence.
 
-     Every subject, participant, timestamp, policy reference, and reply below
-     is a fictional synthetic fixture written for the classroom demo. Nothing
-     on this surface is read from or written to Supabase, no backend messaging
-     endpoint is called, and no JWT is required. Replies composed here live
-     only in this browser tab's in-memory state (state.demoReplies).
+     Each thread is one clarification_request: the employee who asked
+     (clarification_requests.user_id) and the policy owner it was routed to
+     (clarification_requests.assigned_to). Replies are stored in
+     clarification_replies and the originating question is the linked
+     messages.body. Persona switching is a LOCAL DEMO affordance only -- the
+     selected user_id is supplied by the client and is NOT authentication; when
+     JWT auth is wired in the sender must come from the verified token.
      ---------------------------------------------------------------------- */
-  var DEMO_MESSAGES = {
-    'sam okonkwo': {
-      inbox: [
-        {
-          id: 'sam-in-1',
-          subject: 'Parental leave \u2014 one detail to confirm',
-          from: 'Jordan Rivera',
-          to: 'Sam Okonkwo',
-          policy: 'Parental Leave',
-          status: 'in_progress',
-          at: '2026-10-09T14:22:00Z',
-          replies: [
-            { from: 'Sam Okonkwo', at: '2026-10-09T13:50:00Z', body: 'I am planning to take parental leave in November. Does the leave run concurrently with FMLA, and how far ahead should I file?' },
-            { from: 'Jordan Rivera', at: '2026-10-09T14:22:00Z', body: 'Your leave runs concurrently with FMLA where the leave qualifies. Please file the request at least 30 days before your intended start date so we can confirm your eligibility window.' }
-          ]
-        },
-        {
-          id: 'sam-in-2',
-          subject: 'That email looks like phishing \u2014 what now?',
-          from: 'Chris Tanaka',
-          to: 'Sam Okonkwo',
-          policy: 'Phishing & Email Security',
-          status: 'open',
-          at: '2026-10-10T09:05:00Z',
-          replies: [
-            { from: 'Chris Tanaka', at: '2026-10-10T09:05:00Z', body: 'The security desk flagged a message sent to your inbox that matches a known phishing campaign. Do not click any links or open attachments, and forward the message to the security desk.' }
-          ]
-        }
-      ],
-      sent: [
-        {
-          id: 'sam-out-1',
-          subject: 'Remote work equipment stipend question',
-          from: 'Sam Okonkwo',
-          to: 'Jordan Rivera',
-          policy: 'Mobile Device & BYOD',
-          status: 'resolved',
-          at: '2026-10-06T16:40:00Z',
-          replies: [
-            { from: 'Sam Okonkwo', at: '2026-10-06T16:40:00Z', body: 'I work remotely full time. Am I eligible for the home-office equipment stipend, and does my personal laptop qualify under BYOD?' },
-            { from: 'Jordan Rivera', at: '2026-10-07T10:12:00Z', body: 'You are eligible for the annual stipend. A personal laptop may connect to the bank network only if it is enrolled in the mobile device management profile described in the BYOD policy.' },
-            { from: 'Sam Okonkwo', at: '2026-10-07T10:30:00Z', body: 'Understood. I will submit the enrollment request. Thank you.' }
-          ]
-        }
-      ]
-    },
-    'maya patel': {
-      inbox: [
-        {
-          id: 'maya-in-1',
-          subject: 'Clarification: does UDAAP cover a fee change?',
-          from: 'Sam Okonkwo',
-          to: 'Maya Patel',
-          policy: 'UDAAP \u2014 Unfair, Deceptive, or Abusive Acts',
-          status: 'open',
-          at: '2026-10-10T11:18:00Z',
-          replies: [
-            { from: 'Sam Okonkwo', at: '2026-10-10T11:18:00Z', body: 'DeRexi was not confident whether increasing an account maintenance fee falls under UDAAP review. Can you clarify the trigger for a fee-change review?' }
-          ]
-        },
-        {
-          id: 'maya-in-2',
-          subject: 'May I use an AI assistant for a client memo?',
-          from: 'Alex Chen',
-          to: 'Maya Patel',
-          policy: 'Acceptable Use of AI Tools',
-          status: 'in_progress',
-          at: '2026-10-08T15:44:00Z',
-          replies: [
-            { from: 'Alex Chen', at: '2026-10-08T15:44:00Z', body: 'Can I draft an internal client memo with a generative AI assistant, or does that count as introducing client data into a third-party tool?' },
-            { from: 'Maya Patel', at: '2026-10-08T16:20:00Z', body: 'Internal drafting is permitted on the approved tool only, with no client-identifying data. I am confirming the exact list of approved tools before you proceed.' }
-          ]
-        }
-      ],
-      sent: [
-        {
-          id: 'maya-out-1',
-          subject: 'Re: Generative AI \u2014 approved use cases',
-          from: 'Maya Patel',
-          to: 'Alex Chen',
-          policy: 'Acceptable Use of AI Tools',
-          status: 'resolved',
-          at: '2026-10-07T13:02:00Z',
-          replies: [
-            { from: 'Maya Patel', at: '2026-10-07T13:02:00Z', body: 'Sharing the approved generative-AI use cases: summarizing public regulation, drafting internal outlines, and rewriting your own text. Client-identifying data is prohibited.' },
-            { from: 'Alex Chen', at: '2026-10-07T13:40:00Z', body: 'That answers it. I will keep client data out and use the approved tool list.' }
-          ]
-        }
-      ]
-    },
-    'alex chen': {
-      inbox: [
-        {
-          id: 'alex-in-1',
-          subject: 'Generative AI \u2014 approved use cases',
-          from: 'Maya Patel',
-          to: 'Alex Chen',
-          policy: 'Acceptable Use of AI Tools',
-          status: 'in_progress',
-          at: '2026-10-07T13:02:00Z',
-          replies: [
-            { from: 'Maya Patel', at: '2026-10-07T13:02:00Z', body: 'Sharing the approved generative-AI use cases: summarizing public regulation, drafting internal outlines, and rewriting your own text. Client-identifying data is prohibited.' },
-            { from: 'Alex Chen', at: '2026-10-07T13:40:00Z', body: 'That answers it. I will keep client data out and use the approved tool list.' }
-          ]
-        },
-        {
-          id: 'alex-in-2',
-          subject: 'Enroll your device in the management profile',
-          from: 'Lucy Chen',
-          to: 'Alex Chen',
-          policy: 'Mobile Device & BYOD',
-          status: 'open',
-          at: '2026-10-09T08:30:00Z',
-          replies: [
-            { from: 'Lucy Chen', at: '2026-10-09T08:30:00Z', body: 'Your new laptop still needs to be enrolled in the device management profile before it can reach the internal network. Please complete enrollment by Friday.' }
-          ]
-        }
-      ],
-      sent: [
-        {
-          id: 'alex-out-1',
-          subject: 'AI tool question before I draft',
-          from: 'Alex Chen',
-          to: 'Maya Patel',
-          policy: 'Acceptable Use of AI Tools',
-          status: 'resolved',
-          at: '2026-10-08T15:44:00Z',
-          replies: [
-            { from: 'Alex Chen', at: '2026-10-08T15:44:00Z', body: 'Can I draft an internal client memo with a generative AI assistant, or does that count as introducing client data into a third-party tool?' },
-            { from: 'Maya Patel', at: '2026-10-08T16:20:00Z', body: 'Internal drafting is permitted on the approved tool only, with no client-identifying data. I am confirming the exact list of approved tools before you proceed.' }
-          ]
-        }
-      ]
-    },
-    'lucy chen': {
-      inbox: [
-        {
-          id: 'lucy-in-1',
-          subject: 'Escalation: phishing wave hitting Lending',
-          from: 'Chris Tanaka',
-          to: 'Lucy Chen',
-          policy: 'Phishing & Email Security',
-          status: 'in_progress',
-          at: '2026-10-10T09:40:00Z',
-          replies: [
-            { from: 'Chris Tanaka', at: '2026-10-10T09:40:00Z', body: 'We are seeing a phishing wave targeting Lending mailboxes. Please watch for quarantine spikes and let me know if any endpoint shows outbound contact to the linked domain.' },
-            { from: 'Lucy Chen', at: '2026-10-10T10:05:00Z', body: 'Acknowledged. I have raised the quarantine threshold for the Lending distribution group and will report any endpoint hits.' }
-          ]
-        },
-        {
-          id: 'lucy-in-2',
-          subject: 'Replacement laptop \u2014 reimage request',
-          from: 'Sam Okonkwo',
-          to: 'Lucy Chen',
-          policy: 'Mobile Device & BYOD',
-          status: 'open',
-          at: '2026-10-09T17:12:00Z',
-          replies: [
-            { from: 'Sam Okonkwo', at: '2026-10-09T17:12:00Z', body: 'My replacement laptop arrived. Can you reimage it and enroll it so I can get back to client work remotely?' }
-          ]
-        }
-      ],
-      sent: [
-        {
-          id: 'lucy-out-1',
-          subject: 'Access review window opens Monday',
-          from: 'Lucy Chen',
-          to: 'Chris Tanaka',
-          policy: 'Identity & Access Management',
-          status: 'resolved',
-          at: '2026-10-05T14:00:00Z',
-          replies: [
-            { from: 'Lucy Chen', at: '2026-10-05T14:00:00Z', body: 'The quarterly privileged-access review opens Monday. Please confirm the SOC service accounts before I revoke stale entitlements.' },
-            { from: 'Chris Tanaka', at: '2026-10-05T14:35:00Z', body: 'Confirmed. All SOC service accounts remain required; no changes from last quarter.' }
-          ]
-        }
-      ]
-    },
-    'jordan rivera': {
-      inbox: [
-        {
-          id: 'jordan-in-1',
-          subject: 'Parental leave \u2014 one detail to confirm',
-          from: 'Sam Okonkwo',
-          to: 'Jordan Rivera',
-          policy: 'Parental Leave',
-          status: 'in_progress',
-          at: '2026-10-09T13:50:00Z',
-          replies: [
-            { from: 'Sam Okonkwo', at: '2026-10-09T13:50:00Z', body: 'I am planning to take parental leave in November. Does the leave run concurrently with FMLA, and how far ahead should I file?' },
-            { from: 'Jordan Rivera', at: '2026-10-09T14:22:00Z', body: 'Your leave runs concurrently with FMLA where the leave qualifies. Please file the request at least 30 days before your intended start date.' }
-          ]
-        },
-        {
-          id: 'jordan-in-2',
-          subject: 'Bereavement leave eligibility',
-          from: 'Alex Chen',
-          to: 'Jordan Rivera',
-          policy: 'Bereavement Leave',
-          status: 'open',
-          at: '2026-10-08T10:15:00Z',
-          replies: [
-            { from: 'Alex Chen', at: '2026-10-08T10:15:00Z', body: 'Does bereavement leave extend to a grandparent, and is it paid separately from PTO?' }
-          ]
-        }
-      ],
-      sent: [
-        {
-          id: 'jordan-out-1',
-          subject: 'Remote work equipment stipend question',
-          from: 'Jordan Rivera',
-          to: 'Sam Okonkwo',
-          policy: 'Mobile Device & BYOD',
-          status: 'resolved',
-          at: '2026-10-07T10:12:00Z',
-          replies: [
-            { from: 'Sam Okonkwo', at: '2026-10-06T16:40:00Z', body: 'I work remotely full time. Am I eligible for the home-office equipment stipend, and does my personal laptop qualify under BYOD?' },
-            { from: 'Jordan Rivera', at: '2026-10-07T10:12:00Z', body: 'You are eligible for the annual stipend. A personal laptop may connect to the bank network only if it is enrolled in the mobile device management profile.' }
-          ]
-        }
-      ]
-    },
-    'chris tanaka': {
-      inbox: [
-        {
-          id: 'chris-in-1',
-          subject: 'Suspicious sign-in cluster on a shared terminal',
-          from: 'Lucy Chen',
-          to: 'Chris Tanaka',
-          policy: 'Identity & Access Management',
-          status: 'in_progress',
-          at: '2026-10-10T08:50:00Z',
-          replies: [
-            { from: 'Lucy Chen', at: '2026-10-10T08:50:00Z', body: 'Five failed sign-ins and one success came from a shared terminal outside normal hours. Passing the account and terminal IDs to the SOC now.' },
-            { from: 'Chris Tanaka', at: '2026-10-10T09:10:00Z', body: 'Received. I am pulling authentication and endpoint telemetry and will escalate to Level 2 if the pattern holds.' }
-          ]
-        },
-        {
-          id: 'chris-in-2',
-          subject: 'That email looks like phishing',
-          from: 'Sam Okonkwo',
-          to: 'Chris Tanaka',
-          policy: 'Phishing & Email Security',
-          status: 'open',
-          at: '2026-10-10T09:05:00Z',
-          replies: [
-            { from: 'Sam Okonkwo', at: '2026-10-10T09:05:00Z', body: 'I received an unexpected message asking me to confirm my banking credentials. It looks fake. What should I do with it?' }
-          ]
-        }
-      ],
-      sent: [
-        {
-          id: 'chris-out-1',
-          subject: 'Lost work laptop \u2014 next steps',
-          from: 'Chris Tanaka',
-          to: 'Sam Okonkwo',
-          policy: 'Incident Reporting & Escalation',
-          status: 'resolved',
-          at: '2026-10-04T18:20:00Z',
-          replies: [
-            { from: 'Chris Tanaka', at: '2026-10-04T18:20:00Z', body: 'Your lost-laptop report is logged. Remote wipe has been issued and the device is now blocked from the network. No further action is needed from you.' }
-          ]
-        }
-      ]
-    }
-  };
-
-  function demoKey(u) {
-    return String((u && u.full_name) || '').toLowerCase();
+  function messagesApi(userId) {
+    return api('/messages?user_id=' + encodeURIComponent(userId));
   }
 
-  function genericDemoThreads(u) {
-    var name = u.full_name;
-    var role = titleRole(u.role || 'Employee');
-    var dept = u.department || 'Bank Operations';
-    return {
-      inbox: [
-        {
-          id: 'gen-in-1',
-          subject: 'A policy question was routed to you',
-          from: 'DeRexi Routing',
-          to: name,
-          policy: 'Code of Conduct & Ethics',
-          status: 'open',
-          at: '2026-10-09T15:10:00Z',
-          replies: [
-            { from: 'DeRexi Routing', at: '2026-10-09T15:10:00Z', body: 'A colleague asked a question that no approved policy answered with confidence. As the ' + role + ' for ' + dept + ', you have been asked to clarify. This is a synthetic demonstration thread.' }
-          ]
-        }
-      ],
-      sent: [
-        {
-          id: 'gen-out-1',
-          subject: 'Welcome to DeRexi Messages',
-          from: name,
-          to: 'DeRexi Routing',
-          policy: 'Information Security Awareness',
-          status: 'resolved',
-          at: '2026-10-07T09:00:00Z',
-          replies: [
-            { from: name, at: '2026-10-07T09:00:00Z', body: 'Sending a demonstration message as ' + role + ' in ' + dept + '.' },
-            { from: 'DeRexi Routing', at: '2026-10-07T09:12:00Z', body: 'Received. In the live product this thread would be stored privately; here it is a synthetic fixture only.' }
-          ]
-        }
-      ]
-    };
-  }
-
-  function demoThreadsFor(u) {
-    return DEMO_MESSAGES[demoKey(u)] || genericDemoThreads(u);
-  }
-
-  function demoReplyKey(t) {
-    return String(state.personaId) + '::' + t.id;
-  }
-
-  function demoMessages(t) {
-    return (t.replies || []).concat(state.demoReplies[demoReplyKey(t)] || []);
-  }
-
-  function demoLastBody(t) {
-    var msgs = demoMessages(t);
-    var body = msgs.length ? String(msgs[msgs.length - 1].body) : '';
-    body = body.replace(/\s+/g, ' ').trim();
+  function snippet(text) {
+    var body = String(text || '').replace(/\s+/g, ' ').trim();
     return body.length > 96 ? body.slice(0, 96).trim() + '\u2026' : body;
   }
 
-  function demoStamp(status) {
-    return h('span', { class: 'stamp ' + stampCls(status), html: '<span class="dot"></span>' + escText(String(status || '').replace(/_/g, ' ')) });
+  function threadQuestion(t) {
+    return t.question || t.reason || 'Policy clarification request.';
+  }
+
+  function threadSubject(t) {
+    if (t.subject) return t.subject;
+    if (t.policy_title) return 'Clarification \u00b7 ' + t.policy_title;
+    return 'Policy clarification';
+  }
+
+  function threadCounterpart(t) {
+    var me = currentUser();
+    if (me && t.user_id === me.id) return t.assignee || 'Policy Owner';
+    return t.requester || 'Employee';
+  }
+
+  function threadLastBody(t) {
+    if (t.last_reply && t.last_reply.body) return snippet(t.last_reply.body);
+    return snippet(threadQuestion(t));
+  }
+
+  function isAssignee(t) {
+    var me = currentUser();
+    return !!(me && t.assigned_to === me.id);
   }
 
   function fmtWhen(iso) {
@@ -968,15 +675,8 @@
       ' \u00b7 ' + d.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
   }
 
-  function counterpart(t) {
-    var me = currentUser();
-    return me && t.from === me.full_name ? t.to : t.from;
-  }
-
-  function findThread(threads, id) {
-    var all = threads.inbox.concat(threads.sent);
-    for (var i = 0; i < all.length; i++) if (all[i].id === id) return all[i];
-    return null;
+  function threadStamp(status) {
+    return h('span', { class: 'stamp ' + stampCls(status), html: '<span class="dot"></span>' + escText(String(status || '').replace(/_/g, ' ')) });
   }
 
   function renderMessages(app) {
@@ -985,24 +685,38 @@
     var head = h('div', { class: 'view-head' });
     head.appendChild(h('p', { class: 'view-kicker', text: 'Internal Messages' }));
     head.appendChild(h('h1', { class: 'view-title', html: 'Inbox &amp; <em>correspondence</em>' }));
-    head.appendChild(h('p', { class: 'view-sub', text: 'Threads DeRexi routed to a policy owner, and messages sent inside the bank. Everything on this screen is a fictional demonstration fixture.' }));
-    head.appendChild(h('div', { class: 'demo-note' }, [
-      h('span', { class: 'demo-flag', text: 'DEMO DATA' }),
-      h('span', { class: 'demo-note-text', text: 'Simulated messages and replies only. Nothing is read from, sent to, or stored in Supabase.' })
-    ]));
+    head.appendChild(h('p', { class: 'view-sub', text: 'Clarification requests DeRexi routed to a policy owner, and the replies that follow. Every thread here is stored in the policy register.' }));
     view.appendChild(head);
-
-    var threads = demoThreadsFor(currentUser());
+    app.appendChild(view);
 
     if (state.openThreadId) {
-      var open = findThread(threads, state.openThreadId);
-      if (open) { view.appendChild(buildConversation(open)); app.appendChild(view); return; }
-      state.openThreadId = null;
+      loadConversation(view, state.openThreadId);
+      return;
     }
+    loadThreads(view);
+  }
 
-    view.appendChild(buildMessageTabs());
-    view.appendChild(buildThreadList(threads));
-    app.appendChild(view);
+  function skelMessages() {
+    return h('div', { class: 'skel', style: 'height:260px;border-radius:16px;opacity:.7' });
+  }
+
+  function loadThreads(view) {
+    var host = h('div', null);
+    host.appendChild(skelMessages());
+    view.appendChild(host);
+
+    messagesApi(state.personaId).then(function (data) {
+      state.messagesData = { inbox: data.inbox || [], sent: data.sent || [] };
+      host.innerHTML = '';
+      host.appendChild(buildMessageTabs());
+      host.appendChild(buildThreadList(state.messagesData));
+    }).catch(function (err) {
+      host.innerHTML = '';
+      host.appendChild(h('div', { class: 'empty card' }, [
+        h('div', { class: 'mark', text: 'Messages unavailable' }),
+        h('div', { class: 'ok', text: err.message })
+      ]));
+    });
   }
 
   function buildMessageTabs() {
@@ -1020,9 +734,9 @@
     return tabs;
   }
 
-  function buildThreadList(threads) {
+  function buildThreadList(data) {
     var isSent = state.msgTab === 'sent';
-    var list = isSent ? threads.sent : threads.inbox;
+    var list = isSent ? data.sent : data.inbox;
     var pane = h('div', { class: 'pane' });
     pane.appendChild(h('div', { class: 'pane-head' }, [
       h('h3', { text: isSent ? 'Sent' : 'Inbox' }),
@@ -1031,8 +745,8 @@
     var body = h('div', { class: 'pane-body thread-list' });
     if (!list.length) {
       body.appendChild(h('div', { class: 'empty' }, [
-        h('div', { class: 'mark', text: 'Nothing filed' }),
-        h('div', { class: 'ok', text: 'No demonstration threads in this folder.' })
+        h('div', { class: 'mark', text: isSent ? 'Nothing sent' : 'Inbox clear' }),
+        h('div', { class: 'ok', text: isSent ? 'Questions DeRexi routes to a policy owner will appear here.' : 'No clarification requests have been routed to you.' })
       ]));
     } else {
       list.forEach(function (t) { body.appendChild(buildThreadRow(t)); });
@@ -1042,23 +756,48 @@
   }
 
   function buildThreadRow(t) {
-    var row = h('button', { type: 'button', class: 'thread-row', 'aria-label': 'Open demonstration thread: ' + t.subject }, [
-      h('span', { class: 'thread-avatar', text: initials(counterpart(t)) }),
+    var row = h('button', { type: 'button', class: 'thread-row', 'aria-label': 'Open thread: ' + threadSubject(t) }, [
+      h('span', { class: 'thread-avatar', text: initials(threadCounterpart(t)) }),
       h('div', { class: 'thread-main' }, [
         h('div', { class: 'thread-top' }, [
-          h('span', { class: 'thread-subject', text: t.subject }),
-          h('span', { class: 'demo-chip', text: 'DEMO' })
+          h('span', { class: 'thread-subject', text: threadSubject(t) }),
+          t.reply_count ? h('span', { class: 'badge', text: String(t.reply_count) + (t.reply_count === 1 ? ' reply' : ' replies') }) : null
         ]),
-        h('div', { class: 'thread-people', text: t.from + '  \u2192  ' + t.to }),
-        h('div', { class: 'thread-snippet', text: demoLastBody(t) })
+        h('div', { class: 'thread-people', text: t.requester + '  \u2192  ' + (t.assignee || 'Unassigned') }),
+        h('div', { class: 'thread-snippet', text: threadLastBody(t) })
       ]),
       h('div', { class: 'thread-side' }, [
-        h('span', { class: 'thread-time', text: fmtWhen(t.at) }),
-        demoStamp(t.status)
+        h('span', { class: 'thread-time', text: fmtWhen(t.updated_at || t.created_at) }),
+        threadStamp(t.status)
       ])
     ]);
     row.addEventListener('click', function () { state.openThreadId = t.id; render(); });
     return row;
+  }
+
+  function loadConversation(view, id) {
+    var host = h('div', null);
+    host.appendChild(skelMessages());
+    view.appendChild(host);
+
+    api('/clarifications/' + id).then(function (t) {
+      state.threadData = t;
+      host.innerHTML = '';
+      host.appendChild(buildConversation(t));
+    }).catch(function (err) {
+      host.innerHTML = '';
+      host.appendChild(h('div', { class: 'empty card' }, [
+        h('div', { class: 'mark', text: 'Thread unavailable' }),
+        h('div', { class: 'ok', text: err.message })
+      ]));
+    });
+  }
+
+  function convField(k, v) {
+    return h('div', { class: 'conv-field' }, [
+      h('span', { class: 'k', text: k }),
+      h('span', { class: 'v', text: v })
+    ]);
   }
 
   function buildConversation(t) {
@@ -1071,88 +810,125 @@
     var head = h('div', { class: 'conv-head card card-pad' });
     head.appendChild(h('div', { class: 'conv-top' }, [
       h('div', { class: 'conv-title-row' }, [
-        h('h2', { class: 'conv-subject', text: t.subject }),
-        h('span', { class: 'demo-chip', text: 'DEMO DATA' })
+        h('h2', { class: 'conv-subject', text: threadSubject(t) })
       ]),
-      demoStamp(t.status)
+      threadStamp(t.status)
     ]));
-    var fields = h('div', { class: 'conv-fields' }, [
-      convField('From', t.from),
-      convField('To', t.to),
-      convField('Related policy', t.policy),
-      convField('Timestamp', fmtWhen(t.at)),
+    head.appendChild(h('div', { class: 'conv-fields' }, [
+      convField('From', t.requester || 'Employee'),
+      convField('To', t.assignee || 'Unassigned'),
+      convField('Related policy', t.policy_title || (t.policy_id ? 'Policy ' + t.policy_id : 'None on file')),
+      convField('Opened', fmtWhen(t.created_at)),
       convField('Clarification status', String(t.status).replace(/_/g, ' '))
-    ]);
-    head.appendChild(fields);
+    ]));
+    if (t.policy_id) {
+      head.appendChild(h('div', { style: 'margin-top:14px' }, [
+        h('button', { type: 'button', class: 'btn btn-ghost', text: 'Open policy', onclick: function () { openDrawer(t.policy_id); } })
+      ]));
+    }
     wrap.appendChild(head);
 
+    var events = threadEvents(t);
     var sec = h('section', { class: 'section' });
     sec.appendChild(h('div', { class: 'section-head' }, [
       h('h2', { class: 'section-title', text: 'Conversation' }),
-      h('span', { class: 'section-meta', text: demoMessages(t).length + ' replies \u00b7 simulated' })
+      h('span', { class: 'section-meta', text: events.length + ' ' + (events.length === 1 ? 'message' : 'messages') })
     ]));
     var thread = h('div', { class: 'thread' });
-    demoMessages(t).forEach(function (m) { thread.appendChild(buildDemoMsg(m)); });
+    events.forEach(function (m) { thread.appendChild(buildThreadMsg(m)); });
     sec.appendChild(thread);
     wrap.appendChild(sec);
 
-    wrap.appendChild(buildReplyComposer(t));
+    if (t.status === 'resolved' || t.status === 'closed') {
+      wrap.appendChild(h('div', { class: 'empty card' }, [
+        h('div', { class: 'ok', text: 'This thread is ' + t.status + '. Ask a new question through DeRexi to reopen the discussion.' })
+      ]));
+    } else {
+      wrap.appendChild(buildReplyComposer(t));
+    }
     return wrap;
   }
 
-  function convField(k, v) {
-    return h('div', { class: 'conv-field' }, [
-      h('span', { class: 'k', text: k }),
-      h('span', { class: 'v', text: v })
-    ]);
+  function threadEvents(t) {
+    var events = [{
+      id: 'question',
+      sender: t.requester || 'Employee',
+      mine: t.user_id === state.personaId,
+      body: threadQuestion(t),
+      at: t.created_at
+    }];
+    (t.replies || []).forEach(function (r) {
+      events.push({
+        id: 'reply-' + r.id,
+        sender: r.sender || 'Participant',
+        mine: r.sender_id === state.personaId,
+        body: r.body,
+        at: r.created_at
+      });
+    });
+    return events;
   }
 
-  function buildDemoMsg(m) {
-    var me = currentUser();
-    var mine = !!(me && m.from === me.full_name);
-    var avatar = mine
-      ? h('span', { class: 'msg-avatar avatar-user', text: initials(m.from) })
-      : h('span', { class: 'msg-avatar avatar-peer', text: initials(m.from) });
-    var body = h('div', { class: 'msg-body', text: m.body });
-    body.appendChild(h('span', { class: 'demo-sim', text: 'Simulated reply \u00b7 DEMO DATA' }));
-    return h('div', { class: 'msg' + (mine ? ' msg-user' : '') }, [
+  function buildThreadMsg(m) {
+    var avatar = m.mine
+      ? h('span', { class: 'msg-avatar avatar-user', text: initials(m.sender) })
+      : h('span', { class: 'msg-avatar avatar-peer', text: initials(m.sender) });
+    return h('div', { class: 'msg' + (m.mine ? ' msg-user' : '') }, [
       avatar,
       h('div', { class: 'msg-col' }, [
-        body,
-        h('div', { class: 'msg-meta', text: m.from + ' \u00b7 ' + fmtWhen(m.at) + ' \u00b7 DEMO' })
+        h('div', { class: 'msg-body', text: m.body }),
+        h('div', { class: 'msg-meta', text: m.sender + ' \u00b7 ' + fmtWhen(m.at) })
       ])
     ]);
   }
 
   function buildReplyComposer(t) {
-    var sec = h('section', { class: 'section reply-demo' });
+    var sec = h('section', { class: 'section' });
     sec.appendChild(h('div', { class: 'section-head' }, [
-      h('h2', { class: 'section-title', text: 'Reply' }),
-      h('span', { class: 'demo-flag', text: 'DEMO DATA' })
+      h('h2', { class: 'section-title', text: 'Reply' })
     ]));
 
     var field = h('div', { class: 'reply-field' });
-    var ta = h('textarea', { rows: '3', placeholder: 'Write a demonstration reply \u2014 it stays in this browser tab and is never sent or stored.', value: '' });
-    ta.setAttribute('aria-label', 'Demonstration reply');
+    var ta = h('textarea', { rows: '3', placeholder: 'Write a reply to ' + threadCounterpart(t) + '. It is saved to the policy register.', value: '' });
+    ta.setAttribute('aria-label', 'Your reply');
     var send = h('button', { type: 'button', class: 'send-btn', html: icon('send') + '<span>Send reply</span>' });
-    send.setAttribute('aria-label', 'Send demonstration reply');
+    send.setAttribute('aria-label', 'Send reply');
+    var acts = h('div', { class: 'reply-actions' }, [send]);
+
+    if (isAssignee(t)) {
+      var resolveBtn = h('button', { type: 'button', class: 'btn btn-ghost', text: 'Mark resolved' });
+      resolveBtn.addEventListener('click', function () { resolveThread(t); });
+      acts.appendChild(resolveBtn);
+    }
     field.appendChild(ta);
-    field.appendChild(h('div', { class: 'reply-actions' }, [
-      send,
-      h('span', { class: 'reply-note', text: 'Simulated \u2014 held in session state only.' })
-    ]));
+    field.appendChild(acts);
     sec.appendChild(field);
 
     send.addEventListener('click', function () {
       var v = ta.value.trim();
-      if (!v) { toast('Write a demonstration reply first.'); return; }
-      var key = demoReplyKey(t);
-      if (!state.demoReplies[key]) state.demoReplies[key] = [];
-      state.demoReplies[key].push({ from: currentUser().full_name, at: new Date().toISOString(), body: v });
-      toast('Demonstration reply added \u2014 not sent.');
-      render();
+      if (!v) { toast('Write a reply first.'); return; }
+      send.disabled = true;
+      api('/clarifications/' + t.id + '/replies', {
+        method: 'POST',
+        body: JSON.stringify({ sender_id: state.personaId, body: v })
+      }).then(function () {
+        toast('Reply sent.');
+        render();
+      }).catch(function (err) {
+        send.disabled = false;
+        toast('Could not send reply (' + err.message + ')');
+      });
     });
     return sec;
+  }
+
+  function resolveThread(t) {
+    api('/clarifications/' + t.id + '/resolve', { method: 'POST', body: JSON.stringify({}) }).then(function () {
+      toast('Request #' + t.id + ' marked resolved.');
+      render();
+    }).catch(function (err) {
+      toast('Could not resolve request (' + err.message + ')');
+    });
   }
 
   /* ---------------------------------------------------------------- library */
