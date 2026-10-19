@@ -26,8 +26,16 @@ from dotenv import load_dotenv
 load_dotenv(Path(__file__).resolve().parent / ".env")
 
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
-OPENAI_BASE_URL = os.getenv("OPENAI_BASE_URL") or "https://api.openai.com/v1"
-OPENAI_MODEL = os.getenv("OPENAI_MODEL") or "gpt-4o-mini"
+
+OPENAI_BASE_URL = os.getenv(
+    "OPENAI_BASE_URL",
+    "https://openrouter.ai/api/v1"
+)
+
+OPENAI_MODEL = os.getenv(
+    "OPENAI_MODEL",
+    "nvidia/nemotron-3-ultra-550b-a55b:free"
+)
 
 INSTRUCTIONS = (
     "You are DeRexi, the internal policy-guidance assistant for Aurum Capital "
