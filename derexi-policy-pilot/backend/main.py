@@ -44,6 +44,10 @@ from models import (
     User,
 )
 
+# Imports the new Pulse module's API routes.
+from pulse.routes import router as pulse_router
+
+
 # Minimum blended similarity score before DeRexi treats a match as authoritative.
 # Calibrated against the seeded handbook: genuine matches score >= 0.27, while
 # questions with no matching approved policy (e.g. wire approval thresholds)
@@ -55,6 +59,9 @@ app = FastAPI(
     description="Policy governance and incident assistance for Aurum Capital Bank.",
     version="0.4.0",
 )
+
+# Connects Pulse's regulatory news endpoints to DeRexi.
+app.include_router(pulse_router)
 
 app.add_middleware(
     CORSMiddleware,
