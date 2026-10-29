@@ -225,13 +225,23 @@
     var list = h('div', { class: 'gate-list' });
     state.users.forEach(function (pers) {
       var flag = pers.role_id === 2 ? 'Policy Owner' : pers.role_id === 3 ? 'System Admin' : pers.role_id === 1 ? 'Employee' : '';
+      var accessLabel = (function(){
+        if (pers.role && pers.role.name) {
+          var rn = pers.role.name.toUpperCase().replace(/_/g, ' ');
+          if (rn === 'SYSTEM ADMIN') return 'SYSTEM ADMIN';
+          if (rn === 'POLICY OWNER') return 'POLICY OWNER';
+          if (rn === 'EMPLOYEE') return 'EMPLOYEE';
+          return rn;
+        }
+        return flag.toUpperCase();
+      })();
       var row = h('button', { type: 'button', class: 'gate-row' + (u && pers.id === u.id ? ' is-cur' : ''), onclick: function () { choosePersona(pers.id, true); } }, [
         h('span', { class: 'gate-avatar', text: initials(pers.full_name) }),
         h('span', { class: 'gate-id' }, [
           h('span', { class: 'gate-name', text: pers.full_name }),
-          h('span', { class: 'gate-sub', text: titleRole(pers.role) + ' · ' + pers.department })
+          h('span', { class: 'gate-sub', text: (pers.department || '') + ' · ' + accessLabel })
         ]),
-        h('span', { class: 'gate-flag', text: flag })
+        h('span', { class: 'gate-flag', text: accessLabel })
       ]);
       list.appendChild(row);
     });
@@ -581,8 +591,13 @@
     return h('button', { type: 'button', class: 'cite', onclick: function () { openDrawer(c.policy_id); } }, [
       h('span', { class: 'cite-idx', text: String(idx).padStart(2, '0') }),
       h('span', { class: 'cite-body' }, [
-        h('span', { class: 'cite-title', text: c.title }),
-        h('span', { class: 'cite-meta', text: 'v' + c.version_no + ' · s ' + c.score.toFixed(4) })
+        h('span', { class: 'cite-head' }, [
+          h('span', { class: 'cite-title', text: c.title })
+        ]),
+        h('span', { class: 'cite-meta' }, [
+          h('span', { class: 'cite-version', text: 'v' + c.version_no }),
+          h('span', { text: '· s ' + c.score.toFixed(4) })
+        ])
       ]),
       h('span', { class: 'cite-score', text: 'policy ' + c.policy_id })
     ]);

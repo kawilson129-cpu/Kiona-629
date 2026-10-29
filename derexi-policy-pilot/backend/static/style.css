@@ -129,7 +129,10 @@ button {
   display: flex;
   align-items: center;
   gap: 18px;
-  padding: 14px max(24px, calc((100vw - 1080px) / 2));
+  padding: 14px max(24px, calc((100vw - 95vw) / 2));
+  width: 95%;
+  max-width: 95vw;
+  margin: 0 auto;
   border-bottom: 1px solid var(--rule);
   font-family: var(--mono);
   font-size: 11px;
@@ -162,10 +165,14 @@ button {
 .topbar {
   display: flex;
   align-items: center;
-  gap: 28px;
-  padding: 14px max(24px, calc((100vw - 1080px) / 2));
-  max-width: 1160px;
+  justify-content: space-between;
+  gap: clamp(16px, 3vw, 40px);
+  padding: 14px max(24px, calc((100vw - 95vw) / 2));
+  width: 95%;
+  max-width: 95vw;
   margin: 0 auto;
+  flex-wrap: nowrap;
+  min-width: 0;
 }
 
 .wordmark { display: flex; align-items: center; gap: 12px; }
@@ -192,15 +199,36 @@ button {
 .wm-seal + span { display: flex; flex-direction: column; }
 
 /* nav */
-.nav-links { display: flex; gap: 4px; margin-left: 18px; }
+.nav-links {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex: 1 1 auto;
+  gap: clamp(8px, 2vw, 24px);
+  margin-left: 0;
+  min-width: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: thin;
+  -webkit-overflow-scrolling: touch;
+}
+.nav-links::-webkit-scrollbar {
+  height: 6px;
+}
+.nav-links::-webkit-scrollbar-thumb {
+  background: var(--rule);
+  border-radius: var(--r-pill);
+}
 .nav-link {
   position: relative;
-  padding: 8px 14px;
+  flex: 0 0 auto;
+  padding: 8px 16px;
   border-radius: var(--r-pill);
   font-weight: 600;
   font-size: 14px;
   color: var(--ink-2);
   transition: color var(--dur-mid) var(--ease-expo);
+  white-space: nowrap;
 }
 .nav-link:hover { color: var(--ink); }
 .nav-link.is-current {
@@ -210,7 +238,7 @@ button {
 }
 
 /* persona */
-.persona { margin-left: auto; display: flex; align-items: center; gap: 12px; }
+.persona { margin-left: 0; display: flex; align-items: center; gap: 12px; flex: 0 0 auto; }
 .persona-label {
   font-family: var(--mono);
   font-size: 11px;
@@ -448,7 +476,7 @@ button {
 .cite {
   display: flex;
   gap: 12px;
-  align-items: flex-start;
+  align-items: center;
   background: var(--paper-2);
   border: 1px solid var(--rule);
   border-radius: 12px;
@@ -463,12 +491,36 @@ button {
   color: var(--gold-deep);
   border: 1px solid var(--gold);
   border-radius: 6px;
-  padding: 2px 6px;
+  width: 34px;
+  height: 34px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   flex: 0 0 auto;
 }
-.cite-body { min-width: 0; }
-.cite-title { font-weight: 700; font-size: 14px; color: var(--ink); }
-.cite-meta { font-family: var(--mono); font-size: 11px; color: var(--ink-3); margin-top: 3px; }
+.cite-body { min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.cite-head {
+  display: block;
+  min-width: 0;
+}
+.cite-title { font-weight: 700; font-size: 14px; color: var(--ink); min-width: 0; display: block; }
+.cite-version {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--ink-3);
+  white-space: nowrap;
+  margin-left: 0;
+}
+.cite-meta {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--ink-3);
+  display: flex;
+  align-items: baseline;
+  gap: 10px 14px;
+  flex-wrap: wrap;
+  margin-top: 1px;
+}
 .cite-excerpt { font-size: 13.5px; color: var(--ink-2); line-height: 1.5; margin-top: 6px; }
 .cite-score { margin-left: auto; font-family: var(--mono); font-size: 11px; color: var(--gold-deep); white-space: nowrap; }
 
@@ -824,8 +876,20 @@ button {
   font-family: var(--serif); font-size: 16px; font-weight: 600;
   background: var(--gold-tint); border: 1px solid var(--rule); color: var(--gold-deep);
 }
+.gate-id {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
 .gate-name { font-weight: 700; font-size: 15px; }
-.gate-sub { font-family: var(--mono); font-size: 11px; color: var(--ink-3); margin-top: 2px; text-transform: uppercase; letter-spacing: 0.06em; }
+.gate-sub {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--ink-3);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
 .gate-flag { margin-left: auto; font-family: var(--mono); font-size: 11px; color: var(--gold-deep); border: 1px solid var(--gold); padding: 3px 9px; border-radius: var(--r-pill); white-space: nowrap; }
 .gate-close {
   position: absolute;
