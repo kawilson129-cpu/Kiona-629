@@ -34,7 +34,12 @@ derexi-policy-pilot/
     ├── models.py             # SQLAlchemy ORM models (14 tables)
     ├── schemas.py            # Pydantic request models
     ├── ai.py                 # optional AI agent (OpenAI-compatible)
-    ├── static/               # Week 6 employee UI (index.html, style.css, app.js)
+    ├── pulse/                # Pulse regulatory-intelligence module
+    │   ├── sources.py        # government feed registry + download
+    │   ├── service.py        # normalization, classification, cache
+    │   └── routes.py         # /api/pulse endpoints
+    ├── static/               # employee UI (index.html, style.css, app.js, pulse.js)
+    ├── tests/                # standalone test scripts (no pytest needed)
     └── main.py               # FastAPI app and endpoints
 ```
 
@@ -116,6 +121,40 @@ uvicorn main:app --reload
 
 Reference data: `GET /departments`, `GET /roles`, `GET /users`, `GET /health`.
 
+## Pulse — Regulatory Intelligence
+
+A read-only feed of federal banking, privacy, and cybersecurity publications,
+surfaced as an editorial newsfeed inside the app at **`/ui/#pulse`** (nav item
+**Pulse**, after Governance). It is a live integration with four free government
+feeds — no API key, account, or paid service:
+
+| Source | Feed | Format |
+|---|---|---|
+| Federal Register | `/api/v1/documents.json` (7 banking regulators, newest first) | JSON |
+| FDIC | GovDelivery RSS for FDIC press releases | RSS |
+| NIST | CSRC draft publications open for comment | JSON |
+| Federal Reserve | Banking & consumer regulatory policy press releases | RSS |
+
+Endpoints:
+
+| Endpoint | Purpose |
+|---|---|
+| `GET /api/pulse?limit=40` | Combined, de-duplicated, newest-first articles (max 60) |
+| `GET /api/pulse/health` | Module check: sources + cache window |
+
+Each article carries `title`, `url` (original publication, https), `published`
+(ISO date), `summary` (plain text), `source`, `agency`, `category`, and `status`.
+Statuses are limited to **Proposed Rule, Final Rule, Notice, Supervisory Guidance,
+Standards Draft, General News**; categories to **Banking & Finance, Regulations,
+Cybersecurity, Privacy & Data Protection, Supervisory Guidance**. Failures are
+per source: `sources` in the response reports `ok`, `count`, `error`, and `stale`
+while the rest of the feed still renders.
+
+Pulse is readable by every demo role. It is **not** an authorization boundary —
+client-side persona switching is a local demo affordance.
+
+Background, architecture, and evidence: `docs/compliance-assignment-2/`.
+
 ## Employee UI (Week 6)
 
 A lightweight single-page employee screen served by FastAPI from `backend/static/` at
@@ -148,6 +187,9 @@ curl -s -X POST http://127.0.0.1:8000/ask \
 
 # Policy health dashboard
 curl -s http://127.0.0.1:8000/dashboard/policy-health
+
+# Pulse feed (default 40 articles)
+curl -s "http://127.0.0.1:8000/api/pulse?limit=5"
 ```
 
 ## Notes

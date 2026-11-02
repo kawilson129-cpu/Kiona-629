@@ -184,6 +184,7 @@
     if (hash === '#library') return 'library';
     if (hash === '#messages') return 'messages';
     if (hash === '#governance') return 'governance';
+    if (hash === '#pulse') return 'pulse';
     return 'assist';
   }
 
@@ -192,11 +193,24 @@
     var v = currentView();
     if (v === null) { app.innerHTML = ''; renderBoot(); return; }
     app.innerHTML = '';
-    var fn = v === 'library' ? renderLibrary : v === 'governance' ? renderGovernance : v === 'messages' ? renderMessages : renderAssist;
+    var fn = v === 'library' ? renderLibrary
+      : v === 'governance' ? renderGovernance
+      : v === 'messages' ? renderMessages
+      : v === 'pulse' ? renderPulse
+      : renderAssist;
     fn(app);
     qaa('.nav-link').forEach(function (a) {
       a.classList.toggle('is-current', a.dataset.view === v);
     });
+    // On narrow widths the nav scrolls horizontally; keep the active item in view.
+    var navBar = qa('.nav-links');
+    var active = qa('.nav-link.is-current');
+    if (navBar && active) {
+      var barBox = navBar.getBoundingClientRect();
+      var itemBox = active.getBoundingClientRect();
+      if (itemBox.left < barBox.left) navBar.scrollLeft -= (barBox.left - itemBox.left) + 8;
+      else if (itemBox.right > barBox.right) navBar.scrollLeft += (itemBox.right - barBox.right) + 8;
+    }
   }
 
   function renderBoot() {
@@ -1460,6 +1474,23 @@
       ]),
       acts
     ]);
+  }
+
+  /* ---------------------------------------------------------------- pulse */
+  // Pulse is its own view module (pulse.js) so this file stays focused on the
+  // policy, message, and governance surfaces; the router only supplies the
+  // mount point. Pulse is readable by every role, so no gating happens here.
+  function renderPulse(app) {
+    if (window.PulseView && typeof window.PulseView.render === 'function') {
+      window.PulseView.render(app);
+      return;
+    }
+    app.appendChild(h('div', { class: 'view' }, [
+      h('div', { class: 'empty card' }, [
+        h('div', { class: 'mark', text: 'Pulse is unavailable' }),
+        h('div', { class: 'ok', text: 'The Pulse module did not load. Reload the page to try again.' })
+      ])
+    ]));
   }
 
   /* ---------------------------------------------------------------- boot */

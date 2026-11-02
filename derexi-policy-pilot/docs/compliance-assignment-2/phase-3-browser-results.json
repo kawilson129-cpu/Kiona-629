@@ -1,0 +1,595 @@
+{
+  "sources": {
+    "Federal Register": {
+      "ok": true,
+      "count": 35,
+      "error": null
+    },
+    "FDIC": {
+      "ok": true,
+      "count": 25,
+      "error": null
+    },
+    "NIST": {
+      "ok": true,
+      "count": 8,
+      "error": null
+    },
+    "Federal Reserve": {
+      "ok": true,
+      "count": 15,
+      "error": null
+    }
+  },
+  "articles": 60,
+  "errors": [],
+  "initial": {
+    "title": "Pulse",
+    "cards": 60,
+    "radar": 4,
+    "lead": "Implementing the Guiding and Establishing National Innovation for U.S. Stablecoins Act for the Issuance of Stablecoins by Entities Subject to the Jurisdiction of the Office of the Comptroller of the Currency",
+    "links": true
+  },
+  "filters": [
+    {
+      "topic": "All Updates",
+      "type": "All Types",
+      "count": 60,
+      "cards": 60,
+      "focused": true,
+      "counts": [
+        60,
+        60
+      ]
+    },
+    {
+      "topic": "All Updates",
+      "type": "Final Rules",
+      "count": 8,
+      "cards": 8,
+      "focused": true,
+      "counts": [
+        8,
+        8
+      ]
+    },
+    {
+      "topic": "All Updates",
+      "type": "Proposed Rules",
+      "count": 15,
+      "cards": 15,
+      "focused": true,
+      "counts": [
+        15,
+        15
+      ]
+    },
+    {
+      "topic": "All Updates",
+      "type": "Notices",
+      "count": 11,
+      "cards": 11,
+      "focused": true,
+      "counts": [
+        11,
+        11
+      ]
+    },
+    {
+      "topic": "All Updates",
+      "type": "Guidance",
+      "count": 2,
+      "cards": 2,
+      "focused": true,
+      "counts": [
+        2,
+        2
+      ]
+    },
+    {
+      "topic": "All Updates",
+      "type": "Standards Drafts",
+      "count": 5,
+      "cards": 5,
+      "focused": true,
+      "counts": [
+        5,
+        5
+      ]
+    },
+    {
+      "topic": "All Updates",
+      "type": "General News",
+      "count": 19,
+      "cards": 19,
+      "focused": true,
+      "counts": [
+        19,
+        19
+      ]
+    },
+    {
+      "topic": "Banking & Finance",
+      "type": "All Types",
+      "count": 51,
+      "cards": 51,
+      "focused": true,
+      "counts": [
+        51,
+        51
+      ]
+    },
+    {
+      "topic": "Banking & Finance",
+      "type": "Final Rules",
+      "count": 8,
+      "cards": 8,
+      "focused": true,
+      "counts": [
+        8,
+        8
+      ]
+    },
+    {
+      "topic": "Banking & Finance",
+      "type": "Proposed Rules",
+      "count": 12,
+      "cards": 12,
+      "focused": true,
+      "counts": [
+        12,
+        12
+      ]
+    },
+    {
+      "topic": "Banking & Finance",
+      "type": "Notices",
+      "count": 10,
+      "cards": 10,
+      "focused": true,
+      "counts": [
+        10,
+        10
+      ]
+    },
+    {
+      "topic": "Banking & Finance",
+      "type": "Guidance",
+      "count": 2,
+      "cards": 2,
+      "focused": true,
+      "counts": [
+        2,
+        2
+      ]
+    },
+    {
+      "topic": "Banking & Finance",
+      "type": "Standards Drafts",
+      "count": 0,
+      "cards": 0,
+      "focused": true,
+      "counts": [
+        0,
+        0
+      ]
+    },
+    {
+      "topic": "Banking & Finance",
+      "type": "General News",
+      "count": 19,
+      "cards": 19,
+      "focused": true,
+      "counts": [
+        19,
+        19
+      ]
+    },
+    {
+      "topic": "Regulations",
+      "type": "All Types",
+      "count": 23,
+      "cards": 23,
+      "focused": true,
+      "counts": [
+        23,
+        23
+      ]
+    },
+    {
+      "topic": "Regulations",
+      "type": "Final Rules",
+      "count": 8,
+      "cards": 8,
+      "focused": true,
+      "counts": [
+        8,
+        8
+      ]
+    },
+    {
+      "topic": "Regulations",
+      "type": "Proposed Rules",
+      "count": 15,
+      "cards": 15,
+      "focused": true,
+      "counts": [
+        15,
+        15
+      ]
+    },
+    {
+      "topic": "Regulations",
+      "type": "Notices",
+      "count": 0,
+      "cards": 0,
+      "focused": true,
+      "counts": [
+        0,
+        0
+      ]
+    },
+    {
+      "topic": "Regulations",
+      "type": "Guidance",
+      "count": 0,
+      "cards": 0,
+      "focused": true,
+      "counts": [
+        0,
+        0
+      ]
+    },
+    {
+      "topic": "Regulations",
+      "type": "Standards Drafts",
+      "count": 0,
+      "cards": 0,
+      "focused": true,
+      "counts": [
+        0,
+        0
+      ]
+    },
+    {
+      "topic": "Regulations",
+      "type": "General News",
+      "count": 0,
+      "cards": 0,
+      "focused": true,
+      "counts": [
+        0,
+        0
+      ]
+    },
+    {
+      "topic": "Cybersecurity",
+      "type": "All Types",
+      "count": 4,
+      "cards": 4,
+      "focused": true,
+      "counts": [
+        4,
+        4
+      ]
+    },
+    {
+      "topic": "Cybersecurity",
+      "type": "Final Rules",
+      "count": 0,
+      "cards": 0,
+      "focused": true,
+      "counts": [
+        0,
+        0
+      ]
+    },
+    {
+      "topic": "Cybersecurity",
+      "type": "Proposed Rules",
+      "count": 0,
+      "cards": 0,
+      "focused": true,
+      "counts": [
+        0,
+        0
+      ]
+    },
+    {
+      "topic": "Cybersecurity",
+      "type": "Notices",
+      "count": 0,
+      "cards": 0,
+      "focused": true,
+      "counts": [
+        0,
+        0
+      ]
+    },
+    {
+      "topic": "Cybersecurity",
+      "type": "Guidance",
+      "count": 0,
+      "cards": 0,
+      "focused": true,
+      "counts": [
+        0,
+        0
+      ]
+    },
+    {
+      "topic": "Cybersecurity",
+      "type": "Standards Drafts",
+      "count": 4,
+      "cards": 4,
+      "focused": true,
+      "counts": [
+        4,
+        4
+      ]
+    },
+    {
+      "topic": "Cybersecurity",
+      "type": "General News",
+      "count": 0,
+      "cards": 0,
+      "focused": true,
+      "counts": [
+        0,
+        0
+      ]
+    },
+    {
+      "topic": "Privacy & Data Protection",
+      "type": "All Types",
+      "count": 3,
+      "cards": 3,
+      "focused": true,
+      "counts": [
+        3,
+        3
+      ]
+    },
+    {
+      "topic": "Privacy & Data Protection",
+      "type": "Final Rules",
+      "count": 0,
+      "cards": 0,
+      "focused": true,
+      "counts": [
+        0,
+        0
+      ]
+    },
+    {
+      "topic": "Privacy & Data Protection",
+      "type": "Proposed Rules",
+      "count": 0,
+      "cards": 0,
+      "focused": true,
+      "counts": [
+        0,
+        0
+      ]
+    },
+    {
+      "topic": "Privacy & Data Protection",
+      "type": "Notices",
+      "count": 2,
+      "cards": 2,
+      "focused": true,
+      "counts": [
+        2,
+        2
+      ]
+    },
+    {
+      "topic": "Privacy & Data Protection",
+      "type": "Guidance",
+      "count": 0,
+      "cards": 0,
+      "focused": true,
+      "counts": [
+        0,
+        0
+      ]
+    },
+    {
+      "topic": "Privacy & Data Protection",
+      "type": "Standards Drafts",
+      "count": 1,
+      "cards": 1,
+      "focused": true,
+      "counts": [
+        1,
+        1
+      ]
+    },
+    {
+      "topic": "Privacy & Data Protection",
+      "type": "General News",
+      "count": 0,
+      "cards": 0,
+      "focused": true,
+      "counts": [
+        0,
+        0
+      ]
+    },
+    {
+      "topic": "Supervisory Guidance",
+      "type": "All Types",
+      "count": 3,
+      "cards": 3,
+      "focused": true,
+      "counts": [
+        3,
+        3
+      ]
+    },
+    {
+      "topic": "Supervisory Guidance",
+      "type": "Final Rules",
+      "count": 0,
+      "cards": 0,
+      "focused": true,
+      "counts": [
+        0,
+        0
+      ]
+    },
+    {
+      "topic": "Supervisory Guidance",
+      "type": "Proposed Rules",
+      "count": 0,
+      "cards": 0,
+      "focused": true,
+      "counts": [
+        0,
+        0
+      ]
+    },
+    {
+      "topic": "Supervisory Guidance",
+      "type": "Notices",
+      "count": 1,
+      "cards": 1,
+      "focused": true,
+      "counts": [
+        1,
+        1
+      ]
+    },
+    {
+      "topic": "Supervisory Guidance",
+      "type": "Guidance",
+      "count": 2,
+      "cards": 2,
+      "focused": true,
+      "counts": [
+        2,
+        2
+      ]
+    },
+    {
+      "topic": "Supervisory Guidance",
+      "type": "Standards Drafts",
+      "count": 0,
+      "cards": 0,
+      "focused": true,
+      "counts": [
+        0,
+        0
+      ]
+    },
+    {
+      "topic": "Supervisory Guidance",
+      "type": "General News",
+      "count": 0,
+      "cards": 0,
+      "focused": true,
+      "counts": [
+        0,
+        0
+      ]
+    }
+  ],
+  "responsive": [
+    {
+      "width": 1440,
+      "overflow": 0,
+      "deskColumns": "332px 332px 332px"
+    },
+    {
+      "width": 1280,
+      "overflow": 0,
+      "deskColumns": "332px 332px 332px"
+    },
+    {
+      "width": 1024,
+      "overflow": 0,
+      "deskColumns": "479px 479px"
+    },
+    {
+      "width": 820,
+      "overflow": 0,
+      "deskColumns": "377px 377px"
+    },
+    {
+      "width": 390,
+      "overflow": 0,
+      "deskColumns": "342px"
+    }
+  ],
+  "states": {
+    "empty": true,
+    "error": true,
+    "xss": true,
+    "degraded": true,
+    "loading": true
+  },
+  "navigation": [
+    {
+      "hash": "assist",
+      "pulse": false
+    },
+    {
+      "hash": "library",
+      "pulse": false
+    },
+    {
+      "hash": "messages",
+      "pulse": false
+    },
+    {
+      "hash": "governance",
+      "pulse": false
+    },
+    {
+      "hash": "pulse",
+      "pulse": true
+    }
+  ],
+  "api": [
+    {
+      "path": "/api/pulse?limit=3",
+      "status": 200
+    },
+    {
+      "path": "/api/pulse?limit=0",
+      "status": 422
+    },
+    {
+      "path": "/api/pulse?limit=999",
+      "status": 422
+    },
+    {
+      "path": "/api/pulse/health",
+      "status": 200
+    },
+    {
+      "path": "/health",
+      "status": 200
+    },
+    {
+      "path": "/users",
+      "status": 200
+    },
+    {
+      "path": "/roles",
+      "status": 200
+    },
+    {
+      "path": "/categories",
+      "status": 200
+    },
+    {
+      "path": "/policies",
+      "status": 200
+    },
+    {
+      "path": "/dashboard/policy-health",
+      "status": 200
+    }
+  ]
+}
