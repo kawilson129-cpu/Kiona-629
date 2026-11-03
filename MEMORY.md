@@ -1,9 +1,11 @@
 # MEMORY.md
 
 ## Last Updated
-October 13, 2026
+November 3, 2026
 
 ## Current Focus
+**November 3 cloud session: RBAC architecture approved with conditions; Stage 1 implemented and stopped for review.** See `derexi-policy-pilot/docs/rbac-design-review.md`. Pure permissions/principal resolution and synthetic offline tests only; 40 RBAC tests and 24 existing auth tests pass. No route enforcement, UI/switcher change or later stage is authorized. The cloud checkout at `dba7f8f` does not contain some messaging fixes described below; historical uncommitted-state notes are not evidence of the current working tree. Preserve all fictional employees, departments, assigned roles, live Supabase data, and developer persona switching. No live data changes, commits, or pushes are authorized.
+
 **DeRexi Week 7 Messages — the Messages screen is now backed by REAL persisted clarification threads (was demo-only). Done + verified this session (uncommitted).** Still open from prior sessions: (1) SSD1 Criterion #6 evidence package WRITTEN, ready for ChatGPT layout; (2) Cryptography 1 Criterion #6 BLOCKED awaiting Kiona's 5 screenshots A–E. Crypto Labs 1–3 committed; Labs 4–6 complete + verified but still UNCOMMITTED.
 
 ### Cryptography 1 labs (prior)
@@ -75,6 +77,22 @@ October 13, 2026
 
 ## Conversation History
 <!-- Append new entries below. Each session gets a timestamped block. -->
+
+### November 3, 2026 — Approved RBAC Stage 1 only, complete for review
+- Kiona approved architecture under ten conditions, authorizing only pure permission rules, principal-resolution logic, isolated offline tests and synthetic identities. STOP after Stage 1; later UI/route/development-auth integration remains unauthorized.
+- Added `backend/rbac.py` (immutable scopes, exact three-role permissions, assigned-draft editing, admin-only policy publication/ownership, participant-only private content, separate metadata-only admin clarification oversight, and explicit admin-only incident reassignment/escalation). Admin oversight alone does not permit thread reading/replies/resolution; current single-user conversations stay owner-only.
+- Added `backend/principals.py`: verified JWT → immutable one-to-one subject mapping → read-only supplied business snapshot; current server role loaded each time, no email linking or caller-role trust, no auth fallback/developer provider. No real mapping configured and no database adapter/route wiring added.
+- Added `backend/tests/test_rbac_stage1.py`: 40 passed using synthetic IDs, fresh local EC keys, mocked key resolution and in-memory snapshots; no main/models/database imports or Supabase access. Existing `tests/test_week7_auth.py`: 24 passed. Both ran in the existing project `.venv` without DATABASE_URL.
+- Updated design with approval conditions/Stage 1 contracts and outcomes. Added `docs/development-known-issues.md`, separately tracking MSG-001 (missing Messages route) and INC-001 (existing 3-pass/6-fail incident baseline, not rerun because application files were unchanged).
+- Existing fictional employees, IDs, departments, roles, policy owners, UI/persona switcher, all live routes, auth.py, ORM/schema, dependencies and existing tests remain unchanged. No live Supabase/RLS/migration/Auth/user operation, commit, push or deployment.
+- Stage 1 has no remaining implementation blocker. Later stages need review approval, trusted business-user adapter/mapping, local demo data and eventual secure switcher replacement. New modules do not enforce RBAC on the currently unguarded API.
+
+### November 3, 2026 — Server-side RBAC review, design only
+- Reviewed existing staged/unstaged diffs (both empty), HEAD `dba7f8f`, memory, Week 7 auth/messaging proposal, actual backend routes/models/schemas, and the UI persona workflow. No existing RBAC implementation/diff found in this cloud checkout; `/messages` is absent despite UI calls and prior historical notes.
+- Confirmed canonical virtual environment `/workspace/Kiona-629/derexi-policy-pilot/.venv`, Python 3.12.14, `pip check` clean. From backend: `../.venv/bin/python tests/test_week7_auth.py` → 24 passed; command-scoped `DATABASE_URL=postgresql+psycopg2://offline:offline@127.0.0.1:1/offline ../.venv/bin/python tests/test_week8_stage1.py` → 3 passed/6 failed. Fake sessions only, no Supabase calls. Failures: missing incident_guidance (3), reporter scope, category validation, response guidance. No source/test fix attempted.
+- Added `derexi-policy-pilot/docs/rbac-design-review.md`: proposed three-role access matrix plus ownership/participation rules, production verified-JWT principal mapping without schema changes, separate local-only authenticated persona switching with no live database access, and offline acceptance plan. This design is NOT approved or implemented. Existing employees/roles/departments/data and picker code remain unchanged.
+- Pending review decisions: admin thread oversight/resolve, aggregate governance visibility, assigned-incident triage, policy-owner draft creation, and isolated local session switching. Full local demo also needs an authoritative approved local roster/data source; production identity mapping is unprovisioned. No live migrations/RLS/Auth/data operations, commits, pushes, or deployment.
+- Files changed this session: this MEMORY.md and the new design-review document only.
 
 ### September 4, 2026 — Initial Setup
 - Read through all semester folders and course materials
