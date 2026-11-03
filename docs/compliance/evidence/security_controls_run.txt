@@ -1,0 +1,97 @@
+DeRexi security controls — C-01 (RBAC) and C-02 (validation/errors)
+Isolated mode: live database connections are blocked by a tripwire.
+==============================================================================
+  FAIL  C01-01  Every API route declares an identity/role dependency
+        expected: 0 routes without an authorization dependency
+        actual:   22 route(s) unprotected: GET /departments, GET /roles, GET /categories, GET /users, GET /policies, GET /policies/search, GET /policies/{policy_id}, POST /policies, POST /policies/{policy_id}/versions, POST /ask, GET /conversations/{conversation_id}, GET /clarifications, POST /clarifications, GET /clarifications/{request_id}, POST /clarifications/{request_id}/replies, POST /clarifications/{request_id}/resolve, GET /incident-categories, GET /incidents, POST /incidents, PATCH /incidents/{incident_id}, POST /feedback, GET /dashboard/policy-health
+  FAIL  C01-02  Auth foundation (auth.py) is imported and used by main.py
+        expected: main.py imports and enforces auth
+        actual:   main.py has no import of auth.py; the verifier is unwired
+  FAIL  C01-03  Anonymous GET /users is denied
+        expected: 401/403 and no user data
+        actual:   HTTP 200; returned 1 user record(s) including email addresses
+  FAIL  C01-04  Anonymous GET /incidents is denied
+        expected: 401/403 and no incident data
+        actual:   HTTP 200; incident description exposed
+  FAIL  C01-05  Anonymous GET /clarifications is denied
+        expected: 401/403 and no thread data
+        actual:   HTTP 200; 1 thread(s) returned
+  FAIL  C01-06  User 9 cannot read user 8's conversation
+        expected: 401/403 for a non-owner
+        actual:   HTTP 200 (no ownership check; header ignored)
+  FAIL  C01-07  Employee cannot change incident status/severity
+        expected: 401/403 for the Employee role
+        actual:   HTTP 200; incident modified by Employee
+  FAIL  C01-08  Employee cannot create or approve a policy
+        expected: 401/403 before any write
+        actual:   HTTP 201; in-memory fake recorded 2 insert(s), 1 commit(s)
+  FAIL  C01-09  Employee cannot publish a new policy version
+        expected: 401/403 for the Employee role
+        actual:   HTTP 201
+  FAIL  C01-10  Anonymous caller cannot resolve a clarification thread
+        expected: 401/403 for a non-participant
+        actual:   HTTP 200; in-memory thread status now 'resolved'
+  FAIL  C01-11  A non-participant cannot post into a clarification thread
+        expected: 401/403 for sender outside {requester, assignee}
+        actual:   HTTP 201; in-memory reply recorded=True
+  FAIL  C01-12  Anonymous GET /dashboard/policy-health is denied
+        expected: 401/403 for a compliance/admin view
+        actual:   HTTP 200
+  FAIL  C01-13  Actor identity comes from a verified credential, not the request body
+        expected: 401/403 when body identity conflicts with the caller
+        actual:   HTTP 201; 1 in-memory insert(s) attributed to user_id=9
+  FAIL  C01-14  Employee and System Administrator receive different authority
+        expected: Employee denied where admin is allowed (403 vs 200)
+        actual:   Employee HTTP 200, System Administrator HTTP 200 (identical responses)
+  FAIL  C01-15  OpenAPI contract declares an authentication scheme
+        expected: at least one security scheme (e.g. bearerAuth)
+        actual:   declared schemes: none
+  PASS  C02-01  Malformed /ask payloads are rejected with 422
+  PASS  C02-02  Rejected /ask payloads create no records
+  PASS  C02-03  Unknown /ask fields are ignored, not applied
+  PASS  C02-04  Unknown user is rejected without creating a conversation
+  PASS  C02-05  Malformed /feedback payloads are rejected with 422
+  PASS  C02-06  Rejected /feedback payloads create no records
+  PASS  C02-07  Feedback for a missing message is refused
+  FAIL  C02-08  Overlong feedback comment is rejected
+        expected: 422 for a 50,000-character comment
+        actual:   HTTP 201; 50,000 characters accepted and stored in the fake session
+  PASS  C02-09  Malformed /incidents payloads are rejected with 422
+  PASS  C02-10  Rejected /incidents payloads create no records
+  FAIL  C02-11  Overlong incident description is rejected
+        expected: 422 for a 50,000-character description
+        actual:   HTTP 201; 50,000 characters accepted and stored in the fake session
+  PASS  C02-12  Malformed replies are rejected with 422
+  PASS  C02-13  Rejected replies create no records
+  PASS  C02-14  Malformed /policies payloads are rejected with 422
+  PASS  C02-15  Rejected policy payloads create no records
+  FAIL  C02-16  Overlong policy title is rejected
+        expected: 422 for a 100,000-character title
+        actual:   HTTP 201; 100,000 characters accepted and stored in the fake session
+  FAIL  C02-17  Incident assignment to a nonexistent user is rejected
+        expected: 400/404/422 and no change
+        actual:   HTTP 200; in-memory assigned_to=987654
+  PASS  C02-18  Error responses contain no stack traces, SQL, or credentials
+  PASS  C02-19  Not-found errors use short, employee-readable text
+  PASS  C02-20  Unhandled database failure does not leak internals
+  FAIL  C02-21  Unhandled failure gives the employee an actionable message
+        expected: a plain-language apology/retry message
+        actual:   HTTP 500, body='Internal Server Error'
+  FAIL  C02-24  Empty policy title and body are rejected
+        expected: 422 for empty title and empty version body
+        actual:   HTTP 201; empty policy accepted and stored in the fake session
+  FAIL  C02-22  Non-boolean rating values are rejected
+        expected: 422 for rating='yes'
+        actual:   HTTP 201; rating coerced and stored=True
+  FAIL  C02-25  Clarification for nonexistent message/conversation/policy is rejected
+        expected: 400/404/422 and no record
+        actual:   HTTP 201; 1 in-memory insert(s) with dangling foreign keys
+  FAIL  C02-26  Feedback from a nonexistent user is rejected
+        expected: 404 and no record
+        actual:   HTTP 201; 1 in-memory insert(s) referencing a missing user
+  FAIL  C02-23  Every free-text field declares an upper bound
+        expected: 0 unbounded free-text fields
+        actual:   unbounded: FeedbackCreate.comment, IncidentCreate.description, IncidentUpdate.resolution_notes, PolicyCreate.title, PolicyCreate.summary, PolicyVersionCreate.title, PolicyVersionCreate.body, PolicyVersionAdd.body, PolicyVersionAdd.title
+==============================================================================
+RESULT: 16 passed, 25 failed, 0 blocked, 0 runner errors
+Evidence JSON: /Users/adult/Desktop/Kiona-629/docs/compliance/evidence/security_controls_results.json

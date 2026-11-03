@@ -1,7 +1,10 @@
 # MEMORY.md
 
 ## Last Updated
-November 2, 2026
+November 3, 2026
+
+## Latest session (Nov 3) — Compliance 1 Assignment 1 security verification
+Verified C-01 (role-based access control) and C-02 (input validation / safe error handling) with an isolated 41-check suite. Result: **C-01 unverified (15/15 FAIL) · C-02 partially verified (16 PASS / 10 FAIL)**. Report at `docs/compliance/rubric1_security_test_results.md`; evidence in `docs/compliance/evidence/`. No fixes implemented (awaiting approval), no commit/push. Details at the end of Conversation History.
 
 ## Current Focus
 **DeRexi Pulse — Phase 3 editorial mosaic DONE + verified; GitHub publication authorized.** Backend hardened (`backend/pulse/*`), relevance + classification tightened, editorial Pulse view at `/ui/#pulse` with nav item **Pulse** after Governance, 76 offline + 88 live tests passing, and Compliance Assignment 2 docs written to `derexi-policy-pilot/docs/compliance-assignment-2/` (README, integration-notes, testing-results, 9 screenshots + checklist). Still open from prior sessions: (1) SSD1 Criterion #6 evidence package WRITTEN, ready for ChatGPT layout; (2) Cryptography 1 Criterion #6 BLOCKED awaiting Kiona's 5 screenshots A–E. Crypto Labs 1–3 committed; Labs 4–6 complete + verified but still UNCOMMITTED.
@@ -265,3 +268,15 @@ November 2, 2026
 ### November 2, 2026 — Pulse GitHub publication
 - Kiona explicitly requested pushing the completed Pulse work to GitHub. Reviewed the working tree: pending changes are Pulse implementation, its prerequisite Phase 2 integration, tests, documentation/screenshots, and memory. Publishing this complete feature together on main to origin; no unrelated coursework changes included.
 - Pre-commit verification: Pulse offline suite 97 passed / 0 failed; git diff --check clean. Earlier live/browser results and unrelated test limitations remain documented in the Phase 3 report.
+
+### November 3, 2026 — Compliance 1 Assignment 1: C-01 / C-02 verification
+- Task: verify the two controls from Compliance Assignment 1 without redesigning the app, touching production data, or implementing fixes. Deliverable `docs/compliance/rubric1_security_test_results.md` + sanitized evidence.
+- **Environment:** commit `5d1112a` on `main`, macOS arm64, Python 3.9.6, FastAPI 0.128.8, pydantic 2.13.5, SQLAlchemy 2.0.54, httpx 0.28.1. `.env` has real `DATABASE_URL`/OpenAI keys → live data present, so all tests were forced in-process.
+- **Isolation:** new `backend/tests/test_security_controls.py` overrides `get_db` with an in-memory `FakeSession` (records writes, never commits) and patches `Engine.connect` with a raising tripwire **before** importing `main`. Synthetic users only (`@example.invalid`). No schema, RLS, role, or record changes; no migration.
+- **Executed:** `cd derexi-policy-pilot/backend && ../.venv/bin/python tests/test_security_controls.py` → **16 passed, 25 failed, 0 blocked, 0 runner errors** (41 checks: 15 C-01, 26 C-02). Exit 1 by design while gaps remain.
+- **C-01 findings (all 15 FAIL, control UNVERIFIED):** 22 data-bearing routes have no identity dependency (only `Depends(get_db)`); `auth.py` verifier never imported by `main.py`; OpenAPI declares no `securitySchemes`; `GET /users` returns staff emails anonymously; `/incidents`, `/clarifications`, `/dashboard/policy-health` fully anonymous; Employee role can create+approve policies (`201`, 2 inserts), publish versions (`201`), PATCH incidents (`200`); anonymous can resolve any thread; body-supplied `user_id`/`sender_id` trusted (impersonation + IDOR on `/conversations/{id}`); Employee and System Administrator get byte-identical authority. UI role gating is client-only in `static/app.js` (~lines 52, 230, 241–244).
+- **C-02 results (16 PASS / 10 FAIL, PARTIALLY VERIFIED):** PASS — pydantic rejects wrong types/missing fields/invalid enums/short values on `/ask`, `/feedback`, `/incidents`, replies, `/policies`; zero writes on every rejected payload; no tracebacks/SQL/DSN/credentials in six 404 bodies or in a simulated DB outage (`Internal Server Error`); 404 text short and readable; extra fields `is_admin`/`role` ignored; unknown `/ask` user → 404 with no conversation; CORS now localhost-only (`127.0.0.1:8000`, `localhost:8000`, credentials true, GET/POST/PATCH).
+- **C-02 FAILs:** no `max_length` on 9 free-text fields (`FeedbackCreate.comment`, `IncidentCreate.description`, `IncidentUpdate.resolution_notes`, `PolicyCreate.title/summary`, `PolicyVersionCreate.title/body`, `PolicyVersionAdd.title/body`) — 50k/100k payloads stored 201; empty policy title+body stored 201; `rating: bool` coerces `"yes"`→True; `assigned_to`/`message_id`/`conversation_id`/`policy_id`/feedback `user_id` not existence-checked (expected FK `IntegrityError` → 500 on real DB — inferred, not observed); 500 body is safe but not actionable.
+- **BLOCKED:** `tests/test_week7_auth.py` → `ModuleNotFoundError: No module named 'jwt'` (PyJWT absent). Did not install (dependency change) — JWT verifier correctness untested; only its unused status is proven.
+- **Files created:** `derexi-policy-pilot/backend/tests/test_security_controls.py`, `docs/compliance/rubric1_security_test_results.md`, `docs/compliance/evidence/security_controls_run.txt`, `docs/compliance/evidence/security_controls_results.json`. `MEMORY.md` updated. **No application code changed, no fixes applied, no commit/push.**
+- **Lesson:** renumbering test IDs by global string replace cascades (new IDs collide with later old IDs) — assign by line number instead.
