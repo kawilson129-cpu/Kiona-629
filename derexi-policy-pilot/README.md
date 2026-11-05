@@ -4,6 +4,14 @@ Security hardening adds an explicit secured API and isolated developer entry
 point. Read [security entry points](docs/security-entrypoints.md) before running
 or deploying: `main:app` remains the unguarded course compatibility profile.
 
+Compliance deliverables: [Assignment 4 assessment](docs/compliance/assignment4_gap_analysis.md),
+[Assignment 5 legal/ethical implementation report](docs/compliance/assignment5_legal_ethical_implementation.md)
+and [detailed risk register](docs/compliance/assignment5_risk_register.csv).
+The report links the November 5 evidence and distinguishes tested controls from
+proposed procedures, blocked legal verification and remaining release blockers.
+From `backend/`, run `../.venv/bin/python tests/run_assignment5_verification.py`
+for the isolated incident/RBAC/validation checks (synthetic fixtures only).
+
 Backend for **DeRexi: Policy Pilot**, a policy-governance and incident-assistance
 assistant built for a fictional financial institution, **Aurum Capital Bank**.
 

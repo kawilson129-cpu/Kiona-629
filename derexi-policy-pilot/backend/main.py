@@ -802,6 +802,12 @@ def create_incident(payload: schemas.IncidentCreate, db: Session = Depends(get_d
         if category:
             severity = category.default_severity
 
+    if payload.escalation_level != 1:
+        raise HTTPException(422, "New reports start at escalation level 1; use authorized triage to escalate")
+    # Resolve references before any insert. This is optional policy context,
+    # not legal advice, an AI verdict or a substitute for human incident triage.
+    guidance = incident_guidance(db, payload.description)
+
     incident = IncidentReport(
         reporter_id=payload.reporter_id,
         category_id=payload.category_id,
@@ -813,7 +819,39 @@ def create_incident(payload: schemas.IncidentCreate, db: Session = Depends(get_d
     )
     db.add(incident)
     db.commit()
-    return _incident_dict(incident)
+    return {**_incident_dict(incident), "guidance": guidance}
+
+
+def incident_guidance(db: Session, description: str) -> dict | None:
+    rows = db.execute(SEARCH_SQL, {"q": description, "limit": 3}).mappings().all()
+    if not rows:
+        return None
+    top = rows[0]
+    keywords = substantive_keywords(description)
+    if (float(top["score"]) < CONFIDENCE_THRESHOLD or not keywords
+            or not contains_keyword((top["title"] + " " + top["body"]).lower(), keywords)):
+        return None
+    return {"policy_id": top["policy_id"], "policy_version_id": top["policy_version_id"],
+            "title": top["title"], "version_no": top["version_no"],
+            "score": round(float(top["score"]), 4), "excerpt": make_excerpt(top["body"], description),
+            "notice": "Suggested policy reference only. Review the full policy and contact the assigned handler."}
+
+
+def validate_incident_state(incident: IncidentReport, changes: dict) -> None:
+    transitions = {"reported": {"reported", "triaged", "escalated"},
+                   "triaged": {"triaged", "escalated", "resolved"},
+                   "escalated": {"escalated", "resolved"}, "resolved": {"resolved"}}
+    target = changes.get("status", incident.status)
+    if "status" in changes and target not in transitions.get(incident.status, set()):
+        raise HTTPException(409, "Invalid incident status transition; triage first and keep resolved cases closed")
+    # Validate changed state pairs only; do not rewrite legacy records merely
+    # because an investigator adds a note or corrects an assignment.
+    if {"status", "escalation_level"} & changes.keys():
+        level = changes.get("escalation_level", incident.escalation_level)
+        if target == "escalated" and level < 2:
+            raise HTTPException(422, "Escalated incidents require escalation level 2 or higher")
+        if target in ("reported", "triaged") and level != 1:
+            raise HTTPException(422, "Reported or triaged incidents use escalation level 1")
 
 
 @app.patch("/incidents/{incident_id}")
@@ -824,7 +862,9 @@ def update_incident(
     if not incident:
         raise HTTPException(status_code=404, detail="Incident not found")
     referenced(db, User, payload.assigned_to, "Incident assignee")
-    for field, value in payload.model_dump(exclude_unset=True).items():
+    changes = payload.model_dump(exclude_unset=True)
+    validate_incident_state(incident, changes)
+    for field, value in changes.items():
         setattr(incident, field, value)
     incident.updated_at = datetime.now(timezone.utc)
     db.commit()

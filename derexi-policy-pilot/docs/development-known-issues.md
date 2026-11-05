@@ -1,5 +1,19 @@
 # Existing issues outside RBAC Stage 1
 
+**Latest status — November 5, Assignment 5:** INC-001 is resolved in the tested
+scope: all **9 original incident tests pass**, including the four guidance
+failures. The missing helper and create-response field were restored; confidence
+and keyword gating use the existing approved-policy search. New state checks
+require triage before ordinary resolution, coherent status/level pairs and admin
+closure of escalated cases. Existing callers must follow those transitions.
+See [Assignment 5](compliance/assignment5_legal_ethical_implementation.md) and
+`compliance/evidence/assignment5_2026-11-05T212025135075Z/` for the 112-pass
+targeted run. Earlier failing evidence and chronology below are preserved.
+**MSG-001 remains BLOCKED**; no Messages route/UI change was made. Search lookup
+outage now returns safe 503 before intake writes, so operational use needs an
+approved manual reporting fallback. PostgreSQL/real-data and deployment checks
+remain unperformed; `main:app` remains unguarded compatibility.
+
 Recorded November 3, 2026 at HEAD `dba7f8f`. No fixes are included in Stage 1.
 Keep these issues separate from the new isolated permission/principal test results.
 

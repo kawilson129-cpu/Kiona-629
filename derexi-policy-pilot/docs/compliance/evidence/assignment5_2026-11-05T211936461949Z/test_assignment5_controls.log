@@ -1,0 +1,37 @@
+test_A501_private_incident_denial (test_assignment5_controls.Assignment5Tests.test_A501_private_incident_denial)
+Unrelated employee gets 404 without private content or mutations. ... ok
+test_A502_creation_validation (test_assignment5_controls.Assignment5Tests.test_A502_creation_validation)
+Invalid actor/category/severity/blank text/high initial level cannot create rows. ... ok
+test_A503_guidance_intake_and_no_ai (test_assignment5_controls.Assignment5Tests.test_A503_guidance_intake_and_no_ai)
+Valid self-report persists level 1/category severity with grounded reference; no AI call. ... ok
+test_A504_assignment_authorization (test_assignment5_controls.Assignment5Tests.test_A504_assignment_authorization)
+Assigned handler cannot reassign; admin can; invalid assignee cannot partially mutate. ... ok
+test_A505_escalation_authorization (test_assignment5_controls.Assignment5Tests.test_A505_escalation_authorization)
+Handler cannot escalate through status or level; admin can set a coherent pair. ... ok
+test_A506_invalid_state_pairs (test_assignment5_controls.Assignment5Tests.test_A506_invalid_state_pairs)
+Escalated/level 1 and reported-or-triaged/level 2 are rejected atomically. ... ok
+test_A507_triage_before_resolution (test_assignment5_controls.Assignment5Tests.test_A507_triage_before_resolution)
+Reported cannot jump directly to resolved; assigned handler may triage then resolve. ... ok
+test_A508_resolved_is_terminal (test_assignment5_controls.Assignment5Tests.test_A508_resolved_is_terminal)
+Resolved cases cannot reopen, but notes and idempotent resolved remain compatible. ... ok
+test_A509_escalated_closure_authority (test_assignment5_controls.Assignment5Tests.test_A509_escalated_closure_authority)
+Handler can annotate escalated case; only admin can close or change its level. ... ok
+test_A510_clarification_privacy (test_assignment5_controls.Assignment5Tests.test_A510_clarification_privacy)
+Nonparticipants including admin cannot read private thread; oversight metadata omits bodies. ... ok
+test_A511_feedback_ownership (test_assignment5_controls.Assignment5Tests.test_A511_feedback_ownership)
+Another employee cannot rate a private answer; denied request inserts no feedback. ... ok
+test_A512_safe_database_outage (test_assignment5_controls.Assignment5Tests.test_A512_safe_database_outage)
+Database error becomes sanitized 503, without private error details. ... ok
+test_A513_guidance_gate (test_assignment5_controls.Assignment5Tests.test_A513_guidance_gate)
+Empty, weak or unrelated evidence yields no guidance; approved matching reference is returned. ... ok
+test_A514_lookup_failure_before_write (test_assignment5_controls.Assignment5Tests.test_A514_lookup_failure_before_write)
+Reference lookup failure yields safe 503 and no partial incident insert. ... ok
+test_A515_legacy_notes_without_rewrite (test_assignment5_controls.Assignment5Tests.test_A515_legacy_notes_without_rewrite)
+An inconsistent legacy pair permits notes; no status/level repair is silently persisted. ... ok
+test_A516_role_and_identity_preservation (test_assignment5_controls.Assignment5Tests.test_A516_role_and_identity_preservation)
+Employee/owner/admin names and synthetic IDs persist; anonymous and forged roles fail closed. ... ok
+
+----------------------------------------------------------------------
+Ran 16 tests in 1.001s
+
+OK

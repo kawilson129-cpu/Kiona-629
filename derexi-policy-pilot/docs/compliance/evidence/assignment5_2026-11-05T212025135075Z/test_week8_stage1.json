@@ -1,0 +1,92 @@
+[
+  {
+    "id": "test_get_incident_categories",
+    "scenario": "test_get_incident_categories",
+    "expected": "Original incident regression assertions hold",
+    "actual": "All assertions passed",
+    "status": "PASS",
+    "date": "2026-11-05T21:20:27.682530+00:00",
+    "environment": "Cloud Linux; project .venv; isolated synthetic identities/fake or SQLite DB; no live Supabase",
+    "evidence_file": "test_week8_stage1.json"
+  },
+  {
+    "id": "test_get_incidents_reporter_scoped",
+    "scenario": "test_get_incidents_reporter_scoped",
+    "expected": "Original incident regression assertions hold",
+    "actual": "All assertions passed",
+    "status": "PASS",
+    "date": "2026-11-05T21:20:27.686553+00:00",
+    "environment": "Cloud Linux; project .venv; isolated synthetic identities/fake or SQLite DB; no live Supabase",
+    "evidence_file": "test_week8_stage1.json"
+  },
+  {
+    "id": "test_guidance_none_below_threshold",
+    "scenario": "test_guidance_none_below_threshold",
+    "expected": "Original incident regression assertions hold",
+    "actual": "All assertions passed",
+    "status": "PASS",
+    "date": "2026-11-05T21:20:27.686667+00:00",
+    "environment": "Cloud Linux; project .venv; isolated synthetic identities/fake or SQLite DB; no live Supabase",
+    "evidence_file": "test_week8_stage1.json"
+  },
+  {
+    "id": "test_guidance_none_when_no_results",
+    "scenario": "test_guidance_none_when_no_results",
+    "expected": "Original incident regression assertions hold",
+    "actual": "All assertions passed",
+    "status": "PASS",
+    "date": "2026-11-05T21:20:27.686696+00:00",
+    "environment": "Cloud Linux; project .venv; isolated synthetic identities/fake or SQLite DB; no live Supabase",
+    "evidence_file": "test_week8_stage1.json"
+  },
+  {
+    "id": "test_guidance_returns_best_policy",
+    "scenario": "test_guidance_returns_best_policy",
+    "expected": "Original incident regression assertions hold",
+    "actual": "All assertions passed",
+    "status": "PASS",
+    "date": "2026-11-05T21:20:27.686800+00:00",
+    "environment": "Cloud Linux; project .venv; isolated synthetic identities/fake or SQLite DB; no live Supabase",
+    "evidence_file": "test_week8_stage1.json"
+  },
+  {
+    "id": "test_post_incident_category_missing",
+    "scenario": "test_post_incident_category_missing",
+    "expected": "Original incident regression assertions hold",
+    "actual": "All assertions passed",
+    "status": "PASS",
+    "date": "2026-11-05T21:20:27.691156+00:00",
+    "environment": "Cloud Linux; project .venv; isolated synthetic identities/fake or SQLite DB; no live Supabase",
+    "evidence_file": "test_week8_stage1.json"
+  },
+  {
+    "id": "test_post_incident_explicit_severity_wins",
+    "scenario": "test_post_incident_explicit_severity_wins",
+    "expected": "Original incident regression assertions hold",
+    "actual": "All assertions passed",
+    "status": "PASS",
+    "date": "2026-11-05T21:20:27.694554+00:00",
+    "environment": "Cloud Linux; project .venv; isolated synthetic identities/fake or SQLite DB; no live Supabase",
+    "evidence_file": "test_week8_stage1.json"
+  },
+  {
+    "id": "test_post_incident_ok_default_severity_and_guidance",
+    "scenario": "test_post_incident_ok_default_severity_and_guidance",
+    "expected": "Original incident regression assertions hold",
+    "actual": "All assertions passed",
+    "status": "PASS",
+    "date": "2026-11-05T21:20:27.698685+00:00",
+    "environment": "Cloud Linux; project .venv; isolated synthetic identities/fake or SQLite DB; no live Supabase",
+    "evidence_file": "test_week8_stage1.json"
+  },
+  {
+    "id": "test_post_incident_reporter_missing",
+    "scenario": "test_post_incident_reporter_missing",
+    "expected": "Original incident regression assertions hold",
+    "actual": "All assertions passed",
+    "status": "PASS",
+    "date": "2026-11-05T21:20:27.701774+00:00",
+    "environment": "Cloud Linux; project .venv; isolated synthetic identities/fake or SQLite DB; no live Supabase",
+    "evidence_file": "test_week8_stage1.json"
+  }
+]

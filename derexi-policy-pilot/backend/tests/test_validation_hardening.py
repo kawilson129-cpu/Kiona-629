@@ -157,6 +157,8 @@ class ValidationTests(unittest.TestCase):
         for field in ("reporter_id", "assigned_to", "category_id"):
             self.rejected("/incidents", {"reporter_id": 91001, "description": "Valid synthetic incident", field: 99999}, 404)
 
+    # SQLite lacks pg_trgm; an empty reference lookup isolates intake validation.
+    @patch.object(main, "SEARCH_SQL", text("SELECT 1 WHERE 0"))
     def test_legitimate_incident_and_update(self):
         response = self.client.post("/incidents", json={"reporter_id": 91001, "description": "Valid synthetic incident", "category_id": 97001})
         self.assertEqual(response.status_code, 201, response.text)

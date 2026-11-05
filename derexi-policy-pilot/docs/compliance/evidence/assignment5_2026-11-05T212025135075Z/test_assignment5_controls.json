@@ -1,0 +1,172 @@
+[
+  {
+    "id": "test_assignment5_controls.Assignment5DemoTests.test_A517_demo_incident_and_persona_switch",
+    "scenario": "Local lexical lookup supports incident intake; switch keeps own incident scope and source bytes unchanged.",
+    "expected": "All named test assertions hold",
+    "actual": "All assertions passed",
+    "status": "PASS",
+    "date": "2026-11-05T21:20:25.904839+00:00",
+    "environment": "Cloud Linux; project .venv; isolated synthetic identities/fake or SQLite DB; no live Supabase",
+    "evidence_file": "test_assignment5_controls.json"
+  },
+  {
+    "id": "test_assignment5_controls.Assignment5Tests.test_A501_private_incident_denial",
+    "scenario": "Unrelated employee gets 404 without private content or mutations.",
+    "expected": "All named test assertions hold",
+    "actual": "All assertions passed",
+    "status": "PASS",
+    "date": "2026-11-05T21:20:26.004492+00:00",
+    "environment": "Cloud Linux; project .venv; isolated synthetic identities/fake or SQLite DB; no live Supabase",
+    "evidence_file": "test_assignment5_controls.json"
+  },
+  {
+    "id": "test_assignment5_controls.Assignment5Tests.test_A502_creation_validation",
+    "scenario": "Invalid actor/category/severity/blank text/high initial level cannot create rows.",
+    "expected": "All named test assertions hold",
+    "actual": "All assertions passed",
+    "status": "PASS",
+    "date": "2026-11-05T21:20:26.075512+00:00",
+    "environment": "Cloud Linux; project .venv; isolated synthetic identities/fake or SQLite DB; no live Supabase",
+    "evidence_file": "test_assignment5_controls.json"
+  },
+  {
+    "id": "test_assignment5_controls.Assignment5Tests.test_A503_guidance_intake_and_no_ai",
+    "scenario": "Valid self-report persists level 1/category severity with grounded reference; no AI call.",
+    "expected": "All named test assertions hold",
+    "actual": "All assertions passed",
+    "status": "PASS",
+    "date": "2026-11-05T21:20:26.123054+00:00",
+    "environment": "Cloud Linux; project .venv; isolated synthetic identities/fake or SQLite DB; no live Supabase",
+    "evidence_file": "test_assignment5_controls.json"
+  },
+  {
+    "id": "test_assignment5_controls.Assignment5Tests.test_A504_assignment_authorization",
+    "scenario": "Assigned handler cannot reassign; admin can; invalid assignee cannot partially mutate.",
+    "expected": "All named test assertions hold",
+    "actual": "All assertions passed",
+    "status": "PASS",
+    "date": "2026-11-05T21:20:26.185529+00:00",
+    "environment": "Cloud Linux; project .venv; isolated synthetic identities/fake or SQLite DB; no live Supabase",
+    "evidence_file": "test_assignment5_controls.json"
+  },
+  {
+    "id": "test_assignment5_controls.Assignment5Tests.test_A505_escalation_authorization",
+    "scenario": "Handler cannot escalate through status or level; admin can set a coherent pair.",
+    "expected": "All named test assertions hold",
+    "actual": "All assertions passed",
+    "status": "PASS",
+    "date": "2026-11-05T21:20:26.279616+00:00",
+    "environment": "Cloud Linux; project .venv; isolated synthetic identities/fake or SQLite DB; no live Supabase",
+    "evidence_file": "test_assignment5_controls.json"
+  },
+  {
+    "id": "test_assignment5_controls.Assignment5Tests.test_A506_invalid_state_pairs",
+    "scenario": "Escalated/level 1 and reported-or-triaged/level 2 are rejected atomically.",
+    "expected": "All named test assertions hold",
+    "actual": "All assertions passed",
+    "status": "PASS",
+    "date": "2026-11-05T21:20:26.338995+00:00",
+    "environment": "Cloud Linux; project .venv; isolated synthetic identities/fake or SQLite DB; no live Supabase",
+    "evidence_file": "test_assignment5_controls.json"
+  },
+  {
+    "id": "test_assignment5_controls.Assignment5Tests.test_A507_triage_before_resolution",
+    "scenario": "Reported cannot jump directly to resolved; assigned handler may triage then resolve.",
+    "expected": "All named test assertions hold",
+    "actual": "All assertions passed",
+    "status": "PASS",
+    "date": "2026-11-05T21:20:26.399401+00:00",
+    "environment": "Cloud Linux; project .venv; isolated synthetic identities/fake or SQLite DB; no live Supabase",
+    "evidence_file": "test_assignment5_controls.json"
+  },
+  {
+    "id": "test_assignment5_controls.Assignment5Tests.test_A508_resolved_is_terminal",
+    "scenario": "Resolved cases cannot reopen, but notes and idempotent resolved remain compatible.",
+    "expected": "All named test assertions hold",
+    "actual": "All assertions passed",
+    "status": "PASS",
+    "date": "2026-11-05T21:20:26.489021+00:00",
+    "environment": "Cloud Linux; project .venv; isolated synthetic identities/fake or SQLite DB; no live Supabase",
+    "evidence_file": "test_assignment5_controls.json"
+  },
+  {
+    "id": "test_assignment5_controls.Assignment5Tests.test_A509_escalated_closure_authority",
+    "scenario": "Handler can annotate escalated case; only admin can close or change its level.",
+    "expected": "All named test assertions hold",
+    "actual": "All assertions passed",
+    "status": "PASS",
+    "date": "2026-11-05T21:20:26.570757+00:00",
+    "environment": "Cloud Linux; project .venv; isolated synthetic identities/fake or SQLite DB; no live Supabase",
+    "evidence_file": "test_assignment5_controls.json"
+  },
+  {
+    "id": "test_assignment5_controls.Assignment5Tests.test_A510_clarification_privacy",
+    "scenario": "Nonparticipants including admin cannot read private thread; oversight metadata omits bodies.",
+    "expected": "All named test assertions hold",
+    "actual": "All assertions passed",
+    "status": "PASS",
+    "date": "2026-11-05T21:20:26.628008+00:00",
+    "environment": "Cloud Linux; project .venv; isolated synthetic identities/fake or SQLite DB; no live Supabase",
+    "evidence_file": "test_assignment5_controls.json"
+  },
+  {
+    "id": "test_assignment5_controls.Assignment5Tests.test_A511_feedback_ownership",
+    "scenario": "Another employee cannot rate a private answer; denied request inserts no feedback.",
+    "expected": "All named test assertions hold",
+    "actual": "All assertions passed",
+    "status": "PASS",
+    "date": "2026-11-05T21:20:26.682192+00:00",
+    "environment": "Cloud Linux; project .venv; isolated synthetic identities/fake or SQLite DB; no live Supabase",
+    "evidence_file": "test_assignment5_controls.json"
+  },
+  {
+    "id": "test_assignment5_controls.Assignment5Tests.test_A512_safe_database_outage",
+    "scenario": "Database error becomes sanitized 503, without private error details.",
+    "expected": "All named test assertions hold",
+    "actual": "All assertions passed",
+    "status": "PASS",
+    "date": "2026-11-05T21:20:26.722970+00:00",
+    "environment": "Cloud Linux; project .venv; isolated synthetic identities/fake or SQLite DB; no live Supabase",
+    "evidence_file": "test_assignment5_controls.json"
+  },
+  {
+    "id": "test_assignment5_controls.Assignment5Tests.test_A513_guidance_gate",
+    "scenario": "Empty, weak or unrelated evidence yields no guidance; approved matching reference is returned.",
+    "expected": "All named test assertions hold",
+    "actual": "All assertions passed",
+    "status": "PASS",
+    "date": "2026-11-05T21:20:26.808776+00:00",
+    "environment": "Cloud Linux; project .venv; isolated synthetic identities/fake or SQLite DB; no live Supabase",
+    "evidence_file": "test_assignment5_controls.json"
+  },
+  {
+    "id": "test_assignment5_controls.Assignment5Tests.test_A514_lookup_failure_before_write",
+    "scenario": "Reference lookup failure yields safe 503 and no partial incident insert.",
+    "expected": "All named test assertions hold",
+    "actual": "All assertions passed",
+    "status": "PASS",
+    "date": "2026-11-05T21:20:26.851670+00:00",
+    "environment": "Cloud Linux; project .venv; isolated synthetic identities/fake or SQLite DB; no live Supabase",
+    "evidence_file": "test_assignment5_controls.json"
+  },
+  {
+    "id": "test_assignment5_controls.Assignment5Tests.test_A515_legacy_notes_without_rewrite",
+    "scenario": "An inconsistent legacy pair permits notes; no status/level repair is silently persisted.",
+    "expected": "All named test assertions hold",
+    "actual": "All assertions passed",
+    "status": "PASS",
+    "date": "2026-11-05T21:20:26.897559+00:00",
+    "environment": "Cloud Linux; project .venv; isolated synthetic identities/fake or SQLite DB; no live Supabase",
+    "evidence_file": "test_assignment5_controls.json"
+  },
+  {
+    "id": "test_assignment5_controls.Assignment5Tests.test_A516_role_and_identity_preservation",
+    "scenario": "Employee/owner/admin names and synthetic IDs persist; anonymous and forged roles fail closed.",
+    "expected": "All named test assertions hold",
+    "actual": "All assertions passed",
+    "status": "PASS",
+    "date": "2026-11-05T21:20:26.944732+00:00",
+    "environment": "Cloud Linux; project .venv; isolated synthetic identities/fake or SQLite DB; no live Supabase",
+    "evidence_file": "test_assignment5_controls.json"
+  }
+]

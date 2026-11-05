@@ -1,0 +1,51 @@
+{
+  "date": "2026-11-05",
+  "environment": "Cloud network policy, enforced restricted mode; package_managers preset; no custom allowed hosts",
+  "spec_revision": "1",
+  "records": [
+    {
+      "id": "L-GLBA",
+      "scenario": "Verify current authoritative legal/framework reference",
+      "expected": "Read current official source and verify citation/applicability",
+      "actual": "Official host absent from enforced allowlist; no bypass or content fetch attempted",
+      "status": "BLOCKED",
+      "date": "2026-11-05",
+      "environment": "Managed cloud restricted egress",
+      "evidence_file": "source_access_status.json",
+      "url": "https://www.ftc.gov/business-guidance/privacy-security/gramm-leach-bliley-act"
+    },
+    {
+      "id": "L-FFIEC",
+      "scenario": "Verify current authoritative legal/framework reference",
+      "expected": "Read current official source and verify citation/applicability",
+      "actual": "Official host absent from enforced allowlist; no bypass or content fetch attempted",
+      "status": "BLOCKED",
+      "date": "2026-11-05",
+      "environment": "Managed cloud restricted egress",
+      "evidence_file": "source_access_status.json",
+      "url": "https://ithandbook.ffiec.gov/it-booklets"
+    },
+    {
+      "id": "L-CSF",
+      "scenario": "Verify current authoritative legal/framework reference",
+      "expected": "Read current official source and verify citation/applicability",
+      "actual": "Official host absent from enforced allowlist; no bypass or content fetch attempted",
+      "status": "BLOCKED",
+      "date": "2026-11-05",
+      "environment": "Managed cloud restricted egress",
+      "evidence_file": "source_access_status.json",
+      "url": "https://nvlpubs.nist.gov/nistpubs/CSWP/NIST.CSWP.29.pdf"
+    },
+    {
+      "id": "L-80053",
+      "scenario": "Verify current authoritative legal/framework reference",
+      "expected": "Read current official source and verify citation/applicability",
+      "actual": "Official host absent from enforced allowlist; no bypass or content fetch attempted",
+      "status": "BLOCKED",
+      "date": "2026-11-05",
+      "environment": "Managed cloud restricted egress",
+      "evidence_file": "source_access_status.json",
+      "url": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+    }
+  ]
+}

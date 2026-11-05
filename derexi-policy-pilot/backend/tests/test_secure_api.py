@@ -183,6 +183,8 @@ class SecuredTests(unittest.TestCase):
         self.assertEqual(self.client.patch("/incidents/90001",json={"status":"triaged"},headers=self.auth(91002)).status_code,200)
         self.assertEqual(self.client.patch("/incidents/90001",json={"status":"escalated","escalation_level":2},headers=self.auth(91003)).status_code,200)
 
+    # Policy ranking is covered separately; SQLite supplies an empty lookup here.
+    @patch.object(main, "SEARCH_SQL", fixtures.text("SELECT 1 WHERE 0"))
     def test_incident_create_as_self_and_no_reporter_impersonation(self):
         before=self.fixture.counts()
         self.assertEqual(self.client.post("/incidents",json={"reporter_id":91002,"description":"Spoofed incident"},headers=self.auth()).status_code,403)

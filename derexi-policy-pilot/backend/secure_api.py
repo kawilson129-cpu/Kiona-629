@@ -185,6 +185,10 @@ def dispatch(endpoint, p, args):
         incident = r.IncidentScope(item.reporter_id, item.assigned_to)
         allowed(r.can_read_incident(p, incident), private=True)
         allowed(r.can_update_incident(p, incident, payload.model_dump(exclude_unset=True)))
+        # An assigned handler can investigate an escalated case, but its closure
+        # or level change remains an explicit administrative decision.
+        if item.status == "escalated" and {"status", "escalation_level"} & payload.model_fields_set:
+            allowed(r.is_admin(p))
     elif name == "policy_health":
         allowed(r.can_read_governance(p))
     result = endpoint(**args)
