@@ -1,0 +1,82 @@
+{
+  "date": "2026-11-05T21:38:36.302529+00:00",
+  "environment": "Synthetic offline fixtures only; actual course dataset unavailable",
+  "results": [
+    {
+      "suite": "test_mvp_recovery",
+      "return_code": 1,
+      "executed": 16,
+      "passed": 15,
+      "evidence": "test_mvp_recovery.json"
+    },
+    {
+      "suite": "test_assignment5_controls",
+      "return_code": 0,
+      "executed": 17,
+      "passed": 17,
+      "evidence": "test_assignment5_controls.json"
+    },
+    {
+      "suite": "test_week8_stage1",
+      "return_code": 0,
+      "executed": 9,
+      "passed": 9,
+      "evidence": "test_week8_stage1.json"
+    },
+    {
+      "suite": "test_secure_api",
+      "return_code": 0,
+      "executed": 32,
+      "passed": 32,
+      "evidence": "test_secure_api.json"
+    },
+    {
+      "suite": "test_validation_hardening",
+      "return_code": 0,
+      "executed": 28,
+      "passed": 28,
+      "evidence": "test_validation_hardening.json"
+    },
+    {
+      "suite": "test_security_controls",
+      "return_code": 0,
+      "executed": 26,
+      "passed": 26,
+      "evidence": "test_security_controls.json"
+    }
+  ],
+  "source_sha256": {
+    "ai.py": "2328ec8fbfc46a07290293c7f384ff067f72a05c1d7b57fcdc74a2800ad34618",
+    "auth.py": "08132e6050b7ac205c1783d448e476f75990bf53d9b37af1f4c541e83d76801e",
+    "course_snapshot.py": "2ef4c036b32ddf71938b758d201c2c5514386c4003a6a0b950e2c23be324d732",
+    "database.py": "f41a1968d77df0c28d60f2bb0940082fbc97c6c776b60698763d2b070b371d9d",
+    "dev_bridge.js": "78b9ddf40042076adb43c7559fb35788db0d7d1e05d6e2bd5abe37bf56165e09",
+    "dev_demo.py": "1f4f377d160b830e30babee58bcaabd27b186e946955e7389d7b8c387d5a20b6",
+    "main.py": "21f13468da3b6a6feae26424365e4d2f8e78d44e46435fce9d6533ae02695a3e",
+    "models.py": "657bf71c1a7f1c248bb714d0ba3d721e6528313d39f2ba8dc33681d98d19089a",
+    "principals.py": "4d2954e48ec7bfc61215622842b85436bbd0e70fd1227fa9f40292034ca6c192",
+    "rbac.py": "760729f3114bfe59fd51565b5f791ef5e3a11e3d9251a738f856a5c5577ff5ab",
+    "schemas.py": "8109dd4f2b234497c753134877bfa783bc5c2897115bc2b6a55d9a67e84927c7",
+    "secure_api.py": "10267b25c03db4c805286fe182f9168da7f6d93eb349b2e6b62b35b94a69f23e",
+    "static/app.js": "3d1e7ae49b69e95bee3dfd01dc173b400521ca74400d83e734d209ee907a8f4f",
+    "static/index.html": "9c7883b010a260609a23fe40eef6d411d8b620fbeadf53d973111072b6d9ce0b",
+    "static/pulse.js": "20531daf695fc37c493e6ce1519bfe4773c3468300e86018da6dbc8227adb625",
+    "tests/browser_fixture_server.py": "48c3905318734486e1a255f7d592ef4380b3eca874b67a98b6e68c7aa56da45e",
+    "tests/run_assignment5_verification.py": "929ab28e7743b446b39be92929ee2e51581872ab0ea62b3e561f1c63a7142b08",
+    "tests/run_compliance_audits.py": "405a841f76c3be61a361b7a2f0f9efe44e5bf17c45b3c148221cde4323b928f1",
+    "tests/run_hardening_regressions.py": "a5ab523b9ad63bd2e60b120981df166cbcd4dbd9eeb9054023f434a7671efd92",
+    "tests/run_mvp_recovery_verification.py": "90f83fa2f6d6461eedacef53b4ca3db8656df63f2f1291bff5d89928c204724b",
+    "tests/test_assignment5_controls.py": "4ac60bfd6f0571c475ec9fa5f45270a45b2b8ba7b127b37816e3834a4e2f0b95",
+    "tests/test_c03_audit.py": "bde05d8a207849674212502d62994bc3c3e3f3e9de07d3b8f3400823cebfa174",
+    "tests/test_hardening_browser.cjs": "6eab496f81425b4aa0e464efb93c2f859a6fc08946758cfbf72804e4e8c9a8ab",
+    "tests/test_mvp_recovery.py": "04c4554c160e8c98113bcbdab95f7b1790508113b0e8d4c5c913d6630037a8f3",
+    "tests/test_pulse.py": "e64ec4e7083ca61af985610870ce0a8161063fc9e9d3a6cdd769f54fd5637532",
+    "tests/test_pulse_integrity.py": "9194a403fff1a30307df7552da8e22d7806022d58f98f460b1877186f6ae275a",
+    "tests/test_rbac_stage1.py": "d693160eaf7e6290e563d5a28849773be0f7949c232d06676ea094184129b55e",
+    "tests/test_secure_api.py": "d8425574219a5da959c08d8b83128c46df3738c26ffae62b2a314d09c4adcc7e",
+    "tests/test_security_controls.py": "2147fef880132f749b02d1e46ae4679021290026eef473340091c5aef7ec9de4",
+    "tests/test_validation_hardening.py": "b5a3e4725068768a875dac81ec61f7f2a0fb26d83719b0ea2e68d18b5b9f4a3e",
+    "tests/test_week7_auth.py": "23d5ecb8a114f9cb89ba58c596d511df11f85456ec1013ec22510dbce04244f2",
+    "tests/test_week8_stage1.py": "d106acf49851d12093d13b30694c668b1f559de70d69ebf2d13ce2fb5adf1d6c"
+  }
+}

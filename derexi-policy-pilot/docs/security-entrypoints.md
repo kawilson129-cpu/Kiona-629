@@ -1,5 +1,10 @@
 # Security entry points and developer demonstrations
 
+**Documentation checkpoint:** the recovery implementation is tested locally but
+uncommitted. The course-source option, session recovery, Messages additions and
+new recovery test runners below require the pending code changes. Publishing
+this documentation/evidence does not publish or deploy that implementation.
+
 The existing `uvicorn main:app` is a **legacy compatibility entry point with no
 integrated authentication**. It remains available to avoid locking out the
 existing course UI. Keep it loopback-only; it is not the production entry point.
@@ -31,6 +36,11 @@ do not switch the normal course UI to this profile until sign-in is provisioned.
 
 ## Isolated developer selector
 
+For the working course UI, the explicit authenticated developer profile is
+`dev_demo:build_demo`; it shares the secured API/RBAC assembly below the cookie
+adapter. The API-only factory is not a replacement UI login flow. See
+[HTTP 401 recovery](mvp-401-recovery.md) for current evidence and limitations.
+
 ```bash
 python dev_demo.py --database /absolute/path/to/approved-local.sqlite --activate --port 8000
 ```
@@ -61,6 +71,42 @@ demos. No authoritative snapshot is available in this checkout. Historical
 preview data is not imported as a substitute. Synthetic records used by tests
 and screenshots are visibly labeled and are not replacements for the employees.
 
+### Explicit read-only course source
+
+Where the original `backend/.env`/`DATABASE_URL` is available, launch from backend/:
+
+```bash
+../.venv/bin/python dev_demo.py --course-database --activate --port 8000
+```
+
+This **explicit option** loads the existing database configuration and reads its
+mapped application tables inside a PostgreSQL `REPEATABLE READ`, verified
+`READ ONLY` transaction. The source receives SELECT/transaction commands only.
+An owner-only temporary SQLite file preserves mapped rows, IDs and relationships;
+per-table count/hash comparison and foreign-key checks must pass before launch.
+Aware timestamps are normalized to the same UTC instant for SQLite. It does not
+copy Supabase Auth, RLS, grants or unmapped extra tables/columns, nor change them.
+It creates no replacement users. Missing configuration/access/schema or failed
+verification stops startup rather than falling back to fixtures.
+
+All UI writes occur only in the disposable local copy; they are not synchronized
+back to the course database and disappear at shutdown. The existing local-file
+`--database` mode still avoids .env/Supabase entirely. Neither option is a public
+deployment or production authentication exception. Never put snapshots, mapping
+files, tokens or activation keys into Git.
+
+Use `/ui/`; `/ui/index.html` redirects to that canonical route so the session
+bridge always loads. The browser waits for `/__dev/session`, includes same-origin
+cookies and CSRF on writes, and rotates the signed server identity before reloading
+on a persona switch. Expired pages return to activation. Authenticated responses
+identify this profile with `X-DeRexi-Profile: developer-local-copy`; the production
+API identifies `secured-api`. Authentication still rejects missing credentials.
+
+`GET /messages` is now implemented **only in the secured/developer assembly**.
+It derives the requester from the verified identity, rejects a different query
+`user_id`, and lists only requester/assignee threads. Administrator privilege does
+not override private clarification participation.
+
 SQLite has no `pg_trgm`; only the local profile uses a documented lexical search
 adapter over copied approved policies. Production ranking/thresholds are
 unchanged. This validates demo workflows, not equivalence to PostgreSQL search.
@@ -76,16 +122,18 @@ Run the synthetic server from backend/ in one terminal:
 In another terminal, with Playwright and Chromium available:
 
 ```bash
-node tests/test_hardening_browser.cjs /tmp/derexi-browser-metadata.json /tmp/derexi-browser-evidence
-DEREXI_BROWSER_EVIDENCE=/tmp/derexi-browser-evidence/browser_results.json \
-  ../.venv/bin/python tests/run_hardening_regressions.py
+node tests/test_mvp_recovery_browser.cjs /tmp/derexi-browser-metadata.json /tmp/derexi-browser-evidence
+../.venv/bin/python tests/run_mvp_recovery_verification.py
 ```
 
 Use a new output directory for each browser run. Each server activation is
 one-use: restart the fixture server before a new browser run. The regression
-runner saves fresh JSON/logs with source hashes, separates the four pre-existing
-incident guidance failures, and never overwrites original assessment evidence.
-The audit runner refuses to reuse browser proof older than one hour. Its C-02
+runner saves fresh JSON/logs with source hashes and never overwrites original
+assessment evidence. The original nine incident tests now pass; their earlier
+guidance failures remain recorded in historical evidence.
+The original Assignment 3 browser script retains its historical missing-Messages
+expectation and is not the current recovery acceptance runner. Original evidence
+remains unchanged. The original audit runner refuses to reuse browser proof older than one hour. Its C-02
 26 and C-03 54 backend assertions remain unchanged; C-01's old unsigned-header
 role comparison now uses signed identities on an administrator action and the
 schema assertion checks the real contract without requiring public exposure.

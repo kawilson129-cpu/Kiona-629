@@ -1,0 +1,262 @@
+[
+  {
+    "id": "C02-01",
+    "scenario": "Malformed /ask payloads are rejected with 422",
+    "expected": "all 8 malformed payloads return 422",
+    "actual": "all rejected",
+    "status": "PASS",
+    "date": "2026-11-05T21:40:57.576423+00:00",
+    "environment": "Cloud Linux; project .venv; isolated synthetic identities/fake or SQLite DB; no live Supabase",
+    "evidence_file": "test_security_controls.json"
+  },
+  {
+    "id": "C02-02",
+    "scenario": "Rejected /ask payloads create no records",
+    "expected": "0 in-memory inserts",
+    "actual": "0 insert(s), 0 commit(s)",
+    "status": "PASS",
+    "date": "2026-11-05T21:40:57.576456+00:00",
+    "environment": "Cloud Linux; project .venv; isolated synthetic identities/fake or SQLite DB; no live Supabase",
+    "evidence_file": "test_security_controls.json"
+  },
+  {
+    "id": "C02-03",
+    "scenario": "Unknown /ask fields are ignored, not applied",
+    "expected": "request accepted without granting admin fields",
+    "actual": "HTTP 422; response keys=['detail']",
+    "status": "PASS",
+    "date": "2026-11-05T21:40:57.576466+00:00",
+    "environment": "Cloud Linux; project .venv; isolated synthetic identities/fake or SQLite DB; no live Supabase",
+    "evidence_file": "test_security_controls.json"
+  },
+  {
+    "id": "C02-04",
+    "scenario": "Unknown user is rejected without creating a conversation",
+    "expected": "404/401 with no records",
+    "actual": "HTTP 404, detail='User not found', inserts=0",
+    "status": "PASS",
+    "date": "2026-11-05T21:40:57.576472+00:00",
+    "environment": "Cloud Linux; project .venv; isolated synthetic identities/fake or SQLite DB; no live Supabase",
+    "evidence_file": "test_security_controls.json"
+  },
+  {
+    "id": "C02-05",
+    "scenario": "Malformed /feedback payloads are rejected with 422",
+    "expected": "all 5 malformed payloads return 422",
+    "actual": "all rejected",
+    "status": "PASS",
+    "date": "2026-11-05T21:40:57.576477+00:00",
+    "environment": "Cloud Linux; project .venv; isolated synthetic identities/fake or SQLite DB; no live Supabase",
+    "evidence_file": "test_security_controls.json"
+  },
+  {
+    "id": "C02-06",
+    "scenario": "Rejected /feedback payloads create no records",
+    "expected": "0 in-memory inserts",
+    "actual": "0 insert(s)",
+    "status": "PASS",
+    "date": "2026-11-05T21:40:57.576482+00:00",
+    "environment": "Cloud Linux; project .venv; isolated synthetic identities/fake or SQLite DB; no live Supabase",
+    "evidence_file": "test_security_controls.json"
+  },
+  {
+    "id": "C02-07",
+    "scenario": "Feedback for a missing message is refused",
+    "expected": "404 and no record",
+    "actual": "HTTP 404, inserts=0",
+    "status": "PASS",
+    "date": "2026-11-05T21:40:57.576486+00:00",
+    "environment": "Cloud Linux; project .venv; isolated synthetic identities/fake or SQLite DB; no live Supabase",
+    "evidence_file": "test_security_controls.json"
+  },
+  {
+    "id": "C02-08",
+    "scenario": "Overlong feedback comment is rejected",
+    "expected": "422 for a 50,000-character comment",
+    "actual": "HTTP 422",
+    "status": "PASS",
+    "date": "2026-11-05T21:40:57.576491+00:00",
+    "environment": "Cloud Linux; project .venv; isolated synthetic identities/fake or SQLite DB; no live Supabase",
+    "evidence_file": "test_security_controls.json"
+  },
+  {
+    "id": "C02-09",
+    "scenario": "Malformed /incidents payloads are rejected with 422",
+    "expected": "all 6 malformed payloads return 422",
+    "actual": "all rejected",
+    "status": "PASS",
+    "date": "2026-11-05T21:40:57.576495+00:00",
+    "environment": "Cloud Linux; project .venv; isolated synthetic identities/fake or SQLite DB; no live Supabase",
+    "evidence_file": "test_security_controls.json"
+  },
+  {
+    "id": "C02-10",
+    "scenario": "Rejected /incidents payloads create no records",
+    "expected": "0 in-memory inserts",
+    "actual": "0 insert(s)",
+    "status": "PASS",
+    "date": "2026-11-05T21:40:57.576499+00:00",
+    "environment": "Cloud Linux; project .venv; isolated synthetic identities/fake or SQLite DB; no live Supabase",
+    "evidence_file": "test_security_controls.json"
+  },
+  {
+    "id": "C02-11",
+    "scenario": "Overlong incident description is rejected",
+    "expected": "422 for a 50,000-character description",
+    "actual": "HTTP 422",
+    "status": "PASS",
+    "date": "2026-11-05T21:40:57.576503+00:00",
+    "environment": "Cloud Linux; project .venv; isolated synthetic identities/fake or SQLite DB; no live Supabase",
+    "evidence_file": "test_security_controls.json"
+  },
+  {
+    "id": "C02-12",
+    "scenario": "Malformed replies are rejected with 422",
+    "expected": "all 5 malformed payloads return 422",
+    "actual": "all rejected",
+    "status": "PASS",
+    "date": "2026-11-05T21:40:57.576507+00:00",
+    "environment": "Cloud Linux; project .venv; isolated synthetic identities/fake or SQLite DB; no live Supabase",
+    "evidence_file": "test_security_controls.json"
+  },
+  {
+    "id": "C02-13",
+    "scenario": "Rejected replies create no records",
+    "expected": "0 in-memory inserts",
+    "actual": "0 insert(s)",
+    "status": "PASS",
+    "date": "2026-11-05T21:40:57.576511+00:00",
+    "environment": "Cloud Linux; project .venv; isolated synthetic identities/fake or SQLite DB; no live Supabase",
+    "evidence_file": "test_security_controls.json"
+  },
+  {
+    "id": "C02-14",
+    "scenario": "Malformed /policies payloads are rejected with 422",
+    "expected": "all 4 malformed payloads return 422",
+    "actual": "all rejected",
+    "status": "PASS",
+    "date": "2026-11-05T21:40:57.576516+00:00",
+    "environment": "Cloud Linux; project .venv; isolated synthetic identities/fake or SQLite DB; no live Supabase",
+    "evidence_file": "test_security_controls.json"
+  },
+  {
+    "id": "C02-15",
+    "scenario": "Rejected policy payloads create no records",
+    "expected": "0 in-memory inserts",
+    "actual": "0 insert(s)",
+    "status": "PASS",
+    "date": "2026-11-05T21:40:57.576520+00:00",
+    "environment": "Cloud Linux; project .venv; isolated synthetic identities/fake or SQLite DB; no live Supabase",
+    "evidence_file": "test_security_controls.json"
+  },
+  {
+    "id": "C02-16",
+    "scenario": "Overlong policy title is rejected",
+    "expected": "422 for a 100,000-character title",
+    "actual": "HTTP 422",
+    "status": "PASS",
+    "date": "2026-11-05T21:40:57.576524+00:00",
+    "environment": "Cloud Linux; project .venv; isolated synthetic identities/fake or SQLite DB; no live Supabase",
+    "evidence_file": "test_security_controls.json"
+  },
+  {
+    "id": "C02-17",
+    "scenario": "Incident assignment to a nonexistent user is rejected",
+    "expected": "400/404/422 and no change",
+    "actual": "HTTP 404; in-memory assigned_to=None",
+    "status": "PASS",
+    "date": "2026-11-05T21:40:57.576532+00:00",
+    "environment": "Cloud Linux; project .venv; isolated synthetic identities/fake or SQLite DB; no live Supabase",
+    "evidence_file": "test_security_controls.json"
+  },
+  {
+    "id": "C02-18",
+    "scenario": "Error responses contain no stack traces, SQL, or credentials",
+    "expected": "0 internal details in 6 error responses",
+    "actual": "statuses 404,404,404,404,404,404; no internal details",
+    "status": "PASS",
+    "date": "2026-11-05T21:40:57.576536+00:00",
+    "environment": "Cloud Linux; project .venv; isolated synthetic identities/fake or SQLite DB; no live Supabase",
+    "evidence_file": "test_security_controls.json"
+  },
+  {
+    "id": "C02-19",
+    "scenario": "Not-found errors use short, employee-readable text",
+    "expected": "a plain-language detail string",
+    "actual": "HTTP 404, detail='Policy not found'",
+    "status": "PASS",
+    "date": "2026-11-05T21:40:57.576540+00:00",
+    "environment": "Cloud Linux; project .venv; isolated synthetic identities/fake or SQLite DB; no live Supabase",
+    "evidence_file": "test_security_controls.json"
+  },
+  {
+    "id": "C02-20",
+    "scenario": "Unhandled database failure does not leak internals",
+    "expected": "HTTP 500 with no traceback, SQL, or connection string",
+    "actual": "HTTP 500, leak markers=none, body='{\"detail\":\"Unable to complete request. Please try again.\"}'",
+    "status": "PASS",
+    "date": "2026-11-05T21:40:57.576545+00:00",
+    "environment": "Cloud Linux; project .venv; isolated synthetic identities/fake or SQLite DB; no live Supabase",
+    "evidence_file": "test_security_controls.json"
+  },
+  {
+    "id": "C02-21",
+    "scenario": "Unhandled failure gives the employee an actionable message",
+    "expected": "a plain-language apology/retry message",
+    "actual": "HTTP 500, body='{\"detail\":\"Unable to complete request. Please try again.\"}'",
+    "status": "PASS",
+    "date": "2026-11-05T21:40:57.576549+00:00",
+    "environment": "Cloud Linux; project .venv; isolated synthetic identities/fake or SQLite DB; no live Supabase",
+    "evidence_file": "test_security_controls.json"
+  },
+  {
+    "id": "C02-24",
+    "scenario": "Empty policy title and body are rejected",
+    "expected": "422 for empty title and empty version body",
+    "actual": "HTTP 422",
+    "status": "PASS",
+    "date": "2026-11-05T21:40:57.576554+00:00",
+    "environment": "Cloud Linux; project .venv; isolated synthetic identities/fake or SQLite DB; no live Supabase",
+    "evidence_file": "test_security_controls.json"
+  },
+  {
+    "id": "C02-22",
+    "scenario": "Non-boolean rating values are rejected",
+    "expected": "422 for rating='yes'",
+    "actual": "HTTP 422; rating coerced and stored=False",
+    "status": "PASS",
+    "date": "2026-11-05T21:40:57.576559+00:00",
+    "environment": "Cloud Linux; project .venv; isolated synthetic identities/fake or SQLite DB; no live Supabase",
+    "evidence_file": "test_security_controls.json"
+  },
+  {
+    "id": "C02-25",
+    "scenario": "Clarification for nonexistent message/conversation/policy is rejected",
+    "expected": "400/404/422 and no record",
+    "actual": "HTTP 404; 0 in-memory insert(s) with dangling foreign keys",
+    "status": "PASS",
+    "date": "2026-11-05T21:40:57.576563+00:00",
+    "environment": "Cloud Linux; project .venv; isolated synthetic identities/fake or SQLite DB; no live Supabase",
+    "evidence_file": "test_security_controls.json"
+  },
+  {
+    "id": "C02-26",
+    "scenario": "Feedback from a nonexistent user is rejected",
+    "expected": "404 and no record",
+    "actual": "HTTP 404; 0 in-memory insert(s) referencing a missing user",
+    "status": "PASS",
+    "date": "2026-11-05T21:40:57.576567+00:00",
+    "environment": "Cloud Linux; project .venv; isolated synthetic identities/fake or SQLite DB; no live Supabase",
+    "evidence_file": "test_security_controls.json"
+  },
+  {
+    "id": "C02-23",
+    "scenario": "Every free-text field declares an upper bound",
+    "expected": "0 unbounded free-text fields",
+    "actual": "all bounded",
+    "status": "PASS",
+    "date": "2026-11-05T21:40:57.576573+00:00",
+    "environment": "Cloud Linux; project .venv; isolated synthetic identities/fake or SQLite DB; no live Supabase",
+    "evidence_file": "test_security_controls.json"
+  }
+]

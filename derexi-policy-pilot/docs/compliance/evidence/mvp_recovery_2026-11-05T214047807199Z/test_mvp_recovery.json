@@ -1,0 +1,162 @@
+[
+  {
+    "id": "test_mvp_recovery.CourseSnapshotTests.test_R12_exact_offline_copy_preserves_every_mapped_row",
+    "scenario": "All application tables, IDs, role/department/owner relations and values survive verified copy.",
+    "expected": "All named test assertions hold",
+    "actual": "All assertions passed",
+    "status": "PASS",
+    "date": "2026-11-05T21:40:48.455452+00:00",
+    "environment": "Cloud Linux; project .venv; isolated synthetic identities/fake or SQLite DB; no live Supabase",
+    "evidence_file": "test_mvp_recovery.json"
+  },
+  {
+    "id": "test_mvp_recovery.CourseSnapshotTests.test_R13_readonly_transaction_before_course_copy",
+    "scenario": "PostgreSQL copy requires REPEATABLE READ and verified READ ONLY before any table copy.",
+    "expected": "All named test assertions hold",
+    "actual": "All assertions passed",
+    "status": "PASS",
+    "date": "2026-11-05T21:40:48.495409+00:00",
+    "environment": "Cloud Linux; project .venv; isolated synthetic identities/fake or SQLite DB; no live Supabase",
+    "evidence_file": "test_mvp_recovery.json"
+  },
+  {
+    "id": "test_mvp_recovery.CourseSnapshotTests.test_R14_readonly_not_verified_fails_closed",
+    "scenario": "Missing read-only confirmation blocks copying; no fallback dataset is generated.",
+    "expected": "All named test assertions hold",
+    "actual": "All assertions passed",
+    "status": "PASS",
+    "date": "2026-11-05T21:40:48.561492+00:00",
+    "environment": "Cloud Linux; project .venv; isolated synthetic identities/fake or SQLite DB; no live Supabase",
+    "evidence_file": "test_mvp_recovery.json"
+  },
+  {
+    "id": "test_mvp_recovery.CourseSnapshotTests.test_R15_existing_snapshot_not_overwritten",
+    "scenario": "Existing destination file fails closed and its bytes remain unchanged.",
+    "expected": "All named test assertions hold",
+    "actual": "All assertions passed",
+    "status": "PASS",
+    "date": "2026-11-05T21:40:48.598339+00:00",
+    "environment": "Cloud Linux; project .venv; isolated synthetic identities/fake or SQLite DB; no live Supabase",
+    "evidence_file": "test_mvp_recovery.json"
+  },
+  {
+    "id": "test_mvp_recovery.CourseSnapshotTests.test_R16_timezone_instants_preserved",
+    "scenario": "Snapshot normalizes aware timestamp instants to UTC rather than dropping their offsets.",
+    "expected": "All named test assertions hold",
+    "actual": "All assertions passed",
+    "status": "PASS",
+    "date": "2026-11-05T21:40:48.635247+00:00",
+    "environment": "Cloud Linux; project .venv; isolated synthetic identities/fake or SQLite DB; no live Supabase",
+    "evidence_file": "test_mvp_recovery.json"
+  },
+  {
+    "id": "test_mvp_recovery.DemoRecoveryTests.test_R07_canonical_ui_and_cookie_boot",
+    "scenario": "Activation establishes HttpOnly cookie; HTML alias redirects to bridged UI and directory is 200.",
+    "expected": "All named test assertions hold",
+    "actual": "All assertions passed",
+    "status": "PASS",
+    "date": "2026-11-05T21:40:48.742478+00:00",
+    "environment": "Cloud Linux; project .venv; isolated synthetic identities/fake or SQLite DB; no live Supabase",
+    "evidence_file": "test_mvp_recovery.json"
+  },
+  {
+    "id": "test_mvp_recovery.DemoRecoveryTests.test_R08_signed_switch_scopes_and_csrf",
+    "scenario": "Authenticated switch rotates cookie; governance follows server role; missing CSRF is denied.",
+    "expected": "All named test assertions hold",
+    "actual": "All assertions passed",
+    "status": "PASS",
+    "date": "2026-11-05T21:40:48.847333+00:00",
+    "environment": "Cloud Linux; project .venv; isolated synthetic identities/fake or SQLite DB; no live Supabase",
+    "evidence_file": "test_mvp_recovery.json"
+  },
+  {
+    "id": "test_mvp_recovery.DemoRecoveryTests.test_R09_cookie_controls_identity_not_caller_header",
+    "scenario": "Cookie principal overrides forged bearer header and cannot gain administrator authority.",
+    "expected": "All named test assertions hold",
+    "actual": "All assertions passed",
+    "status": "PASS",
+    "date": "2026-11-05T21:40:48.925377+00:00",
+    "environment": "Cloud Linux; project .venv; isolated synthetic identities/fake or SQLite DB; no live Supabase",
+    "evidence_file": "test_mvp_recovery.json"
+  },
+  {
+    "id": "test_mvp_recovery.DemoRecoveryTests.test_R10_expired_session_reauthenticates",
+    "scenario": "Expired local session denies API and redirects UI to activation.",
+    "expected": "All named test assertions hold",
+    "actual": "All assertions passed",
+    "status": "PASS",
+    "date": "2026-11-05T21:40:48.995899+00:00",
+    "environment": "Cloud Linux; project .venv; isolated synthetic identities/fake or SQLite DB; no live Supabase",
+    "evidence_file": "test_mvp_recovery.json"
+  },
+  {
+    "id": "test_mvp_recovery.DemoRecoveryTests.test_R11_local_app_never_opens_course_connection",
+    "scenario": "Existing snapshot mode does not load/open configured production database.",
+    "expected": "All named test assertions hold",
+    "actual": "All assertions passed",
+    "status": "PASS",
+    "date": "2026-11-05T21:40:49.076747+00:00",
+    "environment": "Cloud Linux; project .venv; isolated synthetic identities/fake or SQLite DB; no live Supabase",
+    "evidence_file": "test_mvp_recovery.json"
+  },
+  {
+    "id": "test_mvp_recovery.MessageRecoveryTests.test_R01_anonymous_directory_and_messages_rejected",
+    "scenario": "Anonymous users/roles/policies/messages are 401; authenticated directory preserves IDs and roles.",
+    "expected": "All named test assertions hold",
+    "actual": "All assertions passed",
+    "status": "PASS",
+    "date": "2026-11-05T21:40:49.187022+00:00",
+    "environment": "Cloud Linux; project .venv; isolated synthetic identities/fake or SQLite DB; no live Supabase",
+    "evidence_file": "test_mvp_recovery.json"
+  },
+  {
+    "id": "test_mvp_recovery.MessageRecoveryTests.test_R02_messages_participant_scope",
+    "scenario": "Employee sent/owner inbox contain their thread; unrelated/admin cannot inspect it.",
+    "expected": "All named test assertions hold",
+    "actual": "All assertions passed",
+    "status": "PASS",
+    "date": "2026-11-05T21:40:49.275343+00:00",
+    "environment": "Cloud Linux; project .venv; isolated synthetic identities/fake or SQLite DB; no live Supabase",
+    "evidence_file": "test_mvp_recovery.json"
+  },
+  {
+    "id": "test_mvp_recovery.MessageRecoveryTests.test_R03_query_identity_cannot_impersonate",
+    "scenario": "Selecting another user in Messages query is 403, including for administrator.",
+    "expected": "All named test assertions hold",
+    "actual": "All assertions passed",
+    "status": "PASS",
+    "date": "2026-11-05T21:40:49.327102+00:00",
+    "environment": "Cloud Linux; project .venv; isolated synthetic identities/fake or SQLite DB; no live Supabase",
+    "evidence_file": "test_mvp_recovery.json"
+  },
+  {
+    "id": "test_mvp_recovery.MessageRecoveryTests.test_R04_reply_roundtrip_and_resolution",
+    "scenario": "Participant replies persist and reach the other participant; only assignee resolves.",
+    "expected": "All named test assertions hold",
+    "actual": "All assertions passed",
+    "status": "PASS",
+    "date": "2026-11-05T21:40:49.414354+00:00",
+    "environment": "Cloud Linux; project .venv; isolated synthetic identities/fake or SQLite DB; no live Supabase",
+    "evidence_file": "test_mvp_recovery.json"
+  },
+  {
+    "id": "test_mvp_recovery.MessageRecoveryTests.test_R05_forged_sender_rejected_without_write",
+    "scenario": "Body actor spoofing is 403 and inserts no reply.",
+    "expected": "All named test assertions hold",
+    "actual": "All assertions passed",
+    "status": "PASS",
+    "date": "2026-11-05T21:40:49.461384+00:00",
+    "environment": "Cloud Linux; project .venv; isolated synthetic identities/fake or SQLite DB; no live Supabase",
+    "evidence_file": "test_mvp_recovery.json"
+  },
+  {
+    "id": "test_mvp_recovery.MessageRecoveryTests.test_R06_models_endpoint_unrelated",
+    "scenario": "Model-discovery URL is 404 while authenticated directory works.",
+    "expected": "All named test assertions hold",
+    "actual": "All assertions passed",
+    "status": "PASS",
+    "date": "2026-11-05T21:40:49.508015+00:00",
+    "environment": "Cloud Linux; project .venv; isolated synthetic identities/fake or SQLite DB; no live Supabase",
+    "evidence_file": "test_mvp_recovery.json"
+  }
+]

@@ -1,5 +1,17 @@
 # Existing issues outside RBAC Stage 1
 
+**P0 UI recovery — November 5 (tested working-tree code, still uncommitted):**
+This documentation/evidence checkpoint does not include the application repair.
+Messages is implemented locally in the secured and
+authenticated developer profiles with requester/assignee scoping and actor-query
+checks; the unguarded compatibility app still has no Messages route. The current
+acceptance runner is `test_mvp_recovery_browser.cjs`, not the original browser
+script's historical MSG-001 expectation. The developer UI canonicalizes HTML
+entry URLs, restores expired-session activation and can explicitly use a verified
+read-only course-data copy. Actual course-data verification remains blocked here
+because no course .env/approved snapshot is available. See
+[recovery report](mvp-401-recovery.md); earlier findings below are historical.
+
 **Latest status — November 5, Assignment 5:** INC-001 is resolved in the tested
 scope: all **9 original incident tests pass**, including the four guidance
 failures. The missing helper and create-response field were restored; confidence

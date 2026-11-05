@@ -1,0 +1,322 @@
+[
+  {
+    "id": "test_secure_api.DemoTests.test_demo_activation_is_one_use_and_logout_revokes_session",
+    "scenario": "test_demo_activation_is_one_use_and_logout_revokes_session",
+    "expected": "All named test assertions hold",
+    "actual": "All assertions passed",
+    "status": "PASS",
+    "date": "2026-11-05T21:38:31.565941+00:00",
+    "environment": "Cloud Linux; project .venv; isolated synthetic identities/fake or SQLite DB; no live Supabase",
+    "evidence_file": "test_secure_api.json"
+  },
+  {
+    "id": "test_secure_api.DemoTests.test_demo_assistant_writes_only_copy_and_switch_revokes_private_access",
+    "scenario": "test_demo_assistant_writes_only_copy_and_switch_revokes_private_access",
+    "expected": "All named test assertions hold",
+    "actual": "All assertions passed",
+    "status": "PASS",
+    "date": "2026-11-05T21:38:31.701257+00:00",
+    "environment": "Cloud Linux; project .venv; isolated synthetic identities/fake or SQLite DB; no live Supabase",
+    "evidence_file": "test_secure_api.json"
+  },
+  {
+    "id": "test_secure_api.DemoTests.test_demo_bootstrap_rotation_and_signed_persona_switch",
+    "scenario": "test_demo_bootstrap_rotation_and_signed_persona_switch",
+    "expected": "All named test assertions hold",
+    "actual": "All assertions passed",
+    "status": "PASS",
+    "date": "2026-11-05T21:38:31.793277+00:00",
+    "environment": "Cloud Linux; project .venv; isolated synthetic identities/fake or SQLite DB; no live Supabase",
+    "evidence_file": "test_secure_api.json"
+  },
+  {
+    "id": "test_secure_api.DemoTests.test_demo_refuses_external_or_missing_snapshot",
+    "scenario": "test_demo_refuses_external_or_missing_snapshot",
+    "expected": "All named test assertions hold",
+    "actual": "All assertions passed",
+    "status": "PASS",
+    "date": "2026-11-05T21:38:31.853663+00:00",
+    "environment": "Cloud Linux; project .venv; isolated synthetic identities/fake or SQLite DB; no live Supabase",
+    "evidence_file": "test_secure_api.json"
+  },
+  {
+    "id": "test_secure_api.DemoTests.test_demo_rejects_remote_clients_and_rebinding",
+    "scenario": "test_demo_rejects_remote_clients_and_rebinding",
+    "expected": "All named test assertions hold",
+    "actual": "All assertions passed",
+    "status": "PASS",
+    "date": "2026-11-05T21:38:31.921809+00:00",
+    "environment": "Cloud Linux; project .venv; isolated synthetic identities/fake or SQLite DB; no live Supabase",
+    "evidence_file": "test_secure_api.json"
+  },
+  {
+    "id": "test_secure_api.DemoTests.test_demo_requires_activation_origin_and_csrf",
+    "scenario": "test_demo_requires_activation_origin_and_csrf",
+    "expected": "All named test assertions hold",
+    "actual": "All assertions passed",
+    "status": "PASS",
+    "date": "2026-11-05T21:38:31.995699+00:00",
+    "environment": "Cloud Linux; project .venv; isolated synthetic identities/fake or SQLite DB; no live Supabase",
+    "evidence_file": "test_secure_api.json"
+  },
+  {
+    "id": "test_secure_api.DemoTests.test_local_tokens_and_sessions_cannot_authenticate_production",
+    "scenario": "test_local_tokens_and_sessions_cannot_authenticate_production",
+    "expected": "All named test assertions hold",
+    "actual": "All assertions passed",
+    "status": "PASS",
+    "date": "2026-11-05T21:38:32.067326+00:00",
+    "environment": "Cloud Linux; project .venv; isolated synthetic identities/fake or SQLite DB; no live Supabase",
+    "evidence_file": "test_secure_api.json"
+  },
+  {
+    "id": "test_secure_api.SecuredTests.test_admin_oversight_is_explicit_metadata_only",
+    "scenario": "test_admin_oversight_is_explicit_metadata_only",
+    "expected": "All named test assertions hold",
+    "actual": "All assertions passed",
+    "status": "PASS",
+    "date": "2026-11-05T21:38:32.119038+00:00",
+    "environment": "Cloud Linux; project .venv; isolated synthetic identities/fake or SQLite DB; no live Supabase",
+    "evidence_file": "test_secure_api.json"
+  },
+  {
+    "id": "test_secure_api.SecuredTests.test_anonymous_denied_before_database_and_safe_outage_errors",
+    "scenario": "test_anonymous_denied_before_database_and_safe_outage_errors",
+    "expected": "All named test assertions hold",
+    "actual": "All assertions passed",
+    "status": "PASS",
+    "date": "2026-11-05T21:38:32.164190+00:00",
+    "environment": "Cloud Linux; project .venv; isolated synthetic identities/fake or SQLite DB; no live Supabase",
+    "evidence_file": "test_secure_api.json"
+  },
+  {
+    "id": "test_secure_api.SecuredTests.test_claimed_role_is_ignored_and_unknown_mapping_denied",
+    "scenario": "test_claimed_role_is_ignored_and_unknown_mapping_denied",
+    "expected": "All named test assertions hold",
+    "actual": "All assertions passed",
+    "status": "PASS",
+    "date": "2026-11-05T21:38:32.265583+00:00",
+    "environment": "Cloud Linux; project .venv; isolated synthetic identities/fake or SQLite DB; no live Supabase",
+    "evidence_file": "test_secure_api.json"
+  },
+  {
+    "id": "test_secure_api.SecuredTests.test_clarification_actor_and_closed_thread_enforcement",
+    "scenario": "test_clarification_actor_and_closed_thread_enforcement",
+    "expected": "All named test assertions hold",
+    "actual": "All assertions passed",
+    "status": "PASS",
+    "date": "2026-11-05T21:38:32.326599+00:00",
+    "environment": "Cloud Linux; project .venv; isolated synthetic identities/fake or SQLite DB; no live Supabase",
+    "evidence_file": "test_secure_api.json"
+  },
+  {
+    "id": "test_secure_api.SecuredTests.test_clarification_lists_participant_only",
+    "scenario": "test_clarification_lists_participant_only",
+    "expected": "All named test assertions hold",
+    "actual": "All assertions passed",
+    "status": "PASS",
+    "date": "2026-11-05T21:38:32.391441+00:00",
+    "environment": "Cloud Linux; project .venv; isolated synthetic identities/fake or SQLite DB; no live Supabase",
+    "evidence_file": "test_secure_api.json"
+  },
+  {
+    "id": "test_secure_api.SecuredTests.test_employee_policy_write_and_impersonation_denied_before_write",
+    "scenario": "test_employee_policy_write_and_impersonation_denied_before_write",
+    "expected": "All named test assertions hold",
+    "actual": "All assertions passed",
+    "status": "PASS",
+    "date": "2026-11-05T21:38:32.443762+00:00",
+    "environment": "Cloud Linux; project .venv; isolated synthetic identities/fake or SQLite DB; no live Supabase",
+    "evidence_file": "test_secure_api.json"
+  },
+  {
+    "id": "test_secure_api.SecuredTests.test_feedback_private_and_actor_consistency",
+    "scenario": "test_feedback_private_and_actor_consistency",
+    "expected": "All named test assertions hold",
+    "actual": "All assertions passed",
+    "status": "PASS",
+    "date": "2026-11-05T21:38:32.504817+00:00",
+    "environment": "Cloud Linux; project .venv; isolated synthetic identities/fake or SQLite DB; no live Supabase",
+    "evidence_file": "test_secure_api.json"
+  },
+  {
+    "id": "test_secure_api.SecuredTests.test_governance_real_aggregate_queries_role_matrix",
+    "scenario": "test_governance_real_aggregate_queries_role_matrix",
+    "expected": "All named test assertions hold",
+    "actual": "All assertions passed",
+    "status": "PASS",
+    "date": "2026-11-05T21:38:32.560345+00:00",
+    "environment": "Cloud Linux; project .venv; isolated synthetic identities/fake or SQLite DB; no live Supabase",
+    "evidence_file": "test_secure_api.json"
+  },
+  {
+    "id": "test_secure_api.SecuredTests.test_health_is_admin_only_docs_not_public",
+    "scenario": "test_health_is_admin_only_docs_not_public",
+    "expected": "All named test assertions hold",
+    "actual": "All assertions passed",
+    "status": "PASS",
+    "date": "2026-11-05T21:38:32.638497+00:00",
+    "environment": "Cloud Linux; project .venv; isolated synthetic identities/fake or SQLite DB; no live Supabase",
+    "evidence_file": "test_secure_api.json"
+  },
+  {
+    "id": "test_secure_api.SecuredTests.test_incident_create_as_self_and_no_reporter_impersonation",
+    "scenario": "test_incident_create_as_self_and_no_reporter_impersonation",
+    "expected": "All named test assertions hold",
+    "actual": "All assertions passed",
+    "status": "PASS",
+    "date": "2026-11-05T21:38:32.691076+00:00",
+    "environment": "Cloud Linux; project .venv; isolated synthetic identities/fake or SQLite DB; no live Supabase",
+    "evidence_file": "test_secure_api.json"
+  },
+  {
+    "id": "test_secure_api.SecuredTests.test_incident_handler_cannot_escalate_or_reassign",
+    "scenario": "test_incident_handler_cannot_escalate_or_reassign",
+    "expected": "All named test assertions hold",
+    "actual": "All assertions passed",
+    "status": "PASS",
+    "date": "2026-11-05T21:38:32.767785+00:00",
+    "environment": "Cloud Linux; project .venv; isolated synthetic identities/fake or SQLite DB; no live Supabase",
+    "evidence_file": "test_secure_api.json"
+  },
+  {
+    "id": "test_secure_api.SecuredTests.test_incident_scope_cannot_be_widened_by_query",
+    "scenario": "test_incident_scope_cannot_be_widened_by_query",
+    "expected": "All named test assertions hold",
+    "actual": "All assertions passed",
+    "status": "PASS",
+    "date": "2026-11-05T21:38:32.829055+00:00",
+    "environment": "Cloud Linux; project .venv; isolated synthetic identities/fake or SQLite DB; no live Supabase",
+    "evidence_file": "test_secure_api.json"
+  },
+  {
+    "id": "test_secure_api.SecuredTests.test_invalid_expired_wrong_issuer_and_audience",
+    "scenario": "test_invalid_expired_wrong_issuer_and_audience",
+    "expected": "All named test assertions hold",
+    "actual": "All assertions passed",
+    "status": "PASS",
+    "date": "2026-11-05T21:38:32.881809+00:00",
+    "environment": "Cloud Linux; project .venv; isolated synthetic identities/fake or SQLite DB; no live Supabase",
+    "evidence_file": "test_secure_api.json"
+  },
+  {
+    "id": "test_secure_api.SecuredTests.test_legacy_ui_not_activated_or_locked_out",
+    "scenario": "test_legacy_ui_not_activated_or_locked_out",
+    "expected": "All named test assertions hold",
+    "actual": "All assertions passed",
+    "status": "PASS",
+    "date": "2026-11-05T21:38:32.981954+00:00",
+    "environment": "Cloud Linux; project .venv; isolated synthetic identities/fake or SQLite DB; no live Supabase",
+    "evidence_file": "test_secure_api.json"
+  },
+  {
+    "id": "test_secure_api.SecuredTests.test_missing_credentials_all_protected_routes",
+    "scenario": "test_missing_credentials_all_protected_routes",
+    "expected": "All named test assertions hold",
+    "actual": "All assertions passed",
+    "status": "PASS",
+    "date": "2026-11-05T21:38:33.060376+00:00",
+    "environment": "Cloud Linux; project .venv; isolated synthetic identities/fake or SQLite DB; no live Supabase",
+    "evidence_file": "test_secure_api.json"
+  },
+  {
+    "id": "test_secure_api.SecuredTests.test_no_unsigned_demo_header_or_cookie_identity",
+    "scenario": "test_no_unsigned_demo_header_or_cookie_identity",
+    "expected": "All named test assertions hold",
+    "actual": "All assertions passed",
+    "status": "PASS",
+    "date": "2026-11-05T21:38:33.107537+00:00",
+    "environment": "Cloud Linux; project .venv; isolated synthetic identities/fake or SQLite DB; no live Supabase",
+    "evidence_file": "test_secure_api.json"
+  },
+  {
+    "id": "test_secure_api.SecuredTests.test_owner_cannot_publish_or_assign_another_owner",
+    "scenario": "test_owner_cannot_publish_or_assign_another_owner",
+    "expected": "All named test assertions hold",
+    "actual": "All assertions passed",
+    "status": "PASS",
+    "date": "2026-11-05T21:38:33.158287+00:00",
+    "environment": "Cloud Linux; project .venv; isolated synthetic identities/fake or SQLite DB; no live Supabase",
+    "evidence_file": "test_secure_api.json"
+  },
+  {
+    "id": "test_secure_api.SecuredTests.test_owner_draft_creation_stores_verified_author_and_owner",
+    "scenario": "test_owner_draft_creation_stores_verified_author_and_owner",
+    "expected": "All named test assertions hold",
+    "actual": "All assertions passed",
+    "status": "PASS",
+    "date": "2026-11-05T21:38:33.213804+00:00",
+    "environment": "Cloud Linux; project .venv; isolated synthetic identities/fake or SQLite DB; no live Supabase",
+    "evidence_file": "test_secure_api.json"
+  },
+  {
+    "id": "test_secure_api.SecuredTests.test_participant_reply_and_assignee_resolution",
+    "scenario": "test_participant_reply_and_assignee_resolution",
+    "expected": "All named test assertions hold",
+    "actual": "All assertions passed",
+    "status": "PASS",
+    "date": "2026-11-05T21:38:33.276516+00:00",
+    "environment": "Cloud Linux; project .venv; isolated synthetic identities/fake or SQLite DB; no live Supabase",
+    "evidence_file": "test_secure_api.json"
+  },
+  {
+    "id": "test_secure_api.SecuredTests.test_policy_visibility_list_details_and_categories",
+    "scenario": "test_policy_visibility_list_details_and_categories",
+    "expected": "All named test assertions hold",
+    "actual": "All assertions passed",
+    "status": "PASS",
+    "date": "2026-11-05T21:38:33.357981+00:00",
+    "environment": "Cloud Linux; project .venv; isolated synthetic identities/fake or SQLite DB; no live Supabase",
+    "evidence_file": "test_secure_api.json"
+  },
+  {
+    "id": "test_secure_api.SecuredTests.test_private_conversations_no_admin_override",
+    "scenario": "test_private_conversations_no_admin_override",
+    "expected": "All named test assertions hold",
+    "actual": "All assertions passed",
+    "status": "PASS",
+    "date": "2026-11-05T21:38:33.422165+00:00",
+    "environment": "Cloud Linux; project .venv; isolated synthetic identities/fake or SQLite DB; no live Supabase",
+    "evidence_file": "test_secure_api.json"
+  },
+  {
+    "id": "test_secure_api.SecuredTests.test_protected_pulse_keeps_readonly_feed_contract",
+    "scenario": "test_protected_pulse_keeps_readonly_feed_contract",
+    "expected": "All named test assertions hold",
+    "actual": "All assertions passed",
+    "status": "PASS",
+    "date": "2026-11-05T21:38:33.466303+00:00",
+    "environment": "Cloud Linux; project .venv; isolated synthetic identities/fake or SQLite DB; no live Supabase",
+    "evidence_file": "test_secure_api.json"
+  },
+  {
+    "id": "test_secure_api.SecuredTests.test_unknown_server_role_fails_closed",
+    "scenario": "test_unknown_server_role_fails_closed",
+    "expected": "All named test assertions hold",
+    "actual": "All assertions passed",
+    "status": "PASS",
+    "date": "2026-11-05T21:38:33.511962+00:00",
+    "environment": "Cloud Linux; project .venv; isolated synthetic identities/fake or SQLite DB; no live Supabase",
+    "evidence_file": "test_secure_api.json"
+  },
+  {
+    "id": "test_secure_api.SecuredTests.test_verified_principal_and_minimal_directory",
+    "scenario": "test_verified_principal_and_minimal_directory",
+    "expected": "All named test assertions hold",
+    "actual": "All assertions passed",
+    "status": "PASS",
+    "date": "2026-11-05T21:38:33.562845+00:00",
+    "environment": "Cloud Linux; project .venv; isolated synthetic identities/fake or SQLite DB; no live Supabase",
+    "evidence_file": "test_secure_api.json"
+  },
+  {
+    "id": "test_secure_api.SecuredTests.test_versions_only_assigned_drafts_and_admin_publication",
+    "scenario": "test_versions_only_assigned_drafts_and_admin_publication",
+    "expected": "All named test assertions hold",
+    "actual": "All assertions passed",
+    "status": "PASS",
+    "date": "2026-11-05T21:38:33.694415+00:00",
+    "environment": "Cloud Linux; project .venv; isolated synthetic identities/fake or SQLite DB; no live Supabase",
+    "evidence_file": "test_secure_api.json"
+  }
+]

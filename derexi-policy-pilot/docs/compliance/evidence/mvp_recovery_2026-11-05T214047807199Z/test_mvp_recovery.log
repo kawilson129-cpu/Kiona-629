@@ -1,0 +1,37 @@
+test_R12_exact_offline_copy_preserves_every_mapped_row (test_mvp_recovery.CourseSnapshotTests.test_R12_exact_offline_copy_preserves_every_mapped_row)
+All application tables, IDs, role/department/owner relations and values survive verified copy. ... ok
+test_R13_readonly_transaction_before_course_copy (test_mvp_recovery.CourseSnapshotTests.test_R13_readonly_transaction_before_course_copy)
+PostgreSQL copy requires REPEATABLE READ and verified READ ONLY before any table copy. ... ok
+test_R14_readonly_not_verified_fails_closed (test_mvp_recovery.CourseSnapshotTests.test_R14_readonly_not_verified_fails_closed)
+Missing read-only confirmation blocks copying; no fallback dataset is generated. ... ok
+test_R15_existing_snapshot_not_overwritten (test_mvp_recovery.CourseSnapshotTests.test_R15_existing_snapshot_not_overwritten)
+Existing destination file fails closed and its bytes remain unchanged. ... ok
+test_R16_timezone_instants_preserved (test_mvp_recovery.CourseSnapshotTests.test_R16_timezone_instants_preserved)
+Snapshot normalizes aware timestamp instants to UTC rather than dropping their offsets. ... ok
+test_R07_canonical_ui_and_cookie_boot (test_mvp_recovery.DemoRecoveryTests.test_R07_canonical_ui_and_cookie_boot)
+Activation establishes HttpOnly cookie; HTML alias redirects to bridged UI and directory is 200. ... ok
+test_R08_signed_switch_scopes_and_csrf (test_mvp_recovery.DemoRecoveryTests.test_R08_signed_switch_scopes_and_csrf)
+Authenticated switch rotates cookie; governance follows server role; missing CSRF is denied. ... ok
+test_R09_cookie_controls_identity_not_caller_header (test_mvp_recovery.DemoRecoveryTests.test_R09_cookie_controls_identity_not_caller_header)
+Cookie principal overrides forged bearer header and cannot gain administrator authority. ... ok
+test_R10_expired_session_reauthenticates (test_mvp_recovery.DemoRecoveryTests.test_R10_expired_session_reauthenticates)
+Expired local session denies API and redirects UI to activation. ... ok
+test_R11_local_app_never_opens_course_connection (test_mvp_recovery.DemoRecoveryTests.test_R11_local_app_never_opens_course_connection)
+Existing snapshot mode does not load/open configured production database. ... ok
+test_R01_anonymous_directory_and_messages_rejected (test_mvp_recovery.MessageRecoveryTests.test_R01_anonymous_directory_and_messages_rejected)
+Anonymous users/roles/policies/messages are 401; authenticated directory preserves IDs and roles. ... ok
+test_R02_messages_participant_scope (test_mvp_recovery.MessageRecoveryTests.test_R02_messages_participant_scope)
+Employee sent/owner inbox contain their thread; unrelated/admin cannot inspect it. ... ok
+test_R03_query_identity_cannot_impersonate (test_mvp_recovery.MessageRecoveryTests.test_R03_query_identity_cannot_impersonate)
+Selecting another user in Messages query is 403, including for administrator. ... ok
+test_R04_reply_roundtrip_and_resolution (test_mvp_recovery.MessageRecoveryTests.test_R04_reply_roundtrip_and_resolution)
+Participant replies persist and reach the other participant; only assignee resolves. ... ok
+test_R05_forged_sender_rejected_without_write (test_mvp_recovery.MessageRecoveryTests.test_R05_forged_sender_rejected_without_write)
+Body actor spoofing is 403 and inserts no reply. ... ok
+test_R06_models_endpoint_unrelated (test_mvp_recovery.MessageRecoveryTests.test_R06_models_endpoint_unrelated)
+Model-discovery URL is 404 while authenticated directory works. ... ok
+
+----------------------------------------------------------------------
+Ran 16 tests in 1.149s
+
+OK

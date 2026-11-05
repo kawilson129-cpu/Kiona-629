@@ -1,0 +1,37 @@
+test_demo_activation_is_one_use_and_logout_revokes_session (test_secure_api.DemoTests.test_demo_activation_is_one_use_and_logout_revokes_session) ... ok
+test_demo_assistant_writes_only_copy_and_switch_revokes_private_access (test_secure_api.DemoTests.test_demo_assistant_writes_only_copy_and_switch_revokes_private_access) ... ok
+test_demo_bootstrap_rotation_and_signed_persona_switch (test_secure_api.DemoTests.test_demo_bootstrap_rotation_and_signed_persona_switch) ... ok
+test_demo_refuses_external_or_missing_snapshot (test_secure_api.DemoTests.test_demo_refuses_external_or_missing_snapshot) ... ok
+test_demo_rejects_remote_clients_and_rebinding (test_secure_api.DemoTests.test_demo_rejects_remote_clients_and_rebinding) ... ok
+test_demo_requires_activation_origin_and_csrf (test_secure_api.DemoTests.test_demo_requires_activation_origin_and_csrf) ... ok
+test_local_tokens_and_sessions_cannot_authenticate_production (test_secure_api.DemoTests.test_local_tokens_and_sessions_cannot_authenticate_production) ... ok
+test_admin_oversight_is_explicit_metadata_only (test_secure_api.SecuredTests.test_admin_oversight_is_explicit_metadata_only) ... ok
+test_anonymous_denied_before_database_and_safe_outage_errors (test_secure_api.SecuredTests.test_anonymous_denied_before_database_and_safe_outage_errors) ... ok
+test_claimed_role_is_ignored_and_unknown_mapping_denied (test_secure_api.SecuredTests.test_claimed_role_is_ignored_and_unknown_mapping_denied) ... ok
+test_clarification_actor_and_closed_thread_enforcement (test_secure_api.SecuredTests.test_clarification_actor_and_closed_thread_enforcement) ... ok
+test_clarification_lists_participant_only (test_secure_api.SecuredTests.test_clarification_lists_participant_only) ... ok
+test_employee_policy_write_and_impersonation_denied_before_write (test_secure_api.SecuredTests.test_employee_policy_write_and_impersonation_denied_before_write) ... ok
+test_feedback_private_and_actor_consistency (test_secure_api.SecuredTests.test_feedback_private_and_actor_consistency) ... ok
+test_governance_real_aggregate_queries_role_matrix (test_secure_api.SecuredTests.test_governance_real_aggregate_queries_role_matrix) ... ok
+test_health_is_admin_only_docs_not_public (test_secure_api.SecuredTests.test_health_is_admin_only_docs_not_public) ... ok
+test_incident_create_as_self_and_no_reporter_impersonation (test_secure_api.SecuredTests.test_incident_create_as_self_and_no_reporter_impersonation) ... ok
+test_incident_handler_cannot_escalate_or_reassign (test_secure_api.SecuredTests.test_incident_handler_cannot_escalate_or_reassign) ... ok
+test_incident_scope_cannot_be_widened_by_query (test_secure_api.SecuredTests.test_incident_scope_cannot_be_widened_by_query) ... ok
+test_invalid_expired_wrong_issuer_and_audience (test_secure_api.SecuredTests.test_invalid_expired_wrong_issuer_and_audience) ... ok
+test_legacy_ui_not_activated_or_locked_out (test_secure_api.SecuredTests.test_legacy_ui_not_activated_or_locked_out) ... ok
+test_missing_credentials_all_protected_routes (test_secure_api.SecuredTests.test_missing_credentials_all_protected_routes) ... ok
+test_no_unsigned_demo_header_or_cookie_identity (test_secure_api.SecuredTests.test_no_unsigned_demo_header_or_cookie_identity) ... ok
+test_owner_cannot_publish_or_assign_another_owner (test_secure_api.SecuredTests.test_owner_cannot_publish_or_assign_another_owner) ... ok
+test_owner_draft_creation_stores_verified_author_and_owner (test_secure_api.SecuredTests.test_owner_draft_creation_stores_verified_author_and_owner) ... ok
+test_participant_reply_and_assignee_resolution (test_secure_api.SecuredTests.test_participant_reply_and_assignee_resolution) ... ok
+test_policy_visibility_list_details_and_categories (test_secure_api.SecuredTests.test_policy_visibility_list_details_and_categories) ... ok
+test_private_conversations_no_admin_override (test_secure_api.SecuredTests.test_private_conversations_no_admin_override) ... ok
+test_protected_pulse_keeps_readonly_feed_contract (test_secure_api.SecuredTests.test_protected_pulse_keeps_readonly_feed_contract) ... ok
+test_unknown_server_role_fails_closed (test_secure_api.SecuredTests.test_unknown_server_role_fails_closed) ... ok
+test_verified_principal_and_minimal_directory (test_secure_api.SecuredTests.test_verified_principal_and_minimal_directory) ... ok
+test_versions_only_assigned_drafts_and_admin_publication (test_secure_api.SecuredTests.test_versions_only_assigned_drafts_and_admin_publication) ... ok
+
+----------------------------------------------------------------------
+Ran 32 tests in 2.297s
+
+OK

@@ -1,0 +1,212 @@
+{
+  "date": "2026-11-05T21:40:40.389Z",
+  "fixture": "Synthetic copied application tables; never substituted for course employee dataset",
+  "checks": [
+    {
+      "id": "UI-R01",
+      "scenario": "Unauthenticated protected requests",
+      "expected": "401 for all four protected endpoints",
+      "actual": [
+        401,
+        401,
+        401,
+        401
+      ],
+      "status": "PASS",
+      "date": "2026-11-05T21:40:37.444Z",
+      "environment": "Chromium; loopback authenticated developer app; synthetic copied SQLite only",
+      "evidence_file": "browser_results.json"
+    },
+    {
+      "id": "UI-R02",
+      "scenario": "HTML alias requires developer authentication",
+      "expected": "Activation page",
+      "actual": "http://127.0.0.1:8014/__dev/login",
+      "status": "PASS",
+      "date": "2026-11-05T21:40:37.537Z",
+      "environment": "Chromium; loopback authenticated developer app; synthetic copied SQLite only",
+      "evidence_file": "browser_results.json"
+    },
+    {
+      "id": "UI-R03",
+      "scenario": "Full application initialization and authenticated directory",
+      "expected": "200, four original synthetic IDs, no initialization error",
+      "actual": {
+        "status": 200,
+        "ids": [
+          91001,
+          91002,
+          91003,
+          91004
+        ],
+        "profile": "developer-local-copy"
+      },
+      "status": "PASS",
+      "date": "2026-11-05T21:40:37.956Z",
+      "environment": "Chromium; loopback authenticated developer app; synthetic copied SQLite only",
+      "evidence_file": "browser_results.json"
+    },
+    {
+      "id": "UI-R04",
+      "scenario": "Session mechanism",
+      "expected": "HttpOnly SameSite Strict session cookie; server identifies local-copy profile",
+      "actual": {
+        "httpOnly": true,
+        "sameSite": "Strict",
+        "profile": "developer-local-copy"
+      },
+      "status": "PASS",
+      "date": "2026-11-05T21:40:37.959Z",
+      "environment": "Chromium; loopback authenticated developer app; synthetic copied SQLite only",
+      "evidence_file": "browser_results.json"
+    },
+    {
+      "id": "UI-R05",
+      "scenario": "Policy Library",
+      "expected": "200; employee sees approved policies only",
+      "actual": {
+        "status": 200
+      },
+      "status": "PASS",
+      "date": "2026-11-05T21:40:38.098Z",
+      "environment": "Chromium; loopback authenticated developer app; synthetic copied SQLite only",
+      "evidence_file": "browser_results.json"
+    },
+    {
+      "id": "UI-R06",
+      "scenario": "Policy Assistant",
+      "expected": "200 with grounded policy citation",
+      "actual": {
+        "status": 200,
+        "citationCount": 1
+      },
+      "status": "PASS",
+      "date": "2026-11-05T21:40:38.342Z",
+      "environment": "Chromium; loopback authenticated developer app; synthetic copied SQLite only",
+      "evidence_file": "browser_results.json"
+    },
+    {
+      "id": "UI-R07",
+      "scenario": "Incident Assistance",
+      "expected": "201; verified reporter, default status and guidance",
+      "actual": {
+        "status": 201,
+        "reporter": 91001,
+        "guidance": true
+      },
+      "status": "PASS",
+      "date": "2026-11-05T21:40:38.585Z",
+      "environment": "Chromium; loopback authenticated developer app; synthetic copied SQLite only",
+      "evidence_file": "browser_results.json"
+    },
+    {
+      "id": "UI-R08",
+      "scenario": "Messaging employee thread and reply",
+      "expected": "200 list and 201 persisted reply",
+      "actual": {
+        "list": 200,
+        "reply": 201
+      },
+      "status": "PASS",
+      "date": "2026-11-05T21:40:38.962Z",
+      "environment": "Chromium; loopback authenticated developer app; synthetic copied SQLite only",
+      "evidence_file": "browser_results.json"
+    },
+    {
+      "id": "UI-R09",
+      "scenario": "Authenticated persona switch",
+      "expected": "Policy Owner verified server role",
+      "actual": "Policy Owner",
+      "status": "PASS",
+      "date": "2026-11-05T21:40:39.140Z",
+      "environment": "Chromium; loopback authenticated developer app; synthetic copied SQLite only",
+      "evidence_file": "browser_results.json"
+    },
+    {
+      "id": "UI-R10",
+      "scenario": "Owner reply and authorized resolution",
+      "expected": "201 owner reply; 200 assignee resolution",
+      "actual": {
+        "reply": 201,
+        "resolution": 200
+      },
+      "status": "PASS",
+      "date": "2026-11-05T21:40:39.427Z",
+      "environment": "Chromium; loopback authenticated developer app; synthetic copied SQLite only",
+      "evidence_file": "browser_results.json"
+    },
+    {
+      "id": "UI-R11",
+      "scenario": "Message persistence across identity switch",
+      "expected": "Owner response and resolved thread visible; reply composer absent",
+      "actual": {
+        "ownerResponseVisible": true,
+        "replyComposerCount": 0
+      },
+      "status": "PASS",
+      "date": "2026-11-05T21:40:39.757Z",
+      "environment": "Chromium; loopback authenticated developer app; synthetic copied SQLite only",
+      "evidence_file": "browser_results.json"
+    },
+    {
+      "id": "UI-R12",
+      "scenario": "Employee private-record and governance restrictions",
+      "expected": "404 private records; 403 governance; unrelated incident absent",
+      "actual": {
+        "thread": 404,
+        "conversation": 404,
+        "governance": 403
+      },
+      "status": "PASS",
+      "date": "2026-11-05T21:40:40.046Z",
+      "environment": "Chromium; loopback authenticated developer app; synthetic copied SQLite only",
+      "evidence_file": "browser_results.json"
+    },
+    {
+      "id": "UI-R13",
+      "scenario": "Authorized Governance dashboard",
+      "expected": "Administrator receives 200 and visible dashboard",
+      "actual": {
+        "status": 200
+      },
+      "status": "PASS",
+      "date": "2026-11-05T21:40:40.238Z",
+      "environment": "Chromium; loopback authenticated developer app; synthetic copied SQLite only",
+      "evidence_file": "browser_results.json"
+    },
+    {
+      "id": "UI-R14",
+      "scenario": "Model endpoint independence",
+      "expected": "404 model discovery does not prevent authenticated directory 200",
+      "actual": {
+        "models": 404,
+        "users": 200
+      },
+      "status": "PASS",
+      "date": "2026-11-05T21:40:40.353Z",
+      "environment": "Chromium; loopback authenticated developer app; synthetic copied SQLite only",
+      "evidence_file": "browser_results.json"
+    },
+    {
+      "id": "UI-R15",
+      "scenario": "Expired browser session recovery",
+      "expected": "Redirect to activation rather than HTTP 401 initialization failure",
+      "actual": "http://127.0.0.1:8014/__dev/login",
+      "status": "PASS",
+      "date": "2026-11-05T21:40:40.389Z",
+      "environment": "Chromium; loopback authenticated developer app; synthetic copied SQLite only",
+      "evidence_file": "browser_results.json"
+    },
+    {
+      "id": "UI-R16",
+      "scenario": "JavaScript execution",
+      "expected": "No runtime exceptions",
+      "actual": [],
+      "status": "PASS",
+      "date": "2026-11-05T21:40:40.389Z",
+      "environment": "Chromium; loopback authenticated developer app; synthetic copied SQLite only",
+      "evidence_file": "browser_results.json"
+    }
+  ],
+  "errors": []
+}

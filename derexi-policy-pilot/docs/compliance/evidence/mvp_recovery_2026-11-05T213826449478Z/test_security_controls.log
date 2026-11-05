@@ -1,0 +1,26 @@
+  PASS  C02-01  Malformed /ask payloads are rejected with 422
+  PASS  C02-02  Rejected /ask payloads create no records
+  PASS  C02-03  Unknown /ask fields are ignored, not applied
+  PASS  C02-04  Unknown user is rejected without creating a conversation
+  PASS  C02-05  Malformed /feedback payloads are rejected with 422
+  PASS  C02-06  Rejected /feedback payloads create no records
+  PASS  C02-07  Feedback for a missing message is refused
+  PASS  C02-08  Overlong feedback comment is rejected
+  PASS  C02-09  Malformed /incidents payloads are rejected with 422
+  PASS  C02-10  Rejected /incidents payloads create no records
+  PASS  C02-11  Overlong incident description is rejected
+  PASS  C02-12  Malformed replies are rejected with 422
+  PASS  C02-13  Rejected replies create no records
+  PASS  C02-14  Malformed /policies payloads are rejected with 422
+  PASS  C02-15  Rejected policy payloads create no records
+  PASS  C02-16  Overlong policy title is rejected
+  PASS  C02-17  Incident assignment to a nonexistent user is rejected
+  PASS  C02-18  Error responses contain no stack traces, SQL, or credentials
+  PASS  C02-19  Not-found errors use short, employee-readable text
+  PASS  C02-20  Unhandled database failure does not leak internals
+  PASS  C02-21  Unhandled failure gives the employee an actionable message
+  PASS  C02-24  Empty policy title and body are rejected
+  PASS  C02-22  Non-boolean rating values are rejected
+  PASS  C02-25  Clarification for nonexistent message/conversation/policy is rejected
+  PASS  C02-26  Feedback from a nonexistent user is rejected
+  PASS  C02-23  Every free-text field declares an upper bound

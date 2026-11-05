@@ -1,8 +1,15 @@
 # DeRexi: Policy Pilot
 
+**Documentation checkpoint:** the HTTP 401 recovery code and new test runners
+remain uncommitted. The recovery features and `--course-database` commands below
+describe the tested working-tree implementation; they require those pending
+code changes and are not yet available from this branch's committed application.
+
 Security hardening adds an explicit secured API and isolated developer entry
 point. Read [security entry points](docs/security-entrypoints.md) before running
 or deploying: `main:app` remains the unguarded course compatibility profile.
+For the authenticated course interface and persona selector, use the developer
+command below; see [HTTP 401 recovery](docs/mvp-401-recovery.md) for verification.
 
 Compliance deliverables: [Assignment 4 assessment](docs/compliance/assignment4_gap_analysis.md),
 [Assignment 5 legal/ethical implementation report](docs/compliance/assignment5_legal_ethical_implementation.md)
@@ -89,7 +96,7 @@ Copy-Item backend\.env.example backend\.env
 # (optional) add OPENAI_API_KEY to enable plain-English AI answers
 
 cd backend
-uvicorn main:app --reload
+python dev_demo.py --course-database --activate --port 8000
 ```
 
 After the one-time setup, every later session is just:
@@ -98,7 +105,7 @@ After the one-time setup, every later session is just:
 cd derexi-policy-pilot
 .venv\Scripts\Activate.ps1
 cd backend
-uvicorn main:app --reload
+python dev_demo.py --course-database --activate --port 8000
 ```
 
 Requires Python 3.9+ installed from python.org (with "Add Python to PATH"
@@ -109,12 +116,23 @@ compiler is needed.
 
 ```bash
 cd backend
-uvicorn main:app --reload
+../.venv/bin/python dev_demo.py --course-database --activate --port 8000
 ```
 
 - API base: http://127.0.0.1:8000
-- Employee UI: http://127.0.0.1:8000/ui
-- Interactive docs: http://127.0.0.1:8000/docs
+- Employee UI: http://127.0.0.1:8000/ui/
+- Read the one-time key from the protected file path printed in the terminal;
+  enter it on the activation page. Use the exact `127.0.0.1` origin.
+- `--course-database` explicitly reads the existing `backend/.env` database in a
+  verified read-only transaction, copies all mapped application rows/IDs to
+  private SQLite and runs against that copy. No course records are seeded or
+  modified; there is no generic-roster fallback. Demo changes are temporary and
+  disappear when the server stops. Live AI calls are disabled in this mode.
+- With an existing approved SQLite snapshot, use
+  `python dev_demo.py --database /absolute/path/course.sqlite --activate --port 8000`.
+- Public interactive docs are disabled in the secured/developer profiles.
+  `main:authenticated_application --factory` remains the Bearer-token API
+  profile; its production browser sign-in is a separate integration.
 
 ## Endpoints by MVP component
 

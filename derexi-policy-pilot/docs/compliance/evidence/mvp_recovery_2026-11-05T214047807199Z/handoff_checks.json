@@ -1,0 +1,134 @@
+{
+  "date": "2026-11-05T21:44:43.744973+00:00",
+  "checks": [
+    {
+      "id": "SRC-01",
+      "scenario": "Final tested sources",
+      "expected": "All recorded source hashes match",
+      "actual": {
+        "mismatches": []
+      },
+      "status": "PASS",
+      "date": "2026-11-05T21:44:43.609395+00:00",
+      "environment": "Source and isolated test evidence review; no live services",
+      "evidence_file": "handoff_checks.json"
+    },
+    {
+      "id": "SRC-02",
+      "scenario": "Changed-file secret-pattern review",
+      "expected": "No credentials/private keys/token values found",
+      "actual": {
+        "flagged_locations": [],
+        "files_reviewed": 43
+      },
+      "status": "PASS",
+      "date": "2026-11-05T21:44:43.630066+00:00",
+      "environment": "Source and isolated test evidence review; no live services",
+      "evidence_file": "handoff_checks.json"
+    },
+    {
+      "id": "DOC-01",
+      "scenario": "Changed documentation links",
+      "expected": "Local Markdown links resolve",
+      "actual": {
+        "missing": []
+      },
+      "status": "PASS",
+      "date": "2026-11-05T21:44:43.630555+00:00",
+      "environment": "Source and isolated test evidence review; no live services",
+      "evidence_file": "handoff_checks.json"
+    },
+    {
+      "id": "SRC-03",
+      "scenario": "Whitespace review",
+      "expected": "Tracked and new text files have no trailing whitespace",
+      "actual": {
+        "git_diff_check": 0,
+        "new_file_locations": []
+      },
+      "status": "PASS",
+      "date": "2026-11-05T21:44:43.744798+00:00",
+      "environment": "Source and isolated test evidence review; no live services",
+      "evidence_file": "handoff_checks.json"
+    },
+    {
+      "id": "COURSE-01",
+      "scenario": "Actual course dataset",
+      "expected": "Verify existing employee IDs, names, roles, departments and ownership against actual source",
+      "actual": "BLOCKED: no course database configuration or approved course SQLite snapshot is present",
+      "status": "BLOCKED",
+      "date": "2026-11-05T21:44:43.744866+00:00",
+      "environment": "Source and isolated test evidence review; no live services",
+      "evidence_file": "handoff_checks.json"
+    },
+    {
+      "id": "RUN-01",
+      "scenario": "Original failing server",
+      "expected": "Identify actual process, command, machine and HTTP request credentials",
+      "actual": "BLOCKED: no DeRexi process was running in this workspace; original launch/machine unknown",
+      "status": "BLOCKED",
+      "date": "2026-11-05T21:44:43.744871+00:00",
+      "environment": "Source and isolated test evidence review; no live services",
+      "evidence_file": "handoff_checks.json"
+    },
+    {
+      "id": "SRC-04",
+      "scenario": "Course assets and authentication foundations",
+      "expected": "No ORM/schema/auth rules/live configuration/coursework changes",
+      "actual": {
+        "changes": []
+      },
+      "status": "PASS",
+      "date": "2026-11-05T21:44:43.744933+00:00",
+      "environment": "Source and isolated test evidence review; no live services",
+      "evidence_file": "handoff_checks.json"
+    }
+  ],
+  "changed_files": [
+    "MEMORY.md",
+    "derexi-policy-pilot/README.md",
+    "derexi-policy-pilot/backend/course_snapshot.py",
+    "derexi-policy-pilot/backend/dev_bridge.js",
+    "derexi-policy-pilot/backend/dev_demo.py",
+    "derexi-policy-pilot/backend/secure_api.py",
+    "derexi-policy-pilot/backend/static/app.js",
+    "derexi-policy-pilot/backend/tests/browser_fixture_server.py",
+    "derexi-policy-pilot/backend/tests/run_mvp_recovery_verification.py",
+    "derexi-policy-pilot/backend/tests/test_mvp_recovery.py",
+    "derexi-policy-pilot/backend/tests/test_mvp_recovery_browser.cjs",
+    "derexi-policy-pilot/docs/compliance/evidence/mvp_browser_2026-11-05T2142Z/authenticated-governance.png",
+    "derexi-policy-pilot/docs/compliance/evidence/mvp_browser_2026-11-05T2142Z/authenticated-messages.png",
+    "derexi-policy-pilot/docs/compliance/evidence/mvp_browser_2026-11-05T2142Z/browser_results.json",
+    "derexi-policy-pilot/docs/compliance/evidence/mvp_recovery_2026-11-05T213826449478Z/test_assignment5_controls.json",
+    "derexi-policy-pilot/docs/compliance/evidence/mvp_recovery_2026-11-05T213826449478Z/test_assignment5_controls.log",
+    "derexi-policy-pilot/docs/compliance/evidence/mvp_recovery_2026-11-05T213826449478Z/test_mvp_recovery.json",
+    "derexi-policy-pilot/docs/compliance/evidence/mvp_recovery_2026-11-05T213826449478Z/test_mvp_recovery.log",
+    "derexi-policy-pilot/docs/compliance/evidence/mvp_recovery_2026-11-05T213826449478Z/test_secure_api.json",
+    "derexi-policy-pilot/docs/compliance/evidence/mvp_recovery_2026-11-05T213826449478Z/test_secure_api.log",
+    "derexi-policy-pilot/docs/compliance/evidence/mvp_recovery_2026-11-05T213826449478Z/test_security_controls.json",
+    "derexi-policy-pilot/docs/compliance/evidence/mvp_recovery_2026-11-05T213826449478Z/test_security_controls.log",
+    "derexi-policy-pilot/docs/compliance/evidence/mvp_recovery_2026-11-05T213826449478Z/test_validation_hardening.json",
+    "derexi-policy-pilot/docs/compliance/evidence/mvp_recovery_2026-11-05T213826449478Z/test_validation_hardening.log",
+    "derexi-policy-pilot/docs/compliance/evidence/mvp_recovery_2026-11-05T213826449478Z/test_week8_stage1.json",
+    "derexi-policy-pilot/docs/compliance/evidence/mvp_recovery_2026-11-05T213826449478Z/test_week8_stage1.log",
+    "derexi-policy-pilot/docs/compliance/evidence/mvp_recovery_2026-11-05T213826449478Z/verification_results.json",
+    "derexi-policy-pilot/docs/compliance/evidence/mvp_recovery_2026-11-05T214047807199Z/handoff_checks.json",
+    "derexi-policy-pilot/docs/compliance/evidence/mvp_recovery_2026-11-05T214047807199Z/test_assignment5_controls.json",
+    "derexi-policy-pilot/docs/compliance/evidence/mvp_recovery_2026-11-05T214047807199Z/test_assignment5_controls.log",
+    "derexi-policy-pilot/docs/compliance/evidence/mvp_recovery_2026-11-05T214047807199Z/test_mvp_recovery.json",
+    "derexi-policy-pilot/docs/compliance/evidence/mvp_recovery_2026-11-05T214047807199Z/test_mvp_recovery.log",
+    "derexi-policy-pilot/docs/compliance/evidence/mvp_recovery_2026-11-05T214047807199Z/test_secure_api.json",
+    "derexi-policy-pilot/docs/compliance/evidence/mvp_recovery_2026-11-05T214047807199Z/test_secure_api.log",
+    "derexi-policy-pilot/docs/compliance/evidence/mvp_recovery_2026-11-05T214047807199Z/test_security_controls.json",
+    "derexi-policy-pilot/docs/compliance/evidence/mvp_recovery_2026-11-05T214047807199Z/test_security_controls.log",
+    "derexi-policy-pilot/docs/compliance/evidence/mvp_recovery_2026-11-05T214047807199Z/test_validation_hardening.json",
+    "derexi-policy-pilot/docs/compliance/evidence/mvp_recovery_2026-11-05T214047807199Z/test_validation_hardening.log",
+    "derexi-policy-pilot/docs/compliance/evidence/mvp_recovery_2026-11-05T214047807199Z/test_week8_stage1.json",
+    "derexi-policy-pilot/docs/compliance/evidence/mvp_recovery_2026-11-05T214047807199Z/test_week8_stage1.log",
+    "derexi-policy-pilot/docs/compliance/evidence/mvp_recovery_2026-11-05T214047807199Z/verification_results.json",
+    "derexi-policy-pilot/docs/development-known-issues.md",
+    "derexi-policy-pilot/docs/mvp-401-recovery.md",
+    "derexi-policy-pilot/docs/security-entrypoints.md"
+  ],
+  "limitations": "Pattern checks do not guarantee absence of all secrets. Course dataset and original running server remain unverified."
+}
