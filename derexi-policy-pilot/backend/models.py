@@ -197,6 +197,30 @@ class ClarificationRequest(Base):
     )
 
 
+class ClarificationRead(Base):
+    """Per-user read watermark for a clarification thread.
+
+    Unread counts are derived from replies newer than ``last_read_at``. The
+    table is additive (Week 7); the backend writes it, and RLS lets an
+    authenticated Supabase client touch only its own row.
+    """
+
+    __tablename__ = "clarification_reads"
+
+    request_id: Mapped[int] = mapped_column(
+        ForeignKey("clarification_requests.id", ondelete="cascade"), primary_key=True
+    )
+    user_id: Mapped[int] = mapped_column(
+        ForeignKey("users.id", ondelete="cascade"), primary_key=True
+    )
+    last_read_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), nullable=False, server_default=func.now()
+    )
+
+    request: Mapped["ClarificationRequest"] = relationship()
+    user: Mapped[Optional["User"]] = relationship(foreign_keys=[user_id])
+
+
 class ClarificationReply(Base):
     __tablename__ = "clarification_replies"
 

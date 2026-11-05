@@ -26,10 +26,11 @@ from sqlalchemy import func, text
 from sqlalchemy.orm import Session
 
 import ai
+import dev_auth
 import schemas
 from database import get_db
+from messaging import router as messaging_router
 from models import (
-    ClarificationReply,
     ClarificationRequest,
     Conversation,
     Department,
@@ -43,6 +44,7 @@ from models import (
     Role,
     User,
 )
+from security import Identity, get_identity, require_admin, require_governance
 
 # Imports the new Pulse module's API routes.
 from pulse.routes import router as pulse_router
@@ -63,6 +65,15 @@ app = FastAPI(
 # Connects Pulse's regulatory news endpoints to DeRexi.
 app.include_router(pulse_router)
 
+# Week 7 messaging: every route in this router authenticates the bearer token.
+app.include_router(messaging_router)
+
+# /auth/config is always available; the persona-token endpoints exist only when
+# development auth is explicitly enabled outside production.
+app.include_router(dev_auth.config_router)
+if dev_auth.dev_auth_enabled():
+    app.include_router(dev_auth.router)
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
@@ -77,6 +88,16 @@ app.add_middleware(
 # Employee UI (Week 6): vanilla HTML/CSS/JS served at /ui.
 STATIC_DIR = Path(__file__).resolve().parent / "static"
 app.mount("/ui", StaticFiles(directory=STATIC_DIR, html=True), name="ui")
+
+
+@app.middleware("http")
+async def add_security_headers(request, call_next):
+    """Conservative response headers; TLS itself is terminated by the host."""
+    response = await call_next(request)
+    response.headers.setdefault("X-Content-Type-Options", "nosniff")
+    response.headers.setdefault("X-Frame-Options", "DENY")
+    response.headers.setdefault("Referrer-Policy", "no-referrer")
+    return response
 
 
 # ---------------------------------------------------------------------------
@@ -251,14 +272,31 @@ def list_policy_categories(db: Session = Depends(get_db)) -> list:
     return [{"id": r["id"], "name": r["name"], "count": r["count"]} for r in rows]
 
 
+@app.get("/me")
+def me(identity: Identity = Depends(get_identity), db: Session = Depends(get_db)) -> dict:
+    """Return the authenticated actor (never trusts a client-supplied id)."""
+    user = db.get(User, identity.user_id)
+    return {
+        "id": identity.user_id,
+        "full_name": identity.full_name,
+        "email": identity.email,
+        "role": identity.role,
+        "department": user.department.name if user and user.department else None,
+        "token_source": identity.token_source,
+    }
+
+
 @app.get("/users")
-def list_users(db: Session = Depends(get_db)) -> list:
+def list_users(
+    identity: Identity = Depends(get_identity), db: Session = Depends(get_db)
+) -> list:
+    """Staff directory names. Email addresses are admin-only (staff PII)."""
     users = db.query(User).order_by(User.id).all()
     return [
         {
             "id": u.id,
             "full_name": u.full_name,
-            "email": u.email,
+            "email": u.email if (identity.is_admin or u.id == identity.user_id) else None,
             "department_id": u.department_id,
             "department": u.department.name if u.department else None,
             "role_id": u.role_id,
@@ -396,8 +434,15 @@ def add_policy_version(
 # 2. Policy Search & Retrieval -- the ask workflow
 # ---------------------------------------------------------------------------
 @app.post("/ask")
-def ask(payload: schemas.AskRequest, db: Session = Depends(get_db)) -> dict:
-    user = db.get(User, payload.user_id)
+def ask(
+    payload: schemas.AskRequest,
+    identity: Identity = Depends(get_identity),
+    db: Session = Depends(get_db),
+) -> dict:
+    # The token decides who asked. A legacy body id must agree with it.
+    if payload.user_id is not None and payload.user_id != identity.user_id:
+        raise HTTPException(status_code=403, detail="Identity mismatch")
+    user = db.get(User, identity.user_id)
     if not user:
         raise HTTPException(status_code=404, detail="User not found")
 
@@ -480,25 +525,14 @@ def ask(payload: schemas.AskRequest, db: Session = Depends(get_db)) -> dict:
             "confidence": round(top_score, 4),
         }
 
-    # Not confident -- route to a policy owner instead of guessing.
+    # Not confident -- route to the policy's assigned owner. If the policy has
+    # no owner, leave the thread unassigned so it lands in admin triage instead
+    # of being guessed onto an unrelated owner.
     policy_id = results[0]["policy_id"] if results else None
     assignee = None
     if policy_id:
         assignee = db.execute(
             text("select owner_id from policies where id = :pid"), {"pid": policy_id}
-        ).scalar()
-    if assignee is None:
-        assignee = db.execute(
-            text(
-                """
-                select u.id
-                from users u
-                join roles r on r.id = u.role_id
-                where r.name = 'Policy Owner'
-                order by u.id
-                limit 1
-                """
-            )
         ).scalar()
 
     answer = (
@@ -520,6 +554,19 @@ def ask(payload: schemas.AskRequest, db: Session = Depends(get_db)) -> dict:
         assigned_to=assignee,
     )
     db.add(request)
+    db.flush()
+    # The requester already knows what they asked; mark their copy read.
+    db.execute(
+        text(
+            """
+            INSERT INTO clarification_reads (request_id, user_id, last_read_at)
+            VALUES (:rid, :uid, now())
+            ON CONFLICT (request_id, user_id)
+            DO UPDATE SET last_read_at = EXCLUDED.last_read_at
+            """
+        ),
+        {"rid": request.id, "uid": identity.user_id},
+    )
     db.commit()
 
     return {
@@ -531,15 +578,40 @@ def ask(payload: schemas.AskRequest, db: Session = Depends(get_db)) -> dict:
         "needs_clarification": True,
         "clarification_request_id": request.id,
         "assigned_to": assignee,
+        "triage": assignee is None,
         "confidence": round(top_score, 4),
     }
 
 
 @app.get("/conversations/{conversation_id}")
-def get_conversation(conversation_id: int, db: Session = Depends(get_db)) -> dict:
+def get_conversation(
+    conversation_id: int,
+    identity: Identity = Depends(get_identity),
+    db: Session = Depends(get_db),
+) -> dict:
     conversation = db.get(Conversation, conversation_id)
     if not conversation:
         raise HTTPException(status_code=404, detail="Conversation not found")
+
+    # Owner or admin; a policy owner may read a conversation only when a
+    # clarification on it is assigned to them or they have replied to it.
+    if conversation.user_id != identity.user_id and not identity.is_admin:
+        allowed = db.execute(
+            text(
+                """
+                SELECT 1
+                FROM clarification_requests cr
+                WHERE cr.conversation_id = :cid
+                  AND (cr.assigned_to = :uid
+                       OR EXISTS (SELECT 1 FROM clarification_replies r
+                                  WHERE r.request_id = cr.id AND r.sender_id = :uid))
+                LIMIT 1
+                """
+            ),
+            {"cid": conversation_id, "uid": identity.user_id},
+        ).first()
+        if not allowed:
+            raise HTTPException(status_code=404, detail="Conversation not found")
 
     messages = []
     for message in conversation.messages:
@@ -578,103 +650,8 @@ def get_conversation(conversation_id: int, db: Session = Depends(get_db)) -> dic
 # ---------------------------------------------------------------------------
 # 3. Clarification & Routing
 # ---------------------------------------------------------------------------
-@app.get("/clarifications")
-def list_clarifications(
-    status: Optional[str] = Query(default=None),
-    assigned_to: Optional[int] = Query(default=None),
-    db: Session = Depends(get_db),
-) -> list:
-    query = db.query(ClarificationRequest)
-    if status:
-        query = query.filter(ClarificationRequest.status == status)
-    if assigned_to:
-        query = query.filter(ClarificationRequest.assigned_to == assigned_to)
-
-    return [
-        {
-            "id": r.id,
-            "user_id": r.user_id,
-            "requester": r.requester.full_name if r.requester else None,
-            "policy_id": r.policy_id,
-            "reason": r.reason,
-            "status": r.status,
-            "assigned_to": r.assigned_to,
-            "assignee": r.assignee.full_name if r.assignee else None,
-            "created_at": r.created_at.isoformat() if r.created_at else None,
-            "resolved_at": r.resolved_at.isoformat() if r.resolved_at else None,
-        }
-        for r in query.order_by(ClarificationRequest.created_at.desc()).all()
-    ]
-
-
-@app.post("/clarifications", status_code=201)
-def create_clarification(payload: schemas.ClarificationCreate, db: Session = Depends(get_db)) -> dict:
-    if not db.get(User, payload.user_id):
-        raise HTTPException(status_code=404, detail="User not found")
-    request = ClarificationRequest(**payload.model_dump())
-    db.add(request)
-    db.commit()
-    return {"id": request.id, "status": request.status, "assigned_to": request.assigned_to}
-
-
-@app.get("/clarifications/{request_id}")
-def get_clarification(request_id: int, db: Session = Depends(get_db)) -> dict:
-    request = db.get(ClarificationRequest, request_id)
-    if not request:
-        raise HTTPException(status_code=404, detail="Clarification request not found")
-    return {
-        "id": request.id,
-        "user_id": request.user_id,
-        "requester": request.requester.full_name if request.requester else None,
-        "policy_id": request.policy_id,
-        "reason": request.reason,
-        "status": request.status,
-        "assigned_to": request.assigned_to,
-        "assignee": request.assignee.full_name if request.assignee else None,
-        "created_at": request.created_at.isoformat() if request.created_at else None,
-        "resolved_at": request.resolved_at.isoformat() if request.resolved_at else None,
-        "replies": [
-            {
-                "id": reply.id,
-                "sender_id": reply.sender_id,
-                "sender": reply.sender.full_name if reply.sender else None,
-                "body": reply.body,
-                "created_at": reply.created_at.isoformat() if reply.created_at else None,
-            }
-            for reply in request.replies
-        ],
-    }
-
-
-@app.post("/clarifications/{request_id}/replies", status_code=201)
-def add_clarification_reply(
-    request_id: int, payload: schemas.ClarificationReplyCreate, db: Session = Depends(get_db)
-) -> dict:
-    request = db.get(ClarificationRequest, request_id)
-    if not request:
-        raise HTTPException(status_code=404, detail="Clarification request not found")
-    if not db.get(User, payload.sender_id):
-        raise HTTPException(status_code=404, detail="Sender not found")
-
-    reply = ClarificationReply(
-        request_id=request_id, sender_id=payload.sender_id, body=payload.body
-    )
-    db.add(reply)
-    if request.status == "open":
-        request.status = "in_progress"
-    db.commit()
-    return {"id": reply.id, "request_id": request_id, "status": request.status}
-
-
-@app.post("/clarifications/{request_id}/resolve")
-def resolve_clarification(request_id: int, db: Session = Depends(get_db)) -> dict:
-    request = db.get(ClarificationRequest, request_id)
-    if not request:
-        raise HTTPException(status_code=404, detail="Clarification request not found")
-    request.status = "resolved"
-    request.resolved_at = datetime.now(timezone.utc)
-    db.commit()
-    return {"id": request.id, "status": request.status, "resolved_at": request.resolved_at.isoformat()}
+# Clarification/messaging routes live in messaging.py so the Week 7 read model,
+# authorization, and workflow stay together. They are included above.
 
 
 # ---------------------------------------------------------------------------
@@ -697,9 +674,18 @@ def list_incident_categories(db: Session = Depends(get_db)) -> list:
 def list_incidents(
     status: Optional[str] = Query(default=None),
     severity: Optional[str] = Query(default=None),
+    reporter_id: Optional[int] = Query(default=None),
+    identity: Identity = Depends(get_identity),
     db: Session = Depends(get_db),
 ) -> list:
     query = db.query(IncidentReport)
+    if reporter_id is not None:
+        if not identity.is_governance and reporter_id != identity.user_id:
+            raise HTTPException(status_code=403, detail="You can only list your own reports")
+        query = query.filter(IncidentReport.reporter_id == reporter_id)
+    elif not identity.is_governance:
+        # Employees see their own reports; governance sees the desk.
+        query = query.filter(IncidentReport.reporter_id == identity.user_id)
     if status:
         query = query.filter(IncidentReport.status == status)
     if severity:
@@ -727,8 +713,16 @@ def _incident_dict(incident: IncidentReport) -> dict:
 
 
 @app.post("/incidents", status_code=201)
-def create_incident(payload: schemas.IncidentCreate, db: Session = Depends(get_db)) -> dict:
-    if not db.get(User, payload.reporter_id):
+def create_incident(
+    payload: schemas.IncidentCreate,
+    identity: Identity = Depends(get_identity),
+    db: Session = Depends(get_db),
+) -> dict:
+    if payload.reporter_id is not None and payload.reporter_id != identity.user_id:
+        raise HTTPException(status_code=403, detail="Identity mismatch")
+    if payload.assigned_to is not None and not identity.is_governance:
+        raise HTTPException(status_code=403, detail="Only governance can assign a handler")
+    if not db.get(User, identity.user_id):
         raise HTTPException(status_code=404, detail="Reporter not found")
 
     severity = payload.severity
@@ -738,7 +732,7 @@ def create_incident(payload: schemas.IncidentCreate, db: Session = Depends(get_d
             severity = category.default_severity
 
     incident = IncidentReport(
-        reporter_id=payload.reporter_id,
+        reporter_id=identity.user_id,
         category_id=payload.category_id,
         description=payload.description,
         severity=severity,
@@ -753,7 +747,10 @@ def create_incident(payload: schemas.IncidentCreate, db: Session = Depends(get_d
 
 @app.patch("/incidents/{incident_id}")
 def update_incident(
-    incident_id: int, payload: schemas.IncidentUpdate, db: Session = Depends(get_db)
+    incident_id: int,
+    payload: schemas.IncidentUpdate,
+    identity: Identity = Depends(require_governance),
+    db: Session = Depends(get_db),
 ) -> dict:
     incident = db.get(IncidentReport, incident_id)
     if not incident:
@@ -769,17 +766,70 @@ def update_incident(
 # 5. Policy Health Dashboard
 # ---------------------------------------------------------------------------
 @app.post("/feedback", status_code=201)
-def create_feedback(payload: schemas.FeedbackCreate, db: Session = Depends(get_db)) -> dict:
-    if not db.get(Message, payload.message_id):
+def create_feedback(
+    payload: schemas.FeedbackCreate,
+    identity: Identity = Depends(get_identity),
+    db: Session = Depends(get_db),
+) -> dict:
+    """Rate a DeRexi answer. The message must belong to the caller's own chat."""
+    if payload.user_id is not None and payload.user_id != identity.user_id:
+        raise HTTPException(status_code=403, detail="Identity mismatch")
+    message = db.get(Message, payload.message_id)
+    if not message:
         raise HTTPException(status_code=404, detail="Message not found")
-    feedback = Feedback(**payload.model_dump())
-    db.add(feedback)
+    conversation = db.get(Conversation, message.conversation_id)
+    if not conversation or (
+        conversation.user_id != identity.user_id and not identity.is_admin
+    ):
+        raise HTTPException(status_code=404, detail="Message not found")
+
+    # One rating per user per answer; changing your mind updates it.
+    feedback = (
+        db.query(Feedback)
+        .filter(Feedback.message_id == payload.message_id, Feedback.user_id == identity.user_id)
+        .first()
+    )
+    if feedback:
+        feedback.rating = payload.rating
+        feedback.comment = payload.comment
+    else:
+        feedback = Feedback(
+            message_id=payload.message_id,
+            user_id=identity.user_id,
+            rating=payload.rating,
+            comment=payload.comment,
+        )
+        db.add(feedback)
     db.commit()
     return {"id": feedback.id, "message_id": feedback.message_id, "rating": feedback.rating}
 
 
+@app.get("/feedback/mine")
+def my_feedback(
+    identity: Identity = Depends(get_identity), db: Session = Depends(get_db)
+) -> list:
+    rows = (
+        db.query(Feedback)
+        .filter(Feedback.user_id == identity.user_id)
+        .order_by(Feedback.created_at.desc())
+        .all()
+    )
+    return [
+        {
+            "id": row.id,
+            "message_id": row.message_id,
+            "rating": row.rating,
+            "comment": row.comment,
+            "created_at": row.created_at.isoformat() if row.created_at else None,
+        }
+        for row in rows
+    ]
+
+
 @app.get("/dashboard/policy-health")
-def policy_health(db: Session = Depends(get_db)) -> dict:
+def policy_health(
+    identity: Identity = Depends(require_governance), db: Session = Depends(get_db)
+) -> dict:
     policies_by_status = db.execute(
         text("select status, count(*) as count from policies group by status order by status")
     ).mappings().all()
