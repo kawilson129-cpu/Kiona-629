@@ -37,10 +37,17 @@
       <nav class="nav-links" aria-label="Primary">
         <a href="#assist" data-view="assist" class="nav-link is-current">Policy Assistant</a>
         <a href="#library" data-view="library" class="nav-link">Policy Library</a>
-        <a href="#messages" data-view="messages" class="nav-link">Messages</a>
+        <a href="#messages" data-view="messages" class="nav-link">Messages<span class="nav-badge is-hidden js-msg-badge" aria-label="Unread messages">0</span></a>
         <a href="#governance" data-view="governance" class="nav-link js-gov-link is-hidden">Governance</a>
         <a href="#pulse" data-view="pulse" class="nav-link">Pulse</a>
       </nav>
+
+      <button type="button" class="notify-btn js-notify" id="notify-btn" aria-label="Notifications" aria-expanded="false">
+        <svg viewBox="0 0 24 24" class="ic" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M18 8a6 6 0 1 0-12 0c0 7-3 8-3 8h18s-3-1-3-8"/><path d="M10.3 21a2 2 0 0 0 3.4 0"/>
+        </svg>
+        <span class="notify-count is-hidden js-notify-count">0</span>
+      </button>
 
       <div class="persona">
         <label class="persona-label" for="persona-select">Signed in as</label>
@@ -56,6 +63,18 @@
           Change
         </button>
       </div>
+    </div>
+
+    <!-- In-app notifications (derived from unread threads) ------------------>
+    <div class="notify-panel is-hidden js-notify-panel" role="dialog" aria-label="Notifications">
+      <div class="notify-head">
+        <span class="notify-title">Notifications</span>
+        <button type="button" class="notify-close js-notify-close" aria-label="Close notifications">
+          <svg viewBox="0 0 24 24" class="ic" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
+      </div>
+      <div class="notify-list js-notify-list"></div>
+      <div class="notify-foot js-notify-foot"></div>
     </div>
   </div>
 

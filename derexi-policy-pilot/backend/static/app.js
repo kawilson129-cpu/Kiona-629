@@ -75,35 +75,93 @@
     thread: [],
     lastAsk: null,
     assistMode: 'ask',
-    msgTab: 'inbox',
     openThreadId: null,
-    messagesData: { inbox: [], sent: [] },
-    threadData: null
+    // Week 7 identity. The token is verified server-side; personaId is only a
+    // development convenience for choosing which seeded user to sign in as.
+    authConfig: null,
+    devAuth: false,
+    devUsers: [],
+    me: null,
+    token: null,
+    inbox: {
+      folder: 'inbox',
+      q: '',
+      data: null,
+      thread: null,
+      loading: false
+    },
+    notifications: { unread_total: 0, items: [], triage_count: 0 },
+    notifyOpen: false
   };
 
-  function api(path, opts) {
+  function setToken(token) {
+    state.token = token || null;
+    try {
+      if (token) sessionStorage.setItem('derexi.accessToken', token);
+      else sessionStorage.removeItem('derexi.accessToken');
+    } catch (e) {}
+  }
+
+  function refreshDevToken() {
+    if (!state.personaId) return Promise.reject(new Error('No persona selected'));
+    return fetch('/dev-auth/token', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ user_id: state.personaId })
+    }).then(function (r) {
+      if (!r.ok) throw new Error('Session expired');
+      return r.json();
+    }).then(function (data) {
+      setToken(data.access_token);
+      return data;
+    });
+  }
+
+  function api(path, opts, retried) {
     opts = opts || {};
-    var cfg = { method: opts.method || 'GET' };
-    if (opts.body) { cfg.headers = { 'Content-Type': 'application/json' }; cfg.body = opts.body; }
+    var cfg = { method: opts.method || 'GET', headers: {}, credentials: 'same-origin' };
+    if (state.token) cfg.headers.Authorization = 'Bearer ' + state.token;
+    if (opts.body) { cfg.headers['Content-Type'] = 'application/json'; cfg.body = opts.body; }
     return fetch(path, cfg).then(function (r) {
-      if (!r.ok) throw new Error('HTTP ' + r.status);
+      if (r.status === 401 && state.devAuth && state.personaId && !retried) {
+        return refreshDevToken().then(function () { return api(path, opts, true); });
+      }
+      if (!r.ok) {
+        return r.json().catch(function () { return {}; }).then(function (body) {
+          var detail = body && body.detail;
+          var err = new Error(typeof detail === 'string' ? detail : 'Request failed (' + r.status + ')');
+          err.status = r.status;
+          throw err;
+        });
+      }
       return r.json();
     });
   }
 
   function loadAll() {
-    return Promise.all([api('/users'), api('/roles')]).then(function (r) {
+    return Promise.all([api('/users'), api('/roles'), api('/me')]).then(function (r) {
       state.users = r[0] || [];
       state.roles = r[1] || [];
+      state.me = r[2] || null;
     });
   }
 
   function currentUser() {
+    if (state.me && state.me.id === state.personaId) {
+      return { id: state.me.id, full_name: state.me.full_name, role: state.me.role };
+    }
     for (var i = 0; i < state.users.length; i++) if (state.users[i].id === state.personaId) return state.users[i];
     return null;
   }
 
+  function isAdmin() {
+    return !!(state.me && state.me.role === 'System Administrator');
+  }
+
   function isGovernanceAllowed() {
+    if (state.me && state.me.role) {
+      return state.me.role === 'System Administrator' || state.me.role === 'Policy Owner';
+    }
     var u = currentUser();
     if (!u) return false;
     var rid = u.role_id || u.roleId;
@@ -157,23 +215,40 @@
   function choosePersona(id, fromGate) {
     var previous = state.personaId;
     state.personaId = id;
-    var u = currentUser();
-    buildPersonaSelect();
-    refreshNav();
-    if (fromGate) {
-      var gate = qa('.js-gate');
-      if (gate) gate.parentNode.removeChild(gate);
-      qa('#app').classList.remove('is-hidden');
-      document.body.style.overflow = '';
-      toast('Signed in as ' + u.full_name + ' · ' + titleRole(u.role));
-    } else if (previous !== id) {
-      toast('Now viewing as ' + u.full_name + ' · ' + titleRole(u.role));
-    }
-    if (state.thread.length) state.thread = [];
-    state.lastAsk = null;
-    state.openThreadId = null;
-    state.msgTab = 'inbox';
-    render();
+    try { localStorage.setItem('derexi.personaId', String(id)); } catch (e) {}
+
+    // In development the server mints a short-lived token for the selected
+    // seeded user. In production this branch is never shown; the bearer token
+    // comes from the real Supabase session.
+    var activate = state.devAuth
+      ? refreshDevToken().then(function () { return loadAll(); })
+      : Promise.resolve();
+
+    activate.then(function () {
+      var u = currentUser();
+      buildPersonaSelect();
+      refreshNav();
+      if (fromGate) {
+        var gate = qa('.js-gate');
+        if (gate) gate.parentNode.removeChild(gate);
+        qa('#app').classList.remove('is-hidden');
+        document.body.style.overflow = '';
+        toast('Signed in as ' + u.full_name + ' · ' + titleRole(u.role));
+      } else if (previous !== id) {
+        toast('Now viewing as ' + u.full_name + ' · ' + titleRole(u.role));
+      }
+      if (state.thread.length) state.thread = [];
+      state.lastAsk = null;
+      state.openThreadId = null;
+      state.inbox.data = null;
+      state.inbox.thread = null;
+      state.inbox.folder = 'inbox';
+      state.inbox.q = '';
+      render();
+      loadNotifications();
+    }).catch(function (err) {
+      toast('Could not start the session (' + err.message + ')');
+    });
   }
 
   /* ---------------------------------------------------------------- render */
