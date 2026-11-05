@@ -1,0 +1,27 @@
+test_configured_sources_are_approved (__main__.HostTests.test_configured_sources_are_approved) ... ok
+test_invalid_url_types (__main__.HostTests.test_invalid_url_types) ... ok
+test_legitimate_publication_hosts_and_fdic_account (__main__.HostTests.test_legitimate_publication_hosts_and_fdic_account) ... ok
+test_misleading_domains_credentials_ports_protocols_and_controls (__main__.HostTests.test_misleading_domains_credentials_ports_protocols_and_controls) ... ok
+test_other_govdelivery_tenants_and_path_traversal_denied (__main__.HostTests.test_other_govdelivery_tenants_and_path_traversal_denied) ... ok
+test_unknown_source_fails_closed (__main__.HostTests.test_unknown_source_fails_closed) ... ok
+test_wrong_source_attribution (__main__.HostTests.test_wrong_source_attribution) ... ok
+test_all_source_normalizers_preserve_classification (__main__.PipelineTests.test_all_source_normalizers_preserve_classification) ... ok
+test_article_rejects_empty_titles_and_unapproved_links (__main__.PipelineTests.test_article_rejects_empty_titles_and_unapproved_links) ... ok
+test_feed_checks_source_hosts_and_preserves_per_source_cache (__main__.PipelineTests.test_feed_checks_source_hosts_and_preserves_per_source_cache) ... ok
+test_feed_fetch_uses_validated_transport (__main__.PipelineTests.test_feed_fetch_uses_validated_transport) ... ok
+test_feed_response_size_limit_remains (__main__.PipelineTests.test_feed_response_size_limit_remains) ... ok
+test_make_article_keeps_editorial_fields (__main__.PipelineTests.test_make_article_keeps_editorial_fields) ... ok
+test_normalizer_rejects_wrong_source (__main__.PipelineTests.test_normalizer_rejects_wrong_source) ... ok
+test_total_failure_does_not_overwrite_successful_cache (__main__.PipelineTests.test_total_failure_does_not_overwrite_successful_cache) ... ok
+test_unverified_feed_redirect_or_transport_failure_omitted (__main__.PipelineTests.test_unverified_feed_redirect_or_transport_failure_omitted) ... ok
+test_article_returns_actual_verified_destination (__main__.RedirectTests.test_article_returns_actual_verified_destination) ... ok
+test_each_redirect_status_checks_destination_before_contact (__main__.RedirectTests.test_each_redirect_status_checks_destination_before_contact) ... ok
+test_final_destination_revalidated_and_closed (__main__.RedirectTests.test_final_destination_revalidated_and_closed) ... ok
+test_initial_unapproved_url_never_opens (__main__.RedirectTests.test_initial_unapproved_url_never_opens) ... ok
+test_policy_denials_are_not_retried (__main__.RedirectTests.test_policy_denials_are_not_retried) ... ok
+test_publishers_without_head_use_same_validated_get_without_body_read (__main__.RedirectTests.test_publishers_without_head_use_same_validated_get_without_body_read) ... ok
+
+----------------------------------------------------------------------
+Ran 22 tests in 0.012s
+
+OK

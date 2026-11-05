@@ -1,0 +1,33 @@
+test_ask_unknown_user_is_rejected_before_write (__main__.ValidationTests.test_ask_unknown_user_is_rejected_before_write) ... ok
+test_assistant_answer_feedback_and_conversation_workflow (__main__.ValidationTests.test_assistant_answer_feedback_and_conversation_workflow) ... ok
+test_assistant_fallback_clarification_reply_and_resolution_workflow (__main__.ValidationTests.test_assistant_fallback_clarification_reply_and_resolution_workflow) ... ok
+test_blank_and_oversize_policy_body (__main__.ValidationTests.test_blank_and_oversize_policy_body) ... ok
+test_blank_and_oversize_policy_title (__main__.ValidationTests.test_blank_and_oversize_policy_title) ... ok
+test_clarification_linked_ownership (__main__.ValidationTests.test_clarification_linked_ownership) ... ok
+test_clarification_references (__main__.ValidationTests.test_clarification_references) ... ok
+test_clarification_text_and_reply_validation (__main__.ValidationTests.test_clarification_text_and_reply_validation) ... ok
+test_feedback_references_and_conversation_consistency (__main__.ValidationTests.test_feedback_references_and_conversation_consistency) ... ok
+test_incident_null_empty_and_invalid_enum_updates (__main__.ValidationTests.test_incident_null_empty_and_invalid_enum_updates) ... ok
+test_incident_references (__main__.ValidationTests.test_incident_references) ... ok
+test_incident_text_limits (__main__.ValidationTests.test_incident_text_limits) ... ok
+test_legitimate_clarification_infers_own_conversation (__main__.ValidationTests.test_legitimate_clarification_infers_own_conversation) ... ok
+test_legitimate_feedback (__main__.ValidationTests.test_legitimate_feedback) ... ok
+test_legitimate_incident_and_update (__main__.ValidationTests.test_legitimate_incident_and_update) ... ok
+test_policy_reference_validation (__main__.ValidationTests.test_policy_reference_validation) ... ok
+test_pulse_api_runs_integrity_pipeline_and_static_ui_is_preserved (__main__.ValidationTests.test_pulse_api_runs_integrity_pipeline_and_static_ui_is_preserved) ... ok
+test_questions_and_topic_limits (__main__.ValidationTests.test_questions_and_topic_limits) ... ok
+test_safe_database_errors (__main__.ValidationTests.test_safe_database_errors) ... ok
+test_safe_validation_errors_do_not_echo_input (__main__.ValidationTests.test_safe_validation_errors_do_not_echo_input) ... ok
+test_strict_feedback_boolean_and_comment_limit (__main__.ValidationTests.test_strict_feedback_boolean_and_comment_limit) ... ok
+test_strict_positive_ids (__main__.ValidationTests.test_strict_positive_ids) ... ok
+test_summary_and_version_title_limits (__main__.ValidationTests.test_summary_and_version_title_limits) ... ok
+test_unknown_fields_rejected (__main__.ValidationTests.test_unknown_fields_rejected) ... ok
+test_update_invalid_assignment_does_not_partially_mutate (__main__.ValidationTests.test_update_invalid_assignment_does_not_partially_mutate) ... ok
+test_valid_policy_and_version_persist (__main__.ValidationTests.test_valid_policy_and_version_persist) ... ok
+test_version_lengths_and_blanks (__main__.ValidationTests.test_version_lengths_and_blanks) ... ok
+test_version_reference_validation (__main__.ValidationTests.test_version_reference_validation) ... ok
+
+----------------------------------------------------------------------
+Ran 28 tests in 0.888s
+
+OK

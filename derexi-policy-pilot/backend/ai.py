@@ -19,23 +19,6 @@ rule-based guidance in ``main.py`` so retrieval keeps working offline.
 from __future__ import annotations
 
 import os
-from pathlib import Path
-
-from dotenv import load_dotenv
-
-load_dotenv(Path(__file__).resolve().parent / ".env")
-
-OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
-
-OPENAI_BASE_URL = os.getenv(
-    "OPENAI_BASE_URL",
-    "https://openrouter.ai/api/v1"
-)
-
-OPENAI_MODEL = os.getenv(
-    "OPENAI_MODEL",
-    "nvidia/nemotron-3-ultra-550b-a55b:free"
-)
 
 INSTRUCTIONS = (
     "You are DeRexi, the internal policy-guidance assistant for Aurum Capital "
@@ -57,7 +40,12 @@ def generate_answer(question: str, context: list[dict]) -> str | None:
     configured, the SDK is unavailable, or the request fails, letting callers
     fall back to rule-based guidance.
     """
-    if not OPENAI_API_KEY:
+    # Normal DB initialization loads .env; demo apps override generation and
+    # importing the module never reads production credential files.
+    api_key = os.getenv("OPENAI_API_KEY")
+    base_url = os.getenv("OPENAI_BASE_URL", "https://openrouter.ai/api/v1")
+    model = os.getenv("OPENAI_MODEL", "nvidia/nemotron-3-ultra-550b-a55b:free")
+    if not api_key:
         return None
     try:
         from openai import OpenAI  # deferred so the app still runs without the SDK
@@ -70,7 +58,7 @@ def generate_answer(question: str, context: list[dict]) -> str | None:
             f"QUESTION: {question}\n\n"
             f"POLICY LIBRARY CONTEXT:\n{source_block}"
         )
-        client = OpenAI(api_key=OPENAI_API_KEY, base_url=OPENAI_BASE_URL, timeout=30)
+        client = OpenAI(api_key=api_key, base_url=base_url, timeout=30)
 
         # Reasoning models (e.g. OpenRouter's Nemotron tier) spend part of the
         # ``max_tokens`` budget on hidden reasoning tokens. With a long policy
@@ -81,11 +69,11 @@ def generate_answer(question: str, context: list[dict]) -> str | None:
         # and only ``message.content`` is ever used -- reasoning fields are never
         # surfaced to employees.
         request_kwargs: dict = {}
-        if "openrouter.ai" in OPENAI_BASE_URL:
+        if "openrouter.ai" in base_url:
             request_kwargs["extra_body"] = {"reasoning": {"enabled": False}}
 
         completion = client.chat.completions.create(
-            model=OPENAI_MODEL,
+            model=model,
             temperature=0.2,
             max_tokens=700,
             messages=[

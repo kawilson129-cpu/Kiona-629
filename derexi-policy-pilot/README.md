@@ -1,5 +1,9 @@
 # DeRexi: Policy Pilot
 
+Security hardening adds an explicit secured API and isolated developer entry
+point. Read [security entry points](docs/security-entrypoints.md) before running
+or deploying: `main:app` remains the unguarded course compatibility profile.
+
 Backend for **DeRexi: Policy Pilot**, a policy-governance and incident-assistance
 assistant built for a fictional financial institution, **Aurum Capital Bank**.
 

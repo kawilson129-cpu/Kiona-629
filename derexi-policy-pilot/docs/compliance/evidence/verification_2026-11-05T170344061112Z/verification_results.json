@@ -1,0 +1,163 @@
+{
+  "timestamp": "2026-11-05T17:03:50.972562+00:00",
+  "mode": "isolated synthetic fixtures; no live Supabase",
+  "results": [
+    {
+      "suite": "test_rbac_stage1.py",
+      "command": [
+        "/workspace/Kiona-629/derexi-policy-pilot/backend/../.venv/bin/python",
+        "tests/test_rbac_stage1.py"
+      ],
+      "return_code": 0,
+      "status": "PASS",
+      "log": "test_rbac_stage1.py.log",
+      "executed": 40,
+      "passed": 40
+    },
+    {
+      "suite": "test_week7_auth.py",
+      "command": [
+        "/workspace/Kiona-629/derexi-policy-pilot/backend/../.venv/bin/python",
+        "tests/test_week7_auth.py"
+      ],
+      "return_code": 0,
+      "status": "PASS",
+      "log": "test_week7_auth.py.log",
+      "passed": 24,
+      "failed": 0,
+      "executed": 24
+    },
+    {
+      "suite": "test_secure_api.py",
+      "command": [
+        "/workspace/Kiona-629/derexi-policy-pilot/backend/../.venv/bin/python",
+        "tests/test_secure_api.py"
+      ],
+      "return_code": 0,
+      "status": "PASS",
+      "log": "test_secure_api.py.log",
+      "executed": 32,
+      "passed": 32
+    },
+    {
+      "suite": "test_validation_hardening.py",
+      "command": [
+        "/workspace/Kiona-629/derexi-policy-pilot/backend/../.venv/bin/python",
+        "tests/test_validation_hardening.py"
+      ],
+      "return_code": 0,
+      "status": "PASS",
+      "log": "test_validation_hardening.py.log",
+      "executed": 28,
+      "passed": 28
+    },
+    {
+      "suite": "test_pulse_integrity.py",
+      "command": [
+        "/workspace/Kiona-629/derexi-policy-pilot/backend/../.venv/bin/python",
+        "tests/test_pulse_integrity.py"
+      ],
+      "return_code": 0,
+      "status": "PASS",
+      "log": "test_pulse_integrity.py.log",
+      "executed": 22,
+      "passed": 22
+    },
+    {
+      "suite": "test_pulse.py",
+      "command": [
+        "/workspace/Kiona-629/derexi-policy-pilot/backend/../.venv/bin/python",
+        "tests/test_pulse.py"
+      ],
+      "return_code": 0,
+      "status": "PASS",
+      "log": "test_pulse.py.log",
+      "passed": 97,
+      "failed": 0,
+      "executed": 97
+    },
+    {
+      "suite": "run_compliance_audits.py",
+      "command": [
+        "/workspace/Kiona-629/derexi-policy-pilot/backend/../.venv/bin/python",
+        "tests/run_compliance_audits.py"
+      ],
+      "return_code": 0,
+      "status": "PASS",
+      "log": "run_compliance_audits.py.log",
+      "controls": {
+        "C-01": {
+          "PASS": 15,
+          "FAIL": 0,
+          "BLOCKED": 0,
+          "NOT TESTED": 0
+        },
+        "C-02": {
+          "PASS": 26,
+          "FAIL": 0,
+          "BLOCKED": 0,
+          "NOT TESTED": 0
+        },
+        "C-03": {
+          "PASS": 55,
+          "FAIL": 0,
+          "BLOCKED": 0,
+          "NOT TESTED": 0
+        }
+      },
+      "executed": 96
+    },
+    {
+      "suite": "test_week8_stage1.py",
+      "command": [
+        "/workspace/Kiona-629/derexi-policy-pilot/backend/../.venv/bin/python",
+        "tests/test_week8_stage1.py"
+      ],
+      "return_code": 1,
+      "status": "KNOWN_FAILURES",
+      "log": "test_week8_stage1.py.log",
+      "passed": 5,
+      "failed": 4,
+      "executed": 9,
+      "known_failures": [
+        "test_guidance_none_below_threshold",
+        "test_guidance_none_when_no_results",
+        "test_guidance_returns_best_policy",
+        "test_post_incident_ok_default_severity_and_guidance"
+      ]
+    }
+  ],
+  "browser_evidence": "/workspace/Kiona-629/derexi-policy-pilot/docs/compliance/evidence/browser_resume_2026-11-05_EF61bG/browser_results.json",
+  "source_sha256": {
+    "ai.py": "2328ec8fbfc46a07290293c7f384ff067f72a05c1d7b57fcdc74a2800ad34618",
+    "auth.py": "08132e6050b7ac205c1783d448e476f75990bf53d9b37af1f4c541e83d76801e",
+    "database.py": "f41a1968d77df0c28d60f2bb0940082fbc97c6c776b60698763d2b070b371d9d",
+    "dev_bridge.js": "87336634c072adc281c354f58a9d86b4936b0df1efafc34692434112a39feb5c",
+    "dev_demo.py": "44fcc98eae0dfb2601fe960dcfecc7151e30c73c3cf92af2f3a2c7f1901e3191",
+    "main.py": "ffc6fcab7c6d2561bcb219a019e2edb3471606b16c8d8d43d9d43620266de060",
+    "models.py": "657bf71c1a7f1c248bb714d0ba3d721e6528313d39f2ba8dc33681d98d19089a",
+    "principals.py": "4d2954e48ec7bfc61215622842b85436bbd0e70fd1227fa9f40292034ca6c192",
+    "pulse/__init__.py": "e6495fd036f4bc43f2adbddb66a9e1131bf23d528f920102447f5c867dabe953",
+    "pulse/integrity.py": "5dc83c473db607af74a902318bfab125ea01c8e3d2edd3fb957cee85d553b824",
+    "pulse/routes.py": "7d9a85ffd3ae457a2f1f30e6aea44c5520cb162f78d8c0ed5935ebc5475fd9c2",
+    "pulse/service.py": "8fda7515025020f633c63320037029c21c7e109576583f64ea0a74ff7bc95add",
+    "pulse/sources.py": "6ce49f16e74b8d12bdbdf464c48a9d7998d1f34da95bebf284fc58e4fd201c9c",
+    "rbac.py": "760729f3114bfe59fd51565b5f791ef5e3a11e3d9251a738f856a5c5577ff5ab",
+    "schemas.py": "8109dd4f2b234497c753134877bfa783bc5c2897115bc2b6a55d9a67e84927c7",
+    "secure_api.py": "8ade897feaa7e92d6073b32692e66470de7da475585431e7771489125973fa1c",
+    "static/app.js": "24294b19c3aa4baff7245670528d643f12fc5fc0bf3aa8d86ba211ce66e77258",
+    "static/pulse.js": "20531daf695fc37c493e6ce1519bfe4773c3468300e86018da6dbc8227adb625",
+    "tests/browser_fixture_server.py": "48c3905318734486e1a255f7d592ef4380b3eca874b67a98b6e68c7aa56da45e",
+    "tests/run_compliance_audits.py": "405a841f76c3be61a361b7a2f0f9efe44e5bf17c45b3c148221cde4323b928f1",
+    "tests/run_hardening_regressions.py": "a5ab523b9ad63bd2e60b120981df166cbcd4dbd9eeb9054023f434a7671efd92",
+    "tests/test_c03_audit.py": "bde05d8a207849674212502d62994bc3c3e3f3e9de07d3b8f3400823cebfa174",
+    "tests/test_pulse.py": "e64ec4e7083ca61af985610870ce0a8161063fc9e9d3a6cdd769f54fd5637532",
+    "tests/test_pulse_integrity.py": "9194a403fff1a30307df7552da8e22d7806022d58f98f460b1877186f6ae275a",
+    "tests/test_rbac_stage1.py": "d693160eaf7e6290e563d5a28849773be0f7949c232d06676ea094184129b55e",
+    "tests/test_secure_api.py": "a4e46d9d69a7d0624c20d2e29a49bb241221578f6873159b6d3c9b61cf32af30",
+    "tests/test_security_controls.py": "2147fef880132f749b02d1e46ae4679021290026eef473340091c5aef7ec9de4",
+    "tests/test_validation_hardening.py": "f3ac8c1643873fff61ca4cf8118b6a4ef921a81d63fa9d6061649e1e253e7178",
+    "tests/test_week7_auth.py": "23d5ecb8a114f9cb89ba58c596d511df11f85456ec1013ec22510dbce04244f2",
+    "tests/test_week8_stage1.py": "d106acf49851d12093d13b30694c668b1f559de70d69ebf2d13ce2fb5adf1d6c"
+  }
+}

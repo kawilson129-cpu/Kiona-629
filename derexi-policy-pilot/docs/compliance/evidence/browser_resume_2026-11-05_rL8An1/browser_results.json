@@ -1,0 +1,23 @@
+{
+  "date": "2026-11-05T16:48:35.187Z",
+  "mode": "real Chromium; synthetic data only",
+  "checks": [
+    {
+      "id": "UI-01-activation-required",
+      "status": "PASS"
+    },
+    {
+      "id": "UI-02-original-selector-retained",
+      "status": "PASS"
+    },
+    {
+      "id": "UI-03-signed-employee",
+      "status": "PASS"
+    },
+    {
+      "id": "UI-04-employee-governance-hidden",
+      "status": "FAIL"
+    }
+  ],
+  "errors": []
+}

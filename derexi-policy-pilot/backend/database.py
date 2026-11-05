@@ -10,38 +10,28 @@ Set DATABASE_URL in backend/.env (see backend/.env.example).
 
 import os
 from pathlib import Path
+from functools import lru_cache
 
 from dotenv import load_dotenv
 from sqlalchemy import create_engine
 from sqlalchemy.orm import DeclarativeBase, sessionmaker
 
-# Load backend/.env regardless of the directory uvicorn is launched from.
-load_dotenv(Path(__file__).resolve().parent / ".env")
+@lru_cache(maxsize=1)
+def default_session_factory():
+    # Resolve production configuration on demand, never by importing models in
+    # an isolated demo/test process.
+    load_dotenv(Path(__file__).resolve().parent / ".env")
+    url = os.getenv("DATABASE_URL")
+    if not url:
+        raise RuntimeError("DATABASE_URL is not configured")
+    if url.startswith("postgresql://"):
+        url = url.replace("postgresql://", "postgresql+psycopg2://", 1)
+    engine = create_engine(url, pool_pre_ping=True, pool_size=5, max_overflow=5)
+    return sessionmaker(bind=engine, autoflush=False, autocommit=False)
 
-DATABASE_URL = os.getenv("DATABASE_URL")
 
-if not DATABASE_URL:
-    raise RuntimeError(
-        "DATABASE_URL is not set.\n"
-        "Copy backend/.env.example to backend/.env and paste your Supabase "
-        "connection string into it."
-    )
-
-# pool_pre_ping avoids stale connections when Supabase recycles them.
-engine = create_engine(
-    DATABASE_URL,
-    pool_pre_ping=True,
-    pool_size=5,
-    max_overflow=5,
-    future=True,
-)
-
-SessionLocal = sessionmaker(
-    bind=engine,
-    autoflush=False,
-    autocommit=False,
-    future=True,
-)
+def SessionLocal():
+    return default_session_factory()()
 
 
 class Base(DeclarativeBase):

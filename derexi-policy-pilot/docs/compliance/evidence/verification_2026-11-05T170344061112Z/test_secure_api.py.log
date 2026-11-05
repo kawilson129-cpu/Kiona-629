@@ -1,0 +1,39 @@
+test_demo_activation_is_one_use_and_logout_revokes_session (__main__.DemoTests.test_demo_activation_is_one_use_and_logout_revokes_session) ... ok
+test_demo_assistant_writes_only_copy_and_switch_revokes_private_access (__main__.DemoTests.test_demo_assistant_writes_only_copy_and_switch_revokes_private_access) ... ok
+test_demo_bootstrap_rotation_and_signed_persona_switch (__main__.DemoTests.test_demo_bootstrap_rotation_and_signed_persona_switch) ... ok
+test_demo_refuses_external_or_missing_snapshot (__main__.DemoTests.test_demo_refuses_external_or_missing_snapshot) ... ok
+test_demo_rejects_remote_clients_and_rebinding (__main__.DemoTests.test_demo_rejects_remote_clients_and_rebinding) ... ok
+test_demo_requires_activation_origin_and_csrf (__main__.DemoTests.test_demo_requires_activation_origin_and_csrf) ... ok
+test_local_tokens_and_sessions_cannot_authenticate_production (__main__.DemoTests.test_local_tokens_and_sessions_cannot_authenticate_production) ... ok
+test_admin_oversight_is_explicit_metadata_only (__main__.SecuredTests.test_admin_oversight_is_explicit_metadata_only) ... ok
+test_anonymous_denied_before_database_and_safe_outage_errors (__main__.SecuredTests.test_anonymous_denied_before_database_and_safe_outage_errors) ... ok
+test_claimed_role_is_ignored_and_unknown_mapping_denied (__main__.SecuredTests.test_claimed_role_is_ignored_and_unknown_mapping_denied) ... ok
+test_clarification_actor_and_closed_thread_enforcement (__main__.SecuredTests.test_clarification_actor_and_closed_thread_enforcement) ... ok
+test_clarification_lists_participant_only (__main__.SecuredTests.test_clarification_lists_participant_only) ... ok
+test_employee_policy_write_and_impersonation_denied_before_write (__main__.SecuredTests.test_employee_policy_write_and_impersonation_denied_before_write) ... ok
+test_feedback_private_and_actor_consistency (__main__.SecuredTests.test_feedback_private_and_actor_consistency) ... ok
+test_governance_real_aggregate_queries_role_matrix (__main__.SecuredTests.test_governance_real_aggregate_queries_role_matrix) ... /workspace/Kiona-629/derexi-policy-pilot/.venv/lib/python3.12/site-packages/sqlalchemy/engine/default.py:1192: DeprecationWarning: The default date adapter is deprecated as of Python 3.12; see the sqlite3 documentation for suggested replacement recipes
+  cursor.execute(statement, parameters)
+ok
+test_health_is_admin_only_docs_not_public (__main__.SecuredTests.test_health_is_admin_only_docs_not_public) ... ok
+test_incident_create_as_self_and_no_reporter_impersonation (__main__.SecuredTests.test_incident_create_as_self_and_no_reporter_impersonation) ... ok
+test_incident_handler_cannot_escalate_or_reassign (__main__.SecuredTests.test_incident_handler_cannot_escalate_or_reassign) ... ok
+test_incident_scope_cannot_be_widened_by_query (__main__.SecuredTests.test_incident_scope_cannot_be_widened_by_query) ... ok
+test_invalid_expired_wrong_issuer_and_audience (__main__.SecuredTests.test_invalid_expired_wrong_issuer_and_audience) ... ok
+test_legacy_ui_not_activated_or_locked_out (__main__.SecuredTests.test_legacy_ui_not_activated_or_locked_out) ... ok
+test_missing_credentials_all_protected_routes (__main__.SecuredTests.test_missing_credentials_all_protected_routes) ... ok
+test_no_unsigned_demo_header_or_cookie_identity (__main__.SecuredTests.test_no_unsigned_demo_header_or_cookie_identity) ... ok
+test_owner_cannot_publish_or_assign_another_owner (__main__.SecuredTests.test_owner_cannot_publish_or_assign_another_owner) ... ok
+test_owner_draft_creation_stores_verified_author_and_owner (__main__.SecuredTests.test_owner_draft_creation_stores_verified_author_and_owner) ... ok
+test_participant_reply_and_assignee_resolution (__main__.SecuredTests.test_participant_reply_and_assignee_resolution) ... ok
+test_policy_visibility_list_details_and_categories (__main__.SecuredTests.test_policy_visibility_list_details_and_categories) ... ok
+test_private_conversations_no_admin_override (__main__.SecuredTests.test_private_conversations_no_admin_override) ... ok
+test_protected_pulse_keeps_readonly_feed_contract (__main__.SecuredTests.test_protected_pulse_keeps_readonly_feed_contract) ... ok
+test_unknown_server_role_fails_closed (__main__.SecuredTests.test_unknown_server_role_fails_closed) ... ok
+test_verified_principal_and_minimal_directory (__main__.SecuredTests.test_verified_principal_and_minimal_directory) ... ok
+test_versions_only_assigned_drafts_and_admin_publication (__main__.SecuredTests.test_versions_only_assigned_drafts_and_admin_publication) ... ok
+
+----------------------------------------------------------------------
+Ran 32 tests in 2.234s
+
+OK

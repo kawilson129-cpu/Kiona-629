@@ -1,0 +1,11 @@
+{
+  "date": "2026-11-05T16:50:40.776Z",
+  "mode": "real Chromium; synthetic data only",
+  "checks": [
+    {
+      "id": "UI-01-activation-required",
+      "status": "PASS"
+    }
+  ],
+  "errors": []
+}

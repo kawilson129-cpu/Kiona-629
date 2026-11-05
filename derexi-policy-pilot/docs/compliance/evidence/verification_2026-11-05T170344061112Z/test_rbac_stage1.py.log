@@ -1,0 +1,45 @@
+test_actor_ids_never_grant_impersonation (__main__.PermissionTests.test_actor_ids_never_grant_impersonation) ... ok
+test_admin_can_create_for_existing_target_id_but_not_invalid_id (__main__.PermissionTests.test_admin_can_create_for_existing_target_id_but_not_invalid_id) ... ok
+test_admin_can_reply_if_actual_participant (__main__.PermissionTests.test_admin_can_reply_if_actual_participant) ... ok
+test_approved_policy_readable_by_every_role (__main__.PermissionTests.test_approved_policy_readable_by_every_role) ... ok
+test_assigned_handler_can_triage_but_reporter_cannot (__main__.PermissionTests.test_assigned_handler_can_triage_but_reporter_cannot) ... ok
+test_assignee_cannot_reassign_or_escalate_by_any_supported_field (__main__.PermissionTests.test_assignee_cannot_reassign_or_escalate_by_any_supported_field) ... ok
+test_clarification_bodies_participant_only (__main__.PermissionTests.test_clarification_bodies_participant_only) ... ok
+test_clarification_creation_checks_actor_and_linked_records (__main__.PermissionTests.test_clarification_creation_checks_actor_and_linked_records) ... ok
+test_conversations_private_even_for_administrators (__main__.PermissionTests.test_conversations_private_even_for_administrators) ... ok
+test_explicit_admin_oversight_contains_only_allowlisted_metadata (__main__.PermissionTests.test_explicit_admin_oversight_contains_only_allowlisted_metadata) ... ok
+test_feedback_requires_own_assistant_message_and_matching_actor (__main__.PermissionTests.test_feedback_requires_own_assistant_message_and_matching_actor) ... ok
+test_incident_creation_self_only_without_privileged_fields (__main__.PermissionTests.test_incident_creation_self_only_without_privileged_fields) ... ok
+test_incident_visibility_reporter_assignee_admin_only (__main__.PermissionTests.test_incident_visibility_reporter_assignee_admin_only) ... ok
+test_initial_approval_publication_and_ownership_are_separate (__main__.PermissionTests.test_initial_approval_publication_and_ownership_are_separate) ... ok
+test_malformed_principals_fail_closed (__main__.PermissionTests.test_malformed_principals_fail_closed) ... ok
+test_no_principal_no_permissions (__main__.PermissionTests.test_no_principal_no_permissions) ... ok
+test_nonapproved_policy_read_requires_ownership_or_admin (__main__.PermissionTests.test_nonapproved_policy_read_requires_ownership_or_admin) ... ok
+test_only_assignee_resolves_no_blanket_admin_override (__main__.PermissionTests.test_only_assignee_resolves_no_blanket_admin_override) ... ok
+test_permission_evaluation_never_mutates_snapshots (__main__.PermissionTests.test_permission_evaluation_never_mutates_snapshots) ... ok
+test_policy_edit_only_assigned_draft_for_owner (__main__.PermissionTests.test_policy_edit_only_assigned_draft_for_owner) ... ok
+test_policy_owner_creates_only_self_owned_draft (__main__.PermissionTests.test_policy_owner_creates_only_self_owned_draft) ... ok
+test_reference_and_governance_matrix (__main__.PermissionTests.test_reference_and_governance_matrix) ... ok
+test_reply_requires_participation_actor_and_open_status (__main__.PermissionTests.test_reply_requires_participation_actor_and_open_status) ... ok
+test_unknown_incident_fields_and_bad_values_deny_entire_patch (__main__.PermissionTests.test_unknown_incident_fields_and_bad_values_deny_entire_patch) ... ok
+test_unknown_or_forged_roles_fail_closed (__main__.PermissionTests.test_unknown_or_forged_roles_fail_closed) ... ok
+test_current_server_role_reloaded_each_resolution_without_mutation (__main__.ResolutionTests.test_current_server_role_reloaded_each_resolution_without_mutation) ... ok
+test_empty_mapping_fails_closed (__main__.ResolutionTests.test_empty_mapping_fails_closed) ... ok
+test_expired_wrong_issuer_audience_and_not_yet_valid_denied (__main__.ResolutionTests.test_expired_wrong_issuer_audience_and_not_yet_valid_denied) ... ok
+test_forged_business_role_user_and_department_claims_are_ignored (__main__.ResolutionTests.test_forged_business_role_user_and_department_claims_are_ignored) ... ok
+test_inconsistent_business_snapshot_denied (__main__.ResolutionTests.test_inconsistent_business_snapshot_denied) ... ok
+test_jwks_failure_never_falls_back (__main__.ResolutionTests.test_jwks_failure_never_falls_back) ... ok
+test_mapping_copied_and_not_mutated (__main__.ResolutionTests.test_mapping_copied_and_not_mutated) ... ok
+test_mapping_invalid_ids_and_many_to_one_rejected (__main__.ResolutionTests.test_mapping_invalid_ids_and_many_to_one_rejected) ... ok
+test_missing_business_user_denied_without_account_creation (__main__.ResolutionTests.test_missing_business_user_denied_without_account_creation) ... ok
+test_missing_malformed_or_unsigned_auth_has_no_lookup_or_fallback (__main__.ResolutionTests.test_missing_malformed_or_unsigned_auth_has_no_lookup_or_fallback) ... ok
+test_no_network_or_database_access_for_isolated_resolution (__main__.ResolutionTests.test_no_network_or_database_access_for_isolated_resolution) ... ok
+test_unknown_role_denied_even_with_admin_token_claim (__main__.ResolutionTests.test_unknown_role_denied_even_with_admin_token_claim) ... ok
+test_unknown_subject_cannot_link_by_email_or_user_claim (__main__.ResolutionTests.test_unknown_subject_cannot_link_by_email_or_user_claim) ... ok
+test_valid_signed_identity_resolves_existing_business_snapshot (__main__.ResolutionTests.test_valid_signed_identity_resolves_existing_business_snapshot) ... ok
+test_wrong_signature_denied_before_lookup (__main__.ResolutionTests.test_wrong_signature_denied_before_lookup) ... ok
+
+----------------------------------------------------------------------
+Ran 40 tests in 0.017s
+
+OK

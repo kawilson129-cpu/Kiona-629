@@ -34,3 +34,28 @@ the local runtime capabilities unavailable inside this machine's restricted sand
 These application/test mismatches predate the isolated RBAC modules. No assertions,
 application code or incident behavior were changed. Route integration and incident
 fixes need later authorization; passing RBAC tests does not resolve these issues.
+
+## Subsequent hardening attempt — November 3
+
+The user subsequently authorized integration/hardening, checkpoint commits and
+development-branch pushes. The Stage 1 checkpoint is now `4eac30a` on
+`codex/derexi-security-hardening`. MSG-001 remains open. INC-001 was rerun after
+the C-02 validation changes: **4 passed / 5 failed**. The category-not-found
+failure is resolved; reporter scope and four guidance-related failures remain.
+No existing tests were changed. See `compliance/assignment3_security_hardening_final.md`
+for current evidence and blockers; the earlier baseline above is retained.
+
+## November 5 resume status
+
+- **MSG-001 remains BLOCKED.** The current signed-browser run records the real
+  missing `/messages` response and the existing Messages unavailable state.
+- **INC-001 is now 5 passed / 4 failed.** Reporter filtering was fixed as part of
+  scoped incident collections. The three missing `incident_guidance` tests and
+  missing guidance response field still fail; their assertions are unchanged.
+- Original audit files were found on newer origin/main and recovered. The
+  secured profile now passes 15 C-01/26 C-02/55 C-03 checks, with updated
+  signed-auth/private-schema C-01 assumptions documented in the final report.
+- The ordinary `main:app` remains unguarded compatibility. Use the explicit
+  secured entry point for RBAC; do not expose the legacy entry point publicly.
+  Real employee demo migration awaits an approved local snapshot/Auth setup;
+  no existing business records were replaced or modified.

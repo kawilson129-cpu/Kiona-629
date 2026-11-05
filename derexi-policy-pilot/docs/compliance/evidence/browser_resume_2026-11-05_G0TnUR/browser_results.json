@@ -1,0 +1,68 @@
+{
+  "date": "2026-11-05T16:57:21.686Z",
+  "mode": "real Chromium; synthetic data only",
+  "checks": [
+    {
+      "id": "UI-01-activation-required",
+      "status": "PASS"
+    },
+    {
+      "id": "UI-02-original-selector-retained",
+      "status": "PASS"
+    },
+    {
+      "id": "UI-03-signed-employee",
+      "status": "PASS"
+    },
+    {
+      "id": "UI-04-employee-governance-hidden",
+      "status": "PASS"
+    },
+    {
+      "id": "UI-11-employee-approved-library",
+      "status": "PASS"
+    },
+    {
+      "id": "UI-12-assistant-signed-write",
+      "status": "PASS"
+    },
+    {
+      "id": "UI-13-incident-signed-write",
+      "status": "PASS"
+    },
+    {
+      "id": "MSG-001",
+      "status": "BLOCKED",
+      "reason": "Pre-existing missing Messages endpoint"
+    },
+    {
+      "id": "UI-05-signed-owner-switch",
+      "status": "PASS"
+    },
+    {
+      "id": "UI-06-owner-governance-visible",
+      "status": "PASS"
+    },
+    {
+      "id": "UI-07-governance-api",
+      "status": "PASS"
+    },
+    {
+      "id": "UI-08-signed-admin-switch",
+      "status": "PASS"
+    },
+    {
+      "id": "UI-09-real-pulse-api",
+      "status": "PASS"
+    },
+    {
+      "id": "C03-55",
+      "status": "PASS"
+    },
+    {
+      "id": "UI-10-no-runtime-exceptions",
+      "status": "PASS"
+    }
+  ],
+  "errors": []
+}

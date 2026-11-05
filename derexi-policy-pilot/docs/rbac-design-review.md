@@ -1,5 +1,11 @@
 # Server-side RBAC design for review
 
+**November 5 update:** the later hardening request authorizes integration and
+development-branch commits/pushes. The historical Stage 1 record below is retained.
+The explicit secured API/local demo now implement this matrix; see
+`security-entrypoints.md` and `compliance/assignment3_security_hardening_final.md`.
+The legacy course entry point is not automatically migrated or exposed publicly.
+
 Status: architecture approved with conditions; Stage 1 implemented for review. November 3, 2026.
 Authorization is limited to pure permissions, principal resolution, synthetic identities and isolated offline tests. No route enforcement, browser changes, local switcher replacement, live data operation, migration, commit, push or deployment is authorized yet.
 

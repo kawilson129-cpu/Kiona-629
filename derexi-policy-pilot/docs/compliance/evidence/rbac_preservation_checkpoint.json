@@ -1,0 +1,7 @@
+{
+  "checkpoint": "/private/tmp/derexi-rbac-checkpoint-20261103T194305Z",
+  "head": "aa010e8e49a6771c3d54138252d09d304b2f61be",
+  "files": 274,
+  "archive_sha256": "e3402d908804dd95e856f68af6b73eb2f9b44a92e605f10df413f66c1fb42a45",
+  "excluded": "All ignored files, including .env and .venv. No database backup or access performed."
+}

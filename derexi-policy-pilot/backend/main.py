@@ -15,14 +15,17 @@ from the backend/ directory, with DATABASE_URL set in backend/.env.
 from __future__ import annotations
 
 import re
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 from pathlib import Path
 from typing import Optional
 
 from fastapi import Depends, FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
+from fastapi.exceptions import RequestValidationError
+from fastapi.responses import JSONResponse
 from sqlalchemy import func, text
+from sqlalchemy.exc import IntegrityError, SQLAlchemyError
 from sqlalchemy.orm import Session
 
 import ai
@@ -38,6 +41,7 @@ from models import (
     IncidentReport,
     Message,
     Policy,
+    PolicyCategory,
     PolicyCitation,
     PolicyVersion,
     Role,
@@ -59,6 +63,41 @@ app = FastAPI(
     description="Policy governance and incident assistance for Aurum Capital Bank.",
     version="0.4.0",
 )
+
+
+@app.exception_handler(RequestValidationError)
+async def invalid_request(request, exc):
+    # Never echo raw input, exception contexts or database details in API errors.
+    return JSONResponse(status_code=422, content={"detail": [
+        {"loc": list(e["loc"]), "msg": e["msg"] if e["type"] != "value_error"
+         else "Invalid field combination", "type": e["type"]}
+        for e in exc.errors()
+    ]})
+
+
+@app.exception_handler(IntegrityError)
+async def conflicting_record(request, exc):
+    return JSONResponse(status_code=409, content={"detail": "Request conflicts with an existing record"})
+
+
+@app.exception_handler(SQLAlchemyError)
+async def unavailable_database(request, exc):
+    return JSONResponse(status_code=503, content={"detail": "Data service temporarily unavailable"})
+
+
+@app.exception_handler(Exception)
+async def unexpected_error(request, exc):
+    return JSONResponse(status_code=500, content={"detail": "Unable to complete request. Please try again."})
+
+
+def referenced(db, model, record_id, label):
+    """Validate an optional foreign key before constructing/mutating ORM rows."""
+    if record_id is None:
+        return None
+    record = db.get(model, record_id)
+    if record is None:
+        raise HTTPException(status_code=404, detail=f"{label} not found")
+    return record
 
 # Connects Pulse's regulatory news endpoints to DeRexi.
 app.include_router(pulse_router)
@@ -329,6 +368,9 @@ def get_policy(policy_id: int, db: Session = Depends(get_db)) -> dict:
 
 @app.post("/policies", status_code=201)
 def create_policy(payload: schemas.PolicyCreate, db: Session = Depends(get_db)) -> dict:
+    referenced(db, User, payload.owner_id, "Policy owner")
+    referenced(db, PolicyCategory, payload.category_id, "Policy category")
+    referenced(db, User, payload.version.created_by, "Version author")
     if db.query(Policy).filter(Policy.title == payload.title).first():
         raise HTTPException(status_code=409, detail="A policy with that title already exists")
     policy = Policy(
@@ -361,6 +403,7 @@ def create_policy(payload: schemas.PolicyCreate, db: Session = Depends(get_db)) 
 def add_policy_version(
     policy_id: int, payload: schemas.PolicyVersionAdd, db: Session = Depends(get_db)
 ) -> dict:
+    referenced(db, User, payload.created_by, "Version author")
     policy = db.get(Policy, policy_id)
     if not policy:
         raise HTTPException(status_code=404, detail="Policy not found")
@@ -395,8 +438,12 @@ def add_policy_version(
 # ---------------------------------------------------------------------------
 # 2. Policy Search & Retrieval -- the ask workflow
 # ---------------------------------------------------------------------------
+def answer_generator():
+    return ai.generate_answer
+
+
 @app.post("/ask")
-def ask(payload: schemas.AskRequest, db: Session = Depends(get_db)) -> dict:
+def ask(payload: schemas.AskRequest, db: Session = Depends(get_db), generate=Depends(answer_generator)) -> dict:
     user = db.get(User, payload.user_id)
     if not user:
         raise HTTPException(status_code=404, detail="User not found")
@@ -432,7 +479,7 @@ def ask(payload: schemas.AskRequest, db: Session = Depends(get_db)) -> dict:
             for row in results[:3]
             if float(row["score"]) >= CONFIDENCE_THRESHOLD
         ]
-        llm_answer = ai.generate_answer(question, context) if context else None
+        llm_answer = generate(question, context) if context else None
         if llm_answer:
             answer = f"{llm_answer}\nReference: {top['title']} (v{top['version_no']})"
         else:
@@ -611,7 +658,21 @@ def list_clarifications(
 def create_clarification(payload: schemas.ClarificationCreate, db: Session = Depends(get_db)) -> dict:
     if not db.get(User, payload.user_id):
         raise HTTPException(status_code=404, detail="User not found")
-    request = ClarificationRequest(**payload.model_dump())
+    referenced(db, Policy, payload.policy_id, "Policy")
+    referenced(db, User, payload.assigned_to, "Assignee")
+    conversation = referenced(db, Conversation, payload.conversation_id, "Conversation")
+    message = referenced(db, Message, payload.message_id, "Message")
+    if message is not None:
+        if conversation is None:
+            conversation = referenced(db, Conversation, message.conversation_id, "Conversation")
+        if message.conversation_id != conversation.id or message.sender != "user":
+            raise HTTPException(status_code=422, detail="Message does not match the conversation")
+    if conversation is not None and conversation.user_id != payload.user_id:
+        raise HTTPException(status_code=422, detail="Conversation does not match the requester")
+    fields = payload.model_dump()
+    if conversation is not None:
+        fields["conversation_id"] = conversation.id
+    request = ClarificationRequest(**fields)
     db.add(request)
     db.commit()
     return {"id": request.id, "status": request.status, "assigned_to": request.assigned_to}
@@ -697,6 +758,7 @@ def list_incident_categories(db: Session = Depends(get_db)) -> list:
 def list_incidents(
     status: Optional[str] = Query(default=None),
     severity: Optional[str] = Query(default=None),
+    reporter_id: Optional[int] = Query(default=None, gt=0),
     db: Session = Depends(get_db),
 ) -> list:
     query = db.query(IncidentReport)
@@ -704,6 +766,8 @@ def list_incidents(
         query = query.filter(IncidentReport.status == status)
     if severity:
         query = query.filter(IncidentReport.severity == severity)
+    if reporter_id is not None:
+        query = query.filter(IncidentReport.reporter_id == reporter_id)
     return [_incident_dict(i) for i in query.order_by(IncidentReport.created_at.desc()).all()]
 
 
@@ -731,9 +795,10 @@ def create_incident(payload: schemas.IncidentCreate, db: Session = Depends(get_d
     if not db.get(User, payload.reporter_id):
         raise HTTPException(status_code=404, detail="Reporter not found")
 
+    referenced(db, User, payload.assigned_to, "Incident assignee")
+    category = referenced(db, IncidentCategory, payload.category_id, "Incident category")
     severity = payload.severity
     if payload.category_id and "severity" not in payload.model_fields_set:
-        category = db.get(IncidentCategory, payload.category_id)
         if category:
             severity = category.default_severity
 
@@ -758,6 +823,7 @@ def update_incident(
     incident = db.get(IncidentReport, incident_id)
     if not incident:
         raise HTTPException(status_code=404, detail="Incident not found")
+    referenced(db, User, payload.assigned_to, "Incident assignee")
     for field, value in payload.model_dump(exclude_unset=True).items():
         setattr(incident, field, value)
     incident.updated_at = datetime.now(timezone.utc)
@@ -770,8 +836,11 @@ def update_incident(
 # ---------------------------------------------------------------------------
 @app.post("/feedback", status_code=201)
 def create_feedback(payload: schemas.FeedbackCreate, db: Session = Depends(get_db)) -> dict:
-    if not db.get(Message, payload.message_id):
-        raise HTTPException(status_code=404, detail="Message not found")
+    referenced(db, User, payload.user_id, "User")
+    message = referenced(db, Message, payload.message_id, "Message")
+    conversation = referenced(db, Conversation, message.conversation_id, "Conversation")
+    if conversation.user_id != payload.user_id or message.sender != "derexi":
+        raise HTTPException(status_code=422, detail="Feedback must refer to your assistant response")
     feedback = Feedback(**payload.model_dump())
     db.add(feedback)
     db.commit()
@@ -788,19 +857,19 @@ def policy_health(db: Session = Depends(get_db)) -> dict:
         text(
             """
             WITH current_versions AS (
-                SELECT DISTINCT ON (pv.policy_id) pv.policy_id, pv.review_date, pv.requires_review
+                SELECT pv.policy_id, pv.review_date, pv.requires_review,
+                       row_number() OVER (PARTITION BY pv.policy_id ORDER BY pv.created_at DESC, pv.id DESC) AS rn
                 FROM policy_versions pv
-                ORDER BY pv.policy_id, pv.created_at DESC, pv.id DESC
             )
             SELECT count(*) AS count
             FROM current_versions cv
             JOIN policies p ON p.id = cv.policy_id
-            WHERE p.status = 'approved'
+            WHERE cv.rn = 1 AND p.status = 'approved'
               AND cv.requires_review = true
               AND cv.review_date IS NOT NULL
-              AND cv.review_date <= (current_date + interval '30 days')
+              AND cv.review_date <= :due_date
             """
-        )
+        ), {"due_date": datetime.now(timezone.utc).date() + timedelta(days=30)}
     ).scalar()
 
     clarifications_by_status = db.execute(
@@ -869,3 +938,24 @@ def policy_health(db: Session = Depends(get_db)) -> dict:
         },
         "top_cited_policies": [dict(r) for r in top_cited],
     }
+
+
+def authenticated_application():
+    """Explicit production factory; main:app stays legacy until demo migration."""
+    import json
+    import os
+    from auth import AuthSettings, SupabaseJWTVerifier
+    from secure_api import create_app
+
+    mapping_path = os.environ.get("DEREXI_SUBJECT_MAP")
+    if not mapping_path:
+        raise RuntimeError("Configure an approved identity mapping before starting the secured API")
+    mapping = json.loads(Path(mapping_path).read_text())
+    if not mapping:
+        raise RuntimeError("Identity mapping must not be empty")
+    settings = AuthSettings.from_env()
+    if (not settings.supabase_url.startswith("https://")
+            or settings.issuer != settings.supabase_url + "/auth/v1"
+            or settings.jwks_url != settings.supabase_url + "/auth/v1/.well-known/jwks.json"):
+        raise RuntimeError("Use the configured Supabase project's issuer and JWKS")
+    return create_app(SupabaseJWTVerifier(settings), mapping)

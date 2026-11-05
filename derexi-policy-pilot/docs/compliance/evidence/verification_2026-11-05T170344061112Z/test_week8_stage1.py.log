@@ -1,0 +1,39 @@
+PASS  test_get_incident_categories
+PASS  test_get_incidents_reporter_scoped
+FAIL  test_guidance_none_below_threshold: module 'main' has no attribute 'incident_guidance'
+FAIL  test_guidance_none_when_no_results: module 'main' has no attribute 'incident_guidance'
+FAIL  test_guidance_returns_best_policy: module 'main' has no attribute 'incident_guidance'
+PASS  test_post_incident_category_missing
+PASS  test_post_incident_explicit_severity_wins
+FAIL  test_post_incident_ok_default_severity_and_guidance: 'guidance'
+PASS  test_post_incident_reporter_missing
+
+5 passed, 4 failed
+Traceback (most recent call last):
+  File "/workspace/Kiona-629/derexi-policy-pilot/backend/tests/test_week8_stage1.py", line 256, in <module>
+    fn()
+  File "/workspace/Kiona-629/derexi-policy-pilot/backend/tests/test_week8_stage1.py", line 146, in test_guidance_none_below_threshold
+    assert main.incident_guidance(db, "clicked a phishing link") is None
+           ^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'main' has no attribute 'incident_guidance'
+Traceback (most recent call last):
+  File "/workspace/Kiona-629/derexi-policy-pilot/backend/tests/test_week8_stage1.py", line 256, in <module>
+    fn()
+  File "/workspace/Kiona-629/derexi-policy-pilot/backend/tests/test_week8_stage1.py", line 141, in test_guidance_none_when_no_results
+    assert main.incident_guidance(db, "clicked a phishing link") is None
+           ^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'main' has no attribute 'incident_guidance'
+Traceback (most recent call last):
+  File "/workspace/Kiona-629/derexi-policy-pilot/backend/tests/test_week8_stage1.py", line 256, in <module>
+    fn()
+  File "/workspace/Kiona-629/derexi-policy-pilot/backend/tests/test_week8_stage1.py", line 151, in test_guidance_returns_best_policy
+    g = main.incident_guidance(db, "clicked a phishing link")
+        ^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'main' has no attribute 'incident_guidance'
+Traceback (most recent call last):
+  File "/workspace/Kiona-629/derexi-policy-pilot/backend/tests/test_week8_stage1.py", line 256, in <module>
+    fn()
+  File "/workspace/Kiona-629/derexi-policy-pilot/backend/tests/test_week8_stage1.py", line 197, in test_post_incident_ok_default_severity_and_guidance
+    assert body["guidance"] is not None
+           ~~~~^^^^^^^^^^^^
+KeyError: 'guidance'

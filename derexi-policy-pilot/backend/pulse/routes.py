@@ -1,22 +1,41 @@
+"""Pulse: public regulatory-intelligence endpoints.
 
-# backend/pulse/routes.py
-from fastapi import APIRouter
+Read-only by design. Pulse is an information surface: it never writes to
+Supabase, never changes policy records, and exposes no administrative actions.
+"""
 
-from .service import get_feed
+from fastapi import APIRouter, Query
+
+from .service import DEFAULT_LIMIT, MAX_ARTICLES, get_feed
 
 router = APIRouter(prefix="/api/pulse", tags=["Pulse"])
 
 
 @router.get("")
-def pulse_feed():
-    """Return government updates in a common format."""
-    return get_feed()
+def pulse_feed(
+    limit: int = Query(
+        DEFAULT_LIMIT,
+        ge=1,
+        le=MAX_ARTICLES,
+        description="Maximum number of articles to return.",
+    )
+):
+    """Return the combined government feed in a common article format.
+
+    Individual source failures are reported in ``sources`` and never fail the
+    request, so the page can render whatever did load.
+    """
+    return get_feed(limit=limit)
 
 
 @router.get("/health")
 def pulse_health():
-    """Confirm the Pulse module is installed."""
+    """Lightweight check that the Pulse module is installed and importable."""
+    from .sources import SOURCES
+
     return {
         "feature": "Pulse",
         "status": "module loaded",
+        "sources": list(SOURCES.keys()),
+        "cache_seconds": 1800,
     }

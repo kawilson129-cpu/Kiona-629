@@ -85,14 +85,16 @@
     opts = opts || {};
     var cfg = { method: opts.method || 'GET' };
     if (opts.body) { cfg.headers = { 'Content-Type': 'application/json' }; cfg.body = opts.body; }
-    return fetch(path, cfg).then(function (r) {
+    var request = window.DeRexiIdentity ? window.DeRexiIdentity.fetch : window.fetch.bind(window);
+    return request(path, cfg).then(function (r) {
       if (!r.ok) throw new Error('HTTP ' + r.status);
       return r.json();
     });
   }
 
   function loadAll() {
-    return Promise.all([api('/users'), api('/roles')]).then(function (r) {
+    var ready = window.DeRexiIdentity ? window.DeRexiIdentity.ready : Promise.resolve();
+    return ready.then(function () { return Promise.all([api('/users'), api('/roles')]); }).then(function (r) {
       state.users = r[0] || [];
       state.roles = r[1] || [];
     });
@@ -106,10 +108,10 @@
   function isGovernanceAllowed() {
     var u = currentUser();
     if (!u) return false;
-    var rid = u.role_id || u.roleId;
-    if (rid > 1) return true;
-    var rn = String(u.role || '').toLowerCase();
-    return rn.indexOf('policy owner') !== -1 || rn.indexOf('system') !== -1;
+    // Presentation follows the named role; numeric IDs have no privilege order.
+    // The secured API independently enforces every operation.
+    var rn = typeof u.role === 'string' ? u.role : (u.role && u.role.name) || '';
+    return rn === 'Policy Owner' || rn === 'System Administrator';
   }
 
   /* ---------------------------------------------------------------- toast */
@@ -155,6 +157,13 @@
   }
 
   function choosePersona(id, fromGate) {
+    if (window.DeRexiIdentity) {
+      // Rotate the verified server session before changing views; reload clears
+      // all previous employee requests and cached private content.
+      window.DeRexiIdentity.switchPersona(id).then(function () { location.reload(); })
+        .catch(function (err) { toast(err.message); });
+      return;
+    }
     var previous = state.personaId;
     state.personaId = id;
     var u = currentUser();
@@ -184,6 +193,7 @@
     if (hash === '#library') return 'library';
     if (hash === '#messages') return 'messages';
     if (hash === '#governance') return 'governance';
+    if (hash === '#pulse') return 'pulse';
     return 'assist';
   }
 
@@ -192,11 +202,24 @@
     var v = currentView();
     if (v === null) { app.innerHTML = ''; renderBoot(); return; }
     app.innerHTML = '';
-    var fn = v === 'library' ? renderLibrary : v === 'governance' ? renderGovernance : v === 'messages' ? renderMessages : renderAssist;
+    var fn = v === 'library' ? renderLibrary
+      : v === 'governance' ? renderGovernance
+      : v === 'messages' ? renderMessages
+      : v === 'pulse' ? renderPulse
+      : renderAssist;
     fn(app);
     qaa('.nav-link').forEach(function (a) {
       a.classList.toggle('is-current', a.dataset.view === v);
     });
+    // On narrow widths the nav scrolls horizontally; keep the active item in view.
+    var navBar = qa('.nav-links');
+    var active = qa('.nav-link.is-current');
+    if (navBar && active) {
+      var barBox = navBar.getBoundingClientRect();
+      var itemBox = active.getBoundingClientRect();
+      if (itemBox.left < barBox.left) navBar.scrollLeft -= (barBox.left - itemBox.left) + 8;
+      else if (itemBox.right > barBox.right) navBar.scrollLeft += (itemBox.right - barBox.right) + 8;
+    }
   }
 
   function renderBoot() {
@@ -1462,6 +1485,23 @@
     ]);
   }
 
+  /* ---------------------------------------------------------------- pulse */
+  // Pulse is its own view module (pulse.js) so this file stays focused on the
+  // policy, message, and governance surfaces; the router only supplies the
+  // mount point. Pulse is readable by every role, so no gating happens here.
+  function renderPulse(app) {
+    if (window.PulseView && typeof window.PulseView.render === 'function') {
+      window.PulseView.render(app);
+      return;
+    }
+    app.appendChild(h('div', { class: 'view' }, [
+      h('div', { class: 'empty card' }, [
+        h('div', { class: 'mark', text: 'Pulse is unavailable' }),
+        h('div', { class: 'ok', text: 'The Pulse module did not load. Reload the page to try again.' })
+      ])
+    ]));
+  }
+
   /* ---------------------------------------------------------------- boot */
   document.addEventListener('DOMContentLoaded', function () {
     setRecon();
@@ -1503,6 +1543,7 @@
   }
 
   function restorePersona() {
+    if (window.DeRexiIdentity) { state.personaId = window.DeRexiIdentity.userId; return; }
     var saved = localStorage.getItem('derexi.personaId');
     if (saved) {
       var id = parseInt(saved, 10);
