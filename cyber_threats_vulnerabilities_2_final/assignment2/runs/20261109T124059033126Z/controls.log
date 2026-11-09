@@ -1,0 +1,32 @@
+C:\Users\kawil\Documents\Kiona-629\derexi-policy-pilot\backend\database.py:41: SAWarning: Query string argument(s) 'sslmode' are not accepted by the pysqlite driver and are being ignored; SQLite URI arguments require that 'uri=true' also be present in the URL. (Background on this warning at: https://sqlalche.me/e/21/squa)
+  engine = create_engine(
+EMP-IDENTITY PASS expected= 200 actual= 200
+EMP-SIGNATURE PASS expected= 401 actual= 401
+EMP-GOVERNANCE PASS expected= 403 actual= 403
+EMP-OWN PASS expected= 200 actual= 200
+EMP-OTHER PASS expected= 404 actual= 404
+EMP-BOOL PASS expected= 422 actual= 422
+EMP-LENGTH PASS expected= 422 actual= 422
+EMP-APPROVE FAIL expected= 403 actual= 201
+OWN-IDENTITY PASS expected= 200 actual= 200
+OWN-SIGNATURE PASS expected= 401 actual= 401
+OWN-GOVERNANCE PASS expected= 200 actual= 200
+OWN-OWN PASS expected= 200 actual= 200
+OWN-OTHER PASS expected= 404 actual= 404
+OWN-BOOL PASS expected= 422 actual= 422
+OWN-LENGTH PASS expected= 422 actual= 422
+OWN-APPROVE FAIL expected= 403 actual= 201
+ADM-IDENTITY PASS expected= 200 actual= 200
+ADM-SIGNATURE PASS expected= 401 actual= 401
+ADM-GOVERNANCE PASS expected= 200 actual= 200
+ADM-OWN PASS expected= 200 actual= 200
+ADM-OTHER PASS expected= 200 actual= 200
+ADM-BOOL PASS expected= 422 actual= 422
+ADM-LENGTH PASS expected= 422 actual= 422
+ADM-APPROVE PASS expected= 201 actual= 201
+ANON-IDENTITY PASS expected= 401 actual= 401
+ANON-APPROVE FAIL expected= 401 actual= 201
+EMP-VERSION FAIL expected= 403 actual= 201
+HEADERS PASS expected= nosniff and DENY actual= {'X-Content-Type-Options': 'nosniff', 'X-Frame-Options': 'DENY'}
+SAFE-ERROR PASS expected= 500 without internal marker actual= {'status': 500, 'body': 'Internal Server Error'}
+FEED-HOST FAIL expected= reject unrelated publisher host actual= accepted

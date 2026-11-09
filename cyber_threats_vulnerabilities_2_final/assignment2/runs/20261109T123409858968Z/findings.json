@@ -1,0 +1,279 @@
+{
+  "generated_at": "2026-11-09T12:35:25.660881+00:00",
+  "scope": "Approved local evidence only; no production reachability or CVE scan inferred",
+  "metrics": {
+    "assets_catalogued": 14,
+    "current_scope_assets": 13,
+    "assets_assessed": 2,
+    "coverage_pct": 15.38,
+    "tests": {
+      "PASS": 2,
+      "FAIL": 1,
+      "ERROR": 1,
+      "BLOCKED": 0
+    },
+    "findings_by_severity": {
+      "Medium": 1
+    },
+    "remediation": {
+      "OPEN": 1,
+      "CLOSED": 0
+    },
+    "installed_distributions": 35,
+    "mean_time_to_remediate": null
+  },
+  "findings": [
+    {
+      "id": "DVI-DEPENDENCY",
+      "group": "dependency",
+      "asset": "PKGS",
+      "score": 9,
+      "tests": [
+        "DEPENDENCY-PINS"
+      ],
+      "status": "OPEN",
+      "evidence_type": "current isolated assessment",
+      "likelihood": 3,
+      "impact": 3,
+      "severity": "Medium",
+      "owner": "Platform engineering",
+      "corrective_action": "Create a reviewed version/hash lock and deployed SBOM, then perform advisory triage.",
+      "closure": "Clean reproducible install from reviewed lock, dependency consistency check and documented advisory dispositions.",
+      "sla_hours": 720
+    }
+  ],
+  "unassessed_assets": [
+    "AI",
+    "APP",
+    "AUTH",
+    "DB",
+    "DEV_AUTH",
+    "FDIC",
+    "FED",
+    "FR",
+    "NIST",
+    "PULSE",
+    "UI"
+  ],
+  "assets": [
+    {
+      "evidence_type": "current source",
+      "evidence": "derexi-policy-pilot/backend/main.py",
+      "name": "FastAPI policy and incident API",
+      "id": "APP",
+      "classification": "Restricted policy and incident records",
+      "owner": "Platform engineering",
+      "depends_on": [
+        "DB",
+        "AUTH",
+        "PKGS",
+        "AI"
+      ],
+      "criticality": 5
+    },
+    {
+      "evidence_type": "current source",
+      "evidence": "derexi-policy-pilot/backend/static/app.js",
+      "name": "Employee browser UI",
+      "id": "UI",
+      "classification": "Internal",
+      "owner": "Application engineering",
+      "depends_on": [
+        "APP"
+      ],
+      "criticality": 4
+    },
+    {
+      "evidence_type": "design and historical verification",
+      "evidence": "derexi-policy-pilot/docs/database-design.md",
+      "name": "Hosted PostgreSQL schema",
+      "id": "DB",
+      "classification": "Restricted",
+      "owner": "Data platform",
+      "depends_on": [],
+      "criticality": 5
+    },
+    {
+      "evidence_type": "current source",
+      "evidence": "derexi-policy-pilot/backend/security.py",
+      "name": "JWT verification and role resolution",
+      "id": "AUTH",
+      "classification": "Restricted identity metadata",
+      "owner": "Identity engineering",
+      "depends_on": [
+        "DB",
+        "DEV_AUTH"
+      ],
+      "criticality": 5
+    },
+    {
+      "evidence_type": "current source",
+      "evidence": "derexi-policy-pilot/backend/dev_auth.py",
+      "name": "Development token issuer",
+      "id": "DEV_AUTH",
+      "classification": "Test identity",
+      "owner": "Identity engineering",
+      "depends_on": [
+        "PKGS"
+      ],
+      "criticality": 4
+    },
+    {
+      "evidence_type": "current source",
+      "evidence": "derexi-policy-pilot/backend/pulse/service.py",
+      "name": "Feed normalization and cache",
+      "id": "PULSE",
+      "classification": "Public",
+      "owner": "Feed service owner",
+      "depends_on": [
+        "FR",
+        "FDIC",
+        "NIST",
+        "FED"
+      ],
+      "criticality": 4
+    },
+    {
+      "evidence_type": "prior runtime and current configuration",
+      "evidence": "cyber_threats_vulnerabilities_2_final/docker-evidence/security-summary.json",
+      "name": "Docker Pulse lab",
+      "id": "CONTAINER",
+      "classification": "Synthetic and public",
+      "owner": "Platform engineering",
+      "depends_on": [
+        "PULSE"
+      ],
+      "criticality": 3
+    },
+    {
+      "evidence_type": "prior read-only retrieval",
+      "evidence": "cyber_threats_vulnerabilities_2_final/docker-evidence/container-feeds.json",
+      "name": "Federal Register JSON feed",
+      "id": "FR",
+      "classification": "Public",
+      "owner": "Feed service owner",
+      "depends_on": [],
+      "criticality": 3
+    },
+    {
+      "evidence_type": "prior read-only retrieval",
+      "evidence": "cyber_threats_vulnerabilities_2_final/docker-evidence/container-feeds.json",
+      "name": "FDIC GovDelivery RSS",
+      "id": "FDIC",
+      "classification": "Public",
+      "owner": "Feed service owner",
+      "depends_on": [],
+      "criticality": 3
+    },
+    {
+      "evidence_type": "prior read-only retrieval",
+      "evidence": "cyber_threats_vulnerabilities_2_final/docker-evidence/container-feeds.json",
+      "name": "NIST draft publication JSON",
+      "id": "NIST",
+      "classification": "Public",
+      "owner": "Feed service owner",
+      "depends_on": [],
+      "criticality": 3
+    },
+    {
+      "evidence_type": "prior read-only retrieval",
+      "evidence": "cyber_threats_vulnerabilities_2_final/docker-evidence/container-feeds.json",
+      "name": "Federal Reserve RSS",
+      "id": "FED",
+      "classification": "Public",
+      "owner": "Feed service owner",
+      "depends_on": [],
+      "criticality": 3
+    },
+    {
+      "evidence_type": "current source",
+      "evidence": "derexi-policy-pilot/backend/ai.py",
+      "name": "Optional OpenAI-compatible provider",
+      "id": "AI",
+      "classification": "Potential policy context",
+      "owner": "Platform and procurement",
+      "depends_on": [
+        "PKGS"
+      ],
+      "criticality": 4
+    },
+    {
+      "evidence_type": "current local metadata",
+      "evidence": "derexi-policy-pilot/requirements.txt",
+      "name": "Local Python environment",
+      "id": "PKGS",
+      "classification": "Internal software metadata",
+      "owner": "Platform engineering",
+      "depends_on": [],
+      "criticality": 4
+    },
+    {
+      "evidence_type": "historical classroom",
+      "evidence": "cyber_threats_and_vulnerabilities_1/CT+V Assignment 2/DeRexi_Vulnerability_Assessment_Report.pdf",
+      "name": "10.11.2.144 classroom analogue",
+      "id": "SSH",
+      "classification": "Historical classroom",
+      "owner": "Classroom lab operator",
+      "depends_on": [],
+      "criticality": 3
+    }
+  ],
+  "checks": [
+    {
+      "id": "RUNNER",
+      "asset": "APP",
+      "group": "harness",
+      "status": "ERROR",
+      "expected": "suite completes",
+      "actual": "TIMEOUT"
+    },
+    {
+      "id": "PACKAGE-CONSISTENCY",
+      "asset": "PKGS",
+      "group": "dependency",
+      "status": "PASS",
+      "expected": "pip check succeeds",
+      "actual": 0,
+      "likelihood": 2,
+      "impact": 3
+    },
+    {
+      "id": "DEPENDENCY-PINS",
+      "asset": "PKGS",
+      "group": "dependency",
+      "status": "FAIL",
+      "expected": "runtime requirement versions reproducible",
+      "actual": "lower-bounded direct declarations",
+      "likelihood": 3,
+      "impact": 3
+    },
+    {
+      "id": "CONTAINER-CONFIG",
+      "asset": "CONTAINER",
+      "group": "configuration",
+      "status": "PASS",
+      "expected": "required isolation settings declared",
+      "actual": {
+        "missing": [],
+        "scope": "static configuration, prior runtime evidence reused"
+      },
+      "likelihood": 3,
+      "impact": 4
+    }
+  ],
+  "dependency_advisory_status": "BLOCKED: no local advisory scanner or database supplied",
+  "inputs": [
+    {
+      "path": "C:\\Users\\kawil\\Documents\\Kiona-629\\cyber_threats_vulnerabilities_2_final\\assignment2\\runs\\20261109T123409858968Z\\assets.json",
+      "sha256": "f3cd9cd13dd49861424b7c24358b0808b5dfb9dace597c42ec8784465dc6aaf7"
+    },
+    {
+      "path": "C:\\Users\\kawil\\Documents\\Kiona-629\\cyber_threats_vulnerabilities_2_final\\assignment2\\runs\\20261109T123409858968Z\\results.json",
+      "sha256": "c9258203b568168b853480f6ad8cb4a79baf82440b00453acea0020ef1b612ce"
+    },
+    {
+      "path": "C:\\Users\\kawil\\Documents\\Kiona-629\\cyber_threats_vulnerabilities_2_final\\assignment2\\runs\\20261109T123409858968Z\\dependencies.json",
+      "sha256": "544964535fe01d56558e9666d574405aa2aae042a5c8dfc12975a2a6d8d394fe"
+    }
+  ]
+}

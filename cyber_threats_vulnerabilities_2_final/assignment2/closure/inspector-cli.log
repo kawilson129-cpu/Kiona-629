@@ -1,0 +1,25 @@
+{
+  "assets_catalogued": 14,
+  "current_scope_assets": 13,
+  "assets_assessed": 6,
+  "coverage_pct": 46.15,
+  "tests": {
+    "PASS": 27,
+    "FAIL": 6,
+    "ERROR": 0,
+    "BLOCKED": 0
+  },
+  "findings_by_severity": {
+    "Critical": 1,
+    "High": 2,
+    "Medium": 2
+  },
+  "remediation": {
+    "OPEN": 5,
+    "CLOSED": 0
+  },
+  "installed_distributions": 35,
+  "mean_time_to_remediate": null,
+  "advisory_packages_queried": 35,
+  "distinct_triaged_advisories": 2
+}

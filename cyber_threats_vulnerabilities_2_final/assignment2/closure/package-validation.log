@@ -1,0 +1,5 @@
+PASS original 33 check identities and outcomes preserved on retest
+PASS 13 reconciled assets and 6 directly assessed assets
+PASS advisory aliases and finding counts reconcile without changing executed test totals
+PASS all five unresolved findings tracked
+PASS closure document local links

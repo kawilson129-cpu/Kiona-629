@@ -1,0 +1,1330 @@
+{
+  "generated_at": "2026-11-09T12:56:49.477272+00:00",
+  "scope": "Approved local evidence only; no production reachability or CVE scan inferred",
+  "metrics": {
+    "assets_catalogued": 14,
+    "current_scope_assets": 13,
+    "assets_assessed": 6,
+    "coverage_pct": 46.15,
+    "tests": {
+      "PASS": 27,
+      "FAIL": 6,
+      "ERROR": 0,
+      "BLOCKED": 0
+    },
+    "findings_by_severity": {
+      "Critical": 1,
+      "High": 2,
+      "Medium": 2
+    },
+    "remediation": {
+      "OPEN": 5,
+      "CLOSED": 0
+    },
+    "installed_distributions": 35,
+    "mean_time_to_remediate": null,
+    "advisory_packages_queried": 35,
+    "distinct_triaged_advisories": 2
+  },
+  "findings": [
+    {
+      "id": "DVI-POLICY-WRITE",
+      "group": "policy-write",
+      "asset": "APP",
+      "score": 20,
+      "tests": [
+        "EMP-APPROVE",
+        "OWN-APPROVE",
+        "ANON-APPROVE",
+        "EMP-VERSION"
+      ],
+      "status": "OPEN",
+      "evidence_type": "current isolated assessment",
+      "likelihood": 4,
+      "impact": 5,
+      "severity": "Critical",
+      "owner": "Platform engineering",
+      "corrective_action": "Require verified identity and server-side role checks on policy creation/version routes. Restrict approval to administrators.",
+      "closure": "Signed Employee and Owner approval attempts denied without writes; administrator approval succeeds; anonymous policy writes denied.",
+      "sla_hours": 72
+    },
+    {
+      "id": "DVI-ADVISORY-CERTIFI",
+      "package": "certifi",
+      "version": "2026.7.22",
+      "advisory_ids": [
+        "GHSA-6q48-6c7w-9gw2",
+        "PYSEC-2026-4320"
+      ],
+      "likelihood": 3,
+      "impact": 4,
+      "upstream_severity": "Critical",
+      "owner": "Platform engineering",
+      "corrective_action": "Upgrade the local certifi bundle to a reviewed fixed release (registry recommends 2026.10.19 or later), then verify which application clients use it. Preserve TLS validation.",
+      "closure": "Installed version no longer matches the advisory; verify the deployed trust bundle and rerun affected client tests. No on-path interception test is required.",
+      "asset": "PKGS",
+      "group": "advisory",
+      "score": 12,
+      "severity": "High",
+      "tests": [],
+      "status": "OPEN",
+      "evidence_type": "registry match with analyst triage",
+      "sla_hours": 336
+    },
+    {
+      "id": "DVI-FEED-INTEGRITY",
+      "group": "feed-integrity",
+      "asset": "PULSE",
+      "score": 12,
+      "tests": [
+        "FEED-HOST"
+      ],
+      "status": "OPEN",
+      "evidence_type": "current isolated assessment",
+      "likelihood": 3,
+      "impact": 4,
+      "severity": "High",
+      "owner": "Feed service owner",
+      "corrective_action": "Bind article URLs to approved publisher hosts and validate redirects before following them.",
+      "closure": "Unrelated hosts rejected; official publishers and expected GovDelivery tenant accepted; regression and current feed checks pass.",
+      "sla_hours": 336
+    },
+    {
+      "id": "DVI-DEPENDENCY",
+      "group": "dependency",
+      "asset": "PKGS",
+      "score": 9,
+      "tests": [
+        "DEPENDENCY-PINS"
+      ],
+      "status": "OPEN",
+      "evidence_type": "current isolated assessment",
+      "likelihood": 3,
+      "impact": 3,
+      "severity": "Medium",
+      "owner": "Platform engineering",
+      "corrective_action": "Create a reviewed version/hash lock and deployed SBOM, then perform advisory triage.",
+      "closure": "Clean reproducible install from reviewed lock, dependency consistency check and documented advisory dispositions.",
+      "sla_hours": 720
+    },
+    {
+      "id": "DVI-ADVISORY-PIP",
+      "package": "pip",
+      "version": "26.1.2",
+      "advisory_ids": [
+        "GHSA-qwm4-qh6w-59xr",
+        "PYSEC-2026-3721"
+      ],
+      "likelihood": 2,
+      "impact": 3,
+      "upstream_severity": "Medium, CVSS 3.1 6.5",
+      "owner": "Developer tooling owner",
+      "corrective_action": "Upgrade pip to a reviewed fixed release 26.2.0 or later and restrict installs/downloads to approved indexes.",
+      "closure": "Requery the installed pip release, verify advisory no longer applies, and validate approved-index package installation in an isolated environment.",
+      "asset": "PKGS",
+      "group": "advisory",
+      "score": 6,
+      "severity": "Medium",
+      "tests": [],
+      "status": "OPEN",
+      "evidence_type": "registry match with analyst triage",
+      "sla_hours": 720
+    }
+  ],
+  "unassessed_assets": [
+    "AI",
+    "DB",
+    "DEV_AUTH",
+    "FDIC",
+    "FED",
+    "FR",
+    "NIST"
+  ],
+  "assets": [
+    {
+      "evidence_type": "current source",
+      "evidence": "derexi-policy-pilot/backend/main.py",
+      "name": "FastAPI policy and incident API",
+      "id": "APP",
+      "classification": "Restricted policy and incident records",
+      "owner": "Platform engineering",
+      "depends_on": [
+        "DB",
+        "AUTH",
+        "PKGS",
+        "AI"
+      ],
+      "criticality": 5
+    },
+    {
+      "evidence_type": "current source",
+      "evidence": "derexi-policy-pilot/backend/static/app.js",
+      "name": "Employee browser UI",
+      "id": "UI",
+      "classification": "Internal",
+      "owner": "Application engineering",
+      "depends_on": [
+        "APP"
+      ],
+      "criticality": 4
+    },
+    {
+      "evidence_type": "design and historical verification",
+      "evidence": "derexi-policy-pilot/docs/database-design.md",
+      "name": "Hosted PostgreSQL schema",
+      "id": "DB",
+      "classification": "Restricted",
+      "owner": "Data platform",
+      "depends_on": [],
+      "criticality": 5
+    },
+    {
+      "evidence_type": "current source",
+      "evidence": "derexi-policy-pilot/backend/security.py",
+      "name": "JWT verification and role resolution",
+      "id": "AUTH",
+      "classification": "Restricted identity metadata",
+      "owner": "Identity engineering",
+      "depends_on": [
+        "DB",
+        "DEV_AUTH"
+      ],
+      "criticality": 5
+    },
+    {
+      "evidence_type": "current source",
+      "evidence": "derexi-policy-pilot/backend/dev_auth.py",
+      "name": "Development token issuer",
+      "id": "DEV_AUTH",
+      "classification": "Test identity",
+      "owner": "Identity engineering",
+      "depends_on": [
+        "PKGS"
+      ],
+      "criticality": 4
+    },
+    {
+      "evidence_type": "current source",
+      "evidence": "derexi-policy-pilot/backend/pulse/service.py",
+      "name": "Feed normalization and cache",
+      "id": "PULSE",
+      "classification": "Public",
+      "owner": "Feed service owner",
+      "depends_on": [
+        "FR",
+        "FDIC",
+        "NIST",
+        "FED"
+      ],
+      "criticality": 4
+    },
+    {
+      "evidence_type": "prior runtime and current configuration",
+      "evidence": "cyber_threats_vulnerabilities_2_final/docker-evidence/security-summary.json",
+      "name": "Docker Pulse lab",
+      "id": "CONTAINER",
+      "classification": "Synthetic and public",
+      "owner": "Platform engineering",
+      "depends_on": [
+        "PULSE"
+      ],
+      "criticality": 3
+    },
+    {
+      "evidence_type": "prior read-only retrieval",
+      "evidence": "cyber_threats_vulnerabilities_2_final/docker-evidence/container-feeds.json",
+      "name": "Federal Register JSON feed",
+      "id": "FR",
+      "classification": "Public",
+      "owner": "Feed service owner",
+      "depends_on": [],
+      "criticality": 3
+    },
+    {
+      "evidence_type": "prior read-only retrieval",
+      "evidence": "cyber_threats_vulnerabilities_2_final/docker-evidence/container-feeds.json",
+      "name": "FDIC GovDelivery RSS",
+      "id": "FDIC",
+      "classification": "Public",
+      "owner": "Feed service owner",
+      "depends_on": [],
+      "criticality": 3
+    },
+    {
+      "evidence_type": "prior read-only retrieval",
+      "evidence": "cyber_threats_vulnerabilities_2_final/docker-evidence/container-feeds.json",
+      "name": "NIST draft publication JSON",
+      "id": "NIST",
+      "classification": "Public",
+      "owner": "Feed service owner",
+      "depends_on": [],
+      "criticality": 3
+    },
+    {
+      "evidence_type": "prior read-only retrieval",
+      "evidence": "cyber_threats_vulnerabilities_2_final/docker-evidence/container-feeds.json",
+      "name": "Federal Reserve RSS",
+      "id": "FED",
+      "classification": "Public",
+      "owner": "Feed service owner",
+      "depends_on": [],
+      "criticality": 3
+    },
+    {
+      "evidence_type": "current source",
+      "evidence": "derexi-policy-pilot/backend/ai.py",
+      "name": "Optional OpenAI-compatible provider",
+      "id": "AI",
+      "classification": "Potential policy context",
+      "owner": "Platform and procurement",
+      "depends_on": [
+        "PKGS"
+      ],
+      "criticality": 4
+    },
+    {
+      "evidence_type": "current local metadata",
+      "evidence": "derexi-policy-pilot/requirements.txt",
+      "name": "Local Python environment",
+      "id": "PKGS",
+      "classification": "Internal software metadata",
+      "owner": "Platform engineering",
+      "depends_on": [],
+      "criticality": 4
+    },
+    {
+      "evidence_type": "historical classroom",
+      "evidence": "cyber_threats_and_vulnerabilities_1/CT+V Assignment 2/DeRexi_Vulnerability_Assessment_Report.pdf",
+      "name": "10.11.2.144 classroom analogue",
+      "id": "SSH",
+      "classification": "Historical classroom",
+      "owner": "Classroom lab operator",
+      "depends_on": [],
+      "criticality": 3
+    }
+  ],
+  "checks": [
+    {
+      "id": "EMP-IDENTITY",
+      "asset": "AUTH",
+      "group": "access",
+      "actor": "Employee",
+      "expected": 200,
+      "actual": 200,
+      "status": "PASS",
+      "writes": 0,
+      "commits": 0,
+      "likelihood": 3,
+      "impact": 4,
+      "elapsed_ms": 141.415
+    },
+    {
+      "id": "EMP-SIGNATURE",
+      "asset": "AUTH",
+      "group": "access",
+      "actor": "Employee",
+      "expected": 401,
+      "actual": 401,
+      "status": "PASS",
+      "writes": 0,
+      "commits": 0,
+      "likelihood": 3,
+      "impact": 4,
+      "elapsed_ms": 16.564
+    },
+    {
+      "id": "EMP-GOVERNANCE",
+      "asset": "APP",
+      "group": "access",
+      "actor": "Employee",
+      "expected": 403,
+      "actual": 403,
+      "status": "PASS",
+      "writes": 0,
+      "commits": 0,
+      "likelihood": 3,
+      "impact": 4,
+      "elapsed_ms": 36.704
+    },
+    {
+      "id": "EMP-OWN",
+      "asset": "APP",
+      "group": "access",
+      "actor": "Employee",
+      "expected": 200,
+      "actual": 200,
+      "status": "PASS",
+      "writes": 0,
+      "commits": 0,
+      "likelihood": 3,
+      "impact": 4,
+      "elapsed_ms": 30.41
+    },
+    {
+      "id": "EMP-OTHER",
+      "asset": "APP",
+      "group": "access",
+      "actor": "Employee",
+      "expected": 404,
+      "actual": 404,
+      "status": "PASS",
+      "writes": 0,
+      "commits": 0,
+      "likelihood": 3,
+      "impact": 4,
+      "elapsed_ms": 30.453
+    },
+    {
+      "id": "EMP-BOOL",
+      "asset": "APP",
+      "group": "validation",
+      "actor": "Employee",
+      "expected": 422,
+      "actual": 422,
+      "status": "PASS",
+      "writes": 0,
+      "commits": 0,
+      "likelihood": 3,
+      "impact": 4,
+      "elapsed_ms": 29.773
+    },
+    {
+      "id": "EMP-LENGTH",
+      "asset": "APP",
+      "group": "validation",
+      "actor": "Employee",
+      "expected": 422,
+      "actual": 422,
+      "status": "PASS",
+      "writes": 0,
+      "commits": 0,
+      "likelihood": 3,
+      "impact": 4,
+      "elapsed_ms": 42.769
+    },
+    {
+      "id": "EMP-APPROVE",
+      "asset": "APP",
+      "group": "policy-write",
+      "actor": "Employee",
+      "expected": 403,
+      "actual": 201,
+      "status": "FAIL",
+      "writes": 2,
+      "commits": 1,
+      "likelihood": 4,
+      "impact": 5,
+      "elapsed_ms": 17.962
+    },
+    {
+      "id": "OWN-IDENTITY",
+      "asset": "AUTH",
+      "group": "access",
+      "actor": "Policy Owner",
+      "expected": 200,
+      "actual": 200,
+      "status": "PASS",
+      "writes": 0,
+      "commits": 0,
+      "likelihood": 3,
+      "impact": 4,
+      "elapsed_ms": 26.862
+    },
+    {
+      "id": "OWN-SIGNATURE",
+      "asset": "AUTH",
+      "group": "access",
+      "actor": "Policy Owner",
+      "expected": 401,
+      "actual": 401,
+      "status": "PASS",
+      "writes": 0,
+      "commits": 0,
+      "likelihood": 3,
+      "impact": 4,
+      "elapsed_ms": 18.031
+    },
+    {
+      "id": "OWN-GOVERNANCE",
+      "asset": "APP",
+      "group": "access",
+      "actor": "Policy Owner",
+      "expected": 200,
+      "actual": 200,
+      "status": "PASS",
+      "writes": 0,
+      "commits": 0,
+      "likelihood": 3,
+      "impact": 4,
+      "elapsed_ms": 14.428
+    },
+    {
+      "id": "OWN-OWN",
+      "asset": "APP",
+      "group": "access",
+      "actor": "Policy Owner",
+      "expected": 200,
+      "actual": 200,
+      "status": "PASS",
+      "writes": 0,
+      "commits": 0,
+      "likelihood": 3,
+      "impact": 4,
+      "elapsed_ms": 12.845
+    },
+    {
+      "id": "OWN-OTHER",
+      "asset": "APP",
+      "group": "access",
+      "actor": "Policy Owner",
+      "expected": 404,
+      "actual": 404,
+      "status": "PASS",
+      "writes": 0,
+      "commits": 0,
+      "likelihood": 3,
+      "impact": 4,
+      "elapsed_ms": 14.783
+    },
+    {
+      "id": "OWN-BOOL",
+      "asset": "APP",
+      "group": "validation",
+      "actor": "Policy Owner",
+      "expected": 422,
+      "actual": 422,
+      "status": "PASS",
+      "writes": 0,
+      "commits": 0,
+      "likelihood": 3,
+      "impact": 4,
+      "elapsed_ms": 39.332
+    },
+    {
+      "id": "OWN-LENGTH",
+      "asset": "APP",
+      "group": "validation",
+      "actor": "Policy Owner",
+      "expected": 422,
+      "actual": 422,
+      "status": "PASS",
+      "writes": 0,
+      "commits": 0,
+      "likelihood": 3,
+      "impact": 4,
+      "elapsed_ms": 28.363
+    },
+    {
+      "id": "OWN-APPROVE",
+      "asset": "APP",
+      "group": "policy-write",
+      "actor": "Policy Owner",
+      "expected": 403,
+      "actual": 201,
+      "status": "FAIL",
+      "writes": 2,
+      "commits": 1,
+      "likelihood": 4,
+      "impact": 5,
+      "elapsed_ms": 24.007
+    },
+    {
+      "id": "ADM-IDENTITY",
+      "asset": "AUTH",
+      "group": "access",
+      "actor": "System Administrator",
+      "expected": 200,
+      "actual": 200,
+      "status": "PASS",
+      "writes": 0,
+      "commits": 0,
+      "likelihood": 3,
+      "impact": 4,
+      "elapsed_ms": 29.66
+    },
+    {
+      "id": "ADM-SIGNATURE",
+      "asset": "AUTH",
+      "group": "access",
+      "actor": "System Administrator",
+      "expected": 401,
+      "actual": 401,
+      "status": "PASS",
+      "writes": 0,
+      "commits": 0,
+      "likelihood": 3,
+      "impact": 4,
+      "elapsed_ms": 29.687
+    },
+    {
+      "id": "ADM-GOVERNANCE",
+      "asset": "APP",
+      "group": "access",
+      "actor": "System Administrator",
+      "expected": 200,
+      "actual": 200,
+      "status": "PASS",
+      "writes": 0,
+      "commits": 0,
+      "likelihood": 3,
+      "impact": 4,
+      "elapsed_ms": 42.128
+    },
+    {
+      "id": "ADM-OWN",
+      "asset": "APP",
+      "group": "access",
+      "actor": "System Administrator",
+      "expected": 200,
+      "actual": 200,
+      "status": "PASS",
+      "writes": 0,
+      "commits": 0,
+      "likelihood": 3,
+      "impact": 4,
+      "elapsed_ms": 62.583
+    },
+    {
+      "id": "ADM-OTHER",
+      "asset": "APP",
+      "group": "access",
+      "actor": "System Administrator",
+      "expected": 200,
+      "actual": 200,
+      "status": "PASS",
+      "writes": 0,
+      "commits": 0,
+      "likelihood": 3,
+      "impact": 4,
+      "elapsed_ms": 25.602
+    },
+    {
+      "id": "ADM-BOOL",
+      "asset": "APP",
+      "group": "validation",
+      "actor": "System Administrator",
+      "expected": 422,
+      "actual": 422,
+      "status": "PASS",
+      "writes": 0,
+      "commits": 0,
+      "likelihood": 3,
+      "impact": 4,
+      "elapsed_ms": 10.403
+    },
+    {
+      "id": "ADM-LENGTH",
+      "asset": "APP",
+      "group": "validation",
+      "actor": "System Administrator",
+      "expected": 422,
+      "actual": 422,
+      "status": "PASS",
+      "writes": 0,
+      "commits": 0,
+      "likelihood": 3,
+      "impact": 4,
+      "elapsed_ms": 13.46
+    },
+    {
+      "id": "ADM-APPROVE",
+      "asset": "APP",
+      "group": "policy-write",
+      "actor": "System Administrator",
+      "expected": 201,
+      "actual": 201,
+      "status": "PASS",
+      "writes": 2,
+      "commits": 1,
+      "likelihood": 4,
+      "impact": 5,
+      "elapsed_ms": 11.491
+    },
+    {
+      "id": "ANON-IDENTITY",
+      "asset": "AUTH",
+      "group": "access",
+      "actor": "Employee",
+      "expected": 401,
+      "actual": 401,
+      "status": "PASS",
+      "writes": 0,
+      "commits": 0,
+      "likelihood": 3,
+      "impact": 4,
+      "elapsed_ms": 8.623
+    },
+    {
+      "id": "ANON-APPROVE",
+      "asset": "APP",
+      "group": "policy-write",
+      "actor": "Employee",
+      "expected": 401,
+      "actual": 201,
+      "status": "FAIL",
+      "writes": 2,
+      "commits": 1,
+      "likelihood": 4,
+      "impact": 5,
+      "elapsed_ms": 8.183
+    },
+    {
+      "id": "EMP-VERSION",
+      "asset": "APP",
+      "group": "policy-write",
+      "actor": "Employee",
+      "expected": 403,
+      "actual": 201,
+      "status": "FAIL",
+      "writes": 1,
+      "commits": 1,
+      "likelihood": 4,
+      "impact": 5,
+      "elapsed_ms": 9.551
+    },
+    {
+      "id": "HEADERS",
+      "asset": "UI",
+      "group": "headers",
+      "expected": "nosniff and DENY",
+      "actual": {
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "DENY"
+      },
+      "status": "PASS",
+      "likelihood": 2,
+      "impact": 3
+    },
+    {
+      "id": "SAFE-ERROR",
+      "asset": "APP",
+      "group": "errors",
+      "expected": "500 without internal marker",
+      "actual": {
+        "status": 500,
+        "body": "Internal Server Error"
+      },
+      "status": "PASS",
+      "likelihood": 2,
+      "impact": 3
+    },
+    {
+      "id": "FEED-HOST",
+      "asset": "PULSE",
+      "group": "feed-integrity",
+      "expected": "reject unrelated publisher host",
+      "actual": "accepted",
+      "status": "FAIL",
+      "likelihood": 3,
+      "impact": 4
+    },
+    {
+      "id": "PACKAGE-CONSISTENCY",
+      "asset": "PKGS",
+      "group": "dependency",
+      "status": "PASS",
+      "expected": "pip check succeeds",
+      "actual": 0,
+      "likelihood": 2,
+      "impact": 3
+    },
+    {
+      "id": "DEPENDENCY-PINS",
+      "asset": "PKGS",
+      "group": "dependency",
+      "status": "FAIL",
+      "expected": "runtime requirement versions reproducible",
+      "actual": "lower-bounded direct declarations",
+      "likelihood": 3,
+      "impact": 3
+    },
+    {
+      "id": "CONTAINER-CONFIG",
+      "asset": "CONTAINER",
+      "group": "configuration",
+      "status": "PASS",
+      "expected": "required isolation settings declared",
+      "actual": {
+        "missing": [],
+        "scope": "static configuration, prior runtime evidence reused"
+      },
+      "likelihood": 3,
+      "impact": 4
+    }
+  ],
+  "dependency_advisory_status": "Queried 35/35 release records; 2 distinct triaged matches; exploitability unverified",
+  "advisory_assessment": {
+    "source": "https://docs.pypi.org/api/json/",
+    "dependencies_sha256": "544964535fe01d56558e9666d574405aa2aae042a5c8dfc12975a2a6d8d394fe",
+    "generated_at": "2026-11-09T12:54:10.964583+00:00",
+    "packages": [
+      {
+        "name": "annotated-doc",
+        "version": "0.0.5",
+        "url": "https://pypi.org/pypi/annotated-doc/0.0.5/json",
+        "checked_at": "2026-11-09T12:54:04.545512+00:00",
+        "status": "QUERIED",
+        "http_status": 200,
+        "response_sha256": "1aab691a5f37dd292e6d93ab53f7da5d839f56ba605345f017022ec75eb643af",
+        "vulnerabilities": [],
+        "last_serial": 39452931
+      },
+      {
+        "name": "annotated-types",
+        "version": "0.8.0",
+        "url": "https://pypi.org/pypi/annotated-types/0.8.0/json",
+        "checked_at": "2026-11-09T12:54:05.819019+00:00",
+        "status": "QUERIED",
+        "http_status": 200,
+        "response_sha256": "a6e8e5b10c8fd2f596bba53e015cd37f6279fb5cec26ce0c5e9968625be4fefa",
+        "vulnerabilities": [],
+        "last_serial": 39309454
+      },
+      {
+        "name": "anyio",
+        "version": "4.15.1",
+        "url": "https://pypi.org/pypi/anyio/4.15.1/json",
+        "checked_at": "2026-11-09T12:54:06.012144+00:00",
+        "status": "QUERIED",
+        "http_status": 200,
+        "response_sha256": "16b64a4ca0f1779bc3faf59f27685c728d0ac3085ea7585f3f40e11c265b8d70",
+        "vulnerabilities": [],
+        "last_serial": 43044833
+      },
+      {
+        "name": "certifi",
+        "version": "2026.7.22",
+        "url": "https://pypi.org/pypi/certifi/2026.7.22/json",
+        "checked_at": "2026-11-09T12:54:06.261380+00:00",
+        "status": "QUERIED",
+        "http_status": 200,
+        "response_sha256": "1cdb529dfcaf4fea8e4fe581726f335a0da5abbbd5bde225205a6911ca1981b1",
+        "vulnerabilities": [
+          {
+            "aliases": [
+              "PYSEC-2026-4320"
+            ],
+            "details": "Certifi versions before 2026.10.18 include the `emSign ECC Root CA - G3` root certificate in their bundled CA store. Eight eMudhra intermediate CA certificates that chain to this root have compromised private keys and the CA has revoked them. \n\nAn attacker with one of the compromised keys can issue valid-looking certificates for any hostname. If the attacker is also on-path, they can intercept or modify TLS traffic from clients that trust the certifi bundle. Examples include `requests`, `urllib3` and `pip`, and the Python.org macOS installer.\n\nCertifi 2026.10.18 removed all emSign roots from the bundle. Certifi 2026.10.19 restored the emSign roots that are not affected. Upgrade to 2026.10.19 or later, and rebuild container images that vendor certifi.",
+            "fixed_in": [
+              "2026.10.18"
+            ],
+            "id": "GHSA-6q48-6c7w-9gw2",
+            "link": "https://osv.dev/vulnerability/GHSA-6q48-6c7w-9gw2",
+            "source": "osv",
+            "summary": null,
+            "withdrawn": null
+          },
+          {
+            "aliases": [
+              "GHSA-6q48-6c7w-9gw2"
+            ],
+            "details": "Certifi versions before 2026.10.18 include the `emSign ECC Root CA - G3` root certificate in their bundled CA store. Eight eMudhra intermediate CA certificates that chain to this root have compromised private keys and the CA has revoked them. \n\nAn attacker with one of the compromised keys can issue valid-looking certificates for any hostname. If the attacker is also on-path, they can intercept or modify TLS traffic from clients that trust the certifi bundle. Examples include `requests`, `urllib3` and `pip`, and the Python.org macOS installer.\n\nCertifi 2026.10.18 removed all emSign roots from the bundle. Certifi 2026.10.19 restored the emSign roots that are not affected. Upgrade to 2026.10.19 or later, and rebuild container images that vendor certifi.",
+            "fixed_in": [
+              "2026.10.18"
+            ],
+            "id": "PYSEC-2026-4320",
+            "link": "https://osv.dev/vulnerability/PYSEC-2026-4320",
+            "source": "osv",
+            "summary": null,
+            "withdrawn": null
+          }
+        ],
+        "last_serial": 42639290
+      },
+      {
+        "name": "cffi",
+        "version": "2.1.1",
+        "url": "https://pypi.org/pypi/cffi/2.1.1/json",
+        "checked_at": "2026-11-09T12:54:06.449839+00:00",
+        "status": "QUERIED",
+        "http_status": 200,
+        "response_sha256": "2255e530e3f80593a354e3d84a29966924d0e10309d1e3a6d50f845ab7d8df66",
+        "vulnerabilities": [],
+        "last_serial": 39662188
+      },
+      {
+        "name": "click",
+        "version": "8.5.0",
+        "url": "https://pypi.org/pypi/click/8.5.0/json",
+        "checked_at": "2026-11-09T12:54:06.606635+00:00",
+        "status": "QUERIED",
+        "http_status": 200,
+        "response_sha256": "6fc33d0e534d89a788a0965bb5071ca0726a483747589201789b60babd602686",
+        "vulnerabilities": [],
+        "last_serial": 43304100
+      },
+      {
+        "name": "cryptography",
+        "version": "50.0.2",
+        "url": "https://pypi.org/pypi/cryptography/50.0.2/json",
+        "checked_at": "2026-11-09T12:54:06.732084+00:00",
+        "status": "QUERIED",
+        "http_status": 200,
+        "response_sha256": "7423990cc0948676ef47a71ea62a476ece4c76245e6bebd1c3a71f03c4ffc0f4",
+        "vulnerabilities": [],
+        "last_serial": 41646096
+      },
+      {
+        "name": "fastapi",
+        "version": "0.143.0",
+        "url": "https://pypi.org/pypi/fastapi/0.143.0/json",
+        "checked_at": "2026-11-09T12:54:06.866894+00:00",
+        "status": "QUERIED",
+        "http_status": 200,
+        "response_sha256": "165e447c9a5c83390349e64c010bb41548f00ff8dd2b6abd5f8cce9df789a106",
+        "vulnerabilities": [],
+        "last_serial": 43336051
+      },
+      {
+        "name": "h11",
+        "version": "0.16.0",
+        "url": "https://pypi.org/pypi/h11/0.16.0/json",
+        "checked_at": "2026-11-09T12:54:07.083169+00:00",
+        "status": "QUERIED",
+        "http_status": 200,
+        "response_sha256": "97f4efb9cc00826f0408076983adc1a1e48e8f2cabf403aaf250f724e081440d",
+        "vulnerabilities": [],
+        "last_serial": 28687432
+      },
+      {
+        "name": "httpcore",
+        "version": "1.0.9",
+        "url": "https://pypi.org/pypi/httpcore/1.0.9/json",
+        "checked_at": "2026-11-09T12:54:07.221895+00:00",
+        "status": "QUERIED",
+        "http_status": 200,
+        "response_sha256": "e26eca5c3d288fe9e6446af9bcbca1038ba688629d5c8a2886c47d74718d87a2",
+        "vulnerabilities": [],
+        "last_serial": 28705351
+      },
+      {
+        "name": "httpcore2",
+        "version": "2.13.1",
+        "url": "https://pypi.org/pypi/httpcore2/2.13.1/json",
+        "checked_at": "2026-11-09T12:54:07.322327+00:00",
+        "status": "QUERIED",
+        "http_status": 200,
+        "response_sha256": "e05fcfc2623a09a7b5810145a7f5ace8e591eba606865de10b63dd310afc3b3d",
+        "vulnerabilities": [],
+        "last_serial": 42529368
+      },
+      {
+        "name": "httptools",
+        "version": "0.8.0",
+        "url": "https://pypi.org/pypi/httptools/0.8.0/json",
+        "checked_at": "2026-11-09T12:54:07.484954+00:00",
+        "status": "QUERIED",
+        "http_status": 200,
+        "response_sha256": "e698f95358eb28b7cf1d1c0d33362c65e7aca3ca4613fecfc997362b7a8e6b78",
+        "vulnerabilities": [],
+        "last_serial": 42034415
+      },
+      {
+        "name": "httpx",
+        "version": "0.28.1",
+        "url": "https://pypi.org/pypi/httpx/0.28.1/json",
+        "checked_at": "2026-11-09T12:54:07.585622+00:00",
+        "status": "QUERIED",
+        "http_status": 200,
+        "response_sha256": "293bfab7bf587fcd0825f1bd8eed8e6303285ba14801b15659853827cbe30796",
+        "vulnerabilities": [],
+        "last_serial": 40585097
+      },
+      {
+        "name": "httpx2",
+        "version": "2.13.1",
+        "url": "https://pypi.org/pypi/httpx2/2.13.1/json",
+        "checked_at": "2026-11-09T12:54:07.664787+00:00",
+        "status": "QUERIED",
+        "http_status": 200,
+        "response_sha256": "572d2e63f8bc0d606a86c2a948d03cabe1520d0dc315a8c892f1b83ce6f52b2e",
+        "vulnerabilities": [],
+        "last_serial": 42529372
+      },
+      {
+        "name": "idna",
+        "version": "3.20",
+        "url": "https://pypi.org/pypi/idna/3.20/json",
+        "checked_at": "2026-11-09T12:54:07.796877+00:00",
+        "status": "QUERIED",
+        "http_status": 200,
+        "response_sha256": "e7cbd26e23ce60f6cb3a151d2adf3b1b087bb8f10ac2d9d6db70fdccbf3bb041",
+        "vulnerabilities": [],
+        "last_serial": 41170495
+      },
+      {
+        "name": "jiter",
+        "version": "0.17.0",
+        "url": "https://pypi.org/pypi/jiter/0.17.0/json",
+        "checked_at": "2026-11-09T12:54:07.886227+00:00",
+        "status": "QUERIED",
+        "http_status": 200,
+        "response_sha256": "509ad248ceae6913dc644b74a5e6ca1162d220a752035156d6fb87afbea9e8bd",
+        "vulnerabilities": [],
+        "last_serial": 43296147
+      },
+      {
+        "name": "openai",
+        "version": "3.26.1",
+        "url": "https://pypi.org/pypi/openai/3.26.1/json",
+        "checked_at": "2026-11-09T12:54:08.028787+00:00",
+        "status": "QUERIED",
+        "http_status": 200,
+        "response_sha256": "71bc0441bbcbb343dee02bad0d8a86f45989ee0047844fd545e13e5c718007bf",
+        "vulnerabilities": [],
+        "last_serial": 43216864
+      },
+      {
+        "name": "opentelemetry-api",
+        "version": "1.45.1",
+        "url": "https://pypi.org/pypi/opentelemetry-api/1.45.1/json",
+        "checked_at": "2026-11-09T12:54:08.132519+00:00",
+        "status": "QUERIED",
+        "http_status": 200,
+        "response_sha256": "8f8e7481c7bd41f5f33387baf18b6960994aee806f4f4fadb7a40c6370c06e87",
+        "vulnerabilities": [],
+        "last_serial": 42928754
+      },
+      {
+        "name": "pip",
+        "version": "26.1.2",
+        "url": "https://pypi.org/pypi/pip/26.1.2/json",
+        "checked_at": "2026-11-09T12:54:08.229914+00:00",
+        "status": "QUERIED",
+        "http_status": 200,
+        "response_sha256": "3b2ae2d374663efa13d38c94cd5cde42ade8205567b6e6475650952aef19c44f",
+        "vulnerabilities": [
+          {
+            "aliases": [
+              "CVE-2026-13346",
+              "GHSA-qwm4-qh6w-59xr"
+            ],
+            "details": "pip would incorrectly handle doubly-encoded package URLs from indexes allowing for files to be installed to arbitrary locations on disk even when installing wheels.\n\n\n\n\nThis vulnerability requires downloading or installing a package from a malicious package index to succeed, malicious packages alone are not able to exploit this vulnerability. Note that this vulnerability only materially impacts users running `pip download` with the `--only-binary` option as installing source distributions from an untrusted index is already an unsafe operation that executes code during install time.",
+            "fixed_in": [
+              "26.2"
+            ],
+            "id": "PYSEC-2026-3721",
+            "link": "https://osv.dev/vulnerability/PYSEC-2026-3721",
+            "source": "osv",
+            "summary": null,
+            "withdrawn": null
+          },
+          {
+            "aliases": [
+              "CVE-2026-13346",
+              "PYSEC-2026-3721"
+            ],
+            "details": "pip would incorrectly handle doubly-encoded package URLs from indexes allowing for files to be installed to arbitrary locations on disk even when installing wheels.\n\nThis vulnerability requires downloading or installing a package from a malicious package index to succeed, malicious packages alone are not able to exploit this vulnerability. Note that this vulnerability only materially impacts users running `pip download` with the `--only-binary` option as installing source distributions from an untrusted index is already an unsafe operation that executes code during install time.",
+            "fixed_in": [
+              "26.2.0"
+            ],
+            "id": "GHSA-qwm4-qh6w-59xr",
+            "link": "https://osv.dev/vulnerability/GHSA-qwm4-qh6w-59xr",
+            "source": "osv",
+            "summary": null,
+            "withdrawn": null
+          }
+        ],
+        "last_serial": 43107607
+      },
+      {
+        "name": "psycopg2-binary",
+        "version": "2.9.13",
+        "url": "https://pypi.org/pypi/psycopg2-binary/2.9.13/json",
+        "checked_at": "2026-11-09T12:54:08.345687+00:00",
+        "status": "QUERIED",
+        "http_status": 200,
+        "response_sha256": "b9958ba60611188dd203cc7f00286dd39a592fe71f3c89e44a64b6a204cfb069",
+        "vulnerabilities": [],
+        "last_serial": 40911780
+      },
+      {
+        "name": "pycparser",
+        "version": "3.1",
+        "url": "https://pypi.org/pypi/pycparser/3.1/json",
+        "checked_at": "2026-11-09T12:54:08.583354+00:00",
+        "status": "QUERIED",
+        "http_status": 200,
+        "response_sha256": "52a9f9f12b1bfaa4b5b3c4d68640bd4d7fe36ae6146e8982dd43b326a86a80e6",
+        "vulnerabilities": [],
+        "last_serial": 42595238
+      },
+      {
+        "name": "pydantic",
+        "version": "2.14.0",
+        "url": "https://pypi.org/pypi/pydantic/2.14.0/json",
+        "checked_at": "2026-11-09T12:54:08.794439+00:00",
+        "status": "QUERIED",
+        "http_status": 200,
+        "response_sha256": "71b4bbcccf26378925b9f33347762252e410f0e89d54a57716bbbcd872b5379a",
+        "vulnerabilities": [],
+        "last_serial": 43233834
+      },
+      {
+        "name": "pydantic_core",
+        "version": "2.50.0",
+        "url": "https://pypi.org/pypi/pydantic_core/2.50.0/json",
+        "checked_at": "2026-11-09T12:54:09.039820+00:00",
+        "status": "QUERIED",
+        "http_status": 200,
+        "response_sha256": "ee39f2e8b5e3fdf44fde202d6330f1902e4a32777c632ea7010cccde8fbd3bb4",
+        "vulnerabilities": [],
+        "last_serial": 43233759
+      },
+      {
+        "name": "PyJWT",
+        "version": "2.15.1",
+        "url": "https://pypi.org/pypi/PyJWT/2.15.1/json",
+        "checked_at": "2026-11-09T12:54:09.303493+00:00",
+        "status": "QUERIED",
+        "http_status": 200,
+        "response_sha256": "f13089db8caff0efbdec85ab5c3fa281a3cc76d5b708c74fab427c98e1f29a0d",
+        "vulnerabilities": [],
+        "last_serial": 41564282
+      },
+      {
+        "name": "python-dotenv",
+        "version": "1.2.4",
+        "url": "https://pypi.org/pypi/python-dotenv/1.2.4/json",
+        "checked_at": "2026-11-09T12:54:09.443014+00:00",
+        "status": "QUERIED",
+        "http_status": 200,
+        "response_sha256": "89701376846132aefd76202d07dad6e84febe4a426a12973004e13018af15c41",
+        "vulnerabilities": [],
+        "last_serial": 41671994
+      },
+      {
+        "name": "PyYAML",
+        "version": "6.0.3",
+        "url": "https://pypi.org/pypi/PyYAML/6.0.3/json",
+        "checked_at": "2026-11-09T12:54:09.616925+00:00",
+        "status": "QUERIED",
+        "http_status": 200,
+        "response_sha256": "c3f35597bc2f08cc990c2a5fe57bef6687b3a3d7c61d8b0ba4cc067777eb1def",
+        "vulnerabilities": [],
+        "last_serial": 31526105
+      },
+      {
+        "name": "sniffio",
+        "version": "1.3.1",
+        "url": "https://pypi.org/pypi/sniffio/1.3.1/json",
+        "checked_at": "2026-11-09T12:54:09.760771+00:00",
+        "status": "QUERIED",
+        "http_status": 200,
+        "response_sha256": "1217ad6ed84734e8f77ecfd151d91786d5a633b0482af1cde28185de0159bd37",
+        "vulnerabilities": [],
+        "last_serial": 22034184
+      },
+      {
+        "name": "SQLAlchemy",
+        "version": "2.1.4",
+        "url": "https://pypi.org/pypi/SQLAlchemy/2.1.4/json",
+        "checked_at": "2026-11-09T12:54:09.898441+00:00",
+        "status": "QUERIED",
+        "http_status": 200,
+        "response_sha256": "ef2643974b5d75ed4d3d5b77431a53d8b46748eb4a9a64b08a450f81d22e8b48",
+        "vulnerabilities": [],
+        "last_serial": 43170703
+      },
+      {
+        "name": "starlette",
+        "version": "1.7.0",
+        "url": "https://pypi.org/pypi/starlette/1.7.0/json",
+        "checked_at": "2026-11-09T12:54:10.048102+00:00",
+        "status": "QUERIED",
+        "http_status": 200,
+        "response_sha256": "bb99192bfa57ca9de6fbe4260f1a6e2a7c60c8cba54217413c049e402b06d2bb",
+        "vulnerabilities": [],
+        "last_serial": 42691247
+      },
+      {
+        "name": "truststore",
+        "version": "0.10.4",
+        "url": "https://pypi.org/pypi/truststore/0.10.4/json",
+        "checked_at": "2026-11-09T12:54:10.157127+00:00",
+        "status": "QUERIED",
+        "http_status": 200,
+        "response_sha256": "3e16e870d07a788b28b43497bbaed860d1297c6045d4815d5b00e10fddd9ab0d",
+        "vulnerabilities": [],
+        "last_serial": 42154429
+      },
+      {
+        "name": "typing-inspection",
+        "version": "0.4.4",
+        "url": "https://pypi.org/pypi/typing-inspection/0.4.4/json",
+        "checked_at": "2026-11-09T12:54:10.277309+00:00",
+        "status": "QUERIED",
+        "http_status": 200,
+        "response_sha256": "b37c398e1a0a3a97af35dcfb754e0e1f725f56d5f391d029ab90d3969d0e9583",
+        "vulnerabilities": [],
+        "last_serial": 43192652
+      },
+      {
+        "name": "typing_extensions",
+        "version": "4.16.0",
+        "url": "https://pypi.org/pypi/typing_extensions/4.16.0/json",
+        "checked_at": "2026-11-09T12:54:10.367100+00:00",
+        "status": "QUERIED",
+        "http_status": 200,
+        "response_sha256": "2140da00d62dde967f52d0be0ae28444f1d6a3fe603f52c83c23988c32122d5a",
+        "vulnerabilities": [],
+        "last_serial": 38587266
+      },
+      {
+        "name": "uvicorn",
+        "version": "0.54.0",
+        "url": "https://pypi.org/pypi/uvicorn/0.54.0/json",
+        "checked_at": "2026-11-09T12:54:10.485850+00:00",
+        "status": "QUERIED",
+        "http_status": 200,
+        "response_sha256": "a308e83961793f6114221aefe9e046ef587da0fc986c4dc50ace1ee43fbe9bcb",
+        "vulnerabilities": [],
+        "last_serial": 42691262
+      },
+      {
+        "name": "watchfiles",
+        "version": "1.3.0",
+        "url": "https://pypi.org/pypi/watchfiles/1.3.0/json",
+        "checked_at": "2026-11-09T12:54:10.605589+00:00",
+        "status": "QUERIED",
+        "http_status": 200,
+        "response_sha256": "ba585baa9af3fdcdb897e9e6f5711a7551aa994c617318e898b3ec749383f73a",
+        "vulnerabilities": [],
+        "last_serial": 41285120
+      },
+      {
+        "name": "websockets",
+        "version": "17.2",
+        "url": "https://pypi.org/pypi/websockets/17.2/json",
+        "checked_at": "2026-11-09T12:54:10.742255+00:00",
+        "status": "QUERIED",
+        "http_status": 200,
+        "response_sha256": "e0510687bfff676d6e8c85b594856808e9b3b67ad3d4b1f26293c5b719e49be7",
+        "vulnerabilities": [],
+        "last_serial": 42973112
+      }
+    ],
+    "queried": 35,
+    "total": 35,
+    "active_advisories": [
+      {
+        "package": "certifi",
+        "version": "2026.7.22",
+        "aliases": [
+          "PYSEC-2026-4320"
+        ],
+        "details": "Certifi versions before 2026.10.18 include the `emSign ECC Root CA - G3` root certificate in their bundled CA store. Eight eMudhra intermediate CA certificates that chain to this root have compromised private keys and the CA has revoked them. \n\nAn attacker with one of the compromised keys can issue valid-looking certificates for any hostname. If the attacker is also on-path, they can intercept or modify TLS traffic from clients that trust the certifi bundle. Examples include `requests`, `urllib3` and `pip`, and the Python.org macOS installer.\n\nCertifi 2026.10.18 removed all emSign roots from the bundle. Certifi 2026.10.19 restored the emSign roots that are not affected. Upgrade to 2026.10.19 or later, and rebuild container images that vendor certifi.",
+        "fixed_in": [
+          "2026.10.18"
+        ],
+        "id": "GHSA-6q48-6c7w-9gw2",
+        "link": "https://osv.dev/vulnerability/GHSA-6q48-6c7w-9gw2",
+        "source": "osv",
+        "summary": null,
+        "withdrawn": null
+      },
+      {
+        "package": "certifi",
+        "version": "2026.7.22",
+        "aliases": [
+          "GHSA-6q48-6c7w-9gw2"
+        ],
+        "details": "Certifi versions before 2026.10.18 include the `emSign ECC Root CA - G3` root certificate in their bundled CA store. Eight eMudhra intermediate CA certificates that chain to this root have compromised private keys and the CA has revoked them. \n\nAn attacker with one of the compromised keys can issue valid-looking certificates for any hostname. If the attacker is also on-path, they can intercept or modify TLS traffic from clients that trust the certifi bundle. Examples include `requests`, `urllib3` and `pip`, and the Python.org macOS installer.\n\nCertifi 2026.10.18 removed all emSign roots from the bundle. Certifi 2026.10.19 restored the emSign roots that are not affected. Upgrade to 2026.10.19 or later, and rebuild container images that vendor certifi.",
+        "fixed_in": [
+          "2026.10.18"
+        ],
+        "id": "PYSEC-2026-4320",
+        "link": "https://osv.dev/vulnerability/PYSEC-2026-4320",
+        "source": "osv",
+        "summary": null,
+        "withdrawn": null
+      },
+      {
+        "package": "pip",
+        "version": "26.1.2",
+        "aliases": [
+          "CVE-2026-13346",
+          "GHSA-qwm4-qh6w-59xr"
+        ],
+        "details": "pip would incorrectly handle doubly-encoded package URLs from indexes allowing for files to be installed to arbitrary locations on disk even when installing wheels.\n\n\n\n\nThis vulnerability requires downloading or installing a package from a malicious package index to succeed, malicious packages alone are not able to exploit this vulnerability. Note that this vulnerability only materially impacts users running `pip download` with the `--only-binary` option as installing source distributions from an untrusted index is already an unsafe operation that executes code during install time.",
+        "fixed_in": [
+          "26.2"
+        ],
+        "id": "PYSEC-2026-3721",
+        "link": "https://osv.dev/vulnerability/PYSEC-2026-3721",
+        "source": "osv",
+        "summary": null,
+        "withdrawn": null
+      },
+      {
+        "package": "pip",
+        "version": "26.1.2",
+        "aliases": [
+          "CVE-2026-13346",
+          "PYSEC-2026-3721"
+        ],
+        "details": "pip would incorrectly handle doubly-encoded package URLs from indexes allowing for files to be installed to arbitrary locations on disk even when installing wheels.\n\nThis vulnerability requires downloading or installing a package from a malicious package index to succeed, malicious packages alone are not able to exploit this vulnerability. Note that this vulnerability only materially impacts users running `pip download` with the `--only-binary` option as installing source distributions from an untrusted index is already an unsafe operation that executes code during install time.",
+        "fixed_in": [
+          "26.2.0"
+        ],
+        "id": "GHSA-qwm4-qh6w-59xr",
+        "link": "https://osv.dev/vulnerability/GHSA-qwm4-qh6w-59xr",
+        "source": "osv",
+        "summary": null,
+        "withdrawn": null
+      }
+    ],
+    "unavailable": 0,
+    "limitation": "Registry-reported release advisories only; no proof of exploitability, deployed inventory, OS CVEs or absence of unknown vulnerabilities",
+    "triaged_findings": [
+      {
+        "id": "DVI-ADVISORY-CERTIFI",
+        "package": "certifi",
+        "version": "2026.7.22",
+        "advisory_ids": [
+          "GHSA-6q48-6c7w-9gw2",
+          "PYSEC-2026-4320"
+        ],
+        "likelihood": 3,
+        "impact": 4,
+        "upstream_severity": "Critical",
+        "owner": "Platform engineering",
+        "corrective_action": "Upgrade the local certifi bundle to a reviewed fixed release (registry recommends 2026.10.19 or later), then verify which application clients use it. Preserve TLS validation.",
+        "closure": "Installed version no longer matches the advisory; verify the deployed trust bundle and rerun affected client tests. No on-path interception test is required."
+      },
+      {
+        "id": "DVI-ADVISORY-PIP",
+        "package": "pip",
+        "version": "26.1.2",
+        "advisory_ids": [
+          "GHSA-qwm4-qh6w-59xr",
+          "PYSEC-2026-3721"
+        ],
+        "likelihood": 2,
+        "impact": 3,
+        "upstream_severity": "Medium, CVSS 3.1 6.5",
+        "owner": "Developer tooling owner",
+        "corrective_action": "Upgrade pip to a reviewed fixed release 26.2.0 or later and restrict installs/downloads to approved indexes.",
+        "closure": "Requery the installed pip release, verify advisory no longer applies, and validate approved-index package installation in an isolated environment."
+      }
+    ]
+  },
+  "inputs": [
+    {
+      "path": "cyber_threats_vulnerabilities_2_final\\assignment2\\runs\\20261109T125144008620Z\\assets.json",
+      "sha256": "f3cd9cd13dd49861424b7c24358b0808b5dfb9dace597c42ec8784465dc6aaf7"
+    },
+    {
+      "path": "cyber_threats_vulnerabilities_2_final\\assignment2\\runs\\20261109T125144008620Z\\results.json",
+      "sha256": "b7f70342143e59c93d02a8f30c6548a9d1abb8a66823927fffc6ce93ca905242"
+    },
+    {
+      "path": "cyber_threats_vulnerabilities_2_final\\assignment2\\runs\\20261109T125144008620Z\\dependencies.json",
+      "sha256": "544964535fe01d56558e9666d574405aa2aae042a5c8dfc12975a2a6d8d394fe"
+    },
+    {
+      "path": "cyber_threats_vulnerabilities_2_final\\assignment2\\closure\\advisories-triaged.json",
+      "sha256": "dca9888aebc72c2e40588a057c975fccbdf6af191b1cb0dd96c5f77925518c96"
+    }
+  ]
+}

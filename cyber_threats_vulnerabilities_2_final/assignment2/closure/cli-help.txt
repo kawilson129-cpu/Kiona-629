@@ -1,0 +1,17 @@
+usage: derexi_vulnerability_inspector.py [-h] --assets ASSETS
+                                         --results RESULTS
+                                         --dependencies DEPENDENCIES
+                                         --output OUTPUT
+                                         [--advisories ADVISORIES]
+
+DeRexi Vulnerability Inspector: offline evidence-to-findings assessment.
+
+options:
+  -h, --help            show this help message and exit
+  --assets ASSETS
+  --results RESULTS
+  --dependencies DEPENDENCIES
+  --output OUTPUT
+  --advisories ADVISORIES
+                        Optional registry response with analyst-triaged
+                        findings

@@ -1,0 +1,163 @@
+[
+  {
+    "evidence_type": "current source",
+    "evidence": "derexi-policy-pilot/backend/main.py",
+    "name": "FastAPI policy and incident API",
+    "id": "APP",
+    "classification": "Restricted policy and incident records",
+    "owner": "Platform engineering",
+    "depends_on": [
+      "DB",
+      "AUTH",
+      "PKGS",
+      "AI"
+    ],
+    "criticality": 5
+  },
+  {
+    "evidence_type": "current source",
+    "evidence": "derexi-policy-pilot/backend/static/app.js",
+    "name": "Employee browser UI",
+    "id": "UI",
+    "classification": "Internal",
+    "owner": "Application engineering",
+    "depends_on": [
+      "APP"
+    ],
+    "criticality": 4
+  },
+  {
+    "evidence_type": "design and historical verification",
+    "evidence": "derexi-policy-pilot/docs/database-design.md",
+    "name": "Hosted PostgreSQL schema",
+    "id": "DB",
+    "classification": "Restricted",
+    "owner": "Data platform",
+    "depends_on": [],
+    "criticality": 5
+  },
+  {
+    "evidence_type": "current source",
+    "evidence": "derexi-policy-pilot/backend/security.py",
+    "name": "JWT verification and role resolution",
+    "id": "AUTH",
+    "classification": "Restricted identity metadata",
+    "owner": "Identity engineering",
+    "depends_on": [
+      "DB",
+      "DEV_AUTH"
+    ],
+    "criticality": 5
+  },
+  {
+    "evidence_type": "current source",
+    "evidence": "derexi-policy-pilot/backend/dev_auth.py",
+    "name": "Development token issuer",
+    "id": "DEV_AUTH",
+    "classification": "Test identity",
+    "owner": "Identity engineering",
+    "depends_on": [
+      "PKGS"
+    ],
+    "criticality": 4
+  },
+  {
+    "evidence_type": "current source",
+    "evidence": "derexi-policy-pilot/backend/pulse/service.py",
+    "name": "Feed normalization and cache",
+    "id": "PULSE",
+    "classification": "Public",
+    "owner": "Feed service owner",
+    "depends_on": [
+      "FR",
+      "FDIC",
+      "NIST",
+      "FED"
+    ],
+    "criticality": 4
+  },
+  {
+    "evidence_type": "prior runtime and current configuration",
+    "evidence": "cyber_threats_vulnerabilities_2_final/docker-evidence/security-summary.json",
+    "name": "Docker Pulse lab",
+    "id": "CONTAINER",
+    "classification": "Synthetic and public",
+    "owner": "Platform engineering",
+    "depends_on": [
+      "PULSE"
+    ],
+    "criticality": 3
+  },
+  {
+    "evidence_type": "prior read-only retrieval",
+    "evidence": "cyber_threats_vulnerabilities_2_final/docker-evidence/container-feeds.json",
+    "name": "Federal Register JSON feed",
+    "id": "FR",
+    "classification": "Public",
+    "owner": "Feed service owner",
+    "depends_on": [],
+    "criticality": 3
+  },
+  {
+    "evidence_type": "prior read-only retrieval",
+    "evidence": "cyber_threats_vulnerabilities_2_final/docker-evidence/container-feeds.json",
+    "name": "FDIC GovDelivery RSS",
+    "id": "FDIC",
+    "classification": "Public",
+    "owner": "Feed service owner",
+    "depends_on": [],
+    "criticality": 3
+  },
+  {
+    "evidence_type": "prior read-only retrieval",
+    "evidence": "cyber_threats_vulnerabilities_2_final/docker-evidence/container-feeds.json",
+    "name": "NIST draft publication JSON",
+    "id": "NIST",
+    "classification": "Public",
+    "owner": "Feed service owner",
+    "depends_on": [],
+    "criticality": 3
+  },
+  {
+    "evidence_type": "prior read-only retrieval",
+    "evidence": "cyber_threats_vulnerabilities_2_final/docker-evidence/container-feeds.json",
+    "name": "Federal Reserve RSS",
+    "id": "FED",
+    "classification": "Public",
+    "owner": "Feed service owner",
+    "depends_on": [],
+    "criticality": 3
+  },
+  {
+    "evidence_type": "current source",
+    "evidence": "derexi-policy-pilot/backend/ai.py",
+    "name": "Optional OpenAI-compatible provider",
+    "id": "AI",
+    "classification": "Potential policy context",
+    "owner": "Platform and procurement",
+    "depends_on": [
+      "PKGS"
+    ],
+    "criticality": 4
+  },
+  {
+    "evidence_type": "current local metadata",
+    "evidence": "derexi-policy-pilot/requirements.txt",
+    "name": "Local Python environment",
+    "id": "PKGS",
+    "classification": "Internal software metadata",
+    "owner": "Platform engineering",
+    "depends_on": [],
+    "criticality": 4
+  },
+  {
+    "evidence_type": "historical classroom",
+    "evidence": "cyber_threats_and_vulnerabilities_1/CT+V Assignment 2/DeRexi_Vulnerability_Assessment_Report.pdf",
+    "name": "10.11.2.144 classroom analogue",
+    "id": "SSH",
+    "classification": "Historical classroom",
+    "owner": "Classroom lab operator",
+    "depends_on": [],
+    "criticality": 3
+  }
+]

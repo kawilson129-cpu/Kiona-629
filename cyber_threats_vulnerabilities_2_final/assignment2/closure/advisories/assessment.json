@@ -1,0 +1,524 @@
+{
+  "source": "https://docs.pypi.org/api/json/",
+  "dependencies_sha256": "544964535fe01d56558e9666d574405aa2aae042a5c8dfc12975a2a6d8d394fe",
+  "generated_at": "2026-11-09T12:54:10.964583+00:00",
+  "packages": [
+    {
+      "name": "annotated-doc",
+      "version": "0.0.5",
+      "url": "https://pypi.org/pypi/annotated-doc/0.0.5/json",
+      "checked_at": "2026-11-09T12:54:04.545512+00:00",
+      "status": "QUERIED",
+      "http_status": 200,
+      "response_sha256": "1aab691a5f37dd292e6d93ab53f7da5d839f56ba605345f017022ec75eb643af",
+      "vulnerabilities": [],
+      "last_serial": 39452931
+    },
+    {
+      "name": "annotated-types",
+      "version": "0.8.0",
+      "url": "https://pypi.org/pypi/annotated-types/0.8.0/json",
+      "checked_at": "2026-11-09T12:54:05.819019+00:00",
+      "status": "QUERIED",
+      "http_status": 200,
+      "response_sha256": "a6e8e5b10c8fd2f596bba53e015cd37f6279fb5cec26ce0c5e9968625be4fefa",
+      "vulnerabilities": [],
+      "last_serial": 39309454
+    },
+    {
+      "name": "anyio",
+      "version": "4.15.1",
+      "url": "https://pypi.org/pypi/anyio/4.15.1/json",
+      "checked_at": "2026-11-09T12:54:06.012144+00:00",
+      "status": "QUERIED",
+      "http_status": 200,
+      "response_sha256": "16b64a4ca0f1779bc3faf59f27685c728d0ac3085ea7585f3f40e11c265b8d70",
+      "vulnerabilities": [],
+      "last_serial": 43044833
+    },
+    {
+      "name": "certifi",
+      "version": "2026.7.22",
+      "url": "https://pypi.org/pypi/certifi/2026.7.22/json",
+      "checked_at": "2026-11-09T12:54:06.261380+00:00",
+      "status": "QUERIED",
+      "http_status": 200,
+      "response_sha256": "1cdb529dfcaf4fea8e4fe581726f335a0da5abbbd5bde225205a6911ca1981b1",
+      "vulnerabilities": [
+        {
+          "aliases": [
+            "PYSEC-2026-4320"
+          ],
+          "details": "Certifi versions before 2026.10.18 include the `emSign ECC Root CA - G3` root certificate in their bundled CA store. Eight eMudhra intermediate CA certificates that chain to this root have compromised private keys and the CA has revoked them. \n\nAn attacker with one of the compromised keys can issue valid-looking certificates for any hostname. If the attacker is also on-path, they can intercept or modify TLS traffic from clients that trust the certifi bundle. Examples include `requests`, `urllib3` and `pip`, and the Python.org macOS installer.\n\nCertifi 2026.10.18 removed all emSign roots from the bundle. Certifi 2026.10.19 restored the emSign roots that are not affected. Upgrade to 2026.10.19 or later, and rebuild container images that vendor certifi.",
+          "fixed_in": [
+            "2026.10.18"
+          ],
+          "id": "GHSA-6q48-6c7w-9gw2",
+          "link": "https://osv.dev/vulnerability/GHSA-6q48-6c7w-9gw2",
+          "source": "osv",
+          "summary": null,
+          "withdrawn": null
+        },
+        {
+          "aliases": [
+            "GHSA-6q48-6c7w-9gw2"
+          ],
+          "details": "Certifi versions before 2026.10.18 include the `emSign ECC Root CA - G3` root certificate in their bundled CA store. Eight eMudhra intermediate CA certificates that chain to this root have compromised private keys and the CA has revoked them. \n\nAn attacker with one of the compromised keys can issue valid-looking certificates for any hostname. If the attacker is also on-path, they can intercept or modify TLS traffic from clients that trust the certifi bundle. Examples include `requests`, `urllib3` and `pip`, and the Python.org macOS installer.\n\nCertifi 2026.10.18 removed all emSign roots from the bundle. Certifi 2026.10.19 restored the emSign roots that are not affected. Upgrade to 2026.10.19 or later, and rebuild container images that vendor certifi.",
+          "fixed_in": [
+            "2026.10.18"
+          ],
+          "id": "PYSEC-2026-4320",
+          "link": "https://osv.dev/vulnerability/PYSEC-2026-4320",
+          "source": "osv",
+          "summary": null,
+          "withdrawn": null
+        }
+      ],
+      "last_serial": 42639290
+    },
+    {
+      "name": "cffi",
+      "version": "2.1.1",
+      "url": "https://pypi.org/pypi/cffi/2.1.1/json",
+      "checked_at": "2026-11-09T12:54:06.449839+00:00",
+      "status": "QUERIED",
+      "http_status": 200,
+      "response_sha256": "2255e530e3f80593a354e3d84a29966924d0e10309d1e3a6d50f845ab7d8df66",
+      "vulnerabilities": [],
+      "last_serial": 39662188
+    },
+    {
+      "name": "click",
+      "version": "8.5.0",
+      "url": "https://pypi.org/pypi/click/8.5.0/json",
+      "checked_at": "2026-11-09T12:54:06.606635+00:00",
+      "status": "QUERIED",
+      "http_status": 200,
+      "response_sha256": "6fc33d0e534d89a788a0965bb5071ca0726a483747589201789b60babd602686",
+      "vulnerabilities": [],
+      "last_serial": 43304100
+    },
+    {
+      "name": "cryptography",
+      "version": "50.0.2",
+      "url": "https://pypi.org/pypi/cryptography/50.0.2/json",
+      "checked_at": "2026-11-09T12:54:06.732084+00:00",
+      "status": "QUERIED",
+      "http_status": 200,
+      "response_sha256": "7423990cc0948676ef47a71ea62a476ece4c76245e6bebd1c3a71f03c4ffc0f4",
+      "vulnerabilities": [],
+      "last_serial": 41646096
+    },
+    {
+      "name": "fastapi",
+      "version": "0.143.0",
+      "url": "https://pypi.org/pypi/fastapi/0.143.0/json",
+      "checked_at": "2026-11-09T12:54:06.866894+00:00",
+      "status": "QUERIED",
+      "http_status": 200,
+      "response_sha256": "165e447c9a5c83390349e64c010bb41548f00ff8dd2b6abd5f8cce9df789a106",
+      "vulnerabilities": [],
+      "last_serial": 43336051
+    },
+    {
+      "name": "h11",
+      "version": "0.16.0",
+      "url": "https://pypi.org/pypi/h11/0.16.0/json",
+      "checked_at": "2026-11-09T12:54:07.083169+00:00",
+      "status": "QUERIED",
+      "http_status": 200,
+      "response_sha256": "97f4efb9cc00826f0408076983adc1a1e48e8f2cabf403aaf250f724e081440d",
+      "vulnerabilities": [],
+      "last_serial": 28687432
+    },
+    {
+      "name": "httpcore",
+      "version": "1.0.9",
+      "url": "https://pypi.org/pypi/httpcore/1.0.9/json",
+      "checked_at": "2026-11-09T12:54:07.221895+00:00",
+      "status": "QUERIED",
+      "http_status": 200,
+      "response_sha256": "e26eca5c3d288fe9e6446af9bcbca1038ba688629d5c8a2886c47d74718d87a2",
+      "vulnerabilities": [],
+      "last_serial": 28705351
+    },
+    {
+      "name": "httpcore2",
+      "version": "2.13.1",
+      "url": "https://pypi.org/pypi/httpcore2/2.13.1/json",
+      "checked_at": "2026-11-09T12:54:07.322327+00:00",
+      "status": "QUERIED",
+      "http_status": 200,
+      "response_sha256": "e05fcfc2623a09a7b5810145a7f5ace8e591eba606865de10b63dd310afc3b3d",
+      "vulnerabilities": [],
+      "last_serial": 42529368
+    },
+    {
+      "name": "httptools",
+      "version": "0.8.0",
+      "url": "https://pypi.org/pypi/httptools/0.8.0/json",
+      "checked_at": "2026-11-09T12:54:07.484954+00:00",
+      "status": "QUERIED",
+      "http_status": 200,
+      "response_sha256": "e698f95358eb28b7cf1d1c0d33362c65e7aca3ca4613fecfc997362b7a8e6b78",
+      "vulnerabilities": [],
+      "last_serial": 42034415
+    },
+    {
+      "name": "httpx",
+      "version": "0.28.1",
+      "url": "https://pypi.org/pypi/httpx/0.28.1/json",
+      "checked_at": "2026-11-09T12:54:07.585622+00:00",
+      "status": "QUERIED",
+      "http_status": 200,
+      "response_sha256": "293bfab7bf587fcd0825f1bd8eed8e6303285ba14801b15659853827cbe30796",
+      "vulnerabilities": [],
+      "last_serial": 40585097
+    },
+    {
+      "name": "httpx2",
+      "version": "2.13.1",
+      "url": "https://pypi.org/pypi/httpx2/2.13.1/json",
+      "checked_at": "2026-11-09T12:54:07.664787+00:00",
+      "status": "QUERIED",
+      "http_status": 200,
+      "response_sha256": "572d2e63f8bc0d606a86c2a948d03cabe1520d0dc315a8c892f1b83ce6f52b2e",
+      "vulnerabilities": [],
+      "last_serial": 42529372
+    },
+    {
+      "name": "idna",
+      "version": "3.20",
+      "url": "https://pypi.org/pypi/idna/3.20/json",
+      "checked_at": "2026-11-09T12:54:07.796877+00:00",
+      "status": "QUERIED",
+      "http_status": 200,
+      "response_sha256": "e7cbd26e23ce60f6cb3a151d2adf3b1b087bb8f10ac2d9d6db70fdccbf3bb041",
+      "vulnerabilities": [],
+      "last_serial": 41170495
+    },
+    {
+      "name": "jiter",
+      "version": "0.17.0",
+      "url": "https://pypi.org/pypi/jiter/0.17.0/json",
+      "checked_at": "2026-11-09T12:54:07.886227+00:00",
+      "status": "QUERIED",
+      "http_status": 200,
+      "response_sha256": "509ad248ceae6913dc644b74a5e6ca1162d220a752035156d6fb87afbea9e8bd",
+      "vulnerabilities": [],
+      "last_serial": 43296147
+    },
+    {
+      "name": "openai",
+      "version": "3.26.1",
+      "url": "https://pypi.org/pypi/openai/3.26.1/json",
+      "checked_at": "2026-11-09T12:54:08.028787+00:00",
+      "status": "QUERIED",
+      "http_status": 200,
+      "response_sha256": "71bc0441bbcbb343dee02bad0d8a86f45989ee0047844fd545e13e5c718007bf",
+      "vulnerabilities": [],
+      "last_serial": 43216864
+    },
+    {
+      "name": "opentelemetry-api",
+      "version": "1.45.1",
+      "url": "https://pypi.org/pypi/opentelemetry-api/1.45.1/json",
+      "checked_at": "2026-11-09T12:54:08.132519+00:00",
+      "status": "QUERIED",
+      "http_status": 200,
+      "response_sha256": "8f8e7481c7bd41f5f33387baf18b6960994aee806f4f4fadb7a40c6370c06e87",
+      "vulnerabilities": [],
+      "last_serial": 42928754
+    },
+    {
+      "name": "pip",
+      "version": "26.1.2",
+      "url": "https://pypi.org/pypi/pip/26.1.2/json",
+      "checked_at": "2026-11-09T12:54:08.229914+00:00",
+      "status": "QUERIED",
+      "http_status": 200,
+      "response_sha256": "3b2ae2d374663efa13d38c94cd5cde42ade8205567b6e6475650952aef19c44f",
+      "vulnerabilities": [
+        {
+          "aliases": [
+            "CVE-2026-13346",
+            "GHSA-qwm4-qh6w-59xr"
+          ],
+          "details": "pip would incorrectly handle doubly-encoded package URLs from indexes allowing for files to be installed to arbitrary locations on disk even when installing wheels.\n\n\n\n\nThis vulnerability requires downloading or installing a package from a malicious package index to succeed, malicious packages alone are not able to exploit this vulnerability. Note that this vulnerability only materially impacts users running `pip download` with the `--only-binary` option as installing source distributions from an untrusted index is already an unsafe operation that executes code during install time.",
+          "fixed_in": [
+            "26.2"
+          ],
+          "id": "PYSEC-2026-3721",
+          "link": "https://osv.dev/vulnerability/PYSEC-2026-3721",
+          "source": "osv",
+          "summary": null,
+          "withdrawn": null
+        },
+        {
+          "aliases": [
+            "CVE-2026-13346",
+            "PYSEC-2026-3721"
+          ],
+          "details": "pip would incorrectly handle doubly-encoded package URLs from indexes allowing for files to be installed to arbitrary locations on disk even when installing wheels.\n\nThis vulnerability requires downloading or installing a package from a malicious package index to succeed, malicious packages alone are not able to exploit this vulnerability. Note that this vulnerability only materially impacts users running `pip download` with the `--only-binary` option as installing source distributions from an untrusted index is already an unsafe operation that executes code during install time.",
+          "fixed_in": [
+            "26.2.0"
+          ],
+          "id": "GHSA-qwm4-qh6w-59xr",
+          "link": "https://osv.dev/vulnerability/GHSA-qwm4-qh6w-59xr",
+          "source": "osv",
+          "summary": null,
+          "withdrawn": null
+        }
+      ],
+      "last_serial": 43107607
+    },
+    {
+      "name": "psycopg2-binary",
+      "version": "2.9.13",
+      "url": "https://pypi.org/pypi/psycopg2-binary/2.9.13/json",
+      "checked_at": "2026-11-09T12:54:08.345687+00:00",
+      "status": "QUERIED",
+      "http_status": 200,
+      "response_sha256": "b9958ba60611188dd203cc7f00286dd39a592fe71f3c89e44a64b6a204cfb069",
+      "vulnerabilities": [],
+      "last_serial": 40911780
+    },
+    {
+      "name": "pycparser",
+      "version": "3.1",
+      "url": "https://pypi.org/pypi/pycparser/3.1/json",
+      "checked_at": "2026-11-09T12:54:08.583354+00:00",
+      "status": "QUERIED",
+      "http_status": 200,
+      "response_sha256": "52a9f9f12b1bfaa4b5b3c4d68640bd4d7fe36ae6146e8982dd43b326a86a80e6",
+      "vulnerabilities": [],
+      "last_serial": 42595238
+    },
+    {
+      "name": "pydantic",
+      "version": "2.14.0",
+      "url": "https://pypi.org/pypi/pydantic/2.14.0/json",
+      "checked_at": "2026-11-09T12:54:08.794439+00:00",
+      "status": "QUERIED",
+      "http_status": 200,
+      "response_sha256": "71b4bbcccf26378925b9f33347762252e410f0e89d54a57716bbbcd872b5379a",
+      "vulnerabilities": [],
+      "last_serial": 43233834
+    },
+    {
+      "name": "pydantic_core",
+      "version": "2.50.0",
+      "url": "https://pypi.org/pypi/pydantic_core/2.50.0/json",
+      "checked_at": "2026-11-09T12:54:09.039820+00:00",
+      "status": "QUERIED",
+      "http_status": 200,
+      "response_sha256": "ee39f2e8b5e3fdf44fde202d6330f1902e4a32777c632ea7010cccde8fbd3bb4",
+      "vulnerabilities": [],
+      "last_serial": 43233759
+    },
+    {
+      "name": "PyJWT",
+      "version": "2.15.1",
+      "url": "https://pypi.org/pypi/PyJWT/2.15.1/json",
+      "checked_at": "2026-11-09T12:54:09.303493+00:00",
+      "status": "QUERIED",
+      "http_status": 200,
+      "response_sha256": "f13089db8caff0efbdec85ab5c3fa281a3cc76d5b708c74fab427c98e1f29a0d",
+      "vulnerabilities": [],
+      "last_serial": 41564282
+    },
+    {
+      "name": "python-dotenv",
+      "version": "1.2.4",
+      "url": "https://pypi.org/pypi/python-dotenv/1.2.4/json",
+      "checked_at": "2026-11-09T12:54:09.443014+00:00",
+      "status": "QUERIED",
+      "http_status": 200,
+      "response_sha256": "89701376846132aefd76202d07dad6e84febe4a426a12973004e13018af15c41",
+      "vulnerabilities": [],
+      "last_serial": 41671994
+    },
+    {
+      "name": "PyYAML",
+      "version": "6.0.3",
+      "url": "https://pypi.org/pypi/PyYAML/6.0.3/json",
+      "checked_at": "2026-11-09T12:54:09.616925+00:00",
+      "status": "QUERIED",
+      "http_status": 200,
+      "response_sha256": "c3f35597bc2f08cc990c2a5fe57bef6687b3a3d7c61d8b0ba4cc067777eb1def",
+      "vulnerabilities": [],
+      "last_serial": 31526105
+    },
+    {
+      "name": "sniffio",
+      "version": "1.3.1",
+      "url": "https://pypi.org/pypi/sniffio/1.3.1/json",
+      "checked_at": "2026-11-09T12:54:09.760771+00:00",
+      "status": "QUERIED",
+      "http_status": 200,
+      "response_sha256": "1217ad6ed84734e8f77ecfd151d91786d5a633b0482af1cde28185de0159bd37",
+      "vulnerabilities": [],
+      "last_serial": 22034184
+    },
+    {
+      "name": "SQLAlchemy",
+      "version": "2.1.4",
+      "url": "https://pypi.org/pypi/SQLAlchemy/2.1.4/json",
+      "checked_at": "2026-11-09T12:54:09.898441+00:00",
+      "status": "QUERIED",
+      "http_status": 200,
+      "response_sha256": "ef2643974b5d75ed4d3d5b77431a53d8b46748eb4a9a64b08a450f81d22e8b48",
+      "vulnerabilities": [],
+      "last_serial": 43170703
+    },
+    {
+      "name": "starlette",
+      "version": "1.7.0",
+      "url": "https://pypi.org/pypi/starlette/1.7.0/json",
+      "checked_at": "2026-11-09T12:54:10.048102+00:00",
+      "status": "QUERIED",
+      "http_status": 200,
+      "response_sha256": "bb99192bfa57ca9de6fbe4260f1a6e2a7c60c8cba54217413c049e402b06d2bb",
+      "vulnerabilities": [],
+      "last_serial": 42691247
+    },
+    {
+      "name": "truststore",
+      "version": "0.10.4",
+      "url": "https://pypi.org/pypi/truststore/0.10.4/json",
+      "checked_at": "2026-11-09T12:54:10.157127+00:00",
+      "status": "QUERIED",
+      "http_status": 200,
+      "response_sha256": "3e16e870d07a788b28b43497bbaed860d1297c6045d4815d5b00e10fddd9ab0d",
+      "vulnerabilities": [],
+      "last_serial": 42154429
+    },
+    {
+      "name": "typing-inspection",
+      "version": "0.4.4",
+      "url": "https://pypi.org/pypi/typing-inspection/0.4.4/json",
+      "checked_at": "2026-11-09T12:54:10.277309+00:00",
+      "status": "QUERIED",
+      "http_status": 200,
+      "response_sha256": "b37c398e1a0a3a97af35dcfb754e0e1f725f56d5f391d029ab90d3969d0e9583",
+      "vulnerabilities": [],
+      "last_serial": 43192652
+    },
+    {
+      "name": "typing_extensions",
+      "version": "4.16.0",
+      "url": "https://pypi.org/pypi/typing_extensions/4.16.0/json",
+      "checked_at": "2026-11-09T12:54:10.367100+00:00",
+      "status": "QUERIED",
+      "http_status": 200,
+      "response_sha256": "2140da00d62dde967f52d0be0ae28444f1d6a3fe603f52c83c23988c32122d5a",
+      "vulnerabilities": [],
+      "last_serial": 38587266
+    },
+    {
+      "name": "uvicorn",
+      "version": "0.54.0",
+      "url": "https://pypi.org/pypi/uvicorn/0.54.0/json",
+      "checked_at": "2026-11-09T12:54:10.485850+00:00",
+      "status": "QUERIED",
+      "http_status": 200,
+      "response_sha256": "a308e83961793f6114221aefe9e046ef587da0fc986c4dc50ace1ee43fbe9bcb",
+      "vulnerabilities": [],
+      "last_serial": 42691262
+    },
+    {
+      "name": "watchfiles",
+      "version": "1.3.0",
+      "url": "https://pypi.org/pypi/watchfiles/1.3.0/json",
+      "checked_at": "2026-11-09T12:54:10.605589+00:00",
+      "status": "QUERIED",
+      "http_status": 200,
+      "response_sha256": "ba585baa9af3fdcdb897e9e6f5711a7551aa994c617318e898b3ec749383f73a",
+      "vulnerabilities": [],
+      "last_serial": 41285120
+    },
+    {
+      "name": "websockets",
+      "version": "17.2",
+      "url": "https://pypi.org/pypi/websockets/17.2/json",
+      "checked_at": "2026-11-09T12:54:10.742255+00:00",
+      "status": "QUERIED",
+      "http_status": 200,
+      "response_sha256": "e0510687bfff676d6e8c85b594856808e9b3b67ad3d4b1f26293c5b719e49be7",
+      "vulnerabilities": [],
+      "last_serial": 42973112
+    }
+  ],
+  "queried": 35,
+  "total": 35,
+  "active_advisories": [
+    {
+      "package": "certifi",
+      "version": "2026.7.22",
+      "aliases": [
+        "PYSEC-2026-4320"
+      ],
+      "details": "Certifi versions before 2026.10.18 include the `emSign ECC Root CA - G3` root certificate in their bundled CA store. Eight eMudhra intermediate CA certificates that chain to this root have compromised private keys and the CA has revoked them. \n\nAn attacker with one of the compromised keys can issue valid-looking certificates for any hostname. If the attacker is also on-path, they can intercept or modify TLS traffic from clients that trust the certifi bundle. Examples include `requests`, `urllib3` and `pip`, and the Python.org macOS installer.\n\nCertifi 2026.10.18 removed all emSign roots from the bundle. Certifi 2026.10.19 restored the emSign roots that are not affected. Upgrade to 2026.10.19 or later, and rebuild container images that vendor certifi.",
+      "fixed_in": [
+        "2026.10.18"
+      ],
+      "id": "GHSA-6q48-6c7w-9gw2",
+      "link": "https://osv.dev/vulnerability/GHSA-6q48-6c7w-9gw2",
+      "source": "osv",
+      "summary": null,
+      "withdrawn": null
+    },
+    {
+      "package": "certifi",
+      "version": "2026.7.22",
+      "aliases": [
+        "GHSA-6q48-6c7w-9gw2"
+      ],
+      "details": "Certifi versions before 2026.10.18 include the `emSign ECC Root CA - G3` root certificate in their bundled CA store. Eight eMudhra intermediate CA certificates that chain to this root have compromised private keys and the CA has revoked them. \n\nAn attacker with one of the compromised keys can issue valid-looking certificates for any hostname. If the attacker is also on-path, they can intercept or modify TLS traffic from clients that trust the certifi bundle. Examples include `requests`, `urllib3` and `pip`, and the Python.org macOS installer.\n\nCertifi 2026.10.18 removed all emSign roots from the bundle. Certifi 2026.10.19 restored the emSign roots that are not affected. Upgrade to 2026.10.19 or later, and rebuild container images that vendor certifi.",
+      "fixed_in": [
+        "2026.10.18"
+      ],
+      "id": "PYSEC-2026-4320",
+      "link": "https://osv.dev/vulnerability/PYSEC-2026-4320",
+      "source": "osv",
+      "summary": null,
+      "withdrawn": null
+    },
+    {
+      "package": "pip",
+      "version": "26.1.2",
+      "aliases": [
+        "CVE-2026-13346",
+        "GHSA-qwm4-qh6w-59xr"
+      ],
+      "details": "pip would incorrectly handle doubly-encoded package URLs from indexes allowing for files to be installed to arbitrary locations on disk even when installing wheels.\n\n\n\n\nThis vulnerability requires downloading or installing a package from a malicious package index to succeed, malicious packages alone are not able to exploit this vulnerability. Note that this vulnerability only materially impacts users running `pip download` with the `--only-binary` option as installing source distributions from an untrusted index is already an unsafe operation that executes code during install time.",
+      "fixed_in": [
+        "26.2"
+      ],
+      "id": "PYSEC-2026-3721",
+      "link": "https://osv.dev/vulnerability/PYSEC-2026-3721",
+      "source": "osv",
+      "summary": null,
+      "withdrawn": null
+    },
+    {
+      "package": "pip",
+      "version": "26.1.2",
+      "aliases": [
+        "CVE-2026-13346",
+        "PYSEC-2026-3721"
+      ],
+      "details": "pip would incorrectly handle doubly-encoded package URLs from indexes allowing for files to be installed to arbitrary locations on disk even when installing wheels.\n\nThis vulnerability requires downloading or installing a package from a malicious package index to succeed, malicious packages alone are not able to exploit this vulnerability. Note that this vulnerability only materially impacts users running `pip download` with the `--only-binary` option as installing source distributions from an untrusted index is already an unsafe operation that executes code during install time.",
+      "fixed_in": [
+        "26.2.0"
+      ],
+      "id": "GHSA-qwm4-qh6w-59xr",
+      "link": "https://osv.dev/vulnerability/GHSA-qwm4-qh6w-59xr",
+      "source": "osv",
+      "summary": null,
+      "withdrawn": null
+    }
+  ],
+  "unavailable": 0,
+  "limitation": "Registry-reported release advisories only; no proof of exploitability, deployed inventory, OS CVEs or absence of unknown vulnerabilities"
+}

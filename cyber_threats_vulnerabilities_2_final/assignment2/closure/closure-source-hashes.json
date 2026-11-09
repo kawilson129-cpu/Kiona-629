@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-11-09T13:00:53.462713+00:00",
+  "files": [
+    {
+      "path": "audit_advisories.py",
+      "sha256": "144ee42c20e20be2206de3d8192d2520c5c1d29ac7ab7232056166c2627a1a8b"
+    },
+    {
+      "path": "control_suite.py",
+      "sha256": "d5e84c4ce150846eb7498c49c297a417847dafbd8f04d7d1a3696e2f42562f8b"
+    },
+    {
+      "path": "derexi_vulnerability_inspector.py",
+      "sha256": "4bd6aa7c01af39d325595d55b6038f4d42a35c182780c2f7cfa5a7e210510dd0"
+    },
+    {
+      "path": "run_assessment.py",
+      "sha256": "838c0a5709c636a60728b2facfad653f79267c6b4d9d67f0ad0dbe05e322f9d0"
+    },
+    {
+      "path": "test_inspector.py",
+      "sha256": "7c55d779cefc0d1b2f212b9216b5a84090b3d08ef7c13bfeba1b7be905ca98c5"
+    },
+    {
+      "path": "verify_package.py",
+      "sha256": "a975177888b558bd4594eb8bed3f8e925ddfe38aeed255a20505bcb6682fe891"
+    },
+    {
+      "path": "closure\\reconcile.py",
+      "sha256": "c06d8ddba8b3c5729ff7ef8f0c3356f76e2aade157bd2d4485ac1af6c07f52f9"
+    },
+    {
+      "path": "closure\\track_workflow.py",
+      "sha256": "87e79ba32b46533d82736211b00c7872e6c9b65c978c72eb05aacf819df82e8b"
+    },
+    {
+      "path": "closure\\validate.py",
+      "sha256": "88733ecc09993d1382de3ee56f6b8a741bf56e05b8aacd8942f95e47e28efc39"
+    },
+    {
+      "path": "closure\\advisories-triaged.json",
+      "sha256": "dca9888aebc72c2e40588a057c975fccbdf6af191b1cb0dd96c5f77925518c96"
+    },
+    {
+      "path": "remediation-tracking.csv",
+      "sha256": "e5883751f2d8a5295b85a2da43bc40d1bc7d1a2c2eae1cb62591bce30448d08f"
+    }
+  ]
+}

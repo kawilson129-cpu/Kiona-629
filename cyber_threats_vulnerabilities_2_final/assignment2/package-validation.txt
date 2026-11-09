@@ -1,0 +1,4 @@
+PASS Python syntax for all assignment2 scripts
+PASS all 14 asset evidence paths and relationship IDs
+PASS local documentation links
+PASS report metrics reconcile with saved run

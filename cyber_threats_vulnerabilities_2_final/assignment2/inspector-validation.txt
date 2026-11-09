@@ -1,0 +1,6 @@
+PASS group repeated control failures without inflating finding count
+PASS exclude historical host and error-only assets from assessed coverage
+PASS retain harness errors and avoid unsupported closure
+PASS severity boundary cases
+PASS reject unknown asset, invalid risk score and invalid status
+PASS undefined denominator stays unknown

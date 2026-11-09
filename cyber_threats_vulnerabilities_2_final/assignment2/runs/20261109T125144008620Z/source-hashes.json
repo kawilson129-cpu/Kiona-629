@@ -1,0 +1,62 @@
+[
+  {
+    "path": "derexi-policy-pilot\\backend\\main.py",
+    "sha256": "5b805570b719dd740958870be4ed315dc6398450d7e89513564ee8d9f1aedd71"
+  },
+  {
+    "path": "derexi-policy-pilot\\backend\\security.py",
+    "sha256": "4a855c633fc645d466c1344db1b798129b958f41e2dadab02a159663ce385541"
+  },
+  {
+    "path": "derexi-policy-pilot\\backend\\dev_auth.py",
+    "sha256": "775ca187495687b790d20615fc2f3ebdc52ccab8172160a92c39541c188dd787"
+  },
+  {
+    "path": "derexi-policy-pilot\\backend\\schemas.py",
+    "sha256": "708dade3545526650931238aafd6ec3d937610cea7f7abe6422cb52cd0d5606f"
+  },
+  {
+    "path": "derexi-policy-pilot\\backend\\pulse\\service.py",
+    "sha256": "e901dea7f1ff3a27efd7e07942b381ddeb188b781f10a904ece8505146ec08fe"
+  },
+  {
+    "path": "derexi-policy-pilot\\backend\\pulse\\sources.py",
+    "sha256": "67d5c8cdadd30c207531d4ddfe7d52ed3543ebc4520a1a03b2b85dc8a45de047"
+  },
+  {
+    "path": "derexi-policy-pilot\\backend\\tests\\test_security_controls.py",
+    "sha256": "63a3f668f08c7370289346bc8799d8ba3ad0272c15745d76ccc55e94abd479e1"
+  },
+  {
+    "path": "cyber_threats_vulnerabilities_2_final\\assignment2\\control_suite.py",
+    "sha256": "d5e84c4ce150846eb7498c49c297a417847dafbd8f04d7d1a3696e2f42562f8b"
+  },
+  {
+    "path": "cyber_threats_vulnerabilities_2_final\\assignment2\\derexi_vulnerability_inspector.py",
+    "sha256": "e0cbe8ef8215bb48c0c70fda44519cb4b99cb5b507f14ddbad137d1867f0eabf"
+  },
+  {
+    "path": "cyber_threats_vulnerabilities_2_final\\assignment2\\run_assessment.py",
+    "sha256": "838c0a5709c636a60728b2facfad653f79267c6b4d9d67f0ad0dbe05e322f9d0"
+  },
+  {
+    "path": "cyber_threats_vulnerabilities_2_final\\assignment2\\test_inspector.py",
+    "sha256": "100c5c676faa9da11ebc776bed484ba19dbb136372bb7b7d3617d46ad07c9cae"
+  },
+  {
+    "path": "cyber_threats_vulnerabilities_2_final\\assignment2\\verify_package.py",
+    "sha256": "a975177888b558bd4594eb8bed3f8e925ddfe38aeed255a20505bcb6682fe891"
+  },
+  {
+    "path": "cyber_threats_vulnerabilities_2_final\\assignment2\\assets.json",
+    "sha256": "e17ccb63091c50e768d1522ae303f0aa2f30bcc1e0103d7d74b30fe06bd5f0ac"
+  },
+  {
+    "path": "cyber_threats_vulnerabilities_2_final\\compose.yaml",
+    "sha256": "5ef43ee7bfe1c9749f647ef83e57995030df7023d94966062ae2e6e999c8649b"
+  },
+  {
+    "path": "derexi-policy-pilot\\requirements.txt",
+    "sha256": "08d7d517d3ac144111727f9318fc2147f626fb3ba258f31ffc7e345540d52e58"
+  }
+]

@@ -1,0 +1,60 @@
+PASS group repeated control failures without inflating finding count
+PASS exclude historical host and error-only assets from assessed coverage
+PASS retain harness errors and avoid unsupported closure
+PASS severity boundary cases
+PASS reject unknown asset, invalid risk score and invalid status
+PASS undefined denominator stays unknown
+Traceback (most recent call last):
+  File "C:\Users\kawil\Documents\Kiona-629\cyber_threats_vulnerabilities_2_final\assignment2\test_inspector.py", line 35, in main
+    dependency_path.write_text("[]")
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\kawil\AppData\Local\Python\pythoncore-3.14-64\Lib\pathlib\__init__.py", line 809, in write_text
+    with self.open(mode='w', encoding=encoding, errors=errors, newline=newline) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\kawil\AppData\Local\Python\pythoncore-3.14-64\Lib\pathlib\__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied: 'C:\\Users\\kawil\\AppData\\Local\\Packages\\openai.codex_2p2nqsd0c76g0\\AC\\#!sandbox.{0a61dfd0-e7ca-4dee-9ee5-6b83c238b473}\\Temp\\tmpmc0tnmgu\\dependencies.json'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\kawil\AppData\Local\Python\pythoncore-3.14-64\Lib\shutil.py", line 707, in _rmtree_unsafe
+    os.rmdir(path)
+    ~~~~~~~~^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\kawil\\AppData\\Local\\Packages\\openai.codex_2p2nqsd0c76g0\\AC\\#!sandbox.{0a61dfd0-e7ca-4dee-9ee5-6b83c238b473}\\Temp\\tmpmc0tnmgu'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\kawil\Documents\Kiona-629\cyber_threats_vulnerabilities_2_final\assignment2\test_inspector.py", line 61, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\kawil\Documents\Kiona-629\cyber_threats_vulnerabilities_2_final\assignment2\test_inspector.py", line 33, in main
+    with tempfile.TemporaryDirectory() as directory:
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\kawil\AppData\Local\Python\pythoncore-3.14-64\Lib\tempfile.py", line 971, in __exit__
+    self.cleanup()
+    ~~~~~~~~~~~~^^
+  File "C:\Users\kawil\AppData\Local\Python\pythoncore-3.14-64\Lib\tempfile.py", line 975, in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\kawil\AppData\Local\Python\pythoncore-3.14-64\Lib\tempfile.py", line 955, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\kawil\AppData\Local\Python\pythoncore-3.14-64\Lib\shutil.py", line 852, in rmtree
+    _rmtree_impl(path, dir_fd, onexc)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\kawil\AppData\Local\Python\pythoncore-3.14-64\Lib\shutil.py", line 711, in _rmtree_unsafe
+    onexc(os.rmdir, path, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\kawil\AppData\Local\Python\pythoncore-3.14-64\Lib\tempfile.py", line 927, in onexc
+    _resetperms(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\Users\kawil\AppData\Local\Python\pythoncore-3.14-64\Lib\tempfile.py", line 283, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\kawil\AppData\Local\Python\pythoncore-3.14-64\Lib\tempfile.py", line 272, in _dont_follow_symlinks
+    func(path, *args, follow_symlinks=False)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\kawil\\AppData\\Local\\Packages\\openai.codex_2p2nqsd0c76g0\\AC\\#!sandbox.{0a61dfd0-e7ca-4dee-9ee5-6b83c238b473}\\Temp\\tmpmc0tnmgu'

@@ -1,0 +1,4 @@
+"id","severity","score","status","proposed_owner","validated_intake_utc","proposed_due_utc","closed_at","exception_id","closure"
+"DVI-POLICY-WRITE","Critical","20","OPEN","Platform engineering","2026-11-09T07:41:12.0000000-05:00","2026-11-12T07:41:12.0000000-05:00","","","Signed Employee and Owner approval attempts denied without writes; administrator approval succeeds; anonymous policy writes denied."
+"DVI-FEED-INTEGRITY","High","12","OPEN","Feed service owner","2026-11-09T07:41:12.0000000-05:00","2026-11-23T07:41:12.0000000-05:00","","","Unrelated hosts rejected; official publishers and expected GovDelivery tenant accepted; regression and current feed checks pass."
+"DVI-DEPENDENCY","Medium","9","OPEN","Platform engineering","2026-11-09T07:41:12.0000000-05:00","2026-12-09T07:41:12.0000000-05:00","","","Clean reproducible install from reviewed lock, dependency consistency check and documented advisory dispositions."

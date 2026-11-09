@@ -66,3 +66,11 @@ Screenshots supplement logs and underlying artifacts.
 
 Individual runtime and lab requirements are BLOCKED pending appropriate infrastructure or artifacts. No complete rubric criterion is claimed based solely on these additions.
 
+
+## Assignment 2 implementation update
+
+The [implemented program and original Inspector](assignment2/README.md) now provide a repeatable signed-fixture assessment and generated reporting. Latest run has 27 PASS / 6 FAIL / 0 ERROR across 33 assertions, three grouped OPEN findings, and 46.15% current-scope asset coverage. Six inspector regression scenarios passed. Framework, tool, scoped control assessment and local metrics are complete. Overall Assignment 2 remains PARTIAL for enterprise operation and deployed inventory. See its updated report for the six-row official rubric mapping.
+
+## Assignment 2 final evidence closure update
+
+All 13 local ecosystem assets are reconciled. The unchanged suite rerun reproduces 27 PASS / 6 FAIL, with direct control coverage still 6/13. Advisory queries covered 35/35 installed versions and identified two distinct package issues after alias deduplication. Current tracker has five OPEN findings. Nine Inspector regression scenarios passed. The original three findings completed a documented discover-to-retest cycle. See assignment2/closure/README.md for current metrics, official rubric matrix, submission files and screenshot instructions. Overall enterprise scope remains PARTIAL.

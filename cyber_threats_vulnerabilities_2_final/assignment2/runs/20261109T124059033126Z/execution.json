@@ -1,0 +1,45 @@
+{
+  "commands": [
+    {
+      "name": "controls",
+      "argv": [
+        "C:\\Users\\kawil\\Documents\\Kiona-629\\derexi-policy-pilot\\.venv\\Scripts\\python.exe",
+        "C:\\Users\\kawil\\Documents\\Kiona-629\\cyber_threats_vulnerabilities_2_final\\assignment2\\control_suite.py",
+        "C:\\Users\\kawil\\Documents\\Kiona-629\\cyber_threats_vulnerabilities_2_final\\assignment2\\runs\\20261109T124059033126Z\\controls.json"
+      ],
+      "exit": 1,
+      "elapsed_ms": 9497.104
+    },
+    {
+      "name": "dependency-consistency",
+      "argv": [
+        "C:\\Users\\kawil\\Documents\\Kiona-629\\derexi-policy-pilot\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pip",
+        "check"
+      ],
+      "exit": 0,
+      "elapsed_ms": 3280.48
+    },
+    {
+      "name": "inspector",
+      "argv": [
+        "C:\\Users\\kawil\\Documents\\Kiona-629\\derexi-policy-pilot\\.venv\\Scripts\\python.exe",
+        "C:\\Users\\kawil\\Documents\\Kiona-629\\cyber_threats_vulnerabilities_2_final\\assignment2\\derexi_vulnerability_inspector.py",
+        "--assets",
+        "C:\\Users\\kawil\\Documents\\Kiona-629\\cyber_threats_vulnerabilities_2_final\\assignment2\\runs\\20261109T124059033126Z\\assets.json",
+        "--results",
+        "C:\\Users\\kawil\\Documents\\Kiona-629\\cyber_threats_vulnerabilities_2_final\\assignment2\\runs\\20261109T124059033126Z\\results.json",
+        "--dependencies",
+        "C:\\Users\\kawil\\Documents\\Kiona-629\\cyber_threats_vulnerabilities_2_final\\assignment2\\runs\\20261109T124059033126Z\\dependencies.json",
+        "--output",
+        "C:\\Users\\kawil\\Documents\\Kiona-629\\cyber_threats_vulnerabilities_2_final\\assignment2\\runs\\20261109T124059033126Z"
+      ],
+      "exit": 0,
+      "elapsed_ms": 674.436
+    }
+  ],
+  "elapsed_ms": 14035.477,
+  "python": "3.14.6 (tags/v3.14.6:c63aec6, Jun 10 2026, 10:26:10) [MSC v.1944 64 bit (AMD64)]",
+  "scope": "offline fixture and static evidence, no production database"
+}

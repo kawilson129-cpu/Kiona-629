@@ -1,0 +1,62 @@
+[
+  {
+    "finding": "DVI-POLICY-WRITE",
+    "stages": [
+      "DISCOVERED",
+      "VALIDATED",
+      "PRIORITIZED",
+      "TRACKED",
+      "RETESTED_STILL_OPEN"
+    ],
+    "status": "OPEN",
+    "evidence": "runs/20261109T125144008620Z/results.json"
+  },
+  {
+    "finding": "DVI-ADVISORY-CERTIFI",
+    "stages": [
+      "DISCOVERED",
+      "VALIDATED",
+      "PRIORITIZED",
+      "TRACKED",
+      "REMEDIATION_RETEST_PENDING"
+    ],
+    "status": "OPEN",
+    "evidence": "closure/advisories-triaged.json"
+  },
+  {
+    "finding": "DVI-FEED-INTEGRITY",
+    "stages": [
+      "DISCOVERED",
+      "VALIDATED",
+      "PRIORITIZED",
+      "TRACKED",
+      "RETESTED_STILL_OPEN"
+    ],
+    "status": "OPEN",
+    "evidence": "runs/20261109T125144008620Z/results.json"
+  },
+  {
+    "finding": "DVI-DEPENDENCY",
+    "stages": [
+      "DISCOVERED",
+      "VALIDATED",
+      "PRIORITIZED",
+      "TRACKED",
+      "RETESTED_STILL_OPEN"
+    ],
+    "status": "OPEN",
+    "evidence": "runs/20261109T125144008620Z/results.json"
+  },
+  {
+    "finding": "DVI-ADVISORY-PIP",
+    "stages": [
+      "DISCOVERED",
+      "VALIDATED",
+      "PRIORITIZED",
+      "TRACKED",
+      "REMEDIATION_RETEST_PENDING"
+    ],
+    "status": "OPEN",
+    "evidence": "closure/advisories-triaged.json"
+  }
+]

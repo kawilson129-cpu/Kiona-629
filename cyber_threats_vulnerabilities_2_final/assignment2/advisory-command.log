@@ -1,0 +1,37 @@
+annotated-doc 0.0.5 QUERIED
+annotated-types 0.8.0 QUERIED
+anyio 4.15.1 QUERIED
+certifi 2026.7.22 QUERIED
+cffi 2.1.1 QUERIED
+click 8.5.0 QUERIED
+cryptography 50.0.2 QUERIED
+fastapi 0.143.0 QUERIED
+h11 0.16.0 QUERIED
+httpcore 1.0.9 QUERIED
+httpcore2 2.13.1 QUERIED
+httptools 0.8.0 QUERIED
+httpx 0.28.1 QUERIED
+httpx2 2.13.1 QUERIED
+idna 3.20 QUERIED
+jiter 0.17.0 QUERIED
+openai 3.26.1 QUERIED
+opentelemetry-api 1.45.1 QUERIED
+pip 26.1.2 QUERIED
+psycopg2-binary 2.9.13 QUERIED
+pycparser 3.1 QUERIED
+pydantic 2.14.0 QUERIED
+pydantic_core 2.50.0 QUERIED
+PyJWT 2.15.1 QUERIED
+python-dotenv 1.2.4 QUERIED
+PyYAML 6.0.3 QUERIED
+sniffio 1.3.1 QUERIED
+SQLAlchemy 2.1.4 QUERIED
+starlette 1.7.0 QUERIED
+truststore 0.10.4 QUERIED
+typing-inspection 0.4.4 QUERIED
+typing_extensions 4.16.0 QUERIED
+uvicorn 0.54.0 QUERIED
+watchfiles 1.3.0 QUERIED
+websockets 17.2 QUERIED
+{"total": 35, "queried": 35, "unavailable": 0}
+Active package/advisory pairs: 4

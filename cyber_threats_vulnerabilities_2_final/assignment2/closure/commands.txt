@@ -1,0 +1,33 @@
+Working directory: C:/Users/kawil/Documents/Kiona-629
+Interpreter: ./derexi-policy-pilot/.venv/Scripts/python.exe
+Environment: PYTHONDONTWRITEBYTECODE=1
+
+1. Isolated suite, inspector and dependency consistency
+& ./derexi-policy-pilot/.venv/Scripts/python.exe cyber_threats_vulnerabilities_2_final/assignment2/run_assessment.py
+Result: exit 1 for six legitimate failed controls.
+Run: runs/20261109T125144008620Z
+Per-command times, arguments, exit codes and Python version: that run's execution.json.
+
+2. Read-only registry assessment
+& ./derexi-policy-pilot/.venv/Scripts/python.exe cyber_threats_vulnerabilities_2_final/assignment2/audit_advisories.py --dependencies cyber_threats_vulnerabilities_2_final/assignment2/runs/20261109T125144008620Z/dependencies.json --output cyber_threats_vulnerabilities_2_final/assignment2/closure/advisories
+Result: exit 0; 35 release queries succeeded; 4 active records representing 2 distinct issues.
+Per-request UTC timestamps and response hashes: advisories/assessment.json.
+Console output: ../advisory-command.log.
+
+3. Asset reconciliation and analyst triage materialization
+& ./derexi-policy-pilot/.venv/Scripts/python.exe cyber_threats_vulnerabilities_2_final/assignment2/closure/reconcile.py
+Result: exit 0; 13 reconciled assets.
+
+4. Updated Inspector export
+& ./derexi-policy-pilot/.venv/Scripts/python.exe cyber_threats_vulnerabilities_2_final/assignment2/derexi_vulnerability_inspector.py --assets cyber_threats_vulnerabilities_2_final/assignment2/runs/20261109T125144008620Z/assets.json --results cyber_threats_vulnerabilities_2_final/assignment2/runs/20261109T125144008620Z/results.json --dependencies cyber_threats_vulnerabilities_2_final/assignment2/runs/20261109T125144008620Z/dependencies.json --advisories cyber_threats_vulnerabilities_2_final/assignment2/closure/advisories-triaged.json --output cyber_threats_vulnerabilities_2_final/assignment2/closure/inspector
+Result: exit 0; 5 OPEN findings. Existing output directories must be changed for a repeat export.
+
+5. Tool regression
+& ./derexi-policy-pilot/.venv/Scripts/python.exe cyber_threats_vulnerabilities_2_final/assignment2/test_inspector.py
+First attempt: six original scenarios passed, then temporary-directory permission error. Preserved in inspector-regression.log.
+After selecting a workspace-local temporary directory: exit 0, all nine scenarios PASS. Preserved in inspector-regression-workspace.log.
+Assertions were unchanged by the temporary directory adjustment.
+
+6. Remediation and workflow tracking
+& ./derexi-policy-pilot/.venv/Scripts/python.exe cyber_threats_vulnerabilities_2_final/assignment2/closure/track_workflow.py
+Result: exit 0; baseline retained, original target dates preserved and two new findings added.

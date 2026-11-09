@@ -1,0 +1,43 @@
+[
+  {
+    "id": "RUNNER",
+    "asset": "APP",
+    "group": "harness",
+    "status": "ERROR",
+    "expected": "suite completes",
+    "actual": "TIMEOUT"
+  },
+  {
+    "id": "PACKAGE-CONSISTENCY",
+    "asset": "PKGS",
+    "group": "dependency",
+    "status": "PASS",
+    "expected": "pip check succeeds",
+    "actual": 0,
+    "likelihood": 2,
+    "impact": 3
+  },
+  {
+    "id": "DEPENDENCY-PINS",
+    "asset": "PKGS",
+    "group": "dependency",
+    "status": "FAIL",
+    "expected": "runtime requirement versions reproducible",
+    "actual": "lower-bounded direct declarations",
+    "likelihood": 3,
+    "impact": 3
+  },
+  {
+    "id": "CONTAINER-CONFIG",
+    "asset": "CONTAINER",
+    "group": "configuration",
+    "status": "PASS",
+    "expected": "required isolation settings declared",
+    "actual": {
+      "missing": [],
+      "scope": "static configuration, prior runtime evidence reused"
+    },
+    "likelihood": 3,
+    "impact": 4
+  }
+]

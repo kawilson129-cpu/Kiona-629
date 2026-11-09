@@ -328,3 +328,17 @@ Verified C-01 (role-based access control) and C-02 (input validation / safe erro
 
 ### November 9, 2026 — CT&V 2 publication
 - User authorized committing and publishing the new coursework files. Publication scope is cyber_threats_vulnerabilities_2_final/ plus this memory update. The unrelated untracked file named "tash show -p stash@{0}" is excluded.
+
+### November 9, 2026 — Assignment 2 enterprise vulnerability management implementation
+- Implemented assignment2/ program, 14-record asset inventory/relationship map, business-impact analysis, original DeRexi Vulnerability Inspector, repeatable isolated runner, evidence register and remediation tracker. Updated existing Assignment 2 report/checklist with all six official rubric requirements.
+- Current run runs/20261109T124059033126Z: 33 assertions, 27 PASS / 6 FAIL / 0 ERROR; 6/13 current-scope assets assessed (46.15%); 35 installed distributions; pip check passed. Six inspector regression scenarios passed. Initial sandbox timeout preserved separately.
+- Three grouped OPEN findings: Critical policy writes (signed Employee/Owner approval and anonymous approval accepted; Employee version publication accepted), High publisher host binding, Medium lower-bounded dependency reproducibility. Signed conversation ownership checks passed for covered fixtures.
+- Program and enterprise discovery remain PARTIAL pending operational adoption and deployed inventory. Framework, original tool, local control assessment and local metrics documented complete at scoped level.
+- No application/persona modifications, live Supabase writes, network scanning, Git operations or pushes. Existing Compliance 1 and Assignment 5 evidence reused.
+
+### November 9, 2026 — Assignment 2 final evidence closure
+- Reconciled all 13 local ecosystem assets with evidence hashes, relationships, proposed owners, impact and limits. Reconciliation 100%, direct current control coverage remains 6/13 (46.15%).
+- Unchanged isolated suite rerun runs/20261109T125144008620Z: 27 PASS / 6 FAIL / 0 ERROR. Original findings reproduced.
+- Read-only PyPI release audit queried all 35 installed versions. Four raw advisory records consolidate into two distinct issues affecting certifi 2026.7.22 and pip 26.1.2. Raw responses and timestamps saved. No upgrades or exploits.
+- Extended original Inspector with optional advisory integration and snapshot verification. Nine regression scenarios passed. Consolidated findings now five OPEN (local scale: 1 Critical, 2 High, 2 Medium). Original SLA targets preserved, new items tracked, no exceptions accepted.
+- Updated existing Assignment 2 report/checklist and closure guide with full rubric matrix, exact commands, workflow ledger and screenshot instructions. Ready as documented local assessment, enterprise-wide criterion remains PARTIAL. No Git operations or production changes.
