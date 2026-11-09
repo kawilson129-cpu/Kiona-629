@@ -86,6 +86,8 @@
     inbox: {
       folder: 'inbox',
       q: '',
+      status: '',
+      threadId: null,
       data: null,
       thread: null,
       loading: false
@@ -151,6 +153,9 @@
       return { id: state.me.id, full_name: state.me.full_name, role: state.me.role };
     }
     for (var i = 0; i < state.users.length; i++) if (state.users[i].id === state.personaId) return state.users[i];
+    for (var j = 0; j < state.devUsers.length; j++) {
+      if (state.devUsers[j].id === state.personaId) return state.devUsers[j];
+    }
     return null;
   }
 
@@ -168,6 +173,97 @@
     if (rid > 1) return true;
     var rn = String(u.role || '').toLowerCase();
     return rn.indexOf('policy owner') !== -1 || rn.indexOf('system') !== -1;
+  }
+
+  /* ---------------------------------------------------------------- notify */
+  var NOTIFY_KIND = { assigned: 'Assigned', reply: 'Reply', triage: 'Triage' };
+
+  function paintBadges(n) {
+    var total = Number(n || 0);
+    ['.js-msg-badge', '.js-notify-count'].forEach(function (sel) {
+      var el = qa(sel);
+      if (!el) return;
+      el.textContent = total > 99 ? '99+' : String(total);
+      el.classList.toggle('is-hidden', total === 0);
+    });
+    var btn = qa('#notify-btn');
+    if (btn) btn.classList.toggle('has-unread', total > 0);
+  }
+
+  function loadNotifications() {
+    if (!state.token) return Promise.resolve();
+    return api('/messages/notifications').then(function (data) {
+      state.notifications = data || { unread_total: 0, items: [], triage_count: 0 };
+      paintBadges(state.notifications.unread_total);
+      renderNotificationPanel();
+    }).catch(function () { /* notifications are not critical to the page */ });
+  }
+
+  function timeAgo(iso) {
+    if (!iso) return '';
+    var then = new Date(iso).getTime();
+    if (isNaN(then)) return '';
+    var mins = Math.round((Date.now() - then) / 60000);
+    if (mins < 1) return 'now';
+    if (mins < 60) return mins + 'm';
+    if (mins < 1440) return Math.round(mins / 60) + 'h';
+    if (mins < 10080) return Math.round(mins / 1440) + 'd';
+    return fmtDate(iso);
+  }
+
+  function renderNotificationPanel() {
+    var list = qa('.js-notify-list');
+    if (!list) return;
+    var data = state.notifications || {};
+    list.innerHTML = '';
+    if (!data.items || !data.items.length) {
+      list.appendChild(h('div', { class: 'notify-empty', text: 'You are all caught up. Replies and assignments appear here.' }));
+    } else {
+      data.items.forEach(function (item) {
+        var row = h('button', { type: 'button', class: 'notify-item' }, [
+          h('span', { class: 'notify-kind kind-' + item.kind, text: NOTIFY_KIND[item.kind] || 'Reply' }),
+          h('span', { class: 'notify-main' }, [
+            h('span', { class: 'notify-subject', text: item.subject || 'Policy clarification' }),
+            h('span', { class: 'notify-snippet', text: snippet(item.snippet || '', 92) })
+          ]),
+          h('span', { class: 'notify-time', text: timeAgo(item.at) })
+        ]);
+        row.addEventListener('click', function () { openThreadFromNotice(item.thread_id); });
+        list.appendChild(row);
+      });
+    }
+
+    var foot = qa('.js-notify-foot');
+    if (!foot) return;
+    foot.innerHTML = '';
+    var triage = Number(data.triage_count || 0);
+    foot.appendChild(h('span', { class: 'notify-foot-meta', text: triage ? triage + ' unassigned in triage' : 'No unassigned threads' }));
+    foot.appendChild(h('button', { type: 'button', class: 'btn btn-ghost', text: 'Open Messages', onclick: function () { closeNotify(); goTo('#messages'); } }));
+  }
+
+  function goTo(hash) {
+    if (location.hash === hash) render();
+    else location.hash = hash;
+  }
+
+  function openThreadFromNotice(id) {
+    closeNotify();
+    state.inbox.threadId = id;
+    history.replaceState(null, '', '#messages/' + id);
+    render();
+  }
+
+  function toggleNotify(force) {
+    var panel = qa('.js-notify-panel');
+    var btn = qa('.js-notify');
+    if (!panel) return;
+    var show = typeof force === 'boolean' ? force : panel.classList.contains('is-hidden');
+    panel.classList.toggle('is-hidden', !show);
+    if (btn) btn.setAttribute('aria-expanded', show ? 'true' : 'false');
+  }
+
+  function closeNotify() {
+    toggleNotify(false);
   }
 
   /* ---------------------------------------------------------------- toast */
@@ -244,6 +340,8 @@
       state.inbox.thread = null;
       state.inbox.folder = 'inbox';
       state.inbox.q = '';
+      state.inbox.status = '';
+      state.inbox.threadId = null;
       render();
       loadNotifications();
     }).catch(function (err) {
@@ -257,7 +355,7 @@
     var hash = location.hash || '#assist';
     if (hash === '#governance' && !isGovernanceAllowed()) return 'assist';
     if (hash === '#library') return 'library';
-    if (hash === '#messages') return 'messages';
+    if (hash.indexOf('#messages') === 0) return 'messages';
     if (hash === '#governance') return 'governance';
     if (hash === '#pulse') return 'pulse';
     return 'assist';
@@ -268,6 +366,8 @@
     var v = currentView();
     if (v === null) { app.innerHTML = ''; renderBoot(); return; }
     app.innerHTML = '';
+    // The inbox needs three columns; every other surface keeps the editorial measure.
+    app.classList.toggle('is-wide', v === 'messages');
     var fn = v === 'library' ? renderLibrary
       : v === 'governance' ? renderGovernance
       : v === 'messages' ? renderMessages
@@ -312,18 +412,10 @@
     }
 
     var list = h('div', { class: 'gate-list' });
-    state.users.forEach(function (pers) {
-      var flag = pers.role_id === 2 ? 'Policy Owner' : pers.role_id === 3 ? 'System Admin' : pers.role_id === 1 ? 'Employee' : '';
-      var accessLabel = (function(){
-        if (pers.role && pers.role.name) {
-          var rn = pers.role.name.toUpperCase().replace(/_/g, ' ');
-          if (rn === 'SYSTEM ADMIN') return 'SYSTEM ADMIN';
-          if (rn === 'POLICY OWNER') return 'POLICY OWNER';
-          if (rn === 'EMPLOYEE') return 'EMPLOYEE';
-          return rn;
-        }
-        return flag.toUpperCase();
-      })();
+    var people = state.users.length ? state.users : state.devUsers;
+    people.forEach(function (pers) {
+      var roleName = (pers.role && pers.role.name) ? pers.role.name : (typeof pers.role === 'string' ? pers.role : '');
+      var accessLabel = roleName ? roleName.toUpperCase() : 'EMPLOYEE';
       var row = h('button', { type: 'button', class: 'gate-row' + (u && pers.id === u.id ? ' is-cur' : ''), onclick: function () { choosePersona(pers.id, true); } }, [
         h('span', { class: 'gate-avatar', text: initials(pers.full_name) }),
         h('span', { class: 'gate-id' }, [
@@ -661,6 +753,8 @@
       }
       if (r.needs_clarification) {
         bodyEl.appendChild(buildRouted(r));
+      } else {
+        bodyEl.appendChild(buildClarifyAction(r));
       }
       bodyEl.appendChild(buildFeedback(r));
     }
@@ -693,15 +787,100 @@
   }
 
   function buildRouted(r) {
-    var who = userName(r.assigned_to) || 'Policy Owner';
+    var who = userName(r.assigned_to) || (r.triage ? 'the administrator triage queue' : 'a policy owner');
+    var inner = h('div', null, [
+      h('h4', { text: 'Routed to a policy owner' }),
+      h('p', { text: 'This question needs a human judgment. It has been forwarded with a clarification request and will be answered there.' }),
+      h('div', { class: 'who', text: 'Assigned · ' + who })
+    ]);
+    if (r.clarification_request_id) {
+      inner.appendChild(h('button', {
+        type: 'button',
+        class: 'msgs-link',
+        text: 'Open thread #C-' + String(r.clarification_request_id).padStart(4, '0'),
+        onclick: function () { openThreadFromNotice(r.clarification_request_id); }
+      }));
+    }
     return h('div', { class: 'routed' }, [
       h('span', { class: 'ic-wrap', html: icon('route') }),
-      h('div', null, [
-        h('h4', { text: 'Routed to a policy owner' }),
-        h('p', { text: 'This question needs a human judgment. It has been forwarded with a clarification request and will be answered there.' }),
-        h('div', { class: 'who', text: 'Assigned · ' + who })
-      ])
+      inner
     ]);
+  }
+
+  /* A confident answer can still be incomplete. This lets the employee ask the
+     cited policy's owner for further clarification without leaving the answer;
+     the thread keeps the question, answer, citation, requester and timestamps. */
+  function buildClarifyAction(r) {
+    var wrap = h('div', { class: 'clarify-action' });
+    var toggleBtn = h('button', { type: 'button', class: 'btn btn-ghost clarify-open', html: icon('route') + '<span>Ask the policy owner</span>' });
+    toggleBtn.setAttribute('aria-expanded', 'false');
+    wrap.appendChild(toggleBtn);
+
+    var panel = h('div', { class: 'clarify-panel is-hidden' });
+    var ta = h('textarea', { rows: '3', placeholder: 'Add the detail the owner needs in order to answer well.', 'aria-label': 'What is still unclear?' });
+    var policySel = h('select', { class: 'clarify-select', 'aria-label': 'Policy to clarify' });
+    var cites = (r.citations || []).filter(function (c) { return c.policy_id; });
+    cites.forEach(function (c) {
+      policySel.appendChild(h('option', { value: String(c.policy_id), text: c.title + (c.version_no ? ' · v' + c.version_no : '') }));
+    });
+    var sendBtn = h('button', { type: 'button', class: 'send-btn', html: icon('send') + '<span>Send request</span>' });
+    sendBtn.setAttribute('aria-label', 'Send clarification request');
+    var status = h('div', { class: 'clarify-status', role: 'status' });
+
+    var field = h('label', { class: 'clarify-field' });
+    field.appendChild(h('span', { class: 'k', text: 'What is still unclear?' }));
+    field.appendChild(ta);
+
+    var controls = h('div', { class: 'clarify-controls' });
+    if (cites.length) controls.appendChild(policySel);
+    controls.appendChild(sendBtn);
+
+    panel.appendChild(field);
+    panel.appendChild(controls);
+    panel.appendChild(status);
+    wrap.appendChild(panel);
+
+    toggleBtn.addEventListener('click', function () {
+      var hidden = panel.classList.contains('is-hidden');
+      panel.classList.toggle('is-hidden', !hidden);
+      toggleBtn.setAttribute('aria-expanded', hidden ? 'true' : 'false');
+      if (hidden) { try { ta.focus(); } catch (e) {} }
+    });
+
+    sendBtn.addEventListener('click', function () {
+      var note = ta.value.trim();
+      status.innerHTML = '';
+      if (note.length < 2) {
+        status.appendChild(h('span', { class: 'err', text: 'Add a sentence so the owner has context.' }));
+        return;
+      }
+      if (!r.conversation_id) {
+        status.appendChild(h('span', { class: 'err', text: 'This answer is no longer linked to its conversation. Ask again to start a fresh thread.' }));
+        return;
+      }
+      sendBtn.disabled = true;
+      api('/clarifications', {
+        method: 'POST',
+        body: JSON.stringify({
+          conversation_id: r.conversation_id,
+          message_id: r.user_message_id,
+          policy_id: policySel.value ? parseInt(policySel.value, 10) : null,
+          context: note
+        })
+      }).then(function (t) {
+        sendBtn.disabled = false;
+        panel.classList.add('is-hidden');
+        status.appendChild(h('span', { class: 'ok', text: 'Request #C-' + String(t.id).padStart(4, '0') + ' sent to ' + ((t.assignee && t.assignee.name) || 'the triage queue') + '.' }));
+        status.appendChild(h('button', { type: 'button', class: 'msgs-link', text: 'Open thread', onclick: function () { openThreadFromNotice(t.id); } }));
+        toast('Clarification request opened.');
+        loadNotifications();
+      }).catch(function (err) {
+        sendBtn.disabled = false;
+        status.appendChild(h('span', { class: 'err', text: err.message }));
+      });
+    });
+
+    return wrap;
   }
 
   function buildFeedback(r) {
@@ -726,23 +905,47 @@
   }
 
   /* ---------------------------------------------------------------- messages
-     Internal Messages -- persisted clarification correspondence.
-
-     Each thread is one clarification_request: the employee who asked
-     (clarification_requests.user_id) and the policy owner it was routed to
-     (clarification_requests.assigned_to). Replies are stored in
-     clarification_replies and the originating question is the linked
-     messages.body. Persona switching is a LOCAL DEMO affordance only -- the
-     selected user_id is supplied by the client and is NOT authentication; when
-     JWT auth is wired in the sender must come from the verified token.
+     Week 7 internal messaging. A thread is one clarification_request: the
+     employee who asked is the requester, the policy owner is the assignee, the
+     originating question is the linked assistant message and replies live in
+     clarification_replies. Every call carries the bearer token minted for the
+     selected persona, so the server -- never the browser -- decides who is
+     acting and which threads are visible.
      ---------------------------------------------------------------------- */
-  function messagesApi(userId) {
-    return api('/messages?user_id=' + encodeURIComponent(userId));
+  var ESCALATION = {
+    open: { label: 'Open', cls: 'stamp-open' },
+    triage: { label: 'Open · Unassigned', cls: 'stamp-triage' },
+    awaiting_owner: { label: 'Awaiting Owner', cls: 'stamp-awaiting_owner' },
+    awaiting_employee: { label: 'Awaiting Employee', cls: 'stamp-awaiting_employee' },
+    resolved: { label: 'Resolved', cls: 'stamp-resolved' },
+    closed: { label: 'Closed', cls: 'stamp-closed' }
+  };
+  var FOLDER_LABELS = {
+    inbox: 'Inbox',
+    requests: 'My requests',
+    triage: 'Triage queue',
+    resolved: 'Resolved',
+    all: 'All threads'
+  };
+  var FOLDER_ORDER = ['inbox', 'requests', 'triage', 'resolved', 'all'];
+
+  function escalationMeta(key) {
+    return ESCALATION[key] || { label: String(key || '—'), cls: 'stamp-draft' };
   }
 
-  function snippet(text) {
+  function escalationStamp(key) {
+    var meta = escalationMeta(key);
+    return h('span', { class: 'stamp ' + meta.cls, html: '<span class="dot"></span>' + escText(meta.label) });
+  }
+
+  function snippet(text, max) {
     var body = String(text || '').replace(/\s+/g, ' ').trim();
-    return body.length > 96 ? body.slice(0, 96).trim() + '\u2026' : body;
+    var limit = max || 96;
+    return body.length > limit ? body.slice(0, limit).trim() + '\u2026' : body;
+  }
+
+  function myId() {
+    return state.me ? state.me.id : state.personaId;
   }
 
   function threadQuestion(t) {
@@ -750,25 +953,13 @@
   }
 
   function threadSubject(t) {
-    if (t.subject) return t.subject;
-    if (t.policy_title) return 'Clarification \u00b7 ' + t.policy_title;
-    return 'Policy clarification';
+    return t.subject || (t.policy && t.policy.title) || 'Policy clarification';
   }
 
-  function threadCounterpart(t) {
-    var me = currentUser();
-    if (me && t.user_id === me.id) return t.assignee || 'Policy Owner';
-    return t.requester || 'Employee';
-  }
-
-  function threadLastBody(t) {
-    if (t.last_reply && t.last_reply.body) return snippet(t.last_reply.body);
-    return snippet(threadQuestion(t));
-  }
-
-  function isAssignee(t) {
-    var me = currentUser();
-    return !!(me && t.assigned_to === me.id);
+  function counterpart(t) {
+    if (!t.requester) return { id: null, name: 'Employee' };
+    if (t.requester.id === myId()) return t.assignee || { id: null, name: 'Unassigned' };
+    return t.requester;
   }
 
   function fmtWhen(iso) {
@@ -779,260 +970,466 @@
       ' \u00b7 ' + d.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
   }
 
-  function threadStamp(status) {
-    return h('span', { class: 'stamp ' + stampCls(status), html: '<span class="dot"></span>' + escText(String(status || '').replace(/_/g, ' ')) });
+  function threadLabel(t) {
+    return 'Thread #C-' + String(t.id).padStart(4, '0');
+  }
+
+  function msgsErrBlock(mark, message) {
+    return h('div', { class: 'msgs-empty card' }, [
+      h('div', { class: 'mark', text: mark }),
+      h('div', { class: 'ok', text: message })
+    ]);
   }
 
   function renderMessages(app) {
-    var view = h('div', { class: 'view' });
+    var view = h('div', { class: 'view msgs-view' });
 
-    var head = h('div', { class: 'view-head' });
-    head.appendChild(h('p', { class: 'view-kicker', text: 'Internal Messages' }));
-    head.appendChild(h('h1', { class: 'view-title', html: 'Inbox &amp; <em>correspondence</em>' }));
-    head.appendChild(h('p', { class: 'view-sub', text: 'Clarification requests DeRexi routed to a policy owner, and the replies that follow. Every thread here is stored in the policy register.' }));
+    // Header: title plus a single scoped search field.
+    var head = h('div', { class: 'msgs-head' });
+    var copy = h('div', { class: 'msgs-head-copy' });
+    copy.appendChild(h('p', { class: 'view-kicker', text: 'Internal Messages' }));
+    copy.appendChild(h('h1', { class: 'view-title', html: 'Clarification <em>correspondence</em>' }));
+    copy.appendChild(h('p', { class: 'view-sub', text: 'Every thread below is a policy question DeRexi could not finish alone. Replies are stored in the policy register and visible only to the people in the conversation.' }));
+    head.appendChild(copy);
+
+    var search = h('div', { class: 'msgs-search' }, [
+      h('span', { class: 'msgs-search-ic', html: icon('search') }),
+      h('input', { type: 'search', placeholder: 'Search subject, question, reply or policy', 'aria-label': 'Search conversations' })
+    ]);
+    var searchInput = search.querySelector('input');
+    searchInput.value = state.inbox.q || '';
+    head.appendChild(search);
     view.appendChild(head);
+
+    var shell = h('div', { class: 'msgs-shell' });
+    var foldersEl = h('nav', { class: 'msgs-folders', 'aria-label': 'Mail folders' });
+    var listEl = h('section', { class: 'msgs-list', 'aria-label': 'Conversations' });
+    var detailEl = h('section', { class: 'msgs-detail', 'aria-label': 'Conversation detail' });
+    shell.appendChild(foldersEl);
+    shell.appendChild(listEl);
+    shell.appendChild(detailEl);
+    view.appendChild(shell);
     app.appendChild(view);
 
-    if (state.openThreadId) {
-      loadConversation(view, state.openThreadId);
-      return;
-    }
-    loadThreads(view);
-  }
-
-  function skelMessages() {
-    return h('div', { class: 'skel', style: 'height:260px;border-radius:16px;opacity:.7' });
-  }
-
-  function loadThreads(view) {
-    var host = h('div', null);
-    host.appendChild(skelMessages());
-    view.appendChild(host);
-
-    messagesApi(state.personaId).then(function (data) {
-      state.messagesData = { inbox: data.inbox || [], sent: data.sent || [] };
-      host.innerHTML = '';
-      host.appendChild(buildMessageTabs());
-      host.appendChild(buildThreadList(state.messagesData));
-    }).catch(function (err) {
-      host.innerHTML = '';
-      host.appendChild(h('div', { class: 'empty card' }, [
-        h('div', { class: 'mark', text: 'Messages unavailable' }),
-        h('div', { class: 'ok', text: err.message })
-      ]));
+    var debounce = null;
+    searchInput.addEventListener('input', function () {
+      if (debounce) clearTimeout(debounce);
+      debounce = setTimeout(function () {
+        state.inbox.q = searchInput.value.trim();
+        loadList();
+      }, 220);
     });
-  }
 
-  function buildMessageTabs() {
-    var tabs = h('div', { class: 'tabs', role: 'tablist' });
-    [['inbox', 'Inbox'], ['sent', 'Sent']].forEach(function (pair) {
-      var b = h('button', { type: 'button', class: 'tab' + (state.msgTab === pair[0] ? ' is-current' : ''), role: 'tab', dataset: { tab: pair[0] }, text: pair[1] });
-      b.addEventListener('click', function () {
-        if (state.msgTab === pair[0]) return;
-        state.msgTab = pair[0];
-        state.openThreadId = null;
-        render();
+    renderFolders();
+    listEl.appendChild(skeletonList());
+    detailEl.appendChild(placeholder());
+
+    // Deep link: #messages/<id> opens that thread directly (shareable URL).
+    var deep = /^#messages\/(\d+)$/.exec(location.hash || '');
+    if (deep && !state.inbox.threadId) state.inbox.threadId = parseInt(deep[1], 10);
+
+    loadList();
+    if (state.inbox.threadId) openThread(state.inbox.threadId, false);
+
+    /* --- folder rail --------------------------------------------------- */
+    function renderFolders() {
+      var data = state.inbox.data;
+      foldersEl.innerHTML = '';
+      foldersEl.appendChild(h('span', { class: 'msgs-rail-title', text: 'Mailbox' }));
+
+      var folders = data
+        ? data.folders
+        : FOLDER_ORDER.map(function (id) { return { id: id, label: FOLDER_LABELS[id], count: null, unread: 0 }; });
+
+      folders.forEach(function (f) {
+        var btn = h('button', {
+          type: 'button',
+          class: 'msgs-folder' + (state.inbox.folder === f.id ? ' is-current' : ''),
+          'aria-current': state.inbox.folder === f.id ? 'true' : null
+        }, [
+          h('span', { class: 'msgs-folder-name', text: f.label || FOLDER_LABELS[f.id] || f.id }),
+          h('span', { class: 'msgs-folder-count', text: (f.count === null || f.count === undefined) ? '\u2014' : String(f.count) }),
+          f.unread ? h('span', { class: 'msgs-folder-unread', text: String(f.unread) }) : null
+        ]);
+        btn.addEventListener('click', function () {
+          if (state.inbox.folder === f.id) return;
+          state.inbox.folder = f.id;
+          state.inbox.threadId = null;
+          history.replaceState(null, '', '#messages');
+          render();
+        });
+        foldersEl.appendChild(btn);
       });
-      tabs.appendChild(b);
-    });
-    return tabs;
-  }
 
-  function buildThreadList(data) {
-    var isSent = state.msgTab === 'sent';
-    var list = isSent ? data.sent : data.inbox;
-    var pane = h('div', { class: 'pane' });
-    pane.appendChild(h('div', { class: 'pane-head' }, [
-      h('h3', { text: isSent ? 'Sent' : 'Inbox' }),
-      h('span', { class: 'badge', text: String(list.length) + (isSent ? ' sent' : ' threads') })
-    ]));
-    var body = h('div', { class: 'pane-body thread-list' });
-    if (!list.length) {
-      body.appendChild(h('div', { class: 'empty' }, [
-        h('div', { class: 'mark', text: isSent ? 'Nothing sent' : 'Inbox clear' }),
-        h('div', { class: 'ok', text: isSent ? 'Questions DeRexi routes to a policy owner will appear here.' : 'No clarification requests have been routed to you.' })
-      ]));
-    } else {
-      list.forEach(function (t) { body.appendChild(buildThreadRow(t)); });
-    }
-    pane.appendChild(body);
-    return pane;
-  }
-
-  function buildThreadRow(t) {
-    var row = h('button', { type: 'button', class: 'thread-row', 'aria-label': 'Open thread: ' + threadSubject(t) }, [
-      h('span', { class: 'thread-avatar', text: initials(threadCounterpart(t)) }),
-      h('div', { class: 'thread-main' }, [
-        h('div', { class: 'thread-top' }, [
-          h('span', { class: 'thread-subject', text: threadSubject(t) }),
-          t.reply_count ? h('span', { class: 'badge', text: String(t.reply_count) + (t.reply_count === 1 ? ' reply' : ' replies') }) : null
-        ]),
-        h('div', { class: 'thread-people', text: t.requester + '  \u2192  ' + (t.assignee || 'Unassigned') }),
-        h('div', { class: 'thread-snippet', text: threadLastBody(t) })
-      ]),
-      h('div', { class: 'thread-side' }, [
-        h('span', { class: 'thread-time', text: fmtWhen(t.updated_at || t.created_at) }),
-        threadStamp(t.status)
-      ])
-    ]);
-    row.addEventListener('click', function () { state.openThreadId = t.id; render(); });
-    return row;
-  }
-
-  function loadConversation(view, id) {
-    var host = h('div', null);
-    host.appendChild(skelMessages());
-    view.appendChild(host);
-
-    api('/clarifications/' + id).then(function (t) {
-      state.threadData = t;
-      host.innerHTML = '';
-      host.appendChild(buildConversation(t));
-    }).catch(function (err) {
-      host.innerHTML = '';
-      host.appendChild(h('div', { class: 'empty card' }, [
-        h('div', { class: 'mark', text: 'Thread unavailable' }),
-        h('div', { class: 'ok', text: err.message })
-      ]));
-    });
-  }
-
-  function convField(k, v) {
-    return h('div', { class: 'conv-field' }, [
-      h('span', { class: 'k', text: k }),
-      h('span', { class: 'v', text: v })
-    ]);
-  }
-
-  function buildConversation(t) {
-    var wrap = h('div', null);
-
-    var back = h('button', { type: 'button', class: 'back-link', text: '\u2190 Back to ' + (state.msgTab === 'sent' ? 'Sent' : 'Inbox') });
-    back.addEventListener('click', function () { state.openThreadId = null; render(); });
-    wrap.appendChild(back);
-
-    var head = h('div', { class: 'conv-head card card-pad' });
-    head.appendChild(h('div', { class: 'conv-top' }, [
-      h('div', { class: 'conv-title-row' }, [
-        h('h2', { class: 'conv-subject', text: threadSubject(t) })
-      ]),
-      threadStamp(t.status)
-    ]));
-    head.appendChild(h('div', { class: 'conv-fields' }, [
-      convField('From', t.requester || 'Employee'),
-      convField('To', t.assignee || 'Unassigned'),
-      convField('Related policy', t.policy_title || (t.policy_id ? 'Policy ' + t.policy_id : 'None on file')),
-      convField('Opened', fmtWhen(t.created_at)),
-      convField('Clarification status', String(t.status).replace(/_/g, ' '))
-    ]));
-    if (t.policy_id) {
-      head.appendChild(h('div', { style: 'margin-top:14px' }, [
-        h('button', { type: 'button', class: 'btn btn-ghost', text: 'Open policy', onclick: function () { openDrawer(t.policy_id); } })
+      var isAdmin = state.me && state.me.role === 'System Administrator';
+      foldersEl.appendChild(h('div', { class: 'msgs-rail-note' }, [
+        h('span', { class: 'k', text: 'Privacy' }),
+        h('span', { class: 'v', text: isAdmin
+          ? 'Organisation-wide oversight, scoped to your administrator role.'
+          : 'Only threads you asked, own, or replied to are listed.' })
       ]));
     }
-    wrap.appendChild(head);
 
-    var events = threadEvents(t);
-    var sec = h('section', { class: 'section' });
-    sec.appendChild(h('div', { class: 'section-head' }, [
-      h('h2', { class: 'section-title', text: 'Conversation' }),
-      h('span', { class: 'section-meta', text: events.length + ' ' + (events.length === 1 ? 'message' : 'messages') })
-    ]));
-    var thread = h('div', { class: 'thread' });
-    events.forEach(function (m) { thread.appendChild(buildThreadMsg(m)); });
-    sec.appendChild(thread);
-    wrap.appendChild(sec);
-
-    if (t.status === 'resolved' || t.status === 'closed') {
-      wrap.appendChild(h('div', { class: 'empty card' }, [
-        h('div', { class: 'ok', text: 'This thread is ' + t.status + '. Ask a new question through DeRexi to reopen the discussion.' })
-      ]));
-    } else {
-      wrap.appendChild(buildReplyComposer(t));
+    /* --- conversation list --------------------------------------------- */
+    function skeletonList() {
+      var wrap = h('div', { class: 'msgs-skel' });
+      for (var i = 0; i < 4; i++) wrap.appendChild(h('div', { class: 'skel', style: 'height:74px;border-radius:16px;margin-bottom:10px' }));
+      return wrap;
     }
-    return wrap;
-  }
 
-  function threadEvents(t) {
-    var events = [{
-      id: 'question',
-      sender: t.requester || 'Employee',
-      mine: t.user_id === state.personaId,
-      body: threadQuestion(t),
-      at: t.created_at
-    }];
-    (t.replies || []).forEach(function (r) {
-      events.push({
-        id: 'reply-' + r.id,
-        sender: r.sender || 'Participant',
-        mine: r.sender_id === state.personaId,
-        body: r.body,
-        at: r.created_at
-      });
-    });
-    return events;
-  }
-
-  function buildThreadMsg(m) {
-    var avatar = m.mine
-      ? h('span', { class: 'msg-avatar avatar-user', text: initials(m.sender) })
-      : h('span', { class: 'msg-avatar avatar-peer', text: initials(m.sender) });
-    return h('div', { class: 'msg' + (m.mine ? ' msg-user' : '') }, [
-      avatar,
-      h('div', { class: 'msg-col' }, [
-        h('div', { class: 'msg-body', text: m.body }),
-        h('div', { class: 'msg-meta', text: m.sender + ' \u00b7 ' + fmtWhen(m.at) })
-      ])
-    ]);
-  }
-
-  function buildReplyComposer(t) {
-    var sec = h('section', { class: 'section' });
-    sec.appendChild(h('div', { class: 'section-head' }, [
-      h('h2', { class: 'section-title', text: 'Reply' })
-    ]));
-
-    var field = h('div', { class: 'reply-field' });
-    var ta = h('textarea', { rows: '3', placeholder: 'Write a reply to ' + threadCounterpart(t) + '. It is saved to the policy register.', value: '' });
-    ta.setAttribute('aria-label', 'Your reply');
-    var send = h('button', { type: 'button', class: 'send-btn', html: icon('send') + '<span>Send reply</span>' });
-    send.setAttribute('aria-label', 'Send reply');
-    var acts = h('div', { class: 'reply-actions' }, [send]);
-
-    if (isAssignee(t)) {
-      var resolveBtn = h('button', { type: 'button', class: 'btn btn-ghost', text: 'Mark resolved' });
-      resolveBtn.addEventListener('click', function () { resolveThread(t); });
-      acts.appendChild(resolveBtn);
-    }
-    field.appendChild(ta);
-    field.appendChild(acts);
-    sec.appendChild(field);
-
-    send.addEventListener('click', function () {
-      var v = ta.value.trim();
-      if (!v) { toast('Write a reply first.'); return; }
-      send.disabled = true;
-      api('/clarifications/' + t.id + '/replies', {
-        method: 'POST',
-        body: JSON.stringify({ sender_id: state.personaId, body: v })
-      }).then(function () {
-        toast('Reply sent.');
-        render();
+    function loadList() {
+      var qs = '?folder=' + encodeURIComponent(state.inbox.folder);
+      if (state.inbox.q) qs += '&q=' + encodeURIComponent(state.inbox.q);
+      if (state.inbox.status) qs += '&status=' + encodeURIComponent(state.inbox.status);
+      api('/messages' + qs).then(function (data) {
+        state.inbox.data = data;
+        renderFolders();
+        renderList(data);
+        loadNotifications();
       }).catch(function (err) {
-        send.disabled = false;
-        toast('Could not send reply (' + err.message + ')');
+        listEl.innerHTML = '';
+        listEl.appendChild(msgsErrBlock('Messages unavailable', err.message));
       });
-    });
-    return sec;
-  }
+    }
 
-  function resolveThread(t) {
-    api('/clarifications/' + t.id + '/resolve', { method: 'POST', body: JSON.stringify({}) }).then(function () {
-      toast('Request #' + t.id + ' marked resolved.');
-      render();
-    }).catch(function (err) {
-      toast('Could not resolve request (' + err.message + ')');
-    });
+    function renderList(data) {
+      listEl.innerHTML = '';
+
+      // Escalation filter row: the five product states on top of the DB state.
+      var filters = h('div', { class: 'msgs-filters', role: 'group', 'aria-label': 'Filter by escalation status' });
+      var options = [['', 'All']].concat(Object.keys(ESCALATION).map(function (key) { return [key, ESCALATION[key].label]; }));
+      options.forEach(function (pair) {
+        var chip = h('button', {
+          type: 'button',
+          class: 'msgs-filter' + ((state.inbox.status || '') === pair[0] ? ' is-current' : ''),
+          text: pair[1]
+        });
+        chip.addEventListener('click', function () {
+          state.inbox.status = pair[0];
+          state.inbox.threadId = null;
+          history.replaceState(null, '', '#messages');
+          render();
+        });
+        filters.appendChild(chip);
+      });
+      listEl.appendChild(filters);
+
+      listEl.appendChild(h('div', { class: 'msgs-list-meta' }, [
+        h('span', { class: 'n', text: String(data.threads.length) + (data.threads.length === 1 ? ' conversation' : ' conversations') }),
+        state.inbox.q ? h('span', { class: 'q', text: '\u201c' + state.inbox.q + '\u201d' }) : null
+      ]));
+
+      if (!data.threads.length) {
+        listEl.appendChild(msgsErrBlock(
+          state.inbox.q ? 'No matches' : 'Nothing here yet',
+          state.inbox.q
+            ? 'No conversation in this folder matched that search.'
+            : 'When DeRexi opens a clarification for you, it appears here.'
+        ));
+        return;
+      }
+
+      var rows = h('div', { class: 'msgs-rows' });
+      data.threads.forEach(function (t) { rows.appendChild(threadRow(t)); });
+      listEl.appendChild(rows);
+    }
+
+    function threadRow(t) {
+      var peer = counterpart(t);
+      var unread = Number(t.unread_count || 0) > 0;
+      var row = h('button', {
+        type: 'button',
+        class: 'msgs-row' + (unread ? ' is-unread' : '') + (state.inbox.threadId === t.id ? ' is-active' : ''),
+        dataset: { thread: String(t.id) },
+        'aria-label': 'Open conversation: ' + threadSubject(t)
+      }, [
+        h('span', { class: 'msgs-row-avatar', text: initials(peer.name) }),
+        h('span', { class: 'msgs-row-main' }, [
+          h('span', { class: 'msgs-row-top' }, [
+            h('span', { class: 'msgs-row-peer', text: peer.name }),
+            h('span', { class: 'msgs-row-time', text: timeAgo(t.updated_at || t.created_at) })
+          ]),
+          h('span', { class: 'msgs-row-subject', text: threadSubject(t) }),
+          h('span', { class: 'msgs-row-snippet', text: snippet(t.last_reply ? t.last_reply.body : threadQuestion(t), 112) }),
+          h('span', { class: 'msgs-row-stamps' }, [
+            escalationStamp(t.escalation_status),
+            t.is_triage ? h('span', { class: 'msgs-chip is-alert', text: 'Triage' }) : null,
+            t.policy ? h('span', { class: 'msgs-chip', text: 'Policy #' + t.policy.id }) : null
+          ])
+        ]),
+        unread ? h('span', { class: 'msgs-unread-dot', 'aria-label': 'Unread messages' }) : null
+      ]);
+      row.addEventListener('click', function () { openThread(t.id, true); });
+      return row;
+    }
+
+    /* --- detail pane ---------------------------------------------------- */
+    function placeholder() {
+      return h('div', { class: 'msgs-placeholder' }, [
+        h('span', { class: 'seal', html: icon('seal') }),
+        h('div', { class: 'mark', text: 'Select a conversation' }),
+        h('div', { class: 'ok', text: 'The full thread, the policy that raised it, and the owner to contact appear here.' })
+      ]);
+    }
+
+    function openThread(id, selectRow) {
+      state.inbox.threadId = id;
+      if (location.hash !== '#messages/' + id) history.replaceState(null, '', '#messages/' + id);
+      if (selectRow) {
+        var rows = listEl.querySelectorAll('.msgs-row');
+        for (var i = 0; i < rows.length; i++) {
+          rows[i].classList.toggle('is-active', rows[i].dataset.thread === String(id));
+        }
+      }
+      shell.classList.add('is-thread');
+      detailEl.innerHTML = '';
+      detailEl.appendChild(h('div', { class: 'msgs-placeholder' }, [h('div', { class: 'skel', style: 'height:320px;border-radius:18px' })]));
+
+      // Reading the thread clears its unread watermark server-side first, so the
+      // detail payload and the badge cannot disagree.
+      api('/clarifications/' + id + '/read', { method: 'POST', body: JSON.stringify({}) })
+        .catch(function () { /* a read failure must not hide the thread */ })
+        .then(function () { return api('/clarifications/' + id); })
+        .then(function (t) {
+          renderDetail(t);
+          loadNotifications();
+        })
+        .catch(function (err) {
+          detailEl.innerHTML = '';
+          detailEl.appendChild(msgsErrBlock('Thread unavailable', err.message));
+        });
+    }
+
+    function contactCard(label, person, note) {
+      var card = h('div', { class: 'msgs-contact' });
+      card.appendChild(h('span', { class: 'k', text: label }));
+      if (!person) {
+        card.appendChild(h('span', { class: 'v', text: 'Unassigned' }));
+        if (note) card.appendChild(h('span', { class: 'meta', text: note }));
+        return card;
+      }
+      card.appendChild(h('span', { class: 'v', text: person.name }));
+      var meta = [person.role, person.department].filter(Boolean).join(' \u00b7 ');
+      if (meta) card.appendChild(h('span', { class: 'meta', text: meta }));
+      card.appendChild(h('span', { class: 'email', text: person.email || 'Directory email restricted' }));
+      return card;
+    }
+
+    function streamMsg(m) {
+      var avatar = m.mine
+        ? h('span', { class: 'msg-avatar avatar-user', text: initials(m.sender) })
+        : h('span', { class: 'msg-avatar avatar-peer', text: initials(m.sender) });
+      var meta = m.sender + (m.role ? ' \u00b7 ' + m.role : '') + ' \u00b7 ' + fmtWhen(m.at);
+      return h('div', { class: 'msg' + (m.mine ? ' msg-user' : '') }, [
+        avatar,
+        h('div', { class: 'msg-col' }, [
+          h('div', { class: 'msg-body', text: m.body }),
+          h('div', { class: 'msg-meta', text: meta })
+        ])
+      ]);
+    }
+
+    function renderDetail(t) {
+      detailEl.innerHTML = '';
+      var perms = t.permissions || {};
+
+      // Heading: thread identity, escalation state, originating question.
+      var head = h('div', { class: 'msgs-detail-head' });
+      var top = h('div', { class: 'msgs-detail-top' }, [
+        h('div', { class: 'msgs-detail-titles' }, [
+          h('span', { class: 'msgs-thread-id', text: threadLabel(t) }),
+          h('h2', { class: 'msgs-detail-subject', text: threadSubject(t) })
+        ]),
+        escalationStamp(t.escalation_status)
+      ]);
+      head.appendChild(top);
+      head.appendChild(h('p', { class: 'msgs-detail-question', text: threadQuestion(t) }));
+      detailEl.appendChild(head);
+
+      // Workflow actions, driven by server-computed permissions.
+      var actions = h('div', { class: 'msgs-actions' });
+      if (perms.can_resolve) {
+        actions.appendChild(actionButton('Resolve thread', function () { threadAction(t.id, 'resolve', 'Thread resolved.'); }));
+      }
+      if (perms.can_close) {
+        actions.appendChild(actionButton('Close thread', function () { threadAction(t.id, 'close', 'Thread closed.'); }));
+      }
+      if (perms.can_reopen) {
+        actions.appendChild(actionButton('Reopen thread', function () { threadAction(t.id, 'reopen', 'Thread reopened.', { reason: 'Reopened from the inbox.' }); }));
+      }
+      if (perms.can_assign) actions.appendChild(assignControl(t));
+      if (actions.childNodes.length) detailEl.appendChild(actions);
+
+      // Participants: requester and the responsible policy owner.
+      var contacts = h('div', { class: 'msgs-contacts' }, [
+        contactCard('Requester', t.requester),
+        contactCard('Policy owner', t.assignee, t.is_triage ? 'No owner on the policy — held in the administrator triage queue.' : '')
+      ]);
+      detailEl.appendChild(contacts);
+
+      // A compact policy strip stays above the conversation; the full evidence
+      // (citation excerpts and the assistant's answer) follows the thread.
+      if (t.policy) {
+        detailEl.appendChild(h('div', { class: 'msgs-policybar' }, [
+          h('span', { class: 'k', text: 'Policy #' + t.policy.id }),
+          h('span', { class: 'v', text: t.policy.title }),
+          h('button', { type: 'button', class: 'msgs-link', text: 'Open policy', onclick: function () { openDrawer(t.policy.id); } })
+        ]));
+      }
+
+      var context = h('section', { class: 'msgs-context' });
+      context.appendChild(h('div', { class: 'msgs-section-head' }, [
+        h('h3', { text: 'Contextual policy' }),
+        t.policy ? h('button', { type: 'button', class: 'msgs-link', text: 'Open policy', onclick: function () { openDrawer(t.policy.id); } }) : null
+      ]));
+      if (t.policy) {
+        context.appendChild(h('div', { class: 'msgs-context-card' }, [
+          h('span', { class: 'k', text: 'Policy reference' }),
+          h('span', { class: 'v', text: t.policy.title }),
+          h('span', { class: 'meta', text: 'Policy #' + t.policy.id })
+        ]));
+      } else {
+        context.appendChild(h('p', { class: 'msgs-muted', text: 'No policy is linked to this thread; it is held in triage.' }));
+      }
+      if (t.citations && t.citations.length) {
+        t.citations.slice(0, 2).forEach(function (c) {
+          context.appendChild(h('div', { class: 'msgs-citation' }, [
+            h('span', { class: 'ct', text: (c.title || 'Cited policy') + (c.version_no ? ' \u00b7 v' + c.version_no : '') }),
+            h('span', { class: 'cx', text: snippet(c.excerpt || '', 220) })
+          ]));
+        });
+      }
+      if (t.answer) {
+        context.appendChild(h('div', { class: 'msgs-answer' }, [
+          h('span', { class: 'k', text: 'Policy Assistant answered' }),
+          h('div', { class: 'v', text: t.answer })
+        ]));
+      }
+
+      // The conversation itself: question first, then every stored reply.
+      var convo = h('section', { class: 'msgs-convo' });
+      convo.appendChild(h('div', { class: 'msgs-section-head' }, [
+        h('h3', { text: 'Conversation' }),
+        h('span', { class: 'meta', text: (1 + (t.replies || []).length) + ((1 + (t.replies || []).length) === 1 ? ' message' : ' messages') })
+      ]));
+      var stream = h('div', { class: 'msgs-stream' });
+      stream.appendChild(streamMsg({
+        sender: t.requester ? t.requester.name : 'Employee',
+        mine: !!(t.requester && t.requester.id === myId()),
+        body: threadQuestion(t),
+        at: t.created_at,
+        role: t.requester ? t.requester.role : ''
+      }));
+      (t.replies || []).forEach(function (r) {
+        stream.appendChild(streamMsg({ sender: r.sender, mine: r.mine, body: r.body, at: r.created_at, role: r.sender_role }));
+      });
+      convo.appendChild(stream);
+      detailEl.appendChild(convo);
+
+      // Reply box only while the thread is live.
+      if (perms.can_reply) {
+        detailEl.appendChild(composer(t));
+      } else {
+        detailEl.appendChild(h('div', { class: 'msgs-locked' }, [
+          h('span', { class: 'k', text: t.status === 'closed' ? 'Thread closed' : 'Thread resolved' }),
+          h('span', { class: 'v', text: perms.can_reopen
+            ? 'Reopen the thread to continue the conversation.'
+            : 'Only the requester or an administrator can reopen it.' })
+        ]));
+      }
+
+      detailEl.appendChild(context);
+    }
+
+    function actionButton(label, handler) {
+      var btn = h('button', { type: 'button', class: 'btn btn-ghost', text: label });
+      btn.addEventListener('click', handler);
+      return btn;
+    }
+
+    function assignControl(t) {
+      var wrap = h('div', { class: 'msgs-assign' });
+      var sel = h('select', { class: 'msgs-assign-select', 'aria-label': 'Assign to a policy owner' });
+      sel.appendChild(h('option', { value: '', text: 'Assign to…' }));
+      state.users
+        .filter(function (u) { return u.role === 'Policy Owner' || u.role === 'System Administrator'; })
+        .forEach(function (u) {
+          sel.appendChild(h('option', {
+            value: String(u.id),
+            text: u.full_name + ' \u00b7 ' + titleRole(u.role),
+            selected: !!(t.assignee && t.assignee.id === u.id)
+          }));
+        });
+      var btn = h('button', { type: 'button', class: 'btn btn-ghost', text: 'Assign' });
+      btn.addEventListener('click', function () {
+        var target = parseInt(sel.value, 10);
+        if (!target) { toast('Choose a policy owner first.'); return; }
+        btn.disabled = true;
+        api('/clarifications/' + t.id + '/assign', { method: 'POST', body: JSON.stringify({ assignee_id: target }) })
+          .then(function () {
+            toast('Thread reassigned.');
+            openThread(t.id, false);
+            loadList();
+          })
+          .catch(function (err) {
+            btn.disabled = false;
+            toast('Could not reassign (' + err.message + ')');
+          });
+      });
+      wrap.appendChild(sel);
+      wrap.appendChild(btn);
+      return wrap;
+    }
+
+    function threadAction(id, action, message, payload) {
+      api('/clarifications/' + id + '/' + action, {
+        method: 'POST',
+        body: JSON.stringify(payload || {})
+      }).then(function () {
+        toast(message);
+        openThread(id, false);
+        loadList();
+      }).catch(function (err) {
+        toast('Could not update the thread (' + err.message + ')');
+      });
+    }
+
+    function composer(t) {
+      var wrap = h('div', { class: 'msgs-composer' });
+      var ta = h('textarea', { rows: '3', placeholder: 'Reply to ' + counterpart(t).name + '\u2026', 'aria-label': 'Your reply' });
+      var send = h('button', { type: 'button', class: 'send-btn', html: icon('send') + '<span>Send reply</span>' });
+      send.setAttribute('aria-label', 'Send reply');
+
+      function submit() {
+        var body = ta.value.trim();
+        if (!body) { toast('Write a reply first.'); return; }
+        send.disabled = true;
+        api('/clarifications/' + t.id + '/replies', {
+          method: 'POST',
+          body: JSON.stringify({ body: body })
+        }).then(function () {
+          toast('Reply sent.');
+          ta.value = '';
+          openThread(t.id, false);
+          loadList();
+        }).catch(function (err) {
+          send.disabled = false;
+          toast('Could not send reply (' + err.message + ')');
+        });
+      }
+
+      send.addEventListener('click', submit);
+      ta.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' && (e.metaKey || e.ctrlKey)) { e.preventDefault(); submit(); }
+      });
+
+      wrap.appendChild(ta);
+      wrap.appendChild(h('div', { class: 'msgs-composer-foot' }, [
+        h('span', { class: 'msgs-hint', text: '\u2318 / Ctrl + Enter to send' }),
+        send
+      ]));
+      return wrap;
+    }
   }
 
   /* ---------------------------------------------------------------- library */
@@ -1571,29 +1968,8 @@
   /* ---------------------------------------------------------------- boot */
   document.addEventListener('DOMContentLoaded', function () {
     setRecon();
-    loadAll().then(function () {
-      qaa('.btn-recon').forEach(function (b) {
-        b.addEventListener('click', openGateForSwap);
-      });
-      window.addEventListener('hashchange', function () { render(); });
-      window.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape') {
-          if (qa('.drawer')) {
-            var d = qa('.drawer');
-            d.remove();
-            var bk = qa('.backdrop');
-            if (bk) bk.remove();
-            document.body.style.overflow = '';
-          } else if (qa('.js-gate') && isSwapGate()) {
-            closeGate();
-          }
-        }
-      });
-      restorePersona();
-      buildPersonaSelect();
-      refreshNav();
-      render();
-    }).catch(function (err) {
+    wireChrome();
+    startSession().catch(function (err) {
       var app = qa('#app');
       app.innerHTML = '';
       app.appendChild(h('div', { class: 'empty card' }, [
@@ -1603,18 +1979,100 @@
     });
   });
 
+  /* Ask the server which sign-in path exists, obtain a session, then load the
+     directory. The server decides everything: the browser never asserts a role. */
+  function startSession() {
+    return fetch('/auth/config', { credentials: 'same-origin' })
+      .then(function (r) { return r.json(); })
+      .then(function (cfg) {
+        state.authConfig = cfg;
+        state.devAuth = !!cfg.dev_auth;
+        state.devUsers = cfg.identities || [];
+        if (!state.devAuth) { renderProductionGate(); return; }
+        restorePersona();
+        return refreshDevToken()
+          .then(function () { return loadAll(); })
+          .then(function () {
+            buildPersonaSelect();
+            refreshNav();
+            render();
+            return loadNotifications();
+          })
+          .then(function () {
+            // ?notify=1 opens the notification drawer for screenshots/evidence.
+            if (new URLSearchParams(location.search).get('notify') === '1') toggleNotify(true);
+          });
+      });
+  }
+
+  /* Production has no browser session yet: say so plainly instead of faking auth. */
+  function renderProductionGate() {
+    var app = qa('#app');
+    app.classList.remove('is-hidden');
+    app.innerHTML = '';
+    app.appendChild(h('div', { class: 'view' }, [
+      h('div', { class: 'empty card' }, [
+        h('div', { class: 'mark', text: 'Sign-in required' }),
+        h('div', { class: 'ok', text: 'This deployment verifies Supabase sessions. Sign in through the identity provider to open the register.' })
+      ])
+    ]));
+  }
+
+  function wireChrome() {
+    qaa('.btn-recon').forEach(function (b) { b.addEventListener('click', openGateForSwap); });
+
+    var notifyBtn = qa('.js-notify');
+    if (notifyBtn) notifyBtn.addEventListener('click', function (e) { e.stopPropagation(); toggleNotify(); });
+    var notifyClose = qa('.js-notify-close');
+    if (notifyClose) notifyClose.addEventListener('click', closeNotify);
+    document.addEventListener('click', function (e) {
+      var panel = qa('.js-notify-panel');
+      if (!panel || panel.classList.contains('is-hidden')) return;
+      if (panel.contains(e.target) || (notifyBtn && notifyBtn.contains(e.target))) return;
+      closeNotify();
+    });
+
+    window.addEventListener('hashchange', function () {
+      // Navigating to the plain inbox always returns to the conversation list.
+      if (location.hash === '#messages') state.inbox.threadId = null;
+      render();
+    });
+    window.addEventListener('keydown', function (e) {
+      if (e.key !== 'Escape') return;
+      var panel = qa('.js-notify-panel');
+      if (panel && !panel.classList.contains('is-hidden')) { closeNotify(); return; }
+      if (qa('.drawer')) {
+        var d = qa('.drawer');
+        d.remove();
+        var bk = qa('.backdrop');
+        if (bk) bk.remove();
+        document.body.style.overflow = '';
+      } else if (qa('.js-gate') && isSwapGate()) {
+        closeGate();
+      }
+    });
+  }
+
   function isSwapGate() {
     var gate = qa('.js-gate');
     return gate && gate.querySelector('.gate-close');
   }
 
   function restorePersona() {
-    var saved = localStorage.getItem('derexi.personaId');
-    if (saved) {
-      var id = parseInt(saved, 10);
-      for (var i = 0; i < state.users.length; i++) if (state.users[i].id === id) { state.personaId = id; return; }
+    var people = state.devUsers.length ? state.devUsers : state.users;
+    // ?as=<user id> is a development-only deep link used for screenshots and
+    // role-by-role review; it selects a seeded persona, never a role.
+    var requested = parseInt((new URLSearchParams(location.search).get('as') || ''), 10);
+    if (requested) {
+      for (var k = 0; k < people.length; k++) if (people[k].id === requested) { state.personaId = requested; return; }
     }
-    state.personaId = 8;
+    var saved = parseInt(localStorage.getItem('derexi.personaId') || '', 10);
+    if (saved) {
+      for (var i = 0; i < people.length; i++) if (people[i].id === saved) { state.personaId = saved; return; }
+    }
+    // Sam Okonkwo (employee) is the default experience when the seed is present.
+    for (var j = 0; j < people.length; j++) if (people[j].id === 8) { state.personaId = 8; return; }
+    state.personaId = people.length ? people[0].id : 8;
   }
 
   function openGateForSwap() {

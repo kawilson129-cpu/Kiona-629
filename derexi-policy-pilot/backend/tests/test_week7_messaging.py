@@ -153,6 +153,8 @@ def main_test():
         thread = created.json()
         thread_id = thread["id"]
         check("request routes to the policy owner", thread["assignee"] and thread["assignee"]["id"] == jordan)
+        check("thread exposes the owner contact record", bool(thread["assignee"]["email"]) and thread["assignee"]["role"] == "Policy Owner")
+        check("escalation starts as awaiting the owner", thread["escalation_status"] == "awaiting_owner", thread["escalation_status"])
         check("originating question is preserved", thread["question"] == "How do I request an accommodation?")
         check("originating answer is preserved", "submit the accommodation form" in (thread["answer"] or ""))
         check("policy citation is preserved", len(thread["citations"]) == 1 and thread["citations"][0]["policy_id"] == policy_id)
@@ -200,6 +202,7 @@ def main_test():
 
         sam_view = client.get(f"/clarifications/{thread_id}", headers=auth(sam)).json()
         check("employee sees the owner reply", any("electronic signature" in r["body"] for r in sam_view["replies"]))
+        check("escalation moves to awaiting the employee", sam_view["escalation_status"] == "awaiting_employee", sam_view["escalation_status"])
         check("employee thread is unread after the reply", sam_view["unread_count"] >= 1)
         sam_notifications = client.get("/messages/notifications", headers=auth(sam)).json()
         check(
@@ -224,9 +227,21 @@ def main_test():
             "owner is notified of the employee reply",
             client.get("/messages/notifications", headers=auth(jordan)).json()["unread_total"] >= 1,
         )
+        after_employee = client.get(f"/clarifications/{thread_id}", headers=auth(jordan)).json()
+        check("employee reply hands the thread back to the owner", after_employee["escalation_status"] == "awaiting_owner", after_employee["escalation_status"])
 
         resolved = client.post(f"/clarifications/{thread_id}/resolve", headers=auth(jordan))
         check("owner can resolve", resolved.status_code == 200 and resolved.json()["status"] == "resolved")
+        check(
+            "resolved thread reports the resolved escalation state",
+            client.get(f"/clarifications/{thread_id}", headers=auth(jordan)).json()["escalation_status"] == "resolved",
+        )
+        closed = client.post(f"/clarifications/{thread_id}/close", headers=auth(jordan))
+        check("owner can close a resolved thread", closed.status_code == 200 and closed.json()["status"] == "closed", closed.text[:200])
+        check(
+            "closed thread reports the closed escalation state",
+            client.get(f"/clarifications/{thread_id}", headers=auth(sam)).json()["escalation_status"] == "closed",
+        )
         closed_reply = client.post(
             f"/clarifications/{thread_id}/replies",
             json={"body": "one more thing"},
@@ -242,6 +257,34 @@ def main_test():
         check("requester can reopen", reopened.status_code == 200 and reopened.json()["status"] == "open")
         reopened_view = client.get(f"/clarifications/{thread_id}", headers=auth(sam)).json()
         check("reopen is recorded in history", any("reopened" in r["body"].lower() or "expired" in r["body"].lower() for r in reopened_view["replies"]))
+        check("reopened thread awaits the owner again", reopened_view["escalation_status"] == "awaiting_owner", reopened_view["escalation_status"])
+
+        # --- Escalation filters --------------------------------------------
+        awaiting_owner_filter = client.get(
+            "/messages?folder=requests&status=awaiting_owner", headers=auth(sam)
+        ).json()
+        check(
+            "status filter selects threads awaiting the owner",
+            any(item["id"] == thread_id for item in awaiting_owner_filter["threads"]),
+        )
+        resolved_filter = client.get(
+            "/messages?folder=requests&status=resolved", headers=auth(sam)
+        ).json()
+        check(
+            "status filter excludes threads that are no longer resolved",
+            not any(item["id"] == thread_id for item in resolved_filter["threads"]),
+        )
+        check(
+            "unknown escalation status is rejected",
+            client.get("/messages?status=bogus", headers=auth(sam)).status_code == 422,
+        )
+        check(
+            "search matches the thread question",
+            any(
+                item["id"] == thread_id
+                for item in client.get("/messages?folder=requests&q=accommodation", headers=auth(sam)).json()["threads"]
+            ),
+        )
 
         # --- Isolation -----------------------------------------------------
         check("unrelated owner cannot read the thread", client.get(f"/clarifications/{thread_id}", headers=auth(rachel)).status_code == 404)

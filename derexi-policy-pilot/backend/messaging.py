@@ -64,7 +64,13 @@ SELECT cr.id, cr.conversation_id, cr.message_id, cr.user_id, cr.policy_id,
        cr.reason, cr.status, cr.assigned_to, cr.resolved_at, cr.created_at,
        p.title AS policy_title,
        ru.first_name || ' ' || ru.last_name AS requester_name,
+       ru.email AS requester_email,
+       rud.name AS requester_department,
+       rro.name AS requester_role,
        au.first_name || ' ' || au.last_name AS assignee_name,
+       au.email AS assignee_email,
+       aud.name AS assignee_department,
+       aro.name AS assignee_role,
        qm.body AS question_body,
        (SELECT count(*) FROM clarification_replies r
           WHERE r.request_id = cr.id) AS reply_count,
@@ -81,6 +87,10 @@ FROM clarification_requests cr
 LEFT JOIN policies p ON p.id = cr.policy_id
 LEFT JOIN users ru ON ru.id = cr.user_id
 LEFT JOIN users au ON au.id = cr.assigned_to
+LEFT JOIN departments rud ON rud.id = ru.department_id
+LEFT JOIN departments aud ON aud.id = au.department_id
+LEFT JOIN roles rro ON rro.id = ru.role_id
+LEFT JOIN roles aro ON aro.id = au.role_id
 LEFT JOIN messages qm ON qm.id = cr.message_id
 LEFT JOIN clarification_reads rd
        ON rd.request_id = cr.id AND rd.user_id = :uid
@@ -99,6 +109,32 @@ LEFT JOIN LATERAL (
 # ---------------------------------------------------------------------------
 def _iso(value) -> Optional[str]:
     return value.isoformat() if value else None
+
+
+# The database keeps four workflow states (open, in_progress, resolved,
+# closed). The product vocabulary is five: who is holding the thread next.
+# Deriving it once on the server keeps the UI and the API in agreement.
+ESCALATION_STATUSES = (
+    "open",
+    "triage",
+    "awaiting_owner",
+    "awaiting_employee",
+    "resolved",
+    "closed",
+)
+
+
+def _escalation_status(row) -> str:
+    if row["status"] == "closed":
+        return "closed"
+    if row["status"] == "resolved":
+        return "resolved"
+    if row["assigned_to"] is None:
+        return "triage"
+    last_sender = row["last_reply_sender"]
+    if last_sender is None or last_sender == row["user_id"]:
+        return "awaiting_owner"
+    return "awaiting_employee"
 
 
 def _unread_count(row, identity: Identity) -> int:
@@ -126,6 +162,7 @@ def _permissions(row, identity: Identity) -> dict:
         "can_reply": participant and not closed,
         "can_resolve": participant and not closed,
         "can_reopen": (row["user_id"] == me or identity.is_admin) and closed,
+        "can_close": participant and row["status"] == "resolved",
         "can_assign": identity.is_admin,
     }
 
@@ -139,13 +176,26 @@ def _serialize(row, identity: Identity) -> dict:
             if row["policy_id"]
             else None
         ),
-        "requester": {"id": row["user_id"], "name": row["requester_name"]},
+        "requester": {
+            "id": row["user_id"],
+            "name": row["requester_name"],
+            "email": row["requester_email"],
+            "role": row["requester_role"],
+            "department": row["requester_department"],
+        },
         "assignee": (
-            {"id": row["assigned_to"], "name": row["assignee_name"]}
+            {
+                "id": row["assigned_to"],
+                "name": row["assignee_name"],
+                "email": row["assignee_email"],
+                "role": row["assignee_role"],
+                "department": row["assignee_department"],
+            }
             if row["assigned_to"]
             else None
         ),
         "status": row["status"],
+        "escalation_status": _escalation_status(row),
         "is_triage": row["assigned_to"] is None,
         "question": row["question_body"] or row["reason"] or "",
         "reason": row["reason"],
@@ -189,6 +239,35 @@ def _validate_folder(folder: str, identity: Identity) -> None:
         raise HTTPException(status_code=403, detail="Administrator access required")
 
 
+LAST_REPLY_SENDER = (
+    "(SELECT lrs.sender_id FROM clarification_replies lrs "
+    "WHERE lrs.request_id = cr.id ORDER BY lrs.created_at DESC, lrs.id DESC LIMIT 1)"
+)
+
+
+def _status_predicate(status: Optional[str]) -> str:
+    """SQL for the derived escalation vocabulary; also used by folder counts."""
+    if not status:
+        return "TRUE"
+    if status == "open":
+        return "cr.status = 'open'"
+    if status == "triage":
+        return "cr.assigned_to IS NULL AND cr.status IN ('open', 'in_progress')"
+    if status == "awaiting_owner":
+        return (
+            "cr.status IN ('open', 'in_progress') AND cr.assigned_to IS NOT NULL "
+            f"AND COALESCE({LAST_REPLY_SENDER}, cr.user_id) = cr.user_id"
+        )
+    if status == "awaiting_employee":
+        return (
+            "cr.status IN ('open', 'in_progress') AND cr.assigned_to IS NOT NULL "
+            f"AND {LAST_REPLY_SENDER} IS NOT NULL AND {LAST_REPLY_SENDER} <> cr.user_id"
+        )
+    if status in ("resolved", "closed"):
+        return f"cr.status = '{status}'"
+    raise HTTPException(status_code=422, detail="Unknown escalation status")
+
+
 def _base_params(identity: Identity, include_search: bool = False, q: Optional[str] = None) -> dict:
     params = {"uid": identity.user_id}
     clause, scope_params = visibility_sql(identity, "cr")
@@ -208,7 +287,9 @@ def _search_predicate() -> str:
     )
 
 
-def _thread_count(db: Session, identity: Identity, folder: str, q: Optional[str]) -> tuple:
+def _thread_count(
+    db: Session, identity: Identity, folder: str, q: Optional[str] = None, status: Optional[str] = None
+) -> tuple:
     params = _base_params(identity, include_search=True, q=q)
     row = db.execute(
         text(
@@ -230,6 +311,7 @@ def _thread_count(db: Session, identity: Identity, folder: str, q: Optional[str]
             LEFT JOIN clarification_reads rd
                    ON rd.request_id = cr.id AND rd.user_id = :uid
             WHERE ({params['scope']}) AND {_folder_predicate(folder)}
+              AND {_status_predicate(status)}
               AND {_search_predicate()}
             """
         ),
@@ -368,6 +450,7 @@ def _participants(db: Session, row, replies) -> list:
 def list_messages(
     folder: str = Query(default="inbox"),
     q: Optional[str] = Query(default=None, max_length=100),
+    status: Optional[str] = Query(default=None),
     limit: int = Query(default=50, ge=1, le=100),
     offset: int = Query(default=0, ge=0),
     identity: Identity = Depends(get_identity),
@@ -375,6 +458,7 @@ def list_messages(
 ) -> dict:
     """Scoped, searchable thread list plus folder counts and unread totals."""
     _validate_folder(folder, identity)
+    status_clause = _status_predicate(status)
     params = _base_params(identity, include_search=True, q=q)
     params.update({"limit": limit, "offset": offset})
     rows = db.execute(
@@ -382,6 +466,7 @@ def list_messages(
             f"""
             {THREAD_SELECT}
             WHERE ({params['scope']}) AND {_folder_predicate(folder)}
+              AND {status_clause}
               AND {_search_predicate()}
             ORDER BY last_activity DESC, cr.id DESC
             LIMIT :limit OFFSET :offset
@@ -394,7 +479,8 @@ def list_messages(
     for name in FOLDERS:
         if name in ADMIN_ONLY_FOLDERS and not identity.is_admin:
             continue
-        total, unread = _thread_count(db, identity, name, q)
+        # Folder badges describe the folder, not the current search result.
+        total, unread = _thread_count(db, identity, name)
         folders.append(
             {
                 "id": name,
@@ -418,6 +504,8 @@ def list_messages(
     return {
         "folder": folder,
         "query": q or "",
+        "status": status or "",
+        "escalation_statuses": list(ESCALATION_STATUSES),
         "threads": [_serialize(row, identity) for row in rows],
         "folders": folders,
         "unread_total": unread_total,
@@ -738,6 +826,34 @@ def resolve_clarification(
         request.resolved_at = datetime.now(timezone.utc)
         _mark_read(db, request_id, identity.user_id)
         db.commit()
+    return {"id": request.id, "status": request.status, "resolved_at": _iso(request.resolved_at)}
+
+
+@router.post("/clarifications/{request_id}/close")
+def close_clarification(
+    request_id: int,
+    identity: Identity = Depends(get_identity),
+    db: Session = Depends(get_db),
+) -> dict:
+    """Resolved threads may be archived as closed; only participants or admins."""
+    assert_thread_access(db, identity, request_id)
+    request = db.get(ClarificationRequest, request_id)
+    if not request:
+        raise HTTPException(status_code=404, detail="Clarification request not found")
+    allowed = (
+        identity.is_admin
+        or request.user_id == identity.user_id
+        or request.assigned_to == identity.user_id
+    )
+    if not allowed:
+        raise HTTPException(status_code=403, detail="Only a participant can close this thread")
+    if request.status == "closed":
+        return {"id": request.id, "status": "closed", "resolved_at": _iso(request.resolved_at)}
+    if request.status != "resolved":
+        raise HTTPException(status_code=409, detail="Resolve the thread before closing it")
+
+    request.status = "closed"
+    db.commit()
     return {"id": request.id, "status": request.status, "resolved_at": _iso(request.resolved_at)}
 
 
