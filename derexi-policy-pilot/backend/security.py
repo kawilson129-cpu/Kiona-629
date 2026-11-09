@@ -24,7 +24,7 @@ from dataclasses import dataclass
 from typing import Optional, Tuple
 
 import jwt
-from fastapi import Depends, Header, HTTPException
+from fastapi import Depends, Header, HTTPException, Request
 from sqlalchemy import text
 from sqlalchemy.orm import Session
 
@@ -138,12 +138,15 @@ def identity_from_user_row(row, source: str) -> Identity:
 
 
 def get_identity(
+    request: Request,
     authorization: Optional[str] = Header(default=None, alias="Authorization"),
     db: Session = Depends(get_db),
 ) -> Identity:
     """FastAPI dependency: authenticate the bearer token and load the user."""
     token = extract_bearer(authorization)
     claims, source = verify_token(token)
+    if source == "dev":
+        dev_auth._require_dev_request(request)
 
     email = str(claims.get("email") or "").strip().lower()
     if not email:

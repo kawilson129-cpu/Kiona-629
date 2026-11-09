@@ -1,0 +1,111 @@
+{
+  "mode": "Isolated real API + SQLite; illustrative records",
+  "checks": [
+    {
+      "name": "three panels render on desktop",
+      "status": "PASS"
+    },
+    {
+      "name": "selected conversation loads its real replies",
+      "status": "PASS"
+    },
+    {
+      "name": "reading clears the selected row unread dot",
+      "status": "PASS"
+    },
+    {
+      "name": "hash navigation selects the requested thread",
+      "status": "PASS"
+    },
+    {
+      "name": "draft survives navigation within the same test session",
+      "status": "PASS"
+    },
+    {
+      "name": "owner receives assignment notification",
+      "status": "PASS"
+    },
+    {
+      "name": "double click sends only one stored reply",
+      "status": "PASS"
+    },
+    {
+      "name": "resolve disables the reply composer",
+      "status": "PASS"
+    },
+    {
+      "name": "employee reopens and sees persisted workflow history",
+      "status": "PASS"
+    },
+    {
+      "name": "administrator has organization oversight and assignment controls",
+      "status": "PASS"
+    },
+    {
+      "name": "no page overflow at 1440px",
+      "status": "PASS"
+    },
+    {
+      "name": "no page overflow at 1280px",
+      "status": "PASS"
+    },
+    {
+      "name": "no page overflow at 1024px",
+      "status": "PASS"
+    },
+    {
+      "name": "no page overflow at 820px",
+      "status": "PASS"
+    },
+    {
+      "name": "no page overflow at 390px",
+      "status": "PASS"
+    },
+    {
+      "name": "mobile back restores the conversation list",
+      "status": "PASS"
+    },
+    {
+      "name": "unrelated owner receives an access-denied view",
+      "status": "PASS"
+    },
+    {
+      "name": "pagination reaches threads beyond the first 25",
+      "status": "PASS"
+    },
+    {
+      "name": "previous page returns to the first 25",
+      "status": "PASS"
+    },
+    {
+      "name": "search has a meaningful empty state",
+      "status": "PASS"
+    },
+    {
+      "name": "navigation opens assist",
+      "status": "PASS"
+    },
+    {
+      "name": "navigation opens library",
+      "status": "PASS"
+    },
+    {
+      "name": "navigation opens pulse",
+      "status": "PASS"
+    },
+    {
+      "name": "Pulse view stays read-only",
+      "status": "PASS"
+    },
+    {
+      "name": "navigation opens messages",
+      "status": "PASS"
+    },
+    {
+      "name": "no runtime exceptions",
+      "status": "PASS",
+      "detail": []
+    }
+  ],
+  "errors": []
+}

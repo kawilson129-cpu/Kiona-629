@@ -4,9 +4,8 @@ Run from backend/:
 
     ../.venv/bin/python tests/test_week7_messaging.py
 
-The suite uses the real schema, but every write happens inside one outer
-transaction that is rolled back at the end. It never commits test data and
-never calls the AI provider.
+Uses isolated in-memory rows and a PostgreSQL connection tripwire. PostgreSQL
+syntax is adapted by messaging_fixture; no live database is contacted.
 """
 
 from __future__ import annotations
@@ -15,18 +14,19 @@ import os
 import sys
 import traceback
 
+from messaging_fixture import isolated_database  # locks isolation before main
+
 os.environ["DEREXI_ENV"] = "test"
 os.environ["DEREXI_DEV_AUTH"] = "1"
 os.environ.setdefault("DEREXI_DEV_USER_IDS", "")
 
 from fastapi.testclient import TestClient
 from sqlalchemy import text
-from sqlalchemy.orm import sessionmaker
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 import main  # noqa: E402
-from database import engine, get_db  # noqa: E402
+from database import get_db  # noqa: E402
 
 RESULTS = []
 
@@ -37,9 +37,11 @@ def check(name, condition, detail=""):
 
 
 def main_test():
+    engine, offline_factory = isolated_database()
     connection = engine.connect()
     outer = connection.begin()
-    TestSession = sessionmaker(bind=connection, join_transaction_mode="create_savepoint")
+    TestSession = offline_factory
+    TestSession.configure(bind=connection, join_transaction_mode="create_savepoint")
 
     def override_db():
         db = TestSession()

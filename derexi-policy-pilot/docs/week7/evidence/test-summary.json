@@ -1,0 +1,26 @@
+[
+  {
+    "suite": "messaging-workflow",
+    "exit_code": 0,
+    "summary": "73 passed, 0 failed, 73 checks",
+    "evidence": "messaging-workflow.txt"
+  },
+  {
+    "suite": "messaging-edges",
+    "exit_code": 0,
+    "summary": "29 passed, 0 failed, 29 checks",
+    "evidence": "messaging-edges.txt"
+  },
+  {
+    "suite": "jwt-verification",
+    "exit_code": 0,
+    "summary": "24 passed, 0 failed",
+    "evidence": "jwt-verification.txt"
+  },
+  {
+    "suite": "pulse-regression",
+    "exit_code": 0,
+    "summary": "RESULT: 97 passed, 0 failed",
+    "evidence": "pulse-regression.txt"
+  }
+]

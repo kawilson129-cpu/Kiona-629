@@ -67,7 +67,7 @@ def current_environment() -> str:
 
 def dev_auth_enabled() -> bool:
     """True only outside production with an explicit opt-in flag."""
-    return current_environment() != "production" and _truthy(os.getenv("DEREXI_DEV_AUTH"))
+    return current_environment() in {"development", "test"} and _truthy(os.getenv("DEREXI_DEV_AUTH"))
 
 
 def allowed_user_ids() -> set:
@@ -96,6 +96,16 @@ def _require_dev_request(request: Request) -> None:
         raise HTTPException(status_code=404, detail="Not found")
     if not _is_loopback(request.client.host if request.client else None):
         raise HTTPException(status_code=403, detail="Development identity is loopback-only")
+    allowed_hosts = {"127.0.0.1", "localhost", "::1"}
+    if current_environment() == "test":
+        allowed_hosts.add("testserver")
+    if request.url.hostname not in allowed_hosts or any(
+        name in request.headers for name in ("forwarded", "x-forwarded-for", "x-forwarded-host")
+    ):
+        raise HTTPException(status_code=403, detail="Development identity requires a direct local connection")
+    origin = request.headers.get("origin")
+    if origin and origin != f"{request.url.scheme}://{request.url.netloc}":
+        raise HTTPException(status_code=403, detail="Development identity requires the same origin")
 
 
 def issue_token(user_id: int, email: str, role: str) -> dict:
@@ -186,9 +196,11 @@ def _identity_rows(db: Session) -> list:
 
 
 @config_router.get("/auth/config")
-def auth_config(db: Session = Depends(get_db)) -> dict:
+def auth_config(request: Request, db: Session = Depends(get_db)) -> dict:
     """Public capability probe used by the UI to choose its sign-in path."""
     enabled = dev_auth_enabled()
+    if enabled:
+        _require_dev_request(request)
     return {
         "mode": "development" if enabled else "supabase",
         "dev_auth": enabled,

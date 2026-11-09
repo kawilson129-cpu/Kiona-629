@@ -82,6 +82,8 @@ SELECT cr.id, cr.conversation_id, cr.message_id, cr.user_id, cr.policy_id,
        lr.body AS last_reply_body,
        lr.created_at AS last_reply_at,
        lr.sender_id AS last_reply_sender,
+       (SELECT su.first_name || ' ' || su.last_name FROM users su
+          WHERE su.id = lr.sender_id) AS last_reply_sender_name,
        COALESCE(lr.created_at, cr.created_at) AS last_activity
 FROM clarification_requests cr
 LEFT JOIN policies p ON p.id = cr.policy_id
@@ -144,7 +146,6 @@ def _unread_count(row, identity: Identity) -> int:
     if (
         row["assigned_to"] == identity.user_id
         and row["last_read_at"] is None
-        and int(row["reply_count"] or 0) == 0
     ):
         unread = max(unread, 1)
     return unread
@@ -303,7 +304,7 @@ def _thread_count(
                    count(*) FILTER (
                        WHERE cr.assigned_to = :uid AND rd.last_read_at IS NULL
                          AND NOT EXISTS (SELECT 1 FROM clarification_replies r2
-                                         WHERE r2.request_id = cr.id)
+                                         WHERE r2.request_id = cr.id AND r2.sender_id <> :uid)
                    )::int AS new_assignments
             FROM clarification_requests cr
             LEFT JOIN policies p ON p.id = cr.policy_id
@@ -435,8 +436,8 @@ def _participants(db: Session, row, replies) -> list:
         seen.add(user_id)
         out.append({"id": user_id, "name": name, "role": role})
 
-    add(row["user_id"], row["requester_name"], "Employee")
-    add(row["assigned_to"], row["assignee_name"], POLICY_OWNER_ROLE)
+    add(row["user_id"], row["requester_name"], row["requester_role"])
+    add(row["assigned_to"], row["assignee_name"], row["assignee_role"])
     for reply in replies:
         if reply["sender_id"] not in seen:
             add(reply["sender_id"], reply["sender_name"], reply["sender_role"])
@@ -496,10 +497,8 @@ def list_messages(
             }
         )
 
-    unread_total = 0
-    for entry in folders:
-        if entry["id"] in {"inbox", "triage"}:
-            unread_total += entry["unread"]
+    # Count the visible set once: folders overlap, and previews are paginated.
+    _, unread_total = _thread_count(db, identity, "all")
 
     return {
         "folder": folder,
@@ -525,7 +524,12 @@ def list_notifications(
         text(
             f"""
             {THREAD_SELECT}
-            WHERE ({params['scope']})
+            WHERE ({params['scope']}) AND (
+                EXISTS (SELECT 1 FROM clarification_replies nr
+                        WHERE nr.request_id = cr.id AND nr.sender_id <> :uid
+                          AND nr.created_at > COALESCE(rd.last_read_at, to_timestamp(0)))
+                OR (cr.assigned_to = :uid AND rd.last_read_at IS NULL)
+            )
             ORDER BY last_activity DESC, cr.id DESC
             LIMIT 100
             """
@@ -534,12 +538,11 @@ def list_notifications(
     ).mappings().all()
 
     items = []
-    unread_total = 0
+    _, unread_total = _thread_count(db, identity, "all")
     for row in rows:
         unread = _unread_count(row, identity)
         if unread <= 0:
             continue
-        unread_total += unread
         if row["assigned_to"] is None and identity.is_admin:
             kind = "triage"
             actor = row["requester_name"]
@@ -548,7 +551,7 @@ def list_notifications(
             actor = row["requester_name"]
         else:
             kind = "reply"
-            actor = row["assignee_name"] or row["requester_name"]
+            actor = row["last_reply_sender_name"] or row["assignee_name"] or row["requester_name"]
         items.append(
             {
                 "thread_id": row["id"],
@@ -774,6 +777,9 @@ def add_clarification_reply(
     assert_thread_access(db, identity, request_id)
 
     request = db.get(ClarificationRequest, request_id)
+    if not (identity.is_admin or request.user_id == identity.user_id
+            or request.assigned_to == identity.user_id):
+        raise HTTPException(status_code=403, detail="Only the requester, current assignee, or an administrator can reply")
     if request.status in CLOSED_STATUSES:
         raise HTTPException(status_code=409, detail="Thread is resolved; reopen it before replying")
 
@@ -925,6 +931,10 @@ def assign_clarification(
     if target["role"] not in (POLICY_OWNER_ROLE, ADMIN_ROLE):
         raise HTTPException(status_code=422, detail="Assignee must be a policy owner or administrator")
 
-    request.assigned_to = target["id"]
+    if request.assigned_to != target["id"]:
+        # A fresh assignment is unread even if this person handled it earlier.
+        db.execute(text("DELETE FROM clarification_reads WHERE request_id = :rid AND user_id = :uid"),
+                   {"rid": request_id, "uid": target["id"]})
+        request.assigned_to = target["id"]
     db.commit()
     return _thread_detail(db, identity, request_id)

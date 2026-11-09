@@ -1,0 +1,75 @@
+PASS  auth config exposes development mode only with opt-in
+PASS  dev roster returns seeded users
+PASS  anonymous /messages is rejected
+PASS  anonymous /ask is rejected
+PASS  body identity cannot impersonate another user
+PASS  employee cannot open admin triage folder
+PASS  employee cannot open all-threads folder
+PASS  fixture policy is owned by Jordan
+PASS  employee can request clarification from an answer
+PASS  request routes to the policy owner
+PASS  thread exposes the owner contact record
+PASS  escalation starts as awaiting the owner
+PASS  originating question is preserved
+PASS  originating answer is preserved
+PASS  policy citation is preserved
+PASS  requester copy starts read
+PASS  timestamps are present
+PASS  duplicate open request is refused
+PASS  owner inbox contains the thread
+PASS  new assignment is unread for the owner
+PASS  owner receives an in-app assignment notification
+PASS  owner can reply
+PASS  reply moves thread to in_progress
+PASS  employee sees the owner reply
+PASS  escalation moves to awaiting the employee
+PASS  employee thread is unread after the reply
+PASS  employee receives a reply notification
+PASS  employee can mark the thread read
+PASS  unread clears after marking read
+PASS  employee can reply
+PASS  owner is notified of the employee reply
+PASS  employee reply hands the thread back to the owner
+PASS  owner can resolve
+PASS  resolved thread reports the resolved escalation state
+PASS  owner can close a resolved thread
+PASS  closed thread reports the closed escalation state
+PASS  reply to a resolved thread is refused
+PASS  requester can reopen
+PASS  reopen is recorded in history
+PASS  reopened thread awaits the owner again
+PASS  status filter selects threads awaiting the owner
+PASS  status filter excludes threads that are no longer resolved
+PASS  unknown escalation status is rejected
+PASS  search matches the thread question
+PASS  unrelated owner cannot read the thread
+PASS  unrelated owner cannot reply
+PASS  unrelated owner cannot resolve
+PASS  policy owner cannot use admin assign
+PASS  spoofed sender_id is rejected
+PASS  administrator can read any thread
+PASS  administrator sees the organisation-wide list
+PASS  administrator can list the governance queue
+PASS  employee cannot list the governance queue
+PASS  missing owner leaves the thread unassigned
+PASS  unassigned thread appears in admin triage
+PASS  admin can assign a triage thread to a policy owner
+PASS  assigned owner receives the thread
+PASS  empty reply is rejected
+PASS  unknown folder is rejected
+PASS  uncited policy is rejected
+PASS  short context is rejected
+PASS  another user's conversation is not disclosed
+PASS  conversation read requires auth
+PASS  employee can read own conversation
+PASS  Policy Assistant still answers/routes with auth
+PASS  policy library still lists policies
+PASS  policy search still works
+PASS  categories still work
+PASS  governance dashboard is governance-only
+PASS  Pulse health endpoint is unaffected
+PASS  staff directory requires auth
+PASS  staff emails are admin-only
+PASS  notification payload has no bearer token
+
+73 passed, 0 failed, 73 checks
