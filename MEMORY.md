@@ -1,7 +1,7 @@
 # MEMORY.md
 
 ## Last Updated
-November 3, 2026
+November 9, 2026
 
 ## Latest session (Nov 3) — Compliance 1 Assignment 3: C-03 audit
 Audited **C-03 Regulatory Feed Integrity and Source Validation** for DeRexi Pulse. Verdict **PARTIALLY VERIFIED**: 54 of 55 new audit checks pass; C03-54 fails because a feed link is never bound to the host of the source it is labelled with (`source='FDIC'` accepted `https://secure-fdic-verification.example/login`). Existing suite re-run green: 97 offline / 109 live. Report `docs/compliance/assignment3_c03_audit_results.md`; new suite `backend/tests/test_c03_audit.py`; 5 evidence files in `docs/compliance/evidence/c03_*`. No fixes applied, no app/schema/auth changes, no commit/push.
@@ -307,3 +307,24 @@ Verified C-01 (role-based access control) and C-02 (input validation / safe erro
 - **Evidence basis split:** 54 checks executed today; exactly one (C03-55, Phase 3 browser XSS) is prior evidence from 2026-11-02, marked `PASS*` and not re-executed. No browser automation today.
 - **Files created:** `docs/compliance/assignment3_c03_audit_results.md`; `derexi-policy-pilot/backend/tests/test_c03_audit.py`; `docs/compliance/evidence/c03_audit_checks_2026-11-03.txt`, `c03_audit_results.json`, `c03_pulse_suite_offline_2026-11-03.txt`, `c03_pulse_suite_live_2026-11-03.txt`, `c03_live_link_hosts_2026-11-03.txt`. `MEMORY.md` updated. **No application code, schema, migration, auth, persona, Pulse design, or classification changed; no commit/push.**
 - **Next when approved:** CA-03-01 per-source host allowlist (`fdic.gov` + `content.govdelivery.com` for FDIC) + regression test; then re-run `test_c03_audit.py` expecting 55/55 and promote it into CI (CA-03-06).
+
+### November 9, 2026 — Cyber Threats & Vulnerabilities 2 final coursework
+- Read the image-based instructor rubric in cyber_threats_and_vulnerabilities_2 and inventoried relevant coursework and canonical code. Saved five separate Markdown reports and checklists in cyber_threats_vulnerabilities_2_final/. Assignment 4 produced first. Each criterion remains PARTIAL with explicit evidence gaps. Compliance 1 reused as prior evidence.
+- New evidence: static assessment counted 21 top-level route decorators and 8 direct dependency declarations. Offline Pulse 97/97. Isolated legacy controls 23 PASS / 18 FAIL. Policy creation and publication returned 201 with fake sessions. Some other checks received 401 before reaching legacy payload assertions. Dashboard fixture, HTML escaping, loopback health and metrics passed. Offline CTI ledger reduced 4 observations to 2 indicators with provenance.
+- Supabase and personas untouched. No malware execution, Docker build, OpenCTI deployment, or push. Missing evidence includes original reverse engineering, enterprise asset and audit operation records, and live container/TIP verification.
+
+### November 9, 2026 — CT&V 2 evidence follow-up
+- Preserved original results and existing five reports/checklists. Added completion-matrix.md with classification of all 18 failed legacy assertions and manual evidence requirements.
+- New local JWT foundation 24/24 and five schema rejection checks passed. Saved 35 installed distributions and dependency relationships under followup/.
+- Confirmed mixed outdated identity/schema test assumptions and genuine policy-write authorization exposure. Historical authenticated ownership PASS labels require caution because requests were unsigned.
+- All five remain PARTIAL. Docker/TIP operation and original malware/research evidence remain missing. No application functionality changes or live writes.
+
+### November 9, 2026 — Assignment 5 Docker runtime verification
+- User installed Docker Desktop. Verified engine 29.9.2 and Compose 5.6.1, built existing isolated Pulse Dockerfile and launched Compose project derexi-ctv2.
+- Container healthy at 127.0.0.1:8080. 14 runtime assertions passed, including UID 65532, read-only root, zero capabilities, no-new-privileges, no database config/module, synthetic metrics and CSP. Zero mounts.
+- Live feed probe inside container reached all four publishers: FR38/FDIC25/NIST9/Fed15, 87 normalized, 40 returned. Dashboard remains synthetic.
+- Saved actual browser screenshot and full build/startup/inspection/feed evidence in cyber_threats_vulnerabilities_2_final/docker-evidence/. Existing Assignment 5 report/checklist updated COMPLETE for isolated Pulse scope, with full app/OpenCTI and enterprise restrictions explicitly outside scope.
+- Container intentionally left running for user screenshots. No Supabase access, production changes, Git operations or push.
+
+### November 9, 2026 — CT&V 2 publication
+- User authorized committing and publishing the new coursework files. Publication scope is cyber_threats_vulnerabilities_2_final/ plus this memory update. The unrelated untracked file named "tash show -p stash@{0}" is excluded.

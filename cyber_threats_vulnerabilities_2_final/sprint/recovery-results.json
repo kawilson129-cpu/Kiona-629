@@ -1,0 +1,8 @@
+{
+  "scope": "SIMULATED recovery, synthetic in-memory SQLite only",
+  "restored": true,
+  "sha256": "9064fc1b0fbe4cfc5c177d8af7fd288ac4eedf78d010a881384b9dd92be6fd3f",
+  "elapsed_ms": 17.938,
+  "rows": 1,
+  "live_restore": false
+}

@@ -1,0 +1,33 @@
+name: derexi-ctv2
+services:
+  pulse-lab:
+    cap_drop:
+      - ALL
+    networks:
+      default: null
+    read_only: true
+    security_opt:
+      - no-new-privileges:true
+    user: 65532:65532
+    build:
+      context: C:\Users\kawil\Documents\Kiona-629
+      dockerfile: cyber_threats_vulnerabilities_2_final/Dockerfile
+    healthcheck:
+      test:
+        - CMD
+        - python
+        - -c
+        - import urllib.request; assert urllib.request.urlopen('http://127.0.0.1:8080/healthz',
+          timeout=3).status == 200
+      timeout: 5s
+      interval: 30s
+      retries: 3
+    ports:
+      - mode: ingress
+        host_ip: 127.0.0.1
+        target: 8080
+        published: "8080"
+        protocol: tcp
+networks:
+  default:
+    name: derexi-ctv2_default

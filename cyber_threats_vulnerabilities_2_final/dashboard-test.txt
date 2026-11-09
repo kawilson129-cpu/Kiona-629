@@ -1,0 +1,1 @@
+PASS: normalization, partial outage, metrics, HTML escaping

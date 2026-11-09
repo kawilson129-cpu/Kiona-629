@@ -1,0 +1,16 @@
+{
+  "uid_nonroot": true,
+  "capabilities_dropped": true,
+  "no_new_privileges": true,
+  "no_database_environment": true,
+  "no_database_module": true,
+  "readonly_root": true,
+  "/healthz status": true,
+  "/healthz CSP": true,
+  "/ status": true,
+  "/ CSP": true,
+  "synthetic_label": true,
+  "metric_count": true,
+  "source_bars": true,
+  "simulated_failures": true
+}

@@ -1,0 +1,85 @@
+C:\Users\kawil\Documents\Kiona-629\derexi-policy-pilot\backend\database.py:41: SAWarning: Query string argument(s) 'sslmode' are not accepted by the pysqlite driver and are being ignored; SQLite URI arguments require that 'uri=true' also be present in the URL. (Background on this warning at: https://sqlalche.me/e/21/squa)
+  engine = create_engine(
+DeRexi security controls — C-01 (RBAC) and C-02 (validation/errors)
+Isolated mode: live database connections are blocked by a tripwire.
+==============================================================================
+  FAIL  C01-01  Every API route declares an identity/role dependency
+        expected: 0 routes without an authorization dependency
+        actual:   17 route(s) unprotected: GET /departments, GET /roles, GET /categories, GET /me, GET /users, GET /policies, GET /policies/search, GET /policies/{policy_id}, POST /policies, POST /policies/{policy_id}/versions, POST /ask, GET /conversations/{conversation_id}, GET /incident-categories, GET /incidents, POST /incidents, POST /feedback, GET /feedback/mine
+  FAIL  C01-02  Auth foundation (auth.py) is imported and used by main.py
+        expected: main.py imports and enforces auth
+        actual:   main.py has no import of auth.py; the verifier is unwired
+  PASS  C01-03  Anonymous GET /users is denied
+  PASS  C01-04  Anonymous GET /incidents is denied
+  PASS  C01-05  Anonymous GET /clarifications is denied
+  PASS  C01-06  User 9 cannot read user 8's conversation
+  PASS  C01-07  Employee cannot change incident status/severity
+  FAIL  C01-08  Employee cannot create or approve a policy
+        expected: 401/403 before any write
+        actual:   HTTP 201; in-memory fake recorded 2 insert(s), 1 commit(s)
+  FAIL  C01-09  Employee cannot publish a new policy version
+        expected: 401/403 for the Employee role
+        actual:   HTTP 201
+  PASS  C01-10  Anonymous caller cannot resolve a clarification thread
+  PASS  C01-11  A non-participant cannot post into a clarification thread
+  PASS  C01-12  Anonymous GET /dashboard/policy-health is denied
+  PASS  C01-13  Actor identity comes from a verified credential, not the request body
+  FAIL  C01-14  Employee and System Administrator receive different authority
+        expected: Employee denied where admin is allowed (403 vs 200)
+        actual:   Employee HTTP 401, System Administrator HTTP 401 (identical responses)
+  FAIL  C01-15  OpenAPI contract declares an authentication scheme
+        expected: at least one security scheme (e.g. bearerAuth)
+        actual:   declared schemes: none
+  FAIL  C02-01  Malformed /ask payloads are rejected with 422
+        expected: all 8 malformed payloads return 422
+        actual:   unexpected: blank question -> 401, whitespace-only question -> 401, one-character question -> 401, 1001-character question -> 401, missing user_id -> 401, wrong type user_id -> 401, missing question -> 401, null question -> 401
+  PASS  C02-02  Rejected /ask payloads create no records
+  PASS  C02-03  Unknown /ask fields are ignored, not applied
+  PASS  C02-04  Unknown user is rejected without creating a conversation
+  FAIL  C02-05  Malformed /feedback payloads are rejected with 422
+        expected: all 5 malformed payloads return 422
+        actual:   unexpected: missing message_id -> 401, missing rating -> 401, wrong rating type -> 401, wrong message type -> 401, missing user_id -> 401
+  PASS  C02-06  Rejected /feedback payloads create no records
+  FAIL  C02-07  Feedback for a missing message is refused
+        expected: 404 and no record
+        actual:   HTTP 401, inserts=0
+  FAIL  C02-08  Overlong feedback comment is rejected
+        expected: 422 for a 50,000-character comment
+        actual:   HTTP 401
+  FAIL  C02-09  Malformed /incidents payloads are rejected with 422
+        expected: all 6 malformed payloads return 422
+        actual:   unexpected: missing reporter -> 401, blank description -> 401, one-character description -> 401, invalid severity -> 401, wrong escalation type -> 401, missing description -> 401
+  PASS  C02-10  Rejected /incidents payloads create no records
+  FAIL  C02-11  Overlong incident description is rejected
+        expected: 422 for a 50,000-character description
+        actual:   HTTP 401
+  FAIL  C02-12  Malformed replies are rejected with 422
+        expected: all 5 malformed payloads return 422
+        actual:   unexpected: blank body -> 401, whitespace body -> 401, 2001-character body -> 401, missing sender -> 401, wrong sender type -> 401
+  PASS  C02-13  Rejected replies create no records
+  PASS  C02-14  Malformed /policies payloads are rejected with 422
+  PASS  C02-15  Rejected policy payloads create no records
+  PASS  C02-16  Overlong policy title is rejected
+  FAIL  C02-17  Incident assignment to a nonexistent user is rejected
+        expected: 400/404/422 and no change
+        actual:   HTTP 401; in-memory assigned_to=None
+  PASS  C02-18  Error responses contain no stack traces, SQL, or credentials
+  PASS  C02-19  Not-found errors use short, employee-readable text
+  PASS  C02-20  Unhandled database failure does not leak internals
+  FAIL  C02-21  Unhandled failure gives the employee an actionable message
+        expected: a plain-language apology/retry message
+        actual:   HTTP 500, body='Internal Server Error'
+  PASS  C02-24  Empty policy title and body are rejected
+  FAIL  C02-22  Non-boolean rating values are rejected
+        expected: 422 for rating='yes'
+        actual:   HTTP 401; rating coerced and stored=False
+  FAIL  C02-25  Clarification for nonexistent message/conversation/policy is rejected
+        expected: 400/404/422 and no record
+        actual:   HTTP 401; 0 in-memory insert(s) with dangling foreign keys
+  FAIL  C02-26  Feedback from a nonexistent user is rejected
+        expected: 404 and no record
+        actual:   HTTP 401; 0 in-memory insert(s) referencing a missing user
+  PASS  C02-23  Every free-text field declares an upper bound
+==============================================================================
+RESULT: 23 passed, 18 failed, 0 blocked, 0 runner errors
+Evidence JSON: C:\Users\kawil\Documents\Kiona-629\cyber_threats_vulnerabilities_2_final\control-results.json

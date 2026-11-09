@@ -1,0 +1,25 @@
+{
+  "schema_checks": [
+    {
+      "model": "FeedbackCreate",
+      "rejected": true
+    },
+    {
+      "model": "FeedbackCreate",
+      "rejected": true
+    },
+    {
+      "model": "IncidentCreate",
+      "rejected": true
+    },
+    {
+      "model": "AskRequest",
+      "rejected": true
+    },
+    {
+      "model": "ClarificationReplyCreate",
+      "rejected": true
+    }
+  ],
+  "packages": 35
+}

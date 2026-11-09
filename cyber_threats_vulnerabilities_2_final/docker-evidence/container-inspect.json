@@ -1,0 +1,277 @@
+[
+    {
+        "Id": "fbda29b6358d4f07c5ac4d812bce7995770a1126858164944b338840d569bfbc",
+        "Created": "2026-11-09T11:49:57.642730146Z",
+        "Path": "python",
+        "Args": [
+            "/app/dashboard.py",
+            "--bind",
+            "0.0.0.0"
+        ],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 827,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-11-09T11:50:03.91064329Z",
+            "FinishedAt": "0001-01-01T00:00:00Z",
+            "Health": {
+                "Status": "healthy",
+                "FailingStreak": 0,
+                "Log": [
+                    {
+                        "Start": "2026-11-09T11:50:40.185473075Z",
+                        "End": "2026-11-09T11:50:45.178994887Z",
+                        "ExitCode": 0,
+                        "Output": ""
+                    },
+                    {
+                        "Start": "2026-11-09T11:51:14.371397617Z",
+                        "End": "2026-11-09T11:51:18.146552709Z",
+                        "ExitCode": 0,
+                        "Output": ""
+                    }
+                ]
+            }
+        },
+        "Image": "sha256:6c50bffc8f73ef645eec5ec82c9344b95fb25f961978accc2fc6fdfd2ac39798",
+        "ResolvConfPath": "/var/lib/docker/containers/fbda29b6358d4f07c5ac4d812bce7995770a1126858164944b338840d569bfbc/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/fbda29b6358d4f07c5ac4d812bce7995770a1126858164944b338840d569bfbc/hostname",
+        "HostsPath": "/var/lib/docker/containers/fbda29b6358d4f07c5ac4d812bce7995770a1126858164944b338840d569bfbc/hosts",
+        "LogPath": "",
+        "Name": "/derexi-ctv2-pulse-lab-1",
+        "RestartCount": 0,
+        "Driver": "overlayfs",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": null,
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "local",
+                "Config": {}
+            },
+            "NetworkMode": "derexi-ctv2_default",
+            "PortBindings": {
+                "8080/tcp": [
+                    {
+                        "HostIp": "127.0.0.1",
+                        "HostPort": "8080"
+                    }
+                ]
+            },
+            "RestartPolicy": {
+                "Name": "no",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "CapAdd": null,
+            "CapDrop": [
+                "ALL"
+            ],
+            "CgroupnsMode": "private",
+            "Dns": null,
+            "DnsOptions": null,
+            "DnsSearch": null,
+            "ExtraHosts": [],
+            "GroupAdd": null,
+            "IpcMode": "private",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": true,
+            "SecurityOpt": [
+                "no-new-privileges:true"
+            ],
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 0,
+            "NanoCpus": 0,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": null,
+            "BlkioDeviceReadBps": null,
+            "BlkioDeviceWriteBps": null,
+            "BlkioDeviceReadIOps": null,
+            "BlkioDeviceWriteIOps": null,
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": null,
+            "DeviceCgroupRules": null,
+            "DeviceRequests": null,
+            "MemoryReservation": 0,
+            "MemorySwap": 0,
+            "MemorySwappiness": null,
+            "OomKillDisable": null,
+            "PidsLimit": null,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "MaskedPaths": [
+                "/proc/acpi",
+                "/proc/asound",
+                "/proc/interrupts",
+                "/proc/kcore",
+                "/proc/keys",
+                "/proc/latency_stats",
+                "/proc/sched_debug",
+                "/proc/scsi",
+                "/proc/timer_list",
+                "/proc/timer_stats",
+                "/sys/devices/virtual/powercap",
+                "/sys/firmware"
+            ],
+            "ReadonlyPaths": [
+                "/proc/bus",
+                "/proc/fs",
+                "/proc/irq",
+                "/proc/sys",
+                "/proc/sysrq-trigger"
+            ]
+        },
+        "Storage": {
+            "RootFS": {
+                "Snapshot": {
+                    "Name": "overlayfs"
+                }
+            }
+        },
+        "Mounts": [],
+        "Config": {
+            "Hostname": "fbda29b6358d",
+            "Domainname": "",
+            "User": "65532:65532",
+            "AttachStdin": false,
+            "AttachStdout": true,
+            "AttachStderr": true,
+            "ExposedPorts": {
+                "8080/tcp": {}
+            },
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "PATH=/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "LANG=C.UTF-8",
+                "GPG_KEY=7169605F62C751356D054A26A821E680E5FA6305",
+                "PYTHON_VERSION=3.12.16",
+                "PYTHON_SHA256=b5796915dc45ff745cfb4e990a7e7c93d6f546328a102ce31448d69ebc37575c",
+                "PYTHONDONTWRITEBYTECODE=1",
+                "PYTHONUNBUFFERED=1",
+                "PYTHONPATH=/app"
+            ],
+            "Cmd": null,
+            "Healthcheck": {
+                "Test": [
+                    "CMD",
+                    "python",
+                    "-c",
+                    "import urllib.request; assert urllib.request.urlopen('http://127.0.0.1:8080/healthz', timeout=3).status == 200"
+                ],
+                "Interval": 30000000000,
+                "Timeout": 5000000000,
+                "Retries": 3
+            },
+            "Image": "derexi-ctv2-pulse-lab",
+            "Volumes": null,
+            "WorkingDir": "/app",
+            "Entrypoint": [
+                "python",
+                "/app/dashboard.py",
+                "--bind",
+                "0.0.0.0"
+            ],
+            "Labels": {
+                "com.docker.compose.config-hash": "67e0c1ece97f7b71d8a9be04a862c0ee61a3d0be8c9e923720d6a95b90f8b0a7",
+                "com.docker.compose.container-number": "1",
+                "com.docker.compose.depends_on": "",
+                "com.docker.compose.image": "sha256:6c50bffc8f73ef645eec5ec82c9344b95fb25f961978accc2fc6fdfd2ac39798",
+                "com.docker.compose.oneoff": "False",
+                "com.docker.compose.project": "derexi-ctv2",
+                "com.docker.compose.project.config_files": "C:\\Users\\kawil\\Documents\\Kiona-629\\cyber_threats_vulnerabilities_2_final\\compose.yaml",
+                "com.docker.compose.project.working_dir": "C:\\Users\\kawil\\Documents\\Kiona-629\\cyber_threats_vulnerabilities_2_final",
+                "com.docker.compose.service": "pulse-lab",
+                "com.docker.compose.version": "5.6.1"
+            }
+        },
+        "NetworkSettings": {
+            "SandboxID": "25100616b9553dac12e3361f82fe2f4368a7909bafd61a1bc2d73319693804e6",
+            "SandboxKey": "/var/run/docker/netns/25100616b955",
+            "Ports": {
+                "8080/tcp": [
+                    {
+                        "HostIp": "127.0.0.1",
+                        "HostPort": "8080"
+                    }
+                ]
+            },
+            "Networks": {
+                "derexi-ctv2_default": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": [
+                        "derexi-ctv2-pulse-lab-1",
+                        "pulse-lab"
+                    ],
+                    "DriverOpts": null,
+                    "GwPriority": 0,
+                    "NetworkID": "1155a81baeabd8da7bf41f5610b5481ccaa9413559b444131b2c5f9e02cddfac",
+                    "EndpointID": "f29eac27a352ef847885eefe1aee7e073090eb3513d563562f5dfcba88711334",
+                    "Gateway": "172.18.0.1",
+                    "IPAddress": "172.18.0.2",
+                    "MacAddress": "fa:24:45:26:88:92",
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "DNSNames": [
+                        "derexi-ctv2-pulse-lab-1",
+                        "pulse-lab",
+                        "fbda29b6358d"
+                    ]
+                }
+            }
+        },
+        "ImageManifestDescriptor": {
+            "mediaType": "application/vnd.oci.image.manifest.v1+json",
+            "digest": "sha256:6c50bffc8f73ef645eec5ec82c9344b95fb25f961978accc2fc6fdfd2ac39798",
+            "size": 1621,
+            "annotations": {
+                "io.containerd.image.name": "docker.io/library/derexi-ctv2-pulse-lab:latest",
+                "org.opencontainers.image.created": "2026-11-09T11:48:45Z",
+                "org.opencontainers.image.ref.name": "latest"
+            },
+            "platform": {
+                "architecture": "amd64",
+                "os": "linux"
+            }
+        }
+    }
+]

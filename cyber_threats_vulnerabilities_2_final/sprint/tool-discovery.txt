@@ -1,0 +1,9 @@
+COMMAND: Get-Command docker,nmap,pip-audit,wsl; standard Docker Desktop and Nmap installation paths
+
+Name    Source
+----    ------
+wsl.exe C:\windows\system32\wsl.exe
+
+
+Standard Docker Desktop executable exists: False
+

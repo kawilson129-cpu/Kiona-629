@@ -1,0 +1,224 @@
+{
+  "scope": "static local source and direct package metadata only",
+  "main_sha256": "5b805570b719dd740958870be4ed315dc6398450d7e89513564ee8d9f1aedd71",
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/",
+      "line": 227,
+      "dependencies": []
+    },
+    {
+      "method": "GET",
+      "path": "/health",
+      "line": 237,
+      "dependencies": [
+        "Depends(get_db)"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/departments",
+      "line": 246,
+      "dependencies": [
+        "Depends(get_db)"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/roles",
+      "line": 254,
+      "dependencies": [
+        "Depends(get_db)"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/categories",
+      "line": 259,
+      "dependencies": [
+        "Depends(get_db)"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/me",
+      "line": 275,
+      "dependencies": [
+        "Depends(get_identity)",
+        "Depends(get_db)"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/users",
+      "line": 289,
+      "dependencies": [
+        "Depends(get_identity)",
+        "Depends(get_db)"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/policies",
+      "line": 312,
+      "dependencies": [
+        "Query(default=None)",
+        "Query(default=None)",
+        "Depends(get_db)"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/policies/search",
+      "line": 326,
+      "dependencies": [
+        "Query(min_length=2, max_length=1000)",
+        "Query(default=5, ge=1, le=20)",
+        "Depends(get_db)"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/policies/{policy_id}",
+      "line": 346,
+      "dependencies": [
+        "Depends(get_db)"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/policies",
+      "line": 368,
+      "dependencies": [
+        "Depends(get_db)"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/policies/{policy_id}/versions",
+      "line": 398,
+      "dependencies": [
+        "Depends(get_db)"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/ask",
+      "line": 436,
+      "dependencies": [
+        "Depends(get_identity)",
+        "Depends(get_db)"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/conversations/{conversation_id}",
+      "line": 586,
+      "dependencies": [
+        "Depends(get_identity)",
+        "Depends(get_db)"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/incident-categories",
+      "line": 660,
+      "dependencies": [
+        "Depends(get_db)"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/incidents",
+      "line": 673,
+      "dependencies": [
+        "Query(default=None)",
+        "Query(default=None)",
+        "Query(default=None)",
+        "Depends(get_identity)",
+        "Depends(get_db)"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/incidents",
+      "line": 715,
+      "dependencies": [
+        "Depends(get_identity)",
+        "Depends(get_db)"
+      ]
+    },
+    {
+      "method": "PATCH",
+      "path": "/incidents/{incident_id}",
+      "line": 748,
+      "dependencies": [
+        "Depends(require_governance)",
+        "Depends(get_db)"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/feedback",
+      "line": 768,
+      "dependencies": [
+        "Depends(get_identity)",
+        "Depends(get_db)"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/feedback/mine",
+      "line": 807,
+      "dependencies": [
+        "Depends(get_identity)",
+        "Depends(get_db)"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/dashboard/policy-health",
+      "line": 829,
+      "dependencies": [
+        "Depends(require_governance)",
+        "Depends(get_db)"
+      ]
+    }
+  ],
+  "packages": [
+    {
+      "declaration": "fastapi>=0.110",
+      "installed": "0.143.0"
+    },
+    {
+      "declaration": "uvicorn[standard]>=0.29",
+      "installed": "0.54.0"
+    },
+    {
+      "declaration": "SQLAlchemy>=2.0",
+      "installed": "2.1.4"
+    },
+    {
+      "declaration": "psycopg2-binary>=2.9",
+      "installed": "2.9.13"
+    },
+    {
+      "declaration": "pydantic>=2.6",
+      "installed": "2.14.0"
+    },
+    {
+      "declaration": "python-dotenv>=1.0",
+      "installed": "1.2.4"
+    },
+    {
+      "declaration": "openai>=1.30",
+      "installed": "3.26.1"
+    },
+    {
+      "declaration": "PyJWT[crypto]>=2.10",
+      "installed": "2.15.1"
+    }
+  ],
+  "elapsed_ms": 530.14
+}

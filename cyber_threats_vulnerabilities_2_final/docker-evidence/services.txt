@@ -1,0 +1,3 @@
+NAME                      IMAGE                   COMMAND                  SERVICE     CREATED              STATUS                        PORTS
+derexi-ctv2-pulse-lab-1   derexi-ctv2-pulse-lab   "python /app/dashboa…"   pulse-lab   About a minute ago   Up About a minute (healthy)   127.0.0.1:8080->8080/tcp
+exit=0

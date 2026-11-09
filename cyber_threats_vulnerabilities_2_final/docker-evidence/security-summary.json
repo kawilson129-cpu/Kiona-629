@@ -1,0 +1,24 @@
+{
+  "name": "/derexi-ctv2-pulse-lab-1",
+  "state": "running",
+  "health": "healthy",
+  "user": "65532:65532",
+  "readonly": true,
+  "cap_drop": [
+    "ALL"
+  ],
+  "security_opt": [
+    "no-new-privileges:true"
+  ],
+  "ports": {
+    "8080/tcp": [
+      {
+        "HostIp": "127.0.0.1",
+        "HostPort": "8080"
+      }
+    ]
+  },
+  "mount_count": 0,
+  "image_id": "sha256:6c50bffc8f73ef645eec5ec82c9344b95fb25f961978accc2fc6fdfd2ac39798",
+  "created": "2026-11-09T11:48:44.572925511Z"
+}

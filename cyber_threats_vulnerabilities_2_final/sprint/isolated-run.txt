@@ -1,0 +1,2 @@
+C:\Users\kawil\Documents\Kiona-629\derexi-policy-pilot\backend\database.py:41: SAWarning: Query string argument(s) 'sslmode' are not accepted by the pysqlite driver and are being ignored; SQLite URI arguments require that 'uri=true' also be present in the URL. (Background on this warning at: https://sqlalche.me/e/21/squa)
+  engine = create_engine(

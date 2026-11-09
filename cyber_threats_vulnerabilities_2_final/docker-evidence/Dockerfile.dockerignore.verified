@@ -1,0 +1,10 @@
+**
+!derexi-policy-pilot/
+!derexi-policy-pilot/backend/
+!derexi-policy-pilot/backend/pulse/
+!derexi-policy-pilot/backend/pulse/__init__.py
+!derexi-policy-pilot/backend/pulse/service.py
+!derexi-policy-pilot/backend/pulse/sources.py
+!cyber_threats_vulnerabilities_2_final/
+!cyber_threats_vulnerabilities_2_final/dashboard.py
+

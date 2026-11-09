@@ -1,0 +1,143 @@
+[
+  {
+    "actor": "Employee",
+    "case": "identity",
+    "expected": 200,
+    "actual": 200,
+    "passed": true,
+    "fake_writes": 0
+  },
+  {
+    "actor": "Employee",
+    "case": "governance",
+    "expected": 403,
+    "actual": 403,
+    "passed": true,
+    "fake_writes": 0
+  },
+  {
+    "actor": "Employee",
+    "case": "strict rating",
+    "expected": 422,
+    "actual": 422,
+    "passed": true,
+    "fake_writes": 0
+  },
+  {
+    "actor": "Employee",
+    "case": "bounded feedback",
+    "expected": 422,
+    "actual": 422,
+    "passed": true,
+    "fake_writes": 0
+  },
+  {
+    "actor": "Employee",
+    "case": "policy approval",
+    "expected": 403,
+    "actual": 201,
+    "passed": false,
+    "fake_writes": 2
+  },
+  {
+    "actor": "Employee",
+    "case": "tampered signature",
+    "expected": 401,
+    "actual": 401,
+    "passed": true
+  },
+  {
+    "actor": "Policy Owner",
+    "case": "identity",
+    "expected": 200,
+    "actual": 200,
+    "passed": true,
+    "fake_writes": 0
+  },
+  {
+    "actor": "Policy Owner",
+    "case": "governance",
+    "expected": 200,
+    "actual": 200,
+    "passed": true,
+    "fake_writes": 0
+  },
+  {
+    "actor": "Policy Owner",
+    "case": "strict rating",
+    "expected": 422,
+    "actual": 422,
+    "passed": true,
+    "fake_writes": 0
+  },
+  {
+    "actor": "Policy Owner",
+    "case": "bounded feedback",
+    "expected": 422,
+    "actual": 422,
+    "passed": true,
+    "fake_writes": 0
+  },
+  {
+    "actor": "Policy Owner",
+    "case": "policy approval",
+    "expected": 201,
+    "actual": 201,
+    "passed": true,
+    "fake_writes": 2
+  },
+  {
+    "actor": "Policy Owner",
+    "case": "tampered signature",
+    "expected": 401,
+    "actual": 401,
+    "passed": true
+  },
+  {
+    "actor": "System Administrator",
+    "case": "identity",
+    "expected": 200,
+    "actual": 200,
+    "passed": true,
+    "fake_writes": 0
+  },
+  {
+    "actor": "System Administrator",
+    "case": "governance",
+    "expected": 200,
+    "actual": 200,
+    "passed": true,
+    "fake_writes": 0
+  },
+  {
+    "actor": "System Administrator",
+    "case": "strict rating",
+    "expected": 422,
+    "actual": 422,
+    "passed": true,
+    "fake_writes": 0
+  },
+  {
+    "actor": "System Administrator",
+    "case": "bounded feedback",
+    "expected": 422,
+    "actual": 422,
+    "passed": true,
+    "fake_writes": 0
+  },
+  {
+    "actor": "System Administrator",
+    "case": "policy approval",
+    "expected": 201,
+    "actual": 201,
+    "passed": true,
+    "fake_writes": 2
+  },
+  {
+    "actor": "System Administrator",
+    "case": "tampered signature",
+    "expected": 401,
+    "actual": 401,
+    "passed": true
+  }
+]

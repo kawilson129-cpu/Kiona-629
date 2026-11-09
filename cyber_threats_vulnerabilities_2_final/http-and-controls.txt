@@ -1,0 +1,4 @@
+127.0.0.1 - - [09/Nov/2026 02:29:22] "GET /healthz HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 02:29:22] "GET / HTTP/1.1" 200 -
+PASS: loopback /healthz, HTTP dashboard, fixture metrics, CSP
+Isolated legacy suite exit: 1

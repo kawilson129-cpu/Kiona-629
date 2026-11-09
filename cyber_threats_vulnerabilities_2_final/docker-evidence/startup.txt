@@ -1,0 +1,11 @@
+ Network derexi-ctv2_default Creating 
+ Network derexi-ctv2_default Creating 
+ Network derexi-ctv2_default Created 
+ Network derexi-ctv2_default Created 
+ Container derexi-ctv2-pulse-lab-1 Creating 
+ Container derexi-ctv2-pulse-lab-1 Created 
+ Container derexi-ctv2-pulse-lab-1 Starting 
+ Container derexi-ctv2-pulse-lab-1 Started 
+ Container derexi-ctv2-pulse-lab-1 Waiting 
+ Container derexi-ctv2-pulse-lab-1 Healthy 
+exit=0

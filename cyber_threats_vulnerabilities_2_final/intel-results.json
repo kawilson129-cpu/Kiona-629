@@ -1,0 +1,33 @@
+{
+  "scope": "offline course ledger, E05 derives from E02",
+  "input_records": 4,
+  "unique_indicators": 2,
+  "duplicate_ratio": 0.5,
+  "provenance_complete": 2,
+  "assertions": "PASS: dedupe, provenance, case separation, hash normalization, malformed input",
+  "elapsed_ms": 0.247,
+  "indicators": [
+    {
+      "type": "sha256",
+      "value": "02aac4d201886e01abd2e3d42a20edcb4e6c2381549de19df0b9166607cd3f51",
+      "cases": [
+        "k.php"
+      ],
+      "sources": [
+        "E02",
+        "E05"
+      ]
+    },
+    {
+      "type": "url",
+      "value": "hxxp://160[.]119[.]69[.]4/x",
+      "cases": [
+        "k.php"
+      ],
+      "sources": [
+        "E02",
+        "E05"
+      ]
+    }
+  ]
+}

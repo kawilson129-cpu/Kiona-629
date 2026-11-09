@@ -1,0 +1,12 @@
+docker version
+docker compose version
+docker compose -p derexi-ctv2 -f cyber_threats_vulnerabilities_2_final/compose.yaml config
+docker compose -p derexi-ctv2 -f cyber_threats_vulnerabilities_2_final/compose.yaml build
+docker compose -p derexi-ctv2 -f cyber_threats_vulnerabilities_2_final/compose.yaml up -d --wait --wait-timeout 120
+docker compose -p derexi-ctv2 -f cyber_threats_vulnerabilities_2_final/compose.yaml run --rm --no-deps pulse-lab --self-test
+Get-Content cyber_threats_vulnerabilities_2_final/docker-evidence/verify_container.py -Raw | docker compose -p derexi-ctv2 -f cyber_threats_vulnerabilities_2_final/compose.yaml exec -T pulse-lab python -
+Get-Content cyber_threats_vulnerabilities_2_final/docker-evidence/verify_feeds.py -Raw | docker compose -p derexi-ctv2 -f cyber_threats_vulnerabilities_2_final/compose.yaml exec -T pulse-lab python -
+feed verification exit=0
+docker compose -p derexi-ctv2 -f cyber_threats_vulnerabilities_2_final/compose.yaml ps
+docker compose -p derexi-ctv2 -f cyber_threats_vulnerabilities_2_final/compose.yaml logs --no-color
+

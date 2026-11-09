@@ -1,0 +1,4 @@
+ Container derexi-ctv2-pulse-lab-run-96100f5cb36f Creating 
+ Container derexi-ctv2-pulse-lab-run-96100f5cb36f Created 
+PASS: normalization, partial outage, metrics, HTML escaping
+exit=0

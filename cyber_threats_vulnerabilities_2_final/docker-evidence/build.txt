@@ -1,0 +1,108 @@
+ Image derexi-ctv2-pulse-lab Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 588B 0.1s done
+#1 DONE 0.1s
+
+#2 [internal] booting buildkit
+#2 pulling image moby/buildkit:buildx-stable-1
+#2 pulling image moby/buildkit:buildx-stable-1 51.7s done
+#2 creating container buildx_buildkit_default
+#2 creating container buildx_buildkit_default 13.5s done
+#2 DONE 69.2s
+
+#3 [internal] load build definition from Dockerfile
+#3 transferring dockerfile: 30B 0.1s
+#3 transferring dockerfile: 839B 0.1s done
+#3 DONE 0.2s
+
+#4 [internal] load metadata for docker.io/library/python:3.12-slim
+#4 DONE 3.0s
+
+#5 [internal] load build context
+#5 transferring context: 4.81kB 0.1s
+#5 transferring context: 38.80kB 0.3s done
+#5 DONE 0.4s
+
+#6 [1/4] FROM docker.io/library/python:3.12-slim@sha256:5e2bdb1b0d542d5039cffb8181c65930093949194a65c365dfb1b0fe13a4fa5b
+#6 resolve docker.io/library/python:3.12-slim@sha256:5e2bdb1b0d542d5039cffb8181c65930093949194a65c365dfb1b0fe13a4fa5b 0.1s done
+#6 DONE 0.5s
+
+#6 [1/4] FROM docker.io/library/python:3.12-slim@sha256:5e2bdb1b0d542d5039cffb8181c65930093949194a65c365dfb1b0fe13a4fa5b
+#6 sha256:2dc99d2d0a39fce31e37615eb4c932e16dcc4c2b0ce9993714280081b5dbe085 0B / 12.12MB 0.2s
+#6 sha256:05e0eee5572e9c9f50408a2132590133b830a668a1cf2ff2b150f19c57707e2b 0B / 248B 0.2s
+#6 sha256:37fb86c2a767b88d500c6872195f88078f64765fe0d2f9cc375cc2efbd4c0a41 0B / 29.86MB 0.2s
+#6 sha256:68bced9e0afa4479df17c3646e27c7c7e9ce9ba70c0e6c73b6826487b89037d9 0B / 1.29MB 0.2s
+#6 sha256:05e0eee5572e9c9f50408a2132590133b830a668a1cf2ff2b150f19c57707e2b 248B / 248B 0.4s done
+#6 sha256:2dc99d2d0a39fce31e37615eb4c932e16dcc4c2b0ce9993714280081b5dbe085 1.05MB / 12.12MB 2.0s
+#6 sha256:68bced9e0afa4479df17c3646e27c7c7e9ce9ba70c0e6c73b6826487b89037d9 1.29MB / 1.29MB 2.2s done
+#6 sha256:2dc99d2d0a39fce31e37615eb4c932e16dcc4c2b0ce9993714280081b5dbe085 2.10MB / 12.12MB 2.7s
+#6 sha256:37fb86c2a767b88d500c6872195f88078f64765fe0d2f9cc375cc2efbd4c0a41 2.10MB / 29.86MB 2.9s
+#6 sha256:2dc99d2d0a39fce31e37615eb4c932e16dcc4c2b0ce9993714280081b5dbe085 3.15MB / 12.12MB 3.1s
+#6 sha256:2dc99d2d0a39fce31e37615eb4c932e16dcc4c2b0ce9993714280081b5dbe085 4.19MB / 12.12MB 3.8s
+#6 sha256:37fb86c2a767b88d500c6872195f88078f64765fe0d2f9cc375cc2efbd4c0a41 4.19MB / 29.86MB 3.9s
+#6 sha256:2dc99d2d0a39fce31e37615eb4c932e16dcc4c2b0ce9993714280081b5dbe085 5.24MB / 12.12MB 4.1s
+#6 sha256:2dc99d2d0a39fce31e37615eb4c932e16dcc4c2b0ce9993714280081b5dbe085 6.29MB / 12.12MB 5.0s
+#6 sha256:37fb86c2a767b88d500c6872195f88078f64765fe0d2f9cc375cc2efbd4c0a41 6.29MB / 29.86MB 5.1s
+#6 sha256:2dc99d2d0a39fce31e37615eb4c932e16dcc4c2b0ce9993714280081b5dbe085 7.34MB / 12.12MB 5.4s
+#6 sha256:2dc99d2d0a39fce31e37615eb4c932e16dcc4c2b0ce9993714280081b5dbe085 8.39MB / 12.12MB 5.7s
+#6 sha256:37fb86c2a767b88d500c6872195f88078f64765fe0d2f9cc375cc2efbd4c0a41 8.39MB / 29.86MB 6.8s
+#6 sha256:2dc99d2d0a39fce31e37615eb4c932e16dcc4c2b0ce9993714280081b5dbe085 9.44MB / 12.12MB 7.3s
+#6 sha256:2dc99d2d0a39fce31e37615eb4c932e16dcc4c2b0ce9993714280081b5dbe085 10.49MB / 12.12MB 8.0s
+#6 sha256:2dc99d2d0a39fce31e37615eb4c932e16dcc4c2b0ce9993714280081b5dbe085 11.53MB / 12.12MB 8.2s
+#6 sha256:37fb86c2a767b88d500c6872195f88078f64765fe0d2f9cc375cc2efbd4c0a41 10.49MB / 29.86MB 8.4s
+#6 sha256:2dc99d2d0a39fce31e37615eb4c932e16dcc4c2b0ce9993714280081b5dbe085 12.12MB / 12.12MB 8.6s done
+#6 sha256:37fb86c2a767b88d500c6872195f88078f64765fe0d2f9cc375cc2efbd4c0a41 12.58MB / 29.86MB 9.3s
+#6 sha256:37fb86c2a767b88d500c6872195f88078f64765fe0d2f9cc375cc2efbd4c0a41 14.68MB / 29.86MB 10.2s
+#6 sha256:37fb86c2a767b88d500c6872195f88078f64765fe0d2f9cc375cc2efbd4c0a41 16.78MB / 29.86MB 11.0s
+#6 sha256:37fb86c2a767b88d500c6872195f88078f64765fe0d2f9cc375cc2efbd4c0a41 18.87MB / 29.86MB 12.3s
+#6 sha256:37fb86c2a767b88d500c6872195f88078f64765fe0d2f9cc375cc2efbd4c0a41 20.97MB / 29.86MB 13.2s
+#6 sha256:37fb86c2a767b88d500c6872195f88078f64765fe0d2f9cc375cc2efbd4c0a41 23.07MB / 29.86MB 14.0s
+#6 sha256:37fb86c2a767b88d500c6872195f88078f64765fe0d2f9cc375cc2efbd4c0a41 25.17MB / 29.86MB 14.7s
+#6 sha256:37fb86c2a767b88d500c6872195f88078f64765fe0d2f9cc375cc2efbd4c0a41 27.26MB / 29.86MB 15.5s
+#6 sha256:37fb86c2a767b88d500c6872195f88078f64765fe0d2f9cc375cc2efbd4c0a41 29.36MB / 29.86MB 15.8s
+#6 sha256:37fb86c2a767b88d500c6872195f88078f64765fe0d2f9cc375cc2efbd4c0a41 29.86MB / 29.86MB 15.9s done
+#6 extracting sha256:37fb86c2a767b88d500c6872195f88078f64765fe0d2f9cc375cc2efbd4c0a41
+#6 extracting sha256:37fb86c2a767b88d500c6872195f88078f64765fe0d2f9cc375cc2efbd4c0a41 5.2s done
+#6 DONE 21.7s
+
+#6 [1/4] FROM docker.io/library/python:3.12-slim@sha256:5e2bdb1b0d542d5039cffb8181c65930093949194a65c365dfb1b0fe13a4fa5b
+#6 extracting sha256:68bced9e0afa4479df17c3646e27c7c7e9ce9ba70c0e6c73b6826487b89037d9
+#6 extracting sha256:68bced9e0afa4479df17c3646e27c7c7e9ce9ba70c0e6c73b6826487b89037d9 0.5s done
+#6 DONE 22.2s
+
+#6 [1/4] FROM docker.io/library/python:3.12-slim@sha256:5e2bdb1b0d542d5039cffb8181c65930093949194a65c365dfb1b0fe13a4fa5b
+#6 extracting sha256:2dc99d2d0a39fce31e37615eb4c932e16dcc4c2b0ce9993714280081b5dbe085
+#6 extracting sha256:2dc99d2d0a39fce31e37615eb4c932e16dcc4c2b0ce9993714280081b5dbe085 2.8s done
+#6 DONE 25.0s
+
+#6 [1/4] FROM docker.io/library/python:3.12-slim@sha256:5e2bdb1b0d542d5039cffb8181c65930093949194a65c365dfb1b0fe13a4fa5b
+#6 extracting sha256:05e0eee5572e9c9f50408a2132590133b830a668a1cf2ff2b150f19c57707e2b 0.1s done
+#6 DONE 25.1s
+
+#7 [2/4] WORKDIR /app
+#7 DONE 0.1s
+
+#8 [3/4] COPY derexi-policy-pilot/backend/pulse/__init__.py derexi-policy-pilot/backend/pulse/service.py derexi-policy-pilot/backend/pulse/sources.py /app/pulse/
+#8 DONE 0.7s
+
+#9 [4/4] COPY cyber_threats_vulnerabilities_2_final/dashboard.py /app/dashboard.py
+#9 DONE 0.2s
+
+#10 exporting to oci image format
+#10 exporting layers
+#10 exporting layers 0.7s done
+#10 exporting manifest sha256:6c50bffc8f73ef645eec5ec82c9344b95fb25f961978accc2fc6fdfd2ac39798 0.0s done
+#10 exporting config sha256:fd6cd64b21f3b9dc4bf13dd58e25c824457c61a9bfdcc4a50003bee58bd536b3 0.0s done
+#10 sending tarball
+#10 ...
+
+#11 importing to docker
+#11 DONE 0.1s
+
+#10 exporting to oci image format
+#10 sending tarball 25.9s done
+#10 DONE 26.7s
+
+#12 resolving provenance for metadata file
+#12 DONE 0.3s
+ Image derexi-ctv2-pulse-lab Built 

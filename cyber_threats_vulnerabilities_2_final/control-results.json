@@ -1,0 +1,774 @@
+{
+  "control_c01": "role-based access control",
+  "control_c02": "input validation and safe error handling",
+  "mode": "isolated (no live database; dependency override + engine tripwire)",
+  "appendix": {
+    "routes": [
+      {
+        "methods": [
+          "GET"
+        ],
+        "path": "/",
+        "public_by_design": true,
+        "authorization_dependency": false
+      },
+      {
+        "methods": [
+          "GET"
+        ],
+        "path": "/health",
+        "public_by_design": true,
+        "authorization_dependency": false
+      },
+      {
+        "methods": [
+          "GET"
+        ],
+        "path": "/departments",
+        "public_by_design": false,
+        "authorization_dependency": false
+      },
+      {
+        "methods": [
+          "GET"
+        ],
+        "path": "/roles",
+        "public_by_design": false,
+        "authorization_dependency": false
+      },
+      {
+        "methods": [
+          "GET"
+        ],
+        "path": "/categories",
+        "public_by_design": false,
+        "authorization_dependency": false
+      },
+      {
+        "methods": [
+          "GET"
+        ],
+        "path": "/me",
+        "public_by_design": false,
+        "authorization_dependency": false
+      },
+      {
+        "methods": [
+          "GET"
+        ],
+        "path": "/users",
+        "public_by_design": false,
+        "authorization_dependency": false
+      },
+      {
+        "methods": [
+          "GET"
+        ],
+        "path": "/policies",
+        "public_by_design": false,
+        "authorization_dependency": false
+      },
+      {
+        "methods": [
+          "GET"
+        ],
+        "path": "/policies/search",
+        "public_by_design": false,
+        "authorization_dependency": false
+      },
+      {
+        "methods": [
+          "GET"
+        ],
+        "path": "/policies/{policy_id}",
+        "public_by_design": false,
+        "authorization_dependency": false
+      },
+      {
+        "methods": [
+          "POST"
+        ],
+        "path": "/policies",
+        "public_by_design": false,
+        "authorization_dependency": false
+      },
+      {
+        "methods": [
+          "POST"
+        ],
+        "path": "/policies/{policy_id}/versions",
+        "public_by_design": false,
+        "authorization_dependency": false
+      },
+      {
+        "methods": [
+          "POST"
+        ],
+        "path": "/ask",
+        "public_by_design": false,
+        "authorization_dependency": false
+      },
+      {
+        "methods": [
+          "GET"
+        ],
+        "path": "/conversations/{conversation_id}",
+        "public_by_design": false,
+        "authorization_dependency": false
+      },
+      {
+        "methods": [
+          "GET"
+        ],
+        "path": "/incident-categories",
+        "public_by_design": false,
+        "authorization_dependency": false
+      },
+      {
+        "methods": [
+          "GET"
+        ],
+        "path": "/incidents",
+        "public_by_design": false,
+        "authorization_dependency": false
+      },
+      {
+        "methods": [
+          "POST"
+        ],
+        "path": "/incidents",
+        "public_by_design": false,
+        "authorization_dependency": false
+      },
+      {
+        "methods": [
+          "PATCH"
+        ],
+        "path": "/incidents/{incident_id}",
+        "public_by_design": false,
+        "authorization_dependency": true
+      },
+      {
+        "methods": [
+          "POST"
+        ],
+        "path": "/feedback",
+        "public_by_design": false,
+        "authorization_dependency": false
+      },
+      {
+        "methods": [
+          "GET"
+        ],
+        "path": "/feedback/mine",
+        "public_by_design": false,
+        "authorization_dependency": false
+      },
+      {
+        "methods": [
+          "GET"
+        ],
+        "path": "/dashboard/policy-health",
+        "public_by_design": false,
+        "authorization_dependency": true
+      }
+    ],
+    "cors_allow_origins": [
+      "http://127.0.0.1:8000",
+      "http://localhost:8000"
+    ],
+    "auth_module_imported": false,
+    "cors_allow_credentials": true,
+    "cors_allow_methods": [
+      "GET",
+      "POST",
+      "PATCH"
+    ],
+    "openapi_security_schemes": [],
+    "schema_limits": {
+      "AskRequest": {
+        "user_id": {
+          "max_length": null,
+          "min_length": null
+        },
+        "question": {
+          "max_length": 1000,
+          "min_length": 2
+        },
+        "topic": {
+          "max_length": 1000,
+          "min_length": null
+        }
+      },
+      "FeedbackCreate": {
+        "message_id": {
+          "max_length": null,
+          "min_length": null
+        },
+        "user_id": {
+          "max_length": null,
+          "min_length": null
+        },
+        "rating": {
+          "max_length": null,
+          "min_length": null
+        },
+        "comment": {
+          "max_length": 2000,
+          "min_length": null
+        }
+      },
+      "IncidentCreate": {
+        "reporter_id": {
+          "max_length": null,
+          "min_length": null
+        },
+        "category_id": {
+          "max_length": null,
+          "min_length": null
+        },
+        "description": {
+          "max_length": 4000,
+          "min_length": 2
+        },
+        "severity": {
+          "max_length": null,
+          "min_length": null
+        },
+        "assigned_to": {
+          "max_length": null,
+          "min_length": null
+        },
+        "escalation_level": {
+          "max_length": null,
+          "min_length": null
+        }
+      },
+      "IncidentUpdate": {
+        "status": {
+          "max_length": null,
+          "min_length": null
+        },
+        "severity": {
+          "max_length": null,
+          "min_length": null
+        },
+        "assigned_to": {
+          "max_length": null,
+          "min_length": null
+        },
+        "escalation_level": {
+          "max_length": null,
+          "min_length": null
+        },
+        "resolution_notes": {
+          "max_length": 4000,
+          "min_length": null
+        }
+      },
+      "ClarificationCreate": {
+        "conversation_id": {
+          "max_length": null,
+          "min_length": null
+        },
+        "message_id": {
+          "max_length": null,
+          "min_length": null
+        },
+        "policy_id": {
+          "max_length": null,
+          "min_length": null
+        },
+        "context": {
+          "max_length": 2000,
+          "min_length": 2
+        },
+        "reason": {
+          "max_length": 2000,
+          "min_length": 2
+        },
+        "user_id": {
+          "max_length": null,
+          "min_length": null
+        },
+        "assigned_to": {
+          "max_length": null,
+          "min_length": null
+        }
+      },
+      "ClarificationReplyCreate": {
+        "body": {
+          "max_length": 4000,
+          "min_length": 1
+        },
+        "sender_id": {
+          "max_length": null,
+          "min_length": null
+        }
+      },
+      "PolicyCreate": {
+        "title": {
+          "max_length": 200,
+          "min_length": 1
+        },
+        "summary": {
+          "max_length": 1000,
+          "min_length": null
+        },
+        "category_id": {
+          "max_length": null,
+          "min_length": null
+        },
+        "owner_id": {
+          "max_length": null,
+          "min_length": null
+        },
+        "status": {
+          "max_length": null,
+          "min_length": null
+        },
+        "version": {
+          "max_length": null,
+          "min_length": null
+        }
+      },
+      "PolicyVersionCreate": {
+        "version_no": {
+          "max_length": null,
+          "min_length": null
+        },
+        "title": {
+          "max_length": 200,
+          "min_length": null
+        },
+        "body": {
+          "max_length": 20000,
+          "min_length": 1
+        },
+        "effective_date": {
+          "max_length": null,
+          "min_length": null
+        },
+        "review_date": {
+          "max_length": null,
+          "min_length": null
+        },
+        "requires_review": {
+          "max_length": null,
+          "min_length": null
+        },
+        "created_by": {
+          "max_length": null,
+          "min_length": null
+        }
+      },
+      "PolicyVersionAdd": {
+        "version_no": {
+          "max_length": 20,
+          "min_length": 1
+        },
+        "body": {
+          "max_length": 20000,
+          "min_length": 1
+        },
+        "title": {
+          "max_length": 200,
+          "min_length": null
+        },
+        "effective_date": {
+          "max_length": null,
+          "min_length": null
+        },
+        "review_date": {
+          "max_length": null,
+          "min_length": null
+        },
+        "requires_review": {
+          "max_length": null,
+          "min_length": null
+        },
+        "created_by": {
+          "max_length": null,
+          "min_length": null
+        }
+      }
+    }
+  },
+  "results": [
+    {
+      "id": "C01-01",
+      "control": "C-01",
+      "scenario": "Every API route declares an identity/role dependency",
+      "expected": "0 routes without an authorization dependency",
+      "actual": "17 route(s) unprotected: GET /departments, GET /roles, GET /categories, GET /me, GET /users, GET /policies, GET /policies/search, GET /policies/{policy_id}, POST /policies, POST /policies/{policy_id}/versions, POST /ask, GET /conversations/{conversation_id}, GET /incident-categories, GET /incidents, POST /incidents, POST /feedback, GET /feedback/mine",
+      "status": "FAIL",
+      "function": "test_c01_01_no_authorization_dependencies"
+    },
+    {
+      "id": "C01-02",
+      "control": "C-01",
+      "scenario": "Auth foundation (auth.py) is imported and used by main.py",
+      "expected": "main.py imports and enforces auth",
+      "actual": "main.py has no import of auth.py; the verifier is unwired",
+      "status": "FAIL",
+      "function": "test_c01_02_auth_module_not_wired"
+    },
+    {
+      "id": "C01-03",
+      "control": "C-01",
+      "scenario": "Anonymous GET /users is denied",
+      "expected": "401/403 and no user data",
+      "actual": "HTTP 401; returned 0 user record(s)",
+      "status": "PASS",
+      "function": "test_c01_03_anonymous_user_directory"
+    },
+    {
+      "id": "C01-04",
+      "control": "C-01",
+      "scenario": "Anonymous GET /incidents is denied",
+      "expected": "401/403 and no incident data",
+      "actual": "HTTP 401",
+      "status": "PASS",
+      "function": "test_c01_04_anonymous_incidents"
+    },
+    {
+      "id": "C01-05",
+      "control": "C-01",
+      "scenario": "Anonymous GET /clarifications is denied",
+      "expected": "401/403 and no thread data",
+      "actual": "HTTP 401",
+      "status": "PASS",
+      "function": "test_c01_05_anonymous_clarifications"
+    },
+    {
+      "id": "C01-06",
+      "control": "C-01",
+      "scenario": "User 9 cannot read user 8's conversation",
+      "expected": "401/403 for a non-owner",
+      "actual": "HTTP 401 (no ownership check; header ignored)",
+      "status": "PASS",
+      "function": "test_c01_06_cross_user_conversation_read"
+    },
+    {
+      "id": "C01-07",
+      "control": "C-01",
+      "scenario": "Employee cannot change incident status/severity",
+      "expected": "401/403 for the Employee role",
+      "actual": "HTTP 401",
+      "status": "PASS",
+      "function": "test_c01_07_employee_cannot_edit_incident"
+    },
+    {
+      "id": "C01-08",
+      "control": "C-01",
+      "scenario": "Employee cannot create or approve a policy",
+      "expected": "401/403 before any write",
+      "actual": "HTTP 201; in-memory fake recorded 2 insert(s), 1 commit(s)",
+      "status": "FAIL",
+      "function": "test_c01_08_employee_cannot_create_policy"
+    },
+    {
+      "id": "C01-09",
+      "control": "C-01",
+      "scenario": "Employee cannot publish a new policy version",
+      "expected": "401/403 for the Employee role",
+      "actual": "HTTP 201",
+      "status": "FAIL",
+      "function": "test_c01_09_employee_cannot_add_policy_version"
+    },
+    {
+      "id": "C01-10",
+      "control": "C-01",
+      "scenario": "Anonymous caller cannot resolve a clarification thread",
+      "expected": "401/403 for a non-participant",
+      "actual": "HTTP 401; in-memory thread status now 'open'",
+      "status": "PASS",
+      "function": "test_c01_10_anonymous_can_resolve_thread"
+    },
+    {
+      "id": "C01-11",
+      "control": "C-01",
+      "scenario": "A non-participant cannot post into a clarification thread",
+      "expected": "401/403 for sender outside {requester, assignee}",
+      "actual": "HTTP 401; in-memory reply recorded=False",
+      "status": "PASS",
+      "function": "test_c01_11_identity_spoofing_on_reply"
+    },
+    {
+      "id": "C01-12",
+      "control": "C-01",
+      "scenario": "Anonymous GET /dashboard/policy-health is denied",
+      "expected": "401/403 for a compliance/admin view",
+      "actual": "HTTP 401",
+      "status": "PASS",
+      "function": "test_c01_12_anonymous_dashboard"
+    },
+    {
+      "id": "C01-13",
+      "control": "C-01",
+      "scenario": "Actor identity comes from a verified credential, not the request body",
+      "expected": "401/403 when body identity conflicts with the caller",
+      "actual": "HTTP 401; 0 in-memory insert(s) attributed to user_id=9",
+      "status": "PASS",
+      "function": "test_c01_13_identity_is_client_supplied"
+    },
+    {
+      "id": "C01-14",
+      "control": "C-01",
+      "scenario": "Employee and System Administrator receive different authority",
+      "expected": "Employee denied where admin is allowed (403 vs 200)",
+      "actual": "Employee HTTP 401, System Administrator HTTP 401 (identical responses)",
+      "status": "FAIL",
+      "function": "test_c01_14_roles_are_cosmetic"
+    },
+    {
+      "id": "C01-15",
+      "control": "C-01",
+      "scenario": "OpenAPI contract declares an authentication scheme",
+      "expected": "at least one security scheme (e.g. bearerAuth)",
+      "actual": "declared schemes: none",
+      "status": "FAIL",
+      "function": "test_c01_15_no_security_scheme_declared"
+    },
+    {
+      "id": "C02-01",
+      "control": "C-02",
+      "scenario": "Malformed /ask payloads are rejected with 422",
+      "expected": "all 8 malformed payloads return 422",
+      "actual": "unexpected: blank question -> 401, whitespace-only question -> 401, one-character question -> 401, 1001-character question -> 401, missing user_id -> 401, wrong type user_id -> 401, missing question -> 401, null question -> 401",
+      "status": "FAIL",
+      "function": "test_c02_01_question_validation"
+    },
+    {
+      "id": "C02-02",
+      "control": "C-02",
+      "scenario": "Rejected /ask payloads create no records",
+      "expected": "0 in-memory inserts",
+      "actual": "0 insert(s), 0 commit(s)",
+      "status": "PASS",
+      "function": "test_c02_01_question_validation"
+    },
+    {
+      "id": "C02-03",
+      "control": "C-02",
+      "scenario": "Unknown /ask fields are ignored, not applied",
+      "expected": "request accepted without granting admin fields",
+      "actual": "HTTP 401; response keys=['detail']",
+      "status": "PASS",
+      "function": "test_c02_03_ask_extra_field_ignored"
+    },
+    {
+      "id": "C02-04",
+      "control": "C-02",
+      "scenario": "Unknown user is rejected without creating a conversation",
+      "expected": "404/401 with no records",
+      "actual": "HTTP 401, detail='Authentication required', inserts=0",
+      "status": "PASS",
+      "function": "test_c02_04_ask_unknown_user_is_generic"
+    },
+    {
+      "id": "C02-05",
+      "control": "C-02",
+      "scenario": "Malformed /feedback payloads are rejected with 422",
+      "expected": "all 5 malformed payloads return 422",
+      "actual": "unexpected: missing message_id -> 401, missing rating -> 401, wrong rating type -> 401, wrong message type -> 401, missing user_id -> 401",
+      "status": "FAIL",
+      "function": "test_c02_05_feedback_validation"
+    },
+    {
+      "id": "C02-06",
+      "control": "C-02",
+      "scenario": "Rejected /feedback payloads create no records",
+      "expected": "0 in-memory inserts",
+      "actual": "0 insert(s)",
+      "status": "PASS",
+      "function": "test_c02_05_feedback_validation"
+    },
+    {
+      "id": "C02-07",
+      "control": "C-02",
+      "scenario": "Feedback for a missing message is refused",
+      "expected": "404 and no record",
+      "actual": "HTTP 401, inserts=0",
+      "status": "FAIL",
+      "function": "test_c02_05_feedback_validation"
+    },
+    {
+      "id": "C02-08",
+      "control": "C-02",
+      "scenario": "Overlong feedback comment is rejected",
+      "expected": "422 for a 50,000-character comment",
+      "actual": "HTTP 401",
+      "status": "FAIL",
+      "function": "test_c02_08_feedback_comment_unbounded"
+    },
+    {
+      "id": "C02-09",
+      "control": "C-02",
+      "scenario": "Malformed /incidents payloads are rejected with 422",
+      "expected": "all 6 malformed payloads return 422",
+      "actual": "unexpected: missing reporter -> 401, blank description -> 401, one-character description -> 401, invalid severity -> 401, wrong escalation type -> 401, missing description -> 401",
+      "status": "FAIL",
+      "function": "test_c02_09_incident_validation"
+    },
+    {
+      "id": "C02-10",
+      "control": "C-02",
+      "scenario": "Rejected /incidents payloads create no records",
+      "expected": "0 in-memory inserts",
+      "actual": "0 insert(s)",
+      "status": "PASS",
+      "function": "test_c02_09_incident_validation"
+    },
+    {
+      "id": "C02-11",
+      "control": "C-02",
+      "scenario": "Overlong incident description is rejected",
+      "expected": "422 for a 50,000-character description",
+      "actual": "HTTP 401",
+      "status": "FAIL",
+      "function": "test_c02_12_incident_description_unbounded"
+    },
+    {
+      "id": "C02-12",
+      "control": "C-02",
+      "scenario": "Malformed replies are rejected with 422",
+      "expected": "all 5 malformed payloads return 422",
+      "actual": "unexpected: blank body -> 401, whitespace body -> 401, 2001-character body -> 401, missing sender -> 401, wrong sender type -> 401",
+      "status": "FAIL",
+      "function": "test_c02_13_reply_validation"
+    },
+    {
+      "id": "C02-13",
+      "control": "C-02",
+      "scenario": "Rejected replies create no records",
+      "expected": "0 in-memory inserts",
+      "actual": "0 insert(s)",
+      "status": "PASS",
+      "function": "test_c02_13_reply_validation"
+    },
+    {
+      "id": "C02-14",
+      "control": "C-02",
+      "scenario": "Malformed /policies payloads are rejected with 422",
+      "expected": "all 4 malformed payloads return 422",
+      "actual": "all rejected",
+      "status": "PASS",
+      "function": "test_c02_16_policy_payload_validation"
+    },
+    {
+      "id": "C02-15",
+      "control": "C-02",
+      "scenario": "Rejected policy payloads create no records",
+      "expected": "0 in-memory inserts",
+      "actual": "0 insert(s)",
+      "status": "PASS",
+      "function": "test_c02_16_policy_payload_validation"
+    },
+    {
+      "id": "C02-16",
+      "control": "C-02",
+      "scenario": "Overlong policy title is rejected",
+      "expected": "422 for a 100,000-character title",
+      "actual": "HTTP 422",
+      "status": "PASS",
+      "function": "test_c02_19_policy_title_unbounded"
+    },
+    {
+      "id": "C02-17",
+      "control": "C-02",
+      "scenario": "Incident assignment to a nonexistent user is rejected",
+      "expected": "400/404/422 and no change",
+      "actual": "HTTP 401; in-memory assigned_to=None",
+      "status": "FAIL",
+      "function": "test_c02_20_incident_assignment_unchecked"
+    },
+    {
+      "id": "C02-18",
+      "control": "C-02",
+      "scenario": "Error responses contain no stack traces, SQL, or credentials",
+      "expected": "0 internal details in 6 error responses",
+      "actual": "statuses 401,401,401,401,404,404; no internal details",
+      "status": "PASS",
+      "function": "test_c02_21_error_bodies_are_safe"
+    },
+    {
+      "id": "C02-19",
+      "control": "C-02",
+      "scenario": "Not-found errors use short, employee-readable text",
+      "expected": "a plain-language detail string",
+      "actual": "HTTP 404, detail='Policy not found'",
+      "status": "PASS",
+      "function": "test_c02_22_error_messages_are_human"
+    },
+    {
+      "id": "C02-20",
+      "control": "C-02",
+      "scenario": "Unhandled database failure does not leak internals",
+      "expected": "HTTP 500 with no traceback, SQL, or connection string",
+      "actual": "HTTP 500, leak markers=none, body='Internal Server Error'",
+      "status": "PASS",
+      "function": "test_c02_23_unhandled_database_error_is_safe"
+    },
+    {
+      "id": "C02-21",
+      "control": "C-02",
+      "scenario": "Unhandled failure gives the employee an actionable message",
+      "expected": "a plain-language apology/retry message",
+      "actual": "HTTP 500, body='Internal Server Error'",
+      "status": "FAIL",
+      "function": "test_c02_23_unhandled_database_error_is_safe"
+    },
+    {
+      "id": "C02-24",
+      "control": "C-02",
+      "scenario": "Empty policy title and body are rejected",
+      "expected": "422 for empty title and empty version body",
+      "actual": "HTTP 422",
+      "status": "PASS",
+      "function": "test_c02_24_empty_policy_fields"
+    },
+    {
+      "id": "C02-22",
+      "control": "C-02",
+      "scenario": "Non-boolean rating values are rejected",
+      "expected": "422 for rating='yes'",
+      "actual": "HTTP 401; rating coerced and stored=False",
+      "status": "FAIL",
+      "function": "test_c02_25_feedback_rating_coercion"
+    },
+    {
+      "id": "C02-25",
+      "control": "C-02",
+      "scenario": "Clarification for nonexistent message/conversation/policy is rejected",
+      "expected": "400/404/422 and no record",
+      "actual": "HTTP 401; 0 in-memory insert(s) with dangling foreign keys",
+      "status": "FAIL",
+      "function": "test_c02_25_orphan_clarification"
+    },
+    {
+      "id": "C02-26",
+      "control": "C-02",
+      "scenario": "Feedback from a nonexistent user is rejected",
+      "expected": "404 and no record",
+      "actual": "HTTP 401; 0 in-memory insert(s) referencing a missing user",
+      "status": "FAIL",
+      "function": "test_c02_26_feedback_unknown_user"
+    },
+    {
+      "id": "C02-23",
+      "control": "C-02",
+      "scenario": "Every free-text field declares an upper bound",
+      "expected": "0 unbounded free-text fields",
+      "actual": "all bounded",
+      "status": "PASS",
+      "function": "test_c02_26_schema_field_limits"
+    }
+  ],
+  "summary": {
+    "passed": 23,
+    "failed": 18,
+    "blocked": 0,
+    "errors": 0
+  }
+}

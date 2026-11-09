@@ -1,0 +1,25 @@
+C:\Users\kawil\Documents\Kiona-629\derexi-policy-pilot\backend\database.py:41: SAWarning: Query string argument(s) 'sslmode' are not accepted by the pysqlite driver and are being ignored; SQLite URI arguments require that 'uri=true' also be present in the URL. (Background on this warning at: https://sqlalche.me/e/21/squa)
+  engine = create_engine(
+Traceback (most recent call last):
+  File "C:\Users\kawil\Documents\Kiona-629\derexi-policy-pilot\backend\tests\test_security_controls.py", line 42, in <module>
+    import main  # noqa: E402
+    ^^^^^^^^^^^
+  File "C:\Users\kawil\Documents\Kiona-629\derexi-policy-pilot\backend\main.py", line 29, in <module>
+    import dev_auth
+  File "C:\Users\kawil\Documents\Kiona-629\derexi-policy-pilot\backend\dev_auth.py", line 39, in <module>
+    from database import get_db
+  File "C:\Users\kawil\Documents\Kiona-629\derexi-policy-pilot\backend\database.py", line 41, in <module>
+    engine = create_engine(
+        DATABASE_URL,
+    ...<3 lines>...
+        future=True,
+    )
+  File "<sqlalchemy generated warned() wrapper for sqlalchemy.engine.create.create_engine>", line 2, in create_engine
+    return target(fn, url, **kwargs)
+  File "C:\Users\kawil\Documents\Kiona-629\derexi-policy-pilot\.venv\Lib\site-packages\sqlalchemy\util\deprecations.py", line 281, in warned
+    return fn(*args, **kwargs)  # type: ignore[no-any-return]
+  File "C:\Users\kawil\Documents\Kiona-629\derexi-policy-pilot\.venv\Lib\site-packages\sqlalchemy\engine\create.py", line 699, in create_engine
+    raise TypeError(
+    ...<10 lines>...
+    )
+TypeError: Invalid argument(s) 'max_overflow' sent to create_engine(), using configuration SQLiteDialect_pysqlite/SingletonThreadPool/Engine.  Please check that the keyword arguments are appropriate for this combination of components.
