@@ -1,0 +1,563 @@
+{
+  "suite": "test_week9_security",
+  "timestamp": "2026-11-10T20:32:03.757736+00:00",
+  "mode": "Isolated fixtures; no live provider/database operations",
+  "exit_code": 0,
+  "completed": true,
+  "passed": 110,
+  "failed": 0,
+  "checks": [
+    {
+      "name": "Anonymous denied GET /messages",
+      "status": "PASS",
+      "actual": 401
+    },
+    {
+      "name": "Anonymous denied GET /messages/notifications",
+      "status": "PASS",
+      "actual": 401
+    },
+    {
+      "name": "Anonymous denied GET /clarifications",
+      "status": "PASS",
+      "actual": 401
+    },
+    {
+      "name": "Anonymous denied POST /clarifications",
+      "status": "PASS",
+      "actual": 401
+    },
+    {
+      "name": "Anonymous denied GET /clarifications/{request_id}",
+      "status": "PASS",
+      "actual": 401
+    },
+    {
+      "name": "Anonymous denied POST /clarifications/{request_id}/replies",
+      "status": "PASS",
+      "actual": 401
+    },
+    {
+      "name": "Anonymous denied POST /clarifications/{request_id}/resolve",
+      "status": "PASS",
+      "actual": 401
+    },
+    {
+      "name": "Anonymous denied POST /clarifications/{request_id}/close",
+      "status": "PASS",
+      "actual": 401
+    },
+    {
+      "name": "Anonymous denied POST /clarifications/{request_id}/reopen",
+      "status": "PASS",
+      "actual": 401
+    },
+    {
+      "name": "Anonymous denied POST /clarifications/{request_id}/read",
+      "status": "PASS",
+      "actual": 401
+    },
+    {
+      "name": "Anonymous denied POST /clarifications/{request_id}/assign",
+      "status": "PASS",
+      "actual": 401
+    },
+    {
+      "name": "Anonymous denied GET /governance/drafts",
+      "status": "PASS",
+      "actual": 401
+    },
+    {
+      "name": "Anonymous denied GET /governance/owners",
+      "status": "PASS",
+      "actual": 401
+    },
+    {
+      "name": "Anonymous denied POST /governance/drafts",
+      "status": "PASS",
+      "actual": 401
+    },
+    {
+      "name": "Anonymous denied GET /governance/drafts/{did}",
+      "status": "PASS",
+      "actual": 401
+    },
+    {
+      "name": "Anonymous denied PATCH /governance/drafts/{did}",
+      "status": "PASS",
+      "actual": 401
+    },
+    {
+      "name": "Anonymous denied POST /governance/drafts/{did}/actions",
+      "status": "PASS",
+      "actual": 401
+    },
+    {
+      "name": "Anonymous denied GET /governance/availability",
+      "status": "PASS",
+      "actual": 401
+    },
+    {
+      "name": "Anonymous denied POST /governance/documents/preview",
+      "status": "PASS",
+      "actual": 401
+    },
+    {
+      "name": "Anonymous denied DELETE /governance/documents/preview/{token}",
+      "status": "PASS",
+      "actual": 401
+    },
+    {
+      "name": "Anonymous denied GET /governance/drafts/{did}/original",
+      "status": "PASS",
+      "actual": 401
+    },
+    {
+      "name": "Anonymous denied GET /auth/session",
+      "status": "PASS",
+      "actual": 401
+    },
+    {
+      "name": "Anonymous denied GET /departments",
+      "status": "PASS",
+      "actual": 401
+    },
+    {
+      "name": "Anonymous denied GET /roles",
+      "status": "PASS",
+      "actual": 401
+    },
+    {
+      "name": "Anonymous denied GET /categories",
+      "status": "PASS",
+      "actual": 401
+    },
+    {
+      "name": "Anonymous denied GET /me",
+      "status": "PASS",
+      "actual": 401
+    },
+    {
+      "name": "Anonymous denied GET /users",
+      "status": "PASS",
+      "actual": 401
+    },
+    {
+      "name": "Anonymous denied GET /policies",
+      "status": "PASS",
+      "actual": 401
+    },
+    {
+      "name": "Anonymous denied GET /policies/search",
+      "status": "PASS",
+      "actual": 401
+    },
+    {
+      "name": "Anonymous denied GET /policies/{policy_id}",
+      "status": "PASS",
+      "actual": 401
+    },
+    {
+      "name": "Anonymous denied POST /policies",
+      "status": "PASS",
+      "actual": 401
+    },
+    {
+      "name": "Anonymous denied POST /policies/{policy_id}/versions",
+      "status": "PASS",
+      "actual": 401
+    },
+    {
+      "name": "Anonymous denied POST /ask",
+      "status": "PASS",
+      "actual": 401
+    },
+    {
+      "name": "Anonymous denied GET /conversations/{conversation_id}",
+      "status": "PASS",
+      "actual": 401
+    },
+    {
+      "name": "Anonymous denied GET /incident-categories",
+      "status": "PASS",
+      "actual": 401
+    },
+    {
+      "name": "Anonymous denied GET /incidents",
+      "status": "PASS",
+      "actual": 401
+    },
+    {
+      "name": "Anonymous denied POST /incidents",
+      "status": "PASS",
+      "actual": 401
+    },
+    {
+      "name": "Anonymous denied PATCH /incidents/{incident_id}",
+      "status": "PASS",
+      "actual": 401
+    },
+    {
+      "name": "Anonymous denied POST /feedback",
+      "status": "PASS",
+      "actual": 401
+    },
+    {
+      "name": "Anonymous denied GET /feedback/mine",
+      "status": "PASS",
+      "actual": 401
+    },
+    {
+      "name": "Anonymous denied GET /dashboard/policy-health",
+      "status": "PASS",
+      "actual": 401
+    },
+    {
+      "name": "Direct policy creation bypass blocked 8",
+      "status": "PASS",
+      "actual": null
+    },
+    {
+      "name": "Direct version bypass blocked 8",
+      "status": "PASS",
+      "actual": null
+    },
+    {
+      "name": "Direct policy creation bypass blocked 4",
+      "status": "PASS",
+      "actual": null
+    },
+    {
+      "name": "Direct version bypass blocked 4",
+      "status": "PASS",
+      "actual": null
+    },
+    {
+      "name": "Direct policy creation bypass blocked 2",
+      "status": "PASS",
+      "actual": null
+    },
+    {
+      "name": "Direct version bypass blocked 2",
+      "status": "PASS",
+      "actual": null
+    },
+    {
+      "name": "Policy Owner cannot read unrelated incident reports",
+      "status": "PASS",
+      "actual": null
+    },
+    {
+      "name": "Employee sees only own incidents",
+      "status": "PASS",
+      "actual": null
+    },
+    {
+      "name": "Administrator sees organizational incident reports",
+      "status": "PASS",
+      "actual": null
+    },
+    {
+      "name": "Policy Owner cannot change incident status",
+      "status": "PASS",
+      "actual": null
+    },
+    {
+      "name": "Employee cannot assign incident handler",
+      "status": "PASS",
+      "actual": null
+    },
+    {
+      "name": "Policy Owner cannot assign incident handler",
+      "status": "PASS",
+      "actual": null
+    },
+    {
+      "name": "Employee cannot select escalation level",
+      "status": "PASS",
+      "actual": null
+    },
+    {
+      "name": "Administrator can update incident",
+      "status": "PASS",
+      "actual": null
+    },
+    {
+      "name": "Explicit handler assignment permits incident access",
+      "status": "PASS",
+      "actual": null
+    },
+    {
+      "name": "Unknown handler rejected safely",
+      "status": "PASS",
+      "actual": null
+    },
+    {
+      "name": "Null incident workflow state rejected safely",
+      "status": "PASS",
+      "actual": null
+    },
+    {
+      "name": "Unknown category rejected safely",
+      "status": "PASS",
+      "actual": null
+    },
+    {
+      "name": "Owner dashboard is explicitly department scoped",
+      "status": "PASS",
+      "actual": null
+    },
+    {
+      "name": "Owner dashboard excludes other department policies",
+      "status": "PASS",
+      "actual": null
+    },
+    {
+      "name": "Owner dashboard conceals unrelated incident and chat aggregates",
+      "status": "PASS",
+      "actual": null
+    },
+    {
+      "name": "Author cannot select self for peer approval",
+      "status": "PASS",
+      "actual": null
+    },
+    {
+      "name": "Author cannot approve own draft",
+      "status": "PASS",
+      "actual": null
+    },
+    {
+      "name": "Independent department peer approval succeeds",
+      "status": "PASS",
+      "actual": null
+    },
+    {
+      "name": "Independent system administrator approval succeeds",
+      "status": "PASS",
+      "actual": null
+    },
+    {
+      "name": "Validation response redacts rejected input",
+      "status": "PASS",
+      "actual": null
+    },
+    {
+      "name": "DB failure is generic and actionable",
+      "status": "PASS",
+      "actual": null
+    },
+    {
+      "name": "Request id is generated, not trusted from caller",
+      "status": "PASS",
+      "actual": null
+    },
+    {
+      "name": "Valid Supabase JWT maps to existing employee",
+      "status": "PASS",
+      "actual": null
+    },
+    {
+      "name": "Supabase JWT role claim cannot elevate access",
+      "status": "PASS",
+      "actual": null
+    },
+    {
+      "name": "expired Supabase JWT denied",
+      "status": "PASS",
+      "actual": null
+    },
+    {
+      "name": "wrong audience Supabase JWT denied",
+      "status": "PASS",
+      "actual": null
+    },
+    {
+      "name": "wrong issuer Supabase JWT denied",
+      "status": "PASS",
+      "actual": null
+    },
+    {
+      "name": "invalid signature Supabase JWT denied",
+      "status": "PASS",
+      "actual": null
+    },
+    {
+      "name": "Verified email alone does not prove employee identity",
+      "status": "PASS",
+      "actual": null
+    },
+    {
+      "name": "Subject and business email must match the same user",
+      "status": "PASS",
+      "actual": null
+    },
+    {
+      "name": "Service keys cannot configure public sign-in",
+      "status": "PASS",
+      "actual": null
+    },
+    {
+      "name": "Login rejects CSRF attempt",
+      "status": "PASS",
+      "actual": null
+    },
+    {
+      "name": "Login failure is generic",
+      "status": "PASS",
+      "actual": null
+    },
+    {
+      "name": "Mapped account can establish verified browser session",
+      "status": "PASS",
+      "actual": null
+    },
+    {
+      "name": "Browser session cookies are Secure HttpOnly SameSite Strict",
+      "status": "PASS",
+      "actual": null
+    },
+    {
+      "name": "Login does not expose tokens in JSON",
+      "status": "PASS",
+      "actual": null
+    },
+    {
+      "name": "Session reads do not expose credentials",
+      "status": "PASS",
+      "actual": null
+    },
+    {
+      "name": "Cookie-authenticated writes require CSRF proof",
+      "status": "PASS",
+      "actual": null
+    },
+    {
+      "name": "Refresh rotates a verified mapped session",
+      "status": "PASS",
+      "actual": null
+    },
+    {
+      "name": "Authenticated data is not cached",
+      "status": "PASS",
+      "actual": null
+    },
+    {
+      "name": "Production response includes HSTS",
+      "status": "PASS",
+      "actual": null
+    },
+    {
+      "name": "Refresh token is scoped to auth endpoints",
+      "status": "PASS",
+      "actual": null
+    },
+    {
+      "name": "Logout clears local cookies and invokes provider revocation",
+      "status": "PASS",
+      "actual": null
+    },
+    {
+      "name": "Failed remote logout still clears browser cookies honestly",
+      "status": "PASS",
+      "actual": null
+    },
+    {
+      "name": "Login has bounded attempt throttling",
+      "status": "PASS",
+      "actual": null
+    },
+    {
+      "name": "Production cannot mint developer tokens",
+      "status": "PASS",
+      "actual": null
+    },
+    {
+      "name": "Production rejects valid local dev token",
+      "status": "PASS",
+      "actual": null
+    },
+    {
+      "name": "Production refuses plaintext API transport",
+      "status": "PASS",
+      "actual": null
+    },
+    {
+      "name": "Malformed developer allowlist fails closed",
+      "status": "PASS",
+      "actual": null
+    },
+    {
+      "name": "Missing explicit environment cannot enable developer identity",
+      "status": "PASS",
+      "actual": null
+    },
+    {
+      "name": "Database TLS: remote default",
+      "status": "PASS",
+      "actual": null
+    },
+    {
+      "name": "Database TLS: username cannot impersonate localhost",
+      "status": "PASS",
+      "actual": null
+    },
+    {
+      "name": "Database TLS: plaintext remote refused",
+      "status": "PASS",
+      "actual": null
+    },
+    {
+      "name": "Database TLS: opportunistic remote refused",
+      "status": "PASS",
+      "actual": null
+    },
+    {
+      "name": "Database TLS: verified mode retained",
+      "status": "PASS",
+      "actual": null
+    },
+    {
+      "name": "Structured logs exclude credentials, tokens and private text",
+      "status": "PASS",
+      "actual": null
+    },
+    {
+      "name": "Access denials and login failures are recorded",
+      "status": "PASS",
+      "actual": null
+    },
+    {
+      "name": "Sensitive admin actions are recorded",
+      "status": "PASS",
+      "actual": null
+    },
+    {
+      "name": "Approval logs identify verified actors without policy text",
+      "status": "PASS",
+      "actual": null
+    },
+    {
+      "name": "Log route templates exclude raw resource parameters",
+      "status": "PASS",
+      "actual": null
+    },
+    {
+      "name": "Default access logging redacts preview tokens and query data",
+      "status": "PASS",
+      "actual": null
+    },
+    {
+      "name": "Unsafe auth configuration rejected: plaintext JWKS",
+      "status": "PASS",
+      "actual": null
+    },
+    {
+      "name": "Unsafe auth configuration rejected: symmetric production algorithm",
+      "status": "PASS",
+      "actual": null
+    }
+  ],
+  "blocked": 0,
+  "status": "PASS"
+}

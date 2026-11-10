@@ -44,9 +44,11 @@
   {
     "id": "W9-07",
     "severity": "Low",
-    "status": "BLOCKED_ENVIRONMENT",
-    "finding": "Existing document-parser regression cannot import already-declared pypdf in this interpreter. No dependency installation performed.",
-    "evidence": "test_document_intake.txt"
+    "status": "REPAIRED_LOCAL",
+    "finding": "Mac RLIMIT_AS rejection repaired with separate physical-memory supervisor and retained CPU/timeout protections; POSIX limits never exceed inherited soft/hard ceilings. Parser 47 PASS, limits 14 PASS, essential security/JWT regressions 134 PASS; 0 FAIL/BLOCKED. Mac monitoring samples every 10 ms and may allow transient overshoot. Native Windows/Linux execution unverified; Windows Job Object retained.",
+    "evidence": "parser-fix-results.json",
+    "diagnosis": "parser-diagnosis.json",
+    "resource_evidence": "parser-limit-results.json"
   },
   {
     "id": "W9-08",

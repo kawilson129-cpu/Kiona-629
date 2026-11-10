@@ -45,19 +45,35 @@ changes and prior evidence were preserved. No dependencies installed, commit or 
 
 ## Executed results
 
-| Suite | PASS | FAIL | Evidence |
-|---|---:|---:|---|
-| Week 9 API/auth/logging/TLS configuration | 110 | 0 | `evidence/week9-security-results.json` |
-| Existing JWT foundation | 24 | 0 | `evidence/test_week7_auth.txt` |
-| Existing messaging workflow | 73 | 0 | `evidence/test_week7_messaging.txt` |
-| Existing messaging security edges | 29 | 0 | `evidence/test_week7_edges.txt` |
-| Existing governance lifecycle | 102 | 0 | `evidence/lifecycle-results.json` |
-| Browser sign-in/logout, roles, cookie privacy, admin action, mobile | 15 | 0 | `evidence/browser-results.json` |
-| **Total executed** | **353** | **0** | `evidence/regression-summary.json` |
+| Suite | PASS | FAIL | BLOCKED | Evidence |
+|---|---:|---:|---:|---|
+| Week 9 API/auth/logging/TLS configuration | 110 | 0 | 0 | `evidence/week9-security-results.json` |
+| Existing JWT foundation | 24 | 0 | 0 | `evidence/test_week7_auth.txt` |
+| Existing messaging workflow | 73 | 0 | 0 | `evidence/test_week7_messaging.txt` |
+| Existing messaging security edges | 29 | 0 | 0 | `evidence/test_week7_edges.txt` |
+| Existing governance lifecycle | 102 | 0 | 0 | `evidence/lifecycle-results.json` |
+| Browser sign-in/logout, roles, cookie privacy, admin action, mobile | 15 | 0 | 0 | `evidence/browser-results.json` |
+| Parser after portability fix | 47 | 0 | 0 | `evidence/parser-fix-results.json` |
+| Parser resource protections | 14 | 0 | 0 | `evidence/parser-limit-results.json` |
+| **Latest results per suite** | **414** | **0** | **0** | `evidence/regression-summary.json` |
 
-**BLOCKED:** document-parser suite did not execute because this interpreter lacks
-the already-declared `pypdf` dependency. Import failure retained in
-`evidence/test_document_intake.txt`; no new dependency was introduced. An interim
+**Parser portability fix: 47 PASS / 0 FAIL / 0 BLOCKED.**
+`backend/document_limits.py` now clamps POSIX limits to existing soft/hard ceilings.
+Linux retains its address-space limit; Windows retains its Job Object. On macOS,
+a separate supervisor samples resident memory/physical footprint every 10 ms,
+killing extraction above 256 MiB (or a stricter inherited ceiling), on probe failure,
+or after 10 seconds. The existing 8-second CPU and outer 12-second extraction limits
+remain, together with input, XML and archive protections. Sampling permits transient
+overshoot between polls; this is not a kernel allocation ceiling.
+
+Mac `.venv` has `pypdf 6.21.4` and `defusedxml 0.7.1`. Native parser and resource
+checks pass (47 + 14). Essential Week 9 security and JWT suites were rerun: 110 + 24
+PASS, 0 FAIL/BLOCKED. Other 219 prior passing checks were reused, not rerun.
+Native Windows/Linux execution remains unverified; unsupported protections fail
+closed. Results: `evidence/parser-fix-results.json`, `evidence/parser-limit-results.json`,
+`evidence/parser-fix-regressions/summary.json`. Earlier failures and diagnosis are
+preserved. See [focused fix and reproduction](parser-portability-fix.md).
+An interim
 staging test expected a plaintext identity endpoint rather than testing HTTPS;
 the expectation was updated and the suite re-passed. Browser testing found and
 repaired incident navigation returning to Overview after assignment. Initial

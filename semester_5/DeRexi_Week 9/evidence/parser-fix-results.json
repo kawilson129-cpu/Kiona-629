@@ -1,0 +1,203 @@
+{
+  "suite": "test_document_intake",
+  "timestamp": "2026-11-10T20:32:03.772382+00:00",
+  "interpreter": "/Users/adult/Desktop/Kiona-629/derexi-policy-pilot/.venv/bin/python",
+  "platform": "macOS-26.3.1-arm64-arm-64bit",
+  "mode": "Native Mac workers; parser HTTP suite uses isolated SQLite/PostgreSQL tripwire",
+  "completed": true,
+  "expected_checks": 47,
+  "passed": 47,
+  "failed": 0,
+  "blocked": 0,
+  "checks": [
+    {
+      "name": "Availability probes both schema and parser",
+      "pass": true
+    },
+    {
+      "name": "Three real templates provided",
+      "pass": true
+    },
+    {
+      "name": "Employee preview denied",
+      "pass": true
+    },
+    {
+      "name": "Anonymous preview denied",
+      "pass": true
+    },
+    {
+      "name": "Employee capability probe denied",
+      "pass": true
+    },
+    {
+      "name": "Oversized body rejected",
+      "pass": true
+    },
+    {
+      "name": "Wrong extension rejected",
+      "pass": true
+    },
+    {
+      "name": "Mismatched signature rejected",
+      "pass": true
+    },
+    {
+      "name": "Mismatched MIME rejected",
+      "pass": true
+    },
+    {
+      "name": "Corrupt ZIP rejected",
+      "pass": true
+    },
+    {
+      "name": "Macro content rejected",
+      "pass": true
+    },
+    {
+      "name": "Embedded object rejected",
+      "pass": true
+    },
+    {
+      "name": "Archive traversal rejected",
+      "pass": true
+    },
+    {
+      "name": "ZIP bomb rejected",
+      "pass": true
+    },
+    {
+      "name": "XML entities rejected",
+      "pass": true
+    },
+    {
+      "name": "Valid preview DOCX",
+      "pass": true
+    },
+    {
+      "name": "Extracted words preserved in policy format",
+      "pass": true
+    },
+    {
+      "name": "Preview does not save draft",
+      "pass": true
+    },
+    {
+      "name": "Explicit confirmation required",
+      "pass": true
+    },
+    {
+      "name": "Another owner cannot consume preview",
+      "pass": true
+    },
+    {
+      "name": "Confirmed document persists through lifecycle create",
+      "pass": true
+    },
+    {
+      "name": "Uploaded document remains draft",
+      "pass": true
+    },
+    {
+      "name": "Preview cannot be replayed",
+      "pass": true
+    },
+    {
+      "name": "Original provenance stored in immutable creation event",
+      "pass": true
+    },
+    {
+      "name": "No original download claimed without storage",
+      "pass": true
+    },
+    {
+      "name": "Direct publication remains denied",
+      "pass": true
+    },
+    {
+      "name": "Valid preview safe.pdf",
+      "pass": true
+    },
+    {
+      "name": "Real PDF text extracted",
+      "pass": true
+    },
+    {
+      "name": "Encrypted PDF rejected",
+      "pass": true
+    },
+    {
+      "name": "PDF active content rejected",
+      "pass": true
+    },
+    {
+      "name": "Image-only/blank PDF rejected",
+      "pass": true
+    },
+    {
+      "name": "Valid preview DOCX",
+      "pass": true
+    },
+    {
+      "name": "Private original and draft saved",
+      "pass": true
+    },
+    {
+      "name": "Authorized original download exact bytes",
+      "pass": true
+    },
+    {
+      "name": "Original download not cacheable",
+      "pass": true
+    },
+    {
+      "name": "Employee original download denied",
+      "pass": true
+    },
+    {
+      "name": "No public static original path",
+      "pass": true
+    },
+    {
+      "name": "Valid preview DOCX",
+      "pass": true
+    },
+    {
+      "name": "Failed persistence never reports saved",
+      "pass": true
+    },
+    {
+      "name": "Failed transaction cleans private staged original",
+      "pass": true
+    },
+    {
+      "name": "Public storage directory forbidden",
+      "pass": true
+    },
+    {
+      "name": "Misconfigured storage disables upload honestly",
+      "pass": true
+    },
+    {
+      "name": "Missing schema disables saving but permits parsing",
+      "pass": true
+    },
+    {
+      "name": "Queue fails honestly with enterprise copy",
+      "pass": true
+    },
+    {
+      "name": "Valid preview DOCX",
+      "pass": true
+    },
+    {
+      "name": "Save cannot succeed without tables",
+      "pass": true
+    },
+    {
+      "name": "Existing Dashboard preserved",
+      "pass": true
+    }
+  ],
+  "status": "PASS"
+}

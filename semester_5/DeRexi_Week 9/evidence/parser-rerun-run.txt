@@ -1,0 +1,45 @@
+{"timestamp":"2026-11-10T20:17:24.467240+00:00","event":"sensitive_change","request_id":"cfd6b186e5304a69962d87d012d6159d","method":"POST","route":"/dev-auth/token","status":200,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T20:17:24.470840+00:00","event":"sensitive_change","request_id":"d06082fc503f4021b4f70b9e6b891884","method":"POST","route":"/dev-auth/token","status":200,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T20:17:24.473893+00:00","event":"sensitive_change","request_id":"a4e409228b3245be9d19e2f9c853826a","method":"POST","route":"/dev-auth/token","status":200,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T20:17:24.476727+00:00","event":"sensitive_change","request_id":"e3c0aa516578456aad333d9d9f310a22","method":"POST","route":"/dev-auth/token","status":200,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T20:17:24.479580+00:00","event":"sensitive_change","request_id":"4c22a15ff727451ea6c95600e4df2c90","method":"POST","route":"/dev-auth/token","status":200,"actor_id":null,"role":null}
+PASS Availability probes both schema and parser
+PASS Three real templates provided
+{"timestamp":"2026-11-10T20:17:24.494202+00:00","event":"access_denied","request_id":"4c2d08413c434fd2b96b144cc99e753d","method":"POST","route":"/governance/documents/preview","status":403,"actor_id":8,"role":"Employee"}
+PASS Employee preview denied
+{"timestamp":"2026-11-10T20:17:24.497931+00:00","event":"authentication_failure","request_id":"6861c9ac192941d3b5fef69c7ba13a74","method":"POST","route":"/governance/documents/preview","status":401,"actor_id":null,"role":null}
+PASS Anonymous preview denied
+{"timestamp":"2026-11-10T20:17:24.501572+00:00","event":"access_denied","request_id":"bf21b4c56f88414f83baeda2dc23d495","method":"GET","route":"/governance/availability","status":403,"actor_id":8,"role":"Employee"}
+PASS Employee capability probe denied
+{"timestamp":"2026-11-10T20:17:24.506566+00:00","event":"request_rejected","request_id":"368d50566db44001a26a29cd8382a1be","method":"POST","route":"/governance/documents/preview","status":413,"actor_id":4,"role":"Policy Owner"}
+PASS Oversized body rejected
+{"timestamp":"2026-11-10T20:17:24.511203+00:00","event":"request_rejected","request_id":"9ebf2e55e9f54b3b92dcc06b83d5c4b9","method":"POST","route":"/governance/documents/preview","status":415,"actor_id":4,"role":"Policy Owner"}
+PASS Wrong extension rejected
+{"timestamp":"2026-11-10T20:17:24.515382+00:00","event":"request_rejected","request_id":"caf8cd5e00e045ce80d7d8831717c567","method":"POST","route":"/governance/documents/preview","status":422,"actor_id":4,"role":"Policy Owner"}
+PASS Mismatched signature rejected
+{"timestamp":"2026-11-10T20:17:24.519819+00:00","event":"request_rejected","request_id":"0fcbc852be9643a5b4720e6cc533f4ce","method":"POST","route":"/governance/documents/preview","status":415,"actor_id":4,"role":"Policy Owner"}
+PASS Mismatched MIME rejected
+{"timestamp":"2026-11-10T20:17:25.456079+00:00","event":"request_rejected","request_id":"07880e95ffad4ae8b4e714d4910ff7ea","method":"POST","route":"/governance/documents/preview","status":422,"actor_id":4,"role":"Policy Owner"}
+PASS Corrupt ZIP rejected
+{"timestamp":"2026-11-10T20:17:26.300418+00:00","event":"request_rejected","request_id":"9345a6cd6a09463987f1d24cedff3aef","method":"POST","route":"/governance/documents/preview","status":422,"actor_id":4,"role":"Policy Owner"}
+PASS Macro content rejected
+{"timestamp":"2026-11-10T20:17:27.155364+00:00","event":"request_rejected","request_id":"68329cb0571648fb9ebb6ab571b74e22","method":"POST","route":"/governance/documents/preview","status":422,"actor_id":4,"role":"Policy Owner"}
+PASS Embedded object rejected
+{"timestamp":"2026-11-10T20:17:28.003907+00:00","event":"request_rejected","request_id":"8a6236c46ba5431baa542b19281a893a","method":"POST","route":"/governance/documents/preview","status":422,"actor_id":4,"role":"Policy Owner"}
+PASS Archive traversal rejected
+{"timestamp":"2026-11-10T20:17:28.850028+00:00","event":"request_rejected","request_id":"f9d39cdf06844f1f9608cfc3d4a10317","method":"POST","route":"/governance/documents/preview","status":422,"actor_id":4,"role":"Policy Owner"}
+PASS ZIP bomb rejected
+{"timestamp":"2026-11-10T20:17:29.708188+00:00","event":"request_rejected","request_id":"bfad0eb32da94a8f8dba7e243553b8d6","method":"POST","route":"/governance/documents/preview","status":422,"actor_id":4,"role":"Policy Owner"}
+PASS XML entities rejected
+{"timestamp":"2026-11-10T20:17:30.564498+00:00","event":"request_rejected","request_id":"db9449bcefa64467b84938c7ea10d315","method":"POST","route":"/governance/documents/preview","status":422,"actor_id":4,"role":"Policy Owner"}
+FAIL Valid preview DOCX
+Traceback (most recent call last):
+  File "<stdin>", line 15, in <module>
+  File "/Users/adult/Desktop/Kiona-629/derexi-policy-pilot/backend/tests/test_document_intake.py", line 58, in run
+    p=preview();check('Extracted words preserved in policy format','Customer records must be handled securely.' in p['body'] and all(x in p['body'] for x in intake.POLICY_SECTIONS))
+  File "/Users/adult/Desktop/Kiona-629/derexi-policy-pilot/backend/tests/test_document_intake.py", line 41, in preview
+    r=upload(docx() if data is None else data,**kw);check('Valid preview '+kw.get('name','DOCX'),r.status_code==200)
+  File "/Users/adult/Desktop/Kiona-629/derexi-policy-pilot/backend/tests/test_document_intake.py", line 17, in check
+    if not value:raise AssertionError(name)
+AssertionError: Valid preview DOCX
+RESULT: 15 passed, 1 failed, 31 blocked

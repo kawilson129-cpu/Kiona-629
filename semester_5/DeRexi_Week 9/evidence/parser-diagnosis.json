@@ -1,0 +1,20 @@
+{
+  "mode": "Targeted synthetic DOCX failure diagnosis; not a second suite run",
+  "worker_returncode": 0,
+  "worker_stdout": "{\"error\": \"This document could not be processed safely.\"}",
+  "worker_stderr": "",
+  "direct_parse": {
+    "body": "Purpose\n[Add the purpose of this policy.]\n\nScope\n[Define who and what this policy covers.]\n\nPolicy requirements\nCustomer records must be handled securely.\n\nResponsibilities\n[Identify accountable roles.]\n\nExceptions\n[Describe the exception process.]\n\nRelated guidance\n[Add applicable regulations and policies.]",
+    "extracted_text": "Customer records must be handled securely.",
+    "warnings": [
+      "Review extracted text, section headings and metadata before saving. Text extraction does not verify policy accuracy."
+    ]
+  },
+  "resource_limit_probe": {
+    "returncode": 0,
+    "stdout": "{\"stage\": \"establish resource limits\", \"limits_before\": [9223372036854775807, 9223372036854775807], \"exception_type\": \"ValueError\", \"exception_message\": \"current limit exceeds maximum limit\"}\n",
+    "stderr": ""
+  },
+  "resource_limit_traceback": "Traceback (most recent call last):\n  File \"<string>\", line 2, in <module>\n  File \"/Users/adult/Desktop/Kiona-629/derexi-policy-pilot/backend/document_limits.py\", line 9, in limit_parser\n    resource.setrlimit(resource.RLIMIT_AS,(256*1024*1024,256*1024*1024))\nValueError: current limit exceeds maximum limit\n",
+  "root_cause": "On this Mac environment, document_limits.limit_parser() raises ValueError: current limit exceeds maximum limit while setting RLIMIT_AS to 256 MiB. The bounded parser catches that exception and returns a generic error before extracting DOCX; the API returns 422. Direct synthetic DOCX extraction succeeds without the subprocess resource-limit setup."
+}

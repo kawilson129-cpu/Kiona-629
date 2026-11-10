@@ -1,0 +1,14 @@
+{"timestamp":"2026-11-10T20:04:51.512124+00:00","event":"sensitive_change","request_id":"894ceb2fa55246a1999dddf8b5a9ceb6","method":"POST","route":"/dev-auth/token","status":200,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T20:04:51.515857+00:00","event":"sensitive_change","request_id":"f2253cb0d59c4bc9b56aa67ee97bc3c7","method":"POST","route":"/dev-auth/token","status":200,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T20:04:51.518866+00:00","event":"sensitive_change","request_id":"908c9038bddd47acaf2d4e9b070aead9","method":"POST","route":"/dev-auth/token","status":200,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T20:04:51.521750+00:00","event":"sensitive_change","request_id":"e6038e9898974336b0f2ef065d49628c","method":"POST","route":"/dev-auth/token","status":200,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T20:04:51.524635+00:00","event":"sensitive_change","request_id":"0a9059ba9ea24fdba257b7fd371db236","method":"POST","route":"/dev-auth/token","status":200,"actor_id":null,"role":null}
+FAIL Availability probes both schema and parser
+Traceback (most recent call last):
+  File "<stdin>", line 16, in <module>
+  File "/Users/adult/Desktop/Kiona-629/derexi-policy-pilot/backend/tests/test_document_intake.py", line 43, in run
+    cap=c.get('/governance/availability',headers=auth[4]).json();check('Availability probes both schema and parser',cap['save_available'] and cap['upload_available'])
+  File "/Users/adult/Desktop/Kiona-629/derexi-policy-pilot/backend/tests/test_document_intake.py", line 17, in check
+    if not value:raise AssertionError(name)
+AssertionError: Availability probes both schema and parser
+RESULT: 0 passed, 1 failed; completed=False

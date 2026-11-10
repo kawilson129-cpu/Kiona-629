@@ -1,0 +1,210 @@
+{"timestamp":"2026-11-10T20:32:04.496875+00:00","event":"sensitive_change","request_id":"950eea5609e04e61a7f842d9041019a1","method":"POST","route":"/dev-auth/token","status":200,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T20:32:04.500485+00:00","event":"sensitive_change","request_id":"2854ad54f5d94bda91088568271d50af","method":"POST","route":"/dev-auth/token","status":200,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T20:32:04.503453+00:00","event":"sensitive_change","request_id":"91bac2c2b1444b78980e8dd6ae8545d2","method":"POST","route":"/dev-auth/token","status":200,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T20:32:04.506204+00:00","event":"sensitive_change","request_id":"ab2757e8dbc440d19cad075e4390da6a","method":"POST","route":"/dev-auth/token","status":200,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T20:32:04.509323+00:00","event":"sensitive_change","request_id":"9a2e0f8d67454e63b666f22b16c1166c","method":"POST","route":"/dev-auth/token","status":200,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T20:32:04.514504+00:00","event":"authentication_failure","request_id":"633769bc6f21410c840193e45b5d054e","method":"GET","route":"/messages","status":401,"actor_id":null,"role":null}
+PASS Anonymous denied GET /messages
+{"timestamp":"2026-11-10T20:32:04.518552+00:00","event":"authentication_failure","request_id":"078098d8d07747b0b3b424b9c0345507","method":"GET","route":"/messages/notifications","status":401,"actor_id":null,"role":null}
+PASS Anonymous denied GET /messages/notifications
+{"timestamp":"2026-11-10T20:32:04.522976+00:00","event":"authentication_failure","request_id":"5145b37277774ebd8ba6c23f4cdce7bd","method":"GET","route":"/clarifications","status":401,"actor_id":null,"role":null}
+PASS Anonymous denied GET /clarifications
+{"timestamp":"2026-11-10T20:32:04.528044+00:00","event":"authentication_failure","request_id":"0d3a0525d8324470b0da569cab914ef3","method":"POST","route":"/clarifications","status":401,"actor_id":null,"role":null}
+PASS Anonymous denied POST /clarifications
+{"timestamp":"2026-11-10T20:32:04.531025+00:00","event":"authentication_failure","request_id":"2142de2b069345ec9043b8c9ad4cd3aa","method":"GET","route":"/clarifications/{request_id}","status":401,"actor_id":null,"role":null}
+PASS Anonymous denied GET /clarifications/{request_id}
+{"timestamp":"2026-11-10T20:32:04.534913+00:00","event":"authentication_failure","request_id":"0b3b807bfcee40ea8d2ed6e2f05d2791","method":"POST","route":"/clarifications/{request_id}/replies","status":401,"actor_id":null,"role":null}
+PASS Anonymous denied POST /clarifications/{request_id}/replies
+{"timestamp":"2026-11-10T20:32:04.538288+00:00","event":"authentication_failure","request_id":"83a30cdf903b44f48752601f3cd39461","method":"POST","route":"/clarifications/{request_id}/resolve","status":401,"actor_id":null,"role":null}
+PASS Anonymous denied POST /clarifications/{request_id}/resolve
+{"timestamp":"2026-11-10T20:32:04.541728+00:00","event":"authentication_failure","request_id":"84c4438f23584bda96d0698c3c2791e3","method":"POST","route":"/clarifications/{request_id}/close","status":401,"actor_id":null,"role":null}
+PASS Anonymous denied POST /clarifications/{request_id}/close
+{"timestamp":"2026-11-10T20:32:04.545499+00:00","event":"authentication_failure","request_id":"f734967d24974e57aed8e9fdc50a0e7f","method":"POST","route":"/clarifications/{request_id}/reopen","status":401,"actor_id":null,"role":null}
+PASS Anonymous denied POST /clarifications/{request_id}/reopen
+{"timestamp":"2026-11-10T20:32:04.548376+00:00","event":"authentication_failure","request_id":"02274149e9d6464c9e9aa3d73e678b4f","method":"POST","route":"/clarifications/{request_id}/read","status":401,"actor_id":null,"role":null}
+PASS Anonymous denied POST /clarifications/{request_id}/read
+{"timestamp":"2026-11-10T20:32:04.552655+00:00","event":"authentication_failure","request_id":"7efca83130154a80aec51bb7b7c61d52","method":"POST","route":"/clarifications/{request_id}/assign","status":401,"actor_id":null,"role":null}
+PASS Anonymous denied POST /clarifications/{request_id}/assign
+{"timestamp":"2026-11-10T20:32:04.556647+00:00","event":"authentication_failure","request_id":"4aa313c84d604c5db286999e75d5d038","method":"GET","route":"/governance/drafts","status":401,"actor_id":null,"role":null}
+PASS Anonymous denied GET /governance/drafts
+{"timestamp":"2026-11-10T20:32:04.560573+00:00","event":"authentication_failure","request_id":"2dfe636b75414a8faf75ca80d2b27967","method":"GET","route":"/governance/owners","status":401,"actor_id":null,"role":null}
+PASS Anonymous denied GET /governance/owners
+{"timestamp":"2026-11-10T20:32:04.565147+00:00","event":"authentication_failure","request_id":"9340735381a64f60aed3c0bbe6d80bce","method":"POST","route":"/governance/drafts","status":401,"actor_id":null,"role":null}
+PASS Anonymous denied POST /governance/drafts
+{"timestamp":"2026-11-10T20:32:04.569250+00:00","event":"authentication_failure","request_id":"ef994a98fc284789b801cbb0a79eeb16","method":"GET","route":"/governance/drafts/{did}","status":401,"actor_id":null,"role":null}
+PASS Anonymous denied GET /governance/drafts/{did}
+{"timestamp":"2026-11-10T20:32:04.573270+00:00","event":"authentication_failure","request_id":"d7977e33148b4f4e8c3b3507a2931d35","method":"PATCH","route":"/governance/drafts/{did}","status":401,"actor_id":null,"role":null}
+PASS Anonymous denied PATCH /governance/drafts/{did}
+{"timestamp":"2026-11-10T20:32:04.580299+00:00","event":"authentication_failure","request_id":"b857db4c8fa04c0992c437541671df1f","method":"POST","route":"/governance/drafts/{did}/actions","status":401,"actor_id":null,"role":null}
+PASS Anonymous denied POST /governance/drafts/{did}/actions
+{"timestamp":"2026-11-10T20:32:04.584094+00:00","event":"authentication_failure","request_id":"c8a32d5fb7d44d989f7597aa4d595041","method":"GET","route":"/governance/availability","status":401,"actor_id":null,"role":null}
+PASS Anonymous denied GET /governance/availability
+{"timestamp":"2026-11-10T20:32:04.588148+00:00","event":"authentication_failure","request_id":"29373e085cd2431b92499c366311e454","method":"POST","route":"/governance/documents/preview","status":401,"actor_id":null,"role":null}
+PASS Anonymous denied POST /governance/documents/preview
+{"timestamp":"2026-11-10T20:32:04.591719+00:00","event":"authentication_failure","request_id":"6c2897dcadaf4bae9bb291ea8cbf1aae","method":"DELETE","route":"/governance/documents/preview/{token}","status":401,"actor_id":null,"role":null}
+PASS Anonymous denied DELETE /governance/documents/preview/{token}
+{"timestamp":"2026-11-10T20:32:04.595832+00:00","event":"authentication_failure","request_id":"ed26eee8cad6414cb322a26b78ce53a3","method":"GET","route":"/governance/drafts/{did}/original","status":401,"actor_id":null,"role":null}
+PASS Anonymous denied GET /governance/drafts/{did}/original
+{"timestamp":"2026-11-10T20:32:04.599460+00:00","event":"authentication_failure","request_id":"6b1e22201642485d8ab45007334c8c74","method":"GET","route":"/auth/session","status":401,"actor_id":null,"role":null}
+PASS Anonymous denied GET /auth/session
+{"timestamp":"2026-11-10T20:32:04.602963+00:00","event":"authentication_failure","request_id":"be7b0b6653424b4f91cfad48b4e349f0","method":"GET","route":"/departments","status":401,"actor_id":null,"role":null}
+PASS Anonymous denied GET /departments
+{"timestamp":"2026-11-10T20:32:04.605895+00:00","event":"authentication_failure","request_id":"83d905fa24a34392b5204d1c073fbef2","method":"GET","route":"/roles","status":401,"actor_id":null,"role":null}
+PASS Anonymous denied GET /roles
+{"timestamp":"2026-11-10T20:32:04.609044+00:00","event":"authentication_failure","request_id":"ffbfa98cfcc34466bd61038ff925264e","method":"GET","route":"/categories","status":401,"actor_id":null,"role":null}
+PASS Anonymous denied GET /categories
+{"timestamp":"2026-11-10T20:32:04.612191+00:00","event":"authentication_failure","request_id":"2bc3abe8862a47329bc6d82f4dadf781","method":"GET","route":"/me","status":401,"actor_id":null,"role":null}
+PASS Anonymous denied GET /me
+{"timestamp":"2026-11-10T20:32:04.615510+00:00","event":"authentication_failure","request_id":"bbf96bdde7a74ff599e477462733fd96","method":"GET","route":"/users","status":401,"actor_id":null,"role":null}
+PASS Anonymous denied GET /users
+{"timestamp":"2026-11-10T20:32:04.618637+00:00","event":"authentication_failure","request_id":"bb70d2b98732482cba840f4db1072358","method":"GET","route":"/policies","status":401,"actor_id":null,"role":null}
+PASS Anonymous denied GET /policies
+{"timestamp":"2026-11-10T20:32:04.622140+00:00","event":"authentication_failure","request_id":"83d9a4de975e42ac97c96dd424390a62","method":"GET","route":"/policies/search","status":401,"actor_id":null,"role":null}
+PASS Anonymous denied GET /policies/search
+{"timestamp":"2026-11-10T20:32:04.625764+00:00","event":"authentication_failure","request_id":"6037c7b305304a4bb7d9be478db4ef52","method":"GET","route":"/policies/{policy_id}","status":401,"actor_id":null,"role":null}
+PASS Anonymous denied GET /policies/{policy_id}
+{"timestamp":"2026-11-10T20:32:04.629349+00:00","event":"authentication_failure","request_id":"6765fd8155de4a63b420060162dff8dc","method":"POST","route":"/policies","status":401,"actor_id":null,"role":null}
+PASS Anonymous denied POST /policies
+{"timestamp":"2026-11-10T20:32:04.633054+00:00","event":"authentication_failure","request_id":"7eabade5c16d4af882940a0527076d55","method":"POST","route":"/policies/{policy_id}/versions","status":401,"actor_id":null,"role":null}
+PASS Anonymous denied POST /policies/{policy_id}/versions
+{"timestamp":"2026-11-10T20:32:04.638975+00:00","event":"authentication_failure","request_id":"2193ad21e789456d8efa477bb8dbc380","method":"POST","route":"/ask","status":401,"actor_id":null,"role":null}
+PASS Anonymous denied POST /ask
+{"timestamp":"2026-11-10T20:32:04.642826+00:00","event":"authentication_failure","request_id":"162b83e9a8ba4799b8028e56b286ebf2","method":"GET","route":"/conversations/{conversation_id}","status":401,"actor_id":null,"role":null}
+PASS Anonymous denied GET /conversations/{conversation_id}
+{"timestamp":"2026-11-10T20:32:04.645883+00:00","event":"authentication_failure","request_id":"3d9e8d5b7c7a4a64991499869a1222c7","method":"GET","route":"/incident-categories","status":401,"actor_id":null,"role":null}
+PASS Anonymous denied GET /incident-categories
+{"timestamp":"2026-11-10T20:32:04.649131+00:00","event":"authentication_failure","request_id":"e3abf50bbb7543a6ba6a61be0928f031","method":"GET","route":"/incidents","status":401,"actor_id":null,"role":null}
+PASS Anonymous denied GET /incidents
+{"timestamp":"2026-11-10T20:32:04.653276+00:00","event":"authentication_failure","request_id":"8b1410fb205f4b5ea15a53f83c5c742b","method":"POST","route":"/incidents","status":401,"actor_id":null,"role":null}
+PASS Anonymous denied POST /incidents
+{"timestamp":"2026-11-10T20:32:04.657037+00:00","event":"authentication_failure","request_id":"99c7721ba63046d1a770c4f18dede004","method":"PATCH","route":"/incidents/{incident_id}","status":401,"actor_id":null,"role":null}
+PASS Anonymous denied PATCH /incidents/{incident_id}
+{"timestamp":"2026-11-10T20:32:04.660999+00:00","event":"authentication_failure","request_id":"c5c29df77ab443cea48205e2da2bb1d8","method":"POST","route":"/feedback","status":401,"actor_id":null,"role":null}
+PASS Anonymous denied POST /feedback
+{"timestamp":"2026-11-10T20:32:04.663987+00:00","event":"authentication_failure","request_id":"0ac815a385ca4636b8d570d66d248db9","method":"GET","route":"/feedback/mine","status":401,"actor_id":null,"role":null}
+PASS Anonymous denied GET /feedback/mine
+{"timestamp":"2026-11-10T20:32:04.668527+00:00","event":"authentication_failure","request_id":"48bb971446534749bbe0a94493ee140f","method":"GET","route":"/dashboard/policy-health","status":401,"actor_id":null,"role":null}
+PASS Anonymous denied GET /dashboard/policy-health
+{"timestamp":"2026-11-10T20:32:04.672761+00:00","event":"access_denied","request_id":"13e9ed80ad7049c99364f5e87ce37e2e","method":"POST","route":"/policies","status":403,"actor_id":8,"role":"Employee"}
+PASS Direct policy creation bypass blocked 8
+{"timestamp":"2026-11-10T20:32:04.676939+00:00","event":"access_denied","request_id":"e45f4339026c439db49823a6f08103fa","method":"POST","route":"/policies/{policy_id}/versions","status":403,"actor_id":8,"role":"Employee"}
+PASS Direct version bypass blocked 8
+{"timestamp":"2026-11-10T20:32:04.681235+00:00","event":"request_rejected","request_id":"6a07bf1e65eb46dba2a9e8126b867082","method":"POST","route":"/policies","status":409,"actor_id":4,"role":"Policy Owner"}
+PASS Direct policy creation bypass blocked 4
+{"timestamp":"2026-11-10T20:32:04.685503+00:00","event":"request_rejected","request_id":"a13f705d4dc743559db254d38cb64729","method":"POST","route":"/policies/{policy_id}/versions","status":409,"actor_id":4,"role":"Policy Owner"}
+PASS Direct version bypass blocked 4
+{"timestamp":"2026-11-10T20:32:04.689538+00:00","event":"request_rejected","request_id":"8409914a5a5a4dfda9d993f59a7b79a4","method":"POST","route":"/policies","status":409,"actor_id":2,"role":"System Administrator"}
+PASS Direct policy creation bypass blocked 2
+{"timestamp":"2026-11-10T20:32:04.693853+00:00","event":"request_rejected","request_id":"f54f183f35d74aebb9798b3c58bb349e","method":"POST","route":"/policies/{policy_id}/versions","status":409,"actor_id":2,"role":"System Administrator"}
+PASS Direct version bypass blocked 2
+PASS Policy Owner cannot read unrelated incident reports
+PASS Employee sees only own incidents
+PASS Administrator sees organizational incident reports
+{"timestamp":"2026-11-10T20:32:04.718653+00:00","event":"access_denied","request_id":"826d99240e8a46ea9dceee900009cd80","method":"PATCH","route":"/incidents/{incident_id}","status":403,"actor_id":4,"role":"Policy Owner"}
+PASS Policy Owner cannot change incident status
+{"timestamp":"2026-11-10T20:32:04.722303+00:00","event":"access_denied","request_id":"1ad31c59e4574bd0ac668085d61cb5ce","method":"POST","route":"/incidents","status":403,"actor_id":8,"role":"Employee"}
+PASS Employee cannot assign incident handler
+{"timestamp":"2026-11-10T20:32:04.725718+00:00","event":"access_denied","request_id":"93a95b15813e4a4dbfe655f9282cb1c3","method":"POST","route":"/incidents","status":403,"actor_id":4,"role":"Policy Owner"}
+PASS Policy Owner cannot assign incident handler
+{"timestamp":"2026-11-10T20:32:04.729698+00:00","event":"access_denied","request_id":"0aa172605969410996543ee1b753791d","method":"POST","route":"/incidents","status":403,"actor_id":8,"role":"Employee"}
+PASS Employee cannot select escalation level
+{"timestamp":"2026-11-10T20:32:04.738012+00:00","event":"administrative_action","request_id":"f57b39a808864201b9c553a0c3afe991","method":"PATCH","route":"/incidents/{incident_id}","status":200,"actor_id":2,"role":"System Administrator"}
+PASS Administrator can update incident
+PASS Explicit handler assignment permits incident access
+{"timestamp":"2026-11-10T20:32:04.747582+00:00","event":"request_rejected","request_id":"dbea548ee684497d869846a231aa1591","method":"PATCH","route":"/incidents/{incident_id}","status":422,"actor_id":2,"role":"System Administrator"}
+PASS Unknown handler rejected safely
+{"timestamp":"2026-11-10T20:32:04.751906+00:00","event":"request_rejected","request_id":"e641ea95a6ec48d4947fd5a69c2a6800","method":"PATCH","route":"/incidents/{incident_id}","status":422,"actor_id":2,"role":"System Administrator"}
+PASS Null incident workflow state rejected safely
+{"timestamp":"2026-11-10T20:32:04.756354+00:00","event":"request_rejected","request_id":"ee1d7aff6b384768aef5094b87135ba8","method":"POST","route":"/incidents","status":422,"actor_id":8,"role":"Employee"}
+PASS Unknown category rejected safely
+PASS Owner dashboard is explicitly department scoped
+PASS Owner dashboard excludes other department policies
+PASS Owner dashboard conceals unrelated incident and chat aggregates
+{"timestamp":"2026-11-10T20:32:04.788847+00:00","event":"sensitive_change","request_id":"4768d3a5097a4aba92249ba6835275ce","method":"POST","route":"/governance/drafts","status":201,"actor_id":4,"role":"Policy Owner"}
+{"timestamp":"2026-11-10T20:32:04.795405+00:00","event":"access_denied","request_id":"93a433da7eee482d8b0772848d45f80f","method":"POST","route":"/governance/drafts/{did}/actions","status":403,"actor_id":4,"role":"Policy Owner","action":"submit"}
+PASS Author cannot select self for peer approval
+{"timestamp":"2026-11-10T20:32:04.804379+00:00","event":"sensitive_change","request_id":"26dc6d7b1cf9407da0ed262bd9a46b3b","method":"POST","route":"/governance/drafts/{did}/actions","status":200,"actor_id":4,"role":"Policy Owner","action":"submit"}
+{"timestamp":"2026-11-10T20:32:04.809991+00:00","event":"access_denied","request_id":"608bb7554a1c4f71a4d7cc75764acb8e","method":"POST","route":"/governance/drafts/{did}/actions","status":403,"actor_id":4,"role":"Policy Owner","action":"peer_approve"}
+PASS Author cannot approve own draft
+{"timestamp":"2026-11-10T20:32:04.818496+00:00","event":"approval","request_id":"aa991988de934e148a53a440461604cf","method":"POST","route":"/governance/drafts/{did}/actions","status":200,"actor_id":9,"role":"Policy Owner","action":"peer_approve"}
+PASS Independent department peer approval succeeds
+{"timestamp":"2026-11-10T20:32:04.825900+00:00","event":"approval","request_id":"3c0140908f98418283947aee6710d203","method":"POST","route":"/governance/drafts/{did}/actions","status":200,"actor_id":2,"role":"System Administrator","action":"final_approve"}
+PASS Independent system administrator approval succeeds
+{"timestamp":"2026-11-10T20:32:04.830030+00:00","event":"request_rejected","request_id":"8aac15698a4c4e5497a63cdffa2cd135","method":"POST","route":"/incidents","status":422,"actor_id":8,"role":"Employee"}
+PASS Validation response redacts rejected input
+{"timestamp":"2026-11-10T20:32:04.832352+00:00","event":"request_rejected","request_id":"02fa4a3798d54456a38389cd58cd74b7","method":"GET","route":"/policies","status":500,"actor_id":null,"role":null}
+PASS DB failure is generic and actionable
+{"timestamp":"2026-11-10T20:32:04.834514+00:00","event":"request_rejected","request_id":"b91c339229ea4f2bb54053d4ad44bd23","method":"GET","route":"/policies","status":500,"actor_id":null,"role":null}
+PASS Request id is generated, not trusted from caller
+PASS Valid Supabase JWT maps to existing employee
+{"timestamp":"2026-11-10T20:32:04.854412+00:00","event":"access_denied","request_id":"ed82b580f7c44775ae9658ab776f74b0","method":"GET","route":"/governance/drafts","status":403,"actor_id":8,"role":"Employee"}
+PASS Supabase JWT role claim cannot elevate access
+{"timestamp":"2026-11-10T20:32:04.857886+00:00","event":"authentication_failure","request_id":"39d0752876494566acad3f7eb70410d8","method":"GET","route":"/me","status":401,"actor_id":null,"role":null}
+PASS expired Supabase JWT denied
+{"timestamp":"2026-11-10T20:32:04.861441+00:00","event":"authentication_failure","request_id":"7d1d08e056954cabacf6a6c34fe1e943","method":"GET","route":"/me","status":401,"actor_id":null,"role":null}
+PASS wrong audience Supabase JWT denied
+{"timestamp":"2026-11-10T20:32:04.865856+00:00","event":"authentication_failure","request_id":"0d680353ff5c4351b62a82fb89980437","method":"GET","route":"/me","status":401,"actor_id":null,"role":null}
+PASS wrong issuer Supabase JWT denied
+{"timestamp":"2026-11-10T20:32:04.869241+00:00","event":"authentication_failure","request_id":"c65d0c1050694b3cb8b23e75027c58a1","method":"GET","route":"/me","status":401,"actor_id":null,"role":null}
+PASS invalid signature Supabase JWT denied
+{"timestamp":"2026-11-10T20:32:04.873348+00:00","event":"access_denied","request_id":"3ed3ee819bdc496380464a3370240bfb","method":"GET","route":"/me","status":403,"actor_id":null,"role":null}
+PASS Verified email alone does not prove employee identity
+{"timestamp":"2026-11-10T20:32:04.877204+00:00","event":"access_denied","request_id":"988346e186964fc7b4b2b2829b0dee95","method":"GET","route":"/me","status":403,"actor_id":null,"role":null}
+PASS Subject and business email must match the same user
+PASS Service keys cannot configure public sign-in
+{"timestamp":"2026-11-10T20:32:04.883661+00:00","event":"login_failure","request_id":"6cf68a202b2249eca79d341fc1c09191","method":"POST","route":"/auth/login","status":403,"actor_id":null,"role":null}
+PASS Login rejects CSRF attempt
+{"timestamp":"2026-11-10T20:32:04.886129+00:00","event":"login_failure","request_id":"6707c0dd7ad2457c87b585180aa67e69","method":"POST","route":"/auth/login","status":401,"actor_id":null,"role":null}
+PASS Login failure is generic
+{"timestamp":"2026-11-10T20:32:04.889213+00:00","event":"login_success","request_id":"2b00d8aeff994466ba43fe64514a0df5","method":"POST","route":"/auth/login","status":200,"actor_id":8,"role":"Employee"}
+PASS Mapped account can establish verified browser session
+PASS Browser session cookies are Secure HttpOnly SameSite Strict
+PASS Login does not expose tokens in JSON
+PASS Session reads do not expose credentials
+{"timestamp":"2026-11-10T20:32:04.899722+00:00","event":"access_denied","request_id":"ca94e8fba6764752b4224aacb8989944","method":"POST","route":"/ask","status":403,"actor_id":null,"role":null}
+PASS Cookie-authenticated writes require CSRF proof
+{"timestamp":"2026-11-10T20:32:04.903811+00:00","event":"sensitive_change","request_id":"642350c7cdc94bf6b42f64d12bf2001a","method":"POST","route":"/auth/refresh","status":200,"actor_id":8,"role":"Employee"}
+PASS Refresh rotates a verified mapped session
+PASS Authenticated data is not cached
+PASS Production response includes HSTS
+PASS Refresh token is scoped to auth endpoints
+{"timestamp":"2026-11-10T20:32:04.919095+00:00","event":"logout","request_id":"64233ed4f2944f6a911b1d4d2b5ee608","method":"POST","route":"/auth/logout","status":200,"actor_id":8,"role":"Employee"}
+{"timestamp":"2026-11-10T20:32:04.922440+00:00","event":"authentication_failure","request_id":"7b7d2af7aca943b3b43f8c0314e7f88e","method":"GET","route":"/auth/session","status":401,"actor_id":null,"role":null}
+PASS Logout clears local cookies and invokes provider revocation
+{"timestamp":"2026-11-10T20:32:04.925620+00:00","event":"login_success","request_id":"1dd3353ee556482ca67329664f95d8de","method":"POST","route":"/auth/login","status":200,"actor_id":8,"role":"Employee"}
+{"timestamp":"2026-11-10T20:32:04.929061+00:00","event":"request_rejected","request_id":"d9b88b83528c4ab3bb15c7f8a9ad8b41","method":"POST","route":"/auth/logout","status":503,"actor_id":8,"role":"Employee"}
+{"timestamp":"2026-11-10T20:32:04.932092+00:00","event":"authentication_failure","request_id":"db1d0a003228462f89a1be149ecd9fd7","method":"GET","route":"/auth/session","status":401,"actor_id":null,"role":null}
+PASS Failed remote logout still clears browser cookies honestly
+{"timestamp":"2026-11-10T20:32:04.934660+00:00","event":"login_failure","request_id":"160ac3bedc7d46559ab2a076bc5ec98f","method":"POST","route":"/auth/login","status":401,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T20:32:04.937076+00:00","event":"login_failure","request_id":"25852a1cd00040b98145a59e8dbf9254","method":"POST","route":"/auth/login","status":401,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T20:32:04.939552+00:00","event":"login_failure","request_id":"7ccb5822c938440e8ceef62ffbea713f","method":"POST","route":"/auth/login","status":401,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T20:32:04.942203+00:00","event":"login_failure","request_id":"de6289918e664a7389cd599335689d79","method":"POST","route":"/auth/login","status":401,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T20:32:04.944875+00:00","event":"login_failure","request_id":"6dfdf54d57d34b84a015540eb232c0be","method":"POST","route":"/auth/login","status":401,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T20:32:04.947275+00:00","event":"login_failure","request_id":"7d88a959f46e4f4180f8c49665038203","method":"POST","route":"/auth/login","status":429,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T20:32:04.949685+00:00","event":"login_failure","request_id":"c9f7476b3d204aef8ea80e263e4e85b2","method":"POST","route":"/auth/login","status":429,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T20:32:04.951962+00:00","event":"login_failure","request_id":"f045e6cfcfa24a06bbfb1c786c43d964","method":"POST","route":"/auth/login","status":429,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T20:32:04.954545+00:00","event":"login_failure","request_id":"9d0b5b91ace44fc194d776d65f9cf50b","method":"POST","route":"/auth/login","status":429,"actor_id":null,"role":null}
+PASS Login has bounded attempt throttling
+{"timestamp":"2026-11-10T20:32:04.956910+00:00","event":"access_denied","request_id":"55d83f27a67043b88dfbf8f7b04a607f","method":"POST","route":"/dev-auth/token","status":404,"actor_id":null,"role":null}
+PASS Production cannot mint developer tokens
+{"timestamp":"2026-11-10T20:32:04.959840+00:00","event":"authentication_failure","request_id":"383e35608619459d98fc5aaf1b49e1e3","method":"GET","route":"/me","status":401,"actor_id":null,"role":null}
+PASS Production rejects valid local dev token
+{"timestamp":"2026-11-10T20:32:04.961056+00:00","event":"access_denied","request_id":"5605ce33574f427e908b1089008f33e0","method":"GET","route":"unmatched","status":403,"actor_id":null,"role":null}
+PASS Production refuses plaintext API transport
+{"timestamp":"2026-11-10T20:32:04.963538+00:00","event":"request_rejected","request_id":"3fa2be4a52d945e2a5536ea69a8ee0fa","method":"POST","route":"/dev-auth/token","status":503,"actor_id":null,"role":null}
+PASS Malformed developer allowlist fails closed
+PASS Missing explicit environment cannot enable developer identity
+PASS Database TLS: remote default
+PASS Database TLS: username cannot impersonate localhost
+PASS Database TLS: plaintext remote refused
+PASS Database TLS: opportunistic remote refused
+PASS Database TLS: verified mode retained
+PASS Structured logs exclude credentials, tokens and private text
+PASS Access denials and login failures are recorded
+PASS Sensitive admin actions are recorded
+PASS Approval logs identify verified actors without policy text
+PASS Log route templates exclude raw resource parameters
+PASS Default access logging redacts preview tokens and query data
+PASS Unsafe auth configuration rejected: plaintext JWKS
+PASS Unsafe auth configuration rejected: symmetric production algorithm
+110 passed, 0 failed

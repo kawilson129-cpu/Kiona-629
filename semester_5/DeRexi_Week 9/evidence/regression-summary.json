@@ -5,7 +5,12 @@
     "exit_code": 0,
     "summary": [
       "110 passed, 0 failed"
-    ]
+    ],
+    "passed": 110,
+    "failed": 0,
+    "blocked": 0,
+    "evidence": "parser-fix-regressions/test_week9_security-results.json",
+    "log": "parser-fix-regressions/test_week9_security-run.txt"
   },
   {
     "suite": "test_week7_auth",
@@ -13,7 +18,12 @@
     "exit_code": 0,
     "summary": [
       "24 passed, 0 failed"
-    ]
+    ],
+    "passed": 24,
+    "failed": 0,
+    "blocked": 0,
+    "evidence": "parser-fix-regressions/test_week7_auth-results.json",
+    "log": "parser-fix-regressions/test_week7_auth-run.txt"
   },
   {
     "suite": "test_week7_messaging",
@@ -41,7 +51,24 @@
   },
   {
     "suite": "test_document_intake",
-    "status": "BLOCKED",
-    "reason": "Existing declared pypdf dependency is absent in this interpreter; no parser checks executed. Initial import failure retained in test_document_intake.txt."
+    "status": "PASS",
+    "reason": "Native Mac valid DOCX/PDF, malformed/oversized/XML/archive cases all pass after portable resource setup.",
+    "previous_status": "15 PASS / 1 FAIL / 31 BLOCKED before fix; earlier evidence retained.",
+    "passed": 47,
+    "failed": 0,
+    "evidence": "parser-fix-results.json",
+    "log": "parser-fix-run.txt",
+    "blocked": 0,
+    "diagnosis": "parser-diagnosis.json"
+  },
+  {
+    "suite": "test_document_limits",
+    "status": "PASS",
+    "passed": 14,
+    "failed": 0,
+    "blocked": 0,
+    "evidence": "parser-limit-results.json",
+    "log": "parser-limit-run.txt",
+    "mode": "Native macOS supervisor and mocked POSIX platform/ceiling contracts; no native Windows/Linux execution"
   }
 ]

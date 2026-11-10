@@ -1,0 +1,108 @@
+{
+  "suite": "test_week7_auth",
+  "timestamp": "2026-11-10T20:33:28.148485+00:00",
+  "mode": "Offline synthetic JWT/JWKS; existing test functions",
+  "checks": [
+    {
+      "name": "test_audience_as_list_is_accepted",
+      "pass": true
+    },
+    {
+      "name": "test_auth_settings_have_no_secret_fields",
+      "pass": true
+    },
+    {
+      "name": "test_expired_token_rejected",
+      "pass": true
+    },
+    {
+      "name": "test_extract_bearer_token",
+      "pass": true
+    },
+    {
+      "name": "test_extract_bearer_token_rejects_bad_values",
+      "pass": true
+    },
+    {
+      "name": "test_fetch_jwks_network_error_is_safe",
+      "pass": true
+    },
+    {
+      "name": "test_fetch_jwks_ok",
+      "pass": true
+    },
+    {
+      "name": "test_fetch_jwks_rejects_empty",
+      "pass": true
+    },
+    {
+      "name": "test_invalid_signature_rejected",
+      "pass": true
+    },
+    {
+      "name": "test_leeway_allows_recent_expiry",
+      "pass": true
+    },
+    {
+      "name": "test_malformed_token_rejected",
+      "pass": true
+    },
+    {
+      "name": "test_missing_required_claim_rejected",
+      "pass": true
+    },
+    {
+      "name": "test_missing_token_rejected",
+      "pass": true
+    },
+    {
+      "name": "test_no_token_logged_on_failure",
+      "pass": true
+    },
+    {
+      "name": "test_not_yet_valid_rejected",
+      "pass": true
+    },
+    {
+      "name": "test_settings_from_env_defaults",
+      "pass": true
+    },
+    {
+      "name": "test_settings_from_env_overrides",
+      "pass": true
+    },
+    {
+      "name": "test_settings_from_env_requires_url",
+      "pass": true
+    },
+    {
+      "name": "test_unknown_kid_rejected",
+      "pass": true
+    },
+    {
+      "name": "test_unsupported_algorithm_hs256_rejected",
+      "pass": true
+    },
+    {
+      "name": "test_unsupported_algorithm_none_rejected",
+      "pass": true
+    },
+    {
+      "name": "test_valid_token_returns_claims",
+      "pass": true
+    },
+    {
+      "name": "test_wrong_audience_rejected",
+      "pass": true
+    },
+    {
+      "name": "test_wrong_issuer_rejected",
+      "pass": true
+    }
+  ],
+  "passed": 24,
+  "failed": 0,
+  "blocked": 0,
+  "completed": true,
+  "status": "PASS"
+}

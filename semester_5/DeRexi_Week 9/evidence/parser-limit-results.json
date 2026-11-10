@@ -1,0 +1,15 @@
+{
+  "suite": "test_document_limits",
+  "timestamp": "2026-11-10T20:32:18.557259+00:00",
+  "interpreter": "/Users/adult/Desktop/Kiona-629/derexi-policy-pilot/.venv/bin/python",
+  "platform": "macOS-26.3.1-arm64-arm-64bit",
+  "mode": "Native Mac workers; parser HTTP suite uses isolated SQLite/PostgreSQL tripwire",
+  "passed": 14,
+  "failed": 0,
+  "blocked": 0,
+  "completed": true,
+  "tests_run": 14,
+  "failures": [],
+  "skipped": [],
+  "status": "PASS"
+}

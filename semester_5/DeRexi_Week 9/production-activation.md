@@ -56,7 +56,12 @@ do not establish production readiness. Current counts: 12 users / 49 policies /
    Never supply a service-role/secret key as the publishable key. Never put the
    database URL, secret keys or subject bindings in browser code. Keep `.env`
    ignored. Use the existing environment's declared dependencies; this local
-   interpreter currently lacks `pypdf` for document features.
+   Mac `.venv` has compatible `pypdf 6.21.4` and `defusedxml 0.7.1`.
+   Native Mac parser/resource tests now pass (47 + 14) after the focused
+   resource setup fix. Linux address-space and Windows Job Object limits remain;
+   validate on their native hosts before deployment. Mac physical-memory monitoring
+   samples every 10 ms, allowing transient overshoot between polls. See
+   `parser-portability-fix.md` and `evidence/parser-fix-results.json`.
 6. **Provision and verify transport/operations.** Terminate HTTPS at a trusted
    host, trust forwarded headers only from the actual reverse proxy, and match
    the configured public origin. Use `sslmode=verify-full` plus the provider CA

@@ -18,8 +18,12 @@
 - [ ] Direct-client grants/RLS/RPC exposure remediated and tested with approved credentials.
 - [ ] Real HTTPS sign-in/refresh/logout and provider revocation verified.
 - [ ] Hostname verification, internal transport, storage/backup encryption and log retention verified.
-- [ ] Existing document-parser suite unblocked (`pypdf` absent locally).
+- [x] Mac `.venv` verifies pypdf 6.21.4 and defusedxml 0.7.1 installed/importable.
+- [x] Native Mac parser suite: 47 PASS / 0 FAIL / 0 BLOCKED after resource setup fix; valid DOCX/PDF and malformed/oversized cases pass.
+- [x] Resource limits: 14 PASS; native Mac memory/probe-failure/timeout tests and mocked ceiling/Linux selection checks.
+- [x] Essential security/JWT regressions rerun: 134 PASS / 0 FAIL / 0 BLOCKED.
+- [ ] Native Linux and Windows parser/resource-limit verification; macOS polling can permit transient memory overshoot.
 - [ ] PostgreSQL locking, migrations/seed idempotency and real provider concurrency verified.
 
-Final executed totals: **353 PASS, 0 FAIL; one parser suite BLOCKED**.
+Latest results per suite: **414 PASS, 0 FAIL, 0 BLOCKED**. This fix ran 47 parser + 14 resource + 110 Week 9 security + 24 JWT checks (195 PASS); other 219 prior passing checks were reused. Production blockers and native Linux/Windows validation remain open.
 No migration execution, Auth-user creation, live record mutation, commit or push.

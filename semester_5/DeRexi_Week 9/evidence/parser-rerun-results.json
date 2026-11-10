@@ -1,0 +1,126 @@
+{
+  "timestamp": "2026-11-10T20:17:23.560223+00:00",
+  "interpreter": "/Users/adult/Desktop/Kiona-629/derexi-policy-pilot/.venv/bin/python",
+  "suite": "tests/test_document_intake.py",
+  "mode": "Only existing run(); real parsers, in-memory SQLite/PostgreSQL connection tripwire",
+  "dependencies": {
+    "pypdf": "6.21.4",
+    "defusedxml": "0.7.1"
+  },
+  "packages_changed": [],
+  "expected_checks": 47,
+  "blocked_definition": "Remaining checks not executed because the unchanged suite stops on its first assertion failure.",
+  "exception_type": "AssertionError",
+  "exception_message": "Valid preview DOCX",
+  "failure_location": {
+    "file": "tests/test_document_intake.py",
+    "line": 58
+  },
+  "last_capability_response": {
+    "upload_available": true,
+    "original_retention": false,
+    "storage_state": "not_configured",
+    "max_bytes": 5242880,
+    "formats": [
+      "docx",
+      "pdf"
+    ],
+    "queues_available": true,
+    "save_available": true,
+    "message": null,
+    "templates": [
+      {
+        "id": "standard",
+        "name": "Standard policy",
+        "description": "A clear foundation for department policies.",
+        "body": "Purpose\nDescribe why this policy is required.\n\nScope\nIdentify the people, systems and activities covered.\n\nPolicy requirements\nSet out mandatory controls and procedures.\n\nResponsibilities\nIdentify accountable roles.\n\nExceptions\nExplain how exceptions are requested and reviewed.\n\nRelated guidance\nList relevant regulations and supporting policies."
+      },
+      {
+        "id": "information-security",
+        "name": "Information security",
+        "description": "Controls, responsibilities and incident escalation.",
+        "body": "Purpose\nProtect the confidentiality, integrity and availability of bank information.\n\nScope\nDefine covered information, systems and staff.\n\nPolicy requirements\nDescribe access controls, handling requirements and incident reporting.\n\nResponsibilities\nAssign control owners and oversight.\n\nExceptions\nDefine approval and expiry requirements.\n\nRelated guidance\nIdentify applicable safeguards and supporting procedures."
+      },
+      {
+        "id": "operating-procedure",
+        "name": "Operating procedure",
+        "description": "Repeatable procedures with clear ownership.",
+        "body": "Purpose\nDescribe the intended outcome.\n\nScope\nDefine when this procedure applies.\n\nPolicy requirements\n1. Record the request.\n2. Verify required approvals.\n3. Complete and document the activity.\n\nResponsibilities\nIdentify who performs and oversees each step.\n\nExceptions\nDescribe escalation when requirements cannot be met.\n\nRelated guidance\nList supporting policies and records."
+      }
+    ]
+  },
+  "checks": [
+    {
+      "name": "Availability probes both schema and parser",
+      "pass": true
+    },
+    {
+      "name": "Three real templates provided",
+      "pass": true
+    },
+    {
+      "name": "Employee preview denied",
+      "pass": true
+    },
+    {
+      "name": "Anonymous preview denied",
+      "pass": true
+    },
+    {
+      "name": "Employee capability probe denied",
+      "pass": true
+    },
+    {
+      "name": "Oversized body rejected",
+      "pass": true
+    },
+    {
+      "name": "Wrong extension rejected",
+      "pass": true
+    },
+    {
+      "name": "Mismatched signature rejected",
+      "pass": true
+    },
+    {
+      "name": "Mismatched MIME rejected",
+      "pass": true
+    },
+    {
+      "name": "Corrupt ZIP rejected",
+      "pass": true
+    },
+    {
+      "name": "Macro content rejected",
+      "pass": true
+    },
+    {
+      "name": "Embedded object rejected",
+      "pass": true
+    },
+    {
+      "name": "Archive traversal rejected",
+      "pass": true
+    },
+    {
+      "name": "ZIP bomb rejected",
+      "pass": true
+    },
+    {
+      "name": "XML entities rejected",
+      "pass": true
+    },
+    {
+      "name": "Valid preview DOCX",
+      "pass": false
+    }
+  ],
+  "passed": 15,
+  "failed": 1,
+  "blocked": 31,
+  "completed": false,
+  "status": "FAIL",
+  "packages_unchanged": true,
+  "root_cause": "Mac parser worker fails before extraction: document_limits.py:9 raises ValueError (current limit exceeds maximum limit) when setting RLIMIT_AS to 256 MiB. Both declared parser dependencies are installed; direct synthetic DOCX extraction succeeds.",
+  "diagnosis_evidence": "parser-diagnosis.json"
+}
