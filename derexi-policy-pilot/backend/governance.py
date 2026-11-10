@@ -235,7 +235,8 @@ def edit(did: int, payload: Edit, actor: Identity = Depends(require_governance),
 
 
 @router.post('/drafts/{did}/actions')
-def action(did: int, payload: Action, actor: Identity = Depends(require_governance), db: Session = Depends(workflow_db)):
+def action(did: int, payload: Action, request: Request, actor: Identity = Depends(require_governance), db: Session = Depends(workflow_db)):
+    request.state.security_action = payload.action
     d = draft(db,did,actor,True)
     if payload.expected_revision != d.revision:
         fail(409, 'Draft changed; refresh before reviewing')

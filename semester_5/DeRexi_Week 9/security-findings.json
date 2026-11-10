@@ -1,0 +1,58 @@
+[
+  {
+    "id": "W9-01",
+    "severity": "High",
+    "status": "BLOCKED_PROVIDER",
+    "finding": "No live Auth users; real login configuration/onboarding and HTTPS validation are not approved or tested.",
+    "evidence": "live-readonly-security.json"
+  },
+  {
+    "id": "W9-02",
+    "severity": "High",
+    "status": "APPROVAL_REQUIRED",
+    "finding": "Direct authenticated SELECT remains unconditional on users and incident_reports; 90 direct-client grants and bypass-RLS backend role inventoried. BFF permissions do not establish Data API authorization.",
+    "evidence": "live-readonly-security.json"
+  },
+  {
+    "id": "W9-03",
+    "severity": "High",
+    "status": "APPROVAL_REQUIRED",
+    "finding": "Governance tables are absent in live Postgres. Existing schema and owner-coverage proposals remain unexecuted.",
+    "evidence": "live-readonly-security.json"
+  },
+  {
+    "id": "W9-04",
+    "severity": "Medium",
+    "status": "PARTIAL",
+    "finding": "Client TLS 1.3 observed; backend Postgres session reports no TLS. Hostname verification, internal-hop protection and provider storage/backup encryption unverified.",
+    "evidence": "live-readonly-security.json"
+  },
+  {
+    "id": "W9-05",
+    "severity": "Medium",
+    "status": "PARTIAL",
+    "finding": "Structured redacted logs and per-process throttling work in isolation; durable collection, retention, alerts and distributed limits require infrastructure validation.",
+    "evidence": "week9-security-results.json"
+  },
+  {
+    "id": "W9-06",
+    "severity": "Medium",
+    "status": "DOCUMENTED_LIMITATION",
+    "finding": "Logout clears HttpOnly cookies and requests provider revocation. Already issued bearer JWTs may remain valid until expiry; immediate global revocation is not implemented.",
+    "evidence": "week9-security-results.json"
+  },
+  {
+    "id": "W9-07",
+    "severity": "Low",
+    "status": "BLOCKED_ENVIRONMENT",
+    "finding": "Existing document-parser regression cannot import already-declared pypdf in this interpreter. No dependency installation performed.",
+    "evidence": "test_document_intake.txt"
+  },
+  {
+    "id": "W9-08",
+    "severity": "Informational",
+    "status": "REPAIRED",
+    "finding": "Anonymous policy/reference reads, Owner incident/dashboard overreach, weak TLS URL detection, permissive dev defaults/invalid allowlist, missing browser sessions and security telemetry addressed; legacy write bypass remains closed.",
+    "evidence": "week9-security-results.json"
+  }
+]

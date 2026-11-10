@@ -1,6 +1,6 @@
-"""Isolated Supabase JWT authentication foundation for DeRexi.
+"""Supabase JWT verification foundation reused by DeRexi authentication.
 
-This module is deliberately **not imported by the running application**. It is the
+Used by security.py and the Week 9 browser-session integration. It is the
 Week 7 authentication foundation: a reusable verifier that validates Supabase-issued
 JWTs against the project's published JWKS. Nothing here changes existing routes,
 creates auth users, touches the database, or alters Row Level Security.
@@ -18,7 +18,7 @@ incorrect audience, unsupported algorithms, malformed tokens, unknown key ids.
 
 No token or secret value is ever logged.
 
-Example (future wiring -- do NOT add to routes without approval):
+Example dependency integration:
 
     from auth import SupabaseJWTVerifier, AuthSettings, extract_bearer_token
 
@@ -35,6 +35,7 @@ from __future__ import annotations
 import json
 import os
 import urllib.request
+from urllib.parse import urlsplit
 from dataclasses import dataclass, field
 from typing import Any, Callable, Optional, Protocol, Sequence, Tuple
 
@@ -98,12 +99,18 @@ class AuthSettings:
             )
         jwks_url = (env.get("SUPABASE_JWKS_URL") or f"{supabase_url}{DEFAULT_JWKS_PATH}").strip()
         issuer = (env.get("SUPABASE_JWT_ISS") or f"{supabase_url}/auth/v1").strip()
+        for value in (supabase_url, jwks_url, issuer):
+            parsed = urlsplit(value)
+            if parsed.scheme != 'https' or not parsed.hostname or parsed.username or parsed.password:
+                raise AuthenticationError('Authentication endpoints must use HTTPS without URL credentials')
         audience = (env.get("SUPABASE_JWT_AUD") or DEFAULT_AUDIENCE).strip()
 
         raw_algs = env.get("SUPABASE_JWT_ALGS") or ",".join(DEFAULT_ALGORITHMS)
         algorithms = tuple(a.strip() for a in str(raw_algs).split(",") if a.strip())
         if not algorithms:
             algorithms = DEFAULT_ALGORITHMS
+        if any(alg not in ('ES256', 'RS256') for alg in algorithms):
+            raise AuthenticationError('Only asymmetric Supabase signing algorithms are supported')
 
         try:
             leeway = int(env.get("SUPABASE_JWT_LEEWAY") or 0)

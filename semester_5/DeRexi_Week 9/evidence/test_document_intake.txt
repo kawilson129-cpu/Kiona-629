@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/Users/adult/Desktop/Kiona-629/derexi-policy-pilot/backend/tests/test_document_intake.py", line 12, in <module>
+    from pypdf import PdfWriter
+ModuleNotFoundError: No module named 'pypdf'

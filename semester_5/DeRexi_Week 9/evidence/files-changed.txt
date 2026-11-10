@@ -1,0 +1,49 @@
+MEMORY.md
+derexi-policy-pilot/backend/.env.example
+derexi-policy-pilot/backend/auth.py
+derexi-policy-pilot/backend/database.py
+derexi-policy-pilot/backend/dev_auth.py
+derexi-policy-pilot/backend/governance.py
+derexi-policy-pilot/backend/main.py
+derexi-policy-pilot/backend/schemas.py
+derexi-policy-pilot/backend/scoped_dashboard.py
+derexi-policy-pilot/backend/security.py
+derexi-policy-pilot/backend/security_events.py
+derexi-policy-pilot/backend/session_auth.py
+derexi-policy-pilot/backend/static/app.js
+derexi-policy-pilot/backend/static/auth.css
+derexi-policy-pilot/backend/static/index.html
+derexi-policy-pilot/backend/tests/serve_week9_fixture.py
+derexi-policy-pilot/backend/tests/test_week7_edges.py
+derexi-policy-pilot/backend/tests/test_week9_browser.mjs
+derexi-policy-pilot/backend/tests/test_week9_security.py
+derexi-policy-pilot/backend/tests/verify_week9_readonly.py
+derexi-policy-pilot/backend/transport.py
+semester_5/DeRexi_Week 9/README.md
+semester_5/DeRexi_Week 9/evidence/browser-cookie-attributes.json
+semester_5/DeRexi_Week 9/evidence/browser-results.json
+semester_5/DeRexi_Week 9/evidence/checkpoint.json
+semester_5/DeRexi_Week 9/evidence/files-changed.txt
+semester_5/DeRexi_Week 9/evidence/lifecycle-results.json
+semester_5/DeRexi_Week 9/evidence/live-readonly-security.json
+semester_5/DeRexi_Week 9/evidence/regression-summary.json
+semester_5/DeRexi_Week 9/evidence/screenshots/01-signin-fixture.png
+semester_5/DeRexi_Week 9/evidence/screenshots/02-employee-session-fixture.png
+semester_5/DeRexi_Week 9/evidence/screenshots/03-owner-dashboard-fixture.png
+semester_5/DeRexi_Week 9/evidence/screenshots/04-admin-incident-fixture.png
+semester_5/DeRexi_Week 9/evidence/screenshots/05-mobile-signin-fixture.png
+semester_5/DeRexi_Week 9/evidence/security-events-sanitized.json
+semester_5/DeRexi_Week 9/evidence/test_document_intake.txt
+semester_5/DeRexi_Week 9/evidence/test_week7_auth.txt
+semester_5/DeRexi_Week 9/evidence/test_week7_edges.txt
+semester_5/DeRexi_Week 9/evidence/test_week7_messaging.txt
+semester_5/DeRexi_Week 9/evidence/test_week8_governance.txt
+semester_5/DeRexi_Week 9/evidence/test_week9_security.txt
+semester_5/DeRexi_Week 9/evidence/week9-security-results.json
+semester_5/DeRexi_Week 9/evidence/week9-security-run.txt
+semester_5/DeRexi_Week 9/production-activation.md
+semester_5/DeRexi_Week 9/proposed-database/2026-11-10_week8_governance.sql
+semester_5/DeRexi_Week 9/proposed-database/2026-11-10_week8_owner_seed.sql
+semester_5/DeRexi_Week 9/proposed-database/APPROVAL_ONLY_bff_access_boundary.sql
+semester_5/DeRexi_Week 9/security-findings.json
+semester_5/DeRexi_Week 9/verification-checklist.md

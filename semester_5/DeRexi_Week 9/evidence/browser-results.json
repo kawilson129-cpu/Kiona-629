@@ -1,0 +1,66 @@
+{
+  "mode": "Isolated real BFF + SQLite + mocked provider; HTTP loopback, no production login",
+  "checks": [
+    {
+      "name": "Sign-in form is available without a persona bypass",
+      "status": "PASS"
+    },
+    {
+      "name": "Failed login is generic and password is cleared",
+      "status": "PASS"
+    },
+    {
+      "name": "Employee signs in through a verified cookie session",
+      "status": "PASS"
+    },
+    {
+      "name": "Authentication credentials are unavailable to browser JavaScript",
+      "status": "PASS"
+    },
+    {
+      "name": "Production-style session cannot switch identities",
+      "status": "PASS"
+    },
+    {
+      "name": "Direct employee Governance bypass is denied",
+      "status": "PASS"
+    },
+    {
+      "name": "Cookie session opens protected policy library",
+      "status": "PASS"
+    },
+    {
+      "name": "Logout clears visible identity data",
+      "status": "PASS"
+    },
+    {
+      "name": "Logged-out cookie cannot read APIs",
+      "status": "PASS"
+    },
+    {
+      "name": "Policy Owner sees department-scoped dashboard",
+      "status": "PASS"
+    },
+    {
+      "name": "Admin assignment control makes a real authorized API change",
+      "status": "PASS"
+    },
+    {
+      "name": "Browser session cookies are HttpOnly and SameSite Strict",
+      "status": "PASS"
+    },
+    {
+      "name": "Logout removes stale activity notices",
+      "status": "PASS"
+    },
+    {
+      "name": "Sign-in has no mobile page overflow",
+      "status": "PASS"
+    },
+    {
+      "name": "Browser workflow has no runtime errors",
+      "status": "PASS"
+    }
+  ],
+  "errors": []
+}

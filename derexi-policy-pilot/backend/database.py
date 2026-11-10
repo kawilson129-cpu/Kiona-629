@@ -14,6 +14,7 @@ from pathlib import Path
 from dotenv import load_dotenv
 from sqlalchemy import create_engine
 from sqlalchemy.orm import DeclarativeBase, sessionmaker
+from transport import protected_database_url
 
 # Load backend/.env regardless of the directory uvicorn is launched from.
 load_dotenv(Path(__file__).resolve().parent / ".env")
@@ -27,15 +28,10 @@ if not DATABASE_URL:
         "connection string into it."
     )
 
-# Week 7: require TLS to the database unless the URL already says otherwise.
-# Supabase's session pooler supports TLS; localhost/CI Postgres does not need it.
-# This guarantees encryption in transit (sslmode=require). Certificate pinning
-# (verify-full) additionally needs the provider CA file, which is documented in
-# backend/.env.example rather than assumed.
-if "sslmode=" not in DATABASE_URL and not any(
-    host in DATABASE_URL for host in ("localhost", "127.0.0.1", "::1")
-):
-    DATABASE_URL += ("&" if "?" in DATABASE_URL else "?") + "sslmode=require"
+# Require encrypted remote transport; explicit loopback/CI connections may be local.
+# verify-full additionally validates the server's CA chain and hostname (it is
+# not certificate pinning). Provider CA configuration must be verified separately.
+DATABASE_URL = protected_database_url(DATABASE_URL)
 
 # pool_pre_ping avoids stale connections when Supabase recycles them.
 engine = create_engine(

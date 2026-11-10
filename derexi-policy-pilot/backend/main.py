@@ -17,11 +17,14 @@ from __future__ import annotations
 import re
 from datetime import datetime, timezone
 from pathlib import Path
+import uuid
 from typing import Optional
 
 from fastapi import Depends, FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
+from fastapi.exceptions import RequestValidationError
+from fastapi.responses import JSONResponse
 from sqlalchemy import func, text
 from sqlalchemy.orm import Session
 
@@ -46,6 +49,9 @@ from models import (
     User,
 )
 from security import Identity, get_identity, require_admin, require_governance
+from security_events import emit, AccessPathFilter
+import logging
+from session_auth import router as session_router
 
 # Imports the new Pulse module's API routes.
 from pulse.routes import router as pulse_router
@@ -69,6 +75,8 @@ app.include_router(pulse_router)
 # Week 7 messaging: every route in this router authenticates the bearer token.
 app.include_router(messaging_router)
 app.include_router(governance_router)
+app.include_router(session_router)
+logging.getLogger('uvicorn.access').addFilter(AccessPathFilter(lambda: app.routes))
 
 # /auth/config is always available; the persona-token endpoints exist only when
 # development auth is explicitly enabled outside production.
@@ -83,8 +91,8 @@ app.add_middleware(
     "http://localhost:8000",
 ],
     allow_credentials=True,
-    allow_methods=["GET", "POST", "PATCH"],
-    allow_headers=["Content-Type", "Authorization"],
+    allow_methods=["GET", "POST", "PATCH", "DELETE"],
+    allow_headers=["Content-Type", "Authorization", "X-Derexi-Request"],
 )
 
 # Employee UI (Week 6): vanilla HTML/CSS/JS served at /ui.
@@ -94,12 +102,39 @@ app.mount("/ui", StaticFiles(directory=STATIC_DIR, html=True), name="ui")
 
 @app.middleware("http")
 async def add_security_headers(request, call_next):
-    """Conservative response headers; TLS itself is terminated by the host."""
-    response = await call_next(request)
+    """Content-free audit events and safe errors; HTTPS terminates at the host."""
+    request.state.request_id = uuid.uuid4().hex
+    try:
+        if dev_auth.current_environment() not in {'development','test'} and request.url.scheme != 'https' and not request.url.path.startswith(('/ui','/api/pulse')) and request.url.path != '/health':
+            response = JSONResponse({'detail':'HTTPS is required'},status_code=403)
+        else:
+            response = await call_next(request)
+    except Exception:
+        response = JSONResponse({'detail':'Something went wrong. Please try again.',
+                                 'request_id':request.state.request_id},status_code=500)
+    actor = getattr(request.state, 'identity', None)
+    action = getattr(request.state, 'security_action', None)
+    if response.status_code >= 400:
+        kind = 'login_failure' if request.url.path == '/auth/login' else 'authentication_failure' if response.status_code == 401 else 'access_denied' if response.status_code in (403,404) else 'request_rejected'
+        emit(kind,request,response.status_code,action)
+    elif request.method not in {'GET','HEAD','OPTIONS'}:
+        kind = 'login_success' if request.url.path == '/auth/login' else 'logout' if request.url.path == '/auth/logout' else 'approval' if action in {'peer_approve','final_approve'} else 'administrative_action' if actor and actor.is_admin else 'sensitive_change'
+        emit(kind,request,response.status_code,action)
+    response.headers['X-Request-ID'] = request.state.request_id
+    if not request.url.path.startswith(('/ui','/api/pulse')):
+        response.headers['Cache-Control'] = 'no-store'
+    if request.url.scheme == 'https' and dev_auth.current_environment() == 'production':
+        response.headers['Strict-Transport-Security'] = 'max-age=31536000'
     response.headers.setdefault("X-Content-Type-Options", "nosniff")
     response.headers.setdefault("X-Frame-Options", "DENY")
     response.headers.setdefault("Referrer-Policy", "no-referrer")
     return response
+
+
+@app.exception_handler(RequestValidationError)
+async def safe_validation_error(request, exc):
+    # Pydantic error inputs can contain passwords, tokens or private text.
+    return JSONResponse({'detail':'Check the submitted fields and try again.'},status_code=422)
 
 
 # ---------------------------------------------------------------------------
@@ -246,7 +281,7 @@ def health(db: Session = Depends(get_db)) -> dict:
 # Reference data
 # ---------------------------------------------------------------------------
 @app.get("/departments")
-def list_departments(db: Session = Depends(get_db)) -> list:
+def list_departments(identity: Identity = Depends(get_identity), db: Session = Depends(get_db)) -> list:
     return [
         {"id": d.id, "name": d.name}
         for d in db.query(Department).order_by(Department.id).all()
@@ -254,12 +289,12 @@ def list_departments(db: Session = Depends(get_db)) -> list:
 
 
 @app.get("/roles")
-def list_roles(db: Session = Depends(get_db)) -> list:
+def list_roles(identity: Identity = Depends(get_identity), db: Session = Depends(get_db)) -> list:
     return [{"id": r.id, "name": r.name} for r in db.query(Role).order_by(Role.id).all()]
 
 
 @app.get("/categories")
-def list_policy_categories(db: Session = Depends(get_db)) -> list:
+def list_policy_categories(identity: Identity = Depends(get_identity), db: Session = Depends(get_db)) -> list:
     rows = db.execute(
         text(
             """
@@ -316,7 +351,7 @@ def list_users(
 def list_policies(
     status: Optional[str] = Query(default=None),
     category_id: Optional[int] = Query(default=None),
-    db: Session = Depends(get_db),
+    identity: Identity = Depends(get_identity), db: Session = Depends(get_db),
 ) -> list:
     query = db.query(Policy).filter(Policy.status == "approved")
     if status:
@@ -330,7 +365,7 @@ def list_policies(
 def search_policies(
     q: str = Query(min_length=2, max_length=1000),
     limit: int = Query(default=5, ge=1, le=20),
-    db: Session = Depends(get_db),
+    identity: Identity = Depends(get_identity), db: Session = Depends(get_db),
 ) -> list:
     rows = db.execute(SEARCH_SQL, {"q": q, "limit": limit}).mappings().all()
     return [
@@ -347,7 +382,7 @@ def search_policies(
 
 
 @app.get("/policies/{policy_id}")
-def get_policy(policy_id: int, db: Session = Depends(get_db)) -> dict:
+def get_policy(policy_id: int, identity: Identity = Depends(get_identity), db: Session = Depends(get_db)) -> dict:
     policy = db.get(Policy, policy_id)
     if not policy or policy.status != "approved":
         raise HTTPException(status_code=404, detail="Published policy not found")
@@ -607,7 +642,7 @@ def get_conversation(
 # 4. Incident Assistance
 # ---------------------------------------------------------------------------
 @app.get("/incident-categories")
-def list_incident_categories(db: Session = Depends(get_db)) -> list:
+def list_incident_categories(identity: Identity = Depends(get_identity), db: Session = Depends(get_db)) -> list:
     return [
         {
             "id": c.id,
@@ -629,12 +664,13 @@ def list_incidents(
 ) -> list:
     query = db.query(IncidentReport)
     if reporter_id is not None:
-        if not identity.is_governance and reporter_id != identity.user_id:
+        if not identity.is_admin and reporter_id != identity.user_id:
             raise HTTPException(status_code=403, detail="You can only list your own reports")
         query = query.filter(IncidentReport.reporter_id == reporter_id)
-    elif not identity.is_governance:
-        # Employees see their own reports; governance sees the desk.
-        query = query.filter(IncidentReport.reporter_id == identity.user_id)
+    elif not identity.is_admin:
+        # Explicit assignment is an authorized exception to own-report privacy.
+        query = query.filter((IncidentReport.reporter_id == identity.user_id) |
+                             (IncidentReport.assigned_to == identity.user_id))
     if status:
         query = query.filter(IncidentReport.status == status)
     if severity:
@@ -669,8 +705,14 @@ def create_incident(
 ) -> dict:
     if payload.reporter_id is not None and payload.reporter_id != identity.user_id:
         raise HTTPException(status_code=403, detail="Identity mismatch")
-    if payload.assigned_to is not None and not identity.is_governance:
-        raise HTTPException(status_code=403, detail="Only governance can assign a handler")
+    if payload.assigned_to is not None and not identity.is_admin:
+        raise HTTPException(status_code=403, detail="Only administrators can assign a handler")
+    if payload.assigned_to is not None and not db.get(User,payload.assigned_to):
+        raise HTTPException(422,'Unknown incident handler')
+    if payload.category_id is not None and not db.get(IncidentCategory,payload.category_id):
+        raise HTTPException(422,'Unknown incident category')
+    if payload.escalation_level != 1 and not identity.is_admin:
+        raise HTTPException(403,'Only administrators can escalate reports')
     if not db.get(User, identity.user_id):
         raise HTTPException(status_code=404, detail="Reporter not found")
 
@@ -698,12 +740,14 @@ def create_incident(
 def update_incident(
     incident_id: int,
     payload: schemas.IncidentUpdate,
-    identity: Identity = Depends(require_governance),
+    identity: Identity = Depends(require_admin),
     db: Session = Depends(get_db),
 ) -> dict:
     incident = db.get(IncidentReport, incident_id)
     if not incident:
         raise HTTPException(status_code=404, detail="Incident not found")
+    if payload.assigned_to is not None and not db.get(User,payload.assigned_to):
+        raise HTTPException(422,'Unknown incident handler')
     for field, value in payload.model_dump(exclude_unset=True).items():
         setattr(incident, field, value)
     incident.updated_at = datetime.now(timezone.utc)
@@ -779,6 +823,9 @@ def my_feedback(
 def policy_health(
     identity: Identity = Depends(require_governance), db: Session = Depends(get_db)
 ) -> dict:
+    if not identity.is_admin:
+        from scoped_dashboard import department_health
+        return department_health(db,identity)
     policies_by_status = db.execute(
         text("select status, count(*) as count from policies group by status order by status")
     ).mappings().all()

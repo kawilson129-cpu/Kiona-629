@@ -1,0 +1,204 @@
+{"timestamp":"2026-11-10T16:52:55.908365+00:00","event":"sensitive_change","request_id":"2309b46dec0640deacc3c32e4f173a67","method":"POST","route":"/dev-auth/token","status":200,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T16:52:55.912594+00:00","event":"sensitive_change","request_id":"ae04461a94774d64a3fb46155ce908db","method":"POST","route":"/dev-auth/token","status":200,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T16:52:55.917830+00:00","event":"sensitive_change","request_id":"48b5f729c0eb404fba2eb10ba9726577","method":"POST","route":"/dev-auth/token","status":200,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T16:52:55.921986+00:00","event":"sensitive_change","request_id":"83cd7fb15e7749ac814240b17548285f","method":"POST","route":"/dev-auth/token","status":200,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T16:52:55.925541+00:00","event":"sensitive_change","request_id":"2c8f90fa336f4dfa879cf1a81bbe7b93","method":"POST","route":"/dev-auth/token","status":200,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T16:52:55.931035+00:00","event":"authentication_failure","request_id":"f961dea1ba614679b650fe39233eb754","method":"GET","route":"/messages","status":401,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T16:52:55.937117+00:00","event":"authentication_failure","request_id":"97069f0edd9b4f24b13756e10a9654fd","method":"GET","route":"/messages/notifications","status":401,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T16:52:55.942786+00:00","event":"authentication_failure","request_id":"d292a7c4711d4e9cbfefbfe721f8f9d9","method":"GET","route":"/clarifications","status":401,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T16:52:55.948856+00:00","event":"authentication_failure","request_id":"7c49982053504e58aa13a3cb410ca7fc","method":"POST","route":"/clarifications","status":401,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T16:52:55.952340+00:00","event":"authentication_failure","request_id":"ad8aa3ab287f42ecaaa5393403079bf3","method":"GET","route":"/clarifications/{request_id}","status":401,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T16:52:55.956466+00:00","event":"authentication_failure","request_id":"55c50b2a91d648a489291b9471caad84","method":"POST","route":"/clarifications/{request_id}/replies","status":401,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T16:52:55.961700+00:00","event":"authentication_failure","request_id":"1f44c0291e924e78910089fd1967cf6e","method":"POST","route":"/clarifications/{request_id}/resolve","status":401,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T16:52:55.965687+00:00","event":"authentication_failure","request_id":"469c7a8d0fe44b46b4ba23ecce8939b1","method":"POST","route":"/clarifications/{request_id}/close","status":401,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T16:52:55.970038+00:00","event":"authentication_failure","request_id":"b2661e2795e947e99ed589f34d7010de","method":"POST","route":"/clarifications/{request_id}/reopen","status":401,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T16:52:55.973170+00:00","event":"authentication_failure","request_id":"f033f69938754c67912dc700fcc43482","method":"POST","route":"/clarifications/{request_id}/read","status":401,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T16:52:55.978387+00:00","event":"authentication_failure","request_id":"d1327268f91f4523a7e0f9dd77371358","method":"POST","route":"/clarifications/{request_id}/assign","status":401,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T16:52:55.983305+00:00","event":"authentication_failure","request_id":"b4e3e3d912b7447d9a702666c12643fc","method":"GET","route":"/governance/drafts","status":401,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T16:52:55.987994+00:00","event":"authentication_failure","request_id":"fa64d07454a640839b026c986e6d9dd9","method":"GET","route":"/governance/owners","status":401,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T16:52:55.992920+00:00","event":"authentication_failure","request_id":"db2d2bc4ee8c497e912a2e61dc9ceac4","method":"POST","route":"/governance/drafts","status":401,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T16:52:55.997242+00:00","event":"authentication_failure","request_id":"48b7f3277ec349618021eb9c1af612c9","method":"GET","route":"/governance/drafts/{did}","status":401,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T16:52:56.001434+00:00","event":"authentication_failure","request_id":"a60aeb3c2a884b05bbd844ebbde45742","method":"PATCH","route":"/governance/drafts/{did}","status":401,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T16:52:56.008675+00:00","event":"authentication_failure","request_id":"a56cb39c1e6f4f05a5a76869dce283c8","method":"POST","route":"/governance/drafts/{did}/actions","status":401,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T16:52:56.012513+00:00","event":"authentication_failure","request_id":"6d17a5c4ded44810932dc364e0c3fbe6","method":"GET","route":"/governance/availability","status":401,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T16:52:56.016536+00:00","event":"authentication_failure","request_id":"845d1a4327cf4d8babf2a367738fa97e","method":"POST","route":"/governance/documents/preview","status":401,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T16:52:56.019800+00:00","event":"authentication_failure","request_id":"d468c848534247d9998c6801d79f30c0","method":"DELETE","route":"/governance/documents/preview/{token}","status":401,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T16:52:56.023821+00:00","event":"authentication_failure","request_id":"b4502f4f17744e26a069c7154d68edad","method":"GET","route":"/governance/drafts/{did}/original","status":401,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T16:52:56.026726+00:00","event":"authentication_failure","request_id":"316dbc622fd94d3b9428680162ef4daa","method":"GET","route":"/auth/session","status":401,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T16:52:56.032206+00:00","event":"authentication_failure","request_id":"fffb6882346a42a0ba1b49d6bed942f1","method":"GET","route":"/departments","status":401,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T16:52:56.035362+00:00","event":"authentication_failure","request_id":"ffbed522a6434d8cbac9625757281d1d","method":"GET","route":"/roles","status":401,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T16:52:56.038403+00:00","event":"authentication_failure","request_id":"01c922a2f60e4eaf8bf155b1b12b5d47","method":"GET","route":"/categories","status":401,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T16:52:56.042023+00:00","event":"authentication_failure","request_id":"5fc7d114018d45dead6bd55f62528e58","method":"GET","route":"/me","status":401,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T16:52:56.045644+00:00","event":"authentication_failure","request_id":"8b7b1fe595af47a88f04acd85d82667e","method":"GET","route":"/users","status":401,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T16:52:56.049077+00:00","event":"authentication_failure","request_id":"61fbc9a1b419487f9a530cc4073c74b7","method":"GET","route":"/policies","status":401,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T16:52:56.052367+00:00","event":"authentication_failure","request_id":"1f85c452e3814e809e74a95e01ef000d","method":"GET","route":"/policies/search","status":401,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T16:52:56.055790+00:00","event":"authentication_failure","request_id":"d554688a0da54434b02dce4a0c3ce7f7","method":"GET","route":"/policies/{policy_id}","status":401,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T16:52:56.059579+00:00","event":"authentication_failure","request_id":"d93359d01fb94d6bab58eac0b59dfbe3","method":"POST","route":"/policies","status":401,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T16:52:56.063117+00:00","event":"authentication_failure","request_id":"b202a26f17154057a6c0d7bdd5d8499e","method":"POST","route":"/policies/{policy_id}/versions","status":401,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T16:52:56.069252+00:00","event":"authentication_failure","request_id":"6ae3a9a27f974020a95ff46da0af239b","method":"POST","route":"/ask","status":401,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T16:52:56.073039+00:00","event":"authentication_failure","request_id":"c93564791e1f41c68f17f19fb3a89398","method":"GET","route":"/conversations/{conversation_id}","status":401,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T16:52:56.076098+00:00","event":"authentication_failure","request_id":"71b563b93d014868a213d64045e5af8a","method":"GET","route":"/incident-categories","status":401,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T16:52:56.079595+00:00","event":"authentication_failure","request_id":"ca0e27bec9324d5da503e0b7c869e79f","method":"GET","route":"/incidents","status":401,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T16:52:56.084004+00:00","event":"authentication_failure","request_id":"0c35f352004b41e3be283785ff103add","method":"POST","route":"/incidents","status":401,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T16:52:56.087718+00:00","event":"authentication_failure","request_id":"1039bcb337c74d78a5ea6995ad08708a","method":"PATCH","route":"/incidents/{incident_id}","status":401,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T16:52:56.091592+00:00","event":"authentication_failure","request_id":"14413e78471247dc8e6f5df8a9c9edb7","method":"POST","route":"/feedback","status":401,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T16:52:56.094502+00:00","event":"authentication_failure","request_id":"684986ef8e11434a8f4e1c9f4fbed68d","method":"GET","route":"/feedback/mine","status":401,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T16:52:56.099040+00:00","event":"authentication_failure","request_id":"a2a8aaf1a6d14683917ad0c6a92221a8","method":"GET","route":"/dashboard/policy-health","status":401,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T16:52:56.103570+00:00","event":"access_denied","request_id":"048857f3a3314ccc8dfcc79c8fb2fe1c","method":"POST","route":"/policies","status":403,"actor_id":8,"role":"Employee"}
+{"timestamp":"2026-11-10T16:52:56.107736+00:00","event":"access_denied","request_id":"9e4cd6002ec44a56a06b06cd8498a42c","method":"POST","route":"/policies/{policy_id}/versions","status":403,"actor_id":8,"role":"Employee"}
+{"timestamp":"2026-11-10T16:52:56.112041+00:00","event":"request_rejected","request_id":"96c00055ec1f402a806233f2b8501854","method":"POST","route":"/policies","status":409,"actor_id":4,"role":"Policy Owner"}
+{"timestamp":"2026-11-10T16:52:56.116300+00:00","event":"request_rejected","request_id":"89bca00b0b63449cb12037d868ca8d81","method":"POST","route":"/policies/{policy_id}/versions","status":409,"actor_id":4,"role":"Policy Owner"}
+{"timestamp":"2026-11-10T16:52:56.120288+00:00","event":"request_rejected","request_id":"7e187664ac864c5e9924fac32c33f083","method":"POST","route":"/policies","status":409,"actor_id":2,"role":"System Administrator"}
+{"timestamp":"2026-11-10T16:52:56.124451+00:00","event":"request_rejected","request_id":"3d22704c07224be9af80463a83aa2b86","method":"POST","route":"/policies/{policy_id}/versions","status":409,"actor_id":2,"role":"System Administrator"}
+{"timestamp":"2026-11-10T16:52:56.150178+00:00","event":"access_denied","request_id":"6417bb53c11d46638e5f239c43e5b093","method":"PATCH","route":"/incidents/{incident_id}","status":403,"actor_id":4,"role":"Policy Owner"}
+{"timestamp":"2026-11-10T16:52:56.153804+00:00","event":"access_denied","request_id":"055be8652ce140e198f680f89a9de28d","method":"POST","route":"/incidents","status":403,"actor_id":8,"role":"Employee"}
+{"timestamp":"2026-11-10T16:52:56.157172+00:00","event":"access_denied","request_id":"e518dc6e335f474194cf2be32b225192","method":"POST","route":"/incidents","status":403,"actor_id":4,"role":"Policy Owner"}
+{"timestamp":"2026-11-10T16:52:56.160733+00:00","event":"access_denied","request_id":"8b4e6eb575c642fc9087221960b95d60","method":"POST","route":"/incidents","status":403,"actor_id":8,"role":"Employee"}
+{"timestamp":"2026-11-10T16:52:56.169111+00:00","event":"administrative_action","request_id":"c5d55baa2cf2450ba887c56ff22d0de1","method":"PATCH","route":"/incidents/{incident_id}","status":200,"actor_id":2,"role":"System Administrator"}
+{"timestamp":"2026-11-10T16:52:56.179782+00:00","event":"request_rejected","request_id":"84271f906f2940a5b8085b911164d7ea","method":"PATCH","route":"/incidents/{incident_id}","status":422,"actor_id":2,"role":"System Administrator"}
+{"timestamp":"2026-11-10T16:52:56.184808+00:00","event":"request_rejected","request_id":"0d4d97a0b07e4620b79329f717ea1d21","method":"POST","route":"/incidents","status":422,"actor_id":8,"role":"Employee"}
+{"timestamp":"2026-11-10T16:52:56.220335+00:00","event":"sensitive_change","request_id":"7c593082cccb4a399f8e4a5baa816ed5","method":"POST","route":"/governance/drafts","status":201,"actor_id":4,"role":"Policy Owner"}
+{"timestamp":"2026-11-10T16:52:56.227365+00:00","event":"access_denied","request_id":"9c5693e500744482a8613510997f5292","method":"POST","route":"/governance/drafts/{did}/actions","status":403,"actor_id":4,"role":"Policy Owner","action":"submit"}
+{"timestamp":"2026-11-10T16:52:56.238196+00:00","event":"sensitive_change","request_id":"a9c70b77fcbb47c88104b1e89ae54be4","method":"POST","route":"/governance/drafts/{did}/actions","status":200,"actor_id":4,"role":"Policy Owner","action":"submit"}
+{"timestamp":"2026-11-10T16:52:56.245373+00:00","event":"access_denied","request_id":"65a31e3e296c49acafc99fafb24d2f24","method":"POST","route":"/governance/drafts/{did}/actions","status":403,"actor_id":4,"role":"Policy Owner","action":"peer_approve"}
+{"timestamp":"2026-11-10T16:52:56.255363+00:00","event":"approval","request_id":"989a62cc0555411db779a6c9ae8fd658","method":"POST","route":"/governance/drafts/{did}/actions","status":200,"actor_id":9,"role":"Policy Owner","action":"peer_approve"}
+{"timestamp":"2026-11-10T16:52:56.263360+00:00","event":"approval","request_id":"4b32ed779f7642bfa0f516cd16307fde","method":"POST","route":"/governance/drafts/{did}/actions","status":200,"actor_id":2,"role":"System Administrator","action":"final_approve"}
+{"timestamp":"2026-11-10T16:52:56.267561+00:00","event":"request_rejected","request_id":"17e3225f8d08468b86e8476138ec5ffd","method":"POST","route":"/incidents","status":422,"actor_id":8,"role":"Employee"}
+{"timestamp":"2026-11-10T16:52:56.269927+00:00","event":"request_rejected","request_id":"8d1a3636eac04d50aef3f15dd83ce3ec","method":"GET","route":"/policies","status":500,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T16:52:56.272341+00:00","event":"request_rejected","request_id":"238f8d291f7a488391e61c6da89baa7e","method":"GET","route":"/policies","status":500,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T16:52:56.287041+00:00","event":"access_denied","request_id":"59633bdd7da4481b908414d63d753498","method":"GET","route":"/governance/drafts","status":403,"actor_id":8,"role":"Employee"}
+{"timestamp":"2026-11-10T16:52:56.290602+00:00","event":"authentication_failure","request_id":"29cd2791c81546008853ecdb3b890863","method":"GET","route":"/me","status":401,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T16:52:56.293570+00:00","event":"authentication_failure","request_id":"49cc391972754062a71bd4cfa652f8ff","method":"GET","route":"/me","status":401,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T16:52:56.296684+00:00","event":"authentication_failure","request_id":"edf15794822a484490e30c4017db56a1","method":"GET","route":"/me","status":401,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T16:52:56.299575+00:00","event":"authentication_failure","request_id":"cdf9052d5a244a8cbcd879c3230a3c12","method":"GET","route":"/me","status":401,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T16:52:56.303102+00:00","event":"access_denied","request_id":"cdf36ea33f7f4ad896bef7b74dfd3582","method":"GET","route":"/me","status":403,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T16:52:56.306578+00:00","event":"access_denied","request_id":"f88b336b1e9648c7b2b3b1fce243e7c7","method":"GET","route":"/me","status":403,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T16:52:56.312711+00:00","event":"login_failure","request_id":"20788516f36c46938ea528fe8772474d","method":"POST","route":"/auth/login","status":403,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T16:52:56.315226+00:00","event":"login_failure","request_id":"3de36095a5e7429589d0c0b5c214643d","method":"POST","route":"/auth/login","status":401,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T16:52:56.318404+00:00","event":"login_success","request_id":"c3b991d6f5ad4a82ae0db785270f60b1","method":"POST","route":"/auth/login","status":200,"actor_id":8,"role":"Employee"}
+{"timestamp":"2026-11-10T16:52:56.328811+00:00","event":"access_denied","request_id":"7623354fb6e0499bad918bfe8335ee4b","method":"POST","route":"/ask","status":403,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T16:52:56.332956+00:00","event":"sensitive_change","request_id":"cee95d4833f247feb6fc27af981fca39","method":"POST","route":"/auth/refresh","status":200,"actor_id":8,"role":"Employee"}
+{"timestamp":"2026-11-10T16:52:56.349563+00:00","event":"logout","request_id":"83717643b4444bcf82928d390322116e","method":"POST","route":"/auth/logout","status":200,"actor_id":8,"role":"Employee"}
+{"timestamp":"2026-11-10T16:52:56.352834+00:00","event":"authentication_failure","request_id":"1768d583e6c943cd94b7c5f8119f155e","method":"GET","route":"/auth/session","status":401,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T16:52:56.356026+00:00","event":"login_success","request_id":"af8b6d76ecdc451e847ea9c162c04c50","method":"POST","route":"/auth/login","status":200,"actor_id":8,"role":"Employee"}
+{"timestamp":"2026-11-10T16:52:56.359438+00:00","event":"request_rejected","request_id":"5eb721aacb124e278ed011660c70ca9e","method":"POST","route":"/auth/logout","status":503,"actor_id":8,"role":"Employee"}
+{"timestamp":"2026-11-10T16:52:56.362306+00:00","event":"authentication_failure","request_id":"44e528c777b54191bea7c6510320ebf1","method":"GET","route":"/auth/session","status":401,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T16:52:56.364872+00:00","event":"login_failure","request_id":"611e15b5941b48799bc8265e2209ef6a","method":"POST","route":"/auth/login","status":401,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T16:52:56.367226+00:00","event":"login_failure","request_id":"41081035b47849d59c790c6d3964adc8","method":"POST","route":"/auth/login","status":401,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T16:52:56.369733+00:00","event":"login_failure","request_id":"660c39f460ba42b5a7f68127ab6422c2","method":"POST","route":"/auth/login","status":401,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T16:52:56.372105+00:00","event":"login_failure","request_id":"8ce6a2a40a524b3f9f6e4d5fd9bc7d74","method":"POST","route":"/auth/login","status":401,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T16:52:56.374740+00:00","event":"login_failure","request_id":"c1bc2b36384740b89e8b052bc2995507","method":"POST","route":"/auth/login","status":401,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T16:52:56.377088+00:00","event":"login_failure","request_id":"c076352325f3482f9b183edd06b37582","method":"POST","route":"/auth/login","status":429,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T16:52:56.379564+00:00","event":"login_failure","request_id":"f563e0758f1c4809bb0af96640ea62cc","method":"POST","route":"/auth/login","status":429,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T16:52:56.381886+00:00","event":"login_failure","request_id":"1f40704439244c1aa383b89a90ad5ecb","method":"POST","route":"/auth/login","status":429,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T16:52:56.384354+00:00","event":"login_failure","request_id":"363c4df02f394a17a3a63a377420b9bb","method":"POST","route":"/auth/login","status":429,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T16:52:56.386723+00:00","event":"access_denied","request_id":"0b3a5209ff08445e83a0af56e3413613","method":"POST","route":"/dev-auth/token","status":404,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T16:52:56.389782+00:00","event":"authentication_failure","request_id":"d7477e8b1c0443989221b5d7fe8f8b62","method":"GET","route":"/me","status":401,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T16:52:56.391005+00:00","event":"access_denied","request_id":"3fcf3960f81e48f2b1ff4a93bf98e160","method":"GET","route":"unmatched","status":403,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T16:52:56.393442+00:00","event":"request_rejected","request_id":"6aaa7124674a431ca1eadd57920bd1ec","method":"POST","route":"/dev-auth/token","status":503,"actor_id":null,"role":null}
+PASS Anonymous denied GET /messages
+PASS Anonymous denied GET /messages/notifications
+PASS Anonymous denied GET /clarifications
+PASS Anonymous denied POST /clarifications
+PASS Anonymous denied GET /clarifications/{request_id}
+PASS Anonymous denied POST /clarifications/{request_id}/replies
+PASS Anonymous denied POST /clarifications/{request_id}/resolve
+PASS Anonymous denied POST /clarifications/{request_id}/close
+PASS Anonymous denied POST /clarifications/{request_id}/reopen
+PASS Anonymous denied POST /clarifications/{request_id}/read
+PASS Anonymous denied POST /clarifications/{request_id}/assign
+PASS Anonymous denied GET /governance/drafts
+PASS Anonymous denied GET /governance/owners
+PASS Anonymous denied POST /governance/drafts
+PASS Anonymous denied GET /governance/drafts/{did}
+PASS Anonymous denied PATCH /governance/drafts/{did}
+PASS Anonymous denied POST /governance/drafts/{did}/actions
+PASS Anonymous denied GET /governance/availability
+PASS Anonymous denied POST /governance/documents/preview
+PASS Anonymous denied DELETE /governance/documents/preview/{token}
+PASS Anonymous denied GET /governance/drafts/{did}/original
+PASS Anonymous denied GET /auth/session
+PASS Anonymous denied GET /departments
+PASS Anonymous denied GET /roles
+PASS Anonymous denied GET /categories
+PASS Anonymous denied GET /me
+PASS Anonymous denied GET /users
+PASS Anonymous denied GET /policies
+PASS Anonymous denied GET /policies/search
+PASS Anonymous denied GET /policies/{policy_id}
+PASS Anonymous denied POST /policies
+PASS Anonymous denied POST /policies/{policy_id}/versions
+PASS Anonymous denied POST /ask
+PASS Anonymous denied GET /conversations/{conversation_id}
+PASS Anonymous denied GET /incident-categories
+PASS Anonymous denied GET /incidents
+PASS Anonymous denied POST /incidents
+PASS Anonymous denied PATCH /incidents/{incident_id}
+PASS Anonymous denied POST /feedback
+PASS Anonymous denied GET /feedback/mine
+PASS Anonymous denied GET /dashboard/policy-health
+PASS Direct policy creation bypass blocked 8
+PASS Direct version bypass blocked 8
+PASS Direct policy creation bypass blocked 4
+PASS Direct version bypass blocked 4
+PASS Direct policy creation bypass blocked 2
+PASS Direct version bypass blocked 2
+PASS Policy Owner cannot read unrelated incident reports
+PASS Employee sees only own incidents
+PASS Administrator sees organizational incident reports
+PASS Policy Owner cannot change incident status
+PASS Employee cannot assign incident handler
+PASS Policy Owner cannot assign incident handler
+PASS Employee cannot select escalation level
+PASS Administrator can update incident
+PASS Explicit handler assignment permits incident access
+PASS Unknown handler rejected safely
+PASS Unknown category rejected safely
+PASS Owner dashboard is explicitly department scoped
+PASS Owner dashboard excludes other department policies
+PASS Owner dashboard conceals unrelated incident and chat aggregates
+PASS Author cannot select self for peer approval
+PASS Author cannot approve own draft
+PASS Independent department peer approval succeeds
+PASS Independent system administrator approval succeeds
+PASS Validation response redacts rejected input
+PASS DB failure is generic and actionable
+PASS Request id is generated, not trusted from caller
+PASS Valid Supabase JWT maps to existing employee
+PASS Supabase JWT role claim cannot elevate access
+PASS expired Supabase JWT denied
+PASS wrong audience Supabase JWT denied
+PASS wrong issuer Supabase JWT denied
+PASS invalid signature Supabase JWT denied
+PASS Verified email alone does not prove employee identity
+PASS Subject and business email must match the same user
+PASS Service keys cannot configure public sign-in
+PASS Login rejects CSRF attempt
+PASS Login failure is generic
+PASS Mapped account can establish verified browser session
+PASS Browser session cookies are Secure HttpOnly SameSite Strict
+PASS Login does not expose tokens in JSON
+PASS Session reads do not expose credentials
+PASS Cookie-authenticated writes require CSRF proof
+PASS Refresh rotates a verified mapped session
+PASS Authenticated data is not cached
+PASS Production response includes HSTS
+PASS Refresh token is scoped to auth endpoints
+PASS Logout clears local cookies and invokes provider revocation
+PASS Failed remote logout still clears browser cookies honestly
+PASS Login has bounded attempt throttling
+PASS Production cannot mint developer tokens
+PASS Production rejects valid local dev token
+PASS Production refuses plaintext API transport
+PASS Malformed developer allowlist fails closed
+PASS Database TLS: remote default
+PASS Database TLS: username cannot impersonate localhost
+PASS Database TLS: plaintext remote refused
+PASS Database TLS: opportunistic remote refused
+PASS Database TLS: verified mode retained
+PASS Structured logs exclude credentials, tokens and private text
+PASS Access denials and login failures are recorded
+PASS Sensitive admin actions are recorded
+PASS Approval logs identify verified actors without policy text
+PASS Log route templates exclude raw resource parameters
+105 passed, 0 failed

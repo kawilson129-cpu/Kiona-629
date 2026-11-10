@@ -1,0 +1,47 @@
+[
+  {
+    "suite": "test_week9_security",
+    "status": "PASS",
+    "exit_code": 0,
+    "summary": [
+      "110 passed, 0 failed"
+    ]
+  },
+  {
+    "suite": "test_week7_auth",
+    "status": "PASS",
+    "exit_code": 0,
+    "summary": [
+      "24 passed, 0 failed"
+    ]
+  },
+  {
+    "suite": "test_week7_messaging",
+    "status": "PASS",
+    "exit_code": 0,
+    "summary": [
+      "73 passed, 0 failed, 73 checks"
+    ]
+  },
+  {
+    "suite": "test_week7_edges",
+    "status": "PASS",
+    "exit_code": 0,
+    "summary": [
+      "29 passed, 0 failed, 29 checks"
+    ]
+  },
+  {
+    "suite": "test_week8_governance",
+    "status": "PASS",
+    "exit_code": 0,
+    "summary": [
+      "102 passed, 0 failed"
+    ]
+  },
+  {
+    "suite": "test_document_intake",
+    "status": "BLOCKED",
+    "reason": "Existing declared pypdf dependency is absent in this interpreter; no parser checks executed. Initial import failure retained in test_document_intake.txt."
+  }
+]

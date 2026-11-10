@@ -1,0 +1,66 @@
+{"timestamp":"2026-11-10T17:11:33.530980+00:00","event":"sensitive_change","request_id":"8e42254adc664a70bf363afc0d2928af","method":"POST","route":"/dev-auth/token","status":200,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T17:11:33.542200+00:00","event":"sensitive_change","request_id":"fb877578d6f840d9a508a00c93aa071e","method":"POST","route":"/dev-auth/token","status":200,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T17:11:33.551722+00:00","event":"sensitive_change","request_id":"7d27240c6c4f48439e853740837fa1de","method":"POST","route":"/dev-auth/token","status":200,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T17:11:33.558499+00:00","event":"sensitive_change","request_id":"43626c0eb7744afd8b7ed74c8b24702b","method":"POST","route":"/dev-auth/token","status":200,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T17:11:33.589448+00:00","event":"sensitive_change","request_id":"d638821c8c4d42a69bd36eed82b1950f","method":"POST","route":"/clarifications/{request_id}/replies","status":201,"actor_id":9,"role":"Policy Owner"}
+{"timestamp":"2026-11-10T17:11:33.604344+00:00","event":"administrative_action","request_id":"e8f87f2ac605402ebc605d20e23ccc8b","method":"POST","route":"/clarifications/{request_id}/assign","status":200,"actor_id":2,"role":"System Administrator"}
+{"timestamp":"2026-11-10T17:11:33.637177+00:00","event":"access_denied","request_id":"72321fd8a94c41e8ae2e409c4c9d46b0","method":"POST","route":"/clarifications/{request_id}/replies","status":403,"actor_id":9,"role":"Policy Owner"}
+{"timestamp":"2026-11-10T17:11:33.648440+00:00","event":"sensitive_change","request_id":"baec8823025e4d829a3b600f6a721ee2","method":"POST","route":"/clarifications/{request_id}/read","status":200,"actor_id":12,"role":"Policy Owner"}
+{"timestamp":"2026-11-10T17:11:33.667891+00:00","event":"administrative_action","request_id":"8df9fd5a2c9f448fba042c1e3f0484d8","method":"POST","route":"/clarifications/{request_id}/assign","status":200,"actor_id":2,"role":"System Administrator"}
+{"timestamp":"2026-11-10T17:11:33.683019+00:00","event":"administrative_action","request_id":"2170d62213ae4021b7a44561f173f457","method":"POST","route":"/clarifications/{request_id}/assign","status":200,"actor_id":2,"role":"System Administrator"}
+{"timestamp":"2026-11-10T17:11:33.750348+00:00","event":"sensitive_change","request_id":"bd21f9d399954a0689ede5ba572aea37","method":"POST","route":"/dev-auth/token","status":200,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T17:11:33.765744+00:00","event":"sensitive_change","request_id":"641c38ad9c82420cb7989e73e89aaad9","method":"POST","route":"/dev-auth/token","status":200,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T17:11:33.779550+00:00","event":"sensitive_change","request_id":"2f860e96abca41be9448a0fa7fdd30fa","method":"POST","route":"/dev-auth/token","status":200,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T17:11:33.790299+00:00","event":"access_denied","request_id":"68666a05428b461386a54fc016f1ef85","method":"POST","route":"/clarifications/{request_id}/read","status":404,"actor_id":3,"role":"Employee"}
+{"timestamp":"2026-11-10T17:11:33.795209+00:00","event":"sensitive_change","request_id":"5d58c293f6a64f0da83db460d9cffa2d","method":"POST","route":"/dev-auth/token","status":200,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T17:11:33.801358+00:00","event":"access_denied","request_id":"0d160b74341343c58b2a04bc4ae85b69","method":"POST","route":"/clarifications/{request_id}/resolve","status":404,"actor_id":3,"role":"Employee"}
+{"timestamp":"2026-11-10T17:11:33.805766+00:00","event":"sensitive_change","request_id":"e0728b083efe4ce1b66cd870dd4d0afd","method":"POST","route":"/dev-auth/token","status":200,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T17:11:33.812030+00:00","event":"access_denied","request_id":"d214c130801c4a9093a517dcdc7801c1","method":"POST","route":"/clarifications/{request_id}/close","status":404,"actor_id":3,"role":"Employee"}
+{"timestamp":"2026-11-10T17:11:33.816333+00:00","event":"sensitive_change","request_id":"ee9e01c266bf4c88aba78e375c24d4e3","method":"POST","route":"/dev-auth/token","status":200,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T17:11:33.824156+00:00","event":"access_denied","request_id":"23b54246206b4228846234db1c31326d","method":"POST","route":"/clarifications/{request_id}/reopen","status":404,"actor_id":3,"role":"Employee"}
+{"timestamp":"2026-11-10T17:11:33.831831+00:00","event":"sensitive_change","request_id":"0f659229fb364cb0b936a9ac86dc891b","method":"POST","route":"/clarifications/{request_id}/resolve","status":200,"actor_id":12,"role":"Policy Owner"}
+{"timestamp":"2026-11-10T17:11:33.836259+00:00","event":"access_denied","request_id":"d5faaa85c8004921bd8e95043fa660ee","method":"POST","route":"/clarifications/{request_id}/reopen","status":403,"actor_id":12,"role":"Policy Owner"}
+{"timestamp":"2026-11-10T17:11:33.843110+00:00","event":"administrative_action","request_id":"0f61bcc6b9664c96ba8d9e5429362a52","method":"POST","route":"/clarifications/{request_id}/reopen","status":200,"actor_id":2,"role":"System Administrator"}
+{"timestamp":"2026-11-10T17:11:33.846244+00:00","event":"authentication_failure","request_id":"ce11ccaad5144d19be21c7d45227e09a","method":"GET","route":"/messages/notifications","status":401,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T17:11:33.849421+00:00","event":"authentication_failure","request_id":"4d47b8d0b6fc4ddb8251788ec99b017a","method":"GET","route":"/messages","status":401,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T17:11:33.852479+00:00","event":"access_denied","request_id":"1ce8878f8f5e418ab1b0477aa0fd2bfd","method":"GET","route":"/auth/config","status":403,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T17:11:33.855642+00:00","event":"access_denied","request_id":"72aa6297d4cd4d1cb6e80272782f3c67","method":"GET","route":"/messages","status":403,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T17:11:33.858428+00:00","event":"access_denied","request_id":"514061bb68ba4648b9c783dc9ef4ce71","method":"POST","route":"/dev-auth/token","status":403,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T17:11:33.861763+00:00","event":"access_denied","request_id":"4237534cb62b4bdaa97d47705e7fb1e3","method":"GET","route":"/messages","status":403,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T17:11:33.866062+00:00","event":"access_denied","request_id":"ac740adeb1ca4c23b75e0b9964171d00","method":"GET","route":"/messages","status":403,"actor_id":8,"role":"Employee"}
+{"timestamp":"2026-11-10T17:11:33.873111+00:00","event":"access_denied","request_id":"0efb26b5f1ea41deb7d458e0387e6469","method":"GET","route":"/messages","status":403,"actor_id":2,"role":"Employee"}
+{"timestamp":"2026-11-10T17:11:33.885558+00:00","event":"administrative_action","request_id":"9dd0145808074053885d68a0d363cf48","method":"POST","route":"/clarifications/{request_id}/replies","status":201,"actor_id":2,"role":"System Administrator"}
+{"timestamp":"2026-11-10T17:11:33.903957+00:00","event":"administrative_action","request_id":"66f889282b2f468eb208acef3311a022","method":"POST","route":"/clarifications/{request_id}/assign","status":200,"actor_id":2,"role":"System Administrator"}
+{"timestamp":"2026-11-10T17:11:33.909827+00:00","event":"authentication_failure","request_id":"cd4d30507c734572815947ca85cf5ed1","method":"GET","route":"/messages","status":401,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T17:11:33.913266+00:00","event":"access_denied","request_id":"72eed3b582504859b30cd486486616ec","method":"POST","route":"/dev-auth/token","status":404,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T17:11:33.918306+00:00","event":"access_denied","request_id":"036ac0ae5b6e4d41aab9a66ac0e7de12","method":"POST","route":"/dev-auth/token","status":404,"actor_id":null,"role":null}
+PASS  former owner remains an authorized historical reader
+PASS  former owner has read-only permissions
+PASS  reply endpoint enforces its advertised permissions
+PASS  reassignment notifies a previous assignee who already read it
+PASS  notification preview stays limited to 20 items
+PASS  unread total includes more than 100 unread threads
+PASS  list and notification totals agree
+PASS  unrelated employee list omits all private threads
+PASS  unrelated owner notifications contain no private previews
+PASS  unrelated employee cannot read
+PASS  unrelated employee cannot resolve
+PASS  unrelated employee cannot close
+PASS  unrelated employee cannot reopen
+PASS  owner cannot reopen a resolved employee request
+PASS  admin can reopen with organization oversight
+PASS  anonymous notification request is denied
+PASS  invalid signature rejected
+PASS  remote clients cannot retrieve the dev identity roster
+PASS  remote clients cannot reuse a local development token
+PASS  foreign-origin dev token request rejected
+PASS  forwarded development token rejected
+PASS  token role labels cannot elevate a database Employee
+PASS  database role demotion applies to an already-issued token
+PASS  reply notification names the actual sender
+PASS  participant metadata preserves the administrator role
+PASS  production rejects development tokens
+PASS  production refuses local identity issuance
+PASS  production config exposes no test identities
+PASS  unrecognized deployment environments cannot enable dev auth
+29 passed, 0 failed, 29 checks

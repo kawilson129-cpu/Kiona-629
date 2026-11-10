@@ -1,0 +1,5 @@
+.auth-form { max-width: 480px; margin: 48px auto; display: grid; gap: 14px; }
+.auth-form .view-title { font-size: 36px; }
+.auth-form input { width: 100%; min-width: 0; }
+.auth-form button { justify-self: start; }
+.auth-form [role="status"] { color: var(--brick); overflow-wrap: anywhere; }

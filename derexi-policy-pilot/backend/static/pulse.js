@@ -347,6 +347,140 @@
     return card;
   }
 
+  /* ------------------------------------------------------- bento layout */
+  /*
+     Content-aware packing for the lower article feed only ("The Intelligence
+     Desk"). A plain row grid makes every row as tall as its tallest card, which
+     is what produced the large gaps under short cards. Instead each card is
+     measured once and given an explicit grid row span, so columns fill from the
+     top with no holes; `grid-auto-flow: dense` (in style.css) backfills the
+     space beside taller cards. Card text is never clipped: heights are measured
+     from the real rendered card, and no max-height or line clamp is applied.
+     The DOM is never reordered, so reading, tab and screen-reader order stay
+     exactly as ranked by the feed.
+  */
+  var BENTO_ROW = 2;       // row unit in px — must match grid-auto-rows in style.css
+  var BENTO_GUTTER = 18;   // gutter in px — matches the column gap and card margin
+  var bentoObserver = null;
+
+  function columnCount(feed) {
+    var template = getComputedStyle(feed).gridTemplateColumns || '';
+    var repeat = /repeat\(\s*(\d+)/.exec(template);
+    if (repeat) return Number(repeat[1]);
+    var tracks = template.trim().split(/\s+/).filter(Boolean);
+    return tracks.length && tracks[0] !== 'none' ? tracks.length : 1;
+  }
+
+  // Content opener: the first desk card is the highest-ranked remaining story,
+  // so it becomes the full-width feature tile on the widest layout. The span is
+  // decided here, before any card is measured, so no card is ever re-widened
+  // after its height is known (which would leave a stale row span).
+  function opensDesk(index) {
+    return index === 0;
+  }
+
+  // Pack one feed. Idempotent: every pass clears the previous placement first,
+  // so filtering, refreshing and resizing all converge on the same layout.
+  function layoutFeed(feed) {
+    if (!feed || !feed.isConnected) return;
+    var cards = [];
+    Array.prototype.forEach.call(feed.children, function (child) {
+      if (child.classList.contains('pulse-story')) cards.push(child);
+    });
+    if (!cards.length) return;
+
+    // Back to the plain grid so heights are measured at their natural size.
+    feed.classList.remove('is-bento');
+    cards.forEach(function (card) {
+      card.style.gridRowStart = '';
+      card.style.gridRowEnd = '';
+      card.style.gridColumnStart = '';
+      card.style.gridColumnEnd = '';
+    });
+
+    // One column needs no packing: a normal stack already has exact gutters.
+    var columns = columnCount(feed);
+    if (columns < 2) return;
+
+    // The feature card spans every column, and only on the widest layout. Pin
+    // its width before measuring so its height is measured at its real width.
+    var feature = cards.length > 1 && cards[0].classList.contains('is-wide') && columns >= 3;
+    if (feature) {
+      cards[0].style.gridColumnStart = '1';
+      cards[0].style.gridColumnEnd = 'span ' + columns;
+    }
+
+    // Single measurement pass: column widths are already final for every card.
+    var spans = cards.map(function (card) {
+      return Math.max(1, Math.ceil((card.offsetHeight + BENTO_GUTTER) / BENTO_ROW));
+    });
+    var widths = cards.map(function (card, index) {
+      return feature && index === 0 ? columns : 1;
+    });
+
+    // Shortest-column packing. Each card starts exactly where its column (or,
+    // for the feature card, every column) finished, so a column never contains a
+    // vertical hole and the columns stay balanced. A two-column tile was tried
+    // and rejected: it always leaves a gap under the shorter of the two columns.
+    var next = [];
+    for (var c = 0; c < columns; c++) next.push(1);
+    cards.forEach(function (card, index) {
+      var width = widths[index];
+      var bestColumn = 0;
+      var bestRow = Infinity;
+      for (var start = 0; start + width <= columns; start++) {
+        var row = Math.max.apply(null, next.slice(start, start + width));
+        if (row < bestRow) { bestRow = row; bestColumn = start; }
+      }
+      card.style.gridColumnStart = String(bestColumn + 1);
+      card.style.gridColumnEnd = 'span ' + width;
+      card.style.gridRowStart = String(bestRow);
+      card.style.gridRowEnd = String(bestRow + spans[index]);
+      for (var k = bestColumn; k < bestColumn + width; k++) next[k] = bestRow + spans[index];
+    });
+    feed.classList.add('is-bento');
+  }
+
+  // Re-pack when the feed's width *or* the viewport changes. Viewport width
+  // matters on its own: card headlines use vw-relative type, so their heights
+  // change even when the capped content column keeps the same width.
+  // One window-level hook and one observer are reused, so re-mounting the view
+  // (or re-importing this module in tests) never stacks listeners.
+  function watchFeed(feed) {
+    window.__derexiPulseBento = { feed: feed, layout: layoutFeed };
+    if (!window.__derexiPulseBentoBound) {
+      window.__derexiPulseBentoBound = true;
+      var queued = 0;
+      window.addEventListener('resize', function () {
+        if (queued) return;
+        queued = window.requestAnimationFrame(function () {
+          queued = 0;
+          var bento = window.__derexiPulseBento;
+          if (bento && bento.feed.isConnected) bento.layout(bento.feed);
+        });
+      }, { passive: true });
+    }
+    if (typeof ResizeObserver !== 'function') return;
+    if (bentoObserver) { bentoObserver.disconnect(); bentoObserver = null; }
+    // Height-only notifications are ignored: they come from our own placement
+    // and would otherwise loop.
+    var lastWidth = feed.clientWidth;
+    bentoObserver = new ResizeObserver(function () {
+      var width = feed.clientWidth;
+      if (width === lastWidth) return;
+      lastWidth = width;
+      layoutFeed(feed);
+    });
+    bentoObserver.observe(feed);
+  }
+
+  // Webfonts (Fraunces / Plus Jakarta Sans) change measured heights after first
+  // paint, so the feed is packed again once they have settled.
+  function watchFonts(feed) {
+    if (!document.fonts || !document.fonts.ready || !document.fonts.ready.then) return;
+    document.fonts.ready.then(function () { layoutFeed(feed); });
+  }
+
   function skeleton() {
     var wrap = el('div', { class: 'pulse-loading', 'aria-busy': 'true' });
     wrap.appendChild(el('div', { class: 'skel pulse-skel-lead' }));
@@ -519,9 +653,17 @@
         el('span', { class: 'pulse-river-count', text: rest.length + ' more updates' })
       ]));
       var feed = el('div', { class: 'pulse-feed' });
-      rest.forEach(function (a) { feed.appendChild(storyCard(a)); });
+      rest.forEach(function (a, index) {
+        var card = storyCard(a);
+        if (opensDesk(index)) card.classList.add('is-wide');
+        feed.appendChild(card);
+      });
       if (!rest.length) feed.appendChild(el('p', { text: 'All matching updates appear in the editorial selection above.' }));
       desk.appendChild(feed); body.appendChild(desk);
+      // Pack only now that the feed is in the document and heights are real.
+      layoutFeed(feed);
+      watchFeed(feed);
+      watchFonts(feed);
       body.appendChild(el('p', { class: 'pulse-source-note', text: 'From four government feeds. Counts describe the loaded selection of up to 60 updates, not the complete agency archives. Decorative treatments are typography and color only.' }));
     }
 

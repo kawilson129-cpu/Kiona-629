@@ -62,7 +62,7 @@ def _truthy(value: Optional[str]) -> bool:
 
 
 def current_environment() -> str:
-    return (os.getenv("DEREXI_ENV") or "development").strip().lower()
+    return (os.getenv("DEREXI_ENV") or "production").strip().lower()
 
 
 def dev_auth_enabled() -> bool:
@@ -75,12 +75,9 @@ def allowed_user_ids() -> set:
     raw = (os.getenv("DEREXI_DEV_USER_IDS") or "").strip()
     if not raw:
         return set()
-    ids = set()
-    for chunk in raw.split(","):
-        chunk = chunk.strip()
-        if chunk.isdigit():
-            ids.add(int(chunk))
-    return ids
+    if any(not chunk.strip().isdigit() or int(chunk.strip()) <= 0 for chunk in raw.split(',')):
+        raise HTTPException(503, 'Development identity allowlist is invalid')
+    return {int(chunk.strip()) for chunk in raw.split(',')}
 
 
 def _is_loopback(host: Optional[str]) -> bool:
@@ -201,12 +198,14 @@ def auth_config(request: Request, db: Session = Depends(get_db)) -> dict:
     enabled = dev_auth_enabled()
     if enabled:
         _require_dev_request(request)
+    from session_auth import public_configuration
     return {
         "mode": "development" if enabled else "supabase",
         "dev_auth": enabled,
         "production": current_environment() == "production",
         "token_ttl_seconds": TOKEN_TTL_SECONDS if enabled else None,
         "identities": _identity_rows(db) if enabled else [],
+        **public_configuration(),
     }
 
 

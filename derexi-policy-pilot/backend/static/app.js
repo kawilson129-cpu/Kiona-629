@@ -83,6 +83,7 @@
     devUsers: [],
     me: null,
     token: null,
+    authenticated: false,
     sessionVersion: 0,
     inbox: {
       folder: 'inbox',
@@ -127,7 +128,7 @@
   function api(path, opts, retried) {
     opts = opts || {};
     var sessionVersion = state.sessionVersion;
-    var cfg = { method: opts.method || 'GET', headers: {}, credentials: 'same-origin' };
+    var cfg = { method: opts.method || 'GET', headers: { 'X-Derexi-Request': '1' }, credentials: 'same-origin' };
     if (state.token) cfg.headers.Authorization = 'Bearer ' + state.token;
     if (opts.body) { cfg.headers['Content-Type'] = opts.contentType || 'application/json'; cfg.body = opts.body; }
     if (opts.fileName) cfg.headers['X-File-Name'] = encodeURIComponent(opts.fileName);
@@ -136,6 +137,11 @@
       if (sessionVersion !== state.sessionVersion) throw new Error('Session changed');
       if (r.status === 401 && state.devAuth && state.personaId && !retried) {
         return refreshDevToken().then(function () { return api(path, opts, true); });
+      }
+      if (r.status === 401 && !state.devAuth && !retried && state.authenticated) {
+        return refreshProductionSession().then(function () { return api(path, opts, true); }).catch(function () {
+          resetSession(); renderProductionGate(); throw new Error('Your session ended. Please sign in again.');
+        });
       }
       if (!r.ok) {
         return r.json().catch(function () { return {}; }).then(function (body) {
@@ -154,6 +160,7 @@
       state.users = r[0] || [];
       state.roles = r[1] || [];
       state.me = r[2] || null;
+      state.authenticated = !!state.me;
     });
   }
 
@@ -200,7 +207,7 @@
   }
 
   function loadNotifications() {
-    if (!state.token) return Promise.resolve();
+    if (!state.token && !state.authenticated) return Promise.resolve();
     return api('/messages/notifications').then(function (data) {
       state.notifications = data || { unread_total: 0, items: [], triage_count: 0 };
       paintBadges(state.notifications.unread_total);
@@ -1777,7 +1784,9 @@
     var head = h('div', { class: 'view-head' });
     head.appendChild(h('p', { class: 'view-kicker', text: 'Policy Health Dashboard' }));
     head.appendChild(h('h1', { class: 'view-title', html: 'Health of the <em>house</em>' }));
-    head.appendChild(h('p', { class: 'view-sub', text: 'A glance at how policies, clarifications, and incidents are holding up across Aurum Capital Bank.' }));
+    head.appendChild(h('p', { class: 'view-sub', text: isAdmin()
+      ? 'A glance at how policies, clarifications, and incidents are holding up across Aurum Capital Bank.'
+      : 'Policy health for your department, with your authorized requests and incidents.' }));
 
     var tabs = h('div', { class: 'tabs', role: 'tablist' }, [
       tab('Overview', 'overview'),
@@ -2007,9 +2016,26 @@
 
   function buildIncRow(inc) {
     var acts = h('div', { class: 'inc-acts' });
-    var note = h('button', { type: 'button', class: 'btn btn-ghost', onclick: function () { toast('Reassigned to ' + inc.assignee); }, text: 'Assign to ' + (inc.assignee.split(' ')[0] || '') });
-    acts.appendChild(note);
-    acts.appendChild(h('button', { type: 'button', class: 'btn btn-ghost', onclick: function () { toast('Escalated to the CISO desk.'); }, text: 'Escalate' }));
+    if (isAdmin()) {
+      var handler = h('select', { class: 'msgs-assign-select', 'aria-label': 'Incident handler' });
+      handler.appendChild(h('option', { value: '', text: 'Choose handler' }));
+      state.users.filter(function (u) { return u.role === 'Policy Owner' || u.role === 'System Administrator'; }).forEach(function (u) {
+        handler.appendChild(h('option', { value: String(u.id), text: u.full_name, selected: inc.assigned_to === u.id }));
+      });
+      function change(payload, button) {
+        button.disabled = true;
+        api('/incidents/' + inc.id, { method: 'PATCH', body: JSON.stringify(payload) })
+          .then(function (updated) { toast('Incident updated.'); button.closest('.inc-row').replaceWith(buildIncRow(updated)); })
+          .catch(function (err) { button.disabled = false; toast(err.message); });
+      }
+      var assign = h('button', { type: 'button', class: 'btn btn-ghost', text: 'Assign' });
+      assign.addEventListener('click', function () {
+        if (handler.value) change({ assigned_to: Number(handler.value) }, assign);
+      });
+      var escalate = h('button', { type: 'button', class: 'btn btn-ghost', text: 'Escalate', disabled: inc.escalation_level >= 5 });
+      escalate.addEventListener('click', function () { change({ status: 'escalated', escalation_level: (inc.escalation_level || 1) + 1 }, escalate); });
+      acts.appendChild(handler); acts.appendChild(assign); acts.appendChild(escalate);
+    }
 
     return h('div', { class: 'inc-row' }, [
       h('div', { class: 'inc-top' }, [
@@ -2023,7 +2049,7 @@
       h('div', { class: 'inc-meta' }, [
         h('span', { text: 'Lvl ' + inc.escalation_level }),
         h('span', { text: 'Reporter · ' + inc.reporter }),
-        h('span', { text: 'SOC · ' + inc.assignee }),
+        h('span', { text: 'Handler · ' + (inc.assignee || 'Unassigned') }),
         h('span', { text: fmtDate(inc.created_at) })
       ]),
       acts
@@ -2082,8 +2108,12 @@
         state.devAuth = !!cfg.dev_auth;
         state.devUsers = cfg.identities || [];
         var recon = qa('.js-recon-mode');
-        if (recon) recon.textContent = state.devAuth ? 'Authorized workspace' : 'Live register';
-        if (!state.devAuth) { renderProductionGate(); return; }
+        if (recon) recon.textContent = state.devAuth ? 'Local demonstration · verified test sessions' : 'Live register';
+        if (!state.devAuth) {
+          return fetch('/auth/session', { credentials: 'same-origin' }).then(function (r) {
+            return r.ok ? null : refreshProductionSession();
+          }).then(openProductionWorkspace).catch(function () { resetSession(); renderProductionGate(); });
+        }
         restorePersona();
         return refreshDevToken()
           .then(function () { return loadAll(); })
@@ -2100,20 +2130,83 @@
       });
   }
 
-  /* Production has no browser session yet: say so plainly instead of faking auth. */
+  var productionRefresh = null;
+  function refreshProductionSession() {
+    if (!productionRefresh) productionRefresh = fetch('/auth/refresh', {
+      method: 'POST', credentials: 'same-origin', headers: { 'X-Derexi-Request': '1' }
+    }).then(function (r) { if (!r.ok) throw new Error('Sign-in required'); }).finally(function () { productionRefresh = null; });
+    return productionRefresh;
+  }
+
+  function openProductionWorkspace() {
+    return loadAll().then(function () {
+      state.personaId = state.me.id;
+      buildPersonaSelect(); refreshNav(); render(); loadNotifications();
+      qa('#signout-btn').classList.remove('is-hidden');
+    });
+  }
+
+  function resetSession() {
+    state.sessionVersion++; setToken(null); state.authenticated = false;
+    state.me = null; state.personaId = null; state.users = []; state.roles = [];
+    state.thread = []; state.lastAsk = null;
+    state.inbox.data = state.inbox.thread = state.inbox.threadId = null;
+    state.inbox.drafts = {}; state.notifications = { unread_total: 0, items: [], triage_count: 0 };
+    closeNotify(); paintBadges(0); refreshNav();
+    qa('.js-toasts').replaceChildren();
+    qaa('.drawer,.backdrop,.js-gate').forEach(function (el) { el.remove(); });
+    document.body.style.overflow = '';
+    qa('#signout-btn').classList.add('is-hidden');
+    qa('#persona-select').replaceChildren(h('option', { text: 'Sign-in required' }));
+    qa('#persona-select').disabled = true;
+    qaa('.btn-recon').forEach(function (b) { b.classList.add('is-hidden'); });
+    qa('#app').classList.remove('is-wide');
+  }
+
   function renderProductionGate() {
     var app = qa('#app');
     app.classList.remove('is-hidden');
     app.innerHTML = '';
-    app.appendChild(h('div', { class: 'view' }, [
-      h('div', { class: 'empty card' }, [
-        h('div', { class: 'mark', text: 'Sign-in required' }),
-        h('div', { class: 'ok', text: 'Please sign in to access your policy workspace.' })
-      ])
-    ]));
+    var form = h('form', { class: 'card card-pad auth-form' });
+    form.appendChild(h('h1', { class: 'view-title', text: 'Sign in' }));
+    form.appendChild(h('p', { class: 'view-sub', text: 'Access your Aurum policy workspace.' }));
+    if (!state.authConfig || !state.authConfig.sign_in_enabled) {
+      form.appendChild(h('p', { role: 'status', text: 'Sign-in is temporarily unavailable. Please contact your administrator.' }));
+      app.appendChild(form); return;
+    }
+    var email = h('input', { type: 'email', name: 'email', id: 'auth-email', required: '', maxlength: '254', autocomplete: 'username', class: 'select' });
+    var password = h('input', { type: 'password', name: 'password', id: 'auth-password', required: '', maxlength: '1024', autocomplete: 'current-password', class: 'select' });
+    var error = h('p', { role: 'status', 'aria-live': 'polite' });
+    var submit = h('button', { type: 'submit', class: 'btn', text: 'Sign in' });
+    form.appendChild(h('label', { for: 'auth-email', text: 'Work email' })); form.appendChild(email);
+    form.appendChild(h('label', { for: 'auth-password', text: 'Password' })); form.appendChild(password);
+    form.appendChild(error); form.appendChild(submit);
+    form.addEventListener('submit', function (event) {
+      event.preventDefault(); if (submit.disabled) return;
+      submit.disabled = true; error.textContent = '';
+      fetch('/auth/login', { method: 'POST', credentials: 'same-origin',
+        headers: { 'Content-Type': 'application/json', 'X-Derexi-Request': '1' },
+        body: JSON.stringify({ email: email.value, password: password.value })
+      }).then(function (r) { return r.json().then(function (body) {
+        if (!r.ok) throw new Error(typeof body.detail === 'string' ? body.detail : 'Sign-in failed. Please try again.');
+      }); }).then(openProductionWorkspace).catch(function (err) { error.textContent = err.message; })
+        .finally(function () { password.value = ''; submit.disabled = false; });
+    });
+    app.appendChild(form);
   }
 
   function wireChrome() {
+    qa('#signout-btn').addEventListener('click', function () {
+      this.disabled = true;
+      fetch('/auth/logout', { method: 'POST', credentials: 'same-origin', headers: { 'X-Derexi-Request': '1' } })
+        .then(function (r) { return r.json().then(function (body) {
+          if (!body.signed_out) throw new Error('Sign-out could not be completed. Please try again.');
+          resetSession(); renderProductionGate();
+          if (!r.ok) toast('Signed out locally. Remote session revocation could not be confirmed.');
+        }); })
+        .catch(function () { toast('Sign-out could not be completed. Reconnect and try again.'); })
+        .finally(function () { qa('#signout-btn').disabled = false; });
+    });
     qaa('.btn-recon').forEach(function (b) { b.addEventListener('click', openGateForSwap); });
 
     var notifyBtn = qa('.js-notify');
@@ -2130,10 +2223,10 @@
     window.addEventListener('hashchange', function () {
       var deep = /^#messages\/(\d+)$/.exec(location.hash || '');
       state.inbox.threadId = deep ? parseInt(deep[1], 10) : null;
-      if (!state.token) return;
+      if (!state.token && !state.authenticated) return;
       render();
     });
-    setInterval(function () { if (state.token && !document.hidden) loadNotifications(); }, 60000);
+    setInterval(function () { if ((state.token || state.authenticated) && !document.hidden) loadNotifications(); }, 60000);
     window.addEventListener('keydown', function (e) {
       if (e.key !== 'Escape') return;
       var panel = qa('.js-notify-panel');

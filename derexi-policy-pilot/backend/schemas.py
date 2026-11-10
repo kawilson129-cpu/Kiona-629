@@ -14,7 +14,7 @@ from __future__ import annotations
 from datetime import date
 from typing import Optional
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, model_validator
 
 
 class PolicyVersionCreate(BaseModel):
@@ -99,15 +99,22 @@ class IncidentCreate(BaseModel):
     description: str = Field(min_length=2, max_length=4000)
     severity: str = Field(default="medium", pattern="^(low|medium|high|critical)$")
     assigned_to: Optional[int] = None
-    escalation_level: int = 1
+    escalation_level: int = Field(default=1, ge=1, le=5)
 
 
 class IncidentUpdate(BaseModel):
     status: Optional[str] = Field(default=None, pattern="^(reported|triaged|escalated|resolved)$")
     severity: Optional[str] = Field(default=None, pattern="^(low|medium|high|critical)$")
     assigned_to: Optional[int] = None
-    escalation_level: Optional[int] = None
+    escalation_level: Optional[int] = Field(default=None, ge=1, le=5)
     resolution_notes: Optional[str] = Field(default=None, max_length=4000)
+
+    @model_validator(mode='after')
+    def nonnull_workflow_fields(self):
+        if any(k in self.model_fields_set and getattr(self,k) is None
+               for k in ('status','severity','escalation_level')):
+            raise ValueError('Workflow fields cannot be null')
+        return self
 
 
 class FeedbackCreate(BaseModel):

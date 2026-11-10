@@ -1692,7 +1692,28 @@ button {
 .pulse-view .spotlight-0 { grid-column: span 5; background: var(--pulse-olive); }
 .pulse-view .spotlight-1 { grid-column: span 4; background: #ece6dd; }
 .pulse-view .spotlight-0 .ps-title { font-size: clamp(26px, 2.6vw, 35px); }
+/* The Intelligence Desk â€” the lower article feed only.
+   Base grid: three equal columns on desktop, two on tablet, one on mobile.
+   Cards always keep their natural height (no clamping, no overflow hiding), so
+   a long headline or dek is never cut off. The Phase 3 version was a plain row
+   grid, which stretched every row to its tallest card and left the empty holes
+   this section now removes. Gutters stay at 18px in both directions. */
 .pulse-view .pulse-feed { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: start; gap: 18px; }
+/* Packed mode. pulse.js measures each card and assigns an explicit grid area
+   before the first paint: rows collapse to a 2px unit and the 18px gutter moves
+   into each card's bottom margin, so a placement matches the measured height to
+   within 2px instead of rounding up to a whole auto row (~40px of slack each).
+   Each card starts where its column finished, so columns never contain vertical
+   holes. DOM, tab and screen-reader order stay exactly as ranked; only the
+   visual packing changes. */
+.pulse-view .pulse-feed.is-bento { grid-auto-rows: 2px; row-gap: 0; }
+.pulse-view .pulse-feed.is-bento > .pulse-story { margin-bottom: 18px; }
+/* Intentional span: the desk opener spans every column on the widest layout
+   (pulse.js sets the actual span, so tablet and phone keep one-column cards). */
+@media (min-width: 1101px) {
+  .pulse-view .pulse-feed > .pulse-story.is-wide .ps-title { font-size: clamp(26px, 2.3vw, 32px); }
+  .pulse-view .pulse-feed > .pulse-story.is-wide .ps-dek { max-width: 78ch; }
+}
 .pulse-feed .pulse-story:nth-child(5n + 3) { background: #eeeae1; }
 .pulse-feed .pulse-story:nth-child(7n + 2) { border-top: 3px solid #8b927a; }
 /* Radar is a separate reading margin; suggestions never trigger policy actions. */
@@ -2390,7 +2411,7 @@ button {
 .gov-detail-head .gov-section-title { margin:0; }
 .gov-detail-head { margin:20px 0 12px; }
 
-/* Document workspace — restrained ivory surfaces and espresso editorial rails. */
+/* Document workspace ï¿½ restrained ivory surfaces and espresso editorial rails. */
 .lifecycle .gw-intro { margin:10px 0 32px; max-width:760px; }
 .lifecycle > .view-head { display:none; }
 .gw-title { font:400 clamp(2.15rem,4vw,3.5rem)/1.12 var(--serif); letter-spacing:-.045em; color:var(--ink); margin:10px 0 18px; }

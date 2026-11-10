@@ -21,6 +21,8 @@ No token, secret, or message body is ever logged here.
 from __future__ import annotations
 
 from dataclasses import dataclass
+import json
+import os
 from typing import Optional, Tuple
 
 import jwt
@@ -143,11 +145,31 @@ def get_identity(
     db: Session = Depends(get_db),
 ) -> Identity:
     """FastAPI dependency: authenticate the bearer token and load the user."""
-    token = extract_bearer(authorization)
+    token = extract_bearer(authorization) if authorization else request.cookies.get('derexi_access')
+    if not token:
+        raise _unauthorized('Authentication required')
+    if not authorization and request.method not in {'GET', 'HEAD', 'OPTIONS'}:
+        from session_auth import require_same_origin
+        require_same_origin(request)
     claims, source = verify_token(token)
     if source == "dev":
         dev_auth._require_dev_request(request)
 
+    return resolve_identity(request, claims, source, db)
+
+
+def subject_bindings():
+    try:
+        bindings = json.loads(os.getenv('DEREXI_AUTH_SUBJECT_MAP', '{}'))
+        if not isinstance(bindings, dict) or any(not isinstance(k, str) or not k
+            or type(v) is not int or v <= 0 for k,v in bindings.items()):
+            raise ValueError()
+        return bindings
+    except (ValueError, TypeError):
+        raise HTTPException(503, 'Sign-in configuration is unavailable')
+
+
+def resolve_identity(request, claims, source, db):
     email = str(claims.get("email") or "").strip().lower()
     if not email:
         raise _unauthorized()
@@ -167,6 +189,11 @@ def get_identity(
     if not row:
         raise _unauthorized()
 
+    if source == 'supabase' and subject_bindings().get(claims.get('sub')) != row['id']:
+        raise HTTPException(403, 'This account is not authorized for the workspace')
+    if row['role'] not in {ADMIN_ROLE, POLICY_OWNER_ROLE, EMPLOYEE_ROLE}:
+        raise HTTPException(403, 'Workspace access required')
+
     if source == "dev":
         # The token subject must match the resolved account; this blocks a
         # token for user A being replayed with user B's email claim.
@@ -176,7 +203,9 @@ def get_identity(
         except Exception:
             raise _unauthorized()
 
-    return identity_from_user_row(row, source)
+    identity = identity_from_user_row(row, source)
+    request.state.identity = identity
+    return identity
 
 
 def require_governance(identity: Identity = Depends(get_identity)) -> Identity:

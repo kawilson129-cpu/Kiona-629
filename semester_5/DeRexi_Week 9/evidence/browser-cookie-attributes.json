@@ -1,0 +1,19 @@
+{
+  "mode": "HTTP loopback test fixture; production Secure cookies verified separately in HTTPS API tests",
+  "attributes": [
+    {
+      "name": "derexi_refresh",
+      "httpOnly": true,
+      "secure": false,
+      "sameSite": "Strict",
+      "path": "/auth"
+    },
+    {
+      "name": "derexi_access",
+      "httpOnly": true,
+      "secure": false,
+      "sameSite": "Strict",
+      "path": "/"
+    }
+  ]
+}

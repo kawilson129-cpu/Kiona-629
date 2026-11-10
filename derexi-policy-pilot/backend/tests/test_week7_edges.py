@@ -83,11 +83,12 @@ def run():
               next(p for p in assigned['participants'] if p['id']==2)['role']=='System Administrator')
         try:
             os.environ['DEREXI_ENV']='production'
-            check('production rejects development tokens',client.get('/messages',headers=owner).status_code == 401)
-            check('production refuses local identity issuance',client.post('/dev-auth/token',json={'user_id':8}).status_code == 404)
-            check('production config exposes no test identities',client.get('/auth/config').json()['identities'] == [])
+            secure=TestClient(main.app,base_url='https://testserver')
+            check('production rejects development tokens',secure.get('/messages',headers=owner).status_code == 401)
+            check('production refuses local identity issuance',secure.post('/dev-auth/token',json={'user_id':8}).status_code == 404)
+            check('production config exposes no test identities',secure.get('/auth/config').json()['identities'] == [])
             os.environ['DEREXI_ENV']='staging'
-            check('unrecognized deployment environments cannot enable dev auth',client.post('/dev-auth/token',json={'user_id':8}).status_code == 404)
+            check('unrecognized deployment environments cannot enable dev auth',secure.post('/dev-auth/token',json={'user_id':8}).status_code == 404)
         finally:
             os.environ['DEREXI_ENV']='test'
     finally:
