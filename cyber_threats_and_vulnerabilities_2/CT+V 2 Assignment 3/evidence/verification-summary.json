@@ -1,0 +1,40 @@
+{
+  "timestamp": "2026-11-10T21:08:00.730683+00:00",
+  "overall": "PARTIAL",
+  "local_tests": {
+    "passed": 32,
+    "failed": 0,
+    "blocked": 0,
+    "evidence": "evidence/test-results-20261110T210129262284Z.json"
+  },
+  "platform_acceptance": {
+    "passed": 0,
+    "failed": 0,
+    "blocked": 5,
+    "attempted": false,
+    "evidence": "evidence/platform-acceptance-results.json"
+  },
+  "public_collection": {
+    "verified": 3,
+    "blocked": 0,
+    "evidence": "evidence/runs/20261110T210046393348Z/collection.json"
+  },
+  "outcomes": {
+    "VERIFIED": "Local program behavior, evidence hashes and three current public downloads",
+    "SIMULATED": "Nine events, four host labels and one correlated alert; analyst review tests",
+    "HISTORICAL": "2020 FASTCash reporting, k.php dossier, prior vulnerabilities and Windows Pulse container",
+    "UNTESTED": "Enterprise platform/connectors and actual sensor/production effectiveness"
+  },
+  "rubric": {
+    "complete_scoped": 3,
+    "partial": 1,
+    "missing": 1
+  },
+  "artifact_validation": {
+    "passed": 7,
+    "failed": 1,
+    "evidence": "evidence/artifact-validation.json",
+    "reason": "Concurrent Pulse source changes invalidate the unchanged-source assertion; assignment pipeline/test input hashes still match.",
+    "drift_evidence": "evidence/concurrent-source-drift.json"
+  }
+}

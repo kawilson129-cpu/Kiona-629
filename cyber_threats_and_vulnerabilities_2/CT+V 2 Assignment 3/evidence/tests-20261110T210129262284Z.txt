@@ -1,0 +1,37 @@
+test_benchmark_exposes_missed_and_false_alerts (test_intel_ops.IntelOperations) ... ok
+test_cannot_write_outside_assignment (test_intel_ops.IntelOperations) ... ok
+test_case_boundaries_are_preserved (test_intel_ops.IntelOperations) ... ok
+test_collection_failure_is_visible_without_fabricated_success (test_intel_ops.IntelOperations) ... ok
+test_collector_accepts_valid_bounded_json (test_intel_ops.IntelOperations) ... ok
+test_collector_rejects_malformed_json (test_intel_ops.IntelOperations) ... ok
+test_collector_rejects_malformed_technique_id (test_intel_ops.IntelOperations) ... ok
+test_collector_rejects_oversized_response (test_intel_ops.IntelOperations) ... ok
+test_collector_rejects_unknown_source (test_intel_ops.IntelOperations) ... ok
+test_collector_rejects_wrong_actor_layer (test_intel_ops.IntelOperations) ... ok
+test_conflicting_event_identifier_rejected (test_intel_ops.IntelOperations) ... ok
+test_controlled_benchmark (test_intel_ops.IntelOperations) ... ok
+test_correlates_expected_campaign (test_intel_ops.IntelOperations) ... ok
+test_derivative_sources_do_not_inflate_confidence (test_intel_ops.IntelOperations) ... ok
+test_duplicate_events_do_not_inflate_alerts (test_intel_ops.IntelOperations) ... ok
+test_expired_indicator_cannot_be_approved (test_intel_ops.IntelOperations) ... ok
+test_false_positive_suppression (test_intel_ops.IntelOperations) ... ok
+test_full_offline_run_and_collision_protection (test_intel_ops.IntelOperations) ... ok
+test_historical_infrastructure_expires (test_intel_ops.IntelOperations) ... ok
+test_historical_write_finding_is_not_currently_reasserted (test_intel_ops.IntelOperations) ... ok
+test_host_boundaries_are_preserved (test_intel_ops.IntelOperations) ... ok
+test_indicators_remain_defanged_and_non_enforcing (test_intel_ops.IntelOperations) ... ok
+test_outside_window_does_not_alert (test_intel_ops.IntelOperations) ... ok
+test_redirects_fail_closed (test_intel_ops.IntelOperations) ... ok
+test_reuses_prior_ledger_and_deduplicates (test_intel_ops.IntelOperations) ... ok
+test_reversed_sequence_does_not_alert (test_intel_ops.IntelOperations) ... ok
+test_review_records_reason_without_mutating_evidence (test_intel_ops.IntelOperations) ... ok
+test_review_requires_accountable_metadata (test_intel_ops.IntelOperations) ... ok
+test_revocation (test_intel_ops.IntelOperations) ... ok
+test_source_observation_date_is_not_refreshed (test_intel_ops.IntelOperations) ... ok
+test_timezone_required (test_intel_ops.IntelOperations) ... ok
+test_unlabelled_real_telemetry_is_rejected (test_intel_ops.IntelOperations) ... ok
+
+----------------------------------------------------------------------
+Ran 32 tests in 0.021s
+
+OK

@@ -1,0 +1,15 @@
+{
+  "scope": "SIMULATED Aurum Capital Bank tabletop; contains no real employee or host records",
+  "expected_hosts": {"demo-policy-01": true, "demo-hr-02": false, "demo-ops-03": false, "demo-late-04": false},
+  "events": [
+    {"id":"s1","host":"demo-policy-01","case":"DEREXI-TABLETOP","kind":"attachment","time":"2026-11-10T12:00:00Z","simulation":true},
+    {"id":"s2","host":"demo-policy-01","case":"DEREXI-TABLETOP","kind":"powershell","time":"2026-11-10T12:02:00Z","simulation":true},
+    {"id":"s3","host":"demo-policy-01","case":"DEREXI-TABLETOP","kind":"service","time":"2026-11-10T12:07:00Z","simulation":true},
+    {"id":"s4","host":"demo-policy-01","case":"DEREXI-TABLETOP","kind":"share","time":"2026-11-10T12:10:00Z","simulation":true},
+    {"id":"s5","host":"demo-policy-01","case":"DEREXI-TABLETOP","kind":"collection","time":"2026-11-10T12:14:00Z","simulation":true},
+    {"id":"s6","host":"demo-hr-02","case":"DEREXI-TABLETOP","kind":"powershell","time":"2026-11-10T12:00:00Z","simulation":true},
+    {"id":"s7","host":"demo-ops-03","case":"DEREXI-TABLETOP","kind":"service","time":"2026-11-10T12:00:00Z","simulation":true},
+    {"id":"s8","host":"demo-late-04","case":"DEREXI-TABLETOP","kind":"powershell","time":"2026-11-10T12:00:00Z","simulation":true},
+    {"id":"s9","host":"demo-late-04","case":"DEREXI-TABLETOP","kind":"service","time":"2026-11-10T13:00:00Z","simulation":true}
+  ]
+}

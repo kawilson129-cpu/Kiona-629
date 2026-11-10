@@ -1,0 +1,79 @@
+
+[req 1] configured source registry
+  PASS  C03-01    Registry contains exactly the four documented government sources
+  PASS  C03-02    fetch_source refuses a name outside the registry
+  PASS  C03-03    A feed build requests only registry names
+  PASS  C03-04    Public feed endpoint exposes no caller-selected source or URL
+
+[req 2] source and link attribution
+  PASS  C03-05    Source name is preserved exactly as configured
+  PASS  C03-06    Original publication link is preserved (fragment removed only)
+  PASS  C03-07    Co-issuing agencies named by the source are retained
+  PASS  C03-08    Agency falls back to the registry when the feed omits one
+
+[req 3] URL scheme and host validation
+  PASS  C03-09    plain http is rejected
+  PASS  C03-10    javascript: is rejected
+  PASS  C03-11    data: is rejected
+  PASS  C03-12    embedded credentials are rejected
+  PASS  C03-13    protocol-relative and relative links are rejected
+  PASS  C03-14    a host without a dot is rejected
+  PASS  C03-15    A relative link alone is rejected
+  PASS  C03-16    A record whose only link is unsafe is dropped, not rendered
+  PASS  C03-54    A link on a host unrelated to the claimed source is rejected or flagged
+
+[req 4] hostile markup and script payloads
+  PASS  C03-17    Literal script and img tags are removed from text fields
+  PASS  C03-18    Event-handler attributes cannot survive into a summary
+  PASS  C03-19    A javascript: document link is dropped while its sibling survives
+  PASS  C03-20    Entity-encoded markup is emitted as text, not parsed into a tag server-side
+  PASS  C03-21    Malformed records are skipped without discarding valid siblings
+  PASS* C03-55    A hostile feed payload is executed in the browser without injecting content (prior evidence)
+
+[req 5] date integrity
+  PASS  C03-22    Invalid date (month 13) is not shown as valid
+  PASS  C03-23    Invalid date (31 February) is not shown as valid
+  PASS  C03-24    Invalid date (free text) is not shown as valid
+  PASS  C03-25    Invalid date (empty value) is not shown as valid
+  PASS  C03-26    An impossible date becomes an empty published field, not a guess
+  PASS  C03-27    A valid RFC 822 date is still normalized to ISO
+
+[req 6] duplicate suppression
+  PASS  C03-28    Identical URLs are collapsed to one article
+  PASS  C03-29    Same-source, same-day duplicate headlines are collapsed
+  PASS  C03-30    Distinct records are not over-collapsed
+  PASS  C03-31    total_normalized reports the de-duplicated count
+
+[req 7] conservative classification
+  PASS  C03-32    Federal Register document type is treated as source-declared metadata
+  PASS  C03-33    Presidential documents are reported as Notices, not rules
+  PASS  C03-34    Body-only mention of 'guidance' does not reclassify a press release
+  PASS  C03-35    A guidance headline is classified as supervisory guidance
+  PASS  C03-36    Inferred classifications are labelled as inferred
+  PASS  C03-37    Every emitted category and status is inside the documented allow-list
+
+[req 8/9] failure isolation and stale cache
+  PASS  C03-38    A failing source is reported without breaking the request
+  PASS  C03-39    Healthy sources still report ok while one source fails
+  PASS  C03-40    A failure with no cached copy is not labelled stale
+  PASS  C03-41    An expired cache refresh failure is explicitly flagged stale
+  PASS  C03-42    Stale articles are the last good copies, not invented replacements
+  PASS  C03-43    A stale source does not mark healthy sources stale
+
+[req 10] API parameter validation
+{"timestamp":"2026-11-10T21:07:49.430368+00:00","event":"request_rejected","request_id":"763fceee5bb841bb80d956ad9fb4b05d","method":"GET","route":"/api/pulse","status":422,"actor_id":null,"role":null}
+  PASS  C03-44    limit zero (limit=0) is rejected with 422
+{"timestamp":"2026-11-10T21:07:49.432176+00:00","event":"request_rejected","request_id":"138d98e3cb6f42cbbdaaecd4720f2598","method":"GET","route":"/api/pulse","status":422,"actor_id":null,"role":null}
+  PASS  C03-45    limit above maximum (limit=61) is rejected with 422
+{"timestamp":"2026-11-10T21:07:49.433611+00:00","event":"request_rejected","request_id":"9e663ee5a53f4adba09488e34c79d0ef","method":"GET","route":"/api/pulse","status":422,"actor_id":null,"role":null}
+  PASS  C03-46    limit non-numeric (limit=abc) is rejected with 422
+{"timestamp":"2026-11-10T21:07:49.435064+00:00","event":"request_rejected","request_id":"f005ac6035a343c3ac8583c962ea3cd3","method":"GET","route":"/api/pulse","status":422,"actor_id":null,"role":null}
+  PASS  C03-47    limit negative (limit=-3) is rejected with 422
+  PASS  C03-48    A valid limit still returns 200 and honours the cap
+  PASS  C03-49    Health endpoint reports the configured sources without fetching
+
+[req 11] no fabricated articles
+  PASS  C03-50    Total upstream failure yields zero articles
+  PASS  C03-51    Total upstream failure is reported per source, not as a crash
+  PASS  C03-52    No radar prompts are invented when nothing loaded
+  PASS  C03-53    Empty feeds are not errors and produce no placeholder articles

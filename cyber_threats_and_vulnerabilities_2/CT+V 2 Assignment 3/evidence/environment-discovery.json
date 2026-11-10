@@ -1,0 +1,7 @@
+{
+  "timestamp": "2026-11-10T20:54:48.119286+00:00",
+  "scope": "read-only local discovery; no container deployment",
+  "docker_cli": null,
+  "opencti_cli": null,
+  "loopback_opencti_port_8080": false
+}

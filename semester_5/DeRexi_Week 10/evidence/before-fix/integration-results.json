@@ -1,0 +1,210 @@
+{
+  "suite": "integration",
+  "mode": "isolated fixtures; SQLite/real handlers; no live Supabase",
+  "passed": 32,
+  "failed": 8,
+  "execution_error": null,
+  "checks": [
+    {
+      "name": "I01 Assistant persists uncertain answer and clarification",
+      "pass": true,
+      "actual": null
+    },
+    {
+      "name": "I02 New Assistant thread reaches requester Messaging",
+      "pass": true,
+      "actual": null
+    },
+    {
+      "name": "I03 Unmatched policy reaches administrator triage",
+      "pass": true,
+      "actual": null
+    },
+    {
+      "name": "I04 Unrelated owner cannot open Assistant thread",
+      "pass": true,
+      "actual": null
+    },
+    {
+      "name": "I05 Administrator routes thread to Jordan",
+      "pass": true,
+      "actual": null
+    },
+    {
+      "name": "I06 Assigned owner receives notification",
+      "pass": true,
+      "actual": null
+    },
+    {
+      "name": "I07 Owner response persists through Messaging",
+      "pass": true,
+      "actual": null
+    },
+    {
+      "name": "I08 Employee sees owner response with original question",
+      "pass": true,
+      "actual": null
+    },
+    {
+      "name": "I09 Owner reply notifies employee",
+      "pass": true,
+      "actual": null
+    },
+    {
+      "name": "I10 Empty Assistant input rejected",
+      "pass": true,
+      "actual": null
+    },
+    {
+      "name": "I11 Answer feedback accepted",
+      "pass": true,
+      "actual": null
+    },
+    {
+      "name": "I12 Administrator dashboard counts saved helpful feedback",
+      "pass": true,
+      "actual": null
+    },
+    {
+      "name": "I13 Department owner dashboard includes cited feedback",
+      "pass": true,
+      "actual": null
+    },
+    {
+      "name": "I14 Other department cannot see cited feedback",
+      "pass": true,
+      "actual": null
+    },
+    {
+      "name": "I15 Re-rating updates existing row",
+      "pass": true,
+      "actual": null
+    },
+    {
+      "name": "I16 Another employee cannot rate private answer",
+      "pass": true,
+      "actual": null
+    },
+    {
+      "name": "I17 Non-boolean rating rejected",
+      "pass": true,
+      "actual": null
+    },
+    {
+      "name": "I18 Employee questions cannot pollute answer feedback",
+      "pass": false,
+      "actual": 201
+    },
+    {
+      "name": "I19 Employee incident report accepted",
+      "pass": true,
+      "actual": null
+    },
+    {
+      "name": "I20 Incident reaches authorized administrator",
+      "pass": true,
+      "actual": null
+    },
+    {
+      "name": "I21 Owner cannot triage incident",
+      "pass": true,
+      "actual": null
+    },
+    {
+      "name": "I22 Administrator triage and assignment persist",
+      "pass": true,
+      "actual": null
+    },
+    {
+      "name": "I23 Explicit handler sees assigned incident",
+      "pass": true,
+      "actual": null
+    },
+    {
+      "name": "I24 Other department incident access denied",
+      "pass": true,
+      "actual": null
+    },
+    {
+      "name": "I25 Employee dashboard denied",
+      "pass": true,
+      "actual": null
+    },
+    {
+      "name": "I26 Publisher binding FDIC https://www.fdic.gov/news/example",
+      "pass": true,
+      "actual": null
+    },
+    {
+      "name": "I26 Publisher binding FDIC https://fdic.gov/news/example",
+      "pass": true,
+      "actual": null
+    },
+    {
+      "name": "I26 Publisher binding FDIC https://content.govdelivery.com/accounts/USFDIC/bulletins/abc",
+      "pass": true,
+      "actual": null
+    },
+    {
+      "name": "I26 Publisher binding FDIC https://content.govdelivery.com/accounts/OTHER/bulletins/abc",
+      "pass": false,
+      "actual": null
+    },
+    {
+      "name": "I26 Publisher binding FDIC https://secure-fdic-verification.example/login",
+      "pass": false,
+      "actual": null
+    },
+    {
+      "name": "I26 Publisher binding FDIC https://www.fdic.gov.evil.example/login",
+      "pass": false,
+      "actual": null
+    },
+    {
+      "name": "I26 Publisher binding FDIC https://evilfdic.gov/login",
+      "pass": false,
+      "actual": null
+    },
+    {
+      "name": "I26 Publisher binding FDIC https://www.fdic.gov:444/login",
+      "pass": false,
+      "actual": null
+    },
+    {
+      "name": "I26 Publisher binding FDIC https://www.fdic.gov:bad/login",
+      "pass": false,
+      "actual": null
+    },
+    {
+      "name": "I26 Publisher binding FDIC https://www.fdic.gov\\@evil.example/login",
+      "pass": true,
+      "actual": null
+    },
+    {
+      "name": "I26 Publisher binding FDIC https://user@www.fdic.gov/news",
+      "pass": true,
+      "actual": null
+    },
+    {
+      "name": "I26 Publisher binding NIST https://csrc.nist.gov/pubs/example",
+      "pass": true,
+      "actual": null
+    },
+    {
+      "name": "I26 Publisher binding Federal Register https://www.federalregister.gov/documents/example",
+      "pass": true,
+      "actual": null
+    },
+    {
+      "name": "I26 Publisher binding Federal Reserve https://www.federalreserve.gov/newsevents/example",
+      "pass": true,
+      "actual": null
+    },
+    {
+      "name": "I26 Publisher binding Unknown https://www.fdic.gov/news/example",
+      "pass": false,
+      "actual": null
+    }
+  ],
+  "historical_checks_excluded": []
+}

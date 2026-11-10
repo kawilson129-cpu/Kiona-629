@@ -1,0 +1,37 @@
+[
+  {
+    "actor": "APT38/BeagleBoyz per referenced reporting",
+    "id": "FASTCASH-2020",
+    "kind": "historical public reporting",
+    "local_sightings": null
+  },
+  {
+    "actor": "unknown",
+    "alerts": [
+      {
+        "actor_attribution": "unknown",
+        "case": "DEREXI-TABLETOP",
+        "event_ids": [
+          "s2",
+          "s3"
+        ],
+        "host": "demo-policy-01",
+        "priority": "high",
+        "reason": "Same host/case: PowerShell followed by service within 30 minutes",
+        "simulation": true,
+        "techniques": [
+          "T1059.001",
+          "T1543.003"
+        ]
+      }
+    ],
+    "id": "DEREXI-TABLETOP",
+    "kind": "simulated"
+  },
+  {
+    "actor": "unknown",
+    "id": "KPHP-HISTORICAL",
+    "indicator_count": 2,
+    "kind": "historical malware dossier"
+  }
+]

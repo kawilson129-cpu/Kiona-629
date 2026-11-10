@@ -1,0 +1,17 @@
+{
+  "timestamp": "2026-11-10T21:01:29.348992+00:00",
+  "interpreter": "/Users/adult/Desktop/Kiona-629/derexi-policy-pilot/.venv/bin/python",
+  "platform": "macOS-26.3.1-arm64-arm-64bit",
+  "passed": 32,
+  "failed": 0,
+  "blocked": 0,
+  "log": "evidence/tests-20261110T210129262284Z.txt",
+  "mode": "verified local functions; synthetic telemetry and mocked collection failures; no live API or database tests",
+  "failures": [],
+  "skipped": [],
+  "source_hashes": {
+    "src/intel_ops.py": "9a88c970c331c96f0c648d6c385491e7ce31dd562ad1a62535ce7c56301e91a4",
+    "tests/test_intel_ops.py": "904ecc83cdc1fcfcb6b1f8571930b3729a27b773c2521ff34eef78fc89694ff6",
+    "tests/scenario.json": "5cee0554e68d2fadd1accfb32e866a2761d3f728c3f93d438223ca72588d3be9"
+  }
+}

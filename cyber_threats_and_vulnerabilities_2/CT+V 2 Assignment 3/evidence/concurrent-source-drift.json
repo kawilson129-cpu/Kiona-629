@@ -1,0 +1,20 @@
+{
+  "timestamp": "2026-11-10T21:08:24.976825+00:00",
+  "status": "CONCURRENT_SOURCE_DRIFT",
+  "scope": "Assignment code never writes these files; unrelated Week 10 working-tree edits appeared during final validation and were left untouched.",
+  "changed_sources": [
+    {
+      "path": "derexi-policy-pilot/backend/pulse/sources.py",
+      "audited_sha256": "a471373fc655f0697f0a25f142cf41ff5ae39e128751a73740df32b8c3df5d26",
+      "current_sha256": "019a4d1b84d0786dbe4fbe83a3cb155ffa3ae7ed4ab26e8049bda8b15997adef",
+      "modified_at": "2026-11-10T21:07:25.351594+00:00"
+    },
+    {
+      "path": "derexi-policy-pilot/backend/pulse/service.py",
+      "audited_sha256": "3a501f58e2b7cbb1aaff11715c64136778258703a4b211d5740adf92e30b8411",
+      "current_sha256": "83eb1e3c6fd4f2ab1502603083db105033edb25aea41999752a10074857e56b6",
+      "modified_at": "2026-11-10T21:07:25.383677+00:00"
+    }
+  ],
+  "impact": "Original audit hashes describe the inspected versions. Final pipeline/test hashes still match; new source content is not claimed verified by this assignment."
+}

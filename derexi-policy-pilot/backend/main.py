@@ -775,6 +775,8 @@ def create_feedback(
         conversation.user_id != identity.user_id and not identity.is_admin
     ):
         raise HTTPException(status_code=404, detail="Message not found")
+    if message.sender != 'derexi':
+        raise HTTPException(status_code=422, detail="Feedback must refer to a DeRexi answer")
 
     # One rating per user per answer; changing your mind updates it.
     feedback = (

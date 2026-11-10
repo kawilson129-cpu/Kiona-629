@@ -56,6 +56,7 @@ SOURCES = {
         "format": "json",
         "agency": "Federal Register",
         "homepage": "https://www.federalregister.gov/",
+        "article_hosts": ("www.federalregister.gov", "federalregister.gov"),
     },
     "FDIC": {
         "slug": "fdic",
@@ -64,6 +65,7 @@ SOURCES = {
         "format": "rss",
         "agency": "Federal Deposit Insurance Corporation",
         "homepage": "https://www.fdic.gov/news/press-releases/",
+        "article_hosts": ("www.fdic.gov", "fdic.gov", "content.govdelivery.com"),
     },
     "NIST": {
         "slug": "nist",
@@ -74,6 +76,7 @@ SOURCES = {
         "format": "json",
         "agency": "National Institute of Standards and Technology",
         "homepage": "https://csrc.nist.gov/publications/drafts",
+        "article_hosts": ("csrc.nist.gov", "www.nist.gov", "nvlpubs.nist.gov"),
     },
     "Federal Reserve": {
         "slug": "federal-reserve",
@@ -81,6 +84,7 @@ SOURCES = {
         "format": "rss",
         "agency": "Federal Reserve Board",
         "homepage": "https://www.federalreserve.gov/newsevents/pressreleases.htm",
+        "article_hosts": ("www.federalreserve.gov", "federalreserve.gov"),
     },
 }
 

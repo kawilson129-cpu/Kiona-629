@@ -1,0 +1,84 @@
+{
+  "timestamp": "2026-11-10T21:04:24.167235+00:00",
+  "method": "Targeted source/PDF/evidence inspection; references and hashes only, original files unchanged.",
+  "sources": [
+    {
+      "path": "cyber_threats_and_vulnerabilities_1/CT+V Assignment 1/DeRexi_APT38_FASTCash_Incident_MITRE_Report.pdf",
+      "status": "HISTORICAL",
+      "sha256": "9db1d43cb59ca0ee5a15e535d4ff6930c5daeccde6dd09803ccec2ee869f1af1",
+      "assessment": "Public FASTCash research plus explicitly fictional DeRexi ATT&CK chain; not breach evidence."
+    },
+    {
+      "path": "cyber_threats_and_vulnerabilities_1/CT+V Assignment 1/Malware_Analysis_Threat_Dossier_k_php.pdf",
+      "status": "HISTORICAL",
+      "sha256": "87c54debab9ed245fc51357365c8459430e5bf49a7ffeb9ea34814eaae6bdb37",
+      "assessment": "Historical sample hash, URL and first-seen date verified by PDF text; no original sample executed."
+    },
+    {
+      "path": "cyber_threats_and_vulnerabilities_1/CT+V Assignment 3/Implement Threat Intelligence Principles--V.2.pdf",
+      "status": "HISTORICAL",
+      "sha256": "1f3985fee2c7a15effed2564fa6eced93e4460a4553c383459746d221374d47a",
+      "assessment": "Prior OpenCTI foundation and IOC/risk discussion; not platform operation proof."
+    },
+    {
+      "path": "cyber_threats_and_vulnerabilities_2/CT+V 2 Assignment 5/03-intelligence-operations.md",
+      "status": "HISTORICAL",
+      "sha256": "1b3eaf37e1d9a7d2e6fb24c65821026d713d7501bd3ad7c2e732937022ef3c88",
+      "assessment": "Prior campaign/indicator workflows and OpenCTI plan reused by reference."
+    },
+    {
+      "path": "cyber_threats_and_vulnerabilities_2/CT+V 2 Assignment 5/intel-ledger.py",
+      "status": "VERIFIED_REUSED_CODE",
+      "sha256": "f7e8e8e634b1e2cfa1c87eeacd400811fe2a4bff39da6a57e28f13f056b8e16e",
+      "assessment": "Imported existing reconciliation function; four historical observations become two indicators."
+    },
+    {
+      "path": "cyber_threats_and_vulnerabilities_2/CT+V 2 Assignment 5/intel-results.json",
+      "status": "HISTORICAL",
+      "sha256": "004b2596ed3f126ab0aaf5807089e983bdbe3ebbbe236b416bb3234407efc7e9",
+      "assessment": "Prior deduplication evidence; not counted as a fresh test."
+    },
+    {
+      "path": "cyber_threats_and_vulnerabilities_2/CT+V 2 Assignment 5/docker-evidence/README.md",
+      "status": "HISTORICAL",
+      "sha256": "38a2b34235163cf89e9ee1472631474ab7b3fde3ed32f628676d3a475e2dcd53",
+      "assessment": "Prior Windows Docker runtime proof for isolated Pulse only."
+    },
+    {
+      "path": "cyber_threats_and_vulnerabilities_2/CT+V 2 Assignment 5/docker-evidence/security-summary.json",
+      "status": "HISTORICAL",
+      "sha256": "3b998025d2f1be8de352e1209eab01441d7e2f66c1ff5bd5ef9f911d25cff1d3",
+      "assessment": "Healthy non-root/read-only loopback Pulse container snapshot; not current Mac/OpenCTI proof."
+    },
+    {
+      "path": "cyber_threats_and_vulnerabilities_2/CT+V 2 Assignment 2/closure/inspector/findings.json",
+      "status": "HISTORICAL",
+      "sha256": "55dbabf919346a61a697ba6ad061fd7ce0f4b3a89a4ea7863f376b178eb95079",
+      "assessment": "Five retained vulnerability findings; current applicability is not assumed."
+    },
+    {
+      "path": "derexi-policy-pilot/backend/pulse/sources.py",
+      "status": "VERIFIED_SOURCE_ONLY",
+      "sha256": "a471373fc655f0697f0a25f142cf41ff5ae39e128751a73740df32b8c3df5d26",
+      "assessment": "Public government regulatory feed registry, bounded downloads; no CTI actor/IOC platform."
+    },
+    {
+      "path": "derexi-policy-pilot/backend/pulse/service.py",
+      "status": "VERIFIED_SOURCE_ONLY",
+      "sha256": "3a501f58e2b7cbb1aaff11715c64136778258703a4b211d5740adf92e30b8411",
+      "assessment": "Normalization, ranking, cache and per-source failure isolation; canonical code unchanged."
+    },
+    {
+      "path": "derexi-policy-pilot/docs/compliance/assignment3_c03_audit_results.md",
+      "status": "MISSING",
+      "sha256": null,
+      "assessment": "Earlier feed source-link integrity finding; not rerun in this assignment."
+    },
+    {
+      "path": "semester_5/DeRexi_Week 9/evidence/parser-fix-regressions/test_week9_security-results.json",
+      "status": "RETAINED_NEWER_ISOLATED_EVIDENCE",
+      "sha256": "7cd11e2b3d9af34912ffb7e0f691af500867eb265074e45462dd4c45d67ea19e",
+      "assessment": "Newer policy/version write denials supersede old local finding; no production closure inferred."
+    }
+  ]
+}

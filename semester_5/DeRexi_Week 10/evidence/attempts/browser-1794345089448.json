@@ -1,0 +1,61 @@
+{
+  "mode": "SIMULATED agent UAT: real Chromium/UI/BFF/API/SQLite; mock provider/feed; mobile emulation, not physical devices",
+  "checks": [
+    {
+      "name": "U01 Invalid password rejected and cleared",
+      "status": "PASS"
+    },
+    {
+      "name": "Workflow completion",
+      "status": "FAIL",
+      "detail": "Error: Missing document.querySelector('#persona-select')?.value==='8'&&!document.querySelector('#signout-btn').classList.contains('is-hidden')"
+    }
+  ],
+  "errors": [],
+  "requests": [
+    {
+      "path": "/ui/",
+      "status": 200
+    },
+    {
+      "path": "/ui/auth.css",
+      "status": 200
+    },
+    {
+      "path": "/ui/style.css",
+      "status": 200
+    },
+    {
+      "path": "/ui/governance.js",
+      "status": 200
+    },
+    {
+      "path": "/ui/pulse.js",
+      "status": 200
+    },
+    {
+      "path": "/ui/app.js",
+      "status": 200
+    },
+    {
+      "path": "/auth/config",
+      "status": 200
+    },
+    {
+      "path": "/auth/session",
+      "status": 401
+    },
+    {
+      "path": "/auth/refresh",
+      "status": 401
+    },
+    {
+      "path": "/auth/login",
+      "status": 401
+    },
+    {
+      "path": "/auth/login",
+      "status": 429
+    }
+  ]
+}

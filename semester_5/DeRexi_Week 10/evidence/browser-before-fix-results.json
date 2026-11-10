@@ -1,0 +1,88 @@
+{
+  "mode": "SIMULATED agent UAT: real Chromium/UI/BFF/API/SQLite; mock provider/feed; mobile emulation, not physical devices",
+  "checks": [
+    {
+      "name": "U02 Employee navigation hides Governance and Dashboard",
+      "status": "PASS"
+    },
+    {
+      "name": "U03 Feedback click persists a database rating",
+      "status": "FAIL"
+    }
+  ],
+  "errors": [],
+  "requests": [
+    {
+      "path": "/ui/",
+      "status": 200
+    },
+    {
+      "path": "/ui/auth.css",
+      "status": 200
+    },
+    {
+      "path": "/ui/style.css",
+      "status": 200
+    },
+    {
+      "path": "/ui/governance.js",
+      "status": 200
+    },
+    {
+      "path": "/ui/pulse.js",
+      "status": 200
+    },
+    {
+      "path": "/ui/app.js",
+      "status": 200
+    },
+    {
+      "path": "/auth/config",
+      "status": 200
+    },
+    {
+      "path": "/favicon.ico",
+      "status": 404
+    },
+    {
+      "path": "/auth/session",
+      "status": 401
+    },
+    {
+      "path": "/auth/refresh",
+      "status": 401
+    },
+    {
+      "path": "/auth/login",
+      "status": 200
+    },
+    {
+      "path": "/users",
+      "status": 200
+    },
+    {
+      "path": "/me",
+      "status": 200
+    },
+    {
+      "path": "/roles",
+      "status": 200
+    },
+    {
+      "path": "/messages/notifications",
+      "status": 200
+    },
+    {
+      "path": "/ask",
+      "status": 200
+    },
+    {
+      "path": "/feedback/mine",
+      "status": 200
+    },
+    {
+      "path": "/feedback/mine",
+      "status": 200
+    }
+  ]
+}

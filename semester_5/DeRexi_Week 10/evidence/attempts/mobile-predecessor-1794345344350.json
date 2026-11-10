@@ -1,0 +1,229 @@
+{
+  "mode": "SIMULATED agent UAT: real Chromium/UI/BFF/API/SQLite; mock provider/feed; mobile emulation, not physical devices",
+  "checks": [
+    {
+      "name": "U00 Keyboard Tab reaches password input",
+      "status": "PASS"
+    },
+    {
+      "name": "U01 Invalid password rejected and cleared",
+      "status": "PASS"
+    },
+    {
+      "name": "U02 Employee navigation hides Governance and Dashboard",
+      "status": "PASS"
+    },
+    {
+      "name": "U03 Feedback click persists a database rating",
+      "status": "PASS"
+    },
+    {
+      "name": "U04 Saved feedback exposes pressed state",
+      "status": "PASS"
+    },
+    {
+      "name": "U05 Failed feedback never shows false success or changes accepted rating",
+      "status": "PASS"
+    },
+    {
+      "name": "U06 Retrying feedback updates same rating",
+      "status": "PASS"
+    },
+    {
+      "name": "U07 Assistant deep link opens persisted Messaging thread",
+      "status": "PASS"
+    },
+    {
+      "name": "U08 Employee Governance direct route denied",
+      "status": "PASS"
+    },
+    {
+      "name": "U09 Missing incident fields show validation",
+      "status": "PASS"
+    },
+    {
+      "name": "U10 Employee incident form saves real fixture record",
+      "status": "PASS"
+    },
+    {
+      "name": "U11 Employee incident triage API denied",
+      "status": "PASS"
+    },
+    {
+      "name": "U12 Logout clears private identity and API session",
+      "status": "PASS"
+    },
+    {
+      "name": "U13 Owner has My Drafts and peer queues",
+      "status": "PASS"
+    },
+    {
+      "name": "U14 DOCX upload parses and previews real bytes",
+      "status": "PASS"
+    },
+    {
+      "name": "U15 Document confirmation blocks premature save",
+      "status": "PASS"
+    },
+    {
+      "name": "U16 Owner cannot approve or publish own draft",
+      "status": "PASS"
+    },
+    {
+      "name": "U17 Independent peer receives governance notification",
+      "status": "PASS"
+    },
+    {
+      "name": "U18 Published document visible through protected Library",
+      "status": "PASS"
+    },
+    {
+      "name": "U19 Admin dashboard reflects persisted feedback",
+      "status": "PASS"
+    },
+    {
+      "name": "U20 Administrator assignment updates real API",
+      "status": "PASS"
+    },
+    {
+      "name": "U21 Pulse source reference reaches draft editor",
+      "status": "PASS"
+    },
+    {
+      "name": "U22 Pulse revision preserves exact source and published baseline",
+      "status": "PASS"
+    },
+    {
+      "name": "U23 Existing published policy remains during revision",
+      "status": "PASS"
+    },
+    {
+      "name": "U24 Library survives Governance outage",
+      "status": "PASS"
+    },
+    {
+      "name": "U25 Outage replaces loading with retry",
+      "status": "PASS"
+    },
+    {
+      "name": "U26 Queue retry recovers",
+      "status": "PASS"
+    },
+    {
+      "name": "U27 Mobile Library has no horizontal overflow",
+      "status": "PASS"
+    },
+    {
+      "name": "U28 Mobile Governance has no horizontal overflow",
+      "status": "PASS"
+    },
+    {
+      "name": "U29a Mobile Assistant and saved feedback have no overflow",
+      "status": "PASS"
+    },
+    {
+      "name": "U29b Synthesized mobile touch opens Messages navigation",
+      "status": "PASS"
+    },
+    {
+      "name": "U29c Mobile employee sends a persisted reply",
+      "status": "PASS"
+    },
+    {
+      "name": "U29 Mobile Messaging has no horizontal overflow",
+      "status": "PASS"
+    },
+    {
+      "name": "U30 Mobile sign-in has no horizontal overflow",
+      "status": "PASS"
+    },
+    {
+      "name": "U31 Logout removes stale private notifications",
+      "status": "PASS"
+    },
+    {
+      "name": "U32 No browser runtime exceptions",
+      "status": "PASS"
+    }
+  ],
+  "errors": [],
+  "requests": [
+    {
+      "path": "/ask",
+      "status": 200
+    },
+    {
+      "path": "/feedback",
+      "status": 201
+    },
+    {
+      "path": "/messages",
+      "status": 200
+    },
+    {
+      "path": "/messages/notifications",
+      "status": 200
+    },
+    {
+      "path": "/clarifications/1/read",
+      "status": 200
+    },
+    {
+      "path": "/clarifications/1",
+      "status": 200
+    },
+    {
+      "path": "/messages",
+      "status": 200
+    },
+    {
+      "path": "/messages/notifications",
+      "status": 200
+    },
+    {
+      "path": "/messages/notifications",
+      "status": 200
+    },
+    {
+      "path": "/clarifications/1/replies",
+      "status": 201
+    },
+    {
+      "path": "/clarifications/1/read",
+      "status": 200
+    },
+    {
+      "path": "/messages",
+      "status": 200
+    },
+    {
+      "path": "/clarifications/1",
+      "status": 200
+    },
+    {
+      "path": "/messages/notifications",
+      "status": 200
+    },
+    {
+      "path": "/messages/notifications",
+      "status": 200
+    },
+    {
+      "path": "/messages",
+      "status": 200
+    },
+    {
+      "path": "/messages/notifications",
+      "status": 200
+    },
+    {
+      "path": "/clarifications/1",
+      "status": 200
+    },
+    {
+      "path": "/auth/logout",
+      "status": 200
+    }
+  ],
+  "carriedForward": "attempts/mobile-predecessor.json"
+}

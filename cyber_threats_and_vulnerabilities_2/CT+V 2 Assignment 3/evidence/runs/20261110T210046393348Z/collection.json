@@ -1,0 +1,32 @@
+[
+  {
+    "artifact": "apt38.json",
+    "attempted_at": "2026-11-10T21:00:46.393731+00:00",
+    "bytes": 44404,
+    "evidence_kind": "fresh public-source collection",
+    "sha256": "92568fe2819220b561f4cbd53d0682bacc1969f5789fb936b4e689513b431bdb",
+    "source": "apt38",
+    "status": "VERIFIED",
+    "url": "https://attack.mitre.org/groups/G0082/G0082-enterprise-layer.json"
+  },
+  {
+    "artifact": "fin7.json",
+    "attempted_at": "2026-11-10T21:00:46.531336+00:00",
+    "bytes": 24257,
+    "evidence_kind": "fresh public-source collection",
+    "sha256": "9f1d602578f603d8269e0ff254b84ea80a895bb8aee02c622e7d4295d7b51d0d",
+    "source": "fin7",
+    "status": "VERIFIED",
+    "url": "https://attack.mitre.org/groups/G0046/G0046-enterprise-layer.json"
+  },
+  {
+    "artifact": "cisa-fastcash.pdf",
+    "attempted_at": "2026-11-10T21:00:46.615035+00:00",
+    "bytes": 954376,
+    "evidence_kind": "fresh public-source collection",
+    "sha256": "8c2d66191d4b37d7e2815790c1d4ef2e697f36300b6a9f8d797c04e6c11ebd38",
+    "source": "cisa-fastcash",
+    "status": "VERIFIED",
+    "url": "https://www.cisa.gov/sites/default/files/publications/AA20-239A_FASTCash2.0_508.pdf"
+  }
+]

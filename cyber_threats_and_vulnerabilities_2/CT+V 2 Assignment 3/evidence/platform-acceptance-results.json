@@ -1,0 +1,43 @@
+{
+  "timestamp": "2026-11-10T21:04:24.167703+00:00",
+  "passed": 0,
+  "failed": 0,
+  "blocked": 5,
+  "checks": [
+    {
+      "id": "OPENCTI-HEALTH-VERSION",
+      "status": "BLOCKED",
+      "attempted": false,
+      "reason": "No local Docker CLI or OpenCTI listener; deployment is not authorized by this task.",
+      "scope": "Proposed acceptance check, not an additional rubric criterion"
+    },
+    {
+      "id": "OPENCTI-ATTACK-CONNECTOR",
+      "status": "BLOCKED",
+      "attempted": false,
+      "reason": "No local Docker CLI or OpenCTI listener; deployment is not authorized by this task.",
+      "scope": "Proposed acceptance check, not an additional rubric criterion"
+    },
+    {
+      "id": "OPENCTI-IOC-IMPORT",
+      "status": "BLOCKED",
+      "attempted": false,
+      "reason": "No local Docker CLI or OpenCTI listener; deployment is not authorized by this task.",
+      "scope": "Proposed acceptance check, not an additional rubric criterion"
+    },
+    {
+      "id": "OPENCTI-REIMPORT-DEDUPE",
+      "status": "BLOCKED",
+      "attempted": false,
+      "reason": "No local Docker CLI or OpenCTI listener; deployment is not authorized by this task.",
+      "scope": "Proposed acceptance check, not an additional rubric criterion"
+    },
+    {
+      "id": "OPENCTI-FUSION-METRICS",
+      "status": "BLOCKED",
+      "attempted": false,
+      "reason": "No local Docker CLI or OpenCTI listener; deployment is not authorized by this task.",
+      "scope": "Proposed acceptance check, not an additional rubric criterion"
+    }
+  ]
+}

@@ -1,0 +1,565 @@
+{
+  "mode": "SIMULATED agent UAT: real Chromium/UI/BFF/API/SQLite; mock provider/feed; mobile emulation, not physical devices",
+  "checks": [
+    {
+      "name": "U01 Invalid password rejected and cleared",
+      "status": "PASS"
+    },
+    {
+      "name": "U02 Employee navigation hides Governance and Dashboard",
+      "status": "PASS"
+    },
+    {
+      "name": "U03 Feedback click persists a database rating",
+      "status": "PASS"
+    },
+    {
+      "name": "U04 Saved feedback exposes pressed state",
+      "status": "PASS"
+    },
+    {
+      "name": "U05 Failed feedback never shows false success or changes accepted rating",
+      "status": "PASS"
+    },
+    {
+      "name": "U06 Retrying feedback updates same rating",
+      "status": "PASS"
+    },
+    {
+      "name": "U07 Assistant deep link opens persisted Messaging thread",
+      "status": "PASS"
+    },
+    {
+      "name": "U08 Employee Governance direct route denied",
+      "status": "PASS"
+    },
+    {
+      "name": "U09 Missing incident fields show validation",
+      "status": "PASS"
+    },
+    {
+      "name": "U10 Employee incident form saves real fixture record",
+      "status": "PASS"
+    },
+    {
+      "name": "U11 Employee incident triage API denied",
+      "status": "PASS"
+    },
+    {
+      "name": "U12 Logout clears private identity and API session",
+      "status": "PASS"
+    },
+    {
+      "name": "U13 Owner has My Drafts and peer queues",
+      "status": "PASS"
+    },
+    {
+      "name": "U14 DOCX upload parses and previews real bytes",
+      "status": "PASS"
+    },
+    {
+      "name": "U15 Document confirmation blocks premature save",
+      "status": "PASS"
+    },
+    {
+      "name": "U16 Owner cannot approve or publish own draft",
+      "status": "PASS"
+    },
+    {
+      "name": "U17 Independent peer receives governance notification",
+      "status": "PASS"
+    },
+    {
+      "name": "U18 Published document visible through protected Library",
+      "status": "PASS"
+    },
+    {
+      "name": "U19 Admin dashboard reflects persisted feedback",
+      "status": "PASS"
+    },
+    {
+      "name": "U20 Administrator assignment updates real API",
+      "status": "PASS"
+    },
+    {
+      "name": "Workflow completion",
+      "status": "FAIL",
+      "detail": "Error: Missing !!document.querySelector('.pulse-card')"
+    }
+  ],
+  "errors": [],
+  "requests": [
+    {
+      "path": "/ui/",
+      "status": 200
+    },
+    {
+      "path": "/ui/style.css",
+      "status": 200
+    },
+    {
+      "path": "/ui/auth.css",
+      "status": 200
+    },
+    {
+      "path": "/ui/pulse.js",
+      "status": 200
+    },
+    {
+      "path": "/ui/app.js",
+      "status": 200
+    },
+    {
+      "path": "/ui/governance.js",
+      "status": 200
+    },
+    {
+      "path": "/auth/config",
+      "status": 200
+    },
+    {
+      "path": "/auth/session",
+      "status": 401
+    },
+    {
+      "path": "/auth/refresh",
+      "status": 401
+    },
+    {
+      "path": "/auth/login",
+      "status": 401
+    },
+    {
+      "path": "/auth/login",
+      "status": 200
+    },
+    {
+      "path": "/users",
+      "status": 200
+    },
+    {
+      "path": "/roles",
+      "status": 200
+    },
+    {
+      "path": "/me",
+      "status": 200
+    },
+    {
+      "path": "/messages/notifications",
+      "status": 200
+    },
+    {
+      "path": "/ask",
+      "status": 200
+    },
+    {
+      "path": "/feedback/mine",
+      "status": 200
+    },
+    {
+      "path": "/feedback",
+      "status": 201
+    },
+    {
+      "path": "/feedback/mine",
+      "status": 200
+    },
+    {
+      "path": "/feedback",
+      "status": 503
+    },
+    {
+      "path": "/feedback",
+      "status": 201
+    },
+    {
+      "path": "/feedback/mine",
+      "status": 200
+    },
+    {
+      "path": "/clarifications/8/read",
+      "status": 200
+    },
+    {
+      "path": "/messages",
+      "status": 200
+    },
+    {
+      "path": "/clarifications/8",
+      "status": 200
+    },
+    {
+      "path": "/messages/notifications",
+      "status": 200
+    },
+    {
+      "path": "/messages",
+      "status": 200
+    },
+    {
+      "path": "/messages/notifications",
+      "status": 200
+    },
+    {
+      "path": "/messages/notifications",
+      "status": 200
+    },
+    {
+      "path": "/governance/drafts",
+      "status": 403
+    },
+    {
+      "path": "/incident-categories",
+      "status": 200
+    },
+    {
+      "path": "/incidents",
+      "status": 200
+    },
+    {
+      "path": "/incidents",
+      "status": 201
+    },
+    {
+      "path": "/incidents",
+      "status": 200
+    },
+    {
+      "path": "/incidents",
+      "status": 200
+    },
+    {
+      "path": "/incidents/1",
+      "status": 403
+    },
+    {
+      "path": "/auth/logout",
+      "status": 200
+    },
+    {
+      "path": "/me",
+      "status": 401
+    },
+    {
+      "path": "/auth/login",
+      "status": 200
+    },
+    {
+      "path": "/users",
+      "status": 200
+    },
+    {
+      "path": "/roles",
+      "status": 200
+    },
+    {
+      "path": "/me",
+      "status": 200
+    },
+    {
+      "path": "/incident-categories",
+      "status": 200
+    },
+    {
+      "path": "/incidents",
+      "status": 200
+    },
+    {
+      "path": "/messages/notifications",
+      "status": 200
+    },
+    {
+      "path": "/governance/owners",
+      "status": 200
+    },
+    {
+      "path": "/policies",
+      "status": 200
+    },
+    {
+      "path": "/departments",
+      "status": 200
+    },
+    {
+      "path": "/categories",
+      "status": 200
+    },
+    {
+      "path": "/governance/drafts",
+      "status": 200
+    },
+    {
+      "path": "/governance/availability",
+      "status": 200
+    },
+    {
+      "path": "/governance/documents/preview",
+      "status": 200
+    },
+    {
+      "path": "/governance/availability",
+      "status": 200
+    },
+    {
+      "path": "/governance/drafts",
+      "status": 201
+    },
+    {
+      "path": "/messages/notifications",
+      "status": 200
+    },
+    {
+      "path": "/governance/drafts/1",
+      "status": 200
+    },
+    {
+      "path": "/categories",
+      "status": 200
+    },
+    {
+      "path": "/policies",
+      "status": 200
+    },
+    {
+      "path": "/departments",
+      "status": 200
+    },
+    {
+      "path": "/governance/owners",
+      "status": 200
+    },
+    {
+      "path": "/governance/drafts/1",
+      "status": 200
+    },
+    {
+      "path": "/governance/drafts/1/actions",
+      "status": 403
+    },
+    {
+      "path": "/governance/drafts/1/actions",
+      "status": 200
+    },
+    {
+      "path": "/messages/notifications",
+      "status": 200
+    },
+    {
+      "path": "/governance/drafts/1",
+      "status": 200
+    },
+    {
+      "path": "/auth/logout",
+      "status": 200
+    },
+    {
+      "path": "/auth/login",
+      "status": 200
+    },
+    {
+      "path": "/users",
+      "status": 200
+    },
+    {
+      "path": "/me",
+      "status": 200
+    },
+    {
+      "path": "/roles",
+      "status": 200
+    },
+    {
+      "path": "/incident-categories",
+      "status": 200
+    },
+    {
+      "path": "/incidents",
+      "status": 200
+    },
+    {
+      "path": "/messages/notifications",
+      "status": 200
+    },
+    {
+      "path": "/messages/notifications",
+      "status": 200
+    },
+    {
+      "path": "/governance/owners",
+      "status": 200
+    },
+    {
+      "path": "/policies",
+      "status": 200
+    },
+    {
+      "path": "/departments",
+      "status": 200
+    },
+    {
+      "path": "/categories",
+      "status": 200
+    },
+    {
+      "path": "/governance/drafts/1",
+      "status": 200
+    },
+    {
+      "path": "/governance/drafts/1/actions",
+      "status": 200
+    },
+    {
+      "path": "/messages/notifications",
+      "status": 200
+    },
+    {
+      "path": "/governance/drafts/1",
+      "status": 200
+    },
+    {
+      "path": "/auth/logout",
+      "status": 200
+    },
+    {
+      "path": "/auth/login",
+      "status": 200
+    },
+    {
+      "path": "/users",
+      "status": 200
+    },
+    {
+      "path": "/roles",
+      "status": 200
+    },
+    {
+      "path": "/me",
+      "status": 200
+    },
+    {
+      "path": "/incident-categories",
+      "status": 200
+    },
+    {
+      "path": "/incidents",
+      "status": 200
+    },
+    {
+      "path": "/messages/notifications",
+      "status": 200
+    },
+    {
+      "path": "/governance/owners",
+      "status": 200
+    },
+    {
+      "path": "/categories",
+      "status": 200
+    },
+    {
+      "path": "/departments",
+      "status": 200
+    },
+    {
+      "path": "/policies",
+      "status": 200
+    },
+    {
+      "path": "/governance/drafts/1",
+      "status": 200
+    },
+    {
+      "path": "/governance/drafts/1/actions",
+      "status": 200
+    },
+    {
+      "path": "/messages/notifications",
+      "status": 200
+    },
+    {
+      "path": "/governance/drafts/1",
+      "status": 200
+    },
+    {
+      "path": "/governance/drafts/1/actions",
+      "status": 200
+    },
+    {
+      "path": "/messages/notifications",
+      "status": 200
+    },
+    {
+      "path": "/governance/drafts/1",
+      "status": 200
+    },
+    {
+      "path": "/governance/drafts/1",
+      "status": 200
+    },
+    {
+      "path": "/policies/49",
+      "status": 200
+    },
+    {
+      "path": "/dashboard/policy-health",
+      "status": 200
+    },
+    {
+      "path": "/dashboard/policy-health",
+      "status": 200
+    },
+    {
+      "path": "/incidents",
+      "status": 200
+    },
+    {
+      "path": "/incident-categories",
+      "status": 200
+    },
+    {
+      "path": "/incidents/2",
+      "status": 200
+    },
+    {
+      "path": "/incidents",
+      "status": 200
+    },
+    {
+      "path": "/auth/logout",
+      "status": 200
+    },
+    {
+      "path": "/auth/login",
+      "status": 200
+    },
+    {
+      "path": "/users",
+      "status": 200
+    },
+    {
+      "path": "/me",
+      "status": 200
+    },
+    {
+      "path": "/roles",
+      "status": 200
+    },
+    {
+      "path": "/incident-categories",
+      "status": 200
+    },
+    {
+      "path": "/incidents",
+      "status": 200
+    },
+    {
+      "path": "/messages/notifications",
+      "status": 200
+    },
+    {
+      "path": "/api/pulse",
+      "status": 200
+    }
+  ]
+}

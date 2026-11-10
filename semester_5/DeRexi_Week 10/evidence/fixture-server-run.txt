@@ -1,0 +1,61 @@
+INFO:     Started server process [64784]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8031 (Press CTRL+C to quit)
+{"timestamp":"2026-11-10T21:12:47.922274+00:00","event":"authentication_failure","request_id":"ba77ad69108a4cc3a92657044746f746","method":"GET","route":"/auth/session","status":401,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T21:12:47.927762+00:00","event":"authentication_failure","request_id":"68868fb3461940a89dbfebaaf9f54edf","method":"POST","route":"/auth/refresh","status":401,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T21:12:48.810170+00:00","event":"login_failure","request_id":"c3360f2c67994d4fa61e2052682d8abe","method":"POST","route":"/auth/login","status":401,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T21:12:48.930442+00:00","event":"login_success","request_id":"cc550f036c9e4343a6d54cce8c243149","method":"POST","route":"/auth/login","status":200,"actor_id":8,"role":"Employee"}
+{"timestamp":"2026-11-10T21:12:49.048820+00:00","event":"sensitive_change","request_id":"b4526f959ff243639946b55d47328345","method":"POST","route":"/ask","status":200,"actor_id":8,"role":"Employee"}
+{"timestamp":"2026-11-10T21:12:49.152768+00:00","event":"sensitive_change","request_id":"bc3332014e1f48628277832a7cc94cd4","method":"POST","route":"/feedback","status":201,"actor_id":8,"role":"Employee"}
+{"timestamp":"2026-11-10T21:12:50.369825+00:00","event":"login_success","request_id":"9bdd24b2c9da4621b477b59aa90a1566","method":"POST","route":"/auth/login","status":200,"actor_id":2,"role":"System Administrator"}
+{"timestamp":"2026-11-10T21:12:50.375804+00:00","event":"administrative_action","request_id":"a75181d30bce42739bc4597ec1e990b0","method":"POST","route":"/__fixture/state","status":200,"actor_id":2,"role":"System Administrator"}
+{"timestamp":"2026-11-10T21:12:51.178178+00:00","event":"administrative_action","request_id":"45a4ecd65a45474bbca4ccb633bb3c7d","method":"POST","route":"/__fixture/state","status":200,"actor_id":2,"role":"System Administrator"}
+{"timestamp":"2026-11-10T21:12:51.187935+00:00","event":"sensitive_change","request_id":"8849d56bcaff4da1b76eaaffa7e3fca8","method":"POST","route":"/feedback","status":201,"actor_id":8,"role":"Employee"}
+{"timestamp":"2026-11-10T21:12:51.299834+00:00","event":"sensitive_change","request_id":"33f847726de644978410e22ea78b7d69","method":"POST","route":"/clarifications/{request_id}/read","status":200,"actor_id":8,"role":"Employee"}
+{"timestamp":"2026-11-10T21:12:52.131773+00:00","event":"access_denied","request_id":"1bf654296a174b969e756f07f35a8f60","method":"GET","route":"/governance/drafts","status":403,"actor_id":8,"role":"Employee"}
+{"timestamp":"2026-11-10T21:12:52.255843+00:00","event":"sensitive_change","request_id":"21f0ad0aa42b4e6aba2b1680fab928fc","method":"POST","route":"/incidents","status":201,"actor_id":8,"role":"Employee"}
+{"timestamp":"2026-11-10T21:12:52.362482+00:00","event":"access_denied","request_id":"0b47254400ab4d6a8b949c76ec364d96","method":"PATCH","route":"/incidents/{incident_id}","status":403,"actor_id":8,"role":"Employee"}
+{"timestamp":"2026-11-10T21:12:52.367131+00:00","event":"logout","request_id":"1c43fa581cd9478d9655f37f594d3f25","method":"POST","route":"/auth/logout","status":200,"actor_id":8,"role":"Employee"}
+{"timestamp":"2026-11-10T21:12:52.469365+00:00","event":"authentication_failure","request_id":"f1bdbdc8790e4f1bb05974c85128eb1d","method":"GET","route":"/me","status":401,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T21:12:52.475850+00:00","event":"login_success","request_id":"4cc97255bd414b32ac4af83a93e3a60e","method":"POST","route":"/auth/login","status":200,"actor_id":4,"role":"Policy Owner"}
+{"timestamp":"2026-11-10T21:12:53.687531+00:00","event":"sensitive_change","request_id":"51e4b9cb945546cdb9ec7c477efbd116","method":"POST","route":"/governance/documents/preview","status":200,"actor_id":4,"role":"Policy Owner"}
+{"timestamp":"2026-11-10T21:12:54.444180+00:00","event":"sensitive_change","request_id":"4626ff51e3a24b1d8a8d7c29e3a1c4ae","method":"POST","route":"/governance/drafts","status":201,"actor_id":4,"role":"Policy Owner"}
+{"timestamp":"2026-11-10T21:12:54.546234+00:00","event":"access_denied","request_id":"5719187a530f4cdb88aaa4349c706a9e","method":"POST","route":"/governance/drafts/{did}/actions","status":403,"actor_id":4,"role":"Policy Owner","action":"final_approve"}
+{"timestamp":"2026-11-10T21:12:54.557963+00:00","event":"sensitive_change","request_id":"fcce3b7008a8488bb50a195026f62399","method":"POST","route":"/governance/drafts/{did}/actions","status":200,"actor_id":4,"role":"Policy Owner","action":"submit"}
+{"timestamp":"2026-11-10T21:12:54.655031+00:00","event":"logout","request_id":"e05260e8071f45068a32b875a173e516","method":"POST","route":"/auth/logout","status":200,"actor_id":4,"role":"Policy Owner"}
+{"timestamp":"2026-11-10T21:12:54.759949+00:00","event":"login_success","request_id":"0fd40d4b66ce4899a7fe58e9801b9f1f","method":"POST","route":"/auth/login","status":200,"actor_id":9,"role":"Policy Owner"}
+{"timestamp":"2026-11-10T21:12:54.983620+00:00","event":"approval","request_id":"fa6ee5aeef5240588e61042161335e69","method":"POST","route":"/governance/drafts/{did}/actions","status":200,"actor_id":9,"role":"Policy Owner","action":"peer_approve"}
+{"timestamp":"2026-11-10T21:12:55.822234+00:00","event":"logout","request_id":"6df24b81a17444d3adfe4597bdb0cc65","method":"POST","route":"/auth/logout","status":200,"actor_id":9,"role":"Policy Owner"}
+{"timestamp":"2026-11-10T21:12:55.926475+00:00","event":"login_success","request_id":"1dc972acef86442faf1f41ed11386923","method":"POST","route":"/auth/login","status":200,"actor_id":2,"role":"System Administrator"}
+{"timestamp":"2026-11-10T21:12:56.143341+00:00","event":"approval","request_id":"e3459bee3f88413a88d39555ead3bea4","method":"POST","route":"/governance/drafts/{did}/actions","status":200,"actor_id":2,"role":"System Administrator","action":"final_approve"}
+{"timestamp":"2026-11-10T21:12:56.250145+00:00","event":"administrative_action","request_id":"6ea5c219ce6a46918d1db030ff9bcbd2","method":"POST","route":"/governance/drafts/{did}/actions","status":200,"actor_id":2,"role":"System Administrator","action":"publish"}
+{"timestamp":"2026-11-10T21:12:57.215378+00:00","event":"administrative_action","request_id":"6477826ac87a4ec09c3875673fb65534","method":"PATCH","route":"/incidents/{incident_id}","status":200,"actor_id":2,"role":"System Administrator"}
+{"timestamp":"2026-11-10T21:12:58.078458+00:00","event":"logout","request_id":"436867e8fd254878ab154229c4096f82","method":"POST","route":"/auth/logout","status":200,"actor_id":2,"role":"System Administrator"}
+{"timestamp":"2026-11-10T21:12:58.182201+00:00","event":"login_success","request_id":"19a8d429c1974cfb99954fe71a55e5f2","method":"POST","route":"/auth/login","status":200,"actor_id":4,"role":"Policy Owner"}
+{"timestamp":"2026-11-10T21:12:58.614125+00:00","event":"sensitive_change","request_id":"2e182c1da2c3488b82dfa191b2582ed5","method":"POST","route":"/governance/drafts","status":201,"actor_id":4,"role":"Policy Owner"}
+{"timestamp":"2026-11-10T21:12:59.483660+00:00","event":"administrative_action","request_id":"8f21d8c018764ed0aa23c0223d578033","method":"POST","route":"/__fixture/state","status":200,"actor_id":2,"role":"System Administrator"}
+Governance schema dependency missing: SQLSTATE 42P01
+{"timestamp":"2026-11-10T21:12:59.630588+00:00","event":"request_rejected","request_id":"8b98878dcd054a0398f442648d7369f1","method":"GET","route":"/governance/drafts","status":503,"actor_id":4,"role":"Policy Owner"}
+Governance availability probe failed (ProgrammingError)
+{"timestamp":"2026-11-10T21:13:00.484716+00:00","event":"administrative_action","request_id":"8ea956e7692b485a8886e5264c0cdfd1","method":"POST","route":"/__fixture/state","status":200,"actor_id":2,"role":"System Administrator"}
+{"timestamp":"2026-11-10T21:13:01.888877+00:00","event":"logout","request_id":"d8b4e0bf35764713b6eebe0cc3a955a7","method":"POST","route":"/auth/logout","status":200,"actor_id":4,"role":"Policy Owner"}
+{"timestamp":"2026-11-10T21:13:02.003873+00:00","event":"login_success","request_id":"a6b2a8e3771b487e88bad977c7b24917","method":"POST","route":"/auth/login","status":200,"actor_id":8,"role":"Employee"}
+{"timestamp":"2026-11-10T21:13:56.273076+00:00","event":"sensitive_change","request_id":"1fc0290f686040db9170e100cd6a1962","method":"POST","route":"/ask","status":200,"actor_id":8,"role":"Employee"}
+{"timestamp":"2026-11-10T21:13:56.369041+00:00","event":"sensitive_change","request_id":"c19a4b6ee77c493f879e3e7dca962441","method":"POST","route":"/feedback","status":201,"actor_id":8,"role":"Employee"}
+{"timestamp":"2026-11-10T21:13:57.234184+00:00","event":"sensitive_change","request_id":"acba20fe43b342068cc60371a052f88a","method":"POST","route":"/clarifications/{request_id}/read","status":200,"actor_id":8,"role":"Employee"}
+{"timestamp":"2026-11-10T21:13:57.346475+00:00","event":"sensitive_change","request_id":"0b79440c8e6143199b95ac6971c05122","method":"POST","route":"/clarifications/{request_id}/replies","status":201,"actor_id":8,"role":"Employee"}
+{"timestamp":"2026-11-10T21:13:57.353167+00:00","event":"sensitive_change","request_id":"dc6cec2a8d3646e39c4ec1eed4a3c2aa","method":"POST","route":"/clarifications/{request_id}/read","status":200,"actor_id":8,"role":"Employee"}
+{"timestamp":"2026-11-10T21:13:58.062371+00:00","event":"logout","request_id":"c150dabfe4c84f1faea78798ba935813","method":"POST","route":"/auth/logout","status":200,"actor_id":8,"role":"Employee"}
+{"timestamp":"2026-11-10T21:15:44.406571+00:00","event":"login_success","request_id":"45a19c108de34af2a6e0f583d72de0bc","method":"POST","route":"/auth/login","status":200,"actor_id":8,"role":"Employee"}
+{"timestamp":"2026-11-10T21:15:44.442743+00:00","event":"sensitive_change","request_id":"8f0a97d66b524414b179d61dfa6f4fa0","method":"POST","route":"/clarifications/{request_id}/read","status":200,"actor_id":8,"role":"Employee"}
+{"timestamp":"2026-11-10T21:15:44.509145+00:00","event":"sensitive_change","request_id":"1f48db621d294cd882b145c0aff79cb4","method":"POST","route":"/ask","status":200,"actor_id":8,"role":"Employee"}
+{"timestamp":"2026-11-10T21:15:44.611134+00:00","event":"sensitive_change","request_id":"8203ac04a0ae4da1bc53d61733c67f95","method":"POST","route":"/feedback","status":201,"actor_id":8,"role":"Employee"}
+{"timestamp":"2026-11-10T21:15:45.481482+00:00","event":"sensitive_change","request_id":"ad194e240114420396bf06516c798462","method":"POST","route":"/clarifications/{request_id}/read","status":200,"actor_id":8,"role":"Employee"}
+{"timestamp":"2026-11-10T21:15:45.591828+00:00","event":"sensitive_change","request_id":"dfc58cd0b99b46b7879b72f6fd50e6b9","method":"POST","route":"/clarifications/{request_id}/replies","status":201,"actor_id":8,"role":"Employee"}
+{"timestamp":"2026-11-10T21:15:45.603871+00:00","event":"sensitive_change","request_id":"960dba8361ce47dfa89e2f2ee98e0e2e","method":"POST","route":"/clarifications/{request_id}/read","status":200,"actor_id":8,"role":"Employee"}
+{"timestamp":"2026-11-10T21:15:46.204004+00:00","event":"logout","request_id":"3e6b89fe7e204128b975a995668b989a","method":"POST","route":"/auth/logout","status":200,"actor_id":8,"role":"Employee"}
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [64784]

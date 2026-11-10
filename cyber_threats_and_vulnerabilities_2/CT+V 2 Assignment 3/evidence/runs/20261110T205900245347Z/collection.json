@@ -1,0 +1,26 @@
+[
+  {
+    "attempted_at": "2026-11-10T20:59:00.245810+00:00",
+    "error": "URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>",
+    "evidence_kind": "not collected in offline mode",
+    "source": "apt38",
+    "status": "BLOCKED",
+    "url": "https://attack.mitre.org/groups/G0082/G0082-enterprise-layer.json"
+  },
+  {
+    "attempted_at": "2026-11-10T20:59:00.263413+00:00",
+    "error": "URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>",
+    "evidence_kind": "not collected in offline mode",
+    "source": "fin7",
+    "status": "BLOCKED",
+    "url": "https://attack.mitre.org/groups/G0046/G0046-enterprise-layer.json"
+  },
+  {
+    "attempted_at": "2026-11-10T20:59:00.268387+00:00",
+    "error": "URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>",
+    "evidence_kind": "not collected in offline mode",
+    "source": "cisa-fastcash",
+    "status": "BLOCKED",
+    "url": "https://www.cisa.gov/sites/default/files/publications/AA20-239A_FASTCash2.0_508.pdf"
+  }
+]

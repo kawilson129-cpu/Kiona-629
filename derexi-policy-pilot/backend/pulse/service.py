@@ -488,7 +488,21 @@ def make_article(source, title, url, date, summary="",
     if len(title) < 4 or not url:
         return None
 
-    meta = SOURCES.get(source, {})
+    meta = SOURCES.get(source)
+    if not meta:
+        return None
+    # Bind publisher labels to exact configured publication hosts. FDIC's
+    # shared GovDelivery host is trusted only within its own account path.
+    try:
+        parts = urllib.parse.urlsplit(url)
+        if parts.port not in (None, 443) or parts.hostname not in meta['article_hosts']:
+            return None
+        if parts.hostname == 'content.govdelivery.com' and not re.fullmatch(r'/accounts/USFDIC/bulletins/[A-Za-z0-9-]+/?', parts.path):
+            return None
+        if '\\' in url or any(ord(char) < 32 for char in url):
+            return None
+    except ValueError:
+        return None
     agency = clean_text(agency, 120) or meta.get("agency", source)
     published = parse_date(date)
 

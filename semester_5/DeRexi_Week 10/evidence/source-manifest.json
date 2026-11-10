@@ -1,0 +1,41 @@
+{
+  "baseline_commit": "b66b7e4dd5b5d9203b64b5f15c7188192e2d64dc",
+  "runtime_and_test_files": [
+    {
+      "path": "derexi-policy-pilot/backend/main.py",
+      "sha256": "96989f6719e3cd9f43fe1f2622f5dbebd0459b0f2d3df03a35be7b7b9ddf503f"
+    },
+    {
+      "path": "derexi-policy-pilot/backend/pulse/service.py",
+      "sha256": "dce92f929d58543ecb5a56782faf9f3383ca6e5ebeb447d2055277b3c2acdb5d"
+    },
+    {
+      "path": "derexi-policy-pilot/backend/pulse/sources.py",
+      "sha256": "019a4d1b84d0786dbe4fbe83a3cb155ffa3ae7ed4ab26e8049bda8b15997adef"
+    },
+    {
+      "path": "derexi-policy-pilot/backend/static/app.js",
+      "sha256": "50e3f566dd869d0e76a644ebfc1d166a2a18a0acba0b01cdba2b5805a0960f49"
+    },
+    {
+      "path": "derexi-policy-pilot/backend/tests/test_pulse.py",
+      "sha256": "ba4011cdbb8f91a876be2de5bc6ebacb23af8a8ee3240ce014e2c4da210a2922"
+    },
+    {
+      "path": "derexi-policy-pilot/backend/tests/test_week10_integration.py",
+      "sha256": "ad6ef49771c078c6543e1862c755f7c5bc3dce75effff655c108f20ac4ad6f6d"
+    },
+    {
+      "path": "derexi-policy-pilot/backend/tests/test_week10_browser.mjs",
+      "sha256": "716ec3ab12480fccf5595892535a1f38f7543e20e81642dd3419f7c286b3135d"
+    },
+    {
+      "path": "derexi-policy-pilot/backend/tests/serve_week10_fixture.py",
+      "sha256": "577ca6d585d2eb2da7f825bface798fb05dfeb7250237734fe2a2ff4a9219545"
+    },
+    {
+      "path": "derexi-policy-pilot/backend/tests/run_week10.py",
+      "sha256": "16b0d4a805611fb4ab362f92ff8a5640afd033831a6192637f465f594a04876d"
+    }
+  ]
+}

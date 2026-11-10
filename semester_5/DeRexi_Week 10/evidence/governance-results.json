@@ -1,0 +1,418 @@
+{
+  "suite": "governance",
+  "mode": "isolated fixtures; SQLite/real handlers; no live Supabase",
+  "passed": 102,
+  "failed": 0,
+  "execution_error": null,
+  "checks": [
+    {
+      "name": "Employee denied /governance/drafts",
+      "pass": true
+    },
+    {
+      "name": "Anonymous denied /governance/drafts",
+      "pass": true
+    },
+    {
+      "name": "Employee denied /governance/owners",
+      "pass": true
+    },
+    {
+      "name": "Anonymous denied /governance/owners",
+      "pass": true
+    },
+    {
+      "name": "Employee denied /dashboard/policy-health",
+      "pass": true
+    },
+    {
+      "name": "Anonymous denied /dashboard/policy-health",
+      "pass": true
+    },
+    {
+      "name": "Employee draft creation denied",
+      "pass": true
+    },
+    {
+      "name": "Author department spoof denied",
+      "pass": true
+    },
+    {
+      "name": "Unknown department rejected",
+      "pass": true
+    },
+    {
+      "name": "Status injection rejected",
+      "pass": true
+    },
+    {
+      "name": "Legacy policy publication closed 8",
+      "pass": true
+    },
+    {
+      "name": "Legacy version publication closed 8",
+      "pass": true
+    },
+    {
+      "name": "Legacy policy publication closed 4",
+      "pass": true
+    },
+    {
+      "name": "Legacy version publication closed 4",
+      "pass": true
+    },
+    {
+      "name": "Legacy policy publication closed 1",
+      "pass": true
+    },
+    {
+      "name": "Legacy version publication closed 1",
+      "pass": true
+    },
+    {
+      "name": "Unpublished new policy absent from Library",
+      "pass": true
+    },
+    {
+      "name": "Employee detail denied",
+      "pass": true
+    },
+    {
+      "name": "Other department detail denied",
+      "pass": true
+    },
+    {
+      "name": "Other department list excludes draft",
+      "pass": true
+    },
+    {
+      "name": "publish by 1 -> 409",
+      "pass": true
+    },
+    {
+      "name": "final_approve by 1 -> 409",
+      "pass": true
+    },
+    {
+      "name": "submit by 4 -> 403",
+      "pass": true
+    },
+    {
+      "name": "submit by 4 -> 403",
+      "pass": true
+    },
+    {
+      "name": "submit by 4 -> 403",
+      "pass": true
+    },
+    {
+      "name": "submit by 4 -> 403",
+      "pass": true
+    },
+    {
+      "name": "submit by 4 -> 200",
+      "pass": true
+    },
+    {
+      "name": "Peer notification routes to governance",
+      "pass": true
+    },
+    {
+      "name": "Unrelated employee receives no governance notice",
+      "pass": true
+    },
+    {
+      "name": "peer_approve by 4 -> 403",
+      "pass": true
+    },
+    {
+      "name": "peer_approve by 12 -> 403",
+      "pass": true
+    },
+    {
+      "name": "peer_changes by 9 -> 422",
+      "pass": true
+    },
+    {
+      "name": "peer_changes by 9 -> 200",
+      "pass": true
+    },
+    {
+      "name": "Revision request author notified",
+      "pass": true
+    },
+    {
+      "name": "Peer cannot edit author draft",
+      "pass": true
+    },
+    {
+      "name": "submit by 4 -> 200",
+      "pass": true
+    },
+    {
+      "name": "peer_approve by 9 -> 200",
+      "pass": true
+    },
+    {
+      "name": "Final queue notifies both independent admins",
+      "pass": true
+    },
+    {
+      "name": "final_approve by 9 -> 403",
+      "pass": true
+    },
+    {
+      "name": "final_approve by 4 -> 403",
+      "pass": true
+    },
+    {
+      "name": "final_changes by 1 -> 422",
+      "pass": true
+    },
+    {
+      "name": "final_reject by 1 -> 200",
+      "pass": true
+    },
+    {
+      "name": "submit by 4 -> 200",
+      "pass": true
+    },
+    {
+      "name": "peer_reject by 9 -> 200",
+      "pass": true
+    },
+    {
+      "name": "submit by 4 -> 200",
+      "pass": true
+    },
+    {
+      "name": "peer_approve by 9 -> 200",
+      "pass": true
+    },
+    {
+      "name": "final_approve by 1 -> 200",
+      "pass": true
+    },
+    {
+      "name": "Independent approvals retained",
+      "pass": true
+    },
+    {
+      "name": "Approved content author edit accepted",
+      "pass": true
+    },
+    {
+      "name": "Editing invalidates both approvals",
+      "pass": true
+    },
+    {
+      "name": "publish by 1 -> 409",
+      "pass": true
+    },
+    {
+      "name": "final_approve by 1 -> 409",
+      "pass": true
+    },
+    {
+      "name": "submit by 4 -> 200",
+      "pass": true
+    },
+    {
+      "name": "peer_approve by 9 -> 200",
+      "pass": true
+    },
+    {
+      "name": "final_approve by 1 -> 200",
+      "pass": true
+    },
+    {
+      "name": "publish by 1 -> 409",
+      "pass": true
+    },
+    {
+      "name": "publish by 1 -> 200",
+      "pass": true
+    },
+    {
+      "name": "New published policy visible",
+      "pass": true
+    },
+    {
+      "name": "Publication decision notifies author",
+      "pass": true
+    },
+    {
+      "name": "Published working copy immutable",
+      "pass": true
+    },
+    {
+      "name": "Audit retains decisions, content snapshots, actors and time",
+      "pass": true
+    },
+    {
+      "name": "Revision stores published baseline",
+      "pass": true
+    },
+    {
+      "name": "Pulse provenance retained exactly",
+      "pass": true
+    },
+    {
+      "name": "submit by 4 -> 200",
+      "pass": true
+    },
+    {
+      "name": "peer_approve by 9 -> 200",
+      "pass": true
+    },
+    {
+      "name": "final_approve by 1 -> 200",
+      "pass": true
+    },
+    {
+      "name": "publish by 1 -> 409",
+      "pass": true
+    },
+    {
+      "name": "publish by 9 -> 403",
+      "pass": true
+    },
+    {
+      "name": "Future approved revision leaves published version available",
+      "pass": true
+    },
+    {
+      "name": "Revision draft absent from employee policy versions",
+      "pass": true
+    },
+    {
+      "name": "submit by 4 -> 200",
+      "pass": true
+    },
+    {
+      "name": "peer_approve by 9 -> 200",
+      "pass": true
+    },
+    {
+      "name": "final_approve by 1 -> 200",
+      "pass": true
+    },
+    {
+      "name": "submit by 4 -> 200",
+      "pass": true
+    },
+    {
+      "name": "peer_approve by 9 -> 200",
+      "pass": true
+    },
+    {
+      "name": "final_approve by 1 -> 200",
+      "pass": true
+    },
+    {
+      "name": "publish by 1 -> 200",
+      "pass": true
+    },
+    {
+      "name": "Replacement published with complete old version history",
+      "pass": true
+    },
+    {
+      "name": "publish by 1 -> 409",
+      "pass": true
+    },
+    {
+      "name": "Unsafe Pulse URL rejected",
+      "pass": true
+    },
+    {
+      "name": "Pulse API preserved",
+      "pass": true
+    },
+    {
+      "name": "Policy Assistant regression",
+      "pass": true
+    },
+    {
+      "name": "Library search regression (offline ranking adapter)",
+      "pass": true
+    },
+    {
+      "name": "Dashboard health retained",
+      "pass": true
+    },
+    {
+      "name": "Policy Owners directory excludes employee/admin roles",
+      "pass": true
+    },
+    {
+      "name": "Administrator can author in chosen department",
+      "pass": true
+    },
+    {
+      "name": "submit by 1 -> 200",
+      "pass": true
+    },
+    {
+      "name": "peer_approve by 9 -> 200",
+      "pass": true
+    },
+    {
+      "name": "final_approve by 1 -> 403",
+      "pass": true
+    },
+    {
+      "name": "final_changes by 2 -> 200",
+      "pass": true
+    },
+    {
+      "name": "submit by 1 -> 200",
+      "pass": true
+    },
+    {
+      "name": "peer_approve by 9 -> 403",
+      "pass": true
+    },
+    {
+      "name": "peer_approve by 9 -> 200",
+      "pass": true
+    },
+    {
+      "name": "final_approve by 2 -> 200",
+      "pass": true
+    },
+    {
+      "name": "publish by 1 -> 403",
+      "pass": true
+    },
+    {
+      "name": "publish by 2 -> 200",
+      "pass": true
+    },
+    {
+      "name": "Administrator author publication assigns department Policy Owner",
+      "pass": true
+    },
+    {
+      "name": "submit by 4 -> 200",
+      "pass": true
+    },
+    {
+      "name": "peer_approve by 9 -> 200",
+      "pass": true
+    },
+    {
+      "name": "final_approve by 1 -> 200",
+      "pass": true
+    },
+    {
+      "name": "Injected transaction failure returned failure",
+      "pass": true
+    },
+    {
+      "name": "Publication rollback preserves policy and workflow",
+      "pass": true
+    }
+  ],
+  "historical_checks_excluded": []
+}

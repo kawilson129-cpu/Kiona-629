@@ -1,0 +1,14 @@
+2026-11-10T21:09:18.164122+00:00
+Scope note: only Assignment 3 paths were written by this task. Other changes appeared concurrently and were left untouched.
+
+ M derexi-policy-pilot/backend/main.py
+ M derexi-policy-pilot/backend/pulse/service.py
+ M derexi-policy-pilot/backend/pulse/sources.py
+ M derexi-policy-pilot/backend/static/app.js
+ M derexi-policy-pilot/backend/tests/test_pulse.py
+?? "cyber_threats_and_vulnerabilities_2/CT+V 2 Assignment 3/"
+?? derexi-policy-pilot/backend/tests/run_week10.py
+?? derexi-policy-pilot/backend/tests/serve_week10_fixture.py
+?? derexi-policy-pilot/backend/tests/test_week10_browser.mjs
+?? derexi-policy-pilot/backend/tests/test_week10_integration.py
+?? "semester_5/DeRexi_Week 10/"

@@ -1,0 +1,59 @@
+{"timestamp":"2026-11-10T21:01:46.565441+00:00","event":"sensitive_change","request_id":"1cabc99c18d34264bffa48782798d05b","method":"POST","route":"/dev-auth/token","status":200,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T21:01:46.569968+00:00","event":"sensitive_change","request_id":"dde44b42794f4731822da3dfc847efff","method":"POST","route":"/dev-auth/token","status":200,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T21:01:46.573489+00:00","event":"sensitive_change","request_id":"f032894c8f1740dfb1ca9ece8d0ccb6e","method":"POST","route":"/dev-auth/token","status":200,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T21:01:46.576880+00:00","event":"sensitive_change","request_id":"3cbe3a7a4f11427dafa92d2270eb6130","method":"POST","route":"/dev-auth/token","status":200,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T21:01:46.581023+00:00","event":"sensitive_change","request_id":"2267a41597004e0fb4593b29b6b2dbae","method":"POST","route":"/dev-auth/token","status":200,"actor_id":null,"role":null}
+{"timestamp":"2026-11-10T21:01:46.603233+00:00","event":"sensitive_change","request_id":"af27943218c44096b64c64f2fca3d02f","method":"POST","route":"/ask","status":200,"actor_id":8,"role":"Employee"}
+PASS I01 Assistant persists uncertain answer and clarification
+PASS I02 New Assistant thread reaches requester Messaging
+PASS I03 Unmatched policy reaches administrator triage
+{"timestamp":"2026-11-10T21:01:46.629123+00:00","event":"access_denied","request_id":"70a6a96e7c314c01bf39898bf8b900c1","method":"GET","route":"/clarifications/{request_id}","status":404,"actor_id":12,"role":"Policy Owner"}
+PASS I04 Unrelated owner cannot open Assistant thread
+{"timestamp":"2026-11-10T21:01:46.643349+00:00","event":"administrative_action","request_id":"4263188d3c434f5dad2b8f38d0c3d39f","method":"POST","route":"/clarifications/{request_id}/assign","status":200,"actor_id":2,"role":"System Administrator"}
+PASS I05 Administrator routes thread to Jordan
+PASS I06 Assigned owner receives notification
+{"timestamp":"2026-11-10T21:01:46.666343+00:00","event":"sensitive_change","request_id":"fcdf90e115374a6abeaf2b23744709c3","method":"POST","route":"/clarifications/{request_id}/replies","status":201,"actor_id":9,"role":"Policy Owner"}
+PASS I07 Owner response persists through Messaging
+PASS I08 Employee sees owner response with original question
+PASS I09 Owner reply notifies employee
+{"timestamp":"2026-11-10T21:01:46.684454+00:00","event":"request_rejected","request_id":"8308ec2846334146b2a157c71e2a4d86","method":"POST","route":"/ask","status":422,"actor_id":8,"role":"Employee"}
+PASS I10 Empty Assistant input rejected
+{"timestamp":"2026-11-10T21:01:46.698429+00:00","event":"sensitive_change","request_id":"3016e1ae580d4d13b29886815c6c256d","method":"POST","route":"/feedback","status":201,"actor_id":8,"role":"Employee"}
+PASS I11 Answer feedback accepted
+PASS I12 Administrator dashboard counts saved helpful feedback
+PASS I13 Department owner dashboard includes cited feedback
+PASS I14 Other department cannot see cited feedback
+{"timestamp":"2026-11-10T21:01:46.744068+00:00","event":"sensitive_change","request_id":"51eeed40a8964402875d7b2983400655","method":"POST","route":"/feedback","status":201,"actor_id":8,"role":"Employee"}
+PASS I15 Re-rating updates existing row
+{"timestamp":"2026-11-10T21:01:46.754854+00:00","event":"access_denied","request_id":"9fd0151b6e684616a96f109a3e5cfb00","method":"POST","route":"/feedback","status":404,"actor_id":4,"role":"Policy Owner"}
+PASS I16 Another employee cannot rate private answer
+{"timestamp":"2026-11-10T21:01:46.758532+00:00","event":"request_rejected","request_id":"5169796fda054808800df5f1fa9058ee","method":"POST","route":"/feedback","status":422,"actor_id":8,"role":"Employee"}
+PASS I17 Non-boolean rating rejected
+{"timestamp":"2026-11-10T21:01:46.763969+00:00","event":"sensitive_change","request_id":"0c73a3c6a391468bb20de0bc72892e26","method":"POST","route":"/feedback","status":201,"actor_id":8,"role":"Employee"}
+FAIL I18 Employee questions cannot pollute answer feedback
+{"timestamp":"2026-11-10T21:01:46.772686+00:00","event":"sensitive_change","request_id":"d868758d4baa42658aa25bbf01e6726f","method":"POST","route":"/incidents","status":201,"actor_id":8,"role":"Employee"}
+PASS I19 Employee incident report accepted
+PASS I20 Incident reaches authorized administrator
+{"timestamp":"2026-11-10T21:01:46.786194+00:00","event":"access_denied","request_id":"15de0f2859174d7d97ef2a925bf72ce4","method":"PATCH","route":"/incidents/{incident_id}","status":403,"actor_id":9,"role":"Policy Owner"}
+PASS I21 Owner cannot triage incident
+{"timestamp":"2026-11-10T21:01:46.793874+00:00","event":"administrative_action","request_id":"cf9e713268874987b9ee2f0fe84bc09b","method":"PATCH","route":"/incidents/{incident_id}","status":200,"actor_id":2,"role":"System Administrator"}
+PASS I22 Administrator triage and assignment persist
+PASS I23 Explicit handler sees assigned incident
+PASS I24 Other department incident access denied
+{"timestamp":"2026-11-10T21:01:46.808660+00:00","event":"access_denied","request_id":"ff968b98ff9c436082e8f3e3c2cb4c71","method":"GET","route":"/dashboard/policy-health","status":403,"actor_id":8,"role":"Employee"}
+PASS I25 Employee dashboard denied
+PASS I26 Publisher binding FDIC https://www.fdic.gov/news/example
+PASS I26 Publisher binding FDIC https://fdic.gov/news/example
+PASS I26 Publisher binding FDIC https://content.govdelivery.com/accounts/USFDIC/bulletins/abc
+FAIL I26 Publisher binding FDIC https://content.govdelivery.com/accounts/OTHER/bulletins/abc
+FAIL I26 Publisher binding FDIC https://secure-fdic-verification.example/login
+FAIL I26 Publisher binding FDIC https://www.fdic.gov.evil.example/login
+FAIL I26 Publisher binding FDIC https://evilfdic.gov/login
+FAIL I26 Publisher binding FDIC https://www.fdic.gov:444/login
+FAIL I26 Publisher binding FDIC https://www.fdic.gov:bad/login
+PASS I26 Publisher binding FDIC https://www.fdic.gov\@evil.example/login
+PASS I26 Publisher binding FDIC https://user@www.fdic.gov/news
+PASS I26 Publisher binding NIST https://csrc.nist.gov/pubs/example
+PASS I26 Publisher binding Federal Register https://www.federalregister.gov/documents/example
+PASS I26 Publisher binding Federal Reserve https://www.federalreserve.gov/newsevents/example
+FAIL I26 Publisher binding Unknown https://www.fdic.gov/news/example

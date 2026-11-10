@@ -1,0 +1,52 @@
+[
+  {
+    "action": "Upgrade the local certifi bundle to a reviewed fixed release (registry recommends 2026.10.19 or later), then verify which application clients use it. Preserve TLS validation.",
+    "disposition": "requires_current_validation",
+    "evidence_kind": "historical finding reconciled against retained Week 9 evidence",
+    "historical_score": 12,
+    "historical_severity": "High",
+    "id": "DVI-ADVISORY-CERTIFI",
+    "newer_context": null,
+    "source": "cyber_threats_and_vulnerabilities_2/CT+V 2 Assignment 2/closure/inspector/findings.json"
+  },
+  {
+    "action": "Bind article URLs to approved publisher hosts and validate redirects before following them.",
+    "disposition": "requires_current_validation",
+    "evidence_kind": "historical finding reconciled against retained Week 9 evidence",
+    "historical_score": 12,
+    "historical_severity": "High",
+    "id": "DVI-FEED-INTEGRITY",
+    "newer_context": null,
+    "source": "cyber_threats_and_vulnerabilities_2/CT+V 2 Assignment 2/closure/inspector/findings.json"
+  },
+  {
+    "action": "Create a reviewed version/hash lock and deployed SBOM, then perform advisory triage.",
+    "disposition": "requires_current_validation",
+    "evidence_kind": "historical finding reconciled against retained Week 9 evidence",
+    "historical_score": 9,
+    "historical_severity": "Medium",
+    "id": "DVI-DEPENDENCY",
+    "newer_context": null,
+    "source": "cyber_threats_and_vulnerabilities_2/CT+V 2 Assignment 2/closure/inspector/findings.json"
+  },
+  {
+    "action": "Upgrade pip to a reviewed fixed release 26.2.0 or later and restrict installs/downloads to approved indexes.",
+    "disposition": "requires_current_validation",
+    "evidence_kind": "historical finding reconciled against retained Week 9 evidence",
+    "historical_score": 6,
+    "historical_severity": "Medium",
+    "id": "DVI-ADVISORY-PIP",
+    "newer_context": null,
+    "source": "cyber_threats_and_vulnerabilities_2/CT+V 2 Assignment 2/closure/inspector/findings.json"
+  },
+  {
+    "action": "Review current isolated write-denial evidence; do not claim production closure",
+    "disposition": "superseded_in_newer_isolated_tests",
+    "evidence_kind": "historical finding reconciled against retained Week 9 evidence",
+    "historical_score": 20,
+    "historical_severity": "Critical",
+    "id": "DVI-POLICY-WRITE",
+    "newer_context": "semester_5/DeRexi_Week 9/evidence/parser-fix-regressions/test_week9_security-results.json",
+    "source": "cyber_threats_and_vulnerabilities_2/CT+V 2 Assignment 2/closure/inspector/findings.json"
+  }
+]

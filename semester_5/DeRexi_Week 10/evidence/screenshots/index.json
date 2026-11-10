@@ -1,0 +1,104 @@
+[
+  {
+    "file": "00-before-fix-feedback-fixture.png",
+    "width": 1440,
+    "height": 1000,
+    "mode": "fixture"
+  },
+  {
+    "file": "01-desktop-signin-fixture.png",
+    "width": 1440,
+    "height": 1000,
+    "mode": "fixture"
+  },
+  {
+    "file": "02-assistant-feedback-fixture.png",
+    "width": 1440,
+    "height": 1000,
+    "mode": "fixture"
+  },
+  {
+    "file": "03-feedback-error-fixture.png",
+    "width": 1440,
+    "height": 1000,
+    "mode": "fixture"
+  },
+  {
+    "file": "04-employee-messaging-fixture.png",
+    "width": 1440,
+    "height": 1000,
+    "mode": "fixture"
+  },
+  {
+    "file": "05-document-preview-fixture.png",
+    "width": 1440,
+    "height": 1000,
+    "mode": "fixture"
+  },
+  {
+    "file": "06-peer-review-fixture.png",
+    "width": 1440,
+    "height": 1000,
+    "mode": "fixture"
+  },
+  {
+    "file": "07-admin-publication-fixture.png",
+    "width": 1440,
+    "height": 1000,
+    "mode": "fixture"
+  },
+  {
+    "file": "08-admin-triage-fixture.png",
+    "width": 1440,
+    "height": 1000,
+    "mode": "fixture"
+  },
+  {
+    "file": "09-pulse-revision-fixture.png",
+    "width": 1440,
+    "height": 1000,
+    "mode": "fixture"
+  },
+  {
+    "file": "10-workspace-outage-fixture.png",
+    "width": 1440,
+    "height": 1000,
+    "mode": "fixture"
+  },
+  {
+    "file": "11-mobile-library-fixture.png",
+    "width": 390,
+    "height": 844,
+    "mode": "fixture"
+  },
+  {
+    "file": "12-mobile-governance-fixture.png",
+    "width": 390,
+    "height": 844,
+    "mode": "fixture"
+  },
+  {
+    "file": "13-mobile-assistant-fixture.png",
+    "width": 390,
+    "height": 844,
+    "mode": "fixture"
+  },
+  {
+    "file": "14-mobile-messaging-fixture.png",
+    "width": 390,
+    "height": 844,
+    "mode": "fixture"
+  },
+  {
+    "file": "15-mobile-signout-fixture.png",
+    "width": 390,
+    "height": 844,
+    "mode": "fixture"
+  },
+  {
+    "file": "attempt-final.png",
+    "width": 390,
+    "height": 844,
+    "mode": "fixture"
+  }
+]

@@ -1,0 +1,56 @@
+{
+  "at_utc": "2026-11-10T21:19:21.934186+00:00",
+  "mode": "isolated SQLite and mocked provider/feed; no live Supabase verification",
+  "passed": 379,
+  "failed": 0,
+  "automated_blocked": 0,
+  "live_workflows_blocked": 7,
+  "historical_results_excluded_from_total": true,
+  "suites": [
+    {
+      "name": "integration",
+      "passed": 42,
+      "failed": 0,
+      "evidence": "integration-results.json"
+    },
+    {
+      "name": "governance",
+      "passed": 102,
+      "failed": 0,
+      "evidence": "governance-results.json"
+    },
+    {
+      "name": "documents",
+      "passed": 47,
+      "failed": 0,
+      "evidence": "documents-results.json"
+    },
+    {
+      "name": "pulse",
+      "passed": 97,
+      "failed": 0,
+      "evidence": "pulse-results.json"
+    },
+    {
+      "name": "publisher-audit",
+      "passed": 54,
+      "failed": 0,
+      "evidence": "publisher-audit-results.json"
+    },
+    {
+      "name": "browser",
+      "passed": 37,
+      "failed": 0,
+      "evidence": "browser-results.json",
+      "carried_forward": "attempts/mobile-predecessor-1794345344350.json"
+    }
+  ],
+  "confirmed_defects_fixed": 3,
+  "human_signoff": "pending",
+  "mobile": {
+    "width": 390,
+    "height": 844,
+    "visualWidth": 390,
+    "scale": 1
+  }
+}

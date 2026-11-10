@@ -332,13 +332,13 @@ def test_normalize():
 
     check(
         "article shape contains no unexpected fields",
-        set(make_article("FDIC", "Title", "https://example.gov/x", "2026-01-01").keys())
+        set(make_article("FDIC", "Title", "https://www.fdic.gov/x", "2026-01-01").keys())
         == {"id", "title", "url", "published", "summary", "source", "agency",
             "category", "status", "doc_type", "classified_by"},
     )
     check(
         "RSS classification is marked inferred",
-        make_article("FDIC", "Board approves action", "https://example.gov/x",
+        make_article("FDIC", "Board approves action", "https://www.fdic.gov/x",
                      "2026-01-01")["classified_by"] == "inferred",
     )
     check(

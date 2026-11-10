@@ -1,0 +1,8 @@
+{
+  "timestamp": "2026-11-10T20:59:12.004152+00:00",
+  "passed": 30,
+  "failed": 0,
+  "blocked": 0,
+  "failures": [],
+  "mode": "offline synthetic inputs, retained local evidence, fixed-source collector mocks; no Supabase/application imports"
+}

@@ -1,0 +1,83 @@
+[
+  {
+    "case": "DEREXI-TABLETOP",
+    "host": "demo-policy-01",
+    "id": "s1",
+    "kind": "attachment",
+    "simulation": true,
+    "technique": "T1566.001",
+    "time": "2026-11-10T12:00:00Z"
+  },
+  {
+    "case": "DEREXI-TABLETOP",
+    "host": "demo-hr-02",
+    "id": "s6",
+    "kind": "powershell",
+    "simulation": true,
+    "technique": "T1059.001",
+    "time": "2026-11-10T12:00:00Z"
+  },
+  {
+    "case": "DEREXI-TABLETOP",
+    "host": "demo-ops-03",
+    "id": "s7",
+    "kind": "service",
+    "simulation": true,
+    "technique": "T1543.003",
+    "time": "2026-11-10T12:00:00Z"
+  },
+  {
+    "case": "DEREXI-TABLETOP",
+    "host": "demo-late-04",
+    "id": "s8",
+    "kind": "powershell",
+    "simulation": true,
+    "technique": "T1059.001",
+    "time": "2026-11-10T12:00:00Z"
+  },
+  {
+    "case": "DEREXI-TABLETOP",
+    "host": "demo-policy-01",
+    "id": "s2",
+    "kind": "powershell",
+    "simulation": true,
+    "technique": "T1059.001",
+    "time": "2026-11-10T12:02:00Z"
+  },
+  {
+    "case": "DEREXI-TABLETOP",
+    "host": "demo-policy-01",
+    "id": "s3",
+    "kind": "service",
+    "simulation": true,
+    "technique": "T1543.003",
+    "time": "2026-11-10T12:07:00Z"
+  },
+  {
+    "case": "DEREXI-TABLETOP",
+    "host": "demo-policy-01",
+    "id": "s4",
+    "kind": "share",
+    "simulation": true,
+    "technique": "T1135",
+    "time": "2026-11-10T12:10:00Z"
+  },
+  {
+    "case": "DEREXI-TABLETOP",
+    "host": "demo-policy-01",
+    "id": "s5",
+    "kind": "collection",
+    "simulation": true,
+    "technique": "T1005",
+    "time": "2026-11-10T12:14:00Z"
+  },
+  {
+    "case": "DEREXI-TABLETOP",
+    "host": "demo-late-04",
+    "id": "s9",
+    "kind": "service",
+    "simulation": true,
+    "technique": "T1543.003",
+    "time": "2026-11-10T13:00:00Z"
+  }
+]

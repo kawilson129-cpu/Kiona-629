@@ -1,0 +1,23 @@
+[
+  {
+    "actor": "apt38",
+    "context_techniques": [
+      "T1005",
+      "T1059.001",
+      "T1135",
+      "T1543.003",
+      "T1566.001"
+    ],
+    "relationship": "shared behavior context only; no attribution of scenario"
+  },
+  {
+    "actor": "fin7",
+    "context_techniques": [
+      "T1005",
+      "T1059.001",
+      "T1543.003",
+      "T1566.001"
+    ],
+    "relationship": "shared behavior context only; no attribution of scenario"
+  }
+]

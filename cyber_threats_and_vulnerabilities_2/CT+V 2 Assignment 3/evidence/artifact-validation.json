@@ -1,0 +1,47 @@
+{
+  "timestamp": "2026-11-10T21:08:00.730279+00:00",
+  "checks": [
+    {
+      "name": "Required outputs present",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "name": "Relative report links resolve",
+      "status": "PASS",
+      "details": []
+    },
+    {
+      "name": "Three actual public snapshots match hashes",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "name": "Final run input hashes match",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "name": "Final unit results 32/0/0 and sources match",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "name": "Reused originals remain unchanged",
+      "status": "FAIL",
+      "details": null
+    },
+    {
+      "name": "Fixture and indicator metrics reconcile",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "name": "All assignment JSON is parseable",
+      "status": "PASS",
+      "details": null
+    }
+  ],
+  "passed": 7,
+  "failed": 1
+}

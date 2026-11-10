@@ -1,0 +1,44 @@
+[
+  {
+    "actor_attribution": "unknown",
+    "cases": [
+      "k.php"
+    ],
+    "confidence": 70,
+    "enforcement_allowed": false,
+    "evidence_kind": "historical course dossier; E05 derives from E02",
+    "independent_source_families": [
+      "E02"
+    ],
+    "observed_at": "2026-08-27T10:04:48+00:00",
+    "review_at": "2026-11-25T10:04:48+00:00",
+    "sources": [
+      "E02",
+      "E05"
+    ],
+    "state": "research_only",
+    "type": "sha256",
+    "value": "02aac4d201886e01abd2e3d42a20edcb4e6c2381549de19df0b9166607cd3f51"
+  },
+  {
+    "actor_attribution": "unknown",
+    "cases": [
+      "k.php"
+    ],
+    "confidence": 70,
+    "enforcement_allowed": false,
+    "evidence_kind": "historical course dossier; E05 derives from E02",
+    "independent_source_families": [
+      "E02"
+    ],
+    "observed_at": "2026-08-27T10:04:48+00:00",
+    "review_at": "2026-09-10T10:04:48+00:00",
+    "sources": [
+      "E02",
+      "E05"
+    ],
+    "state": "expired",
+    "type": "url",
+    "value": "hxxp://160[.]119[.]69[.]4/x"
+  }
+]

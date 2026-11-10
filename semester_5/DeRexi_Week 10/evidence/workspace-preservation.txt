@@ -1,0 +1,1 @@
+Unrelated portfolio/coursework moves/deletions and .DS_Store changes appeared concurrently near final verification. They were left untouched and are outside Week 10 ownership. No reset, restore or mass staging occurred.

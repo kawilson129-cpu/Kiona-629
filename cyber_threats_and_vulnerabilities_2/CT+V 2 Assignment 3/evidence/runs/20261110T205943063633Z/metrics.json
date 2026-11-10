@@ -1,0 +1,24 @@
+{
+  "alerts": 1,
+  "as_of": "2026-11-10T20:59:43.063399+00:00",
+  "benchmark": {
+    "fn": 0,
+    "fp": 0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "scope": "controlled scenario labels only; not production detection rates",
+    "tn": 3,
+    "tp": 1
+  },
+  "campaigns": 3,
+  "collection_blocked": 0,
+  "collection_verified": 3,
+  "duplicate_ratio": 0.5,
+  "elapsed_ms": 727.104,
+  "events": 9,
+  "expired_indicators": 1,
+  "independent_indicator_source_families": 1,
+  "input_indicator_records": 4,
+  "provenance_completeness": 1.0,
+  "unique_indicators": 2
+}

@@ -1,0 +1,398 @@
+{
+  "suite": "pulse",
+  "mode": "isolated fixtures; SQLite/real handlers; no live Supabase",
+  "passed": 97,
+  "failed": 0,
+  "execution_error": null,
+  "checks": [
+    {
+      "name": "parse_date('Fri, 30 Oct 2026 13:09:02 -0500') -> '2026-10-30'",
+      "pass": true
+    },
+    {
+      "name": "parse_date('Fri, 2 Oct 2026 20:00:00 GMT') -> '2026-10-02'",
+      "pass": true
+    },
+    {
+      "name": "parse_date('2026-10-30') -> '2026-10-30'",
+      "pass": true
+    },
+    {
+      "name": "parse_date('2026-10-21T00:00:00') -> '2026-10-21'",
+      "pass": true
+    },
+    {
+      "name": "parse_date('2026-10-21T00:00:00Z') -> '2026-10-21'",
+      "pass": true
+    },
+    {
+      "name": "parse_date('Wed, 05 Aug 2026 11:00:00 -0400') -> '2026-08-05'",
+      "pass": true
+    },
+    {
+      "name": "parse_date('October 30, 2026') -> '2026-10-30'",
+      "pass": true
+    },
+    {
+      "name": "parse_date('') -> ''",
+      "pass": true
+    },
+    {
+      "name": "parse_date(None) -> ''",
+      "pass": true
+    },
+    {
+      "name": "parse_date('not a date') -> ''",
+      "pass": true
+    },
+    {
+      "name": "parse_date('2026-13-45') -> ''",
+      "pass": true
+    },
+    {
+      "name": "clean_text strips tags and entities",
+      "pass": true
+    },
+    {
+      "name": "clean_text leaves escaped angle brackets as text",
+      "pass": true
+    },
+    {
+      "name": "safe_url keeps https",
+      "pass": true
+    },
+    {
+      "name": "safe_url rejects http",
+      "pass": true
+    },
+    {
+      "name": "safe_url rejects javascript:",
+      "pass": true
+    },
+    {
+      "name": "safe_url rejects credentials",
+      "pass": true
+    },
+    {
+      "name": "safe_url rejects relative",
+      "pass": true
+    },
+    {
+      "name": "summarize strips feed kicker",
+      "pass": true
+    },
+    {
+      "name": "summarize drops a duplicated headline",
+      "pass": true
+    },
+    {
+      "name": "summarize returns '' when description is only a truncated headline",
+      "pass": true
+    },
+    {
+      "name": "summarize handles None",
+      "pass": true
+    },
+    {
+      "name": "FR Rule -> Final Rule",
+      "pass": true
+    },
+    {
+      "name": "FR Proposed Rule -> Proposed Rule",
+      "pass": true
+    },
+    {
+      "name": "FR Notice -> Notice",
+      "pass": true
+    },
+    {
+      "name": "FR Presidential Document -> Notice",
+      "pass": true
+    },
+    {
+      "name": "FR guidance notice preserves source Notice type",
+      "pass": true
+    },
+    {
+      "name": "NIST -> Standards Draft",
+      "pass": true
+    },
+    {
+      "name": "FDIC board notice with rule words in body -> General News",
+      "pass": true
+    },
+    {
+      "name": "FDIC supervisory-appeals release -> General News",
+      "pass": true
+    },
+    {
+      "name": "FDIC guidance headline -> Supervisory Guidance",
+      "pass": true
+    },
+    {
+      "name": "Fed final-rule press release stays news",
+      "pass": true
+    },
+    {
+      "name": "All statuses are from the allowed set",
+      "pass": true
+    },
+    {
+      "name": "A cyber rule still files under Regulations",
+      "pass": true
+    },
+    {
+      "name": "NIST draft -> Cybersecurity",
+      "pass": true
+    },
+    {
+      "name": "Privacy notice -> Privacy & Data Protection",
+      "pass": true
+    },
+    {
+      "name": "Unrelated press release -> Banking & Finance",
+      "pass": true
+    },
+    {
+      "name": "Guidance -> Supervisory Guidance",
+      "pass": true
+    },
+    {
+      "name": "FR keeps substantive documents only",
+      "pass": true
+    },
+    {
+      "name": "FR drops routine paperwork notices",
+      "pass": true
+    },
+    {
+      "name": "FR drops unsafe http links",
+      "pass": true
+    },
+    {
+      "name": "FR carries the issuing agency",
+      "pass": true
+    },
+    {
+      "name": "FR publishes ISO dates",
+      "pass": true
+    },
+    {
+      "name": "FR keeps the document number id",
+      "pass": true
+    },
+    {
+      "name": "NIST draft normalized",
+      "pass": true
+    },
+    {
+      "name": "NIST uses Standards Draft",
+      "pass": true
+    },
+    {
+      "name": "NIST files under Cybersecurity",
+      "pass": true
+    },
+    {
+      "name": "NIST date normalized",
+      "pass": true
+    },
+    {
+      "name": "FDIC RSS items parsed",
+      "pass": true
+    },
+    {
+      "name": "FDIC title prefix removed",
+      "pass": true
+    },
+    {
+      "name": "FDIC RSS date parsed correctly",
+      "pass": true
+    },
+    {
+      "name": "FDIC body markup removed from summary",
+      "pass": true
+    },
+    {
+      "name": "FDIC duplicate headline not repeated in summary",
+      "pass": true
+    },
+    {
+      "name": "FDIC board notice is General News",
+      "pass": true
+    },
+    {
+      "name": "FDIC guidance headline is Supervisory Guidance",
+      "pass": true
+    },
+    {
+      "name": "Fed RSS parsed",
+      "pass": true
+    },
+    {
+      "name": "Fed headline-only description becomes empty summary",
+      "pass": true
+    },
+    {
+      "name": "Fed press release remains news",
+      "pass": true
+    },
+    {
+      "name": "Fed date normalized",
+      "pass": true
+    },
+    {
+      "name": "article shape contains no unexpected fields",
+      "pass": true
+    },
+    {
+      "name": "RSS classification is marked inferred",
+      "pass": true
+    },
+    {
+      "name": "Federal Register classification is marked source-supplied",
+      "pass": true
+    },
+    {
+      "name": "NIST classification is marked source-supplied",
+      "pass": true
+    },
+    {
+      "name": "combined feed returns articles",
+      "pass": true
+    },
+    {
+      "name": "combined feed is newest first",
+      "pass": true
+    },
+    {
+      "name": "all four sources reported",
+      "pass": true
+    },
+    {
+      "name": "all sources ok",
+      "pass": true
+    },
+    {
+      "name": "no duplicate URLs",
+      "pass": true
+    },
+    {
+      "name": "generated_at is ISO UTC",
+      "pass": true
+    },
+    {
+      "name": "limit clamps to available articles",
+      "pass": true
+    },
+    {
+      "name": "every article carries an editorial score",
+      "pass": true
+    },
+    {
+      "name": "radar is returned with the feed",
+      "pass": true
+    },
+    {
+      "name": "radar is drawn from the returned articles",
+      "pass": true
+    },
+    {
+      "name": "limited feed radar references only returned articles",
+      "pass": true
+    },
+    {
+      "name": "second call served from cache",
+      "pass": true
+    },
+    {
+      "name": "cache window is 30 minutes",
+      "pass": true
+    },
+    {
+      "name": "feed survives one failing source",
+      "pass": true
+    },
+    {
+      "name": "failed source flagged",
+      "pass": true
+    },
+    {
+      "name": "failed source explains itself",
+      "pass": true
+    },
+    {
+      "name": "healthy sources still ok",
+      "pass": true
+    },
+    {
+      "name": "empty sources yield an empty feed",
+      "pass": true
+    },
+    {
+      "name": "empty sources are not errors",
+      "pass": true
+    },
+    {
+      "name": "empty feed still reports structure",
+      "pass": true
+    },
+    {
+      "name": "substantive rule outranks a newer general-news item",
+      "pass": true
+    },
+    {
+      "name": "every score is a bounded number",
+      "pass": true
+    },
+    {
+      "name": "scoring does not mutate the cached articles",
+      "pass": true
+    },
+    {
+      "name": "among comparable documents the newer one leads",
+      "pass": true
+    },
+    {
+      "name": "recency stops helping past the 45-day horizon",
+      "pass": true
+    },
+    {
+      "name": "an undated article receives no recency points",
+      "pass": true
+    },
+    {
+      "name": "ranking is deterministic on identical items",
+      "pass": true
+    },
+    {
+      "name": "radar has at most one entry per document type",
+      "pass": true
+    },
+    {
+      "name": "radar excludes notices and general news",
+      "pass": true
+    },
+    {
+      "name": "radar references articles that exist",
+      "pass": true
+    },
+    {
+      "name": "radar keeps the best-ranked rule of a type",
+      "pass": true
+    },
+    {
+      "name": "radar labels are the documented nonbinding prompts",
+      "pass": true
+    },
+    {
+      "name": "radar notes avoid legal conclusions",
+      "pass": true
+    },
+    {
+      "name": "radar notes name an issuer",
+      "pass": true
+    }
+  ],
+  "historical_checks_excluded": []
+}

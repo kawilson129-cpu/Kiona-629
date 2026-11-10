@@ -1,0 +1,272 @@
+[
+  {
+    "path": "semester_5/DeRexi_Week 10/README.md",
+    "bytes": 2237,
+    "sha256": "4975d79897da049bb3ea726bc62370ddab691ba4c44d3a44c159cec6b850e872"
+  },
+  {
+    "path": "semester_5/DeRexi_Week 10/bug-log.md",
+    "bytes": 3748,
+    "sha256": "bcdea8210decf69a389c8d8449e6e46cbf23bac47abd654f52b1e2ca391d66f7"
+  },
+  {
+    "path": "semester_5/DeRexi_Week 10/evidence/attempts/browser-1794345062217.json",
+    "bytes": 10097,
+    "sha256": "0588ee38f4232c1c6551b3c3e9a8564749a9de92d64718191daf4de29d846848"
+  },
+  {
+    "path": "semester_5/DeRexi_Week 10/evidence/attempts/browser-1794345089448.json",
+    "bytes": 1202,
+    "sha256": "21761191d4393b7a6ff01ce152f1acce2ac03b292c4aba2350ebec5e58fbb402"
+  },
+  {
+    "path": "semester_5/DeRexi_Week 10/evidence/attempts/browser-1794345194980.json",
+    "bytes": 13903,
+    "sha256": "7b3a9861afc5122f9058637e0cd5fc0522306d36f576c0ac4934c7db25027461"
+  },
+  {
+    "path": "semester_5/DeRexi_Week 10/evidence/attempts/browser-1794345238746.json",
+    "bytes": 5148,
+    "sha256": "6bc7018965704af5ae7903e854e7d3b84a4a016890bded36fa889e992ccc4860"
+  },
+  {
+    "path": "semester_5/DeRexi_Week 10/evidence/attempts/browser-1794345346923.json",
+    "bytes": 6143,
+    "sha256": "309d6731db1a6cb7997afafcc990db5d8f726f9d9f5d3a93082c51aa11a88282"
+  },
+  {
+    "path": "semester_5/DeRexi_Week 10/evidence/attempts/mobile-predecessor-1794345344350.json",
+    "bytes": 5148,
+    "sha256": "6bc7018965704af5ae7903e854e7d3b84a4a016890bded36fa889e992ccc4860"
+  },
+  {
+    "path": "semester_5/DeRexi_Week 10/evidence/attempts/mobile-predecessor.json",
+    "bytes": 13903,
+    "sha256": "7b3a9861afc5122f9058637e0cd5fc0522306d36f576c0ac4934c7db25027461"
+  },
+  {
+    "path": "semester_5/DeRexi_Week 10/evidence/before-fix/integration-results.json",
+    "bytes": 5200,
+    "sha256": "e5cab7ffb29abb751f2d34707c59f73d95890850103d749f35ba6a8d3dc3d398"
+  },
+  {
+    "path": "semester_5/DeRexi_Week 10/evidence/before-fix/integration-run.txt",
+    "bytes": 6378,
+    "sha256": "c66643e19aeca7214464ad4ede1f0ce8f130101570dbb5ebf9daf24334a45a82"
+  },
+  {
+    "path": "semester_5/DeRexi_Week 10/evidence/before-fix/publisher-audit-results.json",
+    "bytes": 25113,
+    "sha256": "0be8fbfc2eb13a845bc27f2998b9d88da4413919d31679a8f99bdf41d1f5f717"
+  },
+  {
+    "path": "semester_5/DeRexi_Week 10/evidence/before-fix/publisher-audit-run.txt",
+    "bytes": 5289,
+    "sha256": "a15d1436f2caddcbe6aca780c9bed7f4aa0f50d92d600c088528efb82817748c"
+  },
+  {
+    "path": "semester_5/DeRexi_Week 10/evidence/browser-before-fix-results.json",
+    "bytes": 1507,
+    "sha256": "3fdce5e7f6bbbf94fb36911514750fb76e0743951b4167d37cb7e9c096dc510f"
+  },
+  {
+    "path": "semester_5/DeRexi_Week 10/evidence/browser-results.json",
+    "bytes": 6143,
+    "sha256": "309d6731db1a6cb7997afafcc990db5d8f726f9d9f5d3a93082c51aa11a88282"
+  },
+  {
+    "path": "semester_5/DeRexi_Week 10/evidence/browser-run.txt",
+    "bytes": 2098,
+    "sha256": "d08f57935a6c23da451f978c31248e47448303c503134dd1261e30b817a2f6a7"
+  },
+  {
+    "path": "semester_5/DeRexi_Week 10/evidence/documents-results.json",
+    "bytes": 3996,
+    "sha256": "93de34c9278763789c2cadce30278c6cb8acf27db9db36c3e0ab38e90d6a502f"
+  },
+  {
+    "path": "semester_5/DeRexi_Week 10/evidence/documents-run.txt",
+    "bytes": 11022,
+    "sha256": "7c09e38b5bf87d9c039adc32e7d6eb8db30a1a97aa60de4c0fbf7e5d3736ed3f"
+  },
+  {
+    "path": "semester_5/DeRexi_Week 10/evidence/fixture-server-run.txt",
+    "bytes": 11511,
+    "sha256": "c3364cbf537e927a06354051a3626d55256e8ec9084ed0e3020feb13a0835910"
+  },
+  {
+    "path": "semester_5/DeRexi_Week 10/evidence/governance-results.json",
+    "bytes": 8257,
+    "sha256": "217ba5cad81d147bf86e5dbe59780d23c35aec0834bbfee3c8c89ccd97c3d236"
+  },
+  {
+    "path": "semester_5/DeRexi_Week 10/evidence/governance-run.txt",
+    "bytes": 25530,
+    "sha256": "3f4a4c6aa33393559e7b062847134a315dd7aa9b04a5c5494de99ba9de174781"
+  },
+  {
+    "path": "semester_5/DeRexi_Week 10/evidence/inputs/Customer safeguards.docx",
+    "bytes": 549,
+    "sha256": "77d77d34730bac4ff6ff256e27ae89ad49c77160e40d42486acbc0c8144828f3"
+  },
+  {
+    "path": "semester_5/DeRexi_Week 10/evidence/integration-results.json",
+    "bytes": 5543,
+    "sha256": "df55149abc8817f6dc9273fed984ae4104efaa08ccae6521662050f17679d151"
+  },
+  {
+    "path": "semester_5/DeRexi_Week 10/evidence/integration-run.txt",
+    "bytes": 6597,
+    "sha256": "ac08fff639ea0817bc10c9b2eb1eac540ab6fd0455228c6efd06bbe99ef85b61"
+  },
+  {
+    "path": "semester_5/DeRexi_Week 10/evidence/publisher-audit-results.json",
+    "bytes": 25038,
+    "sha256": "96d23069935637dc3669ac2593f792890581f1aedb0447c854b18297b68bc818"
+  },
+  {
+    "path": "semester_5/DeRexi_Week 10/evidence/publisher-audit-run.txt",
+    "bytes": 5092,
+    "sha256": "e65ce2de7c341434124fe0758ee164a0aebb608c3553699c3a37826c3bf6630c"
+  },
+  {
+    "path": "semester_5/DeRexi_Week 10/evidence/pulse-results.json",
+    "bytes": 8450,
+    "sha256": "15270e2cd9329169f507b32ba7bdffec6b14ee845f09ed6d4161452f99673018"
+  },
+  {
+    "path": "semester_5/DeRexi_Week 10/evidence/pulse-run.txt",
+    "bytes": 4560,
+    "sha256": "f779c40d369ebed36ea4d389b134f3ee9ebf2f310588cc81dce42ac6ea780ca5"
+  },
+  {
+    "path": "semester_5/DeRexi_Week 10/evidence/screenshots/00-before-fix-feedback-fixture.png",
+    "bytes": 585455,
+    "sha256": "d87013913c8eb35a12312fa9f4a89129919bb42ee461c04039b2a9a3d0b097c3"
+  },
+  {
+    "path": "semester_5/DeRexi_Week 10/evidence/screenshots/01-desktop-signin-fixture.png",
+    "bytes": 686542,
+    "sha256": "e155886b870e9398820d112050e05e864a0e1862fcc72a0c82bfa960a5e11620"
+  },
+  {
+    "path": "semester_5/DeRexi_Week 10/evidence/screenshots/02-assistant-feedback-fixture.png",
+    "bytes": 588251,
+    "sha256": "8cdfc7ef4bf693d5f77864adc3d31dd11cb77a2f5b3cda5065bc3727e5734b14"
+  },
+  {
+    "path": "semester_5/DeRexi_Week 10/evidence/screenshots/03-feedback-error-fixture.png",
+    "bytes": 588331,
+    "sha256": "404eecb823fc476d67cb9fabff27066d63d514b7d145d40bc1878492e7df1731"
+  },
+  {
+    "path": "semester_5/DeRexi_Week 10/evidence/screenshots/04-employee-messaging-fixture.png",
+    "bytes": 741256,
+    "sha256": "a58db1d7e10eb53dc08ec776b860769df3b18131570bf81add26c0419c71e760"
+  },
+  {
+    "path": "semester_5/DeRexi_Week 10/evidence/screenshots/05-document-preview-fixture.png",
+    "bytes": 582688,
+    "sha256": "603149138944dedb501436d7191ab3f1222a27a747bd2c6b73b734dc5db23928"
+  },
+  {
+    "path": "semester_5/DeRexi_Week 10/evidence/screenshots/06-peer-review-fixture.png",
+    "bytes": 648805,
+    "sha256": "467a901c2b4c53297eef3d6ad127587a69200d91d4b9e1e8f20ec9da1b3bcfe3"
+  },
+  {
+    "path": "semester_5/DeRexi_Week 10/evidence/screenshots/07-admin-publication-fixture.png",
+    "bytes": 646773,
+    "sha256": "605b0f03a9e846e6931cdef6fcb1631a5bdee05c21710a93b55f544e21606ef7"
+  },
+  {
+    "path": "semester_5/DeRexi_Week 10/evidence/screenshots/08-admin-triage-fixture.png",
+    "bytes": 606582,
+    "sha256": "8eef2a734ceae39786c6ce886e91e529e856b88f72ac91d2b7e61088c8a57743"
+  },
+  {
+    "path": "semester_5/DeRexi_Week 10/evidence/screenshots/09-pulse-revision-fixture.png",
+    "bytes": 620177,
+    "sha256": "ede053bde0ee9774c688616f463c46a493fd33d102e935f90e58333cf98a39cb"
+  },
+  {
+    "path": "semester_5/DeRexi_Week 10/evidence/screenshots/10-workspace-outage-fixture.png",
+    "bytes": 757307,
+    "sha256": "213b9a39eb57ff5b1a021f8e9fce8d417ab7c45ef601df3b16ec1de6f9e5ca5b"
+  },
+  {
+    "path": "semester_5/DeRexi_Week 10/evidence/screenshots/11-mobile-library-fixture.png",
+    "bytes": 297196,
+    "sha256": "f33d655719f01bcd5ed6de65a3e4db1dc3b1f81cd76b086cebc9e28decab8a4d"
+  },
+  {
+    "path": "semester_5/DeRexi_Week 10/evidence/screenshots/12-mobile-governance-fixture.png",
+    "bytes": 307013,
+    "sha256": "6182116d3558d1a3026aa0c78f851d00eb439c0ec0e2e00f304618a1623c3bb7"
+  },
+  {
+    "path": "semester_5/DeRexi_Week 10/evidence/screenshots/13-mobile-assistant-fixture.png",
+    "bytes": 336829,
+    "sha256": "28fe6cc9927cd9bfa74bd853a5d1c4ab2802120f2d07f22b681072eceb7c40e0"
+  },
+  {
+    "path": "semester_5/DeRexi_Week 10/evidence/screenshots/14-mobile-messaging-fixture.png",
+    "bytes": 326035,
+    "sha256": "350be3fac822f6a033d2a0d0eb60be34596271850cdecb54f1189bd5aedde18f"
+  },
+  {
+    "path": "semester_5/DeRexi_Week 10/evidence/screenshots/15-mobile-signout-fixture.png",
+    "bytes": 271547,
+    "sha256": "7b2a9bad6918109e1df220b4fa52680fa8c0b7e7dc782c0b49d24e4589163151"
+  },
+  {
+    "path": "semester_5/DeRexi_Week 10/evidence/screenshots/attempt-final.png",
+    "bytes": 317871,
+    "sha256": "dbd571f09d3e8b1eed39bf6e3836edb35489c27018cb13baaf1c265c3afb8bb8"
+  },
+  {
+    "path": "semester_5/DeRexi_Week 10/evidence/screenshots/index.json",
+    "bytes": 1956,
+    "sha256": "ebced4d30f314cfbc2a73ffea3852013739e55d085902c307a5fe26548a3ff3b"
+  },
+  {
+    "path": "semester_5/DeRexi_Week 10/evidence/source-manifest.json",
+    "bytes": 1560,
+    "sha256": "1997cfda94510d02be37f0e0efd3183580b68ef5e35e858d169507e5ab65655d"
+  },
+  {
+    "path": "semester_5/DeRexi_Week 10/evidence/summary.json",
+    "bytes": 1264,
+    "sha256": "7287a60c9539ab0743b34085f45651580ad0e54baf62614cf2511078f1e33f6a"
+  },
+  {
+    "path": "semester_5/DeRexi_Week 10/evidence/verification.json",
+    "bytes": 697,
+    "sha256": "5382ba20d77afc2a0d00aa56c1ba9b8f410e2eee5f2d8e88c2039a398af5c2a0"
+  },
+  {
+    "path": "semester_5/DeRexi_Week 10/evidence/workspace-preservation.txt",
+    "bytes": 220,
+    "sha256": "21bee4fc477a938e063845b8737e7c8cdb27db6f3d5fbb18bdd57d9f2a0b7047"
+  },
+  {
+    "path": "semester_5/DeRexi_Week 10/final-mvp-checklist.md",
+    "bytes": 2426,
+    "sha256": "893acd64713b73410903c9f168fa1358a8bc45955b02f3dce18e62af1f255014"
+  },
+  {
+    "path": "semester_5/DeRexi_Week 10/test-inventory.md",
+    "bytes": 3254,
+    "sha256": "7ea3e747f036604ec5ccfadcbfdad063b0649b6531545d0c1777dfb9efcb036f"
+  },
+  {
+    "path": "semester_5/DeRexi_Week 10/test-report.md",
+    "bytes": 5833,
+    "sha256": "30571c19e17eaa40f573600a04221ae78720d600cb3513676b50cc7b54d3be67"
+  },
+  {
+    "path": "semester_5/DeRexi_Week 10/uat-records.md",
+    "bytes": 5842,
+    "sha256": "ff207bf9d00eadf300ed7a9b19b28598e58fe15ca9f434a1f2e4f008dbd96c86"
+  }
+]

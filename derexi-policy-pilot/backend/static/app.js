@@ -918,17 +918,37 @@
 
   function buildFeedback(r) {
     var box = h('div', { class: 'feedback' }, [h('span', { class: 'fb-label', text: 'Was this helpful?' })]);
+    var status = h('span', { class: 'fb-label', role: 'status' });
+    function paint() {
+      box.querySelectorAll('.fb-btn').forEach(function (button) {
+        var selected = typeof r.feedback_rating === 'boolean' && r.feedback_rating === (button.dataset.fb === 'up');
+        button.classList.toggle('is-on', selected);
+        button.setAttribute('aria-pressed', String(selected));
+      });
+    }
     function make(kind) {
       var b = h('button', { type: 'button', class: 'fb-btn', dataset: { fb: kind }, html: icon(kind === 'up' ? 'check' : 'close') + '<span>' + (kind === 'up' ? 'Yes' : 'No') + '</span>' });
       b.addEventListener('click', function () {
-        qaa('.fb-btn').forEach(function (x) { if (x !== b) x.classList.remove('is-on'); });
-        b.classList.add('is-on');
-        toast('Thanks — your feedback is on record.');
+        box.querySelectorAll('.fb-btn').forEach(function (button) { button.disabled = true; });
+        status.textContent = 'Saving feedback…';
+        api('/feedback', { method: 'POST', body: JSON.stringify({ message_id: r.derexi_message_id, rating: kind === 'up' }) })
+          .then(function (saved) {
+            r.feedback_rating = saved.rating;
+            paint();
+            status.textContent = 'Feedback saved.';
+            if (box.isConnected) toast('Thanks — your feedback is on record.');
+          }).catch(function () {
+            status.textContent = 'Feedback was not saved. Please try again.';
+          }).finally(function () {
+            box.querySelectorAll('.fb-btn').forEach(function (button) { button.disabled = false; });
+          });
       });
       return b;
     }
     box.appendChild(make('up'));
     box.appendChild(make('down'));
+    box.appendChild(status);
+    paint();
     return box;
   }
 
