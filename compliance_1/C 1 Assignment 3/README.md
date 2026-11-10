@@ -256,3 +256,25 @@ Register types and keeps press releases about rules classified as news.
 See [Phase 3 implementation and executed tests](phase-3-editorial-mosaic.md) and
 [Phase 3 screenshots](screenshots/phase3/README.md) for current behavior, evidence,
 known limitations, and reproduction instructions.
+
+---
+
+## Phase 4 — Lower feed bento grid (November 10, 2026)
+
+Phase 3's Intelligence Desk used a plain row grid, so every row stretched to its
+tallest card and left empty blocks under short cards. Phase 4 replaces only that
+lower feed with content-aware packing: each card keeps its natural height, is
+measured once, and is placed in whichever column currently ends highest, so
+columns fill from the top with no internal holes. Gutters stay 18px, the first
+desk card is the single intentional full-width opener at three columns, and the
+DOM, tab order, and screen-reader order are unchanged.
+
+Scope discipline is unchanged: masthead, lead, spotlights, On the Radar, facets,
+navigation, backend endpoints, cache, and database were not modified, and
+nothing was committed or pushed. The new runner
+`backend/tests/test_pulse_feed_layout.mjs` executes 40 checks (all passing);
+Pulse offline/live suites report 97 and 109 passes.
+
+See [Phase 4 implementation and executed tests](phase-4-lower-feed-bento.md) and
+[Phase 4 screenshots](screenshots/phase4/README.md) for the approach, rejected
+alternatives, evidence, and known limitations.

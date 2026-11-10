@@ -352,10 +352,11 @@
      Content-aware packing for the lower article feed only ("The Intelligence
      Desk"). A plain row grid makes every row as tall as its tallest card, which
      is what produced the large gaps under short cards. Instead each card is
-     measured once and given an explicit grid row span, so columns fill from the
-     top with no holes; `grid-auto-flow: dense` (in style.css) backfills the
-     space beside taller cards. Card text is never clipped: heights are measured
-     from the real rendered card, and no max-height or line clamp is applied.
+     measured once and given an explicit grid column and row span. Each card is
+     placed in whichever column finishes highest (shortest-column packing), so
+     columns fill from the top with no holes. Card text is never clipped: heights
+     are measured from the real rendered card, and no max-height or line clamp is
+     applied.
      The DOM is never reordered, so reading, tab and screen-reader order stay
      exactly as ranked by the feed.
   */
