@@ -10,7 +10,7 @@ import re
 from datetime import datetime, timezone
 
 # Set before importing database/main; .env cannot override these values.
-os.environ['DATABASE_URL'] = 'postgresql://offline:offline@127.0.0.1:1/offline'
+os.environ['DATABASE_URL'] = 'postgresql+psycopg2://offline:offline@127.0.0.1:1/offline'
 os.environ['OPENAI_API_KEY'] = ''
 os.environ['DEREXI_ENV'] = 'test'
 os.environ['DEREXI_DEV_AUTH'] = '1'

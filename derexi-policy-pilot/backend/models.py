@@ -286,3 +286,40 @@ class Feedback(Base):
 
     message: Mapped[Optional["Message"]] = relationship()
     user: Mapped[Optional["User"]] = relationship(foreign_keys=[user_id])
+
+# Week 8 working copies are deliberately separate from published policy_versions.
+class GovernanceDraft(Base):
+    __tablename__ = "governance_drafts"
+    id: Mapped[int] = mapped_column(BigInteger, primary_key=True)
+    policy_id: Mapped[Optional[int]] = mapped_column(ForeignKey("policies.id"))
+    base_version_id: Mapped[Optional[int]] = mapped_column(ForeignKey("policy_versions.id"))
+    department_id: Mapped[int] = mapped_column(ForeignKey("departments.id"), nullable=False)
+    author_id: Mapped[int] = mapped_column(ForeignKey("users.id"), nullable=False)
+    reviewer_id: Mapped[Optional[int]] = mapped_column(ForeignKey("users.id"))
+    title: Mapped[str] = mapped_column(Text, nullable=False)
+    summary: Mapped[Optional[str]] = mapped_column(Text)
+    body: Mapped[str] = mapped_column(Text, nullable=False)
+    version_no: Mapped[str] = mapped_column(Text, nullable=False)
+    category_id: Mapped[Optional[int]] = mapped_column(ForeignKey("policy_categories.id"))
+    effective_date: Mapped[Optional[date]] = mapped_column()
+    review_date: Mapped[Optional[date]] = mapped_column()
+    source_json: Mapped[Optional[str]] = mapped_column(Text)
+    status: Mapped[str] = mapped_column(Text, nullable=False, default="draft")
+    revision: Mapped[int] = mapped_column(Integer, nullable=False, default=1)
+    peer_approved_by: Mapped[Optional[int]] = mapped_column(ForeignKey("users.id"))
+    final_approved_by: Mapped[Optional[int]] = mapped_column(ForeignKey("users.id"))
+    published_version_id: Mapped[Optional[int]] = mapped_column(ForeignKey("policy_versions.id"))
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False, server_default=func.now())
+    updated_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False, server_default=func.now())
+    __mapper_args__ = {"version_id_col": revision}
+
+
+class GovernanceEvent(Base):
+    __tablename__ = "governance_events"
+    id: Mapped[int] = mapped_column(BigInteger, primary_key=True)
+    draft_id: Mapped[int] = mapped_column(ForeignKey("governance_drafts.id"), nullable=False)
+    actor_id: Mapped[int] = mapped_column(ForeignKey("users.id"), nullable=False)
+    action: Mapped[str] = mapped_column(Text, nullable=False)
+    comment: Mapped[Optional[str]] = mapped_column(Text)
+    snapshot_json: Mapped[str] = mapped_column(Text, nullable=False)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False, server_default=func.now())

@@ -14,3 +14,6 @@ env/
 
 # Local tooling / editor state
 .opencode/
+
+# Private original documents (optional local storage)
+derexi-policy-pilot/.private-documents/

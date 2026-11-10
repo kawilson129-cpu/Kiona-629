@@ -129,7 +129,9 @@
     var sessionVersion = state.sessionVersion;
     var cfg = { method: opts.method || 'GET', headers: {}, credentials: 'same-origin' };
     if (state.token) cfg.headers.Authorization = 'Bearer ' + state.token;
-    if (opts.body) { cfg.headers['Content-Type'] = 'application/json'; cfg.body = opts.body; }
+    if (opts.body) { cfg.headers['Content-Type'] = opts.contentType || 'application/json'; cfg.body = opts.body; }
+    if (opts.fileName) cfg.headers['X-File-Name'] = encodeURIComponent(opts.fileName);
+    if (opts.signal) cfg.signal = opts.signal;
     return fetch(path, cfg).then(function (r) {
       if (sessionVersion !== state.sessionVersion) throw new Error('Session changed');
       if (r.status === 401 && state.devAuth && state.personaId && !retried) {
@@ -143,7 +145,7 @@
           throw err;
         });
       }
-      return r.json();
+      return opts.responseType === 'blob' ? r.blob() : r.json();
     });
   }
 
@@ -235,7 +237,10 @@
           ]),
           h('span', { class: 'notify-time', text: timeAgo(item.at) })
         ]);
-        row.addEventListener('click', function () { openThreadFromNotice(item.thread_id); });
+        row.addEventListener('click', function () {
+          if (item.governance_draft_id) { closeNotify(); goTo('#governance/' + item.governance_draft_id); }
+          else openThreadFromNotice(item.thread_id);
+        });
         list.appendChild(row);
       });
     }
@@ -314,18 +319,19 @@
     qaa('.js-gov-link').forEach(function (a) {
       a.classList.toggle('is-hidden', !isGovernanceAllowed());
     });
-    if (!isGovernanceAllowed() && location.hash === '#governance') location.hash = '#assist';
+    if (!isGovernanceAllowed() && /^#(governance|dashboard)(\/|$)/.test(location.hash)) location.hash = '#assist';
   }
 
   function choosePersona(id, fromGate) {
     if (!state.devAuth) return;
     var previous = state.personaId;
     state.sessionVersion++;
+    if (window.GovernanceView) window.GovernanceView.clear();
     state.personaId = id;
     closeNotify();
     state.notifications = { unread_total: 0, items: [], triage_count: 0 };
     paintBadges(0);
-    qa('#app').replaceChildren(h('div', { class: 'msgs-empty', role: 'status', text: 'Starting the selected test session…' }));
+    qa('#app').replaceChildren(h('div', { class: 'msgs-empty', role: 'status', text: 'Opening your workspace…' }));
     try { localStorage.setItem('derexi.personaId', String(id)); } catch (e) {}
 
     // In development the server mints a short-lived token for the selected
@@ -371,10 +377,11 @@
   function currentView() {
     if (!state.personaId) return null;
     var hash = location.hash || '#assist';
-    if (hash === '#governance' && !isGovernanceAllowed()) return 'assist';
+    if (/^#(governance|dashboard)(\/|$)/.test(hash) && !isGovernanceAllowed()) return 'assist';
     if (hash === '#library') return 'library';
     if (hash.indexOf('#messages') === 0) return 'messages';
-    if (hash === '#governance') return 'governance';
+    if (hash.indexOf('#governance') === 0) return 'governance';
+    if (hash === '#dashboard') return 'dashboard';
     if (hash === '#pulse') return 'pulse';
     return 'assist';
   }
@@ -387,7 +394,8 @@
     // The inbox needs three columns; every other surface keeps the editorial measure.
     app.classList.toggle('is-wide', v === 'messages');
     var fn = v === 'library' ? renderLibrary
-      : v === 'governance' ? renderGovernance
+      : v === 'dashboard' ? renderDashboard
+      : v === 'governance' ? renderPolicyGovernance
       : v === 'messages' ? renderMessages
       : v === 'pulse' ? renderPulse
       : renderAssist;
@@ -1763,11 +1771,11 @@
   }
 
   /* ---------------------------------------------------------------- governance */
-  function renderGovernance(app) {
+  function renderDashboard(app) {
     var view = h('div', { class: 'view' });
 
     var head = h('div', { class: 'view-head' });
-    head.appendChild(h('p', { class: 'view-kicker', text: 'Governance Board' }));
+    head.appendChild(h('p', { class: 'view-kicker', text: 'Policy Health Dashboard' }));
     head.appendChild(h('h1', { class: 'view-title', html: 'Health of the <em>house</em>' }));
     head.appendChild(h('p', { class: 'view-sub', text: 'A glance at how policies, clarifications, and incidents are holding up across Aurum Capital Bank.' }));
 
@@ -2026,9 +2034,20 @@
   // Pulse is its own view module (pulse.js) so this file stays focused on the
   // policy, message, and governance surfaces; the router only supplies the
   // mount point. Pulse is readable by every role, so no gating happens here.
+  function renderPolicyGovernance(app) {
+    if (!isGovernanceAllowed()) return;
+    var session = state.sessionVersion;
+    var mount = document.createElement('div'); app.appendChild(mount);
+    window.GovernanceView.render(mount, { api: api, me: state.me, users: state.users,
+      active: function () { return session === state.sessionVersion && mount.isConnected; },
+      refreshNotifications: loadNotifications });
+  }
+
   function renderPulse(app) {
     if (window.PulseView && typeof window.PulseView.render === 'function') {
-      window.PulseView.render(app);
+      window.PulseView.render(app, { canGovern: isGovernanceAllowed(), fromPulse: function (article) {
+        if (isGovernanceAllowed()) window.GovernanceView.fromPulse(article);
+      } });
       return;
     }
     app.appendChild(h('div', { class: 'view' }, [
@@ -2063,7 +2082,7 @@
         state.devAuth = !!cfg.dev_auth;
         state.devUsers = cfg.identities || [];
         var recon = qa('.js-recon-mode');
-        if (recon) recon.textContent = state.devAuth ? 'Local demonstration · verified test sessions' : 'Live register';
+        if (recon) recon.textContent = state.devAuth ? 'Authorized workspace' : 'Live register';
         if (!state.devAuth) { renderProductionGate(); return; }
         restorePersona();
         return refreshDevToken()
@@ -2089,7 +2108,7 @@
     app.appendChild(h('div', { class: 'view' }, [
       h('div', { class: 'empty card' }, [
         h('div', { class: 'mark', text: 'Sign-in required' }),
-        h('div', { class: 'ok', text: 'This deployment verifies Supabase sessions. Sign in through the identity provider to open the register.' })
+        h('div', { class: 'ok', text: 'Please sign in to access your policy workspace.' })
       ])
     ]));
   }

@@ -1,0 +1,42 @@
+[
+  {
+    "suite": "test_week7_messaging",
+    "exit_code": 0,
+    "tail": [
+      "PASS  staff emails are admin-only",
+      "PASS  notification payload has no bearer token",
+      "",
+      "73 passed, 0 failed, 73 checks"
+    ]
+  },
+  {
+    "suite": "test_week7_edges",
+    "exit_code": 0,
+    "tail": [
+      "PASS  production refuses local identity issuance",
+      "PASS  production config exposes no test identities",
+      "PASS  unrecognized deployment environments cannot enable dev auth",
+      "29 passed, 0 failed, 29 checks"
+    ]
+  },
+  {
+    "suite": "test_week7_auth",
+    "exit_code": 0,
+    "tail": [
+      "PASS  test_wrong_audience_rejected",
+      "PASS  test_wrong_issuer_rejected",
+      "",
+      "24 passed, 0 failed"
+    ]
+  },
+  {
+    "suite": "test_pulse",
+    "exit_code": 0,
+    "tail": [
+      "  PASS  radar notes name an issuer",
+      "",
+      "======================================================================",
+      "RESULT: 97 passed, 0 failed"
+    ]
+  }
+]

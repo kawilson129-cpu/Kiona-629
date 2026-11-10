@@ -21,6 +21,7 @@ triage queue. That is deliberate: guessing an owner is worse than a queue.
 
 from __future__ import annotations
 
+import re
 from datetime import datetime, timezone
 from typing import Optional
 
@@ -555,6 +556,8 @@ def list_notifications(
         items.append(
             {
                 "thread_id": row["id"],
+                "governance_draft_id": (int(re.match(r"\[Governance #(\d+)\]", row["reason"] or "").group(1))
+                    if identity.is_governance and re.match(r"\[Governance #(\d+)\]", row["reason"] or "") else None),
                 "kind": kind,
                 "subject": row["policy_title"] or "Policy clarification",
                 "actor": actor,

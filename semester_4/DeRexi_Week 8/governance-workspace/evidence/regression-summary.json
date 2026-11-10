@@ -1,0 +1,62 @@
+[
+  {
+    "suite": "test_document_intake",
+    "exit_code": 0,
+    "tail": [
+      "  if active:w.add_js('app.alert(\"active\")')",
+      "Governance availability probe failed (ProgrammingError)",
+      "Governance schema dependency missing: SQLSTATE 42P01",
+      "Governance schema dependency missing: SQLSTATE 42P01"
+    ]
+  },
+  {
+    "suite": "test_week8_governance",
+    "exit_code": 0,
+    "tail": [
+      "PASS final_approve by 1 -> 200",
+      "PASS Injected transaction failure returned failure",
+      "PASS Publication rollback preserves policy and workflow",
+      "102 passed, 0 failed"
+    ]
+  },
+  {
+    "suite": "test_week7_messaging",
+    "exit_code": 0,
+    "tail": [
+      "PASS  staff emails are admin-only",
+      "PASS  notification payload has no bearer token",
+      "",
+      "73 passed, 0 failed, 73 checks"
+    ]
+  },
+  {
+    "suite": "test_week7_edges",
+    "exit_code": 0,
+    "tail": [
+      "PASS  production refuses local identity issuance",
+      "PASS  production config exposes no test identities",
+      "PASS  unrecognized deployment environments cannot enable dev auth",
+      "29 passed, 0 failed, 29 checks"
+    ]
+  },
+  {
+    "suite": "test_week7_auth",
+    "exit_code": 0,
+    "tail": [
+      "PASS  test_wrong_audience_rejected",
+      "PASS  test_wrong_issuer_rejected",
+      "",
+      "24 passed, 0 failed"
+    ]
+  },
+  {
+    "suite": "test_pulse",
+    "exit_code": 0,
+    "tail": [
+      "  PASS  radar notes name an issuer",
+      "",
+      "======================================================================",
+      "RESULT: 97 passed, 0 failed"
+    ]
+  }
+]

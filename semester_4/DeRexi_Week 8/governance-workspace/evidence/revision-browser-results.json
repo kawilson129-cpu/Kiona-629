@@ -1,0 +1,21 @@
+{
+  "checks": [
+    {
+      "name": "Selecting an existing policy preserves uploaded replacement content",
+      "pass": true
+    },
+    {
+      "name": "Imported revision persists as a reviewed working copy",
+      "pass": true
+    },
+    {
+      "name": "Revision comparison shows published guidance and uploaded replacement",
+      "pass": true
+    },
+    {
+      "name": "Revision browser has no runtime exceptions",
+      "pass": true
+    }
+  ],
+  "errors": []
+}

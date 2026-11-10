@@ -30,6 +30,7 @@ import dev_auth
 import schemas
 from database import get_db
 from messaging import router as messaging_router
+from governance import router as governance_router
 from models import (
     ClarificationRequest,
     Conversation,
@@ -67,6 +68,7 @@ app.include_router(pulse_router)
 
 # Week 7 messaging: every route in this router authenticates the bearer token.
 app.include_router(messaging_router)
+app.include_router(governance_router)
 
 # /auth/config is always available; the persona-token endpoints exist only when
 # development auth is explicitly enabled outside production.
@@ -281,6 +283,7 @@ def me(identity: Identity = Depends(get_identity), db: Session = Depends(get_db)
         "full_name": identity.full_name,
         "email": identity.email,
         "role": identity.role,
+        "department_id": identity.department_id,
         "department": user.department.name if user and user.department else None,
         "token_source": identity.token_source,
     }
@@ -315,7 +318,7 @@ def list_policies(
     category_id: Optional[int] = Query(default=None),
     db: Session = Depends(get_db),
 ) -> list:
-    query = db.query(Policy)
+    query = db.query(Policy).filter(Policy.status == "approved")
     if status:
         query = query.filter(Policy.status == status)
     if category_id:
@@ -346,8 +349,8 @@ def search_policies(
 @app.get("/policies/{policy_id}")
 def get_policy(policy_id: int, db: Session = Depends(get_db)) -> dict:
     policy = db.get(Policy, policy_id)
-    if not policy:
-        raise HTTPException(status_code=404, detail="Policy not found")
+    if not policy or policy.status != "approved":
+        raise HTTPException(status_code=404, detail="Published policy not found")
     result = policy_to_dict(policy, db)
     result["versions"] = [
         {
@@ -366,68 +369,14 @@ def get_policy(policy_id: int, db: Session = Depends(get_db)) -> dict:
 
 
 @app.post("/policies", status_code=201)
-def create_policy(payload: schemas.PolicyCreate, db: Session = Depends(get_db)) -> dict:
-    if db.query(Policy).filter(Policy.title == payload.title).first():
-        raise HTTPException(status_code=409, detail="A policy with that title already exists")
-    policy = Policy(
-        title=payload.title,
-        summary=payload.summary,
-        category_id=payload.category_id,
-        owner_id=payload.owner_id,
-        status=payload.status,
-    )
-    db.add(policy)
-    db.flush()
-
-    v = payload.version
-    version = PolicyVersion(
-        policy_id=policy.id,
-        version_no=v.version_no,
-        title=v.title or policy.title,
-        body=v.body,
-        effective_date=v.effective_date,
-        review_date=v.review_date,
-        requires_review=v.requires_review,
-        created_by=v.created_by,
-    )
-    db.add(version)
-    db.commit()
-    return policy_to_dict(policy, db)
+def create_policy(payload: schemas.PolicyCreate, identity: Identity = Depends(require_governance)) -> dict:
+    raise HTTPException(status_code=409, detail="Use /governance/drafts; independent review and publication are required")
 
 
 @app.post("/policies/{policy_id}/versions", status_code=201)
-def add_policy_version(
-    policy_id: int, payload: schemas.PolicyVersionAdd, db: Session = Depends(get_db)
-) -> dict:
-    policy = db.get(Policy, policy_id)
-    if not policy:
-        raise HTTPException(status_code=404, detail="Policy not found")
-    exists = (
-        db.query(PolicyVersion)
-        .filter(PolicyVersion.policy_id == policy_id, PolicyVersion.version_no == payload.version_no)
-        .first()
-    )
-    if exists:
-        raise HTTPException(status_code=409, detail="That version number already exists for this policy")
-
-    version = PolicyVersion(
-        policy_id=policy_id,
-        version_no=payload.version_no,
-        title=payload.title or policy.title,
-        body=payload.body,
-        effective_date=payload.effective_date,
-        review_date=payload.review_date,
-        requires_review=payload.requires_review,
-        created_by=payload.created_by,
-    )
-    db.add(version)
-    policy.updated_at = datetime.now(timezone.utc)
-    db.commit()
-    return {
-        "policy_id": policy_id,
-        "version_no": version.version_no,
-        "created_at": version.created_at.isoformat() if version.created_at else None,
-    }
+def add_policy_version(policy_id: int, payload: schemas.PolicyVersionAdd,
+                       identity: Identity = Depends(require_governance)) -> dict:
+    raise HTTPException(status_code=409, detail="Use /governance/drafts with policy_id; direct version publication is disabled")
 
 
 # ---------------------------------------------------------------------------

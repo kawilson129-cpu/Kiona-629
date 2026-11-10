@@ -1,0 +1,103 @@
+PASS Employee denied /governance/drafts
+PASS Anonymous denied /governance/drafts
+PASS Employee denied /governance/owners
+PASS Anonymous denied /governance/owners
+PASS Employee denied /dashboard/policy-health
+PASS Anonymous denied /dashboard/policy-health
+PASS Employee draft creation denied
+PASS Author department spoof denied
+PASS Unknown department rejected
+PASS Status injection rejected
+PASS Legacy policy publication closed 8
+PASS Legacy version publication closed 8
+PASS Legacy policy publication closed 4
+PASS Legacy version publication closed 4
+PASS Legacy policy publication closed 1
+PASS Legacy version publication closed 1
+PASS Unpublished new policy absent from Library
+PASS Employee detail denied
+PASS Other department detail denied
+PASS Other department list excludes draft
+PASS publish by 1 -> 409
+PASS final_approve by 1 -> 409
+PASS submit by 4 -> 403
+PASS submit by 4 -> 403
+PASS submit by 4 -> 403
+PASS submit by 4 -> 403
+PASS submit by 4 -> 200
+PASS Peer notification routes to governance
+PASS Unrelated employee receives no governance notice
+PASS peer_approve by 4 -> 403
+PASS peer_approve by 12 -> 403
+PASS peer_changes by 9 -> 422
+PASS peer_changes by 9 -> 200
+PASS Revision request author notified
+PASS Peer cannot edit author draft
+PASS submit by 4 -> 200
+PASS peer_approve by 9 -> 200
+PASS Final queue notifies both independent admins
+PASS final_approve by 9 -> 403
+PASS final_approve by 4 -> 403
+PASS final_changes by 1 -> 422
+PASS final_reject by 1 -> 200
+PASS submit by 4 -> 200
+PASS peer_reject by 9 -> 200
+PASS submit by 4 -> 200
+PASS peer_approve by 9 -> 200
+PASS final_approve by 1 -> 200
+PASS Independent approvals retained
+PASS Approved content author edit accepted
+PASS Editing invalidates both approvals
+PASS publish by 1 -> 409
+PASS final_approve by 1 -> 409
+PASS submit by 4 -> 200
+PASS peer_approve by 9 -> 200
+PASS final_approve by 1 -> 200
+PASS publish by 1 -> 409
+PASS publish by 1 -> 200
+PASS New published policy visible
+PASS Publication decision notifies author
+PASS Published working copy immutable
+PASS Audit retains decisions, content snapshots, actors and time
+PASS Revision stores published baseline
+PASS Pulse provenance retained exactly
+PASS submit by 4 -> 200
+PASS peer_approve by 9 -> 200
+PASS final_approve by 1 -> 200
+PASS publish by 1 -> 409
+PASS publish by 9 -> 403
+PASS Future approved revision leaves published version available
+PASS Revision draft absent from employee policy versions
+PASS submit by 4 -> 200
+PASS peer_approve by 9 -> 200
+PASS final_approve by 1 -> 200
+PASS submit by 4 -> 200
+PASS peer_approve by 9 -> 200
+PASS final_approve by 1 -> 200
+PASS publish by 1 -> 200
+PASS Replacement published with complete old version history
+PASS publish by 1 -> 409
+PASS Unsafe Pulse URL rejected
+PASS Pulse API preserved
+PASS Policy Assistant regression
+PASS Library search regression (offline ranking adapter)
+PASS Dashboard health retained
+PASS Policy Owners directory excludes employee/admin roles
+PASS Administrator can author in chosen department
+PASS submit by 1 -> 200
+PASS peer_approve by 9 -> 200
+PASS final_approve by 1 -> 403
+PASS final_changes by 2 -> 200
+PASS submit by 1 -> 200
+PASS peer_approve by 9 -> 403
+PASS peer_approve by 9 -> 200
+PASS final_approve by 2 -> 200
+PASS publish by 1 -> 403
+PASS publish by 2 -> 200
+PASS Administrator author publication assigns department Policy Owner
+PASS submit by 4 -> 200
+PASS peer_approve by 9 -> 200
+PASS final_approve by 1 -> 200
+PASS Injected transaction failure returned failure
+PASS Publication rollback preserves policy and workflow
+102 passed, 0 failed

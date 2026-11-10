@@ -1,0 +1,30 @@
+PASS  former owner remains an authorized historical reader
+PASS  former owner has read-only permissions
+PASS  reply endpoint enforces its advertised permissions
+PASS  reassignment notifies a previous assignee who already read it
+PASS  notification preview stays limited to 20 items
+PASS  unread total includes more than 100 unread threads
+PASS  list and notification totals agree
+PASS  unrelated employee list omits all private threads
+PASS  unrelated owner notifications contain no private previews
+PASS  unrelated employee cannot read
+PASS  unrelated employee cannot resolve
+PASS  unrelated employee cannot close
+PASS  unrelated employee cannot reopen
+PASS  owner cannot reopen a resolved employee request
+PASS  admin can reopen with organization oversight
+PASS  anonymous notification request is denied
+PASS  invalid signature rejected
+PASS  remote clients cannot retrieve the dev identity roster
+PASS  remote clients cannot reuse a local development token
+PASS  foreign-origin dev token request rejected
+PASS  forwarded development token rejected
+PASS  token role labels cannot elevate a database Employee
+PASS  database role demotion applies to an already-issued token
+PASS  reply notification names the actual sender
+PASS  participant metadata preserves the administrator role
+PASS  production rejects development tokens
+PASS  production refuses local identity issuance
+PASS  production config exposes no test identities
+PASS  unrecognized deployment environments cannot enable dev auth
+29 passed, 0 failed, 29 checks

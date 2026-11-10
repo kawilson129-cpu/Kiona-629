@@ -9,6 +9,14 @@
 (function () {
   'use strict';
 
+  var governanceContext = {};
+  function startDraft(article) {
+    if (!governanceContext.canGovern) return null;
+    var b = el('button', { type: 'button', class: 'btn btn-ghost gov-pulse-start', text: 'Propose policy action' });
+    b.addEventListener('click', function () { if (governanceContext.canGovern) governanceContext.fromPulse(article); });
+    return b;
+  }
+
   var ALL = 'All Updates';
   var FILTERS = [
     ALL,
@@ -266,6 +274,7 @@
     cta.appendChild(statusStamp(article.status));
     main.appendChild(cta);
     main.appendChild(classification(article));
+    var draftButton = startDraft(article); if (draftButton) main.appendChild(draftButton);
     lead.appendChild(main);
 
     // A factual docket, not an inference: only fields the source supplied.
@@ -332,6 +341,7 @@
       }));
     }
     body.appendChild(foot);
+    var draftButton = startDraft(article); if (draftButton) body.appendChild(draftButton);
 
     card.appendChild(body);
     return card;
@@ -369,7 +379,8 @@
   }
 
   /* ---------------------------------------------------------------- view */
-  function render(app) {
+  function render(app, context) {
+    governanceContext = context || {};
     var view = el('div', { class: 'view' });
     var headParts = masthead(null);
     var body = el('div', { class: 'pulse-body' });

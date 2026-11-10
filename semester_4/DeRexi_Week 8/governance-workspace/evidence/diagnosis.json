@@ -1,0 +1,31 @@
+{
+  "http": [
+    {
+      "path": "/auth/config",
+      "status": 200,
+      "dev_auth": true
+    },
+    {
+      "path": "/me",
+      "status": 200,
+      "role": "Policy Owner"
+    },
+    {
+      "path": "/governance/owners",
+      "status": 200
+    },
+    {
+      "path": "/governance/drafts",
+      "status": 503,
+      "detail": "Week 8 database migration is pending administrator approval"
+    }
+  ],
+  "schema": {
+    "governance_drafts": false,
+    "governance_events": false,
+    "clarification_requests": true,
+    "users": true,
+    "policy_versions": true
+  },
+  "mode": "GETs plus local token issuance; SELECT-only database transaction"
+}

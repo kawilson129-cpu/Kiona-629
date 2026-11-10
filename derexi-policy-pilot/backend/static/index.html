@@ -38,6 +38,7 @@
         <a href="#assist" data-view="assist" class="nav-link is-current">Policy Assistant</a>
         <a href="#library" data-view="library" class="nav-link">Policy Library</a>
         <a href="#messages" data-view="messages" class="nav-link">Messages<span class="nav-badge is-hidden js-msg-badge" aria-label="Unread messages">0</span></a>
+        <a href="#dashboard" data-view="dashboard" class="nav-link js-gov-link is-hidden">Dashboard</a>
         <a href="#governance" data-view="governance" class="nav-link js-gov-link is-hidden">Governance</a>
         <a href="#pulse" data-view="pulse" class="nav-link">Pulse</a>
       </nav>
@@ -56,7 +57,7 @@
             <option>Sign-in required</option>
           </select>
         </div>
-        <button type="button" class="btn btn-ghost btn-recon is-hidden" title="Return to local demonstration roster" aria-label="Choose a different test identity">
+        <button type="button" class="btn btn-ghost btn-recon is-hidden" title="Choose an authorized identity" aria-label="Choose a different identity">
           Change
         </button>
       </div>
@@ -88,6 +89,7 @@
   <!-- Toasts ---------------------------------------------------------------->
   <div class="toast-region js-toasts" aria-live="polite" aria-atomic="false"></div>
 
+  <script src="governance.js"></script>
   <script src="app.js"></script>
   <script src="pulse.js"></script>
 </body>

@@ -1,0 +1,85 @@
+{
+  "checks": [
+    {
+      "name": "Owner sees Dashboard and Governance",
+      "pass": true
+    },
+    {
+      "name": "Owner has no final approval queue",
+      "pass": true
+    },
+    {
+      "name": "Author submits using same-department reviewer",
+      "pass": true
+    },
+    {
+      "name": "Missing rejection/revision comment gets focused",
+      "pass": true
+    },
+    {
+      "name": "Administrator sees final approval queue",
+      "pass": true
+    },
+    {
+      "name": "Administrator publishes reviewed policy through UI",
+      "pass": true
+    },
+    {
+      "name": "Approval history and comparison present",
+      "pass": true
+    },
+    {
+      "name": "Pulse transfers article context without auto-saving",
+      "pass": true
+    },
+    {
+      "name": "Revision comparison retains published base",
+      "pass": true
+    },
+    {
+      "name": "Governance no horizontal overflow at 1280",
+      "pass": true
+    },
+    {
+      "name": "Governance no horizontal overflow at 1024",
+      "pass": true
+    },
+    {
+      "name": "Governance no horizontal overflow at 820",
+      "pass": true
+    },
+    {
+      "name": "Governance no horizontal overflow at 390",
+      "pass": true
+    },
+    {
+      "name": "Employee direct governance URL renders no workspace",
+      "pass": true
+    },
+    {
+      "name": "Employee direct Dashboard URL renders no health data",
+      "pass": true
+    },
+    {
+      "name": "Employee Pulse has no governance action",
+      "pass": true
+    },
+    {
+      "name": "Employee Library retains published policy",
+      "pass": true
+    },
+    {
+      "name": "Existing Policy Health Dashboard preserved",
+      "pass": true
+    },
+    {
+      "name": "Week 7 bell deep-links into governance review",
+      "pass": true
+    },
+    {
+      "name": "No browser runtime exceptions",
+      "pass": true
+    }
+  ],
+  "errors": []
+}

@@ -1,0 +1,53 @@
+PASS Availability probes both schema and parser
+PASS Three real templates provided
+PASS Employee preview denied
+PASS Anonymous preview denied
+PASS Employee capability probe denied
+PASS Oversized body rejected
+PASS Wrong extension rejected
+PASS Mismatched signature rejected
+PASS Mismatched MIME rejected
+PASS Corrupt ZIP rejected
+PASS Macro content rejected
+PASS Embedded object rejected
+PASS Archive traversal rejected
+PASS ZIP bomb rejected
+PASS XML entities rejected
+PASS Valid preview DOCX
+PASS Extracted words preserved in policy format
+PASS Preview does not save draft
+PASS Explicit confirmation required
+PASS Another owner cannot consume preview
+PASS Confirmed document persists through lifecycle create
+PASS Uploaded document remains draft
+PASS Preview cannot be replayed
+PASS Original provenance stored in immutable creation event
+PASS No original download claimed without storage
+PASS Direct publication remains denied
+PASS Valid preview safe.pdf
+PASS Real PDF text extracted
+PASS Encrypted PDF rejected
+PASS PDF active content rejected
+PASS Image-only/blank PDF rejected
+PASS Valid preview DOCX
+PASS Private original and draft saved
+PASS Authorized original download exact bytes
+PASS Original download not cacheable
+PASS Employee original download denied
+PASS No public static original path
+PASS Valid preview DOCX
+PASS Failed persistence never reports saved
+PASS Failed transaction cleans private staged original
+PASS Public storage directory forbidden
+PASS Misconfigured storage disables upload honestly
+PASS Missing schema disables saving but permits parsing
+PASS Queue fails honestly with enterprise copy
+PASS Valid preview DOCX
+PASS Save cannot succeed without tables
+PASS Existing Dashboard preserved
+47 passed, 0 failed
+C:\Users\kawil\Documents\Kiona-629\derexi-policy-pilot\backend\tests\test_document_intake.py:31: DeprecationWarning: add_js is deprecated and will be removed in pypdf 7.0.0. Use add_open_action instead.
+  if active:w.add_js('app.alert("active")')
+Governance availability probe failed (ProgrammingError)
+Governance schema dependency missing: SQLSTATE 42P01
+Governance schema dependency missing: SQLSTATE 42P01

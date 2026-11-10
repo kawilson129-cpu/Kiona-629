@@ -1,0 +1,147 @@
+{
+  "checks": [
+    {
+      "name": "Actual browser request confirms missing-table queue failure",
+      "pass": true
+    },
+    {
+      "name": "Actual identity remains authenticated",
+      "pass": true
+    },
+    {
+      "name": "Actual landing renders independently of missing queues",
+      "pass": true
+    },
+    {
+      "name": "No internal setup terminology in actual page",
+      "pass": true
+    },
+    {
+      "name": "Owner sections include audit and exclude final approval",
+      "pass": true
+    },
+    {
+      "name": "Empty queues have honest empty states",
+      "pass": true
+    },
+    {
+      "name": "Browse upload performs real DOCX extraction",
+      "pass": true
+    },
+    {
+      "name": "Preview states document not yet saved",
+      "pass": true
+    },
+    {
+      "name": "Live policy preview follows metadata edits",
+      "pass": true
+    },
+    {
+      "name": "Author confirmation required before draft save",
+      "pass": true
+    },
+    {
+      "name": "Confirmed upload saves an actual policy draft",
+      "pass": true
+    },
+    {
+      "name": "Configured private original is accessible through protected control",
+      "pass": true
+    },
+    {
+      "name": "Administrator receives role-specific final approval section",
+      "pass": true
+    },
+    {
+      "name": "Document follows unchanged independent approval and publication workflow",
+      "pass": true
+    },
+    {
+      "name": "Template opens actual editable policy content",
+      "pass": true
+    },
+    {
+      "name": "Template saves through authenticated draft persistence",
+      "pass": true
+    },
+    {
+      "name": "Each unavailable queue replaces loading with retry state",
+      "pass": true
+    },
+    {
+      "name": "Unavailable counts never fabricate zeroes",
+      "pass": true
+    },
+    {
+      "name": "Real PDF preview remains available during persistence outage",
+      "pass": true
+    },
+    {
+      "name": "Unavailable database disables save honestly",
+      "pass": true
+    },
+    {
+      "name": "No developer language in document failure state",
+      "pass": true
+    },
+    {
+      "name": "Workspace recovers without losing document text",
+      "pass": true
+    },
+    {
+      "name": "Dropped malformed documents show actionable validation",
+      "pass": true
+    },
+    {
+      "name": "Landing has no horizontal overflow at 1280",
+      "pass": true
+    },
+    {
+      "name": "Landing has no horizontal overflow at 820",
+      "pass": true
+    },
+    {
+      "name": "Landing has no horizontal overflow at 390",
+      "pass": true
+    },
+    {
+      "name": "Mobile editor has no horizontal overflow",
+      "pass": true
+    },
+    {
+      "name": "Employee direct URL cannot render Governance",
+      "pass": true
+    },
+    {
+      "name": "Existing Dashboard renders unchanged",
+      "pass": true
+    },
+    {
+      "name": "No browser runtime exceptions",
+      "pass": true
+    }
+  ],
+  "errors": [],
+  "actual_local_network": [
+    {
+      "path": "/auth/config",
+      "status": 200
+    },
+    {
+      "path": "/me",
+      "status": 200
+    },
+    {
+      "path": "/governance/owners",
+      "status": 200
+    },
+    {
+      "path": "/governance/drafts",
+      "status": 503
+    },
+    {
+      "path": "/governance/availability",
+      "status": 200
+    }
+  ]
+}

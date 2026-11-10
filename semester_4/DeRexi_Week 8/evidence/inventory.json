@@ -1,0 +1,302 @@
+{
+  "mode": "explicit read-only transaction",
+  "departments": [
+    {
+      "id": 1,
+      "name": "Compliance",
+      "owner_count": 1,
+      "missing": 1
+    },
+    {
+      "id": 2,
+      "name": "Information Technology",
+      "owner_count": 1,
+      "missing": 1
+    },
+    {
+      "id": 3,
+      "name": "Operations",
+      "owner_count": 1,
+      "missing": 1
+    },
+    {
+      "id": 4,
+      "name": "Human Resources",
+      "owner_count": 1,
+      "missing": 1
+    },
+    {
+      "id": 5,
+      "name": "Marketing",
+      "owner_count": 0,
+      "missing": 2
+    },
+    {
+      "id": 6,
+      "name": "Lending",
+      "owner_count": 1,
+      "missing": 1
+    },
+    {
+      "id": 7,
+      "name": "Wealth Management",
+      "owner_count": 1,
+      "missing": 1
+    }
+  ],
+  "blocked": [],
+  "roles": [
+    {
+      "id": 1,
+      "name": "Employee"
+    },
+    {
+      "id": 2,
+      "name": "Policy Owner"
+    },
+    {
+      "id": 3,
+      "name": "System Administrator"
+    }
+  ],
+  "ownership": [
+    {
+      "id": 1,
+      "first_name": "Dana",
+      "last_name": "Brooks",
+      "department_id": 1,
+      "role": "System Administrator",
+      "policies": 3
+    },
+    {
+      "id": 2,
+      "first_name": "Lucy",
+      "last_name": "Chen",
+      "department_id": 2,
+      "role": "System Administrator",
+      "policies": 8
+    },
+    {
+      "id": 3,
+      "first_name": "Tom",
+      "last_name": "Bennett",
+      "department_id": 3,
+      "role": "Employee",
+      "policies": 0
+    },
+    {
+      "id": 4,
+      "first_name": "Maya",
+      "last_name": "Patel",
+      "department_id": 1,
+      "role": "Policy Owner",
+      "policies": 7
+    },
+    {
+      "id": 5,
+      "first_name": "Elena",
+      "last_name": "Rodriguez",
+      "department_id": 4,
+      "role": "Employee",
+      "policies": 0
+    },
+    {
+      "id": 6,
+      "first_name": "Alex",
+      "last_name": "Chen",
+      "department_id": 2,
+      "role": "Employee",
+      "policies": 1
+    },
+    {
+      "id": 7,
+      "first_name": "Chris",
+      "last_name": "Tanaka",
+      "department_id": 2,
+      "role": "Policy Owner",
+      "policies": 5
+    },
+    {
+      "id": 8,
+      "first_name": "Sam",
+      "last_name": "Okonkwo",
+      "department_id": 6,
+      "role": "Employee",
+      "policies": 0
+    },
+    {
+      "id": 9,
+      "first_name": "Jordan",
+      "last_name": "Rivera",
+      "department_id": 4,
+      "role": "Policy Owner",
+      "policies": 17
+    },
+    {
+      "id": 10,
+      "first_name": "Gabrielle",
+      "last_name": "Fontaine",
+      "department_id": 7,
+      "role": "Policy Owner",
+      "policies": 1
+    },
+    {
+      "id": 11,
+      "first_name": "Marcus",
+      "last_name": "Webb",
+      "department_id": 6,
+      "role": "Policy Owner",
+      "policies": 5
+    },
+    {
+      "id": 12,
+      "first_name": "Rachel",
+      "last_name": "Sampson",
+      "department_id": 3,
+      "role": "Policy Owner",
+      "policies": 2
+    }
+  ],
+  "columns": [
+    {
+      "table_name": "departments",
+      "column_name": "id",
+      "data_type": "bigint"
+    },
+    {
+      "table_name": "departments",
+      "column_name": "name",
+      "data_type": "text"
+    },
+    {
+      "table_name": "departments",
+      "column_name": "created_at",
+      "data_type": "timestamp with time zone"
+    },
+    {
+      "table_name": "policies",
+      "column_name": "id",
+      "data_type": "bigint"
+    },
+    {
+      "table_name": "policies",
+      "column_name": "title",
+      "data_type": "text"
+    },
+    {
+      "table_name": "policies",
+      "column_name": "summary",
+      "data_type": "text"
+    },
+    {
+      "table_name": "policies",
+      "column_name": "category_id",
+      "data_type": "bigint"
+    },
+    {
+      "table_name": "policies",
+      "column_name": "owner_id",
+      "data_type": "bigint"
+    },
+    {
+      "table_name": "policies",
+      "column_name": "status",
+      "data_type": "text"
+    },
+    {
+      "table_name": "policies",
+      "column_name": "created_at",
+      "data_type": "timestamp with time zone"
+    },
+    {
+      "table_name": "policies",
+      "column_name": "updated_at",
+      "data_type": "timestamp with time zone"
+    },
+    {
+      "table_name": "policy_versions",
+      "column_name": "id",
+      "data_type": "bigint"
+    },
+    {
+      "table_name": "policy_versions",
+      "column_name": "policy_id",
+      "data_type": "bigint"
+    },
+    {
+      "table_name": "policy_versions",
+      "column_name": "version_no",
+      "data_type": "text"
+    },
+    {
+      "table_name": "policy_versions",
+      "column_name": "title",
+      "data_type": "text"
+    },
+    {
+      "table_name": "policy_versions",
+      "column_name": "body",
+      "data_type": "text"
+    },
+    {
+      "table_name": "policy_versions",
+      "column_name": "effective_date",
+      "data_type": "date"
+    },
+    {
+      "table_name": "policy_versions",
+      "column_name": "review_date",
+      "data_type": "date"
+    },
+    {
+      "table_name": "policy_versions",
+      "column_name": "requires_review",
+      "data_type": "boolean"
+    },
+    {
+      "table_name": "policy_versions",
+      "column_name": "created_by",
+      "data_type": "bigint"
+    },
+    {
+      "table_name": "policy_versions",
+      "column_name": "created_at",
+      "data_type": "timestamp with time zone"
+    },
+    {
+      "table_name": "users",
+      "column_name": "id",
+      "data_type": "bigint"
+    },
+    {
+      "table_name": "users",
+      "column_name": "first_name",
+      "data_type": "text"
+    },
+    {
+      "table_name": "users",
+      "column_name": "last_name",
+      "data_type": "text"
+    },
+    {
+      "table_name": "users",
+      "column_name": "email",
+      "data_type": "text"
+    },
+    {
+      "table_name": "users",
+      "column_name": "department_id",
+      "data_type": "bigint"
+    },
+    {
+      "table_name": "users",
+      "column_name": "role_id",
+      "data_type": "bigint"
+    },
+    {
+      "table_name": "users",
+      "column_name": "created_at",
+      "data_type": "timestamp with time zone"
+    }
+  ]
+}
