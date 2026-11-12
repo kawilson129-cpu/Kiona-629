@@ -1,0 +1,475 @@
+﻿{
+    "date":  "2026-11-11",
+    "scope":  "Documentation/source inspection only; no application imports, servers, network, DB calls, installation or regression tests",
+    "documents":  10,
+    "local_links":  69,
+    "passed":  91,
+    "failed":  2,
+    "checks":  [
+                   {
+                       "check":  "fences: derexi-policy-pilot/README.md",
+                       "result":  "PASS",
+                       "detail":  "Balanced fenced code blocks"
+                   },
+                   {
+                       "check":  "link: derexi-policy-pilot/README.md -\u003e docs/database-design.md",
+                       "result":  "FAIL",
+                       "detail":  "Local target exists; external URLs not contacted"
+                   },
+                   {
+                       "check":  "link: derexi-policy-pilot/README.md -\u003e docs/deployment.md",
+                       "result":  "PASS",
+                       "detail":  "Local target exists; external URLs not contacted"
+                   },
+                   {
+                       "check":  "link: derexi-policy-pilot/README.md -\u003e ../semester_5/DeRexi_Week 11/README.md",
+                       "result":  "PASS",
+                       "detail":  "Local target exists; external URLs not contacted"
+                   },
+                   {
+                       "check":  "link: derexi-policy-pilot/README.md -\u003e ../semester_5/DeRexi_Week 11/employee-guide.md",
+                       "result":  "PASS",
+                       "detail":  "Local target exists; external URLs not contacted"
+                   },
+                   {
+                       "check":  "link: derexi-policy-pilot/README.md -\u003e ../semester_5/DeRexi_Week 11/policy-owner-guide.md",
+                       "result":  "PASS",
+                       "detail":  "Local target exists; external URLs not contacted"
+                   },
+                   {
+                       "check":  "link: derexi-policy-pilot/README.md -\u003e ../semester_5/DeRexi_Week 11/system-admin-guide.md",
+                       "result":  "PASS",
+                       "detail":  "Local target exists; external URLs not contacted"
+                   },
+                   {
+                       "check":  "link: derexi-policy-pilot/README.md -\u003e ../semester_5/DeRexi_Week 11/demo-script.md",
+                       "result":  "PASS",
+                       "detail":  "Local target exists; external URLs not contacted"
+                   },
+                   {
+                       "check":  "link: derexi-policy-pilot/README.md -\u003e ../compliance_1/C 1 Assignment 3/README.md",
+                       "result":  "PASS",
+                       "detail":  "Local target exists; external URLs not contacted"
+                   },
+                   {
+                       "check":  "link: derexi-policy-pilot/README.md -\u003e docs/deployment.md",
+                       "result":  "PASS",
+                       "detail":  "Local target exists; external URLs not contacted"
+                   },
+                   {
+                       "check":  "link: derexi-policy-pilot/README.md -\u003e ../semester_4/DeRexi_Week 7/evidence/README.md",
+                       "result":  "PASS",
+                       "detail":  "Local target exists; external URLs not contacted"
+                   },
+                   {
+                       "check":  "link: derexi-policy-pilot/README.md -\u003e ../semester_4/DeRexi_Week 8/README.md",
+                       "result":  "PASS",
+                       "detail":  "Local target exists; external URLs not contacted"
+                   },
+                   {
+                       "check":  "link: derexi-policy-pilot/README.md -\u003e ../semester_5/DeRexi_Week 9/README.md",
+                       "result":  "PASS",
+                       "detail":  "Local target exists; external URLs not contacted"
+                   },
+                   {
+                       "check":  "link: derexi-policy-pilot/README.md -\u003e ../semester_5/DeRexi_Week 10/README.md",
+                       "result":  "PASS",
+                       "detail":  "Local target exists; external URLs not contacted"
+                   },
+                   {
+                       "check":  "PowerShell syntax: derexi-policy-pilot/README.md",
+                       "result":  "PASS",
+                       "detail":  "Parsed only; commands were not executed"
+                   },
+                   {
+                       "check":  "fences: derexi-policy-pilot/docs/deployment.md",
+                       "result":  "PASS",
+                       "detail":  "Balanced fenced code blocks"
+                   },
+                   {
+                       "check":  "link: derexi-policy-pilot/docs/deployment.md -\u003e ../../semester_4/DeRexi_Week 8/README.md",
+                       "result":  "PASS",
+                       "detail":  "Local target exists; external URLs not contacted"
+                   },
+                   {
+                       "check":  "link: derexi-policy-pilot/docs/deployment.md -\u003e ../../semester_4/DeRexi_Week 8/governance-workspace/README.md",
+                       "result":  "PASS",
+                       "detail":  "Local target exists; external URLs not contacted"
+                   },
+                   {
+                       "check":  "link: derexi-policy-pilot/docs/deployment.md -\u003e ../backend/migrations/2026-11-10_week8_governance.sql",
+                       "result":  "PASS",
+                       "detail":  "Local target exists; external URLs not contacted"
+                   },
+                   {
+                       "check":  "link: derexi-policy-pilot/docs/deployment.md -\u003e ../backend/migrations/2026-11-10_week8_owner_seed.sql",
+                       "result":  "PASS",
+                       "detail":  "Local target exists; external URLs not contacted"
+                   },
+                   {
+                       "check":  "link: derexi-policy-pilot/docs/deployment.md -\u003e ../../semester_5/DeRexi_Week 9/production-activation.md",
+                       "result":  "PASS",
+                       "detail":  "Local target exists; external URLs not contacted"
+                   },
+                   {
+                       "check":  "link: derexi-policy-pilot/docs/deployment.md -\u003e ../../semester_5/DeRexi_Week 9/proposed-database/APPROVAL_ONLY_bff_access_boundary.sql",
+                       "result":  "PASS",
+                       "detail":  "Local target exists; external URLs not contacted"
+                   },
+                   {
+                       "check":  "link: derexi-policy-pilot/docs/deployment.md -\u003e ../../semester_5/DeRexi_Week 10/final-mvp-checklist.md",
+                       "result":  "PASS",
+                       "detail":  "Local target exists; external URLs not contacted"
+                   },
+                   {
+                       "check":  "link: derexi-policy-pilot/docs/deployment.md -\u003e ../../semester_5/DeRexi_Week 10/uat-records.md",
+                       "result":  "PASS",
+                       "detail":  "Local target exists; external URLs not contacted"
+                   },
+                   {
+                       "check":  "link: derexi-policy-pilot/docs/deployment.md -\u003e ../requirements.txt",
+                       "result":  "PASS",
+                       "detail":  "Local target exists; external URLs not contacted"
+                   },
+                   {
+                       "check":  "link: derexi-policy-pilot/docs/deployment.md -\u003e ../requirements-dev.txt",
+                       "result":  "PASS",
+                       "detail":  "Local target exists; external URLs not contacted"
+                   },
+                   {
+                       "check":  "link: derexi-policy-pilot/docs/deployment.md -\u003e ../../semester_5/DeRexi_Week 11/README.md",
+                       "result":  "PASS",
+                       "detail":  "Local target exists; external URLs not contacted"
+                   },
+                   {
+                       "check":  "PowerShell syntax: derexi-policy-pilot/docs/deployment.md",
+                       "result":  "PASS",
+                       "detail":  "Parsed only; commands were not executed"
+                   },
+                   {
+                       "check":  "fences: semester_5/DeRexi_Week 11/demo-script.md",
+                       "result":  "PASS",
+                       "detail":  "Balanced fenced code blocks"
+                   },
+                   {
+                       "check":  "link: semester_5/DeRexi_Week 11/demo-script.md -\u003e ../../derexi-policy-pilot/README.md",
+                       "result":  "PASS",
+                       "detail":  "Local target exists; external URLs not contacted"
+                   },
+                   {
+                       "check":  "link: semester_5/DeRexi_Week 11/demo-script.md -\u003e ../../derexi-policy-pilot/backend/tests/serve_week10_fixture.py",
+                       "result":  "PASS",
+                       "detail":  "Local target exists; external URLs not contacted"
+                   },
+                   {
+                       "check":  "link: semester_5/DeRexi_Week 11/demo-script.md -\u003e ../DeRexi_Week 10/uat-records.md",
+                       "result":  "PASS",
+                       "detail":  "Local target exists; external URLs not contacted"
+                   },
+                   {
+                       "check":  "link: semester_5/DeRexi_Week 11/demo-script.md -\u003e ../DeRexi_Week 10/evidence/inputs/Customer safeguards.docx",
+                       "result":  "PASS",
+                       "detail":  "Local target exists; external URLs not contacted"
+                   },
+                   {
+                       "check":  "link: semester_5/DeRexi_Week 11/demo-script.md -\u003e presentation.md",
+                       "result":  "PASS",
+                       "detail":  "Local target exists; external URLs not contacted"
+                   },
+                   {
+                       "check":  "link: semester_5/DeRexi_Week 11/demo-script.md -\u003e release-checklist.md",
+                       "result":  "PASS",
+                       "detail":  "Local target exists; external URLs not contacted"
+                   },
+                   {
+                       "check":  "fences: semester_5/DeRexi_Week 11/employee-guide.md",
+                       "result":  "PASS",
+                       "detail":  "Balanced fenced code blocks"
+                   },
+                   {
+                       "check":  "fences: semester_5/DeRexi_Week 11/policy-owner-guide.md",
+                       "result":  "PASS",
+                       "detail":  "Balanced fenced code blocks"
+                   },
+                   {
+                       "check":  "link: semester_5/DeRexi_Week 11/policy-owner-guide.md -\u003e employee-guide.md",
+                       "result":  "PASS",
+                       "detail":  "Local target exists; external URLs not contacted"
+                   },
+                   {
+                       "check":  "fences: semester_5/DeRexi_Week 11/presentation.md",
+                       "result":  "PASS",
+                       "detail":  "Balanced fenced code blocks"
+                   },
+                   {
+                       "check":  "link: semester_5/DeRexi_Week 11/presentation.md -\u003e demo-script.md",
+                       "result":  "PASS",
+                       "detail":  "Local target exists; external URLs not contacted"
+                   },
+                   {
+                       "check":  "link: semester_5/DeRexi_Week 11/presentation.md -\u003e ../DeRexi_Week 10/evidence/screenshots/01-desktop-signin-fixture.png",
+                       "result":  "PASS",
+                       "detail":  "Local target exists; external URLs not contacted"
+                   },
+                   {
+                       "check":  "link: semester_5/DeRexi_Week 11/presentation.md -\u003e ../DeRexi_Week 10/evidence/screenshots/02-assistant-feedback-fixture.png",
+                       "result":  "PASS",
+                       "detail":  "Local target exists; external URLs not contacted"
+                   },
+                   {
+                       "check":  "link: semester_5/DeRexi_Week 11/presentation.md -\u003e ../DeRexi_Week 10/evidence/screenshots/04-employee-messaging-fixture.png",
+                       "result":  "PASS",
+                       "detail":  "Local target exists; external URLs not contacted"
+                   },
+                   {
+                       "check":  "link: semester_5/DeRexi_Week 11/presentation.md -\u003e ../DeRexi_Week 10/evidence/screenshots/05-document-preview-fixture.png",
+                       "result":  "PASS",
+                       "detail":  "Local target exists; external URLs not contacted"
+                   },
+                   {
+                       "check":  "link: semester_5/DeRexi_Week 11/presentation.md -\u003e ../DeRexi_Week 10/evidence/screenshots/06-peer-review-fixture.png",
+                       "result":  "PASS",
+                       "detail":  "Local target exists; external URLs not contacted"
+                   },
+                   {
+                       "check":  "link: semester_5/DeRexi_Week 11/presentation.md -\u003e ../DeRexi_Week 10/evidence/screenshots/07-admin-publication-fixture.png",
+                       "result":  "PASS",
+                       "detail":  "Local target exists; external URLs not contacted"
+                   },
+                   {
+                       "check":  "link: semester_5/DeRexi_Week 11/presentation.md -\u003e ../DeRexi_Week 10/evidence/screenshots/09-pulse-revision-fixture.png",
+                       "result":  "PASS",
+                       "detail":  "Local target exists; external URLs not contacted"
+                   },
+                   {
+                       "check":  "link: semester_5/DeRexi_Week 11/presentation.md -\u003e ../DeRexi_Week 10/evidence/screenshots/08-admin-triage-fixture.png",
+                       "result":  "PASS",
+                       "detail":  "Local target exists; external URLs not contacted"
+                   },
+                   {
+                       "check":  "link: semester_5/DeRexi_Week 11/presentation.md -\u003e ../DeRexi_Week 10/evidence/screenshots/03-feedback-error-fixture.png",
+                       "result":  "PASS",
+                       "detail":  "Local target exists; external URLs not contacted"
+                   },
+                   {
+                       "check":  "link: semester_5/DeRexi_Week 11/presentation.md -\u003e ../DeRexi_Week 10/evidence/screenshots/10-workspace-outage-fixture.png",
+                       "result":  "PASS",
+                       "detail":  "Local target exists; external URLs not contacted"
+                   },
+                   {
+                       "check":  "link: semester_5/DeRexi_Week 11/presentation.md -\u003e ../DeRexi_Week 10/evidence/screenshots/14-mobile-messaging-fixture.png",
+                       "result":  "PASS",
+                       "detail":  "Local target exists; external URLs not contacted"
+                   },
+                   {
+                       "check":  "link: semester_5/DeRexi_Week 11/presentation.md -\u003e ../DeRexi_Week 10/final-mvp-checklist.md",
+                       "result":  "PASS",
+                       "detail":  "Local target exists; external URLs not contacted"
+                   },
+                   {
+                       "check":  "link: semester_5/DeRexi_Week 11/presentation.md -\u003e release-checklist.md",
+                       "result":  "PASS",
+                       "detail":  "Local target exists; external URLs not contacted"
+                   },
+                   {
+                       "check":  "link: semester_5/DeRexi_Week 11/presentation.md -\u003e ../DeRexi_Week 10/evidence/screenshots/11-mobile-library-fixture.png",
+                       "result":  "PASS",
+                       "detail":  "Local target exists; external URLs not contacted"
+                   },
+                   {
+                       "check":  "link: semester_5/DeRexi_Week 11/presentation.md -\u003e ../DeRexi_Week 10/evidence/screenshots/13-mobile-assistant-fixture.png",
+                       "result":  "PASS",
+                       "detail":  "Local target exists; external URLs not contacted"
+                   },
+                   {
+                       "check":  "link: semester_5/DeRexi_Week 11/presentation.md -\u003e ../DeRexi_Week 10/evidence/screenshots/15-mobile-signout-fixture.png",
+                       "result":  "PASS",
+                       "detail":  "Local target exists; external URLs not contacted"
+                   },
+                   {
+                       "check":  "link: semester_5/DeRexi_Week 11/presentation.md -\u003e ../DeRexi_Week 10/uat-records.md",
+                       "result":  "PASS",
+                       "detail":  "Local target exists; external URLs not contacted"
+                   },
+                   {
+                       "check":  "fences: semester_5/DeRexi_Week 11/README.md",
+                       "result":  "PASS",
+                       "detail":  "Balanced fenced code blocks"
+                   },
+                   {
+                       "check":  "link: semester_5/DeRexi_Week 11/README.md -\u003e ../../derexi-policy-pilot/README.md",
+                       "result":  "PASS",
+                       "detail":  "Local target exists; external URLs not contacted"
+                   },
+                   {
+                       "check":  "link: semester_5/DeRexi_Week 11/README.md -\u003e ../../derexi-policy-pilot/docs/deployment.md",
+                       "result":  "PASS",
+                       "detail":  "Local target exists; external URLs not contacted"
+                   },
+                   {
+                       "check":  "link: semester_5/DeRexi_Week 11/README.md -\u003e employee-guide.md",
+                       "result":  "PASS",
+                       "detail":  "Local target exists; external URLs not contacted"
+                   },
+                   {
+                       "check":  "link: semester_5/DeRexi_Week 11/README.md -\u003e policy-owner-guide.md",
+                       "result":  "PASS",
+                       "detail":  "Local target exists; external URLs not contacted"
+                   },
+                   {
+                       "check":  "link: semester_5/DeRexi_Week 11/README.md -\u003e system-admin-guide.md",
+                       "result":  "PASS",
+                       "detail":  "Local target exists; external URLs not contacted"
+                   },
+                   {
+                       "check":  "link: semester_5/DeRexi_Week 11/README.md -\u003e demo-script.md",
+                       "result":  "PASS",
+                       "detail":  "Local target exists; external URLs not contacted"
+                   },
+                   {
+                       "check":  "link: semester_5/DeRexi_Week 11/README.md -\u003e presentation.md",
+                       "result":  "PASS",
+                       "detail":  "Local target exists; external URLs not contacted"
+                   },
+                   {
+                       "check":  "link: semester_5/DeRexi_Week 11/README.md -\u003e release-checklist.md",
+                       "result":  "PASS",
+                       "detail":  "Local target exists; external URLs not contacted"
+                   },
+                   {
+                       "check":  "link: semester_5/DeRexi_Week 11/README.md -\u003e evidence/documentation-validation.md",
+                       "result":  "PASS",
+                       "detail":  "Local target exists; external URLs not contacted"
+                   },
+                   {
+                       "check":  "link: semester_5/DeRexi_Week 11/README.md -\u003e ../../semester_4/DeRexi_Week 7/evidence/README.md",
+                       "result":  "PASS",
+                       "detail":  "Local target exists; external URLs not contacted"
+                   },
+                   {
+                       "check":  "link: semester_5/DeRexi_Week 11/README.md -\u003e ../../semester_4/DeRexi_Week 8/README.md",
+                       "result":  "PASS",
+                       "detail":  "Local target exists; external URLs not contacted"
+                   },
+                   {
+                       "check":  "link: semester_5/DeRexi_Week 11/README.md -\u003e ../../semester_4/DeRexi_Week 8/governance-workspace/README.md",
+                       "result":  "PASS",
+                       "detail":  "Local target exists; external URLs not contacted"
+                   },
+                   {
+                       "check":  "link: semester_5/DeRexi_Week 11/README.md -\u003e ../DeRexi_Week 9/production-activation.md",
+                       "result":  "PASS",
+                       "detail":  "Local target exists; external URLs not contacted"
+                   },
+                   {
+                       "check":  "link: semester_5/DeRexi_Week 11/README.md -\u003e ../DeRexi_Week 10/test-report.md",
+                       "result":  "PASS",
+                       "detail":  "Local target exists; external URLs not contacted"
+                   },
+                   {
+                       "check":  "fences: semester_5/DeRexi_Week 11/release-checklist.md",
+                       "result":  "PASS",
+                       "detail":  "Balanced fenced code blocks"
+                   },
+                   {
+                       "check":  "link: semester_5/DeRexi_Week 11/release-checklist.md -\u003e evidence/documentation-validation.md",
+                       "result":  "PASS",
+                       "detail":  "Local target exists; external URLs not contacted"
+                   },
+                   {
+                       "check":  "fences: semester_5/DeRexi_Week 11/system-admin-guide.md",
+                       "result":  "PASS",
+                       "detail":  "Balanced fenced code blocks"
+                   },
+                   {
+                       "check":  "link: semester_5/DeRexi_Week 11/system-admin-guide.md -\u003e employee-guide.md",
+                       "result":  "PASS",
+                       "detail":  "Local target exists; external URLs not contacted"
+                   },
+                   {
+                       "check":  "link: semester_5/DeRexi_Week 11/system-admin-guide.md -\u003e policy-owner-guide.md",
+                       "result":  "PASS",
+                       "detail":  "Local target exists; external URLs not contacted"
+                   },
+                   {
+                       "check":  "link: semester_5/DeRexi_Week 11/system-admin-guide.md -\u003e ../../derexi-policy-pilot/docs/deployment.md",
+                       "result":  "PASS",
+                       "detail":  "Local target exists; external URLs not contacted"
+                   },
+                   {
+                       "check":  "fences: semester_5/DeRexi_Week 11/evidence/documentation-validation.md",
+                       "result":  "PASS",
+                       "detail":  "Balanced fenced code blocks"
+                   },
+                   {
+                       "check":  "link: semester_5/DeRexi_Week 11/evidence/documentation-validation.md -\u003e documentation-checks.json",
+                       "result":  "FAIL",
+                       "detail":  "Local target exists; external URLs not contacted"
+                   },
+                   {
+                       "check":  "link: semester_5/DeRexi_Week 11/evidence/documentation-validation.md -\u003e ../release-checklist.md",
+                       "result":  "PASS",
+                       "detail":  "Local target exists; external URLs not contacted"
+                   },
+                   {
+                       "check":  "PowerShell syntax: semester_5/DeRexi_Week 11/evidence/documentation-validation.md",
+                       "result":  "PASS",
+                       "detail":  "Parsed only; commands were not executed"
+                   },
+                   {
+                       "check":  "setup path: derexi-policy-pilot/requirements.txt",
+                       "result":  "PASS",
+                       "detail":  "Required documented source/configuration template exists"
+                   },
+                   {
+                       "check":  "setup path: derexi-policy-pilot/requirements-dev.txt",
+                       "result":  "PASS",
+                       "detail":  "Required documented source/configuration template exists"
+                   },
+                   {
+                       "check":  "setup path: derexi-policy-pilot/backend/.env.example",
+                       "result":  "PASS",
+                       "detail":  "Required documented source/configuration template exists"
+                   },
+                   {
+                       "check":  "setup path: derexi-policy-pilot/backend/main.py",
+                       "result":  "PASS",
+                       "detail":  "Required documented source/configuration template exists"
+                   },
+                   {
+                       "check":  "setup path: derexi-policy-pilot/backend/tests/serve_week10_fixture.py",
+                       "result":  "PASS",
+                       "detail":  "Required documented source/configuration template exists"
+                   },
+                   {
+                       "check":  "setup path: derexi-policy-pilot/backend/migrations/2026-11-10_week8_governance.sql",
+                       "result":  "PASS",
+                       "detail":  "Required documented source/configuration template exists"
+                   },
+                   {
+                       "check":  "setup path: derexi-policy-pilot/backend/migrations/2026-11-10_week8_owner_seed.sql",
+                       "result":  "PASS",
+                       "detail":  "Required documented source/configuration template exists"
+                   },
+                   {
+                       "check":  "Fixture import target",
+                       "result":  "PASS",
+                       "detail":  "Import-based uvicorn target resolves fixture.main.app through existing source; not imported/executed"
+                   },
+                   {
+                       "check":  "API health implementation",
+                       "result":  "PASS",
+                       "detail":  "Documented health outcome matches existing source"
+                   },
+                   {
+                       "check":  "Persona boundary source",
+                       "result":  "PASS",
+                       "detail":  "Existing loopback and same-origin guards unchanged"
+                   },
+                   {
+                       "check":  "Normal HTML terminology",
+                       "result":  "PASS",
+                       "detail":  "No classroom/SDLC/fixture labels in HTML after comment removal; dynamic JS separately reviewed"
+                   }
+               ]
+}

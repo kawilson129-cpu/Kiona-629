@@ -1,0 +1,17 @@
+INFO:     Started server process [17300]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8041 (Press CTRL+C to quit)
+{"timestamp":"2026-11-12T16:58:11.577802+00:00","event":"authentication_failure","request_id":"7feb57abe9b94a17ae38df18a8b24373","method":"GET","route":"/auth/session","status":401,"actor_id":null,"role":null}
+{"timestamp":"2026-11-12T16:58:11.595547+00:00","event":"authentication_failure","request_id":"e3c753e3c53a4318bddd76dff9bf7b22","method":"POST","route":"/auth/refresh","status":401,"actor_id":null,"role":null}
+{"timestamp":"2026-11-12T16:58:11.678559+00:00","event":"logout","request_id":"54b1a0193f824091b07e9e28a2ee543e","method":"POST","route":"/auth/logout","status":200,"actor_id":null,"role":null}
+{"timestamp":"2026-11-12T16:58:11.786956+00:00","event":"authentication_failure","request_id":"f30f904b2f674e4fbf4559756f5b1675","method":"GET","route":"/technical-routing/capabilities","status":401,"actor_id":null,"role":null}
+{"timestamp":"2026-11-12T16:58:12.107662+00:00","event":"authentication_failure","request_id":"d0257e6f75ba4826a3584345b92fab42","method":"GET","route":"/auth/session","status":401,"actor_id":null,"role":null}
+{"timestamp":"2026-11-12T16:58:12.116600+00:00","event":"authentication_failure","request_id":"95d3e9d0487b4d618c84083bfe471776","method":"POST","route":"/auth/refresh","status":401,"actor_id":null,"role":null}
+{"timestamp":"2026-11-12T16:58:12.130999+00:00","event":"authentication_failure","request_id":"9eb69c5737c94ac19f22716801ea6336","method":"GET","route":"/technical-routing/capabilities","status":401,"actor_id":null,"role":null}
+{"timestamp":"2026-11-12T16:58:13.387837+00:00","event":"login_success","request_id":"fe46e0d626554bcb89a277eaf7e0c052","method":"POST","route":"/auth/login","status":200,"actor_id":2,"role":"System Administrator"}
+{"timestamp":"2026-11-12T16:58:13.807926+00:00","event":"administrative_action","request_id":"fcd216cf354742ceb63e0820ca2e6937","method":"POST","route":"/__fixture/delivery/{result}","status":200,"actor_id":2,"role":"System Administrator"}
+{"timestamp":"2026-11-12T16:58:13.827080+00:00","event":"logout","request_id":"eb7a2624235a4eba877f9ee7b90e0098","method":"POST","route":"/auth/logout","status":200,"actor_id":2,"role":"System Administrator"}
+{"timestamp":"2026-11-12T16:58:13.842289+00:00","event":"authentication_failure","request_id":"71ed79c5beec42c5a91af532a32afc1b","method":"GET","route":"/technical-routing/capabilities","status":401,"actor_id":null,"role":null}
+{"timestamp":"2026-11-12T16:58:13.954843+00:00","event":"login_success","request_id":"e04c5d6c5c564b4e8351836e5fa3a6e6","method":"POST","route":"/auth/login","status":200,"actor_id":8,"role":"Employee"}
+{"timestamp":"2026-11-12T16:58:14.440510+00:00","event":"sensitive_change","request_id":"1efac726f5fd4025a947a72c519df12d","method":"POST","route":"/incidents","status":201,"actor_id":8,"role":"Employee"}

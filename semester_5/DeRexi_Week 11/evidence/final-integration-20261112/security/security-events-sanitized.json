@@ -1,0 +1,727 @@
+[
+  {
+    "timestamp": "2026-11-12T10:54:11.227121+00:00",
+    "event": "authentication_failure",
+    "request_id": "272730271c52444083839ff9daa13648",
+    "method": "GET",
+    "route": "/departments",
+    "status": 401,
+    "actor_id": null,
+    "role": null
+  },
+  {
+    "timestamp": "2026-11-12T10:54:11.245006+00:00",
+    "event": "authentication_failure",
+    "request_id": "fa79ad38a3b44ac39a015b8488a52377",
+    "method": "GET",
+    "route": "/roles",
+    "status": 401,
+    "actor_id": null,
+    "role": null
+  },
+  {
+    "timestamp": "2026-11-12T10:54:11.259638+00:00",
+    "event": "authentication_failure",
+    "request_id": "e305fa64f5fe48d78042476573530358",
+    "method": "GET",
+    "route": "/categories",
+    "status": 401,
+    "actor_id": null,
+    "role": null
+  },
+  {
+    "timestamp": "2026-11-12T10:54:11.275108+00:00",
+    "event": "authentication_failure",
+    "request_id": "a250bad890754d46ad3d41252d62bb69",
+    "method": "GET",
+    "route": "/me",
+    "status": 401,
+    "actor_id": null,
+    "role": null
+  },
+  {
+    "timestamp": "2026-11-12T10:54:11.291272+00:00",
+    "event": "authentication_failure",
+    "request_id": "fc2d95ba675d457fbaaa2a6d5425d88a",
+    "method": "GET",
+    "route": "/users",
+    "status": 401,
+    "actor_id": null,
+    "role": null
+  },
+  {
+    "timestamp": "2026-11-12T10:54:11.307024+00:00",
+    "event": "authentication_failure",
+    "request_id": "8cdcfe7c12d5438f8a95316b11d8951b",
+    "method": "GET",
+    "route": "/policies",
+    "status": 401,
+    "actor_id": null,
+    "role": null
+  },
+  {
+    "timestamp": "2026-11-12T10:54:11.320817+00:00",
+    "event": "authentication_failure",
+    "request_id": "90e50367d46d4d4eab676f9cf23994cb",
+    "method": "GET",
+    "route": "/policies/search",
+    "status": 401,
+    "actor_id": null,
+    "role": null
+  },
+  {
+    "timestamp": "2026-11-12T10:54:11.337484+00:00",
+    "event": "authentication_failure",
+    "request_id": "2dd143bbac29445781f3f5731c3b6e84",
+    "method": "GET",
+    "route": "/policies/{policy_id}",
+    "status": 401,
+    "actor_id": null,
+    "role": null
+  },
+  {
+    "timestamp": "2026-11-12T10:54:11.358202+00:00",
+    "event": "authentication_failure",
+    "request_id": "e04ac0dca0974ca6b4892ec030d9f4c5",
+    "method": "POST",
+    "route": "/policies",
+    "status": 401,
+    "actor_id": null,
+    "role": null
+  },
+  {
+    "timestamp": "2026-11-12T10:54:11.376650+00:00",
+    "event": "authentication_failure",
+    "request_id": "8a557a1576ca4b53b7ef77042f571a46",
+    "method": "POST",
+    "route": "/policies/{policy_id}/versions",
+    "status": 401,
+    "actor_id": null,
+    "role": null
+  },
+  {
+    "timestamp": "2026-11-12T10:54:11.397820+00:00",
+    "event": "authentication_failure",
+    "request_id": "fe2249bfebf24945ba24422ef8b070fe",
+    "method": "POST",
+    "route": "/ask",
+    "status": 401,
+    "actor_id": null,
+    "role": null
+  },
+  {
+    "timestamp": "2026-11-12T10:54:11.407902+00:00",
+    "event": "authentication_failure",
+    "request_id": "d4d51f799af24a579e77e0a33212850a",
+    "method": "GET",
+    "route": "/conversations/{conversation_id}",
+    "status": 401,
+    "actor_id": null,
+    "role": null
+  },
+  {
+    "timestamp": "2026-11-12T10:54:11.417598+00:00",
+    "event": "authentication_failure",
+    "request_id": "596360d0b74541bc90b78c9eb230736d",
+    "method": "GET",
+    "route": "/incident-categories",
+    "status": 401,
+    "actor_id": null,
+    "role": null
+  },
+  {
+    "timestamp": "2026-11-12T10:54:11.429960+00:00",
+    "event": "authentication_failure",
+    "request_id": "53a2e8d5d4e446e2b0c84f25ac84d88b",
+    "method": "GET",
+    "route": "/incidents",
+    "status": 401,
+    "actor_id": null,
+    "role": null
+  },
+  {
+    "timestamp": "2026-11-12T10:54:11.450196+00:00",
+    "event": "authentication_failure",
+    "request_id": "48b15f9cddeb42a09332b68e2e52b9e6",
+    "method": "POST",
+    "route": "/incidents",
+    "status": 401,
+    "actor_id": null,
+    "role": null
+  },
+  {
+    "timestamp": "2026-11-12T10:54:11.468032+00:00",
+    "event": "authentication_failure",
+    "request_id": "8c2c6a0a46ea46489e20d852e1e66118",
+    "method": "PATCH",
+    "route": "/incidents/{incident_id}",
+    "status": 401,
+    "actor_id": null,
+    "role": null
+  },
+  {
+    "timestamp": "2026-11-12T10:54:11.484812+00:00",
+    "event": "authentication_failure",
+    "request_id": "a0a0915b4d3749a2a4d254f86530cf3d",
+    "method": "POST",
+    "route": "/feedback",
+    "status": 401,
+    "actor_id": null,
+    "role": null
+  },
+  {
+    "timestamp": "2026-11-12T10:54:11.504414+00:00",
+    "event": "authentication_failure",
+    "request_id": "206eb971f99a49bcb9709b9c8d7bd7ba",
+    "method": "GET",
+    "route": "/feedback/mine",
+    "status": 401,
+    "actor_id": null,
+    "role": null
+  },
+  {
+    "timestamp": "2026-11-12T10:54:11.524669+00:00",
+    "event": "authentication_failure",
+    "request_id": "858be264932446df8a548ab8a4b745ec",
+    "method": "GET",
+    "route": "/dashboard/policy-health",
+    "status": 401,
+    "actor_id": null,
+    "role": null
+  },
+  {
+    "timestamp": "2026-11-12T10:54:11.543690+00:00",
+    "event": "access_denied",
+    "request_id": "9553ddba35c14b2bacda1923af153f69",
+    "method": "POST",
+    "route": "/policies",
+    "status": 403,
+    "actor_id": 8,
+    "role": "Employee"
+  },
+  {
+    "timestamp": "2026-11-12T10:54:11.570436+00:00",
+    "event": "access_denied",
+    "request_id": "ef90c2353aba470dbe498f9379302f7b",
+    "method": "POST",
+    "route": "/policies/{policy_id}/versions",
+    "status": 403,
+    "actor_id": 8,
+    "role": "Employee"
+  },
+  {
+    "timestamp": "2026-11-12T10:54:11.592328+00:00",
+    "event": "request_rejected",
+    "request_id": "a57b56982aaa4fa78416939cadf999ca",
+    "method": "POST",
+    "route": "/policies",
+    "status": 409,
+    "actor_id": 4,
+    "role": "Policy Owner"
+  },
+  {
+    "timestamp": "2026-11-12T10:54:11.606898+00:00",
+    "event": "request_rejected",
+    "request_id": "38059cc5eab3470d9f83d227491fb5a7",
+    "method": "POST",
+    "route": "/policies/{policy_id}/versions",
+    "status": 409,
+    "actor_id": 4,
+    "role": "Policy Owner"
+  },
+  {
+    "timestamp": "2026-11-12T10:54:11.620229+00:00",
+    "event": "request_rejected",
+    "request_id": "44df466fd72a49e984849d16d4ccb88c",
+    "method": "POST",
+    "route": "/policies",
+    "status": 409,
+    "actor_id": 2,
+    "role": "System Administrator"
+  },
+  {
+    "timestamp": "2026-11-12T10:54:11.631971+00:00",
+    "event": "request_rejected",
+    "request_id": "245035b502e1453f8fb3d264c27778f3",
+    "method": "POST",
+    "route": "/policies/{policy_id}/versions",
+    "status": 409,
+    "actor_id": 2,
+    "role": "System Administrator"
+  },
+  {
+    "timestamp": "2026-11-12T10:54:11.702780+00:00",
+    "event": "access_denied",
+    "request_id": "62250d92f72f416f85666fbe4dada67e",
+    "method": "PATCH",
+    "route": "/incidents/{incident_id}",
+    "status": 403,
+    "actor_id": 4,
+    "role": "Policy Owner"
+  },
+  {
+    "timestamp": "2026-11-12T10:54:11.721351+00:00",
+    "event": "access_denied",
+    "request_id": "5011c96c37cb4215a83fa0f3f9f2ffcd",
+    "method": "POST",
+    "route": "/incidents",
+    "status": 403,
+    "actor_id": 8,
+    "role": "Employee"
+  },
+  {
+    "timestamp": "2026-11-12T10:54:11.732836+00:00",
+    "event": "access_denied",
+    "request_id": "68b3af2e53094922948f4ba5d9ac5261",
+    "method": "POST",
+    "route": "/incidents",
+    "status": 403,
+    "actor_id": 4,
+    "role": "Policy Owner"
+  },
+  {
+    "timestamp": "2026-11-12T10:54:11.748761+00:00",
+    "event": "access_denied",
+    "request_id": "f2b757e4befb4818a58e234f82c417b6",
+    "method": "POST",
+    "route": "/incidents",
+    "status": 403,
+    "actor_id": 8,
+    "role": "Employee"
+  },
+  {
+    "timestamp": "2026-11-12T10:54:11.780710+00:00",
+    "event": "administrative_action",
+    "request_id": "9c44b203024348448cb9839cfbfe8957",
+    "method": "PATCH",
+    "route": "/incidents/{incident_id}",
+    "status": 200,
+    "actor_id": 2,
+    "role": "System Administrator"
+  },
+  {
+    "timestamp": "2026-11-12T10:54:11.830732+00:00",
+    "event": "request_rejected",
+    "request_id": "8a4082899cb24b1c82c48a39caafd322",
+    "method": "PATCH",
+    "route": "/incidents/{incident_id}",
+    "status": 422,
+    "actor_id": 2,
+    "role": "System Administrator"
+  },
+  {
+    "timestamp": "2026-11-12T10:54:11.845669+00:00",
+    "event": "request_rejected",
+    "request_id": "cc26771322354e4582c23f376862369a",
+    "method": "PATCH",
+    "route": "/incidents/{incident_id}",
+    "status": 422,
+    "actor_id": 2,
+    "role": "System Administrator"
+  },
+  {
+    "timestamp": "2026-11-12T10:54:11.863170+00:00",
+    "event": "request_rejected",
+    "request_id": "5d534c182ce04c99b4f8d4e7170aa082",
+    "method": "POST",
+    "route": "/incidents",
+    "status": 422,
+    "actor_id": 8,
+    "role": "Employee"
+  },
+  {
+    "timestamp": "2026-11-12T10:54:11.959419+00:00",
+    "event": "sensitive_change",
+    "request_id": "0a3774c471f1448daf58c179416111fd",
+    "method": "POST",
+    "route": "/governance/drafts",
+    "status": 201,
+    "actor_id": 4,
+    "role": "Policy Owner"
+  },
+  {
+    "timestamp": "2026-11-12T10:54:11.983666+00:00",
+    "event": "access_denied",
+    "request_id": "7023630e689745c0a7609320cf7ed76a",
+    "method": "POST",
+    "route": "/governance/drafts/{did}/actions",
+    "status": 403,
+    "actor_id": 4,
+    "role": "Policy Owner",
+    "action": "submit"
+  },
+  {
+    "timestamp": "2026-11-12T10:54:12.008115+00:00",
+    "event": "sensitive_change",
+    "request_id": "98fd5372a308418797b67fdfd0fa693f",
+    "method": "POST",
+    "route": "/governance/drafts/{did}/actions",
+    "status": 200,
+    "actor_id": 4,
+    "role": "Policy Owner",
+    "action": "submit"
+  },
+  {
+    "timestamp": "2026-11-12T10:54:12.025254+00:00",
+    "event": "access_denied",
+    "request_id": "938554c52af64b35ab28430e39bab3f3",
+    "method": "POST",
+    "route": "/governance/drafts/{did}/actions",
+    "status": 403,
+    "actor_id": 4,
+    "role": "Policy Owner",
+    "action": "peer_approve"
+  },
+  {
+    "timestamp": "2026-11-12T10:54:12.046897+00:00",
+    "event": "approval",
+    "request_id": "d789b0af0d8b4900b83992569634773d",
+    "method": "POST",
+    "route": "/governance/drafts/{did}/actions",
+    "status": 200,
+    "actor_id": 9,
+    "role": "Policy Owner",
+    "action": "peer_approve"
+  },
+  {
+    "timestamp": "2026-11-12T10:54:12.067741+00:00",
+    "event": "approval",
+    "request_id": "e2965322db9c4efeb2ac15a470568910",
+    "method": "POST",
+    "route": "/governance/drafts/{did}/actions",
+    "status": 200,
+    "actor_id": 2,
+    "role": "System Administrator",
+    "action": "final_approve"
+  },
+  {
+    "timestamp": "2026-11-12T10:54:12.087307+00:00",
+    "event": "request_rejected",
+    "request_id": "4be28250c5b244a1b20a6d0df9bed861",
+    "method": "POST",
+    "route": "/incidents",
+    "status": 422,
+    "actor_id": 8,
+    "role": "Employee"
+  },
+  {
+    "timestamp": "2026-11-12T10:54:12.101528+00:00",
+    "event": "request_rejected",
+    "request_id": "bd676c491900444eac6d7b14aa1c2db1",
+    "method": "GET",
+    "route": "/policies",
+    "status": 500,
+    "actor_id": null,
+    "role": null
+  },
+  {
+    "timestamp": "2026-11-12T10:54:12.110753+00:00",
+    "event": "request_rejected",
+    "request_id": "f9580533fcd746dfac0def9626a55bba",
+    "method": "GET",
+    "route": "/policies",
+    "status": 500,
+    "actor_id": null,
+    "role": null
+  },
+  {
+    "timestamp": "2026-11-12T10:54:12.199283+00:00",
+    "event": "access_denied",
+    "request_id": "210b17c7cd2242c985e94ccc9eb9ea29",
+    "method": "GET",
+    "route": "/governance/drafts",
+    "status": 403,
+    "actor_id": 8,
+    "role": "Employee"
+  },
+  {
+    "timestamp": "2026-11-12T10:54:12.210019+00:00",
+    "event": "authentication_failure",
+    "request_id": "e992b81752444566b50b90f6322b74ad",
+    "method": "GET",
+    "route": "/me",
+    "status": 401,
+    "actor_id": null,
+    "role": null
+  },
+  {
+    "timestamp": "2026-11-12T10:54:12.219785+00:00",
+    "event": "authentication_failure",
+    "request_id": "267921bdca89476cb51a3e3181907a70",
+    "method": "GET",
+    "route": "/me",
+    "status": 401,
+    "actor_id": null,
+    "role": null
+  },
+  {
+    "timestamp": "2026-11-12T10:54:12.230830+00:00",
+    "event": "authentication_failure",
+    "request_id": "00e8c8e7b3354d2eb23f70924a6ea2cb",
+    "method": "GET",
+    "route": "/me",
+    "status": 401,
+    "actor_id": null,
+    "role": null
+  },
+  {
+    "timestamp": "2026-11-12T10:54:12.243746+00:00",
+    "event": "authentication_failure",
+    "request_id": "f41e6d29619046f2856864e258924ea8",
+    "method": "GET",
+    "route": "/me",
+    "status": 401,
+    "actor_id": null,
+    "role": null
+  },
+  {
+    "timestamp": "2026-11-12T10:54:12.257665+00:00",
+    "event": "access_denied",
+    "request_id": "3b990d7b1a174d17a57bc4dcf17148c8",
+    "method": "GET",
+    "route": "/me",
+    "status": 403,
+    "actor_id": null,
+    "role": null
+  },
+  {
+    "timestamp": "2026-11-12T10:54:12.272706+00:00",
+    "event": "access_denied",
+    "request_id": "9cce52a025424677b72286a869da80e5",
+    "method": "GET",
+    "route": "/me",
+    "status": 403,
+    "actor_id": null,
+    "role": null
+  },
+  {
+    "timestamp": "2026-11-12T10:54:12.296052+00:00",
+    "event": "login_failure",
+    "request_id": "2857adc816be47488371f94e1847d0dd",
+    "method": "POST",
+    "route": "/auth/login",
+    "status": 403,
+    "actor_id": null,
+    "role": null
+  },
+  {
+    "timestamp": "2026-11-12T10:54:12.304982+00:00",
+    "event": "login_failure",
+    "request_id": "947e6188d7864cddaf576acd2b144ab1",
+    "method": "POST",
+    "route": "/auth/login",
+    "status": 401,
+    "actor_id": null,
+    "role": null
+  },
+  {
+    "timestamp": "2026-11-12T10:54:12.318597+00:00",
+    "event": "login_success",
+    "request_id": "a207d8743013435d993c71eaa9e0ce2f",
+    "method": "POST",
+    "route": "/auth/login",
+    "status": 200,
+    "actor_id": 8,
+    "role": "Employee"
+  },
+  {
+    "timestamp": "2026-11-12T10:54:12.359599+00:00",
+    "event": "access_denied",
+    "request_id": "1afa1ff379e540e8887d45c8f528b40b",
+    "method": "POST",
+    "route": "/ask",
+    "status": 403,
+    "actor_id": null,
+    "role": null
+  },
+  {
+    "timestamp": "2026-11-12T10:54:12.375701+00:00",
+    "event": "sensitive_change",
+    "request_id": "a35c4c545303427c8e2bf40c86986607",
+    "method": "POST",
+    "route": "/auth/refresh",
+    "status": 200,
+    "actor_id": 8,
+    "role": "Employee"
+  },
+  {
+    "timestamp": "2026-11-12T10:54:12.419696+00:00",
+    "event": "logout",
+    "request_id": "a6a804b5a9564206b7fcfc96ffb32f96",
+    "method": "POST",
+    "route": "/auth/logout",
+    "status": 200,
+    "actor_id": 8,
+    "role": "Employee"
+  },
+  {
+    "timestamp": "2026-11-12T10:54:12.430131+00:00",
+    "event": "authentication_failure",
+    "request_id": "66252178e4404c39a1b78e1d5b7f943a",
+    "method": "GET",
+    "route": "/auth/session",
+    "status": 401,
+    "actor_id": null,
+    "role": null
+  },
+  {
+    "timestamp": "2026-11-12T10:54:12.440355+00:00",
+    "event": "login_success",
+    "request_id": "1f120aeaee14403caa153460612c481e",
+    "method": "POST",
+    "route": "/auth/login",
+    "status": 200,
+    "actor_id": 8,
+    "role": "Employee"
+  },
+  {
+    "timestamp": "2026-11-12T10:54:12.450447+00:00",
+    "event": "request_rejected",
+    "request_id": "5ac7f5dc6ebe436489c1b8231fb22e0b",
+    "method": "POST",
+    "route": "/auth/logout",
+    "status": 503,
+    "actor_id": 8,
+    "role": "Employee"
+  },
+  {
+    "timestamp": "2026-11-12T10:54:12.462479+00:00",
+    "event": "authentication_failure",
+    "request_id": "c58bdc7b669243d39a38f04f94135294",
+    "method": "GET",
+    "route": "/auth/session",
+    "status": 401,
+    "actor_id": null,
+    "role": null
+  },
+  {
+    "timestamp": "2026-11-12T10:54:12.471846+00:00",
+    "event": "login_failure",
+    "request_id": "94d20c79b80d4e708eb9bb7860ab2981",
+    "method": "POST",
+    "route": "/auth/login",
+    "status": 401,
+    "actor_id": null,
+    "role": null
+  },
+  {
+    "timestamp": "2026-11-12T10:54:12.480307+00:00",
+    "event": "login_failure",
+    "request_id": "7974697b775a47e49b41113f75c3cf33",
+    "method": "POST",
+    "route": "/auth/login",
+    "status": 401,
+    "actor_id": null,
+    "role": null
+  },
+  {
+    "timestamp": "2026-11-12T10:54:12.489659+00:00",
+    "event": "login_failure",
+    "request_id": "95171a260ab248b1804b1f0c0b32739b",
+    "method": "POST",
+    "route": "/auth/login",
+    "status": 401,
+    "actor_id": null,
+    "role": null
+  },
+  {
+    "timestamp": "2026-11-12T10:54:12.497937+00:00",
+    "event": "login_failure",
+    "request_id": "83761ec5cf6d465dbf9f06a40439fa01",
+    "method": "POST",
+    "route": "/auth/login",
+    "status": 401,
+    "actor_id": null,
+    "role": null
+  },
+  {
+    "timestamp": "2026-11-12T10:54:12.507963+00:00",
+    "event": "login_failure",
+    "request_id": "2e2a02810d9441498e1dfbd8c922fdd5",
+    "method": "POST",
+    "route": "/auth/login",
+    "status": 401,
+    "actor_id": null,
+    "role": null
+  },
+  {
+    "timestamp": "2026-11-12T10:54:12.517166+00:00",
+    "event": "login_failure",
+    "request_id": "0e94a0cdf7e940b5b23671c5a73e0a80",
+    "method": "POST",
+    "route": "/auth/login",
+    "status": 429,
+    "actor_id": null,
+    "role": null
+  },
+  {
+    "timestamp": "2026-11-12T10:54:12.526918+00:00",
+    "event": "login_failure",
+    "request_id": "d08dc8603a014701ab5bef221d50b3a4",
+    "method": "POST",
+    "route": "/auth/login",
+    "status": 429,
+    "actor_id": null,
+    "role": null
+  },
+  {
+    "timestamp": "2026-11-12T10:54:12.537659+00:00",
+    "event": "login_failure",
+    "request_id": "cc6ac7a2c9c94de592b068e7379c54f4",
+    "method": "POST",
+    "route": "/auth/login",
+    "status": 429,
+    "actor_id": null,
+    "role": null
+  },
+  {
+    "timestamp": "2026-11-12T10:54:12.548639+00:00",
+    "event": "login_failure",
+    "request_id": "d8682a435c7645b6a72446d599e682fb",
+    "method": "POST",
+    "route": "/auth/login",
+    "status": 429,
+    "actor_id": null,
+    "role": null
+  },
+  {
+    "timestamp": "2026-11-12T10:54:12.561896+00:00",
+    "event": "access_denied",
+    "request_id": "5115590ed029419298203fe6fcf886cf",
+    "method": "POST",
+    "route": "/dev-auth/token",
+    "status": 404,
+    "actor_id": null,
+    "role": null
+  },
+  {
+    "timestamp": "2026-11-12T10:54:12.572299+00:00",
+    "event": "authentication_failure",
+    "request_id": "0bee5f17731146a691229690796db22a",
+    "method": "GET",
+    "route": "/me",
+    "status": 401,
+    "actor_id": null,
+    "role": null
+  },
+  {
+    "timestamp": "2026-11-12T10:54:12.577461+00:00",
+    "event": "access_denied",
+    "request_id": "14353f24e91d46c38200fb85189d75e9",
+    "method": "GET",
+    "route": "unmatched",
+    "status": 403,
+    "actor_id": null,
+    "role": null
+  },
+  {
+    "timestamp": "2026-11-12T10:54:12.588004+00:00",
+    "event": "request_rejected",
+    "request_id": "52667cedfd7e49cdbca6cd6989cc06fd",
+    "method": "POST",
+    "route": "/dev-auth/token",
+    "status": 503,
+    "actor_id": null,
+    "role": null
+  }
+]

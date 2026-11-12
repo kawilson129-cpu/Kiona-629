@@ -1,0 +1,17 @@
+﻿{
+    "git_diff_check":  "PASS",
+    "javascript_syntax":  "PASS",
+    "documentation_links":  134,
+    "documentation_links_failed":  0,
+    "live_transaction_read_only":  true,
+    "live_mutations":  false,
+    "external_email":  false,
+    "dedicated_browser_profile_removed":  true,
+    "fixture_process_closed":  true,
+    "browser_process_closed":  true,
+    "real_auth_activated":  false,
+    "production_deployment":  false,
+    "fallback_fixture_closed":  true,
+    "fallback_browser_closed":  true,
+    "fallback_profile_removed":  true
+}

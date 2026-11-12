@@ -1,0 +1,91 @@
+{"timestamp":"2026-11-12T10:53:34.890590+00:00","event":"sensitive_change","request_id":"33d5f89a02234d659f3544f0318a6151","method":"POST","route":"/dev-auth/token","status":200,"actor_id":null,"role":null}
+{"timestamp":"2026-11-12T10:53:34.902855+00:00","event":"sensitive_change","request_id":"3ef8a16c42a9472d88c9a715c3cc9364","method":"POST","route":"/dev-auth/token","status":200,"actor_id":null,"role":null}
+{"timestamp":"2026-11-12T10:53:34.916869+00:00","event":"sensitive_change","request_id":"d8a56cc610624fe8a974aafca06d686c","method":"POST","route":"/dev-auth/token","status":200,"actor_id":null,"role":null}
+{"timestamp":"2026-11-12T10:53:34.932377+00:00","event":"sensitive_change","request_id":"dcaa6a73ff7c4bf6a2644e6e78528078","method":"POST","route":"/dev-auth/token","status":200,"actor_id":null,"role":null}
+{"timestamp":"2026-11-12T10:53:34.949707+00:00","event":"sensitive_change","request_id":"e70de7b3ec664f028f3e2197acaf2ed9","method":"POST","route":"/dev-auth/token","status":200,"actor_id":null,"role":null}
+PASS Availability probes both schema and parser
+PASS Three real templates provided
+{"timestamp":"2026-11-12T10:53:35.011952+00:00","event":"access_denied","request_id":"68eca706186043a3a85afd0b1fef1451","method":"POST","route":"/governance/documents/preview","status":403,"actor_id":8,"role":"Employee"}
+PASS Employee preview denied
+{"timestamp":"2026-11-12T10:53:35.027085+00:00","event":"authentication_failure","request_id":"b5e0b1b44135426eb07bc2d47d3ac5b7","method":"POST","route":"/governance/documents/preview","status":401,"actor_id":null,"role":null}
+PASS Anonymous preview denied
+{"timestamp":"2026-11-12T10:53:35.045729+00:00","event":"access_denied","request_id":"c8b7040cd3344505bea72b988bf7e09e","method":"GET","route":"/governance/availability","status":403,"actor_id":8,"role":"Employee"}
+PASS Employee capability probe denied
+{"timestamp":"2026-11-12T10:53:35.067764+00:00","event":"request_rejected","request_id":"51e72ff6932c45d7920ca462485fb08d","method":"POST","route":"/governance/documents/preview","status":413,"actor_id":4,"role":"Policy Owner"}
+PASS Oversized body rejected
+{"timestamp":"2026-11-12T10:53:35.088959+00:00","event":"request_rejected","request_id":"b608eb0e280648ca9ed8088cd8c44c0d","method":"POST","route":"/governance/documents/preview","status":415,"actor_id":4,"role":"Policy Owner"}
+PASS Wrong extension rejected
+{"timestamp":"2026-11-12T10:53:35.113709+00:00","event":"request_rejected","request_id":"403b7e58dbab4520a167d58d73590293","method":"POST","route":"/governance/documents/preview","status":422,"actor_id":4,"role":"Policy Owner"}
+PASS Mismatched signature rejected
+{"timestamp":"2026-11-12T10:53:35.138224+00:00","event":"request_rejected","request_id":"73054b72ce644c409d648fbc477a09f4","method":"POST","route":"/governance/documents/preview","status":415,"actor_id":4,"role":"Policy Owner"}
+PASS Mismatched MIME rejected
+{"timestamp":"2026-11-12T10:53:38.949369+00:00","event":"request_rejected","request_id":"dc8cc17ca2db46c8943ce5e9423b06f8","method":"POST","route":"/governance/documents/preview","status":422,"actor_id":4,"role":"Policy Owner"}
+PASS Corrupt ZIP rejected
+{"timestamp":"2026-11-12T10:53:41.180252+00:00","event":"request_rejected","request_id":"549a964655064c47bef4c60d869ce5a2","method":"POST","route":"/governance/documents/preview","status":422,"actor_id":4,"role":"Policy Owner"}
+PASS Macro content rejected
+{"timestamp":"2026-11-12T10:53:43.120602+00:00","event":"request_rejected","request_id":"897495734c934cfbbd408aac73d238e4","method":"POST","route":"/governance/documents/preview","status":422,"actor_id":4,"role":"Policy Owner"}
+PASS Embedded object rejected
+{"timestamp":"2026-11-12T10:53:44.744594+00:00","event":"request_rejected","request_id":"8fec2459c69249ccadd6e471995abe92","method":"POST","route":"/governance/documents/preview","status":422,"actor_id":4,"role":"Policy Owner"}
+PASS Archive traversal rejected
+{"timestamp":"2026-11-12T10:53:46.404463+00:00","event":"request_rejected","request_id":"790dca03f362479286dfcf4564839490","method":"POST","route":"/governance/documents/preview","status":422,"actor_id":4,"role":"Policy Owner"}
+PASS ZIP bomb rejected
+{"timestamp":"2026-11-12T10:53:48.156537+00:00","event":"request_rejected","request_id":"2e58df50605f4fc89d10c68abdd02ebc","method":"POST","route":"/governance/documents/preview","status":422,"actor_id":4,"role":"Policy Owner"}
+PASS XML entities rejected
+{"timestamp":"2026-11-12T10:53:50.081968+00:00","event":"sensitive_change","request_id":"1e05874ae2384a60847401eea2279f7b","method":"POST","route":"/governance/documents/preview","status":200,"actor_id":4,"role":"Policy Owner"}
+PASS Valid preview DOCX
+PASS Extracted words preserved in policy format
+PASS Preview does not save draft
+{"timestamp":"2026-11-12T10:53:50.199885+00:00","event":"request_rejected","request_id":"03591b3a423d4d0dba8913329a3d06fc","method":"POST","route":"/governance/drafts","status":422,"actor_id":4,"role":"Policy Owner"}
+PASS Explicit confirmation required
+{"timestamp":"2026-11-12T10:53:50.224442+00:00","event":"access_denied","request_id":"58d57e62f1bb4f6fbbca09a66c1fb5ce","method":"POST","route":"/governance/drafts","status":404,"actor_id":9,"role":"Policy Owner"}
+PASS Another owner cannot consume preview
+{"timestamp":"2026-11-12T10:53:50.266216+00:00","event":"sensitive_change","request_id":"160b8803803746e6a51e79e4c0026454","method":"POST","route":"/governance/drafts","status":201,"actor_id":4,"role":"Policy Owner"}
+PASS Confirmed document persists through lifecycle create
+PASS Uploaded document remains draft
+{"timestamp":"2026-11-12T10:53:50.290511+00:00","event":"access_denied","request_id":"3a2cf0fffee6458bb1b80d68a88c07dc","method":"POST","route":"/governance/drafts","status":404,"actor_id":4,"role":"Policy Owner"}
+PASS Preview cannot be replayed
+PASS Original provenance stored in immutable creation event
+{"timestamp":"2026-11-12T10:53:50.366020+00:00","event":"access_denied","request_id":"e5af16607f51496687f72ac117424049","method":"GET","route":"/governance/drafts/{did}/original","status":404,"actor_id":4,"role":"Policy Owner"}
+PASS No original download claimed without storage
+{"timestamp":"2026-11-12T10:53:50.396198+00:00","event":"request_rejected","request_id":"bdd864b429c24e49b5dbb063de44db48","method":"POST","route":"/governance/drafts/{did}/actions","status":409,"actor_id":1,"role":"System Administrator","action":"publish"}
+PASS Direct publication remains denied
+{"timestamp":"2026-11-12T10:53:52.804379+00:00","event":"sensitive_change","request_id":"00be76a23193493fa5b46371b9db9136","method":"POST","route":"/governance/documents/preview","status":200,"actor_id":4,"role":"Policy Owner"}
+PASS Valid preview safe.pdf
+PASS Real PDF text extracted
+{"timestamp":"2026-11-12T10:53:52.826547+00:00","event":"sensitive_change","request_id":"77157db236be4f799b5b141bfd0dba2c","method":"DELETE","route":"/governance/documents/preview/{token}","status":200,"actor_id":4,"role":"Policy Owner"}
+{"timestamp":"2026-11-12T10:53:54.943985+00:00","event":"request_rejected","request_id":"822e566f81a94fcebfa91671dd930189","method":"POST","route":"/governance/documents/preview","status":422,"actor_id":4,"role":"Policy Owner"}
+PASS Encrypted PDF rejected
+{"timestamp":"2026-11-12T10:53:57.099969+00:00","event":"request_rejected","request_id":"db0fda919c9e403d9e7d171c8aad89d6","method":"POST","route":"/governance/documents/preview","status":422,"actor_id":4,"role":"Policy Owner"}
+PASS PDF active content rejected
+{"timestamp":"2026-11-12T10:53:59.546812+00:00","event":"request_rejected","request_id":"61e1d2fe90de4737bad7a603a08248c1","method":"POST","route":"/governance/documents/preview","status":422,"actor_id":4,"role":"Policy Owner"}
+PASS Image-only/blank PDF rejected
+{"timestamp":"2026-11-12T10:54:01.316489+00:00","event":"sensitive_change","request_id":"24542cc9d6bd4a35b779aae77ea9274b","method":"POST","route":"/governance/documents/preview","status":200,"actor_id":4,"role":"Policy Owner"}
+PASS Valid preview DOCX
+{"timestamp":"2026-11-12T10:54:01.347425+00:00","event":"sensitive_change","request_id":"8d085e88c327466c8cfaca00ae597152","method":"POST","route":"/governance/drafts","status":201,"actor_id":4,"role":"Policy Owner"}
+PASS Private original and draft saved
+PASS Authorized original download exact bytes
+PASS Original download not cacheable
+{"timestamp":"2026-11-12T10:54:01.488377+00:00","event":"access_denied","request_id":"05a84f2061ba4127a2bd1143dedb7207","method":"GET","route":"/governance/drafts/{did}/original","status":403,"actor_id":8,"role":"Employee"}
+PASS Employee original download denied
+{"timestamp":"2026-11-12T10:54:01.512988+00:00","event":"access_denied","request_id":"52845fc54aac42ff8bef6683610f5cd9","method":"GET","route":"unmatched","status":404,"actor_id":null,"role":null}
+PASS No public static original path
+{"timestamp":"2026-11-12T10:54:03.300912+00:00","event":"sensitive_change","request_id":"31d375d807e94ca3b13e3421da9d1250","method":"POST","route":"/governance/documents/preview","status":200,"actor_id":4,"role":"Policy Owner"}
+PASS Valid preview DOCX
+{"timestamp":"2026-11-12T10:54:03.394978+00:00","event":"request_rejected","request_id":"7f2756cb8157411cafc416d6821082dd","method":"POST","route":"/governance/drafts","status":500,"actor_id":4,"role":"Policy Owner"}
+PASS Failed persistence never reports saved
+PASS Failed transaction cleans private staged original
+{"timestamp":"2026-11-12T10:54:03.421419+00:00","event":"sensitive_change","request_id":"b395efce082b4ff3b0dda57236d95316","method":"DELETE","route":"/governance/documents/preview/{token}","status":200,"actor_id":4,"role":"Policy Owner"}
+PASS Public storage directory forbidden
+{"timestamp":"2026-11-12T10:54:03.472791+00:00","event":"request_rejected","request_id":"0c197c45aaaa4c5694a7a2574500351e","method":"POST","route":"/governance/documents/preview","status":503,"actor_id":4,"role":"Policy Owner"}
+PASS Misconfigured storage disables upload honestly
+Governance availability probe failed (ProgrammingError)
+PASS Missing schema disables saving but permits parsing
+Governance schema dependency missing: SQLSTATE 42P01
+{"timestamp":"2026-11-12T10:54:03.537246+00:00","event":"request_rejected","request_id":"ef641fac708b405894c4bb698f57c2ff","method":"GET","route":"/governance/drafts","status":503,"actor_id":4,"role":"Policy Owner"}
+PASS Queue fails honestly with enterprise copy
+{"timestamp":"2026-11-12T10:54:05.381621+00:00","event":"sensitive_change","request_id":"3809e9d3345e448385a891c38a9bbb2e","method":"POST","route":"/governance/documents/preview","status":200,"actor_id":4,"role":"Policy Owner"}
+PASS Valid preview DOCX
+Governance schema dependency missing: SQLSTATE 42P01
+{"timestamp":"2026-11-12T10:54:05.415653+00:00","event":"request_rejected","request_id":"9a17c3ba781d4364b553b7404b92f736","method":"POST","route":"/governance/drafts","status":503,"actor_id":4,"role":"Policy Owner"}
+PASS Save cannot succeed without tables
+PASS Existing Dashboard preserved

@@ -1,0 +1,678 @@
+﻿{
+    "documents":  18,
+    "local_links":  134,
+    "passed":  134,
+    "failed":  0,
+    "checks":  [
+                   {
+                       "file":  "README.md",
+                       "target":  "../semester_3/DeRexi_Week%203/database-design.md",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "README.md",
+                       "target":  "../semester_5/DeRexi_Week%2011/final-integration-architecture.md",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "README.md",
+                       "target":  "../semester_5/DeRexi_Week%2011/final-integration-results.md",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "README.md",
+                       "target":  "../semester_5/DeRexi_Week%2011/final-integration-approval-checklist.md",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "README.md",
+                       "target":  "docs/deployment.md",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "README.md",
+                       "target":  "../semester_5/DeRexi_Week%2011/README.md",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "README.md",
+                       "target":  "../semester_5/DeRexi_Week%2011/employee-guide.md",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "README.md",
+                       "target":  "../semester_5/DeRexi_Week%2011/policy-owner-guide.md",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "README.md",
+                       "target":  "../semester_5/DeRexi_Week%2011/system-admin-guide.md",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "README.md",
+                       "target":  "../semester_5/DeRexi_Week%2011/demo-script.md",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "README.md",
+                       "target":  "../compliance_1/C%201%20Assignment%203/README.md",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "README.md",
+                       "target":  "docs/deployment.md",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "README.md",
+                       "target":  "../semester_4/DeRexi_Week%207/evidence/README.md",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "README.md",
+                       "target":  "../semester_4/DeRexi_Week%208/README.md",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "README.md",
+                       "target":  "../semester_5/DeRexi_Week%209/README.md",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "README.md",
+                       "target":  "../semester_5/DeRexi_Week%2010/README.md",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "deployment.md",
+                       "target":  "../../semester_5/DeRexi_Week%2011/final-integration-architecture.md",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "deployment.md",
+                       "target":  "../../semester_5/DeRexi_Week%2011/final-integration-results.md",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "deployment.md",
+                       "target":  "../../semester_5/DeRexi_Week%2011/final-integration-approval-checklist.md",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "deployment.md",
+                       "target":  "../../semester_4/DeRexi_Week%208/README.md",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "deployment.md",
+                       "target":  "../../semester_4/DeRexi_Week%208/governance-workspace/README.md",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "deployment.md",
+                       "target":  "../backend/migrations/2026-11-10_week8_governance.sql",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "deployment.md",
+                       "target":  "../backend/migrations/2026-11-10_week8_owner_seed.sql",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "deployment.md",
+                       "target":  "../../semester_5/DeRexi_Week%209/production-activation.md",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "deployment.md",
+                       "target":  "../../semester_5/DeRexi_Week%209/proposed-database/APPROVAL_ONLY_bff_access_boundary.sql",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "deployment.md",
+                       "target":  "../../semester_5/DeRexi_Week%2010/final-mvp-checklist.md",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "deployment.md",
+                       "target":  "../../semester_5/DeRexi_Week%2010/uat-records.md",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "deployment.md",
+                       "target":  "../requirements.txt",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "deployment.md",
+                       "target":  "../requirements-dev.txt",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "deployment.md",
+                       "target":  "../../semester_5/DeRexi_Week%2011/README.md",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "demo-script.md",
+                       "target":  "employee-messages-walkthrough.md",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "demo-script.md",
+                       "target":  "governance-library-walkthrough.md",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "demo-script.md",
+                       "target":  "pulse-revision-walkthrough.md",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "demo-script.md",
+                       "target":  "feedback-dashboard-walkthrough.md",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "demo-script.md",
+                       "target":  "../../derexi-policy-pilot/README.md",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "demo-script.md",
+                       "target":  "../../derexi-policy-pilot/backend/tests/serve_week10_fixture.py",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "demo-script.md",
+                       "target":  "../DeRexi_Week%2010/uat-records.md",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "demo-script.md",
+                       "target":  "../DeRexi_Week%2010/evidence/inputs/Customer%20safeguards.docx",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "demo-script.md",
+                       "target":  "presentation.md",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "demo-script.md",
+                       "target":  "release-checklist.md",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "employee-messages-walkthrough.md",
+                       "target":  "demo-script.md",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "employee-messages-walkthrough.md",
+                       "target":  "../DeRexi_Week%2010/evidence/screenshots/14-mobile-messaging-fixture.png",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "employee-messages-walkthrough.md",
+                       "target":  "../DeRexi_Week%2010/evidence/screenshots/02-assistant-feedback-fixture.png",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "employee-messages-walkthrough.md",
+                       "target":  "../DeRexi_Week%2010/evidence/screenshots/04-employee-messaging-fixture.png",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "employee-messages-walkthrough.md",
+                       "target":  "../DeRexi_Week%2010/uat-records.md",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "employee-messages-walkthrough.md",
+                       "target":  "employee-guide.md",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "feedback-dashboard-walkthrough.md",
+                       "target":  "demo-script.md",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "feedback-dashboard-walkthrough.md",
+                       "target":  "../DeRexi_Week%2010/evidence/screenshots/02-assistant-feedback-fixture.png",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "feedback-dashboard-walkthrough.md",
+                       "target":  "../DeRexi_Week%2010/evidence/screenshots/03-feedback-error-fixture.png",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "feedback-dashboard-walkthrough.md",
+                       "target":  "../DeRexi_Week%2010/test-report.md",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "feedback-dashboard-walkthrough.md",
+                       "target":  "../DeRexi_Week%2010/uat-records.md",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "feedback-dashboard-walkthrough.md",
+                       "target":  "employee-guide.md",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "feedback-dashboard-walkthrough.md",
+                       "target":  "system-admin-guide.md",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "final-integration-approval-checklist.md",
+                       "target":  "../../derexi-policy-pilot/docs/deployment.md",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "final-integration-approval-checklist.md",
+                       "target":  "../DeRexi_Week%209/production-activation.md",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "final-integration-approval-checklist.md",
+                       "target":  "../../semester_4/DeRexi_Week%208/README.md",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "final-integration-approval-checklist.md",
+                       "target":  "../DeRexi_Week%2010/final-mvp-checklist.md",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "final-integration-architecture.md",
+                       "target":  "../../derexi-policy-pilot/backend/migrations/2026-11-12_support_routing.sql",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "final-integration-results.md",
+                       "target":  "final-integration-architecture.md",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "final-integration-results.md",
+                       "target":  "pinned-readiness-status.md",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "final-integration-results.md",
+                       "target":  "final-integration-approval-checklist.md",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "final-integration-results.md",
+                       "target":  "week12-demo-runbook.md",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "final-integration-results.md",
+                       "target":  "evidence/final-integration-20261112/final-summary.json",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "final-integration-results.md",
+                       "target":  "pinned-readiness-status.md",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "final-integration-results.md",
+                       "target":  "final-integration-approval-checklist.md",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "governance-library-walkthrough.md",
+                       "target":  "demo-script.md",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "governance-library-walkthrough.md",
+                       "target":  "../DeRexi_Week%2010/evidence/screenshots/05-document-preview-fixture.png",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "governance-library-walkthrough.md",
+                       "target":  "../DeRexi_Week%2010/evidence/screenshots/06-peer-review-fixture.png",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "governance-library-walkthrough.md",
+                       "target":  "../DeRexi_Week%2010/evidence/screenshots/07-admin-publication-fixture.png",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "governance-library-walkthrough.md",
+                       "target":  "../DeRexi_Week%2010/evidence/screenshots/11-mobile-library-fixture.png",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "governance-library-walkthrough.md",
+                       "target":  "../DeRexi_Week%2010/uat-records.md",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "governance-library-walkthrough.md",
+                       "target":  "policy-owner-guide.md",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "governance-library-walkthrough.md",
+                       "target":  "system-admin-guide.md",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "pinned-readiness-status.md",
+                       "target":  "evidence/final-integration-20261112/live-readonly-preflight.json",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "pinned-readiness-status.md",
+                       "target":  "final-integration-approval-checklist.md",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "policy-owner-guide.md",
+                       "target":  "employee-guide.md",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "presentation.md",
+                       "target":  "demo-script.md",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "presentation.md",
+                       "target":  "../DeRexi_Week%2010/evidence/screenshots/01-desktop-signin-fixture.png",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "presentation.md",
+                       "target":  "../DeRexi_Week%2010/evidence/screenshots/02-assistant-feedback-fixture.png",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "presentation.md",
+                       "target":  "../DeRexi_Week%2010/evidence/screenshots/04-employee-messaging-fixture.png",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "presentation.md",
+                       "target":  "../DeRexi_Week%2010/evidence/screenshots/05-document-preview-fixture.png",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "presentation.md",
+                       "target":  "../DeRexi_Week%2010/evidence/screenshots/06-peer-review-fixture.png",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "presentation.md",
+                       "target":  "../DeRexi_Week%2010/evidence/screenshots/07-admin-publication-fixture.png",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "presentation.md",
+                       "target":  "../DeRexi_Week%2010/evidence/screenshots/09-pulse-revision-fixture.png",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "presentation.md",
+                       "target":  "../DeRexi_Week%2010/evidence/screenshots/08-admin-triage-fixture.png",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "presentation.md",
+                       "target":  "../DeRexi_Week%2010/evidence/screenshots/03-feedback-error-fixture.png",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "presentation.md",
+                       "target":  "../DeRexi_Week%2010/evidence/screenshots/10-workspace-outage-fixture.png",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "presentation.md",
+                       "target":  "../DeRexi_Week%2010/evidence/screenshots/14-mobile-messaging-fixture.png",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "presentation.md",
+                       "target":  "../DeRexi_Week%2010/final-mvp-checklist.md",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "presentation.md",
+                       "target":  "release-checklist.md",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "presentation.md",
+                       "target":  "../DeRexi_Week%2010/evidence/screenshots/11-mobile-library-fixture.png",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "presentation.md",
+                       "target":  "../DeRexi_Week%2010/evidence/screenshots/13-mobile-assistant-fixture.png",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "presentation.md",
+                       "target":  "../DeRexi_Week%2010/evidence/screenshots/15-mobile-signout-fixture.png",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "presentation.md",
+                       "target":  "../DeRexi_Week%2010/uat-records.md",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "pulse-revision-walkthrough.md",
+                       "target":  "demo-script.md",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "pulse-revision-walkthrough.md",
+                       "target":  "governance-library-walkthrough.md",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "pulse-revision-walkthrough.md",
+                       "target":  "../DeRexi_Week%2010/evidence/screenshots/09-pulse-revision-fixture.png",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "pulse-revision-walkthrough.md",
+                       "target":  "../DeRexi_Week%2010/evidence/screenshots/10-workspace-outage-fixture.png",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "pulse-revision-walkthrough.md",
+                       "target":  "../DeRexi_Week%2010/uat-records.md",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "pulse-revision-walkthrough.md",
+                       "target":  "policy-owner-guide.md",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "README.md",
+                       "target":  "final-integration-results.md",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "README.md",
+                       "target":  "final-integration-architecture.md",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "README.md",
+                       "target":  "pinned-readiness-status.md",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "README.md",
+                       "target":  "final-integration-approval-checklist.md",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "README.md",
+                       "target":  "week12-demo-runbook.md",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "README.md",
+                       "target":  "../../derexi-policy-pilot/README.md",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "README.md",
+                       "target":  "../../derexi-policy-pilot/docs/deployment.md",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "README.md",
+                       "target":  "employee-guide.md",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "README.md",
+                       "target":  "policy-owner-guide.md",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "README.md",
+                       "target":  "system-admin-guide.md",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "README.md",
+                       "target":  "demo-script.md",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "README.md",
+                       "target":  "employee-messages-walkthrough.md",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "README.md",
+                       "target":  "governance-library-walkthrough.md",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "README.md",
+                       "target":  "pulse-revision-walkthrough.md",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "README.md",
+                       "target":  "feedback-dashboard-walkthrough.md",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "README.md",
+                       "target":  "presentation.md",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "README.md",
+                       "target":  "release-checklist.md",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "README.md",
+                       "target":  "evidence/documentation-validation.md",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "README.md",
+                       "target":  "../../semester_4/DeRexi_Week%207/evidence/README.md",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "README.md",
+                       "target":  "../../semester_4/DeRexi_Week%208/README.md",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "README.md",
+                       "target":  "../../semester_4/DeRexi_Week%208/governance-workspace/README.md",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "README.md",
+                       "target":  "../DeRexi_Week%209/production-activation.md",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "README.md",
+                       "target":  "../DeRexi_Week%2010/test-report.md",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "release-checklist.md",
+                       "target":  "evidence/documentation-validation.md",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "system-admin-guide.md",
+                       "target":  "employee-guide.md",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "system-admin-guide.md",
+                       "target":  "policy-owner-guide.md",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "system-admin-guide.md",
+                       "target":  "../../derexi-policy-pilot/docs/deployment.md",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "system-admin-guide.md",
+                       "target":  "final-integration-architecture.md",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "system-admin-guide.md",
+                       "target":  "final-integration-approval-checklist.md",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "week12-demo-runbook.md",
+                       "target":  "../../derexi-policy-pilot/backend/tests/serve_support_fixture.py",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "week12-demo-runbook.md",
+                       "target":  "feedback-dashboard-walkthrough.md",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "week12-demo-runbook.md",
+                       "target":  "employee-messages-walkthrough.md",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "week12-demo-runbook.md",
+                       "target":  "governance-library-walkthrough.md",
+                       "pass":  true
+                   },
+                   {
+                       "file":  "week12-demo-runbook.md",
+                       "target":  "pulse-revision-walkthrough.md",
+                       "pass":  true
+                   }
+               ]
+}

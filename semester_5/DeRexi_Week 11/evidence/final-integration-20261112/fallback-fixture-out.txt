@@ -1,0 +1,1 @@
+ISOLATED FICTIONAL FIXTURE: SQLite; provider/feed/SMTP mocked or OFF; no Supabase

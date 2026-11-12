@@ -1,0 +1,31 @@
+{
+  "checks": [
+    {
+      "name": "Internal fallback remains available",
+      "pass": true
+    },
+    {
+      "name": "Fallback requires explicit review consent",
+      "pass": true
+    },
+    {
+      "name": "Fallback preserves existing incident API",
+      "pass": true
+    },
+    {
+      "name": "Fallback explicitly claims no email",
+      "pass": true
+    },
+    {
+      "name": "Fallback creates no outbound request",
+      "pass": true
+    },
+    {
+      "name": "No browser runtime exceptions",
+      "pass": true
+    }
+  ],
+  "passed": 6,
+  "failed": 0,
+  "errors": []
+}

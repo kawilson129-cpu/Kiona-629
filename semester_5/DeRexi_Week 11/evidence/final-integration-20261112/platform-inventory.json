@@ -1,0 +1,9 @@
+﻿{
+    "linux_inventory":  "UNAVAILABLE_WSL_QUERY_FAILED",
+    "host":  "Windows",
+    "native_macos_available":  false,
+    "wsl_command_available":  true,
+    "wsl_query_exit_code":  -1,
+    "linux_distributions_detected":  null,
+    "notice":  "Failed WSL query output is not a distribution list. No WSL installation or platform setup performed."
+}

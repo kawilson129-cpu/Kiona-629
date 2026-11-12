@@ -1,0 +1,359 @@
+{
+  "passed": 88,
+  "failed": 0,
+  "blocked": 0,
+  "checks": [
+    {
+      "name": "Anonymous denied GET /departments",
+      "pass": true
+    },
+    {
+      "name": "Anonymous denied GET /roles",
+      "pass": true
+    },
+    {
+      "name": "Anonymous denied GET /categories",
+      "pass": true
+    },
+    {
+      "name": "Anonymous denied GET /me",
+      "pass": true
+    },
+    {
+      "name": "Anonymous denied GET /users",
+      "pass": true
+    },
+    {
+      "name": "Anonymous denied GET /policies",
+      "pass": true
+    },
+    {
+      "name": "Anonymous denied GET /policies/search",
+      "pass": true
+    },
+    {
+      "name": "Anonymous denied GET /policies/{policy_id}",
+      "pass": true
+    },
+    {
+      "name": "Anonymous denied POST /policies",
+      "pass": true
+    },
+    {
+      "name": "Anonymous denied POST /policies/{policy_id}/versions",
+      "pass": true
+    },
+    {
+      "name": "Anonymous denied POST /ask",
+      "pass": true
+    },
+    {
+      "name": "Anonymous denied GET /conversations/{conversation_id}",
+      "pass": true
+    },
+    {
+      "name": "Anonymous denied GET /incident-categories",
+      "pass": true
+    },
+    {
+      "name": "Anonymous denied GET /incidents",
+      "pass": true
+    },
+    {
+      "name": "Anonymous denied POST /incidents",
+      "pass": true
+    },
+    {
+      "name": "Anonymous denied PATCH /incidents/{incident_id}",
+      "pass": true
+    },
+    {
+      "name": "Anonymous denied POST /feedback",
+      "pass": true
+    },
+    {
+      "name": "Anonymous denied GET /feedback/mine",
+      "pass": true
+    },
+    {
+      "name": "Anonymous denied GET /dashboard/policy-health",
+      "pass": true
+    },
+    {
+      "name": "Direct policy creation bypass blocked 8",
+      "pass": true
+    },
+    {
+      "name": "Direct version bypass blocked 8",
+      "pass": true
+    },
+    {
+      "name": "Direct policy creation bypass blocked 4",
+      "pass": true
+    },
+    {
+      "name": "Direct version bypass blocked 4",
+      "pass": true
+    },
+    {
+      "name": "Direct policy creation bypass blocked 2",
+      "pass": true
+    },
+    {
+      "name": "Direct version bypass blocked 2",
+      "pass": true
+    },
+    {
+      "name": "Policy Owner cannot read unrelated incident reports",
+      "pass": true
+    },
+    {
+      "name": "Employee sees only own incidents",
+      "pass": true
+    },
+    {
+      "name": "Administrator sees organizational incident reports",
+      "pass": true
+    },
+    {
+      "name": "Policy Owner cannot change incident status",
+      "pass": true
+    },
+    {
+      "name": "Employee cannot assign incident handler",
+      "pass": true
+    },
+    {
+      "name": "Policy Owner cannot assign incident handler",
+      "pass": true
+    },
+    {
+      "name": "Employee cannot select escalation level",
+      "pass": true
+    },
+    {
+      "name": "Administrator can update incident",
+      "pass": true
+    },
+    {
+      "name": "Explicit handler assignment permits incident access",
+      "pass": true
+    },
+    {
+      "name": "Unknown handler rejected safely",
+      "pass": true
+    },
+    {
+      "name": "Null incident workflow state rejected safely",
+      "pass": true
+    },
+    {
+      "name": "Unknown category rejected safely",
+      "pass": true
+    },
+    {
+      "name": "Owner dashboard is explicitly department scoped",
+      "pass": true
+    },
+    {
+      "name": "Owner dashboard excludes other department policies",
+      "pass": true
+    },
+    {
+      "name": "Owner dashboard conceals unrelated incident and chat aggregates",
+      "pass": true
+    },
+    {
+      "name": "Author cannot select self for peer approval",
+      "pass": true
+    },
+    {
+      "name": "Author cannot approve own draft",
+      "pass": true
+    },
+    {
+      "name": "Independent department peer approval succeeds",
+      "pass": true
+    },
+    {
+      "name": "Independent system administrator approval succeeds",
+      "pass": true
+    },
+    {
+      "name": "Validation response redacts rejected input",
+      "pass": true
+    },
+    {
+      "name": "DB failure is generic and actionable",
+      "pass": true
+    },
+    {
+      "name": "Request id is generated, not trusted from caller",
+      "pass": true
+    },
+    {
+      "name": "Valid Supabase JWT maps to existing employee",
+      "pass": true
+    },
+    {
+      "name": "Supabase JWT role claim cannot elevate access",
+      "pass": true
+    },
+    {
+      "name": "expired Supabase JWT denied",
+      "pass": true
+    },
+    {
+      "name": "wrong audience Supabase JWT denied",
+      "pass": true
+    },
+    {
+      "name": "wrong issuer Supabase JWT denied",
+      "pass": true
+    },
+    {
+      "name": "invalid signature Supabase JWT denied",
+      "pass": true
+    },
+    {
+      "name": "Verified email alone does not prove employee identity",
+      "pass": true
+    },
+    {
+      "name": "Subject and business email must match the same user",
+      "pass": true
+    },
+    {
+      "name": "Service keys cannot configure public sign-in",
+      "pass": true
+    },
+    {
+      "name": "Login rejects CSRF attempt",
+      "pass": true
+    },
+    {
+      "name": "Login failure is generic",
+      "pass": true
+    },
+    {
+      "name": "Mapped account can establish verified browser session",
+      "pass": true
+    },
+    {
+      "name": "Browser session cookies are Secure HttpOnly SameSite Strict",
+      "pass": true
+    },
+    {
+      "name": "Login does not expose tokens in JSON",
+      "pass": true
+    },
+    {
+      "name": "Session reads do not expose credentials",
+      "pass": true
+    },
+    {
+      "name": "Cookie-authenticated writes require CSRF proof",
+      "pass": true
+    },
+    {
+      "name": "Refresh rotates a verified mapped session",
+      "pass": true
+    },
+    {
+      "name": "Authenticated data is not cached",
+      "pass": true
+    },
+    {
+      "name": "Production response includes HSTS",
+      "pass": true
+    },
+    {
+      "name": "Refresh token is scoped to auth endpoints",
+      "pass": true
+    },
+    {
+      "name": "Logout clears local cookies and invokes provider revocation",
+      "pass": true
+    },
+    {
+      "name": "Failed remote logout still clears browser cookies honestly",
+      "pass": true
+    },
+    {
+      "name": "Login has bounded attempt throttling",
+      "pass": true
+    },
+    {
+      "name": "Production cannot mint developer tokens",
+      "pass": true
+    },
+    {
+      "name": "Production rejects valid local dev token",
+      "pass": true
+    },
+    {
+      "name": "Production refuses plaintext API transport",
+      "pass": true
+    },
+    {
+      "name": "Malformed developer allowlist fails closed",
+      "pass": true
+    },
+    {
+      "name": "Missing explicit environment cannot enable developer identity",
+      "pass": true
+    },
+    {
+      "name": "Database TLS: remote default",
+      "pass": true
+    },
+    {
+      "name": "Database TLS: username cannot impersonate localhost",
+      "pass": true
+    },
+    {
+      "name": "Database TLS: plaintext remote refused",
+      "pass": true
+    },
+    {
+      "name": "Database TLS: opportunistic remote refused",
+      "pass": true
+    },
+    {
+      "name": "Database TLS: verified mode retained",
+      "pass": true
+    },
+    {
+      "name": "Structured logs exclude credentials, tokens and private text",
+      "pass": true
+    },
+    {
+      "name": "Access denials and login failures are recorded",
+      "pass": true
+    },
+    {
+      "name": "Sensitive admin actions are recorded",
+      "pass": true
+    },
+    {
+      "name": "Approval logs identify verified actors without policy text",
+      "pass": true
+    },
+    {
+      "name": "Log route templates exclude raw resource parameters",
+      "pass": true
+    },
+    {
+      "name": "Default access logging redacts preview tokens and query data",
+      "pass": true
+    },
+    {
+      "name": "Unsafe auth configuration rejected: plaintext JWKS",
+      "pass": true
+    },
+    {
+      "name": "Unsafe auth configuration rejected: symmetric production algorithm",
+      "pass": true
+    }
+  ]
+}

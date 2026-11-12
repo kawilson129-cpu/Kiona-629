@@ -2465,3 +2465,22 @@ button {
 .lifecycle .btn-primary:disabled { cursor:not-allowed; background:#81786a; border-color:#81786a; }
 .gw-live-preview .gov-policy-body h4 { font:600 .85rem var(--sans); margin:24px 0 8px; color:#453729; }
 .gw-live-preview .gov-policy-body p { font-size:.9rem; line-height:1.85; margin:0 0 12px; white-space:pre-wrap; }
+/* Reviewed support handoff and scoped technical routing. */
+.support-desk { margin: 24px 0; padding: clamp(20px, 3vw, 36px); border: 1px solid #d8cfbf; background: #faf9f6; color: #30251f; }
+.support-desk .section-title { margin: 12px 0 22px; }
+.support-field { display: grid; gap: 9px; font-size: 14px; font-weight: 600; margin: 18px 0; }
+.support-field input, .support-field textarea, .support-field select { width: 100%; min-width: 0; box-sizing: border-box; padding: 13px; border: 1px solid #b6a58e; border-radius: 3px; background: #fffdf8; color: #30251f; font: inherit; font-weight: 400; }
+.support-desk .btn { margin: 8px 10px 8px 0; padding: 12px 18px; min-height: 44px; white-space: normal; }
+.support-desk .btn-primary { background: #35271f; color: #fff9ed; border: 1px solid #35271f; }
+.support-desk button:disabled { opacity: .55; cursor: not-allowed; }
+.support-urgent { border-left: 4px solid #9b4c22; background: #f5e8d6; color: #542d1b; padding: 18px; line-height: 1.65; }
+.support-status { min-height: 24px; line-height: 1.6; color: #60442e; }
+.support-summary { display: grid; grid-template-columns: 130px minmax(0, 1fr); gap: 14px 22px; }
+.support-summary dt { font-weight: 600; }
+.support-summary dd { margin: 0; white-space: pre-wrap; overflow-wrap: anywhere; }
+.support-reference { overflow-wrap: anywhere; font-size: 12px; line-height: 1.6; }
+.support-confirm { display: flex; align-items: flex-start; gap: 12px; margin: 20px 0; line-height: 1.6; }
+.support-confirm input { margin-top: 5px; width: 18px; height: 18px; flex-shrink: 0; }
+.support-route-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 24px; }
+.support-route-grid .support-desk { margin: 0; }
+@media(max-width: 760px) { .support-route-grid { grid-template-columns: 1fr; } .support-summary { grid-template-columns: 1fr; gap: 5px; } .support-summary dd { margin-bottom: 12px; } .support-desk .btn { width: 100%; margin-right: 0; } }

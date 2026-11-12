@@ -1,0 +1,20 @@
+{
+  "platform": "win32",
+  "passed": 3,
+  "failed": 0,
+  "blocked": 0,
+  "checks": [
+    {
+      "name": "Native Windows bounded parser worker succeeds",
+      "pass": true
+    },
+    {
+      "name": "Native Windows 256 MiB Job Object blocks excess allocation",
+      "pass": true
+    },
+    {
+      "name": "Native Windows Job Object stops CPU overrun",
+      "pass": true
+    }
+  ]
+}

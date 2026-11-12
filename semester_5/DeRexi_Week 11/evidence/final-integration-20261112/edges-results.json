@@ -1,0 +1,123 @@
+{
+  "passed": 29,
+  "failed": 0,
+  "blocked": 0,
+  "checks": [
+    {
+      "name": "edge_0",
+      "pass": true
+    },
+    {
+      "name": "edge_1",
+      "pass": true
+    },
+    {
+      "name": "edge_2",
+      "pass": true
+    },
+    {
+      "name": "edge_3",
+      "pass": true
+    },
+    {
+      "name": "edge_4",
+      "pass": true
+    },
+    {
+      "name": "edge_5",
+      "pass": true
+    },
+    {
+      "name": "edge_6",
+      "pass": true
+    },
+    {
+      "name": "edge_7",
+      "pass": true
+    },
+    {
+      "name": "edge_8",
+      "pass": true
+    },
+    {
+      "name": "edge_9",
+      "pass": true
+    },
+    {
+      "name": "edge_10",
+      "pass": true
+    },
+    {
+      "name": "edge_11",
+      "pass": true
+    },
+    {
+      "name": "edge_12",
+      "pass": true
+    },
+    {
+      "name": "edge_13",
+      "pass": true
+    },
+    {
+      "name": "edge_14",
+      "pass": true
+    },
+    {
+      "name": "edge_15",
+      "pass": true
+    },
+    {
+      "name": "edge_16",
+      "pass": true
+    },
+    {
+      "name": "edge_17",
+      "pass": true
+    },
+    {
+      "name": "edge_18",
+      "pass": true
+    },
+    {
+      "name": "edge_19",
+      "pass": true
+    },
+    {
+      "name": "edge_20",
+      "pass": true
+    },
+    {
+      "name": "edge_21",
+      "pass": true
+    },
+    {
+      "name": "edge_22",
+      "pass": true
+    },
+    {
+      "name": "edge_23",
+      "pass": true
+    },
+    {
+      "name": "edge_24",
+      "pass": true
+    },
+    {
+      "name": "edge_25",
+      "pass": true
+    },
+    {
+      "name": "edge_26",
+      "pass": true
+    },
+    {
+      "name": "edge_27",
+      "pass": true
+    },
+    {
+      "name": "edge_28",
+      "pass": true
+    }
+  ]
+}

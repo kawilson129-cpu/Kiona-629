@@ -7,7 +7,7 @@ for querying and inserting -- it does not create tables.
 
 from __future__ import annotations
 
-from datetime import date, datetime
+from datetime import date, datetime, timezone
 from typing import List, Optional
 
 from sqlalchemy import (
@@ -322,4 +322,50 @@ class GovernanceEvent(Base):
     action: Mapped[str] = mapped_column(Text, nullable=False)
     comment: Mapped[Optional[str]] = mapped_column(Text)
     snapshot_json: Mapped[str] = mapped_column(Text, nullable=False)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False, server_default=func.now())
+
+
+class TechnicalRoute(Base):
+    __tablename__ = 'technical_routes'
+    __table_args__ = (UniqueConstraint('department_id', 'channel'),)
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    department_id: Mapped[int] = mapped_column(ForeignKey('departments.id'), nullable=False)
+    channel: Mapped[str] = mapped_column(Text, nullable=False)
+    mailbox_key: Mapped[str] = mapped_column(Text, nullable=False)
+    enabled: Mapped[bool] = mapped_column(Boolean, nullable=False, default=False)
+    revision: Mapped[int] = mapped_column(Integer, nullable=False, default=1)
+    __mapper_args__ = {'version_id_col': revision}
+
+
+class RoutingGrant(Base):
+    __tablename__ = 'technical_routing_grants'
+    __table_args__ = (UniqueConstraint('user_id', 'department_id'),)
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    user_id: Mapped[int] = mapped_column(ForeignKey('users.id'), nullable=False)
+    department_id: Mapped[int] = mapped_column(ForeignKey('departments.id'), nullable=False)
+
+
+class SupportRequest(Base):
+    __tablename__ = 'support_requests'
+    id: Mapped[str] = mapped_column(Text, primary_key=True)
+    user_id: Mapped[int] = mapped_column(ForeignKey('users.id'), nullable=False)
+    department_id: Mapped[int] = mapped_column(ForeignKey('departments.id'), nullable=False)
+    incident_id: Mapped[Optional[int]] = mapped_column(ForeignKey('incident_reports.id'))
+    # Identity + content reviewed together. Never stored in telemetry.
+    payload_json: Mapped[str] = mapped_column(Text, nullable=False)
+    content_hash: Mapped[str] = mapped_column(Text, nullable=False)
+    route_id: Mapped[int] = mapped_column(ForeignKey('technical_routes.id'), nullable=False)
+    route_hash: Mapped[str] = mapped_column(Text, nullable=False)
+    state: Mapped[str] = mapped_column(Text, nullable=False, default='draft')
+    attempts: Mapped[int] = mapped_column(Integer, nullable=False, default=0)
+    next_attempt: Mapped[Optional[datetime]] = mapped_column(DateTime(timezone=True))
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False, default=lambda: datetime.now(timezone.utc))
+
+
+class SupportAudit(Base):
+    __tablename__ = 'support_audit'
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    actor_id: Mapped[int] = mapped_column(ForeignKey('users.id'), nullable=False)
+    request_id: Mapped[Optional[str]] = mapped_column(Text)
+    action: Mapped[str] = mapped_column(Text, nullable=False)
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False, server_default=func.now())

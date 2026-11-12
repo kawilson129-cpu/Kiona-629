@@ -1,0 +1,102 @@
+﻿{
+    "date":  "2026-11-12",
+    "mode":  "Latest per suite; isolated fixtures/mock transport; native Windows; separate read-only live metadata",
+    "passed":  622,
+    "failed":  0,
+    "blocked":  14,
+    "suites":  [
+                   {
+                       "suite":  "support",
+                       "passed":  75,
+                       "failed":  0,
+                       "blocked":  0
+                   },
+                   {
+                       "suite":  "week10",
+                       "passed":  42,
+                       "failed":  0,
+                       "blocked":  0
+                   },
+                   {
+                       "suite":  "governance",
+                       "passed":  102,
+                       "failed":  0,
+                       "blocked":  0
+                   },
+                   {
+                       "suite":  "documents",
+                       "passed":  47,
+                       "failed":  0,
+                       "blocked":  0
+                   },
+                   {
+                       "suite":  "security",
+                       "passed":  88,
+                       "failed":  0,
+                       "blocked":  0
+                   },
+                   {
+                       "suite":  "jwt",
+                       "passed":  24,
+                       "failed":  0,
+                       "blocked":  0
+                   },
+                   {
+                       "suite":  "pulse",
+                       "passed":  97,
+                       "failed":  0,
+                       "blocked":  0
+                   },
+                   {
+                       "suite":  "messaging",
+                       "passed":  73,
+                       "failed":  0,
+                       "blocked":  0
+                   },
+                   {
+                       "suite":  "edges",
+                       "passed":  29,
+                       "failed":  0,
+                       "blocked":  0
+                   },
+                   {
+                       "suite":  "resource_limits",
+                       "passed":  0,
+                       "failed":  0,
+                       "blocked":  14
+                   },
+                   {
+                       "suite":  "native_windows",
+                       "passed":  3,
+                       "failed":  0,
+                       "blocked":  0
+                   },
+                   {
+                       "suite":  "smtp_tls",
+                       "passed":  17,
+                       "failed":  0,
+                       "blocked":  0
+                   },
+                   {
+                       "suite":  "browser",
+                       "passed":  18,
+                       "failed":  0,
+                       "blocked":  0
+                   },
+                   {
+                       "suite":  "mobile_capture",
+                       "passed":  1,
+                       "failed":  0,
+                       "blocked":  0
+                   },
+                   {
+                       "suite":  "internal_fallback_browser",
+                       "passed":  6,
+                       "failed":  0,
+                       "blocked":  0
+                   }
+               ],
+    "live_uat":  "PENDING",
+    "live_mutations":  false,
+    "real_email_sent":  false
+}

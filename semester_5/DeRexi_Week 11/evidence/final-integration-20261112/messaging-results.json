@@ -1,0 +1,299 @@
+{
+  "passed": 73,
+  "failed": 0,
+  "blocked": 0,
+  "checks": [
+    {
+      "name": "auth config exposes development mode only with opt-in",
+      "pass": true
+    },
+    {
+      "name": "dev roster returns seeded users",
+      "pass": true
+    },
+    {
+      "name": "anonymous /messages is rejected",
+      "pass": true
+    },
+    {
+      "name": "anonymous /ask is rejected",
+      "pass": true
+    },
+    {
+      "name": "body identity cannot impersonate another user",
+      "pass": true
+    },
+    {
+      "name": "employee cannot open admin triage folder",
+      "pass": true
+    },
+    {
+      "name": "employee cannot open all-threads folder",
+      "pass": true
+    },
+    {
+      "name": "fixture policy is owned by Jordan",
+      "pass": true
+    },
+    {
+      "name": "employee can request clarification from an answer",
+      "pass": true
+    },
+    {
+      "name": "request routes to the policy owner",
+      "pass": true
+    },
+    {
+      "name": "thread exposes the owner contact record",
+      "pass": true
+    },
+    {
+      "name": "escalation starts as awaiting the owner",
+      "pass": true
+    },
+    {
+      "name": "originating question is preserved",
+      "pass": true
+    },
+    {
+      "name": "originating answer is preserved",
+      "pass": true
+    },
+    {
+      "name": "policy citation is preserved",
+      "pass": true
+    },
+    {
+      "name": "requester copy starts read",
+      "pass": true
+    },
+    {
+      "name": "timestamps are present",
+      "pass": true
+    },
+    {
+      "name": "duplicate open request is refused",
+      "pass": true
+    },
+    {
+      "name": "owner inbox contains the thread",
+      "pass": true
+    },
+    {
+      "name": "new assignment is unread for the owner",
+      "pass": true
+    },
+    {
+      "name": "owner receives an in-app assignment notification",
+      "pass": true
+    },
+    {
+      "name": "owner can reply",
+      "pass": true
+    },
+    {
+      "name": "reply moves thread to in_progress",
+      "pass": true
+    },
+    {
+      "name": "employee sees the owner reply",
+      "pass": true
+    },
+    {
+      "name": "escalation moves to awaiting the employee",
+      "pass": true
+    },
+    {
+      "name": "employee thread is unread after the reply",
+      "pass": true
+    },
+    {
+      "name": "employee receives a reply notification",
+      "pass": true
+    },
+    {
+      "name": "employee can mark the thread read",
+      "pass": true
+    },
+    {
+      "name": "unread clears after marking read",
+      "pass": true
+    },
+    {
+      "name": "employee can reply",
+      "pass": true
+    },
+    {
+      "name": "owner is notified of the employee reply",
+      "pass": true
+    },
+    {
+      "name": "employee reply hands the thread back to the owner",
+      "pass": true
+    },
+    {
+      "name": "owner can resolve",
+      "pass": true
+    },
+    {
+      "name": "resolved thread reports the resolved escalation state",
+      "pass": true
+    },
+    {
+      "name": "owner can close a resolved thread",
+      "pass": true
+    },
+    {
+      "name": "closed thread reports the closed escalation state",
+      "pass": true
+    },
+    {
+      "name": "reply to a resolved thread is refused",
+      "pass": true
+    },
+    {
+      "name": "requester can reopen",
+      "pass": true
+    },
+    {
+      "name": "reopen is recorded in history",
+      "pass": true
+    },
+    {
+      "name": "reopened thread awaits the owner again",
+      "pass": true
+    },
+    {
+      "name": "status filter selects threads awaiting the owner",
+      "pass": true
+    },
+    {
+      "name": "status filter excludes threads that are no longer resolved",
+      "pass": true
+    },
+    {
+      "name": "unknown escalation status is rejected",
+      "pass": true
+    },
+    {
+      "name": "search matches the thread question",
+      "pass": true
+    },
+    {
+      "name": "unrelated owner cannot read the thread",
+      "pass": true
+    },
+    {
+      "name": "unrelated owner cannot reply",
+      "pass": true
+    },
+    {
+      "name": "unrelated owner cannot resolve",
+      "pass": true
+    },
+    {
+      "name": "policy owner cannot use admin assign",
+      "pass": true
+    },
+    {
+      "name": "spoofed sender_id is rejected",
+      "pass": true
+    },
+    {
+      "name": "administrator can read any thread",
+      "pass": true
+    },
+    {
+      "name": "administrator sees the organisation-wide list",
+      "pass": true
+    },
+    {
+      "name": "administrator can list the governance queue",
+      "pass": true
+    },
+    {
+      "name": "employee cannot list the governance queue",
+      "pass": true
+    },
+    {
+      "name": "missing owner leaves the thread unassigned",
+      "pass": true
+    },
+    {
+      "name": "unassigned thread appears in admin triage",
+      "pass": true
+    },
+    {
+      "name": "admin can assign a triage thread to a policy owner",
+      "pass": true
+    },
+    {
+      "name": "assigned owner receives the thread",
+      "pass": true
+    },
+    {
+      "name": "empty reply is rejected",
+      "pass": true
+    },
+    {
+      "name": "unknown folder is rejected",
+      "pass": true
+    },
+    {
+      "name": "uncited policy is rejected",
+      "pass": true
+    },
+    {
+      "name": "short context is rejected",
+      "pass": true
+    },
+    {
+      "name": "another user's conversation is not disclosed",
+      "pass": true
+    },
+    {
+      "name": "conversation read requires auth",
+      "pass": true
+    },
+    {
+      "name": "employee can read own conversation",
+      "pass": true
+    },
+    {
+      "name": "Policy Assistant still answers/routes with auth",
+      "pass": true
+    },
+    {
+      "name": "policy library still lists policies",
+      "pass": true
+    },
+    {
+      "name": "policy search still works",
+      "pass": true
+    },
+    {
+      "name": "categories still work",
+      "pass": true
+    },
+    {
+      "name": "governance dashboard is governance-only",
+      "pass": true
+    },
+    {
+      "name": "Pulse health endpoint is unaffected",
+      "pass": true
+    },
+    {
+      "name": "staff directory requires auth",
+      "pass": true
+    },
+    {
+      "name": "staff emails are admin-only",
+      "pass": true
+    },
+    {
+      "name": "notification payload has no bearer token",
+      "pass": true
+    }
+  ]
+}

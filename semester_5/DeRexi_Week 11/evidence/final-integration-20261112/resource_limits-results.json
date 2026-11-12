@@ -1,0 +1,63 @@
+{
+  "passed": 0,
+  "failed": 0,
+  "blocked": 14,
+  "skipped": [
+    {
+      "test": "test_infinite_limits_use_requested_ceiling (test_document_limits.LimitSelection.test_infinite_limits_use_requested_ceiling)",
+      "reason": "POSIX limit selection; Windows uses Job Objects"
+    },
+    {
+      "test": "test_linux_applies_bounded_memory_and_cpu (test_document_limits.LimitSelection.test_linux_applies_bounded_memory_and_cpu)",
+      "reason": "POSIX limit selection; Windows uses Job Objects"
+    },
+    {
+      "test": "test_linux_memory_failure_fails_closed (test_document_limits.LimitSelection.test_linux_memory_failure_fails_closed)",
+      "reason": "POSIX limit selection; Windows uses Job Objects"
+    },
+    {
+      "test": "test_mac_probe_unavailable_prevents_fork (test_document_limits.LimitSelection.test_mac_probe_unavailable_prevents_fork)",
+      "reason": "POSIX limit selection; Windows uses Job Objects"
+    },
+    {
+      "test": "test_mac_uses_supervision_and_stricter_data_limit (test_document_limits.LimitSelection.test_mac_uses_supervision_and_stricter_data_limit)",
+      "reason": "POSIX limit selection; Windows uses Job Objects"
+    },
+    {
+      "test": "test_stricter_hard_limit_is_preserved (test_document_limits.LimitSelection.test_stricter_hard_limit_is_preserved)",
+      "reason": "POSIX limit selection; Windows uses Job Objects"
+    },
+    {
+      "test": "test_stricter_soft_limit_is_preserved (test_document_limits.LimitSelection.test_stricter_soft_limit_is_preserved)",
+      "reason": "POSIX limit selection; Windows uses Job Objects"
+    },
+    {
+      "test": "test_unknown_platform_fails_closed (test_document_limits.LimitSelection.test_unknown_platform_fails_closed)",
+      "reason": "POSIX limit selection; Windows uses Job Objects"
+    },
+    {
+      "test": "test_zero_limit_is_not_relaxed (test_document_limits.LimitSelection.test_zero_limit_is_not_relaxed)",
+      "reason": "POSIX limit selection; Windows uses Job Objects"
+    },
+    {
+      "test": "test_allocation_over_memory_cap_is_stopped (test_document_limits.MacWorker.test_allocation_over_memory_cap_is_stopped)",
+      "reason": "Native macOS libproc/supervisor checks"
+    },
+    {
+      "test": "test_monitor_failure_stops_extraction (test_document_limits.MacWorker.test_monitor_failure_stops_extraction)",
+      "reason": "Native macOS libproc/supervisor checks"
+    },
+    {
+      "test": "test_native_memory_measurement (test_document_limits.MacWorker.test_native_memory_measurement)",
+      "reason": "Native macOS libproc/supervisor checks"
+    },
+    {
+      "test": "test_valid_worker_completes (test_document_limits.MacWorker.test_valid_worker_completes)",
+      "reason": "Native macOS libproc/supervisor checks"
+    },
+    {
+      "test": "test_wall_timeout_stops_sleeping_worker (test_document_limits.MacWorker.test_wall_timeout_stops_sleeping_worker)",
+      "reason": "Native macOS libproc/supervisor checks"
+    }
+  ]
+}

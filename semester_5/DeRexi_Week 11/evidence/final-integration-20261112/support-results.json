@@ -1,0 +1,307 @@
+{
+  "passed": 75,
+  "failed": 0,
+  "blocked": 0,
+  "checks": [
+    {
+      "name": "Review clocks preserve timezone offsets",
+      "pass": true
+    },
+    {
+      "name": "Classification: I lost my work laptop",
+      "pass": true
+    },
+    {
+      "name": "Classification: I clicked a phishing link",
+      "pass": true
+    },
+    {
+      "name": "Classification: My account is hacked",
+      "pass": true
+    },
+    {
+      "name": "Classification: Unexpected MFA prompts right now",
+      "pass": true
+    },
+    {
+      "name": "Classification: Our banking system is down",
+      "pass": true
+    },
+    {
+      "name": "Classification: My printer is not working",
+      "pass": true
+    },
+    {
+      "name": "Classification: How should I report a lost work laptop?",
+      "pass": true
+    },
+    {
+      "name": "Classification: What is phishing?",
+      "pass": true
+    },
+    {
+      "name": "Classification: What is our password policy?",
+      "pass": true
+    },
+    {
+      "name": "Classification: How much paid time off?",
+      "pass": true
+    },
+    {
+      "name": "Classification: This is a hypothetical phishing training question",
+      "pass": true
+    },
+    {
+      "name": "Two bounded followups: phishing",
+      "pass": true
+    },
+    {
+      "name": "Two bounded followups: compromise",
+      "pass": true
+    },
+    {
+      "name": "Two bounded followups: lost_device",
+      "pass": true
+    },
+    {
+      "name": "Two bounded followups: outage",
+      "pass": true
+    },
+    {
+      "name": "Two bounded followups: technical",
+      "pass": true
+    },
+    {
+      "name": "Optional AI hint used",
+      "pass": true
+    },
+    {
+      "name": "AI cannot suppress deterministic urgency",
+      "pass": true
+    },
+    {
+      "name": "Anonymous assessment denied",
+      "pass": true
+    },
+    {
+      "name": "Employee routing denied",
+      "pass": true
+    },
+    {
+      "name": "Employee readiness inventory denied",
+      "pass": true
+    },
+    {
+      "name": "Admin read-only owner coverage available",
+      "pass": true
+    },
+    {
+      "name": "Deficient departments not falsely marked ready",
+      "pass": true
+    },
+    {
+      "name": "Infrastructure not falsely verified",
+      "pass": true
+    },
+    {
+      "name": "Admin saves approved security route",
+      "pass": true
+    },
+    {
+      "name": "Admin saves approved it route",
+      "pass": true
+    },
+    {
+      "name": "Arbitrary recipient/key denied",
+      "pass": true
+    },
+    {
+      "name": "Unknown body fields forbidden",
+      "pass": true
+    },
+    {
+      "name": "Secret assignment rejected",
+      "pass": true
+    },
+    {
+      "name": "Compromise status is not mistaken for a secret",
+      "pass": true
+    },
+    {
+      "name": "Account number rejected",
+      "pass": true
+    },
+    {
+      "name": "Assistant supplies urgent intake without auto-submitting",
+      "pass": true
+    },
+    {
+      "name": "Detection persists no support request",
+      "pass": true
+    },
+    {
+      "name": "Structured draft prepares",
+      "pass": true
+    },
+    {
+      "name": "Verified identity and department bound",
+      "pass": true
+    },
+    {
+      "name": "Security destination and urgent status derived",
+      "pass": true
+    },
+    {
+      "name": "Unconfirmed preview is draft",
+      "pass": true
+    },
+    {
+      "name": "Client cannot downgrade phishing to IT",
+      "pass": true
+    },
+    {
+      "name": "Idempotent preparation returns same draft",
+      "pass": true
+    },
+    {
+      "name": "Same key changed content denied",
+      "pass": true
+    },
+    {
+      "name": "Client identity injection forbidden",
+      "pass": true
+    },
+    {
+      "name": "Recipient injection forbidden",
+      "pass": true
+    },
+    {
+      "name": "Other user cannot read draft",
+      "pass": true
+    },
+    {
+      "name": "Owner cannot confirm another employee request",
+      "pass": true
+    },
+    {
+      "name": "False confirmation rejected",
+      "pass": true
+    },
+    {
+      "name": "String confirmation rejected",
+      "pass": true
+    },
+    {
+      "name": "Draft cannot dispatch",
+      "pass": true
+    },
+    {
+      "name": "Confirmed request queued internally",
+      "pass": true
+    },
+    {
+      "name": "Repeated confirmation creates one incident",
+      "pass": true
+    },
+    {
+      "name": "Existing notification triage includes incident",
+      "pass": true
+    },
+    {
+      "name": "Outbound defaults OFF without SMTP call",
+      "pass": true
+    },
+    {
+      "name": "Mock acceptance accurately reported",
+      "pass": true
+    },
+    {
+      "name": "Repeated dispatch deduplicated",
+      "pass": true
+    },
+    {
+      "name": "Destination exclusively server approved",
+      "pass": true
+    },
+    {
+      "name": "Stable Message-ID and structured body",
+      "pass": true
+    },
+    {
+      "name": "Known pre-send failure retryable",
+      "pass": true
+    },
+    {
+      "name": "Retry cooldown enforced",
+      "pass": true
+    },
+    {
+      "name": "Retry attempt cap enforced",
+      "pass": true
+    },
+    {
+      "name": "No unsafe retry after unknown",
+      "pass": true
+    },
+    {
+      "name": "No unsafe retry after rejected",
+      "pass": true
+    },
+    {
+      "name": "Crash-pending claim never automatically resends",
+      "pass": true
+    },
+    {
+      "name": "Routing disabled before confirmation blocks submission",
+      "pass": true
+    },
+    {
+      "name": "Routing revision change invalidates review",
+      "pass": true
+    },
+    {
+      "name": "Expired review requires new preparation",
+      "pass": true
+    },
+    {
+      "name": "Admin grants narrow routing access",
+      "pass": true
+    },
+    {
+      "name": "Delegate can read own routing",
+      "pass": true
+    },
+    {
+      "name": "Delegate cannot edit other departments",
+      "pass": true
+    },
+    {
+      "name": "Delegate cannot grant permissions",
+      "pass": true
+    },
+    {
+      "name": "Routing delegate gains no policy approval access",
+      "pass": true
+    },
+    {
+      "name": "Routing delegate gains no Admin incident access",
+      "pass": true
+    },
+    {
+      "name": "Route validation sends nothing",
+      "pass": true
+    },
+    {
+      "name": "Permission revocation immediate",
+      "pass": true
+    },
+    {
+      "name": "Sanitized audit contains no submitted content",
+      "pass": true
+    },
+    {
+      "name": "Missing routing schema fails safely",
+      "pass": true
+    }
+  ]
+}

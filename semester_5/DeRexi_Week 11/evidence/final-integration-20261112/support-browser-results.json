@@ -1,0 +1,79 @@
+{
+  "checks": [
+    {
+      "name": "Urgent guidance appears in Assistant",
+      "pass": true
+    },
+    {
+      "name": "No automatic report",
+      "pass": true
+    },
+    {
+      "name": "Review shows verified identity and destination",
+      "pass": true
+    },
+    {
+      "name": "Explicit confirmation required",
+      "pass": true
+    },
+    {
+      "name": "Employee can edit before confirming",
+      "pass": true
+    },
+    {
+      "name": "OFF mode states no email sent",
+      "pass": true
+    },
+    {
+      "name": "Admin approved-route panel loads",
+      "pass": true
+    },
+    {
+      "name": "Route validation honestly sends no email",
+      "pass": true
+    },
+    {
+      "name": "Mock adapter accepts handoff",
+      "pass": true
+    },
+    {
+      "name": "Routing mobile has no horizontal overflow",
+      "pass": true
+    },
+    {
+      "name": "Acceptance never claims delivery/ticket creation",
+      "pass": true
+    },
+    {
+      "name": "Mobile support review has no overflow",
+      "pass": true
+    },
+    {
+      "name": "Employee routing API denied",
+      "pass": true
+    },
+    {
+      "name": "Existing navigation #library",
+      "pass": true
+    },
+    {
+      "name": "Existing navigation #messages",
+      "pass": true
+    },
+    {
+      "name": "Existing navigation #pulse",
+      "pass": true
+    },
+    {
+      "name": "Signed-out support reads denied",
+      "pass": true
+    },
+    {
+      "name": "No browser runtime exceptions",
+      "pass": true
+    }
+  ],
+  "passed": 18,
+  "failed": 0,
+  "errors": []
+}

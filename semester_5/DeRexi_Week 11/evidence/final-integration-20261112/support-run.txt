@@ -1,0 +1,139 @@
+PASS Review clocks preserve timezone offsets
+PASS Classification: I lost my work laptop
+PASS Classification: I clicked a phishing link
+PASS Classification: My account is hacked
+PASS Classification: Unexpected MFA prompts right now
+PASS Classification: Our banking system is down
+PASS Classification: My printer is not working
+PASS Classification: How should I report a lost work laptop?
+PASS Classification: What is phishing?
+PASS Classification: What is our password policy?
+PASS Classification: How much paid time off?
+PASS Classification: This is a hypothetical phishing training question
+PASS Two bounded followups: phishing
+PASS Two bounded followups: compromise
+PASS Two bounded followups: lost_device
+PASS Two bounded followups: outage
+PASS Two bounded followups: technical
+PASS Optional AI hint used
+PASS AI cannot suppress deterministic urgency
+{"timestamp":"2026-11-12T14:11:52.831658+00:00","event":"sensitive_change","request_id":"eb13007e30eb4acf8bb170050a50f3a0","method":"POST","route":"/dev-auth/token","status":200,"actor_id":null,"role":null}
+{"timestamp":"2026-11-12T14:11:52.843971+00:00","event":"sensitive_change","request_id":"cacb972d62464bf8a06ee3132218e850","method":"POST","route":"/dev-auth/token","status":200,"actor_id":null,"role":null}
+{"timestamp":"2026-11-12T14:11:52.856338+00:00","event":"sensitive_change","request_id":"cb5999ee1bc943f896d1faaecc74d5ab","method":"POST","route":"/dev-auth/token","status":200,"actor_id":null,"role":null}
+{"timestamp":"2026-11-12T14:11:52.866870+00:00","event":"sensitive_change","request_id":"d6056c12f0164ee5b29aabca39beb1ba","method":"POST","route":"/dev-auth/token","status":200,"actor_id":null,"role":null}
+{"timestamp":"2026-11-12T14:11:52.878244+00:00","event":"sensitive_change","request_id":"f0e82e2b9da9446b9de0447b32ba169e","method":"POST","route":"/dev-auth/token","status":200,"actor_id":null,"role":null}
+{"timestamp":"2026-11-12T14:11:52.895672+00:00","event":"authentication_failure","request_id":"cb1173cb5b3e4bf8bd8487c81a539b01","method":"POST","route":"/support/assess","status":401,"actor_id":null,"role":null}
+PASS Anonymous assessment denied
+{"timestamp":"2026-11-12T14:11:52.913873+00:00","event":"access_denied","request_id":"9cf8cc4ad98242d1a3027d497d19f25c","method":"GET","route":"/technical-routing/config","status":403,"actor_id":8,"role":"Employee"}
+PASS Employee routing denied
+{"timestamp":"2026-11-12T14:11:52.927147+00:00","event":"access_denied","request_id":"e6f5014e8d5e4b1787a23c44e0686d5d","method":"GET","route":"/technical-routing/readiness","status":403,"actor_id":8,"role":"Employee"}
+PASS Employee readiness inventory denied
+PASS Admin read-only owner coverage available
+PASS Deficient departments not falsely marked ready
+PASS Infrastructure not falsely verified
+{"timestamp":"2026-11-12T14:11:52.987221+00:00","event":"administrative_action","request_id":"b25809aa769a45b1a55ec5c81006952e","method":"POST","route":"/technical-routing/config","status":200,"actor_id":2,"role":"System Administrator"}
+PASS Admin saves approved security route
+{"timestamp":"2026-11-12T14:11:53.023942+00:00","event":"administrative_action","request_id":"1ef13c9194ea4d218d1c7f01eca84312","method":"POST","route":"/technical-routing/config","status":200,"actor_id":2,"role":"System Administrator"}
+PASS Admin saves approved it route
+{"timestamp":"2026-11-12T14:11:53.047835+00:00","event":"request_rejected","request_id":"5704135281174565bc62ba174dec7a4b","method":"POST","route":"/technical-routing/config","status":422,"actor_id":2,"role":"System Administrator"}
+PASS Arbitrary recipient/key denied
+{"timestamp":"2026-11-12T14:11:53.066324+00:00","event":"request_rejected","request_id":"55b7b37a1c5d4ab59a64ce846e2a52fc","method":"POST","route":"/support/assess","status":422,"actor_id":8,"role":"Employee"}
+PASS Unknown body fields forbidden
+{"timestamp":"2026-11-12T14:11:53.078170+00:00","event":"request_rejected","request_id":"a4f0c44cc6744853bb8e54119e906d59","method":"POST","route":"/support/assess","status":422,"actor_id":8,"role":"Employee"}
+PASS Secret assignment rejected
+{"timestamp":"2026-11-12T14:11:53.099119+00:00","event":"sensitive_change","request_id":"53a0e5c07f244fe7a04163eac532bcf2","method":"POST","route":"/support/assess","status":200,"actor_id":8,"role":"Employee"}
+PASS Compromise status is not mistaken for a secret
+{"timestamp":"2026-11-12T14:11:53.123188+00:00","event":"request_rejected","request_id":"11827ad7dfcf45a38e2863320e56e80a","method":"POST","route":"/support/assess","status":422,"actor_id":8,"role":"Employee"}
+PASS Account number rejected
+{"timestamp":"2026-11-12T14:11:53.142264+00:00","event":"sensitive_change","request_id":"ae36cf84f2cb450381c93e0596e0a6a6","method":"POST","route":"/ask","status":200,"actor_id":8,"role":"Employee"}
+PASS Assistant supplies urgent intake without auto-submitting
+PASS Detection persists no support request
+{"timestamp":"2026-11-12T14:11:53.180667+00:00","event":"sensitive_change","request_id":"f5048f2af7ef49208bed31419d197834","method":"POST","route":"/support/prepare","status":200,"actor_id":8,"role":"Employee"}
+PASS Structured draft prepares
+PASS Verified identity and department bound
+PASS Security destination and urgent status derived
+PASS Unconfirmed preview is draft
+{"timestamp":"2026-11-12T14:11:53.198776+00:00","event":"sensitive_change","request_id":"b182e55671d645ce9f0badeee8ed6f63","method":"POST","route":"/support/prepare","status":200,"actor_id":8,"role":"Employee"}
+PASS Client cannot downgrade phishing to IT
+{"timestamp":"2026-11-12T14:11:53.216310+00:00","event":"sensitive_change","request_id":"23b71728a59c4993b64695e5728a0033","method":"POST","route":"/support/prepare","status":200,"actor_id":8,"role":"Employee"}
+PASS Idempotent preparation returns same draft
+{"timestamp":"2026-11-12T14:11:53.231698+00:00","event":"request_rejected","request_id":"9fb72969ab534f7ca97012a87440ef39","method":"POST","route":"/support/prepare","status":409,"actor_id":8,"role":"Employee"}
+PASS Same key changed content denied
+{"timestamp":"2026-11-12T14:11:53.244420+00:00","event":"request_rejected","request_id":"fad93d905bda48b1967ad122ce7a46e8","method":"POST","route":"/support/prepare","status":422,"actor_id":8,"role":"Employee"}
+PASS Client identity injection forbidden
+{"timestamp":"2026-11-12T14:11:53.257747+00:00","event":"request_rejected","request_id":"dbb940b369ab4cc8836340365a78e1bc","method":"POST","route":"/support/prepare","status":422,"actor_id":8,"role":"Employee"}
+PASS Recipient injection forbidden
+{"timestamp":"2026-11-12T14:11:53.272279+00:00","event":"access_denied","request_id":"927b91f7eca94a229cd4191448079d07","method":"GET","route":"/support/requests/{rid}","status":404,"actor_id":4,"role":"Policy Owner"}
+PASS Other user cannot read draft
+{"timestamp":"2026-11-12T14:11:53.316244+00:00","event":"access_denied","request_id":"9a9b7ba69feb4aa39fa23d57e19590ef","method":"POST","route":"/support/requests/{rid}/confirm","status":404,"actor_id":4,"role":"Policy Owner"}
+PASS Owner cannot confirm another employee request
+{"timestamp":"2026-11-12T14:11:53.345337+00:00","event":"request_rejected","request_id":"a71c9bdca1e94ee4a1e2241838b597ee","method":"POST","route":"/support/requests/{rid}/confirm","status":422,"actor_id":8,"role":"Employee"}
+PASS False confirmation rejected
+{"timestamp":"2026-11-12T14:11:53.391948+00:00","event":"request_rejected","request_id":"802796d5c39a442bb162eb6401f9bcd1","method":"POST","route":"/support/requests/{rid}/confirm","status":422,"actor_id":8,"role":"Employee"}
+PASS String confirmation rejected
+{"timestamp":"2026-11-12T14:11:53.407921+00:00","event":"sensitive_change","request_id":"e6e9634310ec410d95e574ab7c655fbf","method":"POST","route":"/support/requests/{rid}/dispatch","status":200,"actor_id":8,"role":"Employee"}
+PASS Draft cannot dispatch
+{"timestamp":"2026-11-12T14:11:53.437628+00:00","event":"sensitive_change","request_id":"3b0416e3b5a74997910c445a2b785d84","method":"POST","route":"/support/requests/{rid}/confirm","status":200,"actor_id":8,"role":"Employee"}
+PASS Confirmed request queued internally
+{"timestamp":"2026-11-12T14:11:53.452106+00:00","event":"sensitive_change","request_id":"4a8b09143a8744ac8bf8120cd13d1244","method":"POST","route":"/support/requests/{rid}/confirm","status":200,"actor_id":8,"role":"Employee"}
+PASS Repeated confirmation creates one incident
+PASS Existing notification triage includes incident
+{"timestamp":"2026-11-12T14:11:53.514504+00:00","event":"sensitive_change","request_id":"83a39123202f42149e336a8ffcb44521","method":"POST","route":"/support/requests/{rid}/dispatch","status":200,"actor_id":8,"role":"Employee"}
+PASS Outbound defaults OFF without SMTP call
+{"timestamp":"2026-11-12T14:11:53.541072+00:00","event":"sensitive_change","request_id":"78bbc79d42494249a9e9767205dd04c7","method":"POST","route":"/support/requests/{rid}/dispatch","status":200,"actor_id":8,"role":"Employee"}
+PASS Mock acceptance accurately reported
+{"timestamp":"2026-11-12T14:11:53.554954+00:00","event":"sensitive_change","request_id":"265535bed056480f88d86a4d05114b4b","method":"POST","route":"/support/requests/{rid}/dispatch","status":200,"actor_id":8,"role":"Employee"}
+PASS Repeated dispatch deduplicated
+PASS Destination exclusively server approved
+PASS Stable Message-ID and structured body
+{"timestamp":"2026-11-12T14:11:53.577189+00:00","event":"sensitive_change","request_id":"15153aab435648c9ac6c2b5f27bbb7b7","method":"POST","route":"/support/prepare","status":200,"actor_id":8,"role":"Employee"}
+{"timestamp":"2026-11-12T14:11:53.601173+00:00","event":"sensitive_change","request_id":"03483b272651414c8a157abe15010aa6","method":"POST","route":"/support/requests/{rid}/confirm","status":200,"actor_id":8,"role":"Employee"}
+{"timestamp":"2026-11-12T14:11:53.633609+00:00","event":"sensitive_change","request_id":"4fa483d4c3b5463f9f047dcf271b8f64","method":"POST","route":"/support/requests/{rid}/dispatch","status":200,"actor_id":8,"role":"Employee"}
+PASS Known pre-send failure retryable
+{"timestamp":"2026-11-12T14:11:53.658469+00:00","event":"request_rejected","request_id":"d34c0618589647e9abcd29786b356a1c","method":"POST","route":"/support/requests/{rid}/dispatch","status":429,"actor_id":8,"role":"Employee"}
+PASS Retry cooldown enforced
+{"timestamp":"2026-11-12T14:11:53.694798+00:00","event":"sensitive_change","request_id":"66597812869747b491daacb1057e0f2a","method":"POST","route":"/support/requests/{rid}/dispatch","status":200,"actor_id":8,"role":"Employee"}
+{"timestamp":"2026-11-12T14:11:53.729566+00:00","event":"sensitive_change","request_id":"82dcd8ddd8204213a0fded1670ea6671","method":"POST","route":"/support/requests/{rid}/dispatch","status":200,"actor_id":8,"role":"Employee"}
+{"timestamp":"2026-11-12T14:11:53.751505+00:00","event":"request_rejected","request_id":"33c4845da6bc48bfb9aad7aab5f78e30","method":"POST","route":"/support/requests/{rid}/dispatch","status":409,"actor_id":8,"role":"Employee"}
+PASS Retry attempt cap enforced
+{"timestamp":"2026-11-12T14:11:53.780256+00:00","event":"sensitive_change","request_id":"7801a668885a4214a1c54d99727f4e98","method":"POST","route":"/support/prepare","status":200,"actor_id":8,"role":"Employee"}
+{"timestamp":"2026-11-12T14:11:53.811193+00:00","event":"sensitive_change","request_id":"c3c45266779c4dc49fedaa16a4e2f161","method":"POST","route":"/support/requests/{rid}/confirm","status":200,"actor_id":8,"role":"Employee"}
+{"timestamp":"2026-11-12T14:11:53.843775+00:00","event":"sensitive_change","request_id":"57cf40388431494ebb13fd27f32a0ea5","method":"POST","route":"/support/requests/{rid}/dispatch","status":200,"actor_id":8,"role":"Employee"}
+{"timestamp":"2026-11-12T14:11:53.866457+00:00","event":"sensitive_change","request_id":"ec924c4bf90c4afa9608097659d1e89b","method":"POST","route":"/support/requests/{rid}/dispatch","status":200,"actor_id":8,"role":"Employee"}
+PASS No unsafe retry after unknown
+{"timestamp":"2026-11-12T14:11:53.909836+00:00","event":"sensitive_change","request_id":"e4ee9a8ea4fc4425bbb0101ad8e374bf","method":"POST","route":"/support/prepare","status":200,"actor_id":8,"role":"Employee"}
+{"timestamp":"2026-11-12T14:11:53.937478+00:00","event":"sensitive_change","request_id":"72b83d295cc243f8b893a8db84a0ae7f","method":"POST","route":"/support/requests/{rid}/confirm","status":200,"actor_id":8,"role":"Employee"}
+{"timestamp":"2026-11-12T14:11:53.969969+00:00","event":"sensitive_change","request_id":"4b4895a203f643e0a805fa5fd623c563","method":"POST","route":"/support/requests/{rid}/dispatch","status":200,"actor_id":8,"role":"Employee"}
+{"timestamp":"2026-11-12T14:11:53.987477+00:00","event":"sensitive_change","request_id":"d71ca141420f4a45ba7fa540a5237514","method":"POST","route":"/support/requests/{rid}/dispatch","status":200,"actor_id":8,"role":"Employee"}
+PASS No unsafe retry after rejected
+{"timestamp":"2026-11-12T14:11:54.038232+00:00","event":"sensitive_change","request_id":"52ad0131f53e47deadf20948cc07d101","method":"POST","route":"/support/prepare","status":200,"actor_id":8,"role":"Employee"}
+{"timestamp":"2026-11-12T14:11:54.075073+00:00","event":"sensitive_change","request_id":"3f5e94a9e2bb4b6280955754234be2cd","method":"POST","route":"/support/requests/{rid}/confirm","status":200,"actor_id":8,"role":"Employee"}
+{"timestamp":"2026-11-12T14:11:54.101971+00:00","event":"sensitive_change","request_id":"726e88f9858b4d4fb4b8829d1f7f0e9e","method":"POST","route":"/support/requests/{rid}/dispatch","status":200,"actor_id":8,"role":"Employee"}
+PASS Crash-pending claim never automatically resends
+{"timestamp":"2026-11-12T14:11:54.127676+00:00","event":"sensitive_change","request_id":"99d05637cb3249d7a9db0b80e3088497","method":"POST","route":"/support/prepare","status":200,"actor_id":8,"role":"Employee"}
+{"timestamp":"2026-11-12T14:11:54.158664+00:00","event":"request_rejected","request_id":"f8be30737252433e8d0da6884d270cd7","method":"POST","route":"/support/requests/{rid}/confirm","status":409,"actor_id":8,"role":"Employee"}
+PASS Routing disabled before confirmation blocks submission
+{"timestamp":"2026-11-12T14:11:54.189736+00:00","event":"request_rejected","request_id":"0552561267de44d1b9d32816fbf6f832","method":"POST","route":"/support/requests/{rid}/confirm","status":409,"actor_id":8,"role":"Employee"}
+PASS Routing revision change invalidates review
+{"timestamp":"2026-11-12T14:11:54.223204+00:00","event":"sensitive_change","request_id":"3cc5eecdc2294af49cd3c0a6a283d91e","method":"POST","route":"/support/prepare","status":200,"actor_id":8,"role":"Employee"}
+{"timestamp":"2026-11-12T14:11:54.244102+00:00","event":"request_rejected","request_id":"117abafd86db450b8f13e2958a7e962b","method":"POST","route":"/support/requests/{rid}/confirm","status":409,"actor_id":8,"role":"Employee"}
+PASS Expired review requires new preparation
+{"timestamp":"2026-11-12T14:11:54.266051+00:00","event":"administrative_action","request_id":"e7227103cbf44bd3a584daf5f446b47f","method":"POST","route":"/technical-routing/grants","status":200,"actor_id":2,"role":"System Administrator"}
+PASS Admin grants narrow routing access
+PASS Delegate can read own routing
+{"timestamp":"2026-11-12T14:11:54.298093+00:00","event":"access_denied","request_id":"aea9152d6ff14fcc812c3308abb0c624","method":"POST","route":"/technical-routing/config","status":403,"actor_id":8,"role":"Employee"}
+PASS Delegate cannot edit other departments
+{"timestamp":"2026-11-12T14:11:54.309683+00:00","event":"access_denied","request_id":"87fcab13b48d4b1e85f0dee51e2d84a0","method":"POST","route":"/technical-routing/grants","status":403,"actor_id":8,"role":"Employee"}
+PASS Delegate cannot grant permissions
+{"timestamp":"2026-11-12T14:11:54.322970+00:00","event":"access_denied","request_id":"5f3781a55fcb472f9adf2fc40c360bff","method":"GET","route":"/governance/drafts","status":403,"actor_id":8,"role":"Employee"}
+PASS Routing delegate gains no policy approval access
+{"timestamp":"2026-11-12T14:11:54.337763+00:00","event":"access_denied","request_id":"6543d7b1643c4daeaa6f366f5196035e","method":"PATCH","route":"/incidents/{incident_id}","status":403,"actor_id":8,"role":"Employee"}
+PASS Routing delegate gains no Admin incident access
+{"timestamp":"2026-11-12T14:11:54.356427+00:00","event":"sensitive_change","request_id":"8869c9144cb54143b8904b1dbc24b92b","method":"POST","route":"/technical-routing/test","status":200,"actor_id":8,"role":"Employee"}
+PASS Route validation sends nothing
+{"timestamp":"2026-11-12T14:11:54.377636+00:00","event":"administrative_action","request_id":"42fd9002ea2947d49ba90f3814da96c2","method":"POST","route":"/technical-routing/grants","status":200,"actor_id":2,"role":"System Administrator"}
+{"timestamp":"2026-11-12T14:11:54.393862+00:00","event":"access_denied","request_id":"2e3fc75a3da24da6a224dbce075e4007","method":"GET","route":"/technical-routing/config","status":403,"actor_id":8,"role":"Employee"}
+PASS Permission revocation immediate
+PASS Sanitized audit contains no submitted content
+{"timestamp":"2026-11-12T14:11:54.415881+00:00","event":"request_rejected","request_id":"f56c4e8473f14cadb044e27b4a8026fb","method":"POST","route":"/support/prepare","status":503,"actor_id":8,"role":"Employee"}
+PASS Missing routing schema fails safely

@@ -1,0 +1,50 @@
+﻿[
+    {
+        "path":  "derexi-policy-pilot/backend/incident_assistance.py",
+        "sha256":  "839600DE0610CB0422AF048768B35D4FB31C3D2B573A003E8F47357DF7EB4E4E"
+    },
+    {
+        "path":  "derexi-policy-pilot/backend/readiness.py",
+        "sha256":  "28B83D47C296183B4736EA0AD7054355388D283E1D6DBEA60F38747BF4AC3666"
+    },
+    {
+        "path":  "derexi-policy-pilot/backend/models.py",
+        "sha256":  "0F5DF1B1FF5A37FB8DBDEDB447C5E63053FFB77AFA6A600B1569431134B5B349"
+    },
+    {
+        "path":  "derexi-policy-pilot/backend/main.py",
+        "sha256":  "D0FDB884BDEE72B4EF59A21CA669F8D77B23B410016C342F38D225CCA76D43FC"
+    },
+    {
+        "path":  "derexi-policy-pilot/backend/ai.py",
+        "sha256":  "53D46C3848D3609E62D0B5F54F80B824956FE092C3A19187F9FB2AF3C09DDCA6"
+    },
+    {
+        "path":  "derexi-policy-pilot/backend/messaging.py",
+        "sha256":  "22C8945330F9D5A64D1DF26EAA26BC543DE4CDC927FDBD2335DDBC43BEB10D78"
+    },
+    {
+        "path":  "derexi-policy-pilot/backend/transport.py",
+        "sha256":  "0217F9DD48395A3FA7ED626C07535F0EF369170090CF37D9DC9B6C98228D86B2"
+    },
+    {
+        "path":  "derexi-policy-pilot/backend/static/support.js",
+        "sha256":  "FE4715D4B1B10F07EC97DDED16674196F8CE3EF497E74F3A8B8FFEA1BB31ED99"
+    },
+    {
+        "path":  "derexi-policy-pilot/backend/static/app.js",
+        "sha256":  "DA096E0438F8574695102CE3610E06CEE118A703733400035BC6025D9D62C082"
+    },
+    {
+        "path":  "derexi-policy-pilot/backend/static/style.css",
+        "sha256":  "6D0C81FF0ACE5A367D18EAAE622D87BED93CE6EDA2DBD8050A153FFC588F81C9"
+    },
+    {
+        "path":  "derexi-policy-pilot/backend/static/index.html",
+        "sha256":  "0FD391F8192D130FD2448B57BDC4E4B32AA1883D54F35D61992CCBC2DE93A2DF"
+    },
+    {
+        "path":  "derexi-policy-pilot/backend/migrations/2026-11-12_support_routing.sql",
+        "sha256":  "2340B017F9E2D8C2353CD9AA5BDC8A00B638C8E15DF2B58850EB5F52587CA4F6"
+    }
+]

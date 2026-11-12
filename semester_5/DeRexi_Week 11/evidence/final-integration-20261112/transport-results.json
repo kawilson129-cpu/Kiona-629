@@ -1,0 +1,74 @@
+{
+  "passed": 17,
+  "failed": 0,
+  "checks": [
+    {
+      "name": "Production default verifies hostname",
+      "pass": true
+    },
+    {
+      "name": "Production refuses insufficient TLS require",
+      "pass": true
+    },
+    {
+      "name": "Production refuses insufficient TLS verify-ca",
+      "pass": true
+    },
+    {
+      "name": "Production refuses insufficient TLS disable",
+      "pass": true
+    },
+    {
+      "name": "Production refuses insufficient TLS prefer",
+      "pass": true
+    },
+    {
+      "name": "OFF selects no-network adapter",
+      "pass": true
+    },
+    {
+      "name": "SMTP accepts only transport acknowledgement",
+      "pass": true
+    },
+    {
+      "name": "Implicit TLS validates CA and hostname",
+      "pass": true
+    },
+    {
+      "name": "Recipient envelope fixed to supplied approved target",
+      "pass": true
+    },
+    {
+      "name": "Connection closed after send",
+      "pass": true
+    },
+    {
+      "name": "Before-send connection failure retryable",
+      "pass": true
+    },
+    {
+      "name": "Ambiguous send never marked retryable SMTPServerDisconnected",
+      "pass": true
+    },
+    {
+      "name": "Ambiguous send never marked retryable SMTPDataError",
+      "pass": true
+    },
+    {
+      "name": "Explicit recipient rejection retained",
+      "pass": true
+    },
+    {
+      "name": "Sender header injection fails before network",
+      "pass": true
+    },
+    {
+      "name": "Malformed/injected registry fails closed",
+      "pass": true
+    },
+    {
+      "name": "Malformed/injected registry fails closed",
+      "pass": true
+    }
+  ]
+}

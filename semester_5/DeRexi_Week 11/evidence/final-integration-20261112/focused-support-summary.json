@@ -1,0 +1,16 @@
+{
+  "native_platform": "win32",
+  "python": "3.14.6",
+  "suites": [
+    {
+      "suite": "support",
+      "exit_code": 0,
+      "passed": 75,
+      "failed": 0,
+      "blocked": 0
+    }
+  ],
+  "passed": 75,
+  "failed": 0,
+  "blocked": 0
+}

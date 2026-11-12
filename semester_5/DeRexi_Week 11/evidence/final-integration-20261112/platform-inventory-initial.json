@@ -1,0 +1,7 @@
+﻿{
+    "host":  "Windows",
+    "native_macos_available":  false,
+    "wsl_command_available":  true,
+    "linux_distributions_detected":  7,
+    "wsl_query_exit_code":  -1
+}

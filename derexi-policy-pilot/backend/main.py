@@ -52,6 +52,7 @@ from security import Identity, get_identity, require_admin, require_governance
 from security_events import emit, AccessPathFilter
 import logging
 from session_auth import router as session_router
+from incident_assistance import router as support_router, classify as classify_incident
 
 # Imports the new Pulse module's API routes.
 from pulse.routes import router as pulse_router
@@ -76,6 +77,7 @@ app.include_router(pulse_router)
 app.include_router(messaging_router)
 app.include_router(governance_router)
 app.include_router(session_router)
+app.include_router(support_router)
 logging.getLogger('uvicorn.access').addFilter(AccessPathFilter(lambda: app.routes))
 
 # /auth/config is always available; the persona-token endpoints exist only when
@@ -433,6 +435,12 @@ def ask(
     question = payload.question.strip()
     if not question:
         raise HTTPException(status_code=422, detail="Question must not be empty")
+
+    incident = classify_incident(question)
+    if incident['potential_incident']:
+        # No report or email is created until the employee reviews and confirms.
+        return {'answer': incident['guidance'], 'citations': [], 'needs_clarification': False,
+                'incident_assistance': incident, 'incident_details': question}
 
     conversation = Conversation(
         user_id=user.id,

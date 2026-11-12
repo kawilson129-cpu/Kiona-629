@@ -258,6 +258,9 @@
     var triage = Number(data.triage_count || 0);
     foot.appendChild(h('span', { class: 'notify-foot-meta', text: triage ? triage + ' unassigned in triage' : 'No unassigned threads' }));
     foot.appendChild(h('button', { type: 'button', class: 'btn btn-ghost', text: 'Open Messages', onclick: function () { closeNotify(); goTo('#messages'); } }));
+    if (data.incident_triage_count) {
+      foot.appendChild(h('button', { type: 'button', class: 'btn btn-ghost', text: data.incident_triage_count + ' reports awaiting triage', onclick: function () { closeNotify(); state.dashboardTab = 'inc'; goTo('#dashboard'); } }));
+    }
   }
 
   function goTo(hash) {
@@ -323,6 +326,11 @@
   }
 
   function refreshNav() {
+    var routingActor = state.personaId;
+    qaa('.js-routing-link').forEach(function (a) { a.classList.add('is-hidden'); });
+    api('/technical-routing/capabilities').then(function (c) {
+      if (state.personaId === routingActor) qaa('.js-routing-link').forEach(function (a) { a.classList.toggle('is-hidden', !c.can_manage); });
+    }).catch(function () {});
     qaa('.js-gov-link').forEach(function (a) {
       a.classList.toggle('is-hidden', !isGovernanceAllowed());
     });
@@ -390,6 +398,7 @@
     if (hash.indexOf('#governance') === 0) return 'governance';
     if (hash === '#dashboard') return 'dashboard';
     if (hash === '#pulse') return 'pulse';
+    if (hash === '#routing') return 'routing';
     return 'assist';
   }
 
@@ -405,6 +414,7 @@
       : v === 'governance' ? renderPolicyGovernance
       : v === 'messages' ? renderMessages
       : v === 'pulse' ? renderPulse
+      : v === 'routing' ? function (root) { window.SupportDesk.routing(root, api); }
       : renderAssist;
     fn(app);
     qaa('.nav-link').forEach(function (a) {
@@ -488,7 +498,7 @@
     var head = h('div', { class: 'view-head' });
     head.appendChild(h('p', { class: 'view-kicker', text: 'Policy Assistant' }));
     head.appendChild(h('h1', { class: 'view-title', html: 'Ask in plain words, <em>get guidance in ink</em>' }));
-    head.appendChild(h('p', { class: 'view-sub', text: 'Ask a policy question or report a security incident. DeRexi cites the governing policy, routes to its owner when it can\u2019t answer with confidence, and logs incident reports for the security desk.' }));
+    head.appendChild(h('p', { class: 'view-sub', text: 'Find cited policy guidance or prepare a reviewed support request for your existing IT and Security team. Urgent issues should be reported through your established incident channel immediately.' }));
 
     var tabs = h('div', { class: 'tabs', role: 'tablist' }, [
       assistTab('Ask a question', 'ask'),
@@ -606,6 +616,8 @@
     function buildReportSection() {
       var wrap = h('div', null);
 
+      if (window.SupportDesk) window.SupportDesk.start(wrap, api);
+
       var form = h('div', { class: 'report-form' });
 
       var catField = h('div', { class: 'field' });
@@ -626,7 +638,20 @@
       form.appendChild(descField);
       form.appendChild(h('div', { class: 'report-note', text: 'Severity is assigned by the security team from the category. Do not include passwords or card numbers.' }));
       form.appendChild(submit);
-      wrap.appendChild(form);
+      // Preserve internal reporting while the separately approved routing
+      // schema/destinations may be unavailable. This path never sends email.
+      var internal = h('details', { class: 'support-desk' });
+      internal.appendChild(h('summary', { text: 'Record an internal reference without email' }));
+      internal.appendChild(h('p', { class: 'report-note', text: 'Use this fallback to record an internal reference. It does not send email or create a ticket. Report urgent issues through your established IT/Security channel.' }));
+      var consentLabel = h('label', { class: 'support-confirm' });
+      var consent = h('input', { type: 'checkbox' });
+      consentLabel.appendChild(consent);
+      consentLabel.appendChild(document.createTextNode('I have reviewed the category and details and confirm this internal report.'));
+      form.insertBefore(consentLabel, submit);
+      submit.disabled = true;
+      consent.addEventListener('change', function () { submit.disabled = !consent.checked; });
+      internal.appendChild(form);
+      wrap.appendChild(internal);
 
       var out = h('div', { class: 'report-out' });
       wrap.appendChild(out);
@@ -696,7 +721,7 @@
           inc.severity ? h('span', { class: 'stamp ' + stampCls(inc.severity), html: '<span class="dot"></span>' + escText(inc.severity) }) : null
         ]));
         card.appendChild(h('div', { class: 'inc-q', text: 'Report received' }));
-        card.appendChild(h('div', { class: 'inc-desc', text: 'Your report is logged and will be reviewed by a security handler. Track its status under \u201cYour reports\u201d below.' }));
+        card.appendChild(h('div', { class: 'inc-desc', text: 'Your internal reference is recorded. No email was sent and no ticket creation is confirmed. Use your established IT/Security reporting channel for investigation and resolution; this reference remains in Your reports below.' }));
         if (inc.guidance) {
           card.appendChild(h('div', { class: 'report-guidance' }, [
             h('div', { class: 'g-title', text: inc.guidance.title + ' (v' + inc.guidance.version_no + ')' }),
@@ -708,6 +733,7 @@
       }
 
       submit.addEventListener('click', function () {
+        if (!consent.checked) { toast('Review and confirm this internal report first.'); return; }
         var desc = ta.value.trim();
         if (!catSel.value) { toast('Choose an incident category first.'); return; }
         if (desc.length < 2) { toast('Describe the incident before submitting.'); return; }
@@ -716,7 +742,8 @@
           method: 'POST',
           body: JSON.stringify({ reporter_id: state.personaId, category_id: parseInt(catSel.value, 10), description: desc })
         }).then(function (inc) {
-          submit.disabled = false;
+          consent.checked = false;
+          submit.disabled = true;
           ta.value = '';
           catSel.value = '';
           renderConfirm(inc);
@@ -786,10 +813,12 @@
       }
       if (r.needs_clarification) {
         bodyEl.appendChild(buildRouted(r));
-      } else {
+      } else if (!r.incident_assistance) {
         bodyEl.appendChild(buildClarifyAction(r));
       }
-      bodyEl.appendChild(buildFeedback(r));
+      if (r.incident_assistance && window.SupportDesk) {
+        bodyEl.appendChild(window.SupportDesk.intake(api, r.incident_assistance, r.incident_details));
+      } else bodyEl.appendChild(buildFeedback(r));
     }
 
     var meta = h('div', { class: 'msg-meta', text: isUser ? (currentUser() ? currentUser().full_name : 'You') + ' · ' + when : 'DeRexi · Policy Engine · ' + when });
@@ -1820,7 +1849,8 @@
     view.appendChild(tabs);
     view.appendChild(panel);
     app.appendChild(view);
-    go('overview');
+    go(state.dashboardTab || 'overview');
+    state.dashboardTab = null;
 
     function tab(label, key) {
       var t = h('button', { type: 'button', class: 'tab', role: 'tab', dataset: { tab: key }, text: label });

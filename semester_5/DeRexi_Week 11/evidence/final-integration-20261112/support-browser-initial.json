@@ -1,0 +1,32 @@
+{
+  "checks": [
+    {
+      "name": "Urgent guidance appears in Assistant",
+      "pass": true
+    },
+    {
+      "name": "No automatic report",
+      "pass": true
+    },
+    {
+      "name": "Review shows verified identity and destination",
+      "pass": true
+    },
+    {
+      "name": "Explicit confirmation required",
+      "pass": true
+    },
+    {
+      "name": "Employee can edit before confirming",
+      "pass": true
+    },
+    {
+      "name": "Browser scenario completion",
+      "pass": false,
+      "error": "Error: SyntaxError: Identifier 'nodes' has already been declared"
+    }
+  ],
+  "passed": 5,
+  "failed": 1,
+  "errors": []
+}

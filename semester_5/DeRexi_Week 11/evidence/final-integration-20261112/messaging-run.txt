@@ -1,0 +1,111 @@
+{"timestamp":"2026-11-12T10:54:21.136026+00:00","event":"authentication_failure","request_id":"294117ceb20d4377af8c76c9e7f5a1d8","method":"GET","route":"/messages","status":401,"actor_id":null,"role":null}
+{"timestamp":"2026-11-12T10:54:21.151181+00:00","event":"authentication_failure","request_id":"281da762c5844b83bceef4eda9a8be73","method":"POST","route":"/ask","status":401,"actor_id":null,"role":null}
+{"timestamp":"2026-11-12T10:54:21.166089+00:00","event":"sensitive_change","request_id":"51bba21b2f1040a588c3ce031ec7eba5","method":"POST","route":"/dev-auth/token","status":200,"actor_id":null,"role":null}
+{"timestamp":"2026-11-12T10:54:21.184135+00:00","event":"access_denied","request_id":"934766eb9b694d79b82e45fb605f1da6","method":"POST","route":"/ask","status":403,"actor_id":8,"role":"Employee"}
+{"timestamp":"2026-11-12T10:54:21.199795+00:00","event":"access_denied","request_id":"be6176c907444552ad3ba02cffdf6679","method":"GET","route":"/messages","status":403,"actor_id":8,"role":"Employee"}
+{"timestamp":"2026-11-12T10:54:21.217677+00:00","event":"access_denied","request_id":"65ffd9de64b047e79b3005c7efe0591f","method":"GET","route":"/messages","status":403,"actor_id":8,"role":"Employee"}
+{"timestamp":"2026-11-12T10:54:21.283214+00:00","event":"sensitive_change","request_id":"2a8b1c81e43b49668098e0c60098660a","method":"POST","route":"/clarifications","status":201,"actor_id":8,"role":"Employee"}
+{"timestamp":"2026-11-12T10:54:21.301921+00:00","event":"request_rejected","request_id":"ee7d6e668a6044d0a8cfe590d4151ef7","method":"POST","route":"/clarifications","status":409,"actor_id":8,"role":"Employee"}
+{"timestamp":"2026-11-12T10:54:21.315049+00:00","event":"sensitive_change","request_id":"93b6a5416b6540b09a92bd1c4e638e84","method":"POST","route":"/dev-auth/token","status":200,"actor_id":null,"role":null}
+{"timestamp":"2026-11-12T10:54:21.380907+00:00","event":"sensitive_change","request_id":"a42b760ddf334cc6a8add6063ed7ebc2","method":"POST","route":"/clarifications/{request_id}/replies","status":201,"actor_id":9,"role":"Policy Owner"}
+{"timestamp":"2026-11-12T10:54:21.427872+00:00","event":"sensitive_change","request_id":"7543132735e54a3b95e5ba650d802934","method":"POST","route":"/clarifications/{request_id}/read","status":200,"actor_id":8,"role":"Employee"}
+{"timestamp":"2026-11-12T10:54:21.467765+00:00","event":"sensitive_change","request_id":"ee439802147f4e99a391018aab2db24c","method":"POST","route":"/clarifications/{request_id}/replies","status":201,"actor_id":8,"role":"Employee"}
+{"timestamp":"2026-11-12T10:54:21.517397+00:00","event":"sensitive_change","request_id":"27f3a4d4fdc64682892ad255987174cc","method":"POST","route":"/clarifications/{request_id}/resolve","status":200,"actor_id":9,"role":"Policy Owner"}
+{"timestamp":"2026-11-12T10:54:21.562367+00:00","event":"sensitive_change","request_id":"2fb936236b804980a2efa0191246af40","method":"POST","route":"/clarifications/{request_id}/close","status":200,"actor_id":9,"role":"Policy Owner"}
+{"timestamp":"2026-11-12T10:54:21.616027+00:00","event":"request_rejected","request_id":"5560ad647f1c40f984857ccebe8f3f05","method":"POST","route":"/clarifications/{request_id}/replies","status":409,"actor_id":8,"role":"Employee"}
+{"timestamp":"2026-11-12T10:54:21.638285+00:00","event":"sensitive_change","request_id":"b32ac0e8dc3e45ee9b1e28b22bb0c45b","method":"POST","route":"/clarifications/{request_id}/reopen","status":200,"actor_id":8,"role":"Employee"}
+{"timestamp":"2026-11-12T10:54:21.721709+00:00","event":"request_rejected","request_id":"86e48dad72a4495f8cb1b6a3c4d89178","method":"GET","route":"/messages","status":422,"actor_id":8,"role":"Employee"}
+{"timestamp":"2026-11-12T10:54:21.757688+00:00","event":"sensitive_change","request_id":"cb3a6aa541624f13848448d149c2bb4e","method":"POST","route":"/dev-auth/token","status":200,"actor_id":null,"role":null}
+{"timestamp":"2026-11-12T10:54:21.773421+00:00","event":"access_denied","request_id":"35d84910f2ff40378e6e90ca7f9105fb","method":"GET","route":"/clarifications/{request_id}","status":404,"actor_id":12,"role":"Policy Owner"}
+{"timestamp":"2026-11-12T10:54:21.798217+00:00","event":"access_denied","request_id":"a03ba5901ff64a66997d5015033acf30","method":"POST","route":"/clarifications/{request_id}/replies","status":404,"actor_id":12,"role":"Policy Owner"}
+{"timestamp":"2026-11-12T10:54:21.820166+00:00","event":"access_denied","request_id":"c0b30f73bc6f4088993b30681b4a4ff2","method":"POST","route":"/clarifications/{request_id}/resolve","status":404,"actor_id":12,"role":"Policy Owner"}
+{"timestamp":"2026-11-12T10:54:21.847571+00:00","event":"access_denied","request_id":"e96c3ae12a5645e68e9839f384c6b1db","method":"POST","route":"/clarifications/{request_id}/assign","status":403,"actor_id":9,"role":"Policy Owner"}
+{"timestamp":"2026-11-12T10:54:21.868443+00:00","event":"access_denied","request_id":"136eb0b6e91f456ea3a4bf2b32199e8a","method":"POST","route":"/clarifications/{request_id}/replies","status":403,"actor_id":8,"role":"Employee"}
+{"timestamp":"2026-11-12T10:54:21.883649+00:00","event":"sensitive_change","request_id":"eb0502f168f34ebcb2e70bdcc3da0ee6","method":"POST","route":"/dev-auth/token","status":200,"actor_id":null,"role":null}
+{"timestamp":"2026-11-12T10:54:21.986629+00:00","event":"access_denied","request_id":"ab58b8d47c634c42bab16b8719e2634f","method":"GET","route":"/clarifications","status":403,"actor_id":8,"role":"Employee"}
+{"timestamp":"2026-11-12T10:54:22.021724+00:00","event":"sensitive_change","request_id":"2b3a980408e046aeb7012f8bbce0f166","method":"POST","route":"/clarifications","status":201,"actor_id":8,"role":"Employee"}
+{"timestamp":"2026-11-12T10:54:22.081207+00:00","event":"administrative_action","request_id":"36ea392245e14c1e9cfa12888c7e0ac7","method":"POST","route":"/clarifications/{request_id}/assign","status":200,"actor_id":2,"role":"System Administrator"}
+{"timestamp":"2026-11-12T10:54:22.117920+00:00","event":"request_rejected","request_id":"a64460dab9ca4f43a833847aabdbe330","method":"POST","route":"/clarifications/{request_id}/replies","status":422,"actor_id":8,"role":"Employee"}
+{"timestamp":"2026-11-12T10:54:22.138274+00:00","event":"request_rejected","request_id":"806642065e86496badbadbc09ec7a962","method":"GET","route":"/messages","status":422,"actor_id":8,"role":"Employee"}
+{"timestamp":"2026-11-12T10:54:22.151774+00:00","event":"request_rejected","request_id":"e6a9adfc12d444cf82f140b02c295cf8","method":"POST","route":"/clarifications","status":422,"actor_id":8,"role":"Employee"}
+{"timestamp":"2026-11-12T10:54:22.172786+00:00","event":"request_rejected","request_id":"697074fce849453ab1943dc53e92019d","method":"POST","route":"/clarifications","status":422,"actor_id":8,"role":"Employee"}
+{"timestamp":"2026-11-12T10:54:22.190047+00:00","event":"access_denied","request_id":"3b5fac3c37c24b82b1fa10caaac7936f","method":"POST","route":"/clarifications","status":404,"actor_id":12,"role":"Policy Owner"}
+{"timestamp":"2026-11-12T10:54:22.206196+00:00","event":"authentication_failure","request_id":"12e6607177c448e28742ad46772d4cde","method":"GET","route":"/conversations/{conversation_id}","status":401,"actor_id":null,"role":null}
+{"timestamp":"2026-11-12T10:54:22.276994+00:00","event":"sensitive_change","request_id":"e41eb0f726214f628e3d4caad23d132d","method":"POST","route":"/ask","status":200,"actor_id":8,"role":"Employee"}
+{"timestamp":"2026-11-12T10:54:22.395904+00:00","event":"access_denied","request_id":"222f0668fe1042039548aa0c9355499d","method":"GET","route":"/dashboard/policy-health","status":403,"actor_id":8,"role":"Employee"}
+{"timestamp":"2026-11-12T10:54:22.443601+00:00","event":"authentication_failure","request_id":"27bfe93bf6cb44ccb7da8cea9f50ab16","method":"GET","route":"/users","status":401,"actor_id":null,"role":null}
+PASS  auth config exposes development mode only with opt-in
+PASS  dev roster returns seeded users
+PASS  anonymous /messages is rejected
+PASS  anonymous /ask is rejected
+PASS  body identity cannot impersonate another user
+PASS  employee cannot open admin triage folder
+PASS  employee cannot open all-threads folder
+PASS  fixture policy is owned by Jordan
+PASS  employee can request clarification from an answer
+PASS  request routes to the policy owner
+PASS  thread exposes the owner contact record
+PASS  escalation starts as awaiting the owner
+PASS  originating question is preserved
+PASS  originating answer is preserved
+PASS  policy citation is preserved
+PASS  requester copy starts read
+PASS  timestamps are present
+PASS  duplicate open request is refused
+PASS  owner inbox contains the thread
+PASS  new assignment is unread for the owner
+PASS  owner receives an in-app assignment notification
+PASS  owner can reply
+PASS  reply moves thread to in_progress
+PASS  employee sees the owner reply
+PASS  escalation moves to awaiting the employee
+PASS  employee thread is unread after the reply
+PASS  employee receives a reply notification
+PASS  employee can mark the thread read
+PASS  unread clears after marking read
+PASS  employee can reply
+PASS  owner is notified of the employee reply
+PASS  employee reply hands the thread back to the owner
+PASS  owner can resolve
+PASS  resolved thread reports the resolved escalation state
+PASS  owner can close a resolved thread
+PASS  closed thread reports the closed escalation state
+PASS  reply to a resolved thread is refused
+PASS  requester can reopen
+PASS  reopen is recorded in history
+PASS  reopened thread awaits the owner again
+PASS  status filter selects threads awaiting the owner
+PASS  status filter excludes threads that are no longer resolved
+PASS  unknown escalation status is rejected
+PASS  search matches the thread question
+PASS  unrelated owner cannot read the thread
+PASS  unrelated owner cannot reply
+PASS  unrelated owner cannot resolve
+PASS  policy owner cannot use admin assign
+PASS  spoofed sender_id is rejected
+PASS  administrator can read any thread
+PASS  administrator sees the organisation-wide list
+PASS  administrator can list the governance queue
+PASS  employee cannot list the governance queue
+PASS  missing owner leaves the thread unassigned
+PASS  unassigned thread appears in admin triage
+PASS  admin can assign a triage thread to a policy owner
+PASS  assigned owner receives the thread
+PASS  empty reply is rejected
+PASS  unknown folder is rejected
+PASS  uncited policy is rejected
+PASS  short context is rejected
+PASS  another user's conversation is not disclosed
+PASS  conversation read requires auth
+PASS  employee can read own conversation
+PASS  Policy Assistant still answers/routes with auth
+PASS  policy library still lists policies
+PASS  policy search still works
+PASS  categories still work
+PASS  governance dashboard is governance-only
+PASS  Pulse health endpoint is unaffected
+PASS  staff directory requires auth
+PASS  staff emails are admin-only
+PASS  notification payload has no bearer token
+
+73 passed, 0 failed, 73 checks

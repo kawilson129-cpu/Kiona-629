@@ -1,0 +1,5 @@
+{
+  "passed": 1,
+  "failed": 0,
+  "notice": "Targeted read-only reframing; existing mock-accepted record; no new send"
+}

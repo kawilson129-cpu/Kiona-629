@@ -575,7 +575,8 @@ def list_notifications(
             text("SELECT count(*) FROM clarification_requests WHERE assigned_to IS NULL")
         ).scalar() or 0
 
-    return {"unread_total": unread_total, "items": items, "triage_count": int(triage)}
+    incident_triage = (db.execute(text("SELECT count(*) FROM incident_reports WHERE assigned_to IS NULL AND status = 'reported'")).scalar() or 0) if identity.is_admin else 0
+    return {"unread_total": unread_total, "items": items, "triage_count": int(triage), "incident_triage_count": int(incident_triage)}
 
 
 # ---------------------------------------------------------------------------
