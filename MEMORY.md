@@ -1,7 +1,7 @@
 # MEMORY.md
 
 ## Last Updated
-November 10, 2026
+November 12, 2026
 
 ## Latest session (Nov 10) - SDLC Week 10 Testing & Quality Assurance
 Prepared Tested MVP evidence in existing `semester_5/DeRexi_Week 10/`. Latest executed checks: **379 PASS / 0 FAIL / 0 automated blocked** (342 backend/unit/integration + 37 browser UAT); 7 live workflow verifications remain blocked. Fixed UI feedback that never persisted, non-answer feedback acceptance, and Pulse publisher-host spoofing. All writes used isolated SQLite/private temp files; provider/feed mocked; no live Supabase access or configuration/schema/RLS/Auth changes. Agent-executed UAT only, human sign-off pending. No commit/push; unrelated concurrent file moves preserved.
@@ -481,3 +481,8 @@ Verified C-01 (role-based access control) and C-02 (input validation / safe erro
 - Kiona explicitly requested committing and publishing the completed work to GitHub, superseding earlier no-auto-commit/no-push restrictions for this reviewed scope.
 - Reviewed all106 pending files: canonical incident/routing implementation, approval-only migration, tests, Week11 documentation/walkthroughs/evidence and memory. Credential-pattern scan returned0 findings; actual backend/.env remains ignored; temporary browser profiles removed. Existing622 PASS /0 FAIL /14 platform skips and134 passing documentation links reused; whitespace clean.
 - Publishing to existing origin/main with commit title: feat(derexi): add incident assistance and release readiness. Outbound remains OFF by default; live schema, users/Auth, grants/RLS, external mail and production activation remain separately gated. GitHub publication does not activate those systems.
+
+
+### November 12, 2026 - Start local DeRexi environment
+- Used existing canonical derexi-policy-pilot/.venv and started backend with python -m uvicorn main:app --reload --host 127.0.0.1 --port 8000. Sandbox blocked initial startup; approved external execution succeeded.
+- Application startup complete; GET http://127.0.0.1:8000/ui/ returned HTTP 200. Server left running for Kiona (session 2352). No dependency, configuration or application code changes; no commit/push.
