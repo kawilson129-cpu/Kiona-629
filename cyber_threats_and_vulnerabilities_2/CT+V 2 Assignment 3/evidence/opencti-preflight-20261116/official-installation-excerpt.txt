@@ -1,0 +1,33 @@
+Additional memory information
+Platform
+OpenCTI platform is based on a NodeJS runtime, with a memory limit of
+8GB by default
+. If you encounter
+OutOfMemory
+exceptions, this limit could be changed:
+-
+NODE_OPTIONS=--max-old-space-size=8096
+Workers and connectors
+OpenCTI workers and connectors are Python processes. If you want to limit the memory of the process, we recommend to directly use Docker to do that. You can find more information in the
+official Docker documentation
+.
+ElasticSearch
+ElasticSearch is also a JAVA process. In order to setup the JAVA memory allocation, you can use the environment variable
+ES_JAVA_OPTS
+. You can find more information in the
+official ElasticSearch documentation
+.
+Redis
+Redis has a very small footprint on keys but will consume memory for the stream. By default the size of the stream is limited to 2 millions which represents a memory footprint around
+8 GB
+. You can find more information in the
+Redis docker hub
+.
+S3 bucket / Silo
+Silo, the community-maintained fork of MinIO, is a small process and does not require a high amount of memory. More information is available in the
+Silo documentation
+.
+RabbitMQ
+The RabbitMQ memory configuration can be find in the
+RabbitMQ official documentation
+. RabbitMQ will consumed memory until a specific threshold, therefore it should be configure along with the Docker memory limitation.

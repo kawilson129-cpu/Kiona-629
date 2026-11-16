@@ -1,43 +1,56 @@
 {
-  "timestamp": "2026-11-10T21:04:24.167703+00:00",
+  "timestamp": "2026-11-16T18:53:25.435506+00:00",
   "passed": 0,
   "failed": 0,
   "blocked": 5,
+  "attempted": false,
+  "preflight_attempted": true,
   "checks": [
     {
       "id": "OPENCTI-HEALTH-VERSION",
       "status": "BLOCKED",
       "attempted": false,
-      "reason": "No local Docker CLI or OpenCTI listener; deployment is not authorized by this task.",
-      "scope": "Proposed acceptance check, not an additional rubric criterion"
+      "reason": "Documented minimum core service budget exceeds actual Docker memory; safe smaller lab not established. No undersized deployment attempted.",
+      "scope": "Proposed acceptance check, not an additional rubric criterion",
+      "preflight_attempted": true,
+      "evidence": "evidence/opencti-preflight-20261116/preflight.json"
     },
     {
       "id": "OPENCTI-ATTACK-CONNECTOR",
       "status": "BLOCKED",
       "attempted": false,
-      "reason": "No local Docker CLI or OpenCTI listener; deployment is not authorized by this task.",
-      "scope": "Proposed acceptance check, not an additional rubric criterion"
+      "reason": "Documented minimum core service budget exceeds actual Docker memory; safe smaller lab not established. No undersized deployment attempted.",
+      "scope": "Proposed acceptance check, not an additional rubric criterion",
+      "preflight_attempted": true,
+      "evidence": "evidence/opencti-preflight-20261116/preflight.json"
     },
     {
       "id": "OPENCTI-IOC-IMPORT",
       "status": "BLOCKED",
       "attempted": false,
-      "reason": "No local Docker CLI or OpenCTI listener; deployment is not authorized by this task.",
-      "scope": "Proposed acceptance check, not an additional rubric criterion"
+      "reason": "Documented minimum core service budget exceeds actual Docker memory; safe smaller lab not established. No undersized deployment attempted.",
+      "scope": "Proposed acceptance check, not an additional rubric criterion",
+      "preflight_attempted": true,
+      "evidence": "evidence/opencti-preflight-20261116/preflight.json"
     },
     {
       "id": "OPENCTI-REIMPORT-DEDUPE",
       "status": "BLOCKED",
       "attempted": false,
-      "reason": "No local Docker CLI or OpenCTI listener; deployment is not authorized by this task.",
-      "scope": "Proposed acceptance check, not an additional rubric criterion"
+      "reason": "Documented minimum core service budget exceeds actual Docker memory; safe smaller lab not established. No undersized deployment attempted.",
+      "scope": "Proposed acceptance check, not an additional rubric criterion",
+      "preflight_attempted": true,
+      "evidence": "evidence/opencti-preflight-20261116/preflight.json"
     },
     {
       "id": "OPENCTI-FUSION-METRICS",
       "status": "BLOCKED",
       "attempted": false,
-      "reason": "No local Docker CLI or OpenCTI listener; deployment is not authorized by this task.",
-      "scope": "Proposed acceptance check, not an additional rubric criterion"
+      "reason": "Documented minimum core service budget exceeds actual Docker memory; safe smaller lab not established. No undersized deployment attempted.",
+      "scope": "Proposed acceptance check, not an additional rubric criterion",
+      "preflight_attempted": true,
+      "evidence": "evidence/opencti-preflight-20261116/preflight.json"
     }
-  ]
+  ],
+  "previous_record": "evidence/opencti-preflight-20261116/prior-platform-acceptance-results.json"
 }

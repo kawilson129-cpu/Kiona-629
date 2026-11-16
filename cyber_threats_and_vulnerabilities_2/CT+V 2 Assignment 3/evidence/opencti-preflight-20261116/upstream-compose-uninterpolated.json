@@ -1,0 +1,678 @@
+{
+  "name": "opencti-upstream",
+  "networks": {
+    "default": {
+      "name": "opencti-upstream_default"
+    }
+  },
+  "services": {
+    "connector-analysis": {
+      "depends_on": {
+        "opencti": {
+          "condition": "service_healthy",
+          "required": true
+        }
+      },
+      "environment": [
+        "OPENCTI_URL=http://opencti:8080",
+        "OPENCTI_TOKEN=${OPENCTI_ADMIN_TOKEN}",
+        "CONNECTOR_ID=${CONNECTOR_ANALYSIS_ID}",
+        "CONNECTOR_TYPE=INTERNAL_ANALYSIS",
+        "CONNECTOR_NAME=ImportDocumentAnalysis",
+        "CONNECTOR_VALIDATE_BEFORE_IMPORT=false",
+        "CONNECTOR_SCOPE=application/pdf,text/plain,text/html",
+        "CONNECTOR_AUTO=true",
+        "CONNECTOR_ONLY_CONTEXTUAL=false"
+      ],
+      "image": "opencti/connector-import-document:latest",
+      "networks": {
+        "default": null
+      },
+      "restart": "always"
+    },
+    "connector-export-file-csv": {
+      "depends_on": {
+        "opencti": {
+          "condition": "service_healthy",
+          "required": true
+        }
+      },
+      "environment": [
+        "OPENCTI_URL=http://opencti:8080",
+        "OPENCTI_TOKEN=${OPENCTI_ADMIN_TOKEN}",
+        "CONNECTOR_ID=${CONNECTOR_EXPORT_FILE_CSV_ID}",
+        "CONNECTOR_TYPE=INTERNAL_EXPORT_FILE",
+        "CONNECTOR_NAME=ExportFileCsv",
+        "CONNECTOR_SCOPE=text/csv"
+      ],
+      "image": "opencti/connector-export-file-csv:latest",
+      "networks": {
+        "default": null
+      },
+      "restart": "always"
+    },
+    "connector-export-file-stix": {
+      "depends_on": {
+        "opencti": {
+          "condition": "service_healthy",
+          "required": true
+        }
+      },
+      "environment": [
+        "OPENCTI_URL=http://opencti:8080",
+        "OPENCTI_TOKEN=${OPENCTI_ADMIN_TOKEN}",
+        "CONNECTOR_ID=${CONNECTOR_EXPORT_FILE_STIX_ID}",
+        "CONNECTOR_TYPE=INTERNAL_EXPORT_FILE",
+        "CONNECTOR_NAME=ExportFileStix2",
+        "CONNECTOR_SCOPE=application/json"
+      ],
+      "image": "opencti/connector-export-file-stix:latest",
+      "networks": {
+        "default": null
+      },
+      "restart": "always"
+    },
+    "connector-export-file-txt": {
+      "depends_on": {
+        "opencti": {
+          "condition": "service_healthy",
+          "required": true
+        }
+      },
+      "environment": [
+        "OPENCTI_URL=http://opencti:8080",
+        "OPENCTI_TOKEN=${OPENCTI_ADMIN_TOKEN}",
+        "CONNECTOR_ID=${CONNECTOR_EXPORT_FILE_TXT_ID}",
+        "CONNECTOR_TYPE=INTERNAL_EXPORT_FILE",
+        "CONNECTOR_NAME=ExportFileTxt",
+        "CONNECTOR_SCOPE=text/plain"
+      ],
+      "image": "opencti/connector-export-file-txt:latest",
+      "networks": {
+        "default": null
+      },
+      "restart": "always"
+    },
+    "connector-import-document": {
+      "depends_on": {
+        "opencti": {
+          "condition": "service_healthy",
+          "required": true
+        }
+      },
+      "environment": [
+        "OPENCTI_URL=http://opencti:8080",
+        "OPENCTI_TOKEN=${OPENCTI_ADMIN_TOKEN}",
+        "CONNECTOR_ID=${CONNECTOR_IMPORT_DOCUMENT_ID}",
+        "CONNECTOR_TYPE=INTERNAL_IMPORT_FILE",
+        "CONNECTOR_NAME=ImportDocument",
+        "CONNECTOR_VALIDATE_BEFORE_IMPORT=true",
+        "CONNECTOR_SCOPE=application/pdf,text/plain,text/html",
+        "CONNECTOR_AUTO=true",
+        "CONNECTOR_ONLY_CONTEXTUAL=false",
+        "IMPORT_DOCUMENT_CREATE_INDICATOR=true"
+      ],
+      "image": "opencti/connector-import-document:latest",
+      "networks": {
+        "default": null
+      },
+      "restart": "always"
+    },
+    "connector-import-external-reference": {
+      "depends_on": {
+        "opencti": {
+          "condition": "service_healthy",
+          "required": true
+        }
+      },
+      "environment": [
+        "OPENCTI_URL=http://opencti:8080",
+        "OPENCTI_TOKEN=${OPENCTI_ADMIN_TOKEN}",
+        "CONNECTOR_ID=${CONNECTOR_IMPORT_EXTERNAL_REFERENCE_ID}",
+        "CONNECTOR_NAME=ImportExternalReference"
+      ],
+      "image": "opencti/connector-import-external-reference:latest",
+      "networks": {
+        "default": null
+      },
+      "restart": "always"
+    },
+    "connector-import-file-stix": {
+      "depends_on": {
+        "opencti": {
+          "condition": "service_healthy",
+          "required": true
+        }
+      },
+      "environment": [
+        "OPENCTI_URL=http://opencti:8080",
+        "OPENCTI_TOKEN=${OPENCTI_ADMIN_TOKEN}",
+        "CONNECTOR_ID=${CONNECTOR_IMPORT_FILE_STIX_ID}",
+        "CONNECTOR_TYPE=INTERNAL_IMPORT_FILE",
+        "CONNECTOR_NAME=ImportFileStix",
+        "CONNECTOR_VALIDATE_BEFORE_IMPORT=true",
+        "CONNECTOR_SCOPE=application/json,text/xml",
+        "CONNECTOR_AUTO=true"
+      ],
+      "image": "opencti/connector-import-file-stix:latest",
+      "networks": {
+        "default": null
+      },
+      "restart": "always"
+    },
+    "connector-import-file-yara": {
+      "depends_on": {
+        "opencti": {
+          "condition": "service_healthy",
+          "required": true
+        }
+      },
+      "environment": [
+        "OPENCTI_URL=http://opencti:8080",
+        "OPENCTI_TOKEN=${OPENCTI_ADMIN_TOKEN}",
+        "CONNECTOR_ID=${CONNECTOR_IMPORT_FILE_YARA_ID}",
+        "CONNECTOR_NAME=ImportFileYARA",
+        "CONNECTOR_VALIDATE_BEFORE_IMPORT=true",
+        "CONNECTOR_SCOPE=text/yara+plain",
+        "CONNECTOR_AUTO=false",
+        "YARA_IMPORT_FILE_SPLIT_RULES=true"
+      ],
+      "image": "opencti/connector-import-file-yara:latest",
+      "networks": {
+        "default": null
+      },
+      "restart": "always"
+    },
+    "connector-mitre": {
+      "depends_on": {
+        "opencti": {
+          "condition": "service_healthy",
+          "required": true
+        }
+      },
+      "environment": [
+        "OPENCTI_URL=http://opencti:8080",
+        "OPENCTI_TOKEN=${OPENCTI_ADMIN_TOKEN}",
+        "CONNECTOR_ID=${CONNECTOR_MITRE_ID}",
+        "CONNECTOR_AUTO_CREATE_SERVICE_ACCOUNT=true",
+        "CONNECTOR_AUTO_CREATE_SERVICE_ACCOUNT_CONFIDENCE_LEVEL=75"
+      ],
+      "image": "opencti/connector-mitre:latest",
+      "networks": {
+        "default": null
+      },
+      "restart": "always"
+    },
+    "connector-opencti": {
+      "depends_on": {
+        "opencti": {
+          "condition": "service_healthy",
+          "required": true
+        }
+      },
+      "environment": [
+        "OPENCTI_URL=http://opencti:8080",
+        "OPENCTI_TOKEN=${OPENCTI_ADMIN_TOKEN}",
+        "CONNECTOR_ID=${CONNECTOR_OPENCTI_ID}",
+        "CONNECTOR_NAME=OpenCTI Datasets",
+        "CONNECTOR_SCOPE=marking-definition,identity,location",
+        "CONNECTOR_AUTO_CREATE_SERVICE_ACCOUNT=true",
+        "CONNECTOR_AUTO_CREATE_SERVICE_ACCOUNT_CONFIDENCE_LEVEL=100"
+      ],
+      "image": "opencti/connector-opencti:latest",
+      "networks": {
+        "default": null
+      },
+      "restart": "always"
+    },
+    "elasticsearch": {
+      "environment": [
+        "discovery.type=single-node",
+        "xpack.ml.enabled=false",
+        "xpack.security.enabled=false",
+        "thread_pool.search.queue_size=5000",
+        "logger.org.elasticsearch.discovery=\"ERROR\"",
+        "ES_JAVA_OPTS=-Xms${ELASTIC_MEMORY_SIZE} -Xmx${ELASTIC_MEMORY_SIZE}"
+      ],
+      "healthcheck": {
+        "interval": "5s",
+        "retries": 50,
+        "test": [
+          "CMD-SHELL",
+          "curl -s http://elasticsearch:9200/_cluster/health?wait_for_status=yellow \u003e/dev/null || exit 1"
+        ],
+        "timeout": "3s"
+      },
+      "image": "docker.elastic.co/elasticsearch/elasticsearch:8.19.21",
+      "networks": {
+        "default": null
+      },
+      "restart": "always",
+      "ulimits": {
+        "memlock": {
+          "hard": -1,
+          "soft": -1
+        },
+        "nofile": {
+          "hard": 65536,
+          "soft": 65536
+        }
+      },
+      "volumes": [
+        {
+          "source": "esdata",
+          "target": "/usr/share/elasticsearch/data",
+          "type": "volume",
+          "volume": {}
+        }
+      ]
+    },
+    "minio": {
+      "command": "server /data",
+      "environment": {
+        "MINIO_ROOT_PASSWORD": "${MINIO_ROOT_PASSWORD}",
+        "MINIO_ROOT_USER": "${MINIO_ROOT_USER}"
+      },
+      "healthcheck": {
+        "interval": "10s",
+        "retries": 3,
+        "test": [
+          "CMD",
+          "mc",
+          "ready",
+          "local"
+        ],
+        "timeout": "5s"
+      },
+      "image": "pgsty/silo:latest",
+      "networks": {
+        "default": null
+      },
+      "ports": [
+        {
+          "mode": "ingress",
+          "protocol": "tcp",
+          "published": "9000",
+          "target": 9000
+        }
+      ],
+      "restart": "always",
+      "volumes": [
+        {
+          "source": "s3data",
+          "target": "/data",
+          "type": "volume",
+          "volume": {}
+        }
+      ]
+    },
+    "opencti": {
+      "depends_on": {
+        "elasticsearch": {
+          "condition": "service_healthy",
+          "required": true
+        },
+        "minio": {
+          "condition": "service_healthy",
+          "required": true
+        },
+        "rabbitmq": {
+          "condition": "service_healthy",
+          "required": true
+        },
+        "redis": {
+          "condition": "service_healthy",
+          "required": true
+        }
+      },
+      "environment": [
+        "NODE_OPTIONS=--max-old-space-size=8096",
+        "APP__PORT=8080",
+        "APP__BASE_URL=${OPENCTI_EXTERNAL_SCHEME}://${OPENCTI_HOST}:${OPENCTI_PORT}",
+        "APP__ADMIN__EMAIL=${OPENCTI_ADMIN_EMAIL}",
+        "APP__ADMIN__PASSWORD=${OPENCTI_ADMIN_PASSWORD}",
+        "APP__ADMIN__TOKEN=${OPENCTI_ADMIN_TOKEN}",
+        "APP__ENCRYPTION_KEY=${OPENCTI_ENCRYPTION_KEY}",
+        "REDIS__HOSTNAME=redis",
+        "REDIS__PORT=6379",
+        "ELASTICSEARCH__URL=http://elasticsearch:9200",
+        "ELASTICSEARCH__NUMBER_OF_REPLICAS=0",
+        "MINIO__ENDPOINT=minio",
+        "MINIO__PORT=9000",
+        "MINIO__USE_SSL=false",
+        "MINIO__ACCESS_KEY=${MINIO_ROOT_USER}",
+        "MINIO__SECRET_KEY=${MINIO_ROOT_PASSWORD}",
+        "RABBITMQ__HOSTNAME=rabbitmq",
+        "RABBITMQ__PORT=5672",
+        "RABBITMQ__PORT_MANAGEMENT=15672",
+        "RABBITMQ__MANAGEMENT_SSL=false",
+        "RABBITMQ__USERNAME=${RABBITMQ_DEFAULT_USER}",
+        "RABBITMQ__PASSWORD=${RABBITMQ_DEFAULT_PASS}",
+        "SMTP__HOSTNAME=${SMTP_HOSTNAME}",
+        "SMTP__PORT=25",
+        "PROVIDERS__LOCAL__STRATEGY=LocalStrategy",
+        "APP__HEALTH_ACCESS_KEY=${OPENCTI_HEALTHCHECK_ACCESS_KEY}",
+        "XTM__XTM_ONE_URL=http://xtm-one:4000",
+        "XTM__XTM_ONE_TOKEN=${PLATFORM_REGISTRATION_TOKEN}"
+      ],
+      "healthcheck": {
+        "interval": "10s",
+        "retries": 20,
+        "test": [
+          "CMD",
+          "wget",
+          "-qO-",
+          "http://opencti:8080/health?health_access_key=${OPENCTI_HEALTHCHECK_ACCESS_KEY}"
+        ],
+        "timeout": "5s"
+      },
+      "image": "opencti/platform:latest",
+      "networks": {
+        "default": null
+      },
+      "ports": [
+        "${OPENCTI_PORT}:8080"
+      ],
+      "restart": "always"
+    },
+    "pgsql-xtm-one": {
+      "environment": {
+        "POSTGRES_DB": "xtm_one",
+        "POSTGRES_PASSWORD": "${XTM_ONE_POSTGRES_PASSWORD}",
+        "POSTGRES_USER": "${XTM_ONE_POSTGRES_USER}"
+      },
+      "healthcheck": {
+        "interval": "10s",
+        "retries": 5,
+        "test": [
+          "CMD",
+          "pg_isready",
+          "-U",
+          "${XTM_ONE_POSTGRES_USER}",
+          "-d",
+          "xtm_one"
+        ],
+        "timeout": "5s"
+      },
+      "image": "pgvector/pgvector:pg17",
+      "networks": {
+        "default": null
+      },
+      "restart": "always",
+      "volumes": [
+        {
+          "source": "pgsqlxtmonedata",
+          "target": "/var/lib/postgresql/data",
+          "type": "volume",
+          "volume": {}
+        }
+      ]
+    },
+    "rabbitmq": {
+      "environment": [
+        "RABBITMQ_DEFAULT_USER=${RABBITMQ_DEFAULT_USER}",
+        "RABBITMQ_DEFAULT_PASS=${RABBITMQ_DEFAULT_PASS}",
+        "RABBITMQ_NODENAME=rabbit01@localhost"
+      ],
+      "healthcheck": {
+        "interval": "30s",
+        "retries": 3,
+        "test": "rabbitmq-diagnostics -q ping",
+        "timeout": "30s"
+      },
+      "image": "rabbitmq:4.3-management",
+      "networks": {
+        "default": null
+      },
+      "restart": "always",
+      "volumes": [
+        {
+          "source": "/Users/adult/Desktop/Kiona-629/cyber_threats_and_vulnerabilities_2/CT+V 2 Assignment 3/src/opencti-upstream/rabbitmq.conf",
+          "target": "/etc/rabbitmq/rabbitmq.conf",
+          "type": "bind"
+        },
+        {
+          "source": "amqpdata",
+          "target": "/var/lib/rabbitmq",
+          "type": "volume",
+          "volume": {}
+        }
+      ]
+    },
+    "redis": {
+      "healthcheck": {
+        "interval": "10s",
+        "retries": 3,
+        "test": [
+          "CMD",
+          "redis-cli",
+          "ping"
+        ],
+        "timeout": "5s"
+      },
+      "image": "redis:8.10.1",
+      "networks": {
+        "default": null
+      },
+      "restart": "always",
+      "volumes": [
+        {
+          "source": "redisdata",
+          "target": "/data",
+          "type": "volume",
+          "volume": {}
+        }
+      ]
+    },
+    "rsa-key-generator": {
+      "command": [
+        "-c",
+        "if [ ! -f /keys/private_key.pem ]; then openssl genpkey -algorithm RSA -out /keys/private_key.pem -pkeyopt rsa_keygen_bits:4096; fi \u0026\u0026 tail -f /dev/null"
+      ],
+      "entrypoint": [
+        "/bin/ash"
+      ],
+      "healthcheck": {
+        "interval": "10s",
+        "retries": 3,
+        "test": [
+          "CMD",
+          "test",
+          "-f",
+          "/keys/private_key.pem"
+        ],
+        "timeout": "5s"
+      },
+      "image": "alpine/openssl:latest",
+      "networks": {
+        "default": null
+      },
+      "restart": "always",
+      "volumes": [
+        {
+          "source": "rsakeys",
+          "target": "/keys",
+          "type": "volume",
+          "volume": {}
+        }
+      ]
+    },
+    "worker": {
+      "depends_on": {
+        "opencti": {
+          "condition": "service_healthy",
+          "required": true
+        }
+      },
+      "deploy": {
+        "mode": "replicated",
+        "replicas": 3
+      },
+      "environment": [
+        "OPENCTI_URL=http://opencti:8080",
+        "OPENCTI_TOKEN=${OPENCTI_ADMIN_TOKEN}"
+      ],
+      "image": "opencti/worker:latest",
+      "networks": {
+        "default": null
+      },
+      "restart": "always"
+    },
+    "xtm-composer": {
+      "depends_on": {
+        "opencti": {
+          "condition": "service_healthy",
+          "required": true
+        },
+        "rabbitmq": {
+          "condition": "service_healthy",
+          "required": true
+        },
+        "rsa-key-generator": {
+          "condition": "service_healthy",
+          "required": true
+        }
+      },
+      "environment": [
+        "MANAGER__ID=${XTM_COMPOSER_ID}",
+        "MANAGER__NAME=XTM Integrations Manager",
+        "MANAGER__CREDENTIALS_KEY_FILEPATH=/keys/private_key.pem",
+        "OPENCTI__ENABLE=true",
+        "OPENCTI__URL=http://opencti:8080",
+        "OPENCTI__TOKEN=${OPENCTI_ADMIN_TOKEN}",
+        "OPENCTI__DAEMON__SELECTOR=docker",
+        "OPENCTI__DAEMON__DOCKER__NETWORK_MODE=${COMPOSE_PROJECT_NAME}_default"
+      ],
+      "image": "filigran/xtm-composer:latest",
+      "networks": {
+        "default": null
+      },
+      "platform": "linux/amd64",
+      "restart": "always",
+      "volumes": [
+        {
+          "bind": {
+            "create_host_path": true
+          },
+          "source": "/var/run/docker.sock",
+          "target": "/var/run/docker.sock",
+          "type": "bind"
+        },
+        {
+          "read_only": true,
+          "source": "rsakeys",
+          "target": "/keys",
+          "type": "volume",
+          "volume": {}
+        }
+      ]
+    },
+    "xtm-one": {
+      "depends_on": {
+        "minio": {
+          "condition": "service_healthy",
+          "required": true
+        },
+        "pgsql-xtm-one": {
+          "condition": "service_healthy",
+          "required": true
+        },
+        "redis": {
+          "condition": "service_healthy",
+          "required": true
+        }
+      },
+      "environment": [
+        "PLATFORM_MODE=xtm_one",
+        "PLATFORM_REGISTRATION_TOKEN=${PLATFORM_REGISTRATION_TOKEN}",
+        "BASE_URL=${XTM_ONE_EXTERNAL_SCHEME}://${XTM_ONE_HOST}:${XTM_ONE_PORT}",
+        "FRONTEND_URL=${XTM_ONE_EXTERNAL_SCHEME}://${XTM_ONE_HOST}:${XTM_ONE_PORT}",
+        "ADMIN_EMAIL=${XTM_ONE_ADMIN_EMAIL}",
+        "ADMIN_PASSWORD=${XTM_ONE_ADMIN_PASSWORD}",
+        "SECRET_KEY=${XTM_ONE_SECRET_KEY}",
+        "DATABASE_URL=postgresql+asyncpg://${XTM_ONE_POSTGRES_USER}:${XTM_ONE_POSTGRES_PASSWORD}@pgsql-xtm-one:5432/xtm_one",
+        "REDIS_URL=redis://redis:6379",
+        "S3_ENDPOINT=minio:9000",
+        "S3_ACCESS_KEY=${MINIO_ROOT_USER}",
+        "S3_SECRET_KEY=${MINIO_ROOT_PASSWORD}",
+        "S3_BUCKET=${XTM_ONE_S3_BUCKET:-xtm-one-files}",
+        "S3_USE_SSL=false",
+        "LOG_LEVEL=${XTM_ONE_LOG_LEVEL:-info}",
+        "LOG_FORMAT=${XTM_ONE_LOG_FORMAT:-json}",
+        "ENTERPRISE_LICENSE=${XTM_ONE_ENTERPRISE_LICENSE:-}",
+        "OPENCTI_API_URL=http://opencti:8080",
+        "XTM_AUTH_ACCEPTED_AUDIENCES=http://xtm-one:4000"
+      ],
+      "healthcheck": {
+        "interval": "15s",
+        "retries": 5,
+        "start_period": "60s",
+        "test": [
+          "CMD-SHELL",
+          "curl -fsS http://localhost:4000/api/health || exit 1"
+        ],
+        "timeout": "10s"
+      },
+      "image": "xtmone/platform:latest",
+      "networks": {
+        "default": null
+      },
+      "ports": [
+        "${XTM_ONE_PORT}:4000"
+      ],
+      "restart": "always"
+    },
+    "xtm-one-worker": {
+      "depends_on": {
+        "xtm-one": {
+          "condition": "service_healthy",
+          "required": true
+        }
+      },
+      "environment": [
+        "PLATFORM_MODE=xtm_one",
+        "PLATFORM_REGISTRATION_TOKEN=${PLATFORM_REGISTRATION_TOKEN}",
+        "BASE_URL=${XTM_ONE_EXTERNAL_SCHEME}://${XTM_ONE_HOST}:${XTM_ONE_PORT}",
+        "FRONTEND_URL=${XTM_ONE_EXTERNAL_SCHEME}://${XTM_ONE_HOST}:${XTM_ONE_PORT}",
+        "ADMIN_EMAIL=${XTM_ONE_ADMIN_EMAIL}",
+        "ADMIN_PASSWORD=${XTM_ONE_ADMIN_PASSWORD}",
+        "SECRET_KEY=${XTM_ONE_SECRET_KEY}",
+        "DATABASE_URL=postgresql+asyncpg://${XTM_ONE_POSTGRES_USER}:${XTM_ONE_POSTGRES_PASSWORD}@pgsql-xtm-one:5432/xtm_one",
+        "REDIS_URL=redis://redis:6379",
+        "S3_ENDPOINT=minio:9000",
+        "S3_ACCESS_KEY=${MINIO_ROOT_USER}",
+        "S3_SECRET_KEY=${MINIO_ROOT_PASSWORD}",
+        "S3_BUCKET=${XTM_ONE_S3_BUCKET:-xtm-one-files}",
+        "S3_USE_SSL=false",
+        "LOG_LEVEL=${XTM_ONE_LOG_LEVEL:-info}",
+        "LOG_FORMAT=${XTM_ONE_LOG_FORMAT:-json}",
+        "ENTERPRISE_LICENSE=${XTM_ONE_ENTERPRISE_LICENSE:-}"
+      ],
+      "image": "xtmone/worker:latest",
+      "networks": {
+        "default": null
+      },
+      "restart": "always"
+    }
+  },
+  "volumes": {
+    "amqpdata": {
+      "name": "opencti-upstream_amqpdata"
+    },
+    "esdata": {
+      "name": "opencti-upstream_esdata"
+    },
+    "pgsqlxtmonedata": {
+      "name": "opencti-upstream_pgsqlxtmonedata"
+    },
+    "redisdata": {
+      "name": "opencti-upstream_redisdata"
+    },
+    "rsakeys": {
+      "name": "opencti-upstream_rsakeys"
+    },
+    "s3data": {
+      "name": "opencti-upstream_s3data"
+    }
+  }
+}

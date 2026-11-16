@@ -1,61 +1,46 @@
-# OpenCTI continuation — deployment approval required
+# OpenCTI continuation — capacity blocked
 
-**Prepared procedure only. Nothing below was deployed.** Current discovery shows
-no Docker CLI and no loopback listener on 8080; prior Windows Pulse evidence cannot
-stand in for a threat intelligence platform. A different port or remote instance is
-not ruled out; none was configured or verified in this assignment.
+**Updated November 16, 2026.** Isolated Assignment 3 deployment is authorized.
+Docker is operational. The previous missing-runtime/approval explanation is
+superseded by the [capacity review](opencti-capacity-review.md). No deployment was
+attempted because a safe lab within the current Docker allowance was not
+established. Do not run upstream Compose unchanged. The existing checkout is
+already present in `src/opencti-upstream/`; do not reclone.
 
-Use an isolated free/community OpenCTI lab after explicit approval. Begin with the
-[official installation procedure](https://docs.opencti.io/latest/deployment/installation/)
-and [upstream Docker configuration](https://github.com/OpenCTI-Platform/docker).
-Select and record a reviewed commit and compatible image digests; this work does
-not invent a tested version pin or a ready-to-run Compose file. Keep all downloaded
-lab source/configuration/evidence under this assignment. No canonical application
-or Supabase configuration is needed.
+Keep preparation and evidence inside Assignment 3. After adequate isolated resources
+are provided, review a separate minimal Compose file, release/digest pins and ARM
+support. Use dedicated project volumes, loopback-only UI access, private dependency
+networking and unique ignored secrets. Exclude XTM One, composer/Docker socket,
+Kibana, extra workers and unused connectors. Validate hard resource limits and
+import headroom before launch. Preserve production/DeRexi/Supabase/auth and all
+unrelated Docker resources.
 
-Proposed layout: loopback `127.0.0.1:8083` → OpenCTI; worker, search index, Redis,
-message queue and object storage on an internal network. Publish no dependency
-ports. Verify host capacity against [official requirements](https://docs.opencti.io/latest/deployment/overview/).
-Use separate lab volumes and a dedicated project name. Do not reuse production
-credentials or records. Configure private credentials in an ignored local file;
-never include values in screenshots, resolved Compose output or logs. Use restricted
-connector/analyst accounts and verify their permissions within the lab only.
+These are acceptance procedures, **not executed platform results**:
 
-## Proposed commands after approval
+1. **OPENCTI-HEALTH-VERSION** — record deployed image digests/version, resource
+   limits, healthy services, actual loopback UI screenshot and authenticated API
+   and health responses. Sanitize credentials and health keys.
+2. **OPENCTI-ATTACK-CONNECTOR** — configure a restricted MITRE ATT&CK account inside
+   the new lab, validate its permissions and run a connector job. Retain real
+   timestamps/import counts, a representative actor/technique relation and
+   queue/worker results. No production integration.
+3. **OPENCTI-IOC-IMPORT** — map reviewed lab JSON into supported **STIX 2.1** for the
+   compatible import-file-STIX connector (upstream declares INTERNAL_IMPORT_FILE,
+   application/json,text/xml and validation enabled). The lab JSON is not a
+   validated STIX bundle. Preserve historical dates, source IDs/attribution,
+   source-family caveats, defanged presentation and simulation labels. Separate
+   historical research from fictional cases; keep enforcement disabled. Verify
+   actual processing and resulting objects before claiming success.
+4. **OPENCTI-REIMPORT-DEDUPE** — repeat the reviewed import; compare actual unique
+   IDs/counts and references before/after. Demonstrate stale-indicator review,
+   revocation/expiry and duplicate handling without automatic blocking.
+5. **OPENCTI-FUSION-METRICS** — keep cases distinct; link sourced actors/techniques
+   without attributing the fictional incident. Show campaign chronology and fuse
+   reviewed sources/scenario/prior findings. Reconcile actual platform job, object,
+   processing and error counts with local metrics. Capture actual relationship,
+   lifecycle and timeline views plus sanitized exports.
 
-From the repository root, prepare the upstream checkout inside the workspace:
-
-```sh
-A3='cyber_threats_and_vulnerabilities_2/CT+V 2 Assignment 3'
-git clone --no-checkout https://github.com/OpenCTI-Platform/docker.git "$A3/src/opencti-upstream"
-# Review and check out the agreed commit before configuring credentials or running services.
-git -C "$A3/src/opencti-upstream" checkout APPROVED_COMMIT
-```
-
-`APPROVED_COMMIT` is deliberately unresolved; do not run as-is. Review the actual
-upstream Compose services, dependency versions, resource budgets, health checks,
-local bind and secrets before deciding the exact deployment command. Docker
-installation, pulls, host kernel changes and `compose up` require approval. Do not
-run upstream host-level setup commands merely to close this checklist.
-
-## Acceptance checks to close the remaining rubric gaps
-
-1. Record Docker/Compose and OpenCTI version, image digests, healthy services and
-   sanitized loopback/internal-network configuration. Capture the actual UI and
-   health response, not a mock screenshot.
-2. Configure a restricted ATT&CK connector. Save a successful job, timestamp,
-   import count, representative actor/technique relation and queue/worker logs.
-3. Manually map reviewed lab JSON to the platform's supported import format. It is
-   not a validated STIX bundle. Import historical IOCs into a research-only case;
-   keep dates, provenance and independent-source caveats. Never visit the indicators.
-4. Repeat the import and record before/after unique counts and source references.
-   Demonstrate duplicate handling and stale-indicator review without enabling blocks.
-5. Create separate historical/scenario cases, link source-backed context, and compare
-   platform import/processing/error counts with local metrics. Capture the actor
-   profile, relationship graph, expired indicator, campaign timeline and metrics.
-
-Save sanitized screenshots, logs, export and test JSON to a new `evidence/` run.
-Do not claim platform fusion complete until these checks pass. Real sensor detection,
-production performance and durable enterprise operations need separate authorization
-and representative data. Stop only the newly approved lab project when finished;
-never remove unrelated containers or existing volumes.
+Current [results](../evidence/platform-acceptance-results.json):
+**0 PASS / 0 FAIL / 5 BLOCKED**. Capacity preflight ran; platform runtime checks did
+not. No connector/import success or screenshots may be inferred from this plan.
+Stop/clean up only this lab's verified resources if later deployed.

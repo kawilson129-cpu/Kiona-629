@@ -1,0 +1,68 @@
+{
+  "timestamp": "2026-11-16T18:53:25.435506+00:00",
+  "decision": "BLOCKED_CAPACITY_SAFETY_GATE",
+  "reason": "Documented minimum core service budget exceeds actual Docker memory; safe smaller lab not established. No undersized deployment attempted.",
+  "authorization": "User authorized isolated Assignment 3 deployment conditional on viability; not an approval blocker.",
+  "host_memory_bytes": 17179869184,
+  "docker": {
+    "server_version": "29.9.3",
+    "compose_version": "5.7.0",
+    "architecture": "aarch64",
+    "cpus": 10,
+    "memory_bytes": 8319438848,
+    "memory_gib": 7.748081207275391,
+    "containers_running": 0,
+    "access": "Initial sandbox socket denial; approved read-only elevated docker info succeeded."
+  },
+  "upstream_commit": "60285adb360e3823a334333ae4744255d8ac1821",
+  "current_published_release": {
+    "version": "7.261116.0",
+    "url": "https://github.com/OpenCTI-Platform/opencti/releases/tag/7.261116.0",
+    "method": "Official release page inspected using web tool; no installed image/version/digest claim."
+  },
+  "sizing": {
+    "source": "https://docs.opencti.io/latest/deployment/overview/",
+    "units": "Conservative decimal interpretation of vendor GB/MB; no overhead included.",
+    "core_bytes": 8000000000,
+    "search_bytes": 8000000000,
+    "redis_bytes": 1000000000,
+    "rabbitmq_bytes": 512000000,
+    "storage_bytes": 128000000,
+    "one_worker_bytes": 128000000,
+    "one_connector_bytes": 128000000,
+    "sum_bytes": 18024000000,
+    "deficit_bytes": 9704561152,
+    "type": "Published requirements arithmetic, not measured runtime utilization"
+  },
+  "upstream_syntax": {
+    "status": "PASS",
+    "evidence": "upstream-compose-uninterpolated.json",
+    "isolated_lab_configuration_validated": false
+  },
+  "actions": {
+    "recloned": false,
+    "pulled_images": false,
+    "generated_credentials": false,
+    "created_compose_lab": false,
+    "launched_containers": false,
+    "changed_host_limits": false,
+    "changed_unrelated_docker_resources": false,
+    "platform_checks_executed": false
+  },
+  "source_hashes": {
+    "src/opencti-upstream/README.md": "0ffff5422c5e92881bb3d5e839541ec0d99bfe763251c6ec1fcc7881eff831d6",
+    "src/opencti-upstream/.env.sample": "6de1757f7606b18c1ec04bee8eb4012aa9416675fad2ce7bb12b19cb23962157",
+    "src/opencti-upstream/docker-compose.yml": "07cbdcb939610469d3d8b7b81cb0dd096634e922deed3fb4588cfe2b3935a2e2",
+    "src/opencti-upstream/docker-compose.opensearch.yml": "4b1a349fee6a6681889e41c0d025b6376834e4e372402a62d988cad8ca0ab3d2",
+    "src/opencti-upstream/docker-compose.dev.yml": "d451974884418390c2dc109f2b94974b1c99ca3aae8eb0b22ccc1ae4289d3600",
+    "src/opencti-upstream/rabbitmq.conf": "92e4ce83244ac5cf21c6e9782861e706bcb9214c44e76ee859cba9efee3160a0",
+    "evidence/opencti-preflight-20261116/official-overview.html": "3fab56c17be8512ad989380e31c766c8d458b81561816a62a2ae58024552e66f",
+    "evidence/opencti-preflight-20261116/official-installation.html": "625d5305711253d4b519d368ea711503e10e6e1b0311948c0ddc833d1c4a3f07",
+    "evidence/opencti-preflight-20261116/upstream-compose-uninterpolated.json": "eeceae0b7cde695340d768d5d357c20bd2e54f468ba1cc7dd4d3fa005f59f0fd"
+  },
+  "preserved_evidence_sha256": {
+    "evidence/concurrent-source-drift.json": "0ae5ab563d29e4677c8fe839e0afce183b306fa67b239f5911ed6cb9a6d8ea32",
+    "evidence/artifact-validation.json": "1e24a66608db12f55d792cec3ab1ad00a12bc4bd6eed78e2f031dc724daaf241",
+    "evidence/runs/20261110T210046393348Z/collection.json": "877d618c0f5cf1a8dd506acfa487a2a79b4d669cddda414fe633d71a47b75447"
+  }
+}

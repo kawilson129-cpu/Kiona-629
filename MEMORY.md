@@ -486,3 +486,12 @@ Verified C-01 (role-based access control) and C-02 (input validation / safe erro
 ### November 12, 2026 - Start local DeRexi environment
 - Used existing canonical derexi-policy-pilot/.venv and started backend with python -m uvicorn main:app --reload --host 127.0.0.1 --port 8000. Sandbox blocked initial startup; approved external execution succeeded.
 - Application startup complete; GET http://127.0.0.1:8000/ui/ returned HTTP 200. Server left running for Kiona (session 2352). No dependency, configuration or application code changes; no commit/push.
+
+### November 16, 2026 — Assignment 3 continuation pointer
+- Session results and remaining capacity blocker are documented in `cyber_threats_and_vulnerabilities_2/CT+V 2 Assignment 3/docs/final-summary.md`; all assignment artifacts/evidence remain in that workspace. No deployment, backend/live-data changes, commit or push.
+
+### November 16, 2026 - Feasibility reassessment pointer
+- Read-only reassessment saved in `cyber_threats_and_vulnerabilities_2/CT+V 2 Assignment 3/docs/opencti-feasibility-reassessment-20261116.md`. No runtime, configuration or application changes.
+
+### November 16, 2026 - Assignment 3 GitHub publication authorized
+- Kiona requested committing and pushing the reviewed Assignment 3 documentation, feasibility assessment and evidence. Reviewed 26 pending files, no credential-pattern findings; retained 32 passing local tests and 5 blocked platform checks. No deployment or application changes. Publishing to existing origin/main.

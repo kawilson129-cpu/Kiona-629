@@ -1,13 +1,16 @@
 # Assignment 3 — Advanced Threat Intelligence Operations
 
-**Status: PARTIAL.** This local lab works; enterprise OpenCTI deployment is not verified.
+**Status: PARTIAL (November 16, 2026).** Local tests remain verified; OpenCTI
+deployment is **BLOCKED by the capacity safety gate**. Docker 29.9.3 / Compose
+5.7.0 are operational. Docker reports 7.748 GiB usable RAM; the published minimum
+core service budget exceeds this. [Capacity review](docs/opencti-capacity-review.md).
 Aurum Capital Bank and the DeRexi incident scenario are fictional. No real compromise
 or production detection is claimed.
 
 The [official rubric](<../Cyber Threats and Vulnerabilities 2 Tasks.pdf>) was read
 visually from its image-based page. [Exact checklist](docs/rubric-checklist.md):
-three requirements are complete within their stated local/documentation scope,
-one is partial, and enterprise platform deployment is missing. These labels are
+three requirements are VERIFIED within their stated local/documentation scope,
+one is PARTIAL, and enterprise platform deployment is BLOCKED. These labels are
 not instructor-awarded points; the official scale is Complete/Incomplete.
 
 ## Setup and usage
@@ -35,8 +38,10 @@ recorded as BLOCKED while local analysis continues. No indicator URLs are visite
 ## Results
 
 - **32 PASS / 0 FAIL / 0 BLOCKED** in offline functional/safety tests.
-- **Five OpenCTI acceptance checks BLOCKED**, not attempted: missing runtime and
-  deployment approval. These are separate from the passing local tests.
+- **Five OpenCTI acceptance checks BLOCKED**, runtime checks not executed: current
+  capacity preflight cannot establish a safe deployment within the Docker limit.
+  Deployment is authorized, but conditional on viability. These checks are separate
+  from the passing local tests. [Current evidence](evidence/opencti-preflight-20261116/preflight.json).
 - Artifact audit: **7 PASS / 1 FAIL**. The failure detected concurrent edits to two
   Pulse source files after inspection, not an Assignment 3 code defect. Original
   hashes and the [drift record](evidence/concurrent-source-drift.json) are preserved;
@@ -57,4 +62,5 @@ Read [implementation](docs/implementation.md), [report-ready findings](docs/fina
 All new coursework, code and evidence is here. Prior coursework is referenced in place
 in [the reuse inventory](evidence/reuse-inventory.json). Existing DeRexi, Supabase,
 Auth/RBAC, users and functionality were not modified by this assignment. Concurrent
-Week 10 changes were left untouched. No deployment, commit or push.
+Week 10 changes were left untouched. No deployment, commit or push. The November 16 continuation changed documentation
+and assignment evidence only; no Docker resources or host limits were changed.

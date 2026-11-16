@@ -31,8 +31,8 @@ an existing example of bounded public collection. Pulse remains a regulatory fee
 not an actor/IOC TIP. This assignment does not edit its code or UI. Concurrent Pulse source changes were
 detected after inspection; [the drift record](../evidence/concurrent-source-drift.json)
 limits the audit to the versions originally hashed. Later revisions were not tested here. [Prior Docker evidence](<../../CT+V 2 Assignment 5/docker-evidence/README.md>)
-proves a Windows Pulse container only. Current Mac discovery finds no Docker CLI or
-OpenCTI listener. The [reuse inventory](../evidence/reuse-inventory.json) records
+proves a Windows Pulse container only. November 16 discovery verifies Docker/Compose operational;
+OpenCTI deployment is capacity-blocked. See the [capacity review](opencti-capacity-review.md). The [reuse inventory](../evidence/reuse-inventory.json) records
 source hashes and limitations without copying those artifacts. Some older reports
 contain former folder names; this package uses current relative paths.
 

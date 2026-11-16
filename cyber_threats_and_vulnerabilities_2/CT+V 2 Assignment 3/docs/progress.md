@@ -60,3 +60,27 @@ All Assignment 3 work, WIP, logs and session notes are inside this directory. Th
 current task's mandatory write boundary takes precedence over the earlier root-memory
 update convention; root MEMORY.md is unchanged. No commit, push, reset, unrelated-file
 changes or deployment occurred.
+
+## November 16, 2026 — authorized deployment capacity review
+
+- Read existing rubric, implementation, 32-test suite, public collection, acceptance
+  plan and original Pulse drift evidence before continuing; no completed analysis
+  or collection repeated. Existing upstream checkout reviewed in place.
+- Docker Engine 29.9.3 / Compose 5.7.0 operational, aarch64, 10 CPUs, zero running
+  containers, 8,319,438,848 usable bytes (7.748 GiB). Host RAM 16 GiB. Initial
+  read-only socket/sysctl sandbox denials resolved by approved read-only retries.
+- Published core-service minimums exceed the budget even without XTM One, composer,
+  extra workers or optional connectors. Smaller safe workload unproven. Stopped
+  before any pull/launch, secrets, volumes, networks or host changes, as instructed.
+- Main upstream Compose parses; no isolated deployment configuration validated.
+  Current release observed: 7.261116.0, not installed. Mutable upstream image tags
+  do not establish deployed versions/digests or ARM compatibility.
+- Local rerun **32 PASS / 0 FAIL / 0 BLOCKED**. Five platform runtime checks remain
+  BLOCKED after refreshed preflight; no UI/API, connector/import/fusion claims.
+  Prior acceptance/summary records archived before updating current pointers.
+- Added capacity review, command/evidence records and assignment-local secret/data
+  ignore rules; refreshed README, rubric, final summary, validation plan and summary.
+  Original Pulse drift and artifact-audit failure retained byte-for-byte.
+- Resume needs a separate adequately resourced isolated host/VM or approved isolated
+  OpenCTI instance. Details: [capacity review](opencti-capacity-review.md). No DeRexi,
+  Supabase, users/Auth/RBAC, unrelated Docker changes, commits or pushes.

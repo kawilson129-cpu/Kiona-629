@@ -1,0 +1,11 @@
+# Assignment-local secrets and generated runtime data; keep reviewed evidence.
+.env*
+!.env.example
+secrets/
+runtime/
+data/
+*.pem
+*.key
+__pycache__/
+# Existing upstream checkout is retained locally, not vendored into coursework.
+/src/opencti-upstream/

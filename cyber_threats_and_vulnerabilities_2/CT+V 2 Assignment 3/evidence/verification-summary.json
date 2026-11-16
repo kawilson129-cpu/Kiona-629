@@ -1,40 +1,54 @@
 {
-  "timestamp": "2026-11-10T21:08:00.730683+00:00",
+  "timestamp": "2026-11-16T18:53:25.435506+00:00",
   "overall": "PARTIAL",
   "local_tests": {
     "passed": 32,
     "failed": 0,
     "blocked": 0,
-    "evidence": "evidence/test-results-20261110T210129262284Z.json"
+    "evidence": "evidence/test-results-20261116T185123544043Z.json"
   },
   "platform_acceptance": {
     "passed": 0,
     "failed": 0,
     "blocked": 5,
     "attempted": false,
+    "preflight_attempted": true,
     "evidence": "evidence/platform-acceptance-results.json"
   },
   "public_collection": {
     "verified": 3,
     "blocked": 0,
-    "evidence": "evidence/runs/20261110T210046393348Z/collection.json"
+    "evidence": "evidence/runs/20261110T210046393348Z/collection.json",
+    "note": "Retained verified November 10 snapshots; not recollected in this session."
   },
   "outcomes": {
-    "VERIFIED": "Local program behavior, evidence hashes and three current public downloads",
+    "VERIFIED": "Current local tests and Docker capacity/preflight; retained historical public-source collection.",
     "SIMULATED": "Nine events, four host labels and one correlated alert; analyst review tests",
     "HISTORICAL": "2020 FASTCash reporting, k.php dossier, prior vulnerabilities and Windows Pulse container",
-    "UNTESTED": "Enterprise platform/connectors and actual sensor/production effectiveness"
+    "UNTESTED": "OpenCTI deployment/UI/API/connectors/import/reimport/platform fusion and real sensor effectiveness."
   },
   "rubric": {
-    "complete_scoped": 3,
+    "verified_scoped": 3,
     "partial": 1,
-    "missing": 1
+    "blocked": 1
   },
   "artifact_validation": {
     "passed": 7,
     "failed": 1,
     "evidence": "evidence/artifact-validation.json",
     "reason": "Concurrent Pulse source changes invalidate the unchanged-source assertion; assignment pipeline/test input hashes still match.",
-    "drift_evidence": "evidence/concurrent-source-drift.json"
-  }
+    "drift_evidence": "evidence/concurrent-source-drift.json",
+    "note": "Historical 7 PASS / 1 FAIL preserved, not rerun or counted as current functional tests."
+  },
+  "docker_operational": {
+    "server_version": "29.9.3",
+    "compose_version": "5.7.0",
+    "architecture": "aarch64",
+    "cpus": 10,
+    "memory_bytes": 8319438848,
+    "memory_gib": 7.748081207275391,
+    "containers_running": 0,
+    "access": "Initial sandbox socket denial; approved read-only elevated docker info succeeded."
+  },
+  "capacity_evidence": "evidence/opencti-preflight-20261116/preflight.json"
 }

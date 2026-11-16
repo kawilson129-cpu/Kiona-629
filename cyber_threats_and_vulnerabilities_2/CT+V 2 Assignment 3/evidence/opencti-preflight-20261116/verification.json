@@ -1,0 +1,48 @@
+{
+  "timestamp": "2026-11-16T18:56:14.553712+00:00",
+  "scope": "Document/evidence verification, not additional platform or functional tests. Historical artifact audit remains 7 PASS / 1 FAIL.",
+  "checks": [
+    {
+      "name": "reviewed sources unchanged",
+      "status": "PASS",
+      "details": []
+    },
+    {
+      "name": "original drift/audit/collection preserved",
+      "status": "PASS",
+      "details": []
+    },
+    {
+      "name": "latest local run 32/0/0 and input hashes",
+      "status": "PASS",
+      "details": []
+    },
+    {
+      "name": "five platform checks remain blocked and unexecuted",
+      "status": "PASS"
+    },
+    {
+      "name": "assignment Markdown local links",
+      "status": "PASS",
+      "links": 70,
+      "details": []
+    },
+    {
+      "name": "assignment JSON parse",
+      "status": "PASS",
+      "files": 44,
+      "details": []
+    },
+    {
+      "name": "assignment secrets/runtime/upstream ignore rules",
+      "status": "PASS"
+    },
+    {
+      "name": "git diff whitespace",
+      "status": "PASS",
+      "details": ""
+    }
+  ],
+  "passed": 8,
+  "failed": 0
+}

@@ -1,0 +1,46 @@
+Assignment 3 preflight — actual executed commands/results, November 16, 2026
+Commands below ran from the Assignment 3 workspace unless noted. This is a
+sanitized transcription of tool results, not a platform runtime log.
+
+1. Read existing rubric, implementation, tests, acceptance plan/results and evidence.
+   Read existing upstream README, .env.sample, all three Compose variants and rabbitmq.conf.
+
+2. docker info --format 'Server={{.ServerVersion}} Architecture={{.Architecture}} CPUs={{.NCPU}} MemoryBytes={{.MemTotal}} ContainersRunning={{.ContainersRunning}}'
+   Initial sandbox: exit 1, permission denied connecting to docker.sock.
+   Approved elevated read-only retry: exit 0.
+   Server=29.9.3 Architecture=aarch64 CPUs=10 MemoryBytes=8319438848 ContainersRunning=0
+
+3. docker compose version
+   Exit 0: Docker Compose version v5.7.0
+
+4. sysctl -n hw.memsize
+   Initial sandbox read denied (Operation not permitted).
+   Approved elevated read-only retry: exit 0, stdout 17179869184
+
+5. git -C src/opencti-upstream log -1 --format='%H %cI %s'
+   Exit 0: 60285adb360e3823a334333ae4744255d8ac1821 2026-10-16T12:14:56+02:00 fix(ci): pin actions/checkout version
+
+6. Official documentation and release inspected using web tool:
+   https://docs.opencti.io/latest/deployment/overview/
+   https://docs.opencti.io/latest/deployment/installation/
+   https://github.com/OpenCTI-Platform/opencti/releases/latest
+   Release page resolved to 7.261116.0. API latest-release endpoint was unavailable
+   to web tool; official release page succeeded instead.
+
+7. docker compose -f src/opencti-upstream/docker-compose.yml config --no-interpolate --format json --output evidence/opencti-preflight-20261116/upstream-compose-uninterpolated.json
+   Exit 0, no stdout/stderr. Syntax validation only; no Docker mutation.
+
+8. curl --silent --show-error --fail --location https://docs.opencti.io/latest/deployment/overview/ --output evidence/opencti-preflight-20261116/official-overview.html
+   Exit 0. Retained source; extracted infrastructure table in official-overview-excerpt.txt.
+
+9. curl --silent --show-error --fail --location https://docs.opencti.io/latest/deployment/installation/ --output evidence/opencti-preflight-20261116/official-installation.html
+   Exit 0. Retained source; memory guidance in official-installation-excerpt.txt.
+
+10. python3 -B tests/run_tests.py
+    Exit 0: 32 PASS / 0 FAIL / 0 BLOCKED.
+    evidence/tests-20261116T185123544043Z.txt
+    evidence/test-results-20261116T185123544043Z.json
+
+Capacity decision: STOP before deployment. No image pulls, compose up/down,
+Docker resource creation/deletion, credentials, host changes, connector executions,
+imports, platform metrics or UI screenshots. Runtime checks were NOT executed.
