@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "C:\Users\kawil\Documents\Kiona-629\cyber_threats_and_vulnerabilities_2\CT+V 2 Assignment 4\src\run_audit.py", line 79, in child
+    module.run()
+    ~~~~~~~~~~^^
+  File "C:\Users\kawil\Documents\Kiona-629\derexi-policy-pilot\backend\tests\test_week9_security.py", line 47, in run
+    headers={i:auth(i) for i in (2,4,8,9,12)}
+               ~~~~^^^
+  File "C:\Users\kawil\Documents\Kiona-629\derexi-policy-pilot\backend\tests\test_week9_security.py", line 45, in auth
+    r=client.post('/dev-auth/token',json={'user_id':uid});assert r.status_code==200,r.text
+                                                                 ^^^^^^^^^^^^^^^^^^
+AssertionError

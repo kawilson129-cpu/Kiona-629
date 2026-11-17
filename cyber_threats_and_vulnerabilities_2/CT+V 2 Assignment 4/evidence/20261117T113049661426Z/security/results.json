@@ -1,0 +1,26 @@
+{
+  "suite": "security",
+  "started_at": "2026-11-17T11:30:51.785668+00:00",
+  "ended_at": "2026-11-17T11:31:00.286714+00:00",
+  "checks": [
+    {
+      "name": "Suite completed without harness/runtime error",
+      "status": "BLOCKED",
+      "actual": "AssertionError: "
+    },
+    {
+      "name": "Safety guard: no unexpected network/credential/external write attempts",
+      "status": "FAIL",
+      "actual": [
+        {
+          "event": "socket.connect",
+          "kind": "network"
+        }
+      ]
+    }
+  ],
+  "passed": 0,
+  "failed": 1,
+  "blocked": 1,
+  "error": "AssertionError: "
+}

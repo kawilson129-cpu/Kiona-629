@@ -1,0 +1,989 @@
+{
+  "generated_at": "20261117T115229231415Z",
+  "scope": "Artifact arithmetic, source/link integrity and count reconciliation; not security effectiveness",
+  "collector_run": "20261117T114241633169Z",
+  "passed": 245,
+  "failed": 0,
+  "checks": [
+    {
+      "name": "Source fingerprint: derexi-policy-pilot\\backend\\tests\\diagnose_governance_readonly.py",
+      "status": "PASS"
+    },
+    {
+      "name": "Source fingerprint: derexi-policy-pilot\\backend\\tests\\inspect_week8_readonly.py",
+      "status": "PASS"
+    },
+    {
+      "name": "Source fingerprint: derexi-policy-pilot\\backend\\tests\\messaging_fixture.py",
+      "status": "PASS"
+    },
+    {
+      "name": "Source fingerprint: derexi-policy-pilot\\backend\\tests\\readiness_readonly.py",
+      "status": "PASS"
+    },
+    {
+      "name": "Source fingerprint: derexi-policy-pilot\\backend\\tests\\run_final_sprint_checks.py",
+      "status": "PASS"
+    },
+    {
+      "name": "Source fingerprint: derexi-policy-pilot\\backend\\tests\\run_week10.py",
+      "status": "PASS"
+    },
+    {
+      "name": "Source fingerprint: derexi-policy-pilot\\backend\\tests\\run_week8_regression.py",
+      "status": "PASS"
+    },
+    {
+      "name": "Source fingerprint: derexi-policy-pilot\\backend\\tests\\run_workspace_checks.py",
+      "status": "PASS"
+    },
+    {
+      "name": "Source fingerprint: derexi-policy-pilot\\backend\\tests\\serve_document_workspace.py",
+      "status": "PASS"
+    },
+    {
+      "name": "Source fingerprint: derexi-policy-pilot\\backend\\tests\\serve_support_fixture.py",
+      "status": "PASS"
+    },
+    {
+      "name": "Source fingerprint: derexi-policy-pilot\\backend\\tests\\serve_week10_fixture.py",
+      "status": "PASS"
+    },
+    {
+      "name": "Source fingerprint: derexi-policy-pilot\\backend\\tests\\serve_week7_fixture.py",
+      "status": "PASS"
+    },
+    {
+      "name": "Source fingerprint: derexi-policy-pilot\\backend\\tests\\serve_week8_fixture.py",
+      "status": "PASS"
+    },
+    {
+      "name": "Source fingerprint: derexi-policy-pilot\\backend\\tests\\serve_week9_fixture.py",
+      "status": "PASS"
+    },
+    {
+      "name": "Source fingerprint: derexi-policy-pilot\\backend\\tests\\test_c03_audit.py",
+      "status": "PASS"
+    },
+    {
+      "name": "Source fingerprint: derexi-policy-pilot\\backend\\tests\\test_document_intake.py",
+      "status": "PASS"
+    },
+    {
+      "name": "Source fingerprint: derexi-policy-pilot\\backend\\tests\\test_document_limits.py",
+      "status": "PASS"
+    },
+    {
+      "name": "Source fingerprint: derexi-policy-pilot\\backend\\tests\\test_native_windows_limits.py",
+      "status": "PASS"
+    },
+    {
+      "name": "Source fingerprint: derexi-policy-pilot\\backend\\tests\\test_pulse.py",
+      "status": "PASS"
+    },
+    {
+      "name": "Source fingerprint: derexi-policy-pilot\\backend\\tests\\test_security_controls.py",
+      "status": "PASS"
+    },
+    {
+      "name": "Source fingerprint: derexi-policy-pilot\\backend\\tests\\test_support_assistance.py",
+      "status": "PASS"
+    },
+    {
+      "name": "Source fingerprint: derexi-policy-pilot\\backend\\tests\\test_support_transport.py",
+      "status": "PASS"
+    },
+    {
+      "name": "Source fingerprint: derexi-policy-pilot\\backend\\tests\\test_week10_integration.py",
+      "status": "PASS"
+    },
+    {
+      "name": "Source fingerprint: derexi-policy-pilot\\backend\\tests\\test_week7_auth.py",
+      "status": "PASS"
+    },
+    {
+      "name": "Source fingerprint: derexi-policy-pilot\\backend\\tests\\test_week7_edges.py",
+      "status": "PASS"
+    },
+    {
+      "name": "Source fingerprint: derexi-policy-pilot\\backend\\tests\\test_week7_messaging.py",
+      "status": "PASS"
+    },
+    {
+      "name": "Source fingerprint: derexi-policy-pilot\\backend\\tests\\test_week8_governance.py",
+      "status": "PASS"
+    },
+    {
+      "name": "Source fingerprint: derexi-policy-pilot\\backend\\tests\\test_week8_stage1.py",
+      "status": "PASS"
+    },
+    {
+      "name": "Source fingerprint: derexi-policy-pilot\\backend\\tests\\test_week9_security.py",
+      "status": "PASS"
+    },
+    {
+      "name": "Source fingerprint: derexi-policy-pilot\\backend\\tests\\verify_week7_readonly.py",
+      "status": "PASS"
+    },
+    {
+      "name": "Source fingerprint: derexi-policy-pilot\\backend\\tests\\verify_week9_readonly.py",
+      "status": "PASS"
+    },
+    {
+      "name": "Source fingerprint: derexi-policy-pilot\\backend\\ai.py",
+      "status": "PASS"
+    },
+    {
+      "name": "Source fingerprint: derexi-policy-pilot\\backend\\auth.py",
+      "status": "PASS"
+    },
+    {
+      "name": "Source fingerprint: derexi-policy-pilot\\backend\\database.py",
+      "status": "PASS"
+    },
+    {
+      "name": "Source fingerprint: derexi-policy-pilot\\backend\\dev_auth.py",
+      "status": "PASS"
+    },
+    {
+      "name": "Source fingerprint: derexi-policy-pilot\\backend\\document_intake.py",
+      "status": "PASS"
+    },
+    {
+      "name": "Source fingerprint: derexi-policy-pilot\\backend\\document_limits.py",
+      "status": "PASS"
+    },
+    {
+      "name": "Source fingerprint: derexi-policy-pilot\\backend\\governance.py",
+      "status": "PASS"
+    },
+    {
+      "name": "Source fingerprint: derexi-policy-pilot\\backend\\incident_assistance.py",
+      "status": "PASS"
+    },
+    {
+      "name": "Source fingerprint: derexi-policy-pilot\\backend\\main.py",
+      "status": "PASS"
+    },
+    {
+      "name": "Source fingerprint: derexi-policy-pilot\\backend\\messaging.py",
+      "status": "PASS"
+    },
+    {
+      "name": "Source fingerprint: derexi-policy-pilot\\backend\\models.py",
+      "status": "PASS"
+    },
+    {
+      "name": "Source fingerprint: derexi-policy-pilot\\backend\\readiness.py",
+      "status": "PASS"
+    },
+    {
+      "name": "Source fingerprint: derexi-policy-pilot\\backend\\schemas.py",
+      "status": "PASS"
+    },
+    {
+      "name": "Source fingerprint: derexi-policy-pilot\\backend\\scoped_dashboard.py",
+      "status": "PASS"
+    },
+    {
+      "name": "Source fingerprint: derexi-policy-pilot\\backend\\security.py",
+      "status": "PASS"
+    },
+    {
+      "name": "Source fingerprint: derexi-policy-pilot\\backend\\security_events.py",
+      "status": "PASS"
+    },
+    {
+      "name": "Source fingerprint: derexi-policy-pilot\\backend\\session_auth.py",
+      "status": "PASS"
+    },
+    {
+      "name": "Source fingerprint: derexi-policy-pilot\\backend\\transport.py",
+      "status": "PASS"
+    },
+    {
+      "name": "Source fingerprint: derexi-policy-pilot\\backend\\pulse\\routes.py",
+      "status": "PASS"
+    },
+    {
+      "name": "Source fingerprint: derexi-policy-pilot\\backend\\pulse\\service.py",
+      "status": "PASS"
+    },
+    {
+      "name": "Source fingerprint: derexi-policy-pilot\\backend\\pulse\\sources.py",
+      "status": "PASS"
+    },
+    {
+      "name": "Source fingerprint: derexi-policy-pilot\\backend\\pulse\\__init__.py",
+      "status": "PASS"
+    },
+    {
+      "name": "Source fingerprint: derexi-policy-pilot\\requirements.txt",
+      "status": "PASS"
+    },
+    {
+      "name": "Source fingerprint: derexi-policy-pilot\\requirements-dev.txt",
+      "status": "PASS"
+    },
+    {
+      "name": "Source fingerprint: cyber_threats_and_vulnerabilities_2\\CT+V 2 Assignment 4\\src\\run_audit.py",
+      "status": "PASS"
+    },
+    {
+      "name": "Source integrity run result",
+      "status": "PASS"
+    },
+    {
+      "name": "security reconciles PASS",
+      "status": "PASS"
+    },
+    {
+      "name": "security reconciles FAIL",
+      "status": "PASS"
+    },
+    {
+      "name": "security reconciles BLOCKED",
+      "status": "PASS"
+    },
+    {
+      "name": "security has successful final process exit",
+      "status": "PASS"
+    },
+    {
+      "name": "security safety check passes",
+      "status": "PASS"
+    },
+    {
+      "name": "governance reconciles PASS",
+      "status": "PASS"
+    },
+    {
+      "name": "governance reconciles FAIL",
+      "status": "PASS"
+    },
+    {
+      "name": "governance reconciles BLOCKED",
+      "status": "PASS"
+    },
+    {
+      "name": "governance has successful final process exit",
+      "status": "PASS"
+    },
+    {
+      "name": "governance safety check passes",
+      "status": "PASS"
+    },
+    {
+      "name": "pulse reconciles PASS",
+      "status": "PASS"
+    },
+    {
+      "name": "pulse reconciles FAIL",
+      "status": "PASS"
+    },
+    {
+      "name": "pulse reconciles BLOCKED",
+      "status": "PASS"
+    },
+    {
+      "name": "pulse has successful final process exit",
+      "status": "PASS"
+    },
+    {
+      "name": "pulse safety check passes",
+      "status": "PASS"
+    },
+    {
+      "name": "focused reconciles PASS",
+      "status": "PASS"
+    },
+    {
+      "name": "focused reconciles FAIL",
+      "status": "PASS"
+    },
+    {
+      "name": "focused reconciles BLOCKED",
+      "status": "PASS"
+    },
+    {
+      "name": "focused has successful final process exit",
+      "status": "PASS"
+    },
+    {
+      "name": "focused safety check passes",
+      "status": "PASS"
+    },
+    {
+      "name": "Final outcome totals independently reconcile",
+      "status": "PASS"
+    },
+    {
+      "name": "Inventory matches current interpreter metadata",
+      "status": "PASS"
+    },
+    {
+      "name": "Exact historical version match: certifi",
+      "status": "PASS"
+    },
+    {
+      "name": "Exact historical version match: pip",
+      "status": "PASS"
+    },
+    {
+      "name": "Ten unique mapped risk IDs",
+      "status": "PASS"
+    },
+    {
+      "name": "R01 arithmetic inherent_ale_usd",
+      "status": "PASS"
+    },
+    {
+      "name": "R01 arithmetic residual_ale_usd",
+      "status": "PASS"
+    },
+    {
+      "name": "R01 arithmetic residual_ale_low_usd",
+      "status": "PASS"
+    },
+    {
+      "name": "R01 arithmetic residual_ale_high_usd",
+      "status": "PASS"
+    },
+    {
+      "name": "R01 arithmetic target_ale_usd",
+      "status": "PASS"
+    },
+    {
+      "name": "R01 treatment and uncertainty ordering",
+      "status": "PASS"
+    },
+    {
+      "name": "R01 severity threshold",
+      "status": "PASS"
+    },
+    {
+      "name": "R01 ownership and closure fields",
+      "status": "PASS"
+    },
+    {
+      "name": "R02 arithmetic inherent_ale_usd",
+      "status": "PASS"
+    },
+    {
+      "name": "R02 arithmetic residual_ale_usd",
+      "status": "PASS"
+    },
+    {
+      "name": "R02 arithmetic residual_ale_low_usd",
+      "status": "PASS"
+    },
+    {
+      "name": "R02 arithmetic residual_ale_high_usd",
+      "status": "PASS"
+    },
+    {
+      "name": "R02 arithmetic target_ale_usd",
+      "status": "PASS"
+    },
+    {
+      "name": "R02 treatment and uncertainty ordering",
+      "status": "PASS"
+    },
+    {
+      "name": "R02 severity threshold",
+      "status": "PASS"
+    },
+    {
+      "name": "R02 ownership and closure fields",
+      "status": "PASS"
+    },
+    {
+      "name": "R03 arithmetic inherent_ale_usd",
+      "status": "PASS"
+    },
+    {
+      "name": "R03 arithmetic residual_ale_usd",
+      "status": "PASS"
+    },
+    {
+      "name": "R03 arithmetic residual_ale_low_usd",
+      "status": "PASS"
+    },
+    {
+      "name": "R03 arithmetic residual_ale_high_usd",
+      "status": "PASS"
+    },
+    {
+      "name": "R03 arithmetic target_ale_usd",
+      "status": "PASS"
+    },
+    {
+      "name": "R03 treatment and uncertainty ordering",
+      "status": "PASS"
+    },
+    {
+      "name": "R03 severity threshold",
+      "status": "PASS"
+    },
+    {
+      "name": "R03 ownership and closure fields",
+      "status": "PASS"
+    },
+    {
+      "name": "R04 arithmetic inherent_ale_usd",
+      "status": "PASS"
+    },
+    {
+      "name": "R04 arithmetic residual_ale_usd",
+      "status": "PASS"
+    },
+    {
+      "name": "R04 arithmetic residual_ale_low_usd",
+      "status": "PASS"
+    },
+    {
+      "name": "R04 arithmetic residual_ale_high_usd",
+      "status": "PASS"
+    },
+    {
+      "name": "R04 arithmetic target_ale_usd",
+      "status": "PASS"
+    },
+    {
+      "name": "R04 treatment and uncertainty ordering",
+      "status": "PASS"
+    },
+    {
+      "name": "R04 severity threshold",
+      "status": "PASS"
+    },
+    {
+      "name": "R04 ownership and closure fields",
+      "status": "PASS"
+    },
+    {
+      "name": "R05 arithmetic inherent_ale_usd",
+      "status": "PASS"
+    },
+    {
+      "name": "R05 arithmetic residual_ale_usd",
+      "status": "PASS"
+    },
+    {
+      "name": "R05 arithmetic residual_ale_low_usd",
+      "status": "PASS"
+    },
+    {
+      "name": "R05 arithmetic residual_ale_high_usd",
+      "status": "PASS"
+    },
+    {
+      "name": "R05 arithmetic target_ale_usd",
+      "status": "PASS"
+    },
+    {
+      "name": "R05 treatment and uncertainty ordering",
+      "status": "PASS"
+    },
+    {
+      "name": "R05 severity threshold",
+      "status": "PASS"
+    },
+    {
+      "name": "R05 ownership and closure fields",
+      "status": "PASS"
+    },
+    {
+      "name": "R06 arithmetic inherent_ale_usd",
+      "status": "PASS"
+    },
+    {
+      "name": "R06 arithmetic residual_ale_usd",
+      "status": "PASS"
+    },
+    {
+      "name": "R06 arithmetic residual_ale_low_usd",
+      "status": "PASS"
+    },
+    {
+      "name": "R06 arithmetic residual_ale_high_usd",
+      "status": "PASS"
+    },
+    {
+      "name": "R06 arithmetic target_ale_usd",
+      "status": "PASS"
+    },
+    {
+      "name": "R06 treatment and uncertainty ordering",
+      "status": "PASS"
+    },
+    {
+      "name": "R06 severity threshold",
+      "status": "PASS"
+    },
+    {
+      "name": "R06 ownership and closure fields",
+      "status": "PASS"
+    },
+    {
+      "name": "R07 arithmetic inherent_ale_usd",
+      "status": "PASS"
+    },
+    {
+      "name": "R07 arithmetic residual_ale_usd",
+      "status": "PASS"
+    },
+    {
+      "name": "R07 arithmetic residual_ale_low_usd",
+      "status": "PASS"
+    },
+    {
+      "name": "R07 arithmetic residual_ale_high_usd",
+      "status": "PASS"
+    },
+    {
+      "name": "R07 arithmetic target_ale_usd",
+      "status": "PASS"
+    },
+    {
+      "name": "R07 treatment and uncertainty ordering",
+      "status": "PASS"
+    },
+    {
+      "name": "R07 severity threshold",
+      "status": "PASS"
+    },
+    {
+      "name": "R07 ownership and closure fields",
+      "status": "PASS"
+    },
+    {
+      "name": "R08 arithmetic inherent_ale_usd",
+      "status": "PASS"
+    },
+    {
+      "name": "R08 arithmetic residual_ale_usd",
+      "status": "PASS"
+    },
+    {
+      "name": "R08 arithmetic residual_ale_low_usd",
+      "status": "PASS"
+    },
+    {
+      "name": "R08 arithmetic residual_ale_high_usd",
+      "status": "PASS"
+    },
+    {
+      "name": "R08 arithmetic target_ale_usd",
+      "status": "PASS"
+    },
+    {
+      "name": "R08 treatment and uncertainty ordering",
+      "status": "PASS"
+    },
+    {
+      "name": "R08 severity threshold",
+      "status": "PASS"
+    },
+    {
+      "name": "R08 ownership and closure fields",
+      "status": "PASS"
+    },
+    {
+      "name": "R09 arithmetic inherent_ale_usd",
+      "status": "PASS"
+    },
+    {
+      "name": "R09 arithmetic residual_ale_usd",
+      "status": "PASS"
+    },
+    {
+      "name": "R09 arithmetic residual_ale_low_usd",
+      "status": "PASS"
+    },
+    {
+      "name": "R09 arithmetic residual_ale_high_usd",
+      "status": "PASS"
+    },
+    {
+      "name": "R09 arithmetic target_ale_usd",
+      "status": "PASS"
+    },
+    {
+      "name": "R09 treatment and uncertainty ordering",
+      "status": "PASS"
+    },
+    {
+      "name": "R09 severity threshold",
+      "status": "PASS"
+    },
+    {
+      "name": "R09 ownership and closure fields",
+      "status": "PASS"
+    },
+    {
+      "name": "R10 arithmetic inherent_ale_usd",
+      "status": "PASS"
+    },
+    {
+      "name": "R10 arithmetic residual_ale_usd",
+      "status": "PASS"
+    },
+    {
+      "name": "R10 arithmetic residual_ale_low_usd",
+      "status": "PASS"
+    },
+    {
+      "name": "R10 arithmetic residual_ale_high_usd",
+      "status": "PASS"
+    },
+    {
+      "name": "R10 arithmetic target_ale_usd",
+      "status": "PASS"
+    },
+    {
+      "name": "R10 treatment and uncertainty ordering",
+      "status": "PASS"
+    },
+    {
+      "name": "R10 severity threshold",
+      "status": "PASS"
+    },
+    {
+      "name": "R10 ownership and closure fields",
+      "status": "PASS"
+    },
+    {
+      "name": "Required output: README.md",
+      "status": "PASS"
+    },
+    {
+      "name": "Required output: docs/rubric-checklist.md",
+      "status": "PASS"
+    },
+    {
+      "name": "Required output: docs/risk-assessment.md",
+      "status": "PASS"
+    },
+    {
+      "name": "Required output: docs/risk-register.csv",
+      "status": "PASS"
+    },
+    {
+      "name": "Required output: docs/audit-program.md",
+      "status": "PASS"
+    },
+    {
+      "name": "Required output: docs/framework-control-mapping.md",
+      "status": "PASS"
+    },
+    {
+      "name": "Required output: docs/control-validation.md",
+      "status": "PASS"
+    },
+    {
+      "name": "Required output: docs/audit-report.md",
+      "status": "PASS"
+    },
+    {
+      "name": "Required output: docs/final-summary.md",
+      "status": "PASS"
+    },
+    {
+      "name": "Required output: docs/progress.md",
+      "status": "PASS"
+    },
+    {
+      "name": "Local link: README.md -> docs/rubric-checklist.md",
+      "status": "PASS"
+    },
+    {
+      "name": "Local link: README.md -> docs/risk-assessment.md",
+      "status": "PASS"
+    },
+    {
+      "name": "Local link: README.md -> docs/risk-register.csv",
+      "status": "PASS"
+    },
+    {
+      "name": "Local link: README.md -> docs/audit-program.md",
+      "status": "PASS"
+    },
+    {
+      "name": "Local link: README.md -> docs/framework-control-mapping.md",
+      "status": "PASS"
+    },
+    {
+      "name": "Local link: README.md -> docs/control-validation.md",
+      "status": "PASS"
+    },
+    {
+      "name": "Local link: README.md -> docs/audit-report.md",
+      "status": "PASS"
+    },
+    {
+      "name": "Local link: README.md -> docs/final-summary.md",
+      "status": "PASS"
+    },
+    {
+      "name": "Local link: README.md -> docs/progress.md",
+      "status": "PASS"
+    },
+    {
+      "name": "Local link: README.md -> evidence/index.md",
+      "status": "PASS"
+    },
+    {
+      "name": "Local link: audit-program.md -> risk-register.csv",
+      "status": "PASS"
+    },
+    {
+      "name": "Local link: audit-report.md -> control-validation.md",
+      "status": "PASS"
+    },
+    {
+      "name": "Local link: audit-report.md -> audit-program.md",
+      "status": "PASS"
+    },
+    {
+      "name": "Local link: audit-report.md -> framework-control-mapping.md",
+      "status": "PASS"
+    },
+    {
+      "name": "Local link: audit-report.md -> ../evidence/20261117T114241633169Z/dependency-results.json",
+      "status": "PASS"
+    },
+    {
+      "name": "Local link: audit-report.md -> risk-register.csv",
+      "status": "PASS"
+    },
+    {
+      "name": "Local link: control-validation.md -> ../evidence/20261117T114241633169Z/summary.json",
+      "status": "PASS"
+    },
+    {
+      "name": "Local link: control-validation.md -> ../evidence/20261117T114241633169Z/security/results.json",
+      "status": "PASS"
+    },
+    {
+      "name": "Local link: control-validation.md -> ../evidence/20261117T114241633169Z/governance/results.json",
+      "status": "PASS"
+    },
+    {
+      "name": "Local link: control-validation.md -> ../evidence/20261117T114241633169Z/pulse/results.json",
+      "status": "PASS"
+    },
+    {
+      "name": "Local link: control-validation.md -> ../evidence/20261117T114241633169Z/focused/results.json",
+      "status": "PASS"
+    },
+    {
+      "name": "Local link: control-validation.md -> ../evidence/20261117T114241633169Z/source-integrity.json",
+      "status": "PASS"
+    },
+    {
+      "name": "Local link: control-validation.md -> ../evidence/20261117T114241633169Z/dependency-results.json",
+      "status": "PASS"
+    },
+    {
+      "name": "Local link: control-validation.md -> ../evidence/20261117T114241633169Z/security/security-events-sanitized.json",
+      "status": "PASS"
+    },
+    {
+      "name": "Local link: control-validation.md -> ../../../derexi-policy-pilot/backend/tests/test_week9_security.py",
+      "status": "PASS"
+    },
+    {
+      "name": "Local link: control-validation.md -> ../../../derexi-policy-pilot/backend/tests/test_week8_governance.py",
+      "status": "PASS"
+    },
+    {
+      "name": "Local link: control-validation.md -> ../../CT+V 2 Assignment 5/completion-matrix.md",
+      "status": "PASS"
+    },
+    {
+      "name": "Local link: control-validation.md -> ../evidence/index.md",
+      "status": "PASS"
+    },
+    {
+      "name": "Local link: final-summary.md -> rubric-checklist.md",
+      "status": "PASS"
+    },
+    {
+      "name": "Local link: framework-control-mapping.md -> control-validation.md",
+      "status": "PASS"
+    },
+    {
+      "name": "Local link: framework-control-mapping.md -> ../evidence/index.md",
+      "status": "PASS"
+    },
+    {
+      "name": "Local link: risk-assessment.md -> ../../CT+V 2 Assignment 2/closure/assets-reconciled.json",
+      "status": "PASS"
+    },
+    {
+      "name": "Local link: risk-assessment.md -> risk-register.csv",
+      "status": "PASS"
+    },
+    {
+      "name": "Local link: rubric-checklist.md -> ../../Cyber Threats and Vulnerabilities 2 Tasks.pdf",
+      "status": "PASS"
+    },
+    {
+      "name": "Local link: rubric-checklist.md -> ../../CT+V 2 Assignment 3/evidence/official-rubric-page1.png",
+      "status": "PASS"
+    },
+    {
+      "name": "Local link: rubric-checklist.md -> risk-assessment.md",
+      "status": "PASS"
+    },
+    {
+      "name": "Local link: rubric-checklist.md -> risk-register.csv",
+      "status": "PASS"
+    },
+    {
+      "name": "Local link: rubric-checklist.md -> audit-program.md",
+      "status": "PASS"
+    },
+    {
+      "name": "Local link: rubric-checklist.md -> framework-control-mapping.md",
+      "status": "PASS"
+    },
+    {
+      "name": "Local link: rubric-checklist.md -> control-validation.md",
+      "status": "PASS"
+    },
+    {
+      "name": "Local link: rubric-checklist.md -> audit-report.md",
+      "status": "PASS"
+    },
+    {
+      "name": "Local link: index.md -> latest-run.txt",
+      "status": "PASS"
+    },
+    {
+      "name": "Local link: index.md -> 20261117T114241633169Z/summary.json",
+      "status": "PASS"
+    },
+    {
+      "name": "Local link: index.md -> 20261117T114241633169Z/security/results.json",
+      "status": "PASS"
+    },
+    {
+      "name": "Local link: index.md -> 20261117T114241633169Z/governance/results.json",
+      "status": "PASS"
+    },
+    {
+      "name": "Local link: index.md -> 20261117T114241633169Z/pulse/results.json",
+      "status": "PASS"
+    },
+    {
+      "name": "Local link: index.md -> 20261117T114241633169Z/focused/results.json",
+      "status": "PASS"
+    },
+    {
+      "name": "Local link: index.md -> 20261117T114241633169Z/dependency-results.json",
+      "status": "PASS"
+    },
+    {
+      "name": "Local link: index.md -> 20261117T114241633169Z/inventory.json",
+      "status": "PASS"
+    },
+    {
+      "name": "Local link: index.md -> 20261117T114241633169Z/source-hashes-before.json",
+      "status": "PASS"
+    },
+    {
+      "name": "Local link: index.md -> 20261117T114241633169Z/source-integrity.json",
+      "status": "PASS"
+    },
+    {
+      "name": "Local link: index.md -> execution-notes.md",
+      "status": "PASS"
+    },
+    {
+      "name": "Local link: index.md -> ../../Cyber Threats and Vulnerabilities 2 Tasks.pdf",
+      "status": "PASS"
+    },
+    {
+      "name": "Local link: index.md -> ../../CT+V 2 Assignment 3/evidence/official-rubric-page1.png",
+      "status": "PASS"
+    },
+    {
+      "name": "Local link: index.md -> ../../CT+V 2 Assignment 1/docs/supply-chain-assessment.md",
+      "status": "PASS"
+    },
+    {
+      "name": "Local link: index.md -> ../../CT+V 2 Assignment 1/docs/final-summary.md",
+      "status": "PASS"
+    },
+    {
+      "name": "Local link: index.md -> ../../CT+V 2 Assignment 2/closure/README.md",
+      "status": "PASS"
+    },
+    {
+      "name": "Local link: index.md -> ../../CT+V 2 Assignment 2/closure/assets-reconciled.json",
+      "status": "PASS"
+    },
+    {
+      "name": "Local link: index.md -> ../../CT+V 2 Assignment 2/closure/advisories/assessment.json",
+      "status": "PASS"
+    },
+    {
+      "name": "Local link: index.md -> ../../CT+V 2 Assignment 3/docs/final-summary.md",
+      "status": "PASS"
+    },
+    {
+      "name": "Local link: index.md -> ../../CT+V 2 Assignment 5/04-risk-audit.md",
+      "status": "PASS"
+    },
+    {
+      "name": "Local link: index.md -> ../../CT+V 2 Assignment 5/completion-matrix.md",
+      "status": "PASS"
+    },
+    {
+      "name": "Local link: index.md -> ../../../compliance_1/C 1 Assignment 3/rubric1_security_test_results.md",
+      "status": "PASS"
+    },
+    {
+      "name": "Local link: index.md -> ../../../compliance_1/C 1 Assignment 3/assignment3_c03_audit_results.md",
+      "status": "PASS"
+    },
+    {
+      "name": "Local link: index.md -> ../../../compliance_1/C 1 Assignment 3/assignment3_security_hardening_final.md",
+      "status": "PASS"
+    },
+    {
+      "name": "Local link: index.md -> ../../../semester_5/DeRexi_Week 11/pinned-readiness-status.md",
+      "status": "PASS"
+    },
+    {
+      "name": "Local link: index.md -> ../../../semester_5/DeRexi_Week 11/final-integration-approval-checklist.md",
+      "status": "PASS"
+    },
+    {
+      "name": "Local link: index.md -> ../../../derexi-policy-pilot/docs/deployment.md",
+      "status": "PASS"
+    },
+    {
+      "name": "Local link: index.md -> ../../../derexi-policy-pilot/backend/tests/messaging_fixture.py",
+      "status": "PASS"
+    },
+    {
+      "name": "Local link: index.md -> ../../../derexi-policy-pilot/backend/tests/test_week9_security.py",
+      "status": "PASS"
+    },
+    {
+      "name": "Local link: index.md -> ../../../derexi-policy-pilot/backend/tests/test_week8_governance.py",
+      "status": "PASS"
+    },
+    {
+      "name": "Local link: index.md -> ../../../derexi-policy-pilot/backend/tests/test_pulse.py",
+      "status": "PASS"
+    },
+    {
+      "name": "Official rubric identity matches visually reviewed rendering",
+      "status": "PASS"
+    }
+  ]
+}

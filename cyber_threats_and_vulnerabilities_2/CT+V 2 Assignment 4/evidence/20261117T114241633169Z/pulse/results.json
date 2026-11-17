@@ -1,0 +1,405 @@
+{
+  "suite": "pulse",
+  "started_at": "2026-11-17T11:42:58.045498+00:00",
+  "ended_at": "2026-11-17T11:42:58.235124+00:00",
+  "internal_transport": [],
+  "checks": [
+    {
+      "name": "parse_date('Fri, 30 Oct 2026 13:09:02 -0500') -> '2026-10-30'",
+      "status": "PASS"
+    },
+    {
+      "name": "parse_date('Fri, 2 Oct 2026 20:00:00 GMT') -> '2026-10-02'",
+      "status": "PASS"
+    },
+    {
+      "name": "parse_date('2026-10-30') -> '2026-10-30'",
+      "status": "PASS"
+    },
+    {
+      "name": "parse_date('2026-10-21T00:00:00') -> '2026-10-21'",
+      "status": "PASS"
+    },
+    {
+      "name": "parse_date('2026-10-21T00:00:00Z') -> '2026-10-21'",
+      "status": "PASS"
+    },
+    {
+      "name": "parse_date('Wed, 05 Aug 2026 11:00:00 -0400') -> '2026-08-05'",
+      "status": "PASS"
+    },
+    {
+      "name": "parse_date('October 30, 2026') -> '2026-10-30'",
+      "status": "PASS"
+    },
+    {
+      "name": "parse_date('') -> ''",
+      "status": "PASS"
+    },
+    {
+      "name": "parse_date(None) -> ''",
+      "status": "PASS"
+    },
+    {
+      "name": "parse_date('not a date') -> ''",
+      "status": "PASS"
+    },
+    {
+      "name": "parse_date('2026-13-45') -> ''",
+      "status": "PASS"
+    },
+    {
+      "name": "clean_text strips tags and entities",
+      "status": "PASS"
+    },
+    {
+      "name": "clean_text leaves escaped angle brackets as text",
+      "status": "PASS"
+    },
+    {
+      "name": "safe_url keeps https",
+      "status": "PASS"
+    },
+    {
+      "name": "safe_url rejects http",
+      "status": "PASS"
+    },
+    {
+      "name": "safe_url rejects javascript:",
+      "status": "PASS"
+    },
+    {
+      "name": "safe_url rejects credentials",
+      "status": "PASS"
+    },
+    {
+      "name": "safe_url rejects relative",
+      "status": "PASS"
+    },
+    {
+      "name": "summarize strips feed kicker",
+      "status": "PASS"
+    },
+    {
+      "name": "summarize drops a duplicated headline",
+      "status": "PASS"
+    },
+    {
+      "name": "summarize returns '' when description is only a truncated headline",
+      "status": "PASS"
+    },
+    {
+      "name": "summarize handles None",
+      "status": "PASS"
+    },
+    {
+      "name": "FR Rule -> Final Rule",
+      "status": "PASS"
+    },
+    {
+      "name": "FR Proposed Rule -> Proposed Rule",
+      "status": "PASS"
+    },
+    {
+      "name": "FR Notice -> Notice",
+      "status": "PASS"
+    },
+    {
+      "name": "FR Presidential Document -> Notice",
+      "status": "PASS"
+    },
+    {
+      "name": "FR guidance notice preserves source Notice type",
+      "status": "PASS"
+    },
+    {
+      "name": "NIST -> Standards Draft",
+      "status": "PASS"
+    },
+    {
+      "name": "FDIC board notice with rule words in body -> General News",
+      "status": "PASS"
+    },
+    {
+      "name": "FDIC supervisory-appeals release -> General News",
+      "status": "PASS"
+    },
+    {
+      "name": "FDIC guidance headline -> Supervisory Guidance",
+      "status": "PASS"
+    },
+    {
+      "name": "Fed final-rule press release stays news",
+      "status": "PASS"
+    },
+    {
+      "name": "All statuses are from the allowed set",
+      "status": "PASS"
+    },
+    {
+      "name": "A cyber rule still files under Regulations",
+      "status": "PASS"
+    },
+    {
+      "name": "NIST draft -> Cybersecurity",
+      "status": "PASS"
+    },
+    {
+      "name": "Privacy notice -> Privacy & Data Protection",
+      "status": "PASS"
+    },
+    {
+      "name": "Unrelated press release -> Banking & Finance",
+      "status": "PASS"
+    },
+    {
+      "name": "Guidance -> Supervisory Guidance",
+      "status": "PASS"
+    },
+    {
+      "name": "FR keeps substantive documents only",
+      "status": "PASS"
+    },
+    {
+      "name": "FR drops routine paperwork notices",
+      "status": "PASS"
+    },
+    {
+      "name": "FR drops unsafe http links",
+      "status": "PASS"
+    },
+    {
+      "name": "FR carries the issuing agency",
+      "status": "PASS"
+    },
+    {
+      "name": "FR publishes ISO dates",
+      "status": "PASS"
+    },
+    {
+      "name": "FR keeps the document number id",
+      "status": "PASS"
+    },
+    {
+      "name": "NIST draft normalized",
+      "status": "PASS"
+    },
+    {
+      "name": "NIST uses Standards Draft",
+      "status": "PASS"
+    },
+    {
+      "name": "NIST files under Cybersecurity",
+      "status": "PASS"
+    },
+    {
+      "name": "NIST date normalized",
+      "status": "PASS"
+    },
+    {
+      "name": "FDIC RSS items parsed",
+      "status": "PASS"
+    },
+    {
+      "name": "FDIC title prefix removed",
+      "status": "PASS"
+    },
+    {
+      "name": "FDIC RSS date parsed correctly",
+      "status": "PASS"
+    },
+    {
+      "name": "FDIC body markup removed from summary",
+      "status": "PASS"
+    },
+    {
+      "name": "FDIC duplicate headline not repeated in summary",
+      "status": "PASS"
+    },
+    {
+      "name": "FDIC board notice is General News",
+      "status": "PASS"
+    },
+    {
+      "name": "FDIC guidance headline is Supervisory Guidance",
+      "status": "PASS"
+    },
+    {
+      "name": "Fed RSS parsed",
+      "status": "PASS"
+    },
+    {
+      "name": "Fed headline-only description becomes empty summary",
+      "status": "PASS"
+    },
+    {
+      "name": "Fed press release remains news",
+      "status": "PASS"
+    },
+    {
+      "name": "Fed date normalized",
+      "status": "PASS"
+    },
+    {
+      "name": "article shape contains no unexpected fields",
+      "status": "PASS"
+    },
+    {
+      "name": "RSS classification is marked inferred",
+      "status": "PASS"
+    },
+    {
+      "name": "Federal Register classification is marked source-supplied",
+      "status": "PASS"
+    },
+    {
+      "name": "NIST classification is marked source-supplied",
+      "status": "PASS"
+    },
+    {
+      "name": "combined feed returns articles",
+      "status": "PASS"
+    },
+    {
+      "name": "combined feed is newest first",
+      "status": "PASS"
+    },
+    {
+      "name": "all four sources reported",
+      "status": "PASS"
+    },
+    {
+      "name": "all sources ok",
+      "status": "PASS"
+    },
+    {
+      "name": "no duplicate URLs",
+      "status": "PASS"
+    },
+    {
+      "name": "generated_at is ISO UTC",
+      "status": "PASS"
+    },
+    {
+      "name": "limit clamps to available articles",
+      "status": "PASS"
+    },
+    {
+      "name": "every article carries an editorial score",
+      "status": "PASS"
+    },
+    {
+      "name": "radar is returned with the feed",
+      "status": "PASS"
+    },
+    {
+      "name": "radar is drawn from the returned articles",
+      "status": "PASS"
+    },
+    {
+      "name": "limited feed radar references only returned articles",
+      "status": "PASS"
+    },
+    {
+      "name": "second call served from cache",
+      "status": "PASS"
+    },
+    {
+      "name": "cache window is 30 minutes",
+      "status": "PASS"
+    },
+    {
+      "name": "feed survives one failing source",
+      "status": "PASS"
+    },
+    {
+      "name": "failed source flagged",
+      "status": "PASS"
+    },
+    {
+      "name": "failed source explains itself",
+      "status": "PASS"
+    },
+    {
+      "name": "healthy sources still ok",
+      "status": "PASS"
+    },
+    {
+      "name": "empty sources yield an empty feed",
+      "status": "PASS"
+    },
+    {
+      "name": "empty sources are not errors",
+      "status": "PASS"
+    },
+    {
+      "name": "empty feed still reports structure",
+      "status": "PASS"
+    },
+    {
+      "name": "substantive rule outranks a newer general-news item",
+      "status": "PASS"
+    },
+    {
+      "name": "every score is a bounded number",
+      "status": "PASS"
+    },
+    {
+      "name": "scoring does not mutate the cached articles",
+      "status": "PASS"
+    },
+    {
+      "name": "among comparable documents the newer one leads",
+      "status": "PASS"
+    },
+    {
+      "name": "recency stops helping past the 45-day horizon",
+      "status": "PASS"
+    },
+    {
+      "name": "an undated article receives no recency points",
+      "status": "PASS"
+    },
+    {
+      "name": "ranking is deterministic on identical items",
+      "status": "PASS"
+    },
+    {
+      "name": "radar has at most one entry per document type",
+      "status": "PASS"
+    },
+    {
+      "name": "radar excludes notices and general news",
+      "status": "PASS"
+    },
+    {
+      "name": "radar references articles that exist",
+      "status": "PASS"
+    },
+    {
+      "name": "radar keeps the best-ranked rule of a type",
+      "status": "PASS"
+    },
+    {
+      "name": "radar labels are the documented nonbinding prompts",
+      "status": "PASS"
+    },
+    {
+      "name": "radar notes avoid legal conclusions",
+      "status": "PASS"
+    },
+    {
+      "name": "radar notes name an issuer",
+      "status": "PASS"
+    },
+    {
+      "name": "Safety guard: no unexpected network/credential/external write attempts",
+      "status": "PASS",
+      "actual": []
+    }
+  ],
+  "passed": 98,
+  "failed": 0,
+  "blocked": 0,
+  "error": null
+}

@@ -1,0 +1,194 @@
+{"timestamp":"2026-11-17T11:37:01.948657+00:00","event":"sensitive_change","request_id":"4013fc40c6d246569a9018ee19347d78","method":"POST","route":"/dev-auth/token","status":200,"actor_id":null,"role":null}
+{"timestamp":"2026-11-17T11:37:01.967349+00:00","event":"sensitive_change","request_id":"2ee601c1a8b0412d85d2a7321f2cb33d","method":"POST","route":"/dev-auth/token","status":200,"actor_id":null,"role":null}
+{"timestamp":"2026-11-17T11:37:01.984630+00:00","event":"sensitive_change","request_id":"c45b4bc8e2da473ab5d0c67501ad43e6","method":"POST","route":"/dev-auth/token","status":200,"actor_id":null,"role":null}
+{"timestamp":"2026-11-17T11:37:02.001322+00:00","event":"sensitive_change","request_id":"8c1a1266ed9f49da994a912c600b66bb","method":"POST","route":"/dev-auth/token","status":200,"actor_id":null,"role":null}
+{"timestamp":"2026-11-17T11:37:02.025314+00:00","event":"sensitive_change","request_id":"ef3ae5db6f5d4894b71dd2c38d534e75","method":"POST","route":"/dev-auth/token","status":200,"actor_id":null,"role":null}
+{"timestamp":"2026-11-17T11:37:02.042228+00:00","event":"sensitive_change","request_id":"8204feea92f640be92b7ec12aa920203","method":"POST","route":"/dev-auth/token","status":200,"actor_id":null,"role":null}
+{"timestamp":"2026-11-17T11:37:02.063783+00:00","event":"sensitive_change","request_id":"c7900ccdabef4a64be9bb8d57ae3148f","method":"POST","route":"/dev-auth/token","status":200,"actor_id":null,"role":null}
+{"timestamp":"2026-11-17T11:37:02.095382+00:00","event":"access_denied","request_id":"806e104ffdad49429e4c13c4e63bcf30","method":"GET","route":"/governance/drafts","status":403,"actor_id":8,"role":"Employee"}
+PASS Employee denied /governance/drafts
+{"timestamp":"2026-11-17T11:37:02.112648+00:00","event":"authentication_failure","request_id":"a4e3d422447f4980ae05bae2841e03c2","method":"GET","route":"/governance/drafts","status":401,"actor_id":null,"role":null}
+PASS Anonymous denied /governance/drafts
+{"timestamp":"2026-11-17T11:37:02.137366+00:00","event":"access_denied","request_id":"a3a4d3fe193c404bb8d0cb8bec49ed52","method":"GET","route":"/governance/owners","status":403,"actor_id":8,"role":"Employee"}
+PASS Employee denied /governance/owners
+{"timestamp":"2026-11-17T11:37:02.146954+00:00","event":"authentication_failure","request_id":"e719084c8868476999e37b05ffd8f064","method":"GET","route":"/governance/owners","status":401,"actor_id":null,"role":null}
+PASS Anonymous denied /governance/owners
+{"timestamp":"2026-11-17T11:37:02.163377+00:00","event":"access_denied","request_id":"e24907b0cc4c46268ea08e32eb3e5de1","method":"GET","route":"/dashboard/policy-health","status":403,"actor_id":8,"role":"Employee"}
+PASS Employee denied /dashboard/policy-health
+{"timestamp":"2026-11-17T11:37:02.173849+00:00","event":"authentication_failure","request_id":"862fe32f2ecf4bc7a33b413c11cefc9a","method":"GET","route":"/dashboard/policy-health","status":401,"actor_id":null,"role":null}
+PASS Anonymous denied /dashboard/policy-health
+{"timestamp":"2026-11-17T11:37:02.196736+00:00","event":"access_denied","request_id":"ba9629ac5f7446bca5392f2b9bef1689","method":"POST","route":"/governance/drafts","status":403,"actor_id":8,"role":"Employee"}
+PASS Employee draft creation denied
+{"timestamp":"2026-11-17T11:37:02.221440+00:00","event":"access_denied","request_id":"9ab1bc9ef2324704894a4ffad871644f","method":"POST","route":"/governance/drafts","status":403,"actor_id":4,"role":"Policy Owner"}
+PASS Author department spoof denied
+{"timestamp":"2026-11-17T11:37:02.252473+00:00","event":"request_rejected","request_id":"861332df302247b4bb3ba51c7affe280","method":"POST","route":"/governance/drafts","status":422,"actor_id":1,"role":"System Administrator"}
+PASS Unknown department rejected
+{"timestamp":"2026-11-17T11:37:02.272149+00:00","event":"request_rejected","request_id":"f5bc0ca3f7c64c16b04174334ff51c05","method":"POST","route":"/governance/drafts","status":422,"actor_id":4,"role":"Policy Owner"}
+PASS Status injection rejected
+{"timestamp":"2026-11-17T11:37:02.291068+00:00","event":"access_denied","request_id":"b434caee3e934f23aa49951307dc9ac2","method":"POST","route":"/policies","status":403,"actor_id":8,"role":"Employee"}
+PASS Legacy policy publication closed 8
+{"timestamp":"2026-11-17T11:37:02.312650+00:00","event":"access_denied","request_id":"014e42ba4838425f95bae896f0d59709","method":"POST","route":"/policies/{policy_id}/versions","status":403,"actor_id":8,"role":"Employee"}
+PASS Legacy version publication closed 8
+{"timestamp":"2026-11-17T11:37:02.330056+00:00","event":"request_rejected","request_id":"fde18da8e9ce4b6cadf1bb178b3098b6","method":"POST","route":"/policies","status":409,"actor_id":4,"role":"Policy Owner"}
+PASS Legacy policy publication closed 4
+{"timestamp":"2026-11-17T11:37:02.358792+00:00","event":"request_rejected","request_id":"2c1a9ab6f841450e84f8cd0bbdef6aad","method":"POST","route":"/policies/{policy_id}/versions","status":409,"actor_id":4,"role":"Policy Owner"}
+PASS Legacy version publication closed 4
+{"timestamp":"2026-11-17T11:37:02.378917+00:00","event":"request_rejected","request_id":"2fc80647fa5d42858a8cdca4116bd613","method":"POST","route":"/policies","status":409,"actor_id":1,"role":"System Administrator"}
+PASS Legacy policy publication closed 1
+{"timestamp":"2026-11-17T11:37:02.413294+00:00","event":"request_rejected","request_id":"996fdf897b4141d8942264b70e37f9b3","method":"POST","route":"/policies/{policy_id}/versions","status":409,"actor_id":1,"role":"System Administrator"}
+PASS Legacy version publication closed 1
+{"timestamp":"2026-11-17T11:37:02.452593+00:00","event":"sensitive_change","request_id":"a9860207f3b4411a9816912316ba5110","method":"POST","route":"/governance/drafts","status":201,"actor_id":4,"role":"Policy Owner"}
+PASS Unpublished new policy absent from Library
+{"timestamp":"2026-11-17T11:37:02.495934+00:00","event":"access_denied","request_id":"70fa9d4059e84297aaf5db1103f8e944","method":"GET","route":"/governance/drafts/{did}","status":403,"actor_id":8,"role":"Employee"}
+PASS Employee detail denied
+{"timestamp":"2026-11-17T11:37:02.524644+00:00","event":"access_denied","request_id":"3280efb7eebb4380841dfa2bc54c0109","method":"GET","route":"/governance/drafts/{did}","status":403,"actor_id":7,"role":"Policy Owner"}
+PASS Other department detail denied
+PASS Other department list excludes draft
+{"timestamp":"2026-11-17T11:37:02.594744+00:00","event":"request_rejected","request_id":"44e8ec1a8e3047f295aaa6f342121258","method":"POST","route":"/governance/drafts/{did}/actions","status":409,"actor_id":1,"role":"System Administrator","action":"publish"}
+PASS publish by 1 -> 409
+{"timestamp":"2026-11-17T11:37:02.613739+00:00","event":"request_rejected","request_id":"df408c65a909466fa8275f2c45c73ade","method":"POST","route":"/governance/drafts/{did}/actions","status":409,"actor_id":1,"role":"System Administrator","action":"final_approve"}
+PASS final_approve by 1 -> 409
+{"timestamp":"2026-11-17T11:37:02.633286+00:00","event":"access_denied","request_id":"400f44c4e5d546b6976b4501d37e2598","method":"POST","route":"/governance/drafts/{did}/actions","status":403,"actor_id":4,"role":"Policy Owner","action":"submit"}
+PASS submit by 4 -> 403
+{"timestamp":"2026-11-17T11:37:02.646819+00:00","event":"access_denied","request_id":"c2cdc3495bf54e7485e02273fc3d684b","method":"POST","route":"/governance/drafts/{did}/actions","status":403,"actor_id":4,"role":"Policy Owner","action":"submit"}
+PASS submit by 4 -> 403
+{"timestamp":"2026-11-17T11:37:02.659478+00:00","event":"access_denied","request_id":"9ea32609c5df49d4b924dca8b871dd17","method":"POST","route":"/governance/drafts/{did}/actions","status":403,"actor_id":4,"role":"Policy Owner","action":"submit"}
+PASS submit by 4 -> 403
+{"timestamp":"2026-11-17T11:37:02.672195+00:00","event":"access_denied","request_id":"131bbe72358c4272b271e9201092b29c","method":"POST","route":"/governance/drafts/{did}/actions","status":403,"actor_id":4,"role":"Policy Owner","action":"submit"}
+PASS submit by 4 -> 403
+{"timestamp":"2026-11-17T11:37:02.694717+00:00","event":"sensitive_change","request_id":"dba61c7316f544609f1cba7eb22629db","method":"POST","route":"/governance/drafts/{did}/actions","status":200,"actor_id":4,"role":"Policy Owner","action":"submit"}
+PASS submit by 4 -> 200
+PASS Peer notification routes to governance
+PASS Unrelated employee receives no governance notice
+{"timestamp":"2026-11-17T11:37:02.751280+00:00","event":"access_denied","request_id":"7ad5b228c3e544a4b442e3ba25c1eb79","method":"POST","route":"/governance/drafts/{did}/actions","status":403,"actor_id":4,"role":"Policy Owner","action":"peer_approve"}
+PASS peer_approve by 4 -> 403
+{"timestamp":"2026-11-17T11:37:02.765859+00:00","event":"access_denied","request_id":"b45a16a7cc534fcc99a6fb35f0215a5b","method":"POST","route":"/governance/drafts/{did}/actions","status":403,"actor_id":12,"role":"Policy Owner","action":"peer_approve"}
+PASS peer_approve by 12 -> 403
+{"timestamp":"2026-11-17T11:37:02.784944+00:00","event":"request_rejected","request_id":"de5828f900b349c0b1f2e65f32e50950","method":"POST","route":"/governance/drafts/{did}/actions","status":422,"actor_id":9,"role":"Policy Owner","action":"peer_changes"}
+PASS peer_changes by 9 -> 422
+{"timestamp":"2026-11-17T11:37:02.807082+00:00","event":"sensitive_change","request_id":"ab32009696a3437ab61d934557503aba","method":"POST","route":"/governance/drafts/{did}/actions","status":200,"actor_id":9,"role":"Policy Owner","action":"peer_changes"}
+PASS peer_changes by 9 -> 200
+PASS Revision request author notified
+{"timestamp":"2026-11-17T11:37:02.841004+00:00","event":"access_denied","request_id":"fcc629f2cd8944dea02f9705920c1a3b","method":"PATCH","route":"/governance/drafts/{did}","status":403,"actor_id":9,"role":"Policy Owner"}
+PASS Peer cannot edit author draft
+{"timestamp":"2026-11-17T11:37:02.862540+00:00","event":"sensitive_change","request_id":"86b75f5a85044915afa39e4151326f36","method":"POST","route":"/governance/drafts/{did}/actions","status":200,"actor_id":4,"role":"Policy Owner","action":"submit"}
+PASS submit by 4 -> 200
+{"timestamp":"2026-11-17T11:37:02.885247+00:00","event":"approval","request_id":"e7ba25849c68428a89ae05ccf7febce3","method":"POST","route":"/governance/drafts/{did}/actions","status":200,"actor_id":9,"role":"Policy Owner","action":"peer_approve"}
+PASS peer_approve by 9 -> 200
+PASS Final queue notifies both independent admins
+{"timestamp":"2026-11-17T11:37:02.930072+00:00","event":"access_denied","request_id":"9f3b367a8f0041f499e91b642ea330af","method":"POST","route":"/governance/drafts/{did}/actions","status":403,"actor_id":9,"role":"Policy Owner","action":"final_approve"}
+PASS final_approve by 9 -> 403
+{"timestamp":"2026-11-17T11:37:02.951480+00:00","event":"access_denied","request_id":"daa0c82588ab464aa54fb401aa0e6c52","method":"POST","route":"/governance/drafts/{did}/actions","status":403,"actor_id":4,"role":"Policy Owner","action":"final_approve"}
+PASS final_approve by 4 -> 403
+{"timestamp":"2026-11-17T11:37:02.986843+00:00","event":"request_rejected","request_id":"afe857b3408b44518c23d5842bb4c191","method":"POST","route":"/governance/drafts/{did}/actions","status":422,"actor_id":1,"role":"System Administrator","action":"final_changes"}
+PASS final_changes by 1 -> 422
+{"timestamp":"2026-11-17T11:37:03.012082+00:00","event":"administrative_action","request_id":"cdb8050486864533805a68571eb42e9f","method":"POST","route":"/governance/drafts/{did}/actions","status":200,"actor_id":1,"role":"System Administrator","action":"final_reject"}
+PASS final_reject by 1 -> 200
+{"timestamp":"2026-11-17T11:37:03.038363+00:00","event":"sensitive_change","request_id":"19199365a5854b4aa7a61c3d05ea177f","method":"POST","route":"/governance/drafts/{did}/actions","status":200,"actor_id":4,"role":"Policy Owner","action":"submit"}
+PASS submit by 4 -> 200
+{"timestamp":"2026-11-17T11:37:03.058271+00:00","event":"sensitive_change","request_id":"5157f38b2c0b4b7e8d79f2424f9ce9ac","method":"POST","route":"/governance/drafts/{did}/actions","status":200,"actor_id":9,"role":"Policy Owner","action":"peer_reject"}
+PASS peer_reject by 9 -> 200
+{"timestamp":"2026-11-17T11:37:03.077203+00:00","event":"sensitive_change","request_id":"dd66ce84d743489ca95664139b55f718","method":"POST","route":"/governance/drafts/{did}/actions","status":200,"actor_id":4,"role":"Policy Owner","action":"submit"}
+PASS submit by 4 -> 200
+{"timestamp":"2026-11-17T11:37:03.100930+00:00","event":"approval","request_id":"5fdea7b585424c05b5bafdf0f802acf7","method":"POST","route":"/governance/drafts/{did}/actions","status":200,"actor_id":9,"role":"Policy Owner","action":"peer_approve"}
+PASS peer_approve by 9 -> 200
+{"timestamp":"2026-11-17T11:37:03.119803+00:00","event":"approval","request_id":"bf7ec59f86c04556b2a1518b04347040","method":"POST","route":"/governance/drafts/{did}/actions","status":200,"actor_id":1,"role":"System Administrator","action":"final_approve"}
+PASS final_approve by 1 -> 200
+PASS Independent approvals retained
+{"timestamp":"2026-11-17T11:37:03.137816+00:00","event":"sensitive_change","request_id":"f7096328c7204d58ba500031c47c874e","method":"PATCH","route":"/governance/drafts/{did}","status":200,"actor_id":4,"role":"Policy Owner"}
+PASS Approved content author edit accepted
+PASS Editing invalidates both approvals
+{"timestamp":"2026-11-17T11:37:03.164804+00:00","event":"request_rejected","request_id":"8d804283cbac469993f8a2d73b97c50d","method":"POST","route":"/governance/drafts/{did}/actions","status":409,"actor_id":1,"role":"System Administrator","action":"publish"}
+PASS publish by 1 -> 409
+{"timestamp":"2026-11-17T11:37:03.190650+00:00","event":"request_rejected","request_id":"93575aab141642f985cd86db42a1bdf0","method":"POST","route":"/governance/drafts/{did}/actions","status":409,"actor_id":1,"role":"System Administrator","action":"final_approve"}
+PASS final_approve by 1 -> 409
+{"timestamp":"2026-11-17T11:37:03.226127+00:00","event":"sensitive_change","request_id":"2d5af5e7f2e3472fba82d4e5d4245b22","method":"POST","route":"/governance/drafts/{did}/actions","status":200,"actor_id":4,"role":"Policy Owner","action":"submit"}
+PASS submit by 4 -> 200
+{"timestamp":"2026-11-17T11:37:03.263202+00:00","event":"approval","request_id":"734e32ff5dea437a82f6044e2cde740e","method":"POST","route":"/governance/drafts/{did}/actions","status":200,"actor_id":9,"role":"Policy Owner","action":"peer_approve"}
+PASS peer_approve by 9 -> 200
+{"timestamp":"2026-11-17T11:37:03.285955+00:00","event":"approval","request_id":"eb30a090229d4545bb6860917b46b926","method":"POST","route":"/governance/drafts/{did}/actions","status":200,"actor_id":1,"role":"System Administrator","action":"final_approve"}
+PASS final_approve by 1 -> 200
+{"timestamp":"2026-11-17T11:37:03.305905+00:00","event":"request_rejected","request_id":"8cc87ae09a7e4ff8bec64e58c87558d4","method":"POST","route":"/governance/drafts/{did}/actions","status":409,"actor_id":1,"role":"System Administrator","action":"publish"}
+PASS publish by 1 -> 409
+{"timestamp":"2026-11-17T11:37:03.338010+00:00","event":"administrative_action","request_id":"b0d889667fd34eb29668900946981011","method":"POST","route":"/governance/drafts/{did}/actions","status":200,"actor_id":1,"role":"System Administrator","action":"publish"}
+PASS publish by 1 -> 200
+PASS New published policy visible
+PASS Publication decision notifies author
+{"timestamp":"2026-11-17T11:37:03.404889+00:00","event":"request_rejected","request_id":"fe465dba413349b08ac83c95e108d66d","method":"PATCH","route":"/governance/drafts/{did}","status":409,"actor_id":4,"role":"Policy Owner"}
+PASS Published working copy immutable
+PASS Audit retains decisions, content snapshots, actors and time
+{"timestamp":"2026-11-17T11:37:03.489802+00:00","event":"sensitive_change","request_id":"d2e6e4c8d4c34c9486dd3994292dbe82","method":"POST","route":"/governance/drafts","status":201,"actor_id":4,"role":"Policy Owner"}
+PASS Revision stores published baseline
+PASS Pulse provenance retained exactly
+{"timestamp":"2026-11-17T11:37:03.549911+00:00","event":"sensitive_change","request_id":"d43ec0b9f1734766be62f14232b6173e","method":"POST","route":"/governance/drafts/{did}/actions","status":200,"actor_id":4,"role":"Policy Owner","action":"submit"}
+PASS submit by 4 -> 200
+{"timestamp":"2026-11-17T11:37:03.615737+00:00","event":"approval","request_id":"82e0b31ac1404e2db4348ebfc9cec061","method":"POST","route":"/governance/drafts/{did}/actions","status":200,"actor_id":9,"role":"Policy Owner","action":"peer_approve"}
+PASS peer_approve by 9 -> 200
+{"timestamp":"2026-11-17T11:37:03.645641+00:00","event":"approval","request_id":"9ef75ccd242b49ec9c08efed722932f7","method":"POST","route":"/governance/drafts/{did}/actions","status":200,"actor_id":1,"role":"System Administrator","action":"final_approve"}
+PASS final_approve by 1 -> 200
+{"timestamp":"2026-11-17T11:37:03.670598+00:00","event":"request_rejected","request_id":"39a18f63a554471ba4dc4ca19ff14146","method":"POST","route":"/governance/drafts/{did}/actions","status":409,"actor_id":1,"role":"System Administrator","action":"publish"}
+PASS publish by 1 -> 409
+{"timestamp":"2026-11-17T11:37:03.694743+00:00","event":"access_denied","request_id":"bdec8c050faa455284878a73697606c1","method":"POST","route":"/governance/drafts/{did}/actions","status":403,"actor_id":9,"role":"Policy Owner","action":"publish"}
+PASS publish by 9 -> 403
+PASS Future approved revision leaves published version available
+PASS Revision draft absent from employee policy versions
+{"timestamp":"2026-11-17T11:37:03.752434+00:00","event":"sensitive_change","request_id":"6e1735d46f9a40afaa0d2139c1aca603","method":"PATCH","route":"/governance/drafts/{did}","status":200,"actor_id":4,"role":"Policy Owner"}
+{"timestamp":"2026-11-17T11:37:03.770022+00:00","event":"sensitive_change","request_id":"9329256a500e4153a027e523ce915b97","method":"POST","route":"/governance/drafts/{did}/actions","status":200,"actor_id":4,"role":"Policy Owner","action":"submit"}
+PASS submit by 4 -> 200
+{"timestamp":"2026-11-17T11:37:03.787778+00:00","event":"approval","request_id":"8fc223a3dadc4c3db60c82ba275c1d91","method":"POST","route":"/governance/drafts/{did}/actions","status":200,"actor_id":9,"role":"Policy Owner","action":"peer_approve"}
+PASS peer_approve by 9 -> 200
+{"timestamp":"2026-11-17T11:37:03.808199+00:00","event":"approval","request_id":"88fb62997cdb4b33abcb228f5ddd66f2","method":"POST","route":"/governance/drafts/{did}/actions","status":200,"actor_id":1,"role":"System Administrator","action":"final_approve"}
+PASS final_approve by 1 -> 200
+{"timestamp":"2026-11-17T11:37:03.824787+00:00","event":"sensitive_change","request_id":"a4ab64e61109443baf2c23785b5d0dfe","method":"POST","route":"/governance/drafts","status":201,"actor_id":4,"role":"Policy Owner"}
+{"timestamp":"2026-11-17T11:37:03.841184+00:00","event":"sensitive_change","request_id":"03d3b1ef60854ade809c8c518487c464","method":"POST","route":"/governance/drafts/{did}/actions","status":200,"actor_id":4,"role":"Policy Owner","action":"submit"}
+PASS submit by 4 -> 200
+{"timestamp":"2026-11-17T11:37:03.872067+00:00","event":"approval","request_id":"ef06d7c24b0941e38f43893ba5b4654d","method":"POST","route":"/governance/drafts/{did}/actions","status":200,"actor_id":9,"role":"Policy Owner","action":"peer_approve"}
+PASS peer_approve by 9 -> 200
+{"timestamp":"2026-11-17T11:37:03.904910+00:00","event":"approval","request_id":"75c42e8732124db78bdf1630886cfe12","method":"POST","route":"/governance/drafts/{did}/actions","status":200,"actor_id":1,"role":"System Administrator","action":"final_approve"}
+PASS final_approve by 1 -> 200
+{"timestamp":"2026-11-17T11:37:03.932965+00:00","event":"administrative_action","request_id":"7435c63932d24428ade77b7217477621","method":"POST","route":"/governance/drafts/{did}/actions","status":200,"actor_id":1,"role":"System Administrator","action":"publish"}
+PASS publish by 1 -> 200
+PASS Replacement published with complete old version history
+{"timestamp":"2026-11-17T11:37:03.969315+00:00","event":"request_rejected","request_id":"fcb6b4e98c96476b8c1554b5723ed7ed","method":"POST","route":"/governance/drafts/{did}/actions","status":409,"actor_id":1,"role":"System Administrator","action":"publish"}
+PASS publish by 1 -> 409
+{"timestamp":"2026-11-17T11:37:03.982344+00:00","event":"request_rejected","request_id":"40dd02d4cf884feb9b1caec167f7bdb1","method":"POST","route":"/governance/drafts","status":422,"actor_id":4,"role":"Policy Owner"}
+PASS Unsafe Pulse URL rejected
+PASS Pulse API preserved
+{"timestamp":"2026-11-17T11:37:04.020275+00:00","event":"sensitive_change","request_id":"da737825311b41978b3db80f27defef6","method":"POST","route":"/ask","status":200,"actor_id":8,"role":"Employee"}
+PASS Policy Assistant regression
+PASS Library search regression (offline ranking adapter)
+PASS Dashboard health retained
+PASS Policy Owners directory excludes employee/admin roles
+{"timestamp":"2026-11-17T11:37:04.108921+00:00","event":"administrative_action","request_id":"6ea14f918bff4c1886dfbfd4c36a5484","method":"POST","route":"/governance/drafts","status":201,"actor_id":1,"role":"System Administrator"}
+PASS Administrator can author in chosen department
+{"timestamp":"2026-11-17T11:37:04.124445+00:00","event":"administrative_action","request_id":"60d2c7db1e394e49a697e53e1a9564b2","method":"POST","route":"/governance/drafts/{did}/actions","status":200,"actor_id":1,"role":"System Administrator","action":"submit"}
+PASS submit by 1 -> 200
+{"timestamp":"2026-11-17T11:37:04.146313+00:00","event":"approval","request_id":"0c2d8f2861294e5eb02371203b9df52b","method":"POST","route":"/governance/drafts/{did}/actions","status":200,"actor_id":9,"role":"Policy Owner","action":"peer_approve"}
+PASS peer_approve by 9 -> 200
+{"timestamp":"2026-11-17T11:37:04.160782+00:00","event":"access_denied","request_id":"bf1c2fce79624cb6815f5ee235ce9b05","method":"POST","route":"/governance/drafts/{did}/actions","status":403,"actor_id":1,"role":"System Administrator","action":"final_approve"}
+PASS final_approve by 1 -> 403
+{"timestamp":"2026-11-17T11:37:04.179421+00:00","event":"administrative_action","request_id":"f3c576d81f2a45808f1699d6ebd387d6","method":"POST","route":"/governance/drafts/{did}/actions","status":200,"actor_id":2,"role":"System Administrator","action":"final_changes"}
+PASS final_changes by 2 -> 200
+{"timestamp":"2026-11-17T11:37:04.207768+00:00","event":"administrative_action","request_id":"93accbcd037a42ef8d98554a256e6130","method":"POST","route":"/governance/drafts/{did}/actions","status":200,"actor_id":1,"role":"System Administrator","action":"submit"}
+PASS submit by 1 -> 200
+{"timestamp":"2026-11-17T11:37:04.226975+00:00","event":"access_denied","request_id":"de65f8580c2444a08248eeb8ada68890","method":"POST","route":"/governance/drafts/{did}/actions","status":403,"actor_id":9,"role":"Policy Owner","action":"peer_approve"}
+PASS peer_approve by 9 -> 403
+{"timestamp":"2026-11-17T11:37:04.251123+00:00","event":"approval","request_id":"4ae70f95e3a94fe4a3d9d1c0724fa769","method":"POST","route":"/governance/drafts/{did}/actions","status":200,"actor_id":9,"role":"Policy Owner","action":"peer_approve"}
+PASS peer_approve by 9 -> 200
+{"timestamp":"2026-11-17T11:37:04.273462+00:00","event":"approval","request_id":"bbf1db531651434caedad92ad92ba21e","method":"POST","route":"/governance/drafts/{did}/actions","status":200,"actor_id":2,"role":"System Administrator","action":"final_approve"}
+PASS final_approve by 2 -> 200
+{"timestamp":"2026-11-17T11:37:04.301044+00:00","event":"access_denied","request_id":"f352379486aa44dbbd5e41928612fd61","method":"POST","route":"/governance/drafts/{did}/actions","status":403,"actor_id":1,"role":"System Administrator","action":"publish"}
+PASS publish by 1 -> 403
+{"timestamp":"2026-11-17T11:37:04.322729+00:00","event":"administrative_action","request_id":"6f01fa53e988458086a64e362448ae2e","method":"POST","route":"/governance/drafts/{did}/actions","status":200,"actor_id":2,"role":"System Administrator","action":"publish"}
+PASS publish by 2 -> 200
+PASS Administrator author publication assigns department Policy Owner
+{"timestamp":"2026-11-17T11:37:04.352092+00:00","event":"sensitive_change","request_id":"610ea5fbda1740d79055d5d07d76feb0","method":"POST","route":"/governance/drafts","status":201,"actor_id":4,"role":"Policy Owner"}
+{"timestamp":"2026-11-17T11:37:04.369735+00:00","event":"sensitive_change","request_id":"a013f7748c9140f08501ef73e47b1b70","method":"POST","route":"/governance/drafts/{did}/actions","status":200,"actor_id":4,"role":"Policy Owner","action":"submit"}
+PASS submit by 4 -> 200
+{"timestamp":"2026-11-17T11:37:04.387947+00:00","event":"approval","request_id":"73615dea32d84175b709424bfc33b27f","method":"POST","route":"/governance/drafts/{did}/actions","status":200,"actor_id":9,"role":"Policy Owner","action":"peer_approve"}
+PASS peer_approve by 9 -> 200
+{"timestamp":"2026-11-17T11:37:04.405228+00:00","event":"approval","request_id":"5a405a56be8140338c7677023e751d4c","method":"POST","route":"/governance/drafts/{did}/actions","status":200,"actor_id":1,"role":"System Administrator","action":"final_approve"}
+PASS final_approve by 1 -> 200
+{"timestamp":"2026-11-17T11:37:04.439237+00:00","event":"request_rejected","request_id":"af7389e5a14b48bbad407ba39b5ad2f8","method":"POST","route":"/governance/drafts/{did}/actions","status":500,"actor_id":1,"role":"System Administrator","action":"publish"}
+PASS Injected transaction failure returned failure
+PASS Publication rollback preserves policy and workflow

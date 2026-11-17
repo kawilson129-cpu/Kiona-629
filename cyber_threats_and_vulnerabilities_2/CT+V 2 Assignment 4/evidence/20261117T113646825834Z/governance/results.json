@@ -1,0 +1,870 @@
+{
+  "suite": "governance",
+  "started_at": "2026-11-17T11:36:56.668560+00:00",
+  "ended_at": "2026-11-17T11:37:04.446697+00:00",
+  "internal_transport": [
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    },
+    {
+      "event": "socket.connect",
+      "purpose": "stdlib Windows socketpair wakeup only"
+    }
+  ],
+  "checks": [
+    {
+      "name": "Employee denied /governance/drafts",
+      "status": "PASS"
+    },
+    {
+      "name": "Anonymous denied /governance/drafts",
+      "status": "PASS"
+    },
+    {
+      "name": "Employee denied /governance/owners",
+      "status": "PASS"
+    },
+    {
+      "name": "Anonymous denied /governance/owners",
+      "status": "PASS"
+    },
+    {
+      "name": "Employee denied /dashboard/policy-health",
+      "status": "PASS"
+    },
+    {
+      "name": "Anonymous denied /dashboard/policy-health",
+      "status": "PASS"
+    },
+    {
+      "name": "Employee draft creation denied",
+      "status": "PASS"
+    },
+    {
+      "name": "Author department spoof denied",
+      "status": "PASS"
+    },
+    {
+      "name": "Unknown department rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "Status injection rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "Legacy policy publication closed 8",
+      "status": "PASS"
+    },
+    {
+      "name": "Legacy version publication closed 8",
+      "status": "PASS"
+    },
+    {
+      "name": "Legacy policy publication closed 4",
+      "status": "PASS"
+    },
+    {
+      "name": "Legacy version publication closed 4",
+      "status": "PASS"
+    },
+    {
+      "name": "Legacy policy publication closed 1",
+      "status": "PASS"
+    },
+    {
+      "name": "Legacy version publication closed 1",
+      "status": "PASS"
+    },
+    {
+      "name": "Unpublished new policy absent from Library",
+      "status": "PASS"
+    },
+    {
+      "name": "Employee detail denied",
+      "status": "PASS"
+    },
+    {
+      "name": "Other department detail denied",
+      "status": "PASS"
+    },
+    {
+      "name": "Other department list excludes draft",
+      "status": "PASS"
+    },
+    {
+      "name": "publish by 1 -> 409",
+      "status": "PASS"
+    },
+    {
+      "name": "final_approve by 1 -> 409",
+      "status": "PASS"
+    },
+    {
+      "name": "submit by 4 -> 403",
+      "status": "PASS"
+    },
+    {
+      "name": "submit by 4 -> 403",
+      "status": "PASS"
+    },
+    {
+      "name": "submit by 4 -> 403",
+      "status": "PASS"
+    },
+    {
+      "name": "submit by 4 -> 403",
+      "status": "PASS"
+    },
+    {
+      "name": "submit by 4 -> 200",
+      "status": "PASS"
+    },
+    {
+      "name": "Peer notification routes to governance",
+      "status": "PASS"
+    },
+    {
+      "name": "Unrelated employee receives no governance notice",
+      "status": "PASS"
+    },
+    {
+      "name": "peer_approve by 4 -> 403",
+      "status": "PASS"
+    },
+    {
+      "name": "peer_approve by 12 -> 403",
+      "status": "PASS"
+    },
+    {
+      "name": "peer_changes by 9 -> 422",
+      "status": "PASS"
+    },
+    {
+      "name": "peer_changes by 9 -> 200",
+      "status": "PASS"
+    },
+    {
+      "name": "Revision request author notified",
+      "status": "PASS"
+    },
+    {
+      "name": "Peer cannot edit author draft",
+      "status": "PASS"
+    },
+    {
+      "name": "submit by 4 -> 200",
+      "status": "PASS"
+    },
+    {
+      "name": "peer_approve by 9 -> 200",
+      "status": "PASS"
+    },
+    {
+      "name": "Final queue notifies both independent admins",
+      "status": "PASS"
+    },
+    {
+      "name": "final_approve by 9 -> 403",
+      "status": "PASS"
+    },
+    {
+      "name": "final_approve by 4 -> 403",
+      "status": "PASS"
+    },
+    {
+      "name": "final_changes by 1 -> 422",
+      "status": "PASS"
+    },
+    {
+      "name": "final_reject by 1 -> 200",
+      "status": "PASS"
+    },
+    {
+      "name": "submit by 4 -> 200",
+      "status": "PASS"
+    },
+    {
+      "name": "peer_reject by 9 -> 200",
+      "status": "PASS"
+    },
+    {
+      "name": "submit by 4 -> 200",
+      "status": "PASS"
+    },
+    {
+      "name": "peer_approve by 9 -> 200",
+      "status": "PASS"
+    },
+    {
+      "name": "final_approve by 1 -> 200",
+      "status": "PASS"
+    },
+    {
+      "name": "Independent approvals retained",
+      "status": "PASS"
+    },
+    {
+      "name": "Approved content author edit accepted",
+      "status": "PASS"
+    },
+    {
+      "name": "Editing invalidates both approvals",
+      "status": "PASS"
+    },
+    {
+      "name": "publish by 1 -> 409",
+      "status": "PASS"
+    },
+    {
+      "name": "final_approve by 1 -> 409",
+      "status": "PASS"
+    },
+    {
+      "name": "submit by 4 -> 200",
+      "status": "PASS"
+    },
+    {
+      "name": "peer_approve by 9 -> 200",
+      "status": "PASS"
+    },
+    {
+      "name": "final_approve by 1 -> 200",
+      "status": "PASS"
+    },
+    {
+      "name": "publish by 1 -> 409",
+      "status": "PASS"
+    },
+    {
+      "name": "publish by 1 -> 200",
+      "status": "PASS"
+    },
+    {
+      "name": "New published policy visible",
+      "status": "PASS"
+    },
+    {
+      "name": "Publication decision notifies author",
+      "status": "PASS"
+    },
+    {
+      "name": "Published working copy immutable",
+      "status": "PASS"
+    },
+    {
+      "name": "Audit retains decisions, content snapshots, actors and time",
+      "status": "PASS"
+    },
+    {
+      "name": "Revision stores published baseline",
+      "status": "PASS"
+    },
+    {
+      "name": "Pulse provenance retained exactly",
+      "status": "PASS"
+    },
+    {
+      "name": "submit by 4 -> 200",
+      "status": "PASS"
+    },
+    {
+      "name": "peer_approve by 9 -> 200",
+      "status": "PASS"
+    },
+    {
+      "name": "final_approve by 1 -> 200",
+      "status": "PASS"
+    },
+    {
+      "name": "publish by 1 -> 409",
+      "status": "PASS"
+    },
+    {
+      "name": "publish by 9 -> 403",
+      "status": "PASS"
+    },
+    {
+      "name": "Future approved revision leaves published version available",
+      "status": "PASS"
+    },
+    {
+      "name": "Revision draft absent from employee policy versions",
+      "status": "PASS"
+    },
+    {
+      "name": "submit by 4 -> 200",
+      "status": "PASS"
+    },
+    {
+      "name": "peer_approve by 9 -> 200",
+      "status": "PASS"
+    },
+    {
+      "name": "final_approve by 1 -> 200",
+      "status": "PASS"
+    },
+    {
+      "name": "submit by 4 -> 200",
+      "status": "PASS"
+    },
+    {
+      "name": "peer_approve by 9 -> 200",
+      "status": "PASS"
+    },
+    {
+      "name": "final_approve by 1 -> 200",
+      "status": "PASS"
+    },
+    {
+      "name": "publish by 1 -> 200",
+      "status": "PASS"
+    },
+    {
+      "name": "Replacement published with complete old version history",
+      "status": "PASS"
+    },
+    {
+      "name": "publish by 1 -> 409",
+      "status": "PASS"
+    },
+    {
+      "name": "Unsafe Pulse URL rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "Pulse API preserved",
+      "status": "PASS"
+    },
+    {
+      "name": "Policy Assistant regression",
+      "status": "PASS"
+    },
+    {
+      "name": "Library search regression (offline ranking adapter)",
+      "status": "PASS"
+    },
+    {
+      "name": "Dashboard health retained",
+      "status": "PASS"
+    },
+    {
+      "name": "Policy Owners directory excludes employee/admin roles",
+      "status": "PASS"
+    },
+    {
+      "name": "Administrator can author in chosen department",
+      "status": "PASS"
+    },
+    {
+      "name": "submit by 1 -> 200",
+      "status": "PASS"
+    },
+    {
+      "name": "peer_approve by 9 -> 200",
+      "status": "PASS"
+    },
+    {
+      "name": "final_approve by 1 -> 403",
+      "status": "PASS"
+    },
+    {
+      "name": "final_changes by 2 -> 200",
+      "status": "PASS"
+    },
+    {
+      "name": "submit by 1 -> 200",
+      "status": "PASS"
+    },
+    {
+      "name": "peer_approve by 9 -> 403",
+      "status": "PASS"
+    },
+    {
+      "name": "peer_approve by 9 -> 200",
+      "status": "PASS"
+    },
+    {
+      "name": "final_approve by 2 -> 200",
+      "status": "PASS"
+    },
+    {
+      "name": "publish by 1 -> 403",
+      "status": "PASS"
+    },
+    {
+      "name": "publish by 2 -> 200",
+      "status": "PASS"
+    },
+    {
+      "name": "Administrator author publication assigns department Policy Owner",
+      "status": "PASS"
+    },
+    {
+      "name": "submit by 4 -> 200",
+      "status": "PASS"
+    },
+    {
+      "name": "peer_approve by 9 -> 200",
+      "status": "PASS"
+    },
+    {
+      "name": "final_approve by 1 -> 200",
+      "status": "PASS"
+    },
+    {
+      "name": "Injected transaction failure returned failure",
+      "status": "PASS"
+    },
+    {
+      "name": "Publication rollback preserves policy and workflow",
+      "status": "PASS"
+    },
+    {
+      "name": "Safety guard: no unexpected network/credential/external write attempts",
+      "status": "PASS",
+      "actual": []
+    }
+  ],
+  "passed": 103,
+  "failed": 0,
+  "blocked": 0,
+  "error": null
+}

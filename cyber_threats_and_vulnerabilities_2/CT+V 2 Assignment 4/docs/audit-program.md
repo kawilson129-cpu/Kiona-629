@@ -1,0 +1,36 @@
+# Security audit program
+
+## Charter, scope and independence
+
+Purpose: determine whether DeRexi's access, input, policy, feed, logging and dependency safeguards meet defined design criteria; identify operating-evidence gaps and prioritize treatment. Scope includes code-to-data trust boundaries and supplier/recovery/audit governance. Production access, live user changes, scanning, deployments and remediation are excluded from this engagement.
+
+The audit sponsor is a proposed Aurum audit-committee delegate. A reviewer independent of application development should approve scope, challenge risk assumptions and sign final findings. Platform, policy, SOC and supplier owners provide evidence but cannot approve their own finding closure. This agent-assisted assessment is a **development self-assessment**, not independent internal audit. No charter approval, owner interview or management representation occurred.
+
+The program uses examine/test/interview as procedure types, consistent with [NIST SP 800-53A Rev. 5](https://csrc.nist.gov/pubs/sp/800/53/a/r5/final). Examination and isolated tests occurred here; interviews, operating samples and independent review remain pending. Risk-based test frequency and independent testing/review support [12 CFR 30 Appendix B III.C.3](https://www.ecfr.gov/current/title-12/chapter-I/part-30/appendix-Appendix%20B%20to%20Part%2030). Organizational adoption cannot be inferred from a document.
+
+## Procedures and acceptance criteria
+
+| ID / objective | Procedure and sample population | Cadence / accountable owner | Evidence and acceptance |
+|---|---|---|---|
+| AP-01 Scope and risk completeness | Examine asset/dependency lists, data flows and prior open findings; reconcile risk IDs to owners and exclusions | Quarterly, before material release; audit lead | Scope, [register](risk-register.csv), dated source fingerprints; all in-scope assets addressed or explicit exclusions |
+| AP-02 Access enforcement | Test actual routes with anonymous, Employee, Owner and Admin identities, tampered/expired JWTs, cross-record and role-spoofing negatives; use valid positive controls | Each material release; platform security | Existing security fixture checks; 401/403/object scope as specified, legitimate allowed action, no unauthorized persisted mutation |
+| AP-03 Input and errors | Test authenticated invalid types/references/lengths, rejected input redaction and simulated DB failure; separately inspect document-resource evidence | Each release/parser change; API owner | Expected 422/403 and generic actionable 500; no private marker leak. Live database and native parser breadth separately qualified |
+| AP-04 Policy integrity | Test author/peer/Admin separation, revision conflicts, legacy-write bypass, approval without publication, explicit publication and forced rollback | Each workflow change; Maya's policy function plus platform | Existing governance lifecycle tests; approved Library stable until publish, rejected bypasses and atomic rollback |
+| AP-05 Pulse integrity | Test synthetic payloads, cache/dedupe, exact publisher hosts, suffix spoof and wrong GovDelivery tenant, with a valid-host positive control | Each source/parser change; Pulse owner | Offline checks plus focused negatives; all hostile hosts rejected without inventing live publisher health |
+| AP-06 Logging and response | Inspect generated structured events; test actor/action metadata, redaction, route templates, failure/denial events; request durable collector/triage samples | Release checks, proposed daily SOC review; Chris's SOC function | Local event assertions and sanitized fixture events. Operating acceptance needs retention/ACL/alert evidence and a reviewed incident example |
+| AP-07 Dependency and supplier security | Read installed versions and requirements; compare exact historical advisories, alias deduplication, provenance and AI/email data flows | Weekly advisory review, each build, annual supplier review; release/vendor owners | Inventory plus current version matches; fresh full deployed scan/hash lock/approved build required for closure |
+| AP-08 Recovery and independent follow-up | Examine backup design; request witnessed DB+originals restore and approved RTO/RPO; review overdue findings and exceptions | Proposed quarterly restore, quarterly audit follow-up; data owner/audit lead | Restore report, hashes and measured duration/data loss; absent evidence is BLOCKED, never PASS |
+
+Sampling is purposive control-path coverage, not statistical inference. Test module names, complete check names and source hashes are preserved. All assertions in the selected three existing suites execute; focused cases add adversarial host negatives. This is not a census of every route/role/condition, a full penetration test or proof of all six controls' operating effectiveness. Reused browser/parser evidence retains its original dates/platforms.
+
+## Evidence handling and decision workflow
+
+Use assignment-local UTC run folders, raw suite/process logs, per-check JSON, inventory, source fingerprints and manifests. Record command, expected result, actual status, environment, revision/hash, owner and limitation. Keep historical reports at their original locations; do not rewrite failure history. Synthetic identifiers/tokens stay labelled test-only. Do not capture credentials, `.env`, real incident bodies or private customer records.
+
+In a real audit, store restricted originals with role-based access, encryption, protected retention, legal hold and reviewable custody/access logs. Proposed retention is two years unless a legal/organizational schedule requires longer; it is not a verified retention control or a universal regulatory requirement. Local SHA-256 fingerprints detect drift but do not provide immutability or legal chain of custody by themselves. Findings referencing changed sources must be revalidated.
+
+Workflow: log finding → validate condition against criterion → classify severity/uncertainty → send proposed action to accountable owner → record management response → corrective change in separately authorized scope → independent retest → accept closure or time-limited exception. Statuses: OPEN, IN TREATMENT, RETEST, CLOSED, ACCEPTED EXCEPTION; only OPEN is used for current unresolved findings. No actual communication was sent.
+
+Escalation proposal: active unauthorized access or material exposure immediately to SOC and audit sponsor; Critical design/acceptance gap before activation; High findings to sponsor within one business day and treatment plan within seven days; Medium plan within 30 days. Legal/compliance determine actual notification duties and timelines from incident facts. Report unresolved Critical/High and expired exceptions to the committee monthly; full program/risk summary at least annually. These are proposed internal targets, not evidence that a bank has met them.
+
+Ongoing metrics: failures/attempted checks with denominators, blocked coverage, overdue findings by severity, new/closed/reopened counts, evidence freshness, time to validated closure and restore time/data loss. Do not report production detection rates, MTTR or SLA achievement without observations. A passing local test is not an elapsed period of compliant operation.

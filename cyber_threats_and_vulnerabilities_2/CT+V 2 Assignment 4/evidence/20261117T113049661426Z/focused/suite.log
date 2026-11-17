@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "C:\Users\kawil\Documents\Kiona-629\cyber_threats_and_vulnerabilities_2\CT+V 2 Assignment 4\src\run_audit.py", line 101, in child
+    article = make_article(title='Bank policy', url=url, published='2026-11-17', summary='A banking policy notice', source='FDIC')
+TypeError: make_article() got an unexpected keyword argument 'published'

@@ -1,0 +1,40 @@
+{
+  "generated_at": "2026-11-17T11:43:00.303158+00:00",
+  "checks": [
+    {
+      "name": "Complete reviewed runtime hash lock",
+      "status": "FAIL",
+      "actual": "Inspect requirements.txt; bounds are not a reproducible lock"
+    },
+    {
+      "name": "Historical affected-version condition: certifi",
+      "status": "FAIL",
+      "actual": {
+        "current": [
+          "2026.7.22"
+        ],
+        "historical": "2026.7.22",
+        "ids": [
+          "GHSA-6q48-6c7w-9gw2",
+          "PYSEC-2026-4320"
+        ]
+      },
+      "limit": "Version match only; live trust store or malicious index prerequisites untested"
+    },
+    {
+      "name": "Historical affected-version condition: pip",
+      "status": "FAIL",
+      "actual": {
+        "current": [
+          "26.1.2"
+        ],
+        "historical": "26.1.2",
+        "ids": [
+          "PYSEC-2026-3721",
+          "GHSA-qwm4-qh6w-59xr"
+        ]
+      },
+      "limit": "Version match only; live trust store or malicious index prerequisites untested"
+    }
+  ]
+}

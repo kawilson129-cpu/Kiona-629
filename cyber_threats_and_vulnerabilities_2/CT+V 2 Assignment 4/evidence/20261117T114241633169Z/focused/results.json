@@ -1,0 +1,40 @@
+{
+  "suite": "focused",
+  "started_at": "2026-11-17T11:42:58.782494+00:00",
+  "ended_at": "2026-11-17T11:43:00.087635+00:00",
+  "internal_transport": [],
+  "checks": [
+    {
+      "name": "FDIC unrelated host rejected",
+      "status": "PASS",
+      "actual": "rejected"
+    },
+    {
+      "name": "FDIC suffix spoof rejected",
+      "status": "PASS",
+      "actual": "rejected"
+    },
+    {
+      "name": "FDIC shared-host wrong tenant rejected",
+      "status": "PASS",
+      "actual": "rejected"
+    },
+    {
+      "name": "FDIC approved host positive control",
+      "status": "PASS"
+    },
+    {
+      "name": "Existing PostgreSQL tripwire refuses connection",
+      "status": "PASS"
+    },
+    {
+      "name": "Safety guard: no unexpected network/credential/external write attempts",
+      "status": "PASS",
+      "actual": []
+    }
+  ],
+  "passed": 6,
+  "failed": 0,
+  "blocked": 0,
+  "error": null
+}

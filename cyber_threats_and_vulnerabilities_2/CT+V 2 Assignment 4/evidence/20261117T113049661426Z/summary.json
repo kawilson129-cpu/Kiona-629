@@ -1,0 +1,137 @@
+{
+  "generated_at": "2026-11-17T11:31:09.326834+00:00",
+  "python": "3.14.6 (tags/v3.14.6:c63aec6, Jun 10 2026, 10:26:10) [MSC v.1944 64 bit (AMD64)]",
+  "suites": [
+    {
+      "suite": "security",
+      "command": [
+        "C:\\Users\\kawil\\Documents\\Kiona-629\\derexi-policy-pilot\\.venv\\Scripts\\python.exe",
+        "-B",
+        "C:\\Users\\kawil\\Documents\\Kiona-629\\cyber_threats_and_vulnerabilities_2\\CT+V 2 Assignment 4\\src\\run_audit.py",
+        "--child",
+        "security",
+        "C:\\Users\\kawil\\Documents\\Kiona-629\\cyber_threats_and_vulnerabilities_2\\CT+V 2 Assignment 4\\evidence\\20261117T113049661426Z\\security"
+      ],
+      "returncode": 1,
+      "seconds": 9.587,
+      "passed": 0,
+      "failed": 1,
+      "blocked": 1,
+      "results": "evidence\\20261117T113049661426Z\\security\\results.json"
+    },
+    {
+      "suite": "governance",
+      "command": [
+        "C:\\Users\\kawil\\Documents\\Kiona-629\\derexi-policy-pilot\\.venv\\Scripts\\python.exe",
+        "-B",
+        "C:\\Users\\kawil\\Documents\\Kiona-629\\cyber_threats_and_vulnerabilities_2\\CT+V 2 Assignment 4\\src\\run_audit.py",
+        "--child",
+        "governance",
+        "C:\\Users\\kawil\\Documents\\Kiona-629\\cyber_threats_and_vulnerabilities_2\\CT+V 2 Assignment 4\\evidence\\20261117T113049661426Z\\governance"
+      ],
+      "returncode": 1,
+      "seconds": 5.473,
+      "passed": 0,
+      "failed": 1,
+      "blocked": 1,
+      "results": "evidence\\20261117T113049661426Z\\governance\\results.json"
+    },
+    {
+      "suite": "pulse",
+      "command": [
+        "C:\\Users\\kawil\\Documents\\Kiona-629\\derexi-policy-pilot\\.venv\\Scripts\\python.exe",
+        "-B",
+        "C:\\Users\\kawil\\Documents\\Kiona-629\\cyber_threats_and_vulnerabilities_2\\CT+V 2 Assignment 4\\src\\run_audit.py",
+        "--child",
+        "pulse",
+        "C:\\Users\\kawil\\Documents\\Kiona-629\\cyber_threats_and_vulnerabilities_2\\CT+V 2 Assignment 4\\evidence\\20261117T113049661426Z\\pulse"
+      ],
+      "returncode": 0,
+      "seconds": 0.788,
+      "passed": 98,
+      "failed": 0,
+      "blocked": 0,
+      "results": "evidence\\20261117T113049661426Z\\pulse\\results.json"
+    },
+    {
+      "suite": "focused",
+      "command": [
+        "C:\\Users\\kawil\\Documents\\Kiona-629\\derexi-policy-pilot\\.venv\\Scripts\\python.exe",
+        "-B",
+        "C:\\Users\\kawil\\Documents\\Kiona-629\\cyber_threats_and_vulnerabilities_2\\CT+V 2 Assignment 4\\src\\run_audit.py",
+        "--child",
+        "focused",
+        "C:\\Users\\kawil\\Documents\\Kiona-629\\cyber_threats_and_vulnerabilities_2\\CT+V 2 Assignment 4\\evidence\\20261117T113049661426Z\\focused"
+      ],
+      "returncode": 1,
+      "seconds": 2.051,
+      "passed": 1,
+      "failed": 0,
+      "blocked": 1,
+      "results": "evidence\\20261117T113049661426Z\\focused\\results.json"
+    }
+  ],
+  "dependency_checks": [
+    {
+      "name": "Complete reviewed runtime hash lock",
+      "status": "FAIL",
+      "actual": "Inspect requirements.txt; bounds are not a reproducible lock"
+    },
+    {
+      "name": "Historical affected-version condition: certifi",
+      "status": "FAIL",
+      "actual": {
+        "current": [
+          "2026.7.22"
+        ],
+        "historical": "2026.7.22",
+        "ids": [
+          "GHSA-6q48-6c7w-9gw2",
+          "PYSEC-2026-4320"
+        ]
+      },
+      "limit": "Version match only; live trust store or malicious index prerequisites untested"
+    },
+    {
+      "name": "Historical affected-version condition: pip",
+      "status": "FAIL",
+      "actual": {
+        "current": [
+          "26.1.2"
+        ],
+        "historical": "26.1.2",
+        "ids": [
+          "PYSEC-2026-3721",
+          "GHSA-qwm4-qh6w-59xr"
+        ]
+      },
+      "limit": "Version match only; live trust store or malicious index prerequisites untested"
+    }
+  ],
+  "scope_blocks": [
+    {
+      "name": "Production Auth/RBAC/RLS and transport acceptance",
+      "status": "BLOCKED"
+    },
+    {
+      "name": "Durable monitoring and independent operating review",
+      "status": "BLOCKED"
+    },
+    {
+      "name": "Witnessed production recovery and RTO/RPO acceptance",
+      "status": "BLOCKED"
+    },
+    {
+      "name": "Full current deployed dependency/OS/container advisory and provenance review",
+      "status": "BLOCKED"
+    }
+  ],
+  "totals": {
+    "passed": 100,
+    "failed": 5,
+    "blocked": 7
+  },
+  "source_integrity": "source-integrity.json",
+  "historical_tests_rerun": false,
+  "note": "Existing suite code executed freshly; historical result files only referenced, never overwritten"
+}
