@@ -1,0 +1,28 @@
+[
+    {
+        "name":  "certifi",
+        "prior_version":  "2026.7.22",
+        "current_version":  [
+                                "2026.7.22"
+                            ],
+        "same_version":  true,
+        "advisory_ids":  [
+                             "GHSA-6q48-6c7w-9gw2",
+                             "PYSEC-2026-4320"
+                         ],
+        "scope":  "Historical registry match; current version comparison, not exploit verification"
+    },
+    {
+        "name":  "pip",
+        "prior_version":  "26.1.2",
+        "current_version":  [
+                                "26.1.2"
+                            ],
+        "same_version":  true,
+        "advisory_ids":  [
+                             "PYSEC-2026-3721",
+                             "GHSA-qwm4-qh6w-59xr"
+                         ],
+        "scope":  "Historical registry match; current version comparison, not exploit verification"
+    }
+]

@@ -1,0 +1,493 @@
+{
+    "generated_at":  "2026-11-17T06:11:09.8251541Z",
+    "collector_run":  "20261117T054916Z",
+    "scope":  "Artifact consistency only; no application execution",
+    "passed":  119,
+    "failed":  2,
+    "checks":  [
+                   {
+                       "name":  "Nonempty installed inventory",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Unique package identities",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Source unchanged: cyber_threats_and_vulnerabilities_2/Cyber Threats and Vulnerabilities 2 Tasks.pdf",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Source unchanged: cyber_threats_and_vulnerabilities_1/CT+V Assignment 1/DeRexi_APT38_FASTCash_Incident_MITRE_Report.pdf",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Source unchanged: cyber_threats_and_vulnerabilities_1/CT+V Assignment 1/Malware_Analysis_Threat_Dossier_k_php.pdf",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Source unchanged: cyber_threats_and_vulnerabilities_1/CT+V Assignment 2/DeRexi_Vulnerability_Assessment_Report.pdf",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Source unchanged: cyber_threats_and_vulnerabilities_2/CT+V 2 Assignment 2/closure/advisories/assessment.json",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Source unchanged: cyber_threats_and_vulnerabilities_2/CT+V 2 Assignment 2/control-assessment.md",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Source unchanged: derexi-policy-pilot/requirements.txt",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Source unchanged: derexi-policy-pilot/requirements-dev.txt",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Source unchanged: derexi-policy-pilot/backend/security.py",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Source unchanged: derexi-policy-pilot/backend/main.py",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Source unchanged: derexi-policy-pilot/backend/pulse/service.py",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Source unchanged: derexi-policy-pilot/backend/pulse/sources.py",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Source unchanged: derexi-policy-pilot/backend/ai.py",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Source unchanged: derexi-policy-pilot/backend/static/index.html",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Source unchanged: derexi-policy-pilot/backend/tests/test_week9_security.py",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Source unchanged: semester_5/DeRexi_Week 11/evidence/final-integration-20261112/security-results.json",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Source unchanged: semester_5/DeRexi_Week 11/evidence/final-integration-20261112/pulse-results.json",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Official rubric identity matches prior visual evidence",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Metadata fingerprint: annotated-doc",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Metadata fingerprint: annotated-types",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Metadata fingerprint: anyio",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Metadata fingerprint: certifi",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Metadata fingerprint: cffi",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Metadata fingerprint: click",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Metadata fingerprint: cryptography",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Metadata fingerprint: defusedxml",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Metadata fingerprint: fastapi",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Metadata fingerprint: h11",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Metadata fingerprint: httpcore",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Metadata fingerprint: httpcore2",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Metadata fingerprint: httptools",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Metadata fingerprint: httpx",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Metadata fingerprint: httpx2",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Metadata fingerprint: idna",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Metadata fingerprint: jiter",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Metadata fingerprint: openai",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Metadata fingerprint: opentelemetry-api",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Metadata fingerprint: pip",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Metadata fingerprint: psycopg2-binary",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Metadata fingerprint: pycparser",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Metadata fingerprint: pydantic",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Metadata fingerprint: pydantic_core",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Metadata fingerprint: PyJWT",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Metadata fingerprint: pypdf",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Metadata fingerprint: python-dotenv",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Metadata fingerprint: PyYAML",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Metadata fingerprint: sniffio",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Metadata fingerprint: SQLAlchemy",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Metadata fingerprint: starlette",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Metadata fingerprint: truststore",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Metadata fingerprint: typing_extensions",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Metadata fingerprint: typing-inspection",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Metadata fingerprint: uvicorn",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Metadata fingerprint: watchfiles",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Metadata fingerprint: websockets",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Outcome count PASS",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Outcome count FAIL",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Outcome count BLOCKED",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Two historical advisory package matches retained",
+                       "status":  "FAIL"
+                   },
+                   {
+                       "name":  "Advisory version equality: certifi pip",
+                       "status":  "FAIL"
+                   },
+                   {
+                       "name":  "Deliverable exists: README.md",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Deliverable exists: docs/rubric-checklist.md",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Deliverable exists: docs/implementation.md",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Deliverable exists: docs/apt-campaign-analysis.md",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Deliverable exists: docs/malware-analysis.md",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Deliverable exists: docs/zero-day-research.md",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Deliverable exists: docs/supply-chain-assessment.md",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Deliverable exists: docs/final-summary.md",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Deliverable exists: docs/progress.md",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Local link: README.md -\u003e docs/rubric-checklist.md",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Local link: README.md -\u003e docs/final-summary.md",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Local link: README.md -\u003e docs/apt-campaign-analysis.md",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Local link: README.md -\u003e docs/malware-analysis.md",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Local link: README.md -\u003e docs/zero-day-research.md",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Local link: README.md -\u003e docs/supply-chain-assessment.md",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Local link: README.md -\u003e docs/implementation.md",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Local link: README.md -\u003e docs/progress.md",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Local link: README.md -\u003e evidence/index.md",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Local link: apt-campaign-analysis.md -\u003e malware-analysis.md",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Local link: apt-campaign-analysis.md -\u003e ../../../cyber_threats_and_vulnerabilities_1/CT+V Assignment 1/DeRexi_APT38_FASTCash_Incident_MITRE_Report.pdf",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Local link: final-summary.md -\u003e rubric-checklist.md",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Local link: implementation.md -\u003e progress.md",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Local link: implementation.md -\u003e ../evidence/research-ledger.md",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Local link: implementation.md -\u003e ../evidence/index.md",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Local link: malware-analysis.md -\u003e ../evidence/index.md",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Local link: malware-analysis.md -\u003e ../../../cyber_threats_and_vulnerabilities_1/CT+V Assignment 1/Malware_Analysis_Threat_Dossier_k_php.pdf",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Local link: rubric-checklist.md -\u003e ../../Cyber Threats and Vulnerabilities 2 Tasks.pdf",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Local link: rubric-checklist.md -\u003e ../../CT+V 2 Assignment 3/evidence/official-rubric-page1.png",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Local link: rubric-checklist.md -\u003e ../../CT+V 2 Assignment 3/evidence/rubric-source.json",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Local link: rubric-checklist.md -\u003e apt-campaign-analysis.md",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Local link: rubric-checklist.md -\u003e malware-analysis.md",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Local link: rubric-checklist.md -\u003e apt-campaign-analysis.md",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Local link: rubric-checklist.md -\u003e zero-day-research.md",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Local link: rubric-checklist.md -\u003e supply-chain-assessment.md",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Local link: rubric-checklist.md -\u003e ../evidence/index.md",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Local link: rubric-checklist.md -\u003e implementation.md",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Local link: rubric-checklist.md -\u003e malware-analysis.md",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Local link: rubric-checklist.md -\u003e supply-chain-assessment.md",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Local link: supply-chain-assessment.md -\u003e ../evidence/index.md",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Local link: supply-chain-assessment.md -\u003e ../../../derexi-policy-pilot/requirements.txt",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Local link: supply-chain-assessment.md -\u003e ../../../derexi-policy-pilot/backend/ai.py",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Local link: supply-chain-assessment.md -\u003e ../../../derexi-policy-pilot/backend/pulse/sources.py",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Local link: supply-chain-assessment.md -\u003e ../../../derexi-policy-pilot/backend/pulse/service.py",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Local link: supply-chain-assessment.md -\u003e ../../../derexi-policy-pilot/backend/security.py",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Local link: supply-chain-assessment.md -\u003e ../../../derexi-policy-pilot/backend/static/index.html",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Local link: supply-chain-assessment.md -\u003e ../../CT+V 2 Assignment 2/closure/advisories/assessment.json",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Local link: supply-chain-assessment.md -\u003e ../../../semester_5/DeRexi_Week 11/evidence/final-integration-20261112/security-results.json",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Local link: supply-chain-assessment.md -\u003e ../../../semester_5/DeRexi_Week 11/evidence/final-integration-20261112/pulse-results.json",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Local link: supply-chain-assessment.md -\u003e implementation.md",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Local link: supply-chain-assessment.md -\u003e ../evidence/index.md",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Local link: zero-day-research.md -\u003e ../evidence/research-ledger.md",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Local link: index.md -\u003e latest-run.txt",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Local link: index.md -\u003e 20261117T054916Z/results.json",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Local link: index.md -\u003e 20261117T054916Z/inventory.json",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Local link: index.md -\u003e 20261117T054916Z/source-hashes.json",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Local link: index.md -\u003e 20261117T054916Z/historical-advisory-comparison.json",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Local link: index.md -\u003e 20261117T054916Z/sample-search.json",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Local link: index.md -\u003e research-ledger.md",
+                       "status":  "PASS"
+                   },
+                   {
+                       "name":  "Local link: index.md -\u003e ../docs/final-summary.md",
+                       "status":  "PASS"
+                   }
+               ]
+}

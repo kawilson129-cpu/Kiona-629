@@ -1,0 +1,7 @@
+{
+    "method":  "git ls-files known binary/script extensions plus prior rg --files review; excludes ignored/untracked locations and archives",
+    "candidates":  [
+
+                   ],
+    "conclusion":  "No raw sample identified in reviewed coursework; not an exhaustive filesystem forensic search"
+}

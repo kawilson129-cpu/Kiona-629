@@ -1,0 +1,54 @@
+{
+    "generated_at":  "2026-11-17T05:49:22.0290353Z",
+    "command":  "powershell -NoProfile -ExecutionPolicy Bypass -File src/collect.ps1",
+    "checks":  [
+                   {
+                       "id":  "INV-01",
+                       "status":  "PASS",
+                       "actual":  "37 distributions read without importing packages"
+                   },
+                   {
+                       "id":  "SC-LOCK",
+                       "status":  "FAIL",
+                       "actual":  "Runtime requirements contain lower bounds and no complete hash lock"
+                   },
+                   {
+                       "id":  "SC-ADVISORY-certifi",
+                       "status":  "FAIL",
+                       "actual":  "{\"name\":\"certifi\",\"prior_version\":\"2026.7.22\",\"current_version\":[\"2026.7.22\"],\"same_version\":true,\"advisory_ids\":[\"GHSA-6q48-6c7w-9gw2\",\"PYSEC-2026-4320\"],\"scope\":\"Historical registry match; current version comparison, not exploit verification\"}"
+                   },
+                   {
+                       "id":  "SC-ADVISORY-pip",
+                       "status":  "FAIL",
+                       "actual":  "{\"name\":\"pip\",\"prior_version\":\"26.1.2\",\"current_version\":[\"26.1.2\"],\"same_version\":true,\"advisory_ids\":[\"PYSEC-2026-3721\",\"GHSA-qwm4-qh6w-59xr\"],\"scope\":\"Historical registry match; current version comparison, not exploit verification\"}"
+                   },
+                   {
+                       "id":  "PRIOR-security",
+                       "status":  "PASS",
+                       "actual":  "Reused November 12 record: 88 pass / 0 fail; NOT rerun"
+                   },
+                   {
+                       "id":  "PRIOR-pulse",
+                       "status":  "PASS",
+                       "actual":  "Reused November 12 record: 97 pass / 0 fail; NOT rerun"
+                   },
+                   {
+                       "id":  "LIVE-SECURITY",
+                       "status":  "BLOCKED",
+                       "actual":  "No current production/runtime verification authorized or performed; prior isolated tests cannot prove live protection"
+                   },
+                   {
+                       "id":  "MALWARE-ORIGINAL",
+                       "status":  "BLOCKED",
+                       "actual":  "No authorized raw sample identified; secondary published technical analysis selected"
+                   },
+                   {
+                       "id":  "PROVENANCE",
+                       "status":  "BLOCKED",
+                       "actual":  "INSTALLER/RECORD metadata is not cryptographic publisher provenance; original wheel attestations absent"
+                   }
+               ],
+    "pass":  3,
+    "fail":  3,
+    "blocked":  3
+}

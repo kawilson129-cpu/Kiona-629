@@ -1,0 +1,70 @@
+[
+    {
+        "path":  "cyber_threats_and_vulnerabilities_2/Cyber Threats and Vulnerabilities 2 Tasks.pdf",
+        "sha256":  "5961118200fea38c10c2e9cf1d4aa6685c6f5750ddbcc44082c5ebcd9351f07b"
+    },
+    {
+        "path":  "cyber_threats_and_vulnerabilities_1/CT+V Assignment 1/DeRexi_APT38_FASTCash_Incident_MITRE_Report.pdf",
+        "sha256":  "9db1d43cb59ca0ee5a15e535d4ff6930c5daeccde6dd09803ccec2ee869f1af1"
+    },
+    {
+        "path":  "cyber_threats_and_vulnerabilities_1/CT+V Assignment 1/Malware_Analysis_Threat_Dossier_k_php.pdf",
+        "sha256":  "87c54debab9ed245fc51357365c8459430e5bf49a7ffeb9ea34814eaae6bdb37"
+    },
+    {
+        "path":  "cyber_threats_and_vulnerabilities_1/CT+V Assignment 2/DeRexi_Vulnerability_Assessment_Report.pdf",
+        "sha256":  "a85a37170ed7e148b43690df4448e2d82ed9b647a3857edba6752137191f5b17"
+    },
+    {
+        "path":  "cyber_threats_and_vulnerabilities_2/CT+V 2 Assignment 2/closure/advisories/assessment.json",
+        "sha256":  "a4c9ef4adbb9f0ea0334157e6e443d6ead2db46b2c6f4468ee5afc634b4d81b5"
+    },
+    {
+        "path":  "cyber_threats_and_vulnerabilities_2/CT+V 2 Assignment 2/control-assessment.md",
+        "sha256":  "2f6d395c3c5b3c147a8837174e8dc8a72ca1eed3b57648a114e0cd160ec5b113"
+    },
+    {
+        "path":  "derexi-policy-pilot/requirements.txt",
+        "sha256":  "8b96960872484de172a5beed41c862542531446ba5dad92cb5c548ce967acfe4"
+    },
+    {
+        "path":  "derexi-policy-pilot/requirements-dev.txt",
+        "sha256":  "ac832d7937a6a20aab3206c37c67a964803ea9e13188dd5863ddf34f31d93332"
+    },
+    {
+        "path":  "derexi-policy-pilot/backend/security.py",
+        "sha256":  "79c061268d5641812788de37a31551d3ecf8a9c1e2eb1d5940706d91173fad4d"
+    },
+    {
+        "path":  "derexi-policy-pilot/backend/main.py",
+        "sha256":  "d0fdb884bdee72b4ef59a21ca669f8d77b23b410016c342f38d225cca76d43fc"
+    },
+    {
+        "path":  "derexi-policy-pilot/backend/pulse/service.py",
+        "sha256":  "2ebd8acc109d513ef6e2f3c1eb9df01af5cc47dff687e0f1a23b1470a09d98dd"
+    },
+    {
+        "path":  "derexi-policy-pilot/backend/pulse/sources.py",
+        "sha256":  "60407c7d9663d3cca7be12b816b03def5c23c41a0f8ceb87461526ff8ae87b35"
+    },
+    {
+        "path":  "derexi-policy-pilot/backend/ai.py",
+        "sha256":  "53d46c3848d3609e62d0b5f54f80b824956fe092c3a19187f9fb2af3c09ddca6"
+    },
+    {
+        "path":  "derexi-policy-pilot/backend/static/index.html",
+        "sha256":  "0fd391f8192d130fd2448b57bdc4e4b32aa1883d54f35d61992ccbc2de93a2df"
+    },
+    {
+        "path":  "derexi-policy-pilot/backend/tests/test_week9_security.py",
+        "sha256":  "baac45fa6ae82c4260b2536e64fab31fcbbac756e51095761aeafafdeda9daea"
+    },
+    {
+        "path":  "semester_5/DeRexi_Week 11/evidence/final-integration-20261112/security-results.json",
+        "sha256":  "65bc650a9f00aee4455e2ae0b28e54f18426af8f86068f608ed3fe887c054f8b"
+    },
+    {
+        "path":  "semester_5/DeRexi_Week 11/evidence/final-integration-20261112/pulse-results.json",
+        "sha256":  "8c02773f889774bff148ed8e457e949b1a12dd28cb11f58714e4d568bc2d87b3"
+    }
+]

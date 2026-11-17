@@ -1,0 +1,250 @@
+  MALWARE ANALYSIS
+
+THREAT
+DOSSIER
+
+ Linux Shell-Script Dropper // "k.php"
+
+   SHA-256
+   02aac4d201886e01abd2e3d42a20edcb4e6c2381549de19df0b9166607cd3f51
+   Assessment: HIGH RISK · Linux · Dropper · Persistence · Credential Access · Defense Evasion
+
+       ANALYST NOTE The sample is best described as a malicious Linux shell-script dropper with Trojan-like
+       behavior. An exact malware family is not consistently established across the public sources: MalwareBazaar lists
+       the threat as unknown, Hatching Triage reports no family, while ReversingLabs labels it Linux.Trojan.Egairtigado.
+Prepared from MalwareBazaar intelligence, linked sandbox results, the supplied VirusTotal behavior reference, and provided
+screenshots.
+
+                                             MALWARE ANALYSIS // SHA256 02aac4d2...cd3f51 | Educational Threat Intelligence Report
+01 // EXECUTIVE SUMMARY
+
+What is this malware?
+
+A concise technical interpretation of the selected sample and why it matters.
+
+The selected file, k.php, is not actually a PHP web file based on its detected content. MalwareBazaar identifies it as
+a Linux/UNIX shell script (MIME type text/x-shellscript). This mismatch is consistent with masquerading: the
+filename looks like one type of file while the content behaves as another.
+
+The sample functions as a dropper -- a small first-stage program whose job is to fetch or place additional
+malicious content on a system. MalwareBazaar reports that it uses standard command-line download utilities such
+as wget, ftpget, curl, and associates it with the remote URL http://160.119.69.4/x.
+
+       BOTTOM LINE This is not merely a suspicious script. Multiple independent engines classify it as malicious, and
+       sandbox behavior shows capabilities tied to persistence, system discovery, credential access, privilege
+       escalation, defense evasion, and modification of security-relevant Linux files.
+
+Sample attribute  Observed value
+Filename
+Actual file type  k.php
+Size
+First seen        Linux/UNIX shell script (.sh)
+SHA-256           50,071 bytes
+                  2026-08-27 10:04:48 UTC
+Delivery
+Role              02aac4d201886e01abd2e3d42a20edcb4e6c2381549de19df0b916
+Exact family      6607cd3f51
+
+                  Web download
+                  Shell-script dropper / Trojan-like activity
+                  Unconfirmed / inconsistent across vendors
+
+                  MALWARE ANALYSIS // SHA256 02aac4d2...cd3f51 | Educational Threat Intelligence Report
+02 // DETECTION RESULTS
+
+How strongly is it detected?
+
+Cross-vendor results show a strong malicious consensus, although one engine scored the file as legitimate.
+
+Source / engine        Result                Score / confidence        Interpretation
+
+MalwareBazaar          Vendor detections: 6  Threat listed as unknown  Repository has multiple
+FileScan.IO            Malicious             10/10; 100% confidence    detections but does not assign
+                                                                       one definitive family.
+Kaspersky OpenTIP      Malicious             ~10 hits
+Nucleon Malprob        Malware               92%                       Very strong malicious verdict;
+ReversingLabs          Malicious             13/24 AV; threat 5/5      tags include base64, bash,
+Hatching Triage        Malicious             8/10                      evasive, LOLBin, masquerade,
+                                                                       obfuscated.
+ClamAV / SecuriteInfo  Detected              BackDoor signature
+YOROI YOMI             Legit                 0.19                      Confirms malicious Unix shell
+                                                                       sample.
+
+                                                                       High probabilistic confidence that
+                                                                       the script is malware.
+
+                                                                       Labels sample
+                                                                       Linux.Trojan.Egairtigado.
+
+                                                                       Behavioral sandbox flags
+                                                                       persistence, credential access,
+                                                                       evasion, discovery, execution and
+                                                                       privilege escalation.
+
+                                                                       Signature-based detection
+                                                                       consistent with backdoor-like
+                                                                       functionality.
+
+                                                                       Outlier result; demonstrates why
+                                                                       one engine alone should not
+                                                                       determine final verdict.
+
+DETECTION ASSESSMENT The evidence supports a HIGH-confidence malicious classification. The strongest
+basis is not one vendor name; it is the convergence of static signatures, high-confidence vendor verdicts, and
+observed sandbox behaviors.
+
+VirusTotal note: The supplied VirusTotal Behavior URL is included as a reference source. In this report, behavior
+details are attributed to the publicly retrievable sandbox intelligence surfaced through MalwareBazaar/Hatching
+Triage rather than inventing VirusTotal-specific observations that were not exposed by the public web page.
+
+                       MALWARE ANALYSIS // SHA256 02aac4d2...cd3f51 | Educational Threat Intelligence Report
+03 // BEHAVIORAL INDICATORS
+
+What does it do after execution?
+
+Observed actions grouped into an attack story instead of a raw list.
+
+1. Reconnaissance / Discovery
+Enumerates kernel and hardware configuration, reads runtime system information, checks CPU configuration,
+discovers network configuration, and enumerates running processes. This helps the malware understand the host
+and may also support anti-analysis decisions.
+2. Payload Staging / Execution
+Writes files into temporary directories and can deobfuscate or decode information. The YARA match specifically
+flags suspicious Base64-encoded shell command execution, suggesting that commands or payloads may be
+hidden from casual inspection.
+3. Persistence
+Creates or modifies cron jobs, Bash startup files, desktop-entry files, environment variables, and rc scripts. These
+locations can cause malicious commands to run again at login, startup, or on a schedule.
+4. Credential & Account Access
+Sandbox reporting includes OS credential dumping, modification of password files, and creation of a system user.
+These actions can help an attacker obtain credentials or maintain an alternate login path.
+5. Privilege / Permission Changes
+The sample modifies file and directory permissions. Combined with user/password-file changes, this can weaken
+host controls or enable continued access.
+6. Defense Evasion / Evidence Removal
+Deletes audit logs and system logs and exhibits obfuscated / evasive characteristics. This can reduce forensic
+visibility and make incident reconstruction more difficult.
+7. Secondary Payload Retrieval
+MalwareBazaar identifies the script as a dropper and associates it with a web-download URL. This means the first-
+stage script may be only the beginning of the compromise; subsequent payloads can expand the attack.
+
+                                             MALWARE ANALYSIS // SHA256 02aac4d2...cd3f51 | Educational Threat Intelligence Report
+04 // POTENTIAL IMPACT
+
+Why these behaviors matter
+
+Likely consequences if the script executes successfully on a Linux endpoint or server.
+
+Risk area                        Potential consequence
+
+Credential compromise            Credential dumping and password-file modification could expose
+Persistent unauthorized access   or alter local account credentials.
+System integrity loss
+Reduced forensic visibility      Cron, startup-script, rc-script, desktop-entry and account
+Additional malware infection     changes can allow the attacker to survive reboot or user logon.
+
+Operational disruption           Permission changes and user/account modifications can
+                                 undermine normal security boundaries.
+
+                                 Deletion of audit and system logs can hide attacker activity and
+                                 delay incident response.
+
+                                 As a dropper, the sample can retrieve another payload, meaning
+                                 the eventual impact may exceed what is visible in the first-stage
+                                 script.
+
+                                 Changes to system configuration, startup behavior, accounts and
+                                 permissions can destabilize services or force system
+                                 rebuild/recovery.
+
+Important limitation: The public evidence reviewed does not prove that this sample performed ransomware
+encryption or confirmed outbound data exfiltration. Those impacts should not be claimed without additional packet
+captures, decoded payload analysis, or sandbox evidence.
+
+Indicators of Compromise (IOCs)  Value
+
+ IOC type                        02aac4d201886e01abd2e3d42a20edcb4e6c2381549de19df0b9166607cd3f51
+                                 ae23265a6c8bc1553a15bb396bba134cd71408a8
+ SHA-256                         1c5901d763f5f0c1c3066a488b5f1aa7
+ SHA-1                           k.php
+ MD5                             http://160.119.69.4/x
+ Filename                        349c388f5bbdec382ea492b442f5f595792c55a6b0270b77e8aa77934e841f03
+ Observed download URL           17a28d4f0fe20d786693a9d0c5aaccaa
+ Dropped SHA-256                 SUSP_LNX_Base64_Exec_Apr24
+ Dropped MD5
+ YARA rule
+
+MALWARE ANALYSIS // SHA256 02aac4d2...cd3f51 | Educational Threat Intelligence Report
+05 // ANALYST CONCLUSION
+
+Final assessment
+
+A submission-ready interpretation tied directly to the assignment criteria.
+
+Classification: Malicious Linux shell-script dropper / Trojan-like script -- HIGH RISK.
+The sample demonstrates a layered attack pattern. It first uses a lightweight shell script and common Linux utilities
+to stage or retrieve payloads. It then performs host discovery, alters persistence mechanisms, modifies users and
+password-related files, changes permissions, and removes logs. These behaviors would give an attacker multiple
+ways to maintain access while reducing visibility into the compromise.
+The most important analytical point is that the filename alone is misleading: although the file is named k.php,
+automated file identification detects a shell script. That mismatch, plus Base64/obfuscation indicators and the use
+of ordinary system utilities, supports a defense-evasion / masquerading interpretation.
+
+       ASSIGNMENT CRITERIA CHECK Detection results documented  | Behavioral indicators documented  |
+       Potential impact explained  | Malware sample identified by hash  | VirusTotal behavior reference included
+       
+
+Suggested defensive response
+
+ · Isolate any host where the sample hash or associated dropped-file hashes are found.
+ · Block or investigate the observed download infrastructure and review proxy/DNS logs for related access.
+ · Review cron jobs, Bash startup files, rc scripts, desktop entries, environment variables, users, groups and
+
+    password files for unauthorized changes.
+ · Preserve remaining logs and collect volatile evidence quickly because the malware is reported to delete
+
+    audit/system logs.
+ · Hunt enterprise-wide using the SHA-256/MD5 indicators and the YARA rule, then examine any secondary
+
+    payloads separately.
+
+                                             MALWARE ANALYSIS // SHA256 02aac4d2...cd3f51 | Educational Threat Intelligence Report
+06 // EVIDENCE GALLERY
+
+Screenshots supplied for the analysis
+
+Visual evidence from the assignment criteria and MalwareBazaar sample intelligence.
+
+               Figure 1. Assignment criteria: malware analysis must document detection results, behavioral indicators and potential impact.
+
+                           Figure 2. MalwareBazaar browse view showing the selected shell-script sample among recent submissions.
+
+                                        Figure 3. Sample identity: filename k.php, 50,071 bytes, shell-script MIME/type metadata.
+                                             MALWARE ANALYSIS // SHA256 02aac4d2...cd3f51 | Educational Threat Intelligence Report
+           Figure 4. Intelligence panel: one upload, multiple downloads, origin country shown as Germany (DE).
+Figure 5. YARA signature: SUSP_LNX_Base64_Exec_Apr24, identifying suspicious Base64-encoded shell commands.
+
+                       MALWARE ANALYSIS // SHA256 02aac4d2...cd3f51 | Educational Threat Intelligence Report
+07 // SOURCES & METHOD
+
+References used
+
+Public intelligence was correlated; no malware sample was executed or downloaded for this report.
+MalwareBazaar sample record
+
+https://bazaar.abuse.ch/sample/02aac4d201886e01abd2e3d42a20edcb4e6c2381549de19df0b9166607cd3f51/
+
+VirusTotal behavior reference supplied with assignment
+
+https://www.virustotal.com/gui/file/02aac4d201886e01abd2e3d42a20edcb4e6c2381549de19df0b9166607cd3f51/behavior
+
+Hatching Triage report (linked from MalwareBazaar intelligence)
+
+https://tria.ge/reports/260827-l4nwbafq6w/
+
+       METHODOLOGY This report uses open-source threat intelligence and screenshots only. The sample itself was
+       not downloaded, opened, decoded, or executed. Conclusions distinguish directly observed public findings from
+       analyst interpretation and avoid claiming an exact family where sources disagree.
+
+                                             MALWARE ANALYSIS // SHA256 02aac4d2...cd3f51 | Educational Threat Intelligence Report
+

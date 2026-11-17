@@ -1,0 +1,589 @@
+{
+    "generated_at":  "2026-11-17T05:49:20.4878903Z",
+    "method":  "Read distribution metadata only; no imports, installs, app calls or environment secrets",
+    "packages":  [
+                     {
+                         "name":  "annotated-doc",
+                         "version":  "0.0.5",
+                         "requires":  [
+
+                                      ],
+                         "metadata_sha256":  "8c24d70c5d9153d22123353a906042fd7603df2d15c2196290b0f8a962558c46",
+                         "installer":  "pip",
+                         "direct_url_present":  false,
+                         "record_present":  true
+                     },
+                     {
+                         "name":  "annotated-types",
+                         "version":  "0.8.0",
+                         "requires":  [
+
+                                      ],
+                         "metadata_sha256":  "614985b278f601b8ef863f82783b991cc3ada4b89f592eb71c7c48c5f2ef2298",
+                         "installer":  "pip",
+                         "direct_url_present":  false,
+                         "record_present":  true
+                     },
+                     {
+                         "name":  "anyio",
+                         "version":  "4.15.1",
+                         "requires":  [
+                                          "exceptiongroup\u003e=1.0.2; python_version \u003c \"3.11\"",
+                                          "idna\u003e=2.8",
+                                          "typing_extensions\u003e=4.16.0; python_version \u003c \"3.15\"",
+                                          "trio\u003e=0.32.0; extra == \"trio\""
+                                      ],
+                         "metadata_sha256":  "043aecb571af7189e8a6c528f5d8e32545f1b2cdfaaf761d51e6d5b67ea3ca81",
+                         "installer":  "pip",
+                         "direct_url_present":  false,
+                         "record_present":  true
+                     },
+                     {
+                         "name":  "certifi",
+                         "version":  "2026.7.22",
+                         "requires":  [
+
+                                      ],
+                         "metadata_sha256":  "ef5af1638fbb23676ac3c5777dfcfc2cd9c348fe4172ed5ba3d277655b248090",
+                         "installer":  "pip",
+                         "direct_url_present":  false,
+                         "record_present":  true
+                     },
+                     {
+                         "name":  "cffi",
+                         "version":  "2.1.1",
+                         "requires":  [
+                                          "pycparser; implementation_name != \"PyPy\""
+                                      ],
+                         "metadata_sha256":  "67b6a7595df7ede2195016a05d285faa7d362a8f57c238984edb8bb674b5770d",
+                         "installer":  "pip",
+                         "direct_url_present":  false,
+                         "record_present":  true
+                     },
+                     {
+                         "name":  "click",
+                         "version":  "8.5.0",
+                         "requires":  [
+
+                                      ],
+                         "metadata_sha256":  "e87bce0bd194de70dfb8e708e0a6b0483009f25611804eaf87bfeb63e6c20501",
+                         "installer":  "pip",
+                         "direct_url_present":  false,
+                         "record_present":  true
+                     },
+                     {
+                         "name":  "cryptography",
+                         "version":  "50.0.2",
+                         "requires":  [
+                                          "cffi\u003e=2.0.0 ; platform_python_implementation != \u0027PyPy\u0027",
+                                          "typing-extensions\u003e=4.13.2 ; python_full_version \u003c \u00273.11\u0027",
+                                          "bcrypt\u003e=3.1.5 ; extra == \u0027ssh\u0027"
+                                      ],
+                         "metadata_sha256":  "047cfc71226409de4318b360aef15c63a2adf609731e3dcf7fe932f14ea042ee",
+                         "installer":  "pip",
+                         "direct_url_present":  false,
+                         "record_present":  true
+                     },
+                     {
+                         "name":  "defusedxml",
+                         "version":  "0.7.1",
+                         "requires":  [
+
+                                      ],
+                         "metadata_sha256":  "369d3cef64870daf849fba711cb8d05a7efe3c8d9ab0f763adc34079fe378bb1",
+                         "installer":  "pip",
+                         "direct_url_present":  false,
+                         "record_present":  true
+                     },
+                     {
+                         "name":  "fastapi",
+                         "version":  "0.143.0",
+                         "requires":  [
+                                          "starlette\u003e=0.46.0",
+                                          "pydantic\u003e=2.9.0",
+                                          "typing-extensions\u003e=4.8.0",
+                                          "typing-inspection\u003e=0.4.2",
+                                          "annotated-doc\u003e=0.0.2",
+                                          "opentelemetry-api\u003e=1.44.0",
+                                          "opentelemetry-sdk\u003e=1.44.0; extra == \"opentelemetry\"",
+                                          "opentelemetry-exporter-otlp-proto-http\u003e=1.44.0; extra == \"opentelemetry\"",
+                                          "opentelemetry-sdk\u003e=1.44.0; extra == \"standard\"",
+                                          "opentelemetry-exporter-otlp-proto-http\u003e=1.44.0; extra == \"standard\"",
+                                          "fastapi-cli[standard]\u003e=0.0.32; extra == \"standard\"",
+                                          "fastar\u003e=0.9.0; extra == \"standard\"",
+                                          "httpx\u003c1.0.0,\u003e=0.23.0; extra == \"standard\"",
+                                          "jinja2\u003e=3.1.5; extra == \"standard\"",
+                                          "python-multipart\u003e=0.0.18; extra == \"standard\"",
+                                          "email-validator\u003e=2.0.0; extra == \"standard\"",
+                                          "uvicorn[standard]\u003e=0.12.0; extra == \"standard\"",
+                                          "pydantic-settings\u003e=2.0.0; extra == \"standard\"",
+                                          "pydantic-extra-types\u003e=2.0.0; extra == \"standard\"",
+                                          "opentelemetry-sdk\u003e=1.44.0; extra == \"standard-no-fastapi-cloud-cli\"",
+                                          "opentelemetry-exporter-otlp-proto-http\u003e=1.44.0; extra == \"standard-no-fastapi-cloud-cli\"",
+                                          "fastapi-cli[standard-no-fastapi-cloud-cli]\u003e=0.0.32; extra == \"standard-no-fastapi-cloud-cli\"",
+                                          "httpx\u003c1.0.0,\u003e=0.23.0; extra == \"standard-no-fastapi-cloud-cli\"",
+                                          "jinja2\u003e=3.1.5; extra == \"standard-no-fastapi-cloud-cli\"",
+                                          "python-multipart\u003e=0.0.18; extra == \"standard-no-fastapi-cloud-cli\"",
+                                          "email-validator\u003e=2.0.0; extra == \"standard-no-fastapi-cloud-cli\"",
+                                          "uvicorn[standard]\u003e=0.12.0; extra == \"standard-no-fastapi-cloud-cli\"",
+                                          "pydantic-settings\u003e=2.0.0; extra == \"standard-no-fastapi-cloud-cli\"",
+                                          "pydantic-extra-types\u003e=2.0.0; extra == \"standard-no-fastapi-cloud-cli\"",
+                                          "opentelemetry-sdk\u003e=1.44.0; extra == \"all\"",
+                                          "opentelemetry-exporter-otlp-proto-http\u003e=1.44.0; extra == \"all\"",
+                                          "fastapi-cli[standard]\u003e=0.0.32; extra == \"all\"",
+                                          "httpx\u003c1.0.0,\u003e=0.23.0; extra == \"all\"",
+                                          "jinja2\u003e=3.1.5; extra == \"all\"",
+                                          "python-multipart\u003e=0.0.18; extra == \"all\"",
+                                          "itsdangerous\u003e=1.1.0; extra == \"all\"",
+                                          "pyyaml\u003e=5.3.1; extra == \"all\"",
+                                          "email-validator\u003e=2.0.0; extra == \"all\"",
+                                          "uvicorn[standard]\u003e=0.12.0; extra == \"all\"",
+                                          "pydantic-settings\u003e=2.0.0; extra == \"all\"",
+                                          "pydantic-extra-types\u003e=2.0.0; extra == \"all\""
+                                      ],
+                         "metadata_sha256":  "1bfa2ecf35ea529d68e56c195c5a4cee7864335d24bcc4a76cf40d7a71edc6e9",
+                         "installer":  "pip",
+                         "direct_url_present":  false,
+                         "record_present":  true
+                     },
+                     {
+                         "name":  "h11",
+                         "version":  "0.16.0",
+                         "requires":  [
+
+                                      ],
+                         "metadata_sha256":  "28f326098ac09fcba79b8f180f96087c841fe2456215cb7b872a9c7d5cd19d64",
+                         "installer":  "pip",
+                         "direct_url_present":  false,
+                         "record_present":  true
+                     },
+                     {
+                         "name":  "httpcore",
+                         "version":  "1.0.9",
+                         "requires":  [
+                                          "certifi",
+                                          "h11\u003e=0.16",
+                                          "anyio\u003c5.0,\u003e=4.0; extra == \u0027asyncio\u0027",
+                                          "h2\u003c5,\u003e=3; extra == \u0027http2\u0027",
+                                          "socksio==1.*; extra == \u0027socks\u0027",
+                                          "trio\u003c1.0,\u003e=0.22.0; extra == \u0027trio\u0027"
+                                      ],
+                         "metadata_sha256":  "fe2d4fda6199128978779e0cf27f3c045c531863fcdd987eacc74f3a18d41c21",
+                         "installer":  "pip",
+                         "direct_url_present":  false,
+                         "record_present":  true
+                     },
+                     {
+                         "name":  "httpcore2",
+                         "version":  "2.13.1",
+                         "requires":  [
+                                          "h11\u003e=0.16",
+                                          "truststore\u003e=0.10",
+                                          "anyio\u003c5.0,\u003e=4.5.0; extra == \u0027asyncio\u0027",
+                                          "h2\u003c5,\u003e=3; extra == \u0027http2\u0027",
+                                          "socksio==1.*; extra == \u0027socks\u0027",
+                                          "trio\u003c1.0,\u003e=0.34.0; extra == \u0027trio\u0027"
+                                      ],
+                         "metadata_sha256":  "37a0ea0674e98b7c3a1f99c17d9bb5457de27a0f93c8b6560c9d17d525139abb",
+                         "installer":  "pip",
+                         "direct_url_present":  false,
+                         "record_present":  true
+                     },
+                     {
+                         "name":  "httptools",
+                         "version":  "0.8.0",
+                         "requires":  [
+
+                                      ],
+                         "metadata_sha256":  "e2b04429eb51dcdaf38f3c02a66317e58234793143ee1eadc9b81988210400e6",
+                         "installer":  "pip",
+                         "direct_url_present":  false,
+                         "record_present":  true
+                     },
+                     {
+                         "name":  "httpx",
+                         "version":  "0.28.1",
+                         "requires":  [
+                                          "anyio",
+                                          "certifi",
+                                          "httpcore==1.*",
+                                          "idna",
+                                          "brotli; (platform_python_implementation == \u0027CPython\u0027) and extra == \u0027brotli\u0027",
+                                          "brotlicffi; (platform_python_implementation != \u0027CPython\u0027) and extra == \u0027brotli\u0027",
+                                          "click==8.*; extra == \u0027cli\u0027",
+                                          "pygments==2.*; extra == \u0027cli\u0027",
+                                          "rich\u003c14,\u003e=10; extra == \u0027cli\u0027",
+                                          "h2\u003c5,\u003e=3; extra == \u0027http2\u0027",
+                                          "socksio==1.*; extra == \u0027socks\u0027",
+                                          "zstandard\u003e=0.18.0; extra == \u0027zstd\u0027"
+                                      ],
+                         "metadata_sha256":  "febb9b0f8f3e80d57c8199c304f35c4336e8581d1d18d7983c92766b82793b25",
+                         "installer":  "pip",
+                         "direct_url_present":  false,
+                         "record_present":  true
+                     },
+                     {
+                         "name":  "httpx2",
+                         "version":  "2.13.1",
+                         "requires":  [
+                                          "anyio\u003e=4.10; sys_platform != \u0027emscripten\u0027",
+                                          "httpcore2==2.13.1; sys_platform != \u0027emscripten\u0027",
+                                          "httpx2-jsfetch; sys_platform == \u0027emscripten\u0027 and python_version \u003e= \u00273.12\u0027",
+                                          "idna\u003e=3.18",
+                                          "truststore\u003e=0.10; sys_platform != \u0027emscripten\u0027",
+                                          "typing-extensions\u003e=4.5.0; python_version \u003c \u00273.13\u0027",
+                                          "brotli\u003e=1.2.0; (platform_python_implementation == \u0027CPython\u0027) and extra == \u0027brotli\u0027",
+                                          "brotlicffi\u003e=1.2.0.2; (platform_python_implementation != \u0027CPython\u0027) and extra == \u0027brotli\u0027",
+                                          "click\u003e=8.4.2; extra == \u0027cli\u0027",
+                                          "pygments==2.*; extra == \u0027cli\u0027",
+                                          "rich\u003c16,\u003e=10; extra == \u0027cli\u0027",
+                                          "h2\u003c5,\u003e=3; extra == \u0027http2\u0027",
+                                          "socksio==1.*; extra == \u0027socks\u0027",
+                                          "wsproto\u003e=1.2; extra == \u0027ws\u0027",
+                                          "backports-zstd\u003e=1.0.0; (python_version \u003c= \u00273.13\u0027) and extra == \u0027zstd\u0027"
+                                      ],
+                         "metadata_sha256":  "b75b03a003b5593e000907cf7239fcc3f688b8f17db4ecff883d11221ea988fc",
+                         "installer":  "pip",
+                         "direct_url_present":  false,
+                         "record_present":  true
+                     },
+                     {
+                         "name":  "idna",
+                         "version":  "3.20",
+                         "requires":  [
+                                          "ruff \u003e= 0.16.0 ; extra == \"all\"",
+                                          "mypy \u003e= 1.11.2 ; extra == \"all\"",
+                                          "ty \u003e= 0.0.37 ; extra == \"all\"",
+                                          "pytest \u003e= 8.3.2 ; extra == \"all\"",
+                                          "hypothesis \u003e= 6.141.1 ; extra == \"all\"",
+                                          "coverage \u003e= 7.10.0 ; extra == \"all\""
+                                      ],
+                         "metadata_sha256":  "dbd8c14c1e4ca1e0c9824a6dbc7cbbf78884f38eb52d91148cd3025f671e4b85",
+                         "installer":  "pip",
+                         "direct_url_present":  false,
+                         "record_present":  true
+                     },
+                     {
+                         "name":  "jiter",
+                         "version":  "0.17.0",
+                         "requires":  [
+
+                                      ],
+                         "metadata_sha256":  "27477408585bd5a01b51e6fe5d0a0a77dcb6d9eff5cec01a807983e1fd18cab3",
+                         "installer":  "pip",
+                         "direct_url_present":  false,
+                         "record_present":  true
+                     },
+                     {
+                         "name":  "openai",
+                         "version":  "3.26.1",
+                         "requires":  [
+                                          "anyio\u003c5,\u003e=4.10.0",
+                                          "httpx2\u003c3,\u003e=2.12.0",
+                                          "jiter\u003c1,\u003e=0.16.0",
+                                          "pydantic!=2.0.*,!=2.1.*,!=2.2.*,!=2.3.*,\u003c3,\u003e=1.10.13",
+                                          "sniffio",
+                                          "typing-extensions\u003c5,\u003e=4.14",
+                                          "aiohttp\u003e=3.14.3; extra == \u0027aiohttp\u0027",
+                                          "botocore\u003c2,\u003e=1.40.0; extra == \u0027bedrock\u0027",
+                                          "urllib3\u003c3,\u003e=2.7.0; extra == \u0027bedrock\u0027",
+                                          "numpy\u003e=1; extra == \u0027datalib\u0027",
+                                          "pandas\u003e=1.2.3; extra == \u0027datalib\u0027",
+                                          "websockets\u003c16,\u003e=13; extra == \u0027realtime\u0027",
+                                          "numpy\u003e=2.0.2; extra == \u0027voice-helpers\u0027",
+                                          "sounddevice\u003e=0.5.1; extra == \u0027voice-helpers\u0027"
+                                      ],
+                         "metadata_sha256":  "304ea482d344d5cf55e70016d86476811ba0685f759dfbd43d22f0647128f493",
+                         "installer":  "pip",
+                         "direct_url_present":  false,
+                         "record_present":  true
+                     },
+                     {
+                         "name":  "opentelemetry-api",
+                         "version":  "1.45.1",
+                         "requires":  [
+                                          "typing-extensions\u003e=4.5.0"
+                                      ],
+                         "metadata_sha256":  "5bc71e90cb421be92a43bf5ad5b0f25dccfa2a24ddceaa2877779879962a4c9e",
+                         "installer":  "pip",
+                         "direct_url_present":  false,
+                         "record_present":  true
+                     },
+                     {
+                         "name":  "pip",
+                         "version":  "26.1.2",
+                         "requires":  [
+
+                                      ],
+                         "metadata_sha256":  "17832de47b5dc23e46253ba16462520036f28d9a27d5c30157784952ca4e69b2",
+                         "installer":  "pip",
+                         "direct_url_present":  false,
+                         "record_present":  true
+                     },
+                     {
+                         "name":  "psycopg2-binary",
+                         "version":  "2.9.13",
+                         "requires":  [
+
+                                      ],
+                         "metadata_sha256":  "c9710e9031b0254fa50244d8c20075e8b2a99efa1dbb4b354899e82d56059e04",
+                         "installer":  "pip",
+                         "direct_url_present":  false,
+                         "record_present":  true
+                     },
+                     {
+                         "name":  "pycparser",
+                         "version":  "3.1",
+                         "requires":  [
+
+                                      ],
+                         "metadata_sha256":  "f4a14c8bb8bcb1139830e9722da8725fc36c8e22ee0d13e5d094b5b354f80a9d",
+                         "installer":  "pip",
+                         "direct_url_present":  false,
+                         "record_present":  true
+                     },
+                     {
+                         "name":  "pydantic",
+                         "version":  "2.14.0",
+                         "requires":  [
+                                          "annotated-types\u003e=0.6.0",
+                                          "pydantic-core==2.50.0",
+                                          "typing-extensions\u003e=4.16.0",
+                                          "typing-inspection\u003e=0.4.4",
+                                          "email-validator\u003e=2.0.0; extra == \u0027email\u0027",
+                                          "tzdata; (platform_system == \u0027Windows\u0027) and extra == \u0027timezone\u0027"
+                                      ],
+                         "metadata_sha256":  "11c8967cbcd622677943be38b48a3931cc524250acd9d8c7a6386408099c4cf9",
+                         "installer":  "pip",
+                         "direct_url_present":  false,
+                         "record_present":  true
+                     },
+                     {
+                         "name":  "pydantic_core",
+                         "version":  "2.50.0",
+                         "requires":  [
+                                          "typing-extensions\u003e=4.16.0"
+                                      ],
+                         "metadata_sha256":  "c6a47d0c4ab47f3e16ff6dc06e5b77097c8144ad53cb91097cfe65e97614cbfc",
+                         "installer":  "pip",
+                         "direct_url_present":  false,
+                         "record_present":  true
+                     },
+                     {
+                         "name":  "PyJWT",
+                         "version":  "2.15.1",
+                         "requires":  [
+                                          "typing_extensions\u003e=4.0; python_version \u003c \"3.11\"",
+                                          "cryptography\u003e=3.4.0; extra == \"crypto\""
+                                      ],
+                         "metadata_sha256":  "1ea0c9f139b8c928276b3628af165955f6f764491448a6ad8f103cdcbb382da3",
+                         "installer":  "pip",
+                         "direct_url_present":  false,
+                         "record_present":  true
+                     },
+                     {
+                         "name":  "pypdf",
+                         "version":  "6.21.4",
+                         "requires":  [
+                                          "typing_extensions \u003e= 4.0; python_version \u003c \u00273.11\u0027",
+                                          "brotli\u003e=1.2.0 ; extra == \"brotli\"",
+                                          "cryptography\u003e3.0 ; extra == \"crypto\"",
+                                          "PyCryptodome ; extra == \"cryptodome\"",
+                                          "flit ; extra == \"dev\"",
+                                          "pip-tools ; extra == \"dev\"",
+                                          "pre-commit ; extra == \"dev\"",
+                                          "pytest-cov ; extra == \"dev\"",
+                                          "pytest-socket ; extra == \"dev\"",
+                                          "pytest-timeout ; extra == \"dev\"",
+                                          "pytest-xdist ; extra == \"dev\"",
+                                          "wheel ; extra == \"dev\"",
+                                          "myst_parser ; extra == \"docs\"",
+                                          "sphinx ; extra == \"docs\"",
+                                          "sphinx_rtd_theme ; extra == \"docs\"",
+                                          "fonttools ; extra == \"fonts\"",
+                                          "arabic-reshaper ; extra == \"full\"",
+                                          "brotli\u003e=1.2.0 ; extra == \"full\"",
+                                          "cryptography\u003e3.0 ; extra == \"full\"",
+                                          "fonttools ; extra == \"full\"",
+                                          "Pillow\u003e=8.0.0 ; extra == \"full\"",
+                                          "python-bidi ; extra == \"full\"",
+                                          "Pillow\u003e=8.0.0 ; extra == \"image\"",
+                                          "arabic-reshaper ; extra == \"rtl-text\"",
+                                          "python-bidi ; extra == \"rtl-text\""
+                                      ],
+                         "metadata_sha256":  "383b3d4cd588005f67afc74b113cbe19ea008691cdf18db3795601116a3d8139",
+                         "installer":  "pip",
+                         "direct_url_present":  false,
+                         "record_present":  true
+                     },
+                     {
+                         "name":  "python-dotenv",
+                         "version":  "1.2.4",
+                         "requires":  [
+                                          "click\u003e=5.0; extra == \"cli\""
+                                      ],
+                         "metadata_sha256":  "87cfee6042412d48df1100ea7822684988c3f2b79de7a250f4717f4df3026d6f",
+                         "installer":  "pip",
+                         "direct_url_present":  false,
+                         "record_present":  true
+                     },
+                     {
+                         "name":  "PyYAML",
+                         "version":  "6.0.3",
+                         "requires":  [
+
+                                      ],
+                         "metadata_sha256":  "847a701020334386852b6e07bad1053cb0ce3da9ee1846e7e9d02b24e8bb3f8d",
+                         "installer":  "pip",
+                         "direct_url_present":  false,
+                         "record_present":  true
+                     },
+                     {
+                         "name":  "sniffio",
+                         "version":  "1.3.1",
+                         "requires":  [
+
+                                      ],
+                         "metadata_sha256":  "0b318b57098edeccf585e60a889a6b6a7b5c4086f3a9aa62eff76a1d3cee12d9",
+                         "installer":  "pip",
+                         "direct_url_present":  false,
+                         "record_present":  true
+                     },
+                     {
+                         "name":  "SQLAlchemy",
+                         "version":  "2.1.4",
+                         "requires":  [
+                                          "typing-extensions\u003e=4.6.0",
+                                          "greenlet\u003e=1; extra == \"asyncio\"",
+                                          "mypy\u003e=2.4; extra == \"mypy\"",
+                                          "types-greenlet\u003e=2; extra == \"mypy\"",
+                                          "pyodbc; extra == \"mssql\"",
+                                          "pymssql; extra == \"mssql-pymssql\"",
+                                          "pyodbc; extra == \"mssql-pyodbc\"",
+                                          "mssql-python\u003e=1.9.0; extra == \"mssql-python\"",
+                                          "mysqlclient\u003e=1.4.0; extra == \"mysql\"",
+                                          "mysql-connector-python; extra == \"mysql-connector\"",
+                                          "mariadb!=1.1.10,!=1.1.2,!=1.1.5,\u003e=1.0.1; extra == \"mariadb-connector\"",
+                                          "oracledb\u003e=2.0.1; extra == \"oracle\"",
+                                          "cx_oracle\u003e=8; extra == \"oracle-cxoracle\"",
+                                          "oracledb\u003e=2.0.1; extra == \"oracle-oracledb\"",
+                                          "psycopg!=3.1.15,\u003e=3.0.7; extra == \"postgresql\"",
+                                          "pg8000\u003e=1.29.3; extra == \"postgresql-pg8000\"",
+                                          "sqlalchemy[asyncio]; extra == \"postgresql-asyncpg\"",
+                                          "asyncpg; extra == \"postgresql-asyncpg\"",
+                                          "psycopg2-binary; extra == \"postgresql-psycopg2binary\"",
+                                          "psycopg2cffi; extra == \"postgresql-psycopg2cffi\"",
+                                          "psycopg!=3.1.15,\u003e=3.0.7; extra == \"postgresql-psycopg\"",
+                                          "psycopg[binary]!=3.1.15,\u003e=3.0.7; extra == \"postgresql-psycopgbinary\"",
+                                          "pymysql; extra == \"pymysql\"",
+                                          "cymysql; extra == \"cymysql\"",
+                                          "sqlalchemy[asyncio]; extra == \"aiomysql\"",
+                                          "aiomysql; extra == \"aiomysql\"",
+                                          "sqlalchemy[asyncio]; extra == \"aioodbc\"",
+                                          "aioodbc; extra == \"aioodbc\"",
+                                          "sqlalchemy[asyncio]; extra == \"asyncmy\"",
+                                          "asyncmy\u003e=0.2.12; extra == \"asyncmy\"",
+                                          "sqlalchemy[asyncio]; extra == \"aiosqlite\"",
+                                          "aiosqlite; extra == \"aiosqlite\"",
+                                          "sqlcipher3_binary; extra == \"sqlcipher\""
+                                      ],
+                         "metadata_sha256":  "c3e2b69f1b8399f54915d08b21e4672f2652473b5afa591581562ae075306bec",
+                         "installer":  "pip",
+                         "direct_url_present":  false,
+                         "record_present":  true
+                     },
+                     {
+                         "name":  "starlette",
+                         "version":  "1.7.0",
+                         "requires":  [
+                                          "anyio\u003c5,\u003e=4.0.0",
+                                          "typing-extensions\u003e=4.10.0; python_version \u003c \u00273.13\u0027",
+                                          "httpx2\u003e=2.0.0; extra == \u0027full\u0027",
+                                          "httpx\u003c0.29.0,\u003e=0.27.0; extra == \u0027full\u0027",
+                                          "itsdangerous; extra == \u0027full\u0027",
+                                          "jinja2; extra == \u0027full\u0027",
+                                          "opentelemetry-api; extra == \u0027full\u0027",
+                                          "python-multipart\u003e=0.0.18; extra == \u0027full\u0027",
+                                          "pyyaml; extra == \u0027full\u0027"
+                                      ],
+                         "metadata_sha256":  "f7870fc19ab7c2e364887057340b9fb47e9bda74d24b06c58ca399494abfe019",
+                         "installer":  "pip",
+                         "direct_url_present":  false,
+                         "record_present":  true
+                     },
+                     {
+                         "name":  "truststore",
+                         "version":  "0.10.4",
+                         "requires":  [
+
+                                      ],
+                         "metadata_sha256":  "509a7b67bff99f2d04f57251b5bdb761bd9429467e1cebc453b7f96be4108f5b",
+                         "installer":  "pip",
+                         "direct_url_present":  false,
+                         "record_present":  true
+                     },
+                     {
+                         "name":  "typing_extensions",
+                         "version":  "4.16.0",
+                         "requires":  [
+
+                                      ],
+                         "metadata_sha256":  "b05084ca1d50879865178d9fff9fabeab61bdfb1f361bfbde95421ffc8f9be46",
+                         "installer":  "pip",
+                         "direct_url_present":  false,
+                         "record_present":  true
+                     },
+                     {
+                         "name":  "typing-inspection",
+                         "version":  "0.4.4",
+                         "requires":  [
+                                          "typing-extensions\u003e=4.15.0"
+                                      ],
+                         "metadata_sha256":  "bad3d9e6342ef6750cf5128ec942327b8bebdce0b6e4d6f67cb15b27ae5118da",
+                         "installer":  "pip",
+                         "direct_url_present":  false,
+                         "record_present":  true
+                     },
+                     {
+                         "name":  "uvicorn",
+                         "version":  "0.54.0",
+                         "requires":  [
+                                          "click\u003e=7.0",
+                                          "h11\u003e=0.8",
+                                          "typing-extensions\u003e=4.0; python_version \u003c \u00273.11\u0027",
+                                          "httptools\u003e=0.8.0; extra == \u0027standard\u0027",
+                                          "python-dotenv\u003e=0.13; extra == \u0027standard\u0027",
+                                          "pyyaml\u003e=5.1; extra == \u0027standard\u0027",
+                                          "uvloop\u003e=0.15.1; (sys_platform != \u0027win32\u0027 and (sys_platform != \u0027cygwin\u0027 and platform_python_implementation != \u0027PyPy\u0027)) and extra == \u0027standard\u0027",
+                                          "watchfiles\u003e=0.20; extra == \u0027standard\u0027",
+                                          "websockets\u003e=13.0; extra == \u0027standard\u0027"
+                                      ],
+                         "metadata_sha256":  "9399e5ddda3d26e842d6fb5420c38b0857aac568d53badbdc224b3a21339efa8",
+                         "installer":  "pip",
+                         "direct_url_present":  false,
+                         "record_present":  true
+                     },
+                     {
+                         "name":  "watchfiles",
+                         "version":  "1.3.0",
+                         "requires":  [
+                                          "anyio\u003e=3.0.0"
+                                      ],
+                         "metadata_sha256":  "3b30e7c9377f43cb59b408185ae7707ec55d5b746395bdaa32a45819ea49d78b",
+                         "installer":  "pip",
+                         "direct_url_present":  false,
+                         "record_present":  true
+                     },
+                     {
+                         "name":  "websockets",
+                         "version":  "17.2",
+                         "requires":  [
+
+                                      ],
+                         "metadata_sha256":  "120a5bb2d761950170e22fc77a43536d157f85b1cf2bf9c413324bfdb35e46e7",
+                         "installer":  "pip",
+                         "direct_url_present":  false,
+                         "record_present":  true
+                     }
+                 ]
+}
