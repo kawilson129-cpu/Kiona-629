@@ -1,0 +1,23 @@
+{
+  "timestamp": "2026-11-18T18:05:44.149667+00:00",
+  "base_url": "http://127.0.0.1:8041",
+  "app": "Existing main.app and static UI",
+  "database": "Disposable in-memory SQLite with existing PostgreSQL tripwire",
+  "authentication": "Existing loopback development provider; real signed tokens/RBAC",
+  "search": "MOCKED: existing OfflineSession returns no PostgreSQL search matches",
+  "ai_provider": "DISABLED: no external AI calls; fallback/clarification only",
+  "public_feeds": "LIVE, allowlisted existing sources",
+  "source_hashes": {
+    "derexi-policy-pilot/backend/main.py": "cdef2664b2b6bf27056dd127ed9a60a49b198bbdd80f6d1a204d3e518964a95b",
+    "derexi-policy-pilot/backend/ai.py": "0501e2ad83869219c27b346eaa87839b92bc7243b70c53e22ca4a7a73528a49e",
+    "derexi-policy-pilot/backend/security.py": "c0ca629a4004cb5715ff437626b30917038fd8dfb5829491057eb8d22d980a58",
+    "derexi-policy-pilot/backend/dev_auth.py": "b30a3fb48b1f27f1f9cc2376fe78f3eb5202d7ae0faec5226d0a561794ac7fb0",
+    "derexi-policy-pilot/backend/static/app.js": "dd140564ed8ccc759332969f2aee5d1be3baa7672bff6d67848a479819de3a82",
+    "derexi-policy-pilot/backend/static/pulse.js": "7b2dd2249f4d4a1e1ed9e4508bd2a8c51112e3c238613ca1877ce57f61b691a1",
+    "derexi-policy-pilot/backend/pulse/routes.py": "7d9a85ffd3ae457a2f1f30e6aea44c5520cb162f78d8c0ed5935ebc5475fd9c2",
+    "derexi-policy-pilot/backend/pulse/sources.py": "019a4d1b84d0786dbe4fbe83a3cb155ffa3ae7ed4ab26e8049bda8b15997adef",
+    "derexi-policy-pilot/backend/pulse/service.py": "dce92f929d58543ecb5a56782faf9f3383ca6e5ebeb447d2055277b3c2acdb5d",
+    "derexi-policy-pilot/backend/tests/messaging_fixture.py": "043c6c93715d8269aefc74f6ebcde2ee968a8fef9fe4f52c8b9ef3d59a1b3f47",
+    "derexi-policy-pilot/backend/tests/api_integration_evidence.py": "259722b0141f1af6ff592e330942c61a3af27448897c24af5d40bcc62a0e3ad0"
+  }
+}

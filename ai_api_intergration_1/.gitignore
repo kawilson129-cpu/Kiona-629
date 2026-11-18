@@ -1,0 +1,4 @@
+# Dedicated browser profiles and transient runtime state; evidence stays reviewable.
+/.runtime/
+__pycache__/
+.env*

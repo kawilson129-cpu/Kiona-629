@@ -1,0 +1,66 @@
+[
+  {
+    "timestamp": "2026-11-18T19:03:31.123063+00:00",
+    "source": "Federal Register",
+    "method": "GET",
+    "url": "https://www.federalregister.gov/api/v1/documents.json?per_page=100&order=newest&format=json&conditions%5Bagencies%5D%5B%5D=federal-reserve-system&conditions%5Bagencies%5D%5B%5D=federal-deposit-insurance-corporation&conditions%5Bagencies%5D%5B%5D=comptroller-of-the-currency&conditions%5Bagencies%5D%5B%5D=consumer-financial-protection-bureau&conditions%5Bagencies%5D%5B%5D=national-credit-union-administration&conditions%5Bagencies%5D%5B%5D=financial-crimes-enforcement-network&conditions%5Bagencies%5D%5B%5D=federal-financial-institutions-examination-council",
+    "request_headers": {
+      "User-agent": "DeRexi-Pulse/1.0 (internal policy research; Aurum Capital Bank)",
+      "Accept": "application/json, application/rss+xml, application/atom+xml, application/xml, text/xml",
+      "Accept-encoding": "identity"
+    },
+    "request_body": null,
+    "mode": "REAL PUBLIC NETWORK REQUEST",
+    "status_code": 200,
+    "content_type": "application/json; charset=utf-8",
+    "final_url": "https://www.federalregister.gov/api/v1/documents.json?per_page=100&order=newest&format=json&conditions%5Bagencies%5D%5B%5D=federal-reserve-system&conditions%5Bagencies%5D%5B%5D=federal-deposit-insurance-corporation&conditions%5Bagencies%5D%5B%5D=comptroller-of-the-currency&conditions%5Bagencies%5D%5B%5D=consumer-financial-protection-bureau&conditions%5Bagencies%5D%5B%5D=national-credit-union-administration&conditions%5Bagencies%5D%5B%5D=financial-crimes-enforcement-network&conditions%5Bagencies%5D%5B%5D=federal-financial-institutions-examination-council"
+  },
+  {
+    "timestamp": "2026-11-18T19:03:31.449698+00:00",
+    "source": "FDIC",
+    "method": "GET",
+    "url": "https://public.govdelivery.com/topics/USFDIC_26/feed.rss",
+    "request_headers": {
+      "User-agent": "DeRexi-Pulse/1.0 (internal policy research; Aurum Capital Bank)",
+      "Accept": "application/json, application/rss+xml, application/atom+xml, application/xml, text/xml",
+      "Accept-encoding": "identity"
+    },
+    "request_body": null,
+    "mode": "REAL PUBLIC NETWORK REQUEST",
+    "status_code": 200,
+    "content_type": "application/rss+xml; charset=utf-8",
+    "final_url": "https://public.govdelivery.com/topics/USFDIC_26/feed.rss"
+  },
+  {
+    "timestamp": "2026-11-18T19:03:34.915104+00:00",
+    "source": "NIST",
+    "method": "GET",
+    "url": "https://csrc.nist.gov/CSRC/media/feeds/pubs/drafts-open-for-comment.json",
+    "request_headers": {
+      "User-agent": "DeRexi-Pulse/1.0 (internal policy research; Aurum Capital Bank)",
+      "Accept": "application/json, application/rss+xml, application/atom+xml, application/xml, text/xml",
+      "Accept-encoding": "identity"
+    },
+    "request_body": null,
+    "mode": "REAL PUBLIC NETWORK REQUEST",
+    "status_code": 200,
+    "content_type": "application/json",
+    "final_url": "https://csrc.nist.gov/CSRC/media/feeds/pubs/drafts-open-for-comment.json"
+  },
+  {
+    "timestamp": "2026-11-18T19:03:35.077256+00:00",
+    "source": "Federal Reserve",
+    "method": "GET",
+    "url": "https://www.federalreserve.gov/feeds/press_bcreg.xml",
+    "request_headers": {
+      "User-agent": "DeRexi-Pulse/1.0 (internal policy research; Aurum Capital Bank)",
+      "Accept": "application/json, application/rss+xml, application/atom+xml, application/xml, text/xml",
+      "Accept-encoding": "identity"
+    },
+    "request_body": null,
+    "mode": "REAL PUBLIC NETWORK REQUEST",
+    "status_code": 200,
+    "content_type": "text/xml",
+    "final_url": "https://www.federalreserve.gov/feeds/press_bcreg.xml"
+  }
+]

@@ -495,3 +495,6 @@ Verified C-01 (role-based access control) and C-02 (input validation / safe erro
 
 ### November 16, 2026 - Assignment 3 GitHub publication authorized
 - Kiona requested committing and pushing the reviewed Assignment 3 documentation, feasibility assessment and evidence. Reviewed 26 pending files, no credential-pattern findings; retained 32 passing local tests and 5 blocked platform checks. No deployment or application changes. Publishing to existing origin/main.
+
+### November 18, 2026 - AI API Integration 1 final project
+- Used existing `ai_api_intergration_1/` course folder; results/docs/evidence stay there. Reused existing DeRexi GET/POST/UI/auth with disposable SQLite and explicitly mocked PostgreSQL search; no runtime application changes. Actual verification: 15 HTTP + 7 browser PASS; 4 public feeds HTTP 200 including Federal Register/NIST JSON. External AI and production/Supabase auth remain unverified; AI/email disabled. Initial browser harness failures retained. Three actual labelled screenshots, structured transcripts, curl/capture steps and four rubric documents saved. Added two reusable canonical test harnesses; no installs, secrets/schema/RBAC/live-user changes, commits or pushes. Dedicated fixture/browser stopped and created profile removed.

@@ -1,0 +1,36 @@
+AI API Integration 1 — actual executed commands and results (November 18, 2026)
+From repository root. Relevant verification commands; source inspection omitted.
+
+1. derexi-policy-pilot/.venv/bin/python -B -c 'import fastapi,uvicorn,httpx,sqlalchemy,psycopg2,jwt; print("Existing API/test dependencies available")'
+   Exit 0. No dependencies installed.
+2. node --version
+   Exit 0: v26.7.0
+3. derexi-policy-pilot/.venv/bin/python -B derexi-policy-pilot/backend/tests/api_integration_evidence.py serve --output ai_api_intergration_1/evidence/20261118-api --live-public
+   Started dedicated loopback fixture on 127.0.0.1:8041.
+   Actual main.app and original static UI; SQLite synthetic data; search mocked;
+   PostgreSQL tripwire; external AI/email disabled. No secret file changes.
+4. derexi-policy-pilot/.venv/bin/python -B derexi-policy-pilot/backend/tests/api_integration_evidence.py http --output ai_api_intergration_1/evidence/20261118-api --live-public
+   Exit 0: {"passed": 15, "failed": 0, "live_public_requested": true}
+5. Dedicated Chrome started with:
+   "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless=new --disable-gpu --disable-background-networking --disable-sync --no-first-run --no-default-browser-check --remote-debugging-address=127.0.0.1 --remote-debugging-port=9241 --user-data-dir="/Users/adult/Desktop/Kiona-629/ai_api_intergration_1/.runtime/chrome-20261118" about:blank
+   Dedicated browser only. Platform-level display-link warnings appeared; no
+   browser JavaScript runtime exceptions in the final checks.
+6. node derexi-policy-pilot/backend/tests/test_api_integration_browser.mjs ai_api_intergration_1/evidence/20261118-api
+   Initial exit 1: 6 PASS / 1 FAIL (case-sensitive rendered-label assertion).
+   Second exit 1: 5 PASS / 2 FAIL (reused SPA state/response synchronization).
+   Prior results/captures preserved under attempts/.
+   After correcting only harness synchronization/assertions, final exit 0:
+   {"passed":7,"failed":0}. Three actual labelled screenshots captured.
+7. node --check derexi-policy-pilot/backend/tests/test_api_integration_browser.mjs
+   Exit 0.
+
+Cleanup performed:
+- Dedicated Uvicorn fixture stopped through its own session with Ctrl+C; exit 0.
+- Dedicated Chrome on CDP port 9241 closed using Browser.close; browser exit 0.
+- Only the verified task-created .runtime/chrome-20261118 profile was removed
+  after exact path/symlink checks. Existing servers/browser profiles untouched.
+- Ephemeral database and in-memory development signing key disposed.
+
+Safe curl reproduction commands are documented in ../../README.md.
+Those curl examples are instructions; the actual verification used httpx and
+Chromium, whose captured request/status/body evidence is retained separately.

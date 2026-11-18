@@ -1,0 +1,104 @@
+{
+  "timestamp": "2026-11-18T19:12:55.844770+00:00",
+  "scope": "Documentation/evidence audit; separate from 22 HTTP/browser checks",
+  "checks": [
+    {
+      "name": "Four required course documents exist",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "name": "Current HTTP15 and browser7 results",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "name": "Actual GET and POST transcripts carry all required fields",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "name": "Inspected runtime app and original fixture hashes unchanged",
+      "status": "PASS",
+      "details": []
+    },
+    {
+      "name": "New harness syntax",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "Local Markdown links resolve",
+      "status": "PASS",
+      "details": {
+        "links": 30,
+        "broken": [],
+        "note": "Rechecked after validation.json was created; initial self-link check retained in attempts/validation-initial.json."
+      }
+    },
+    {
+      "name": "Evidence JSON parses and no credential patterns",
+      "status": "PASS",
+      "details": {
+        "json_files": 8,
+        "findings": []
+      }
+    },
+    {
+      "name": "Four public HTTP200 records including two JSON APIs",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "name": "Three actual screenshot files",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "name": "Tracked diff whitespace clean",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "Working changes limited to course, new harnesses and memory",
+      "status": "PASS",
+      "details": []
+    },
+    {
+      "name": "Task browser profile removed",
+      "status": "PASS",
+      "details": null
+    }
+  ],
+  "passed": 12,
+  "failed": 0,
+  "harness_hashes": {
+    "derexi-policy-pilot/backend/tests/api_integration_evidence.py": "259722b0141f1af6ff592e330942c61a3af27448897c24af5d40bcc62a0e3ad0",
+    "derexi-policy-pilot/backend/tests/test_api_integration_browser.mjs": "940ea56362304938ee08c2d10bfbe9bd8658ead5366198d5a90b00bacaaf3cf9"
+  },
+  "artifact_hashes": {
+    "rubric-checklist.md": "1c6f24b3e5defc369d458e870672d2a53ba2adb5807603622c0da22f2a4138f0",
+    "api-evidence.md": "96f3dc5adf04ff4b1f05d09acac8715099ac2a44c68ec952a9b31f4dfaa944f2",
+    "README.md": "2fea9bec80278412607139ddd04ec8e9e62f112d07ff74959cc0e7b6c2015766",
+    ".gitignore": "7c150a78b7fb5d666c1efa4080bbd26deeb61bb1fb5474ebceb539ec4d792557",
+    "test-results.md": "12b9af1d91a79feed2a2ec267b2cba192bc6f4b517595cc90076649ddf142e56",
+    "evidence/20261118-api/fixture.json": "6e64ec1b9a669862af9ebc6726095dbde888e5e67aaf3c2c2ad65cc42990253e",
+    "evidence/20261118-api/http-results.json": "4bf0f3825253e650d08fe67f8bb3561dbe11832065f6c4bbbd7dffb7cf0aac86",
+    "evidence/20261118-api/README.md": "93f1f0329a10cf9986817284d811a8d11cf61f7a9e294d5f678be8be5d707782",
+    "evidence/20261118-api/public-network.json": "b760cb16b12dd970ef79a64a5497cc179d2ef454f2bbf6451efb9bb75391fd8b",
+    "evidence/20261118-api/browser-results.json": "c3045aa4f9f0dc1e1e63148bd4de4c2e05df56ec0d2aae9c5ef857ddf69a202f",
+    "evidence/20261118-api/commands.txt": "abf6104ea54a5fd22633f1719b958b1eabe22dea71c5e55a75edb807c2cf6885",
+    "evidence/20261118-api/screenshots/01-get-library.png": "1effb81689daca068716665c35ec801502e70253d539f1f8624ed67ba535e6a8",
+    "evidence/20261118-api/screenshots/02-post-assistant.png": "b77fda9df181da2ca4c5bea9264db591ea7609864a020fb0147939496b5f2aeb",
+    "evidence/20261118-api/screenshots/03-get-pulse.png": "eaa1039e35df7bd959b3ccf27301e5941795a84edc63bdd840ff0b638fe64de2",
+    "evidence/20261118-api/attempts/validation-initial.json": "eea609f7301454c855fcde463c9747937ff199a8f8db5fed73e0205d70063fbc",
+    "evidence/20261118-api/attempts/initial-browser/browser-results.json": "7eedb7c195634282d3f4fb2721ffe4da0fcaa6227e31efd357d0d123ed2e823e",
+    "evidence/20261118-api/attempts/initial-browser/screenshots/01-get-library.png": "38bab0c282b87b588615d678e1dca0b1082c95efca6bd8fafca236d147d73ab9",
+    "evidence/20261118-api/attempts/initial-browser/screenshots/02-post-assistant.png": "10d6032e29cd603cf0c2ecbfdf10448563d369912e115bae1471d42eeb6c956f",
+    "evidence/20261118-api/attempts/initial-browser/screenshots/03-get-pulse.png": "d673202e152dae796c900c9ea998f5eb0d035a6284ec12df3f14a981db89ff8b",
+    "evidence/20261118-api/attempts/browser-timing/browser-results.json": "0cb250b458af3d4f998836356085a626b3011f1626ea2a71879e61553c43251e",
+    "evidence/20261118-api/attempts/browser-timing/screenshots/01-get-library.png": "258ebca25046600af8dcea3a5962213b92d91860aea268db32ed46aee5e52298",
+    "evidence/20261118-api/attempts/browser-timing/screenshots/02-post-assistant.png": "7e43f4a4fd664a181a8c61740b78ae46796de631975bcae7e38816bc975bdf1a",
+    "evidence/20261118-api/attempts/browser-timing/screenshots/03-get-pulse.png": "9af72b30c5fcb4ab26be89688d95fc9e24f983f5e08582c5c633fc517b416907"
+  }
+}

@@ -1,0 +1,519 @@
+{
+  "timestamp": "2026-11-18T19:03:35.412776+00:00",
+  "mode": "REAL LOOPBACK HTTP, actual app/routes/auth; synthetic SQLite, MOCKED PostgreSQL search, AI disabled",
+  "live_public_requested": true,
+  "checks": [
+    {
+      "name": "H01 Existing DeRexi service metadata over real HTTP",
+      "status": "PASS"
+    },
+    {
+      "name": "H02 Missing credentials rejected with 401/Bearer challenge",
+      "status": "PASS"
+    },
+    {
+      "name": "H03 Existing local identity provider issues signed token",
+      "status": "PASS"
+    },
+    {
+      "name": "H04 Authenticated GET returns two synthetic policy resources",
+      "status": "PASS"
+    },
+    {
+      "name": "H05 GET response identifies JSON",
+      "status": "PASS"
+    },
+    {
+      "name": "H06 Policy detail exposes version/body for existing Library display",
+      "status": "PASS"
+    },
+    {
+      "name": "H07 POST accepts JSON question and returns helpful clarification",
+      "status": "PASS"
+    },
+    {
+      "name": "H08 POST returns resource identifiers and JSON",
+      "status": "PASS"
+    },
+    {
+      "name": "H09 Follow-up GET proves POST persisted only to disposable database",
+      "status": "PASS"
+    },
+    {
+      "name": "H10 Invalid JSON fields yield safe 422 response",
+      "status": "PASS"
+    },
+    {
+      "name": "H11 Client-supplied identity mismatch rejected with 403",
+      "status": "PASS"
+    },
+    {
+      "name": "H12 Another employee cannot read the private POST result",
+      "status": "PASS"
+    },
+    {
+      "name": "H13 Existing Pulse REST endpoint returns JSON envelope",
+      "status": "PASS"
+    },
+    {
+      "name": "H14 At least one real JSON upstream works (not RSS alone)",
+      "status": "PASS"
+    },
+    {
+      "name": "H15 Live normalized output retains source/title/URL/date",
+      "status": "PASS"
+    }
+  ],
+  "requests": [
+    {
+      "timestamp": "2026-11-18T19:03:31.037867+00:00",
+      "method": "GET",
+      "url": "http://127.0.0.1:8041/",
+      "request_headers": {
+        "Accept": "application/json"
+      },
+      "request_body": null,
+      "status_code": 200,
+      "response_headers": {
+        "content-type": "application/json",
+        "x-request-id": "7ba5ffca7d5b40b2ba5cc3f44e1bde2e",
+        "cache-control": "no-store"
+      },
+      "response_body": {
+        "service": "DeRexi: Policy Pilot API",
+        "version": "0.4.0",
+        "institution": "Aurum Capital Bank",
+        "docs": "/docs"
+      }
+    },
+    {
+      "timestamp": "2026-11-18T19:03:31.045001+00:00",
+      "method": "GET",
+      "url": "http://127.0.0.1:8041/policies",
+      "request_headers": {
+        "Accept": "application/json"
+      },
+      "request_body": null,
+      "status_code": 401,
+      "response_headers": {
+        "www-authenticate": "Bearer",
+        "content-type": "application/json",
+        "x-request-id": "146d101003f646ffbca781fefd59678f",
+        "cache-control": "no-store"
+      },
+      "response_body": {
+        "detail": "Authentication required"
+      }
+    },
+    {
+      "timestamp": "2026-11-18T19:03:31.057845+00:00",
+      "method": "POST",
+      "url": "http://127.0.0.1:8041/dev-auth/token",
+      "request_headers": {
+        "Accept": "application/json",
+        "Content-Type": "application/json"
+      },
+      "request_body": {
+        "user_id": 8
+      },
+      "status_code": 200,
+      "response_headers": {
+        "content-type": "application/json",
+        "x-request-id": "a13f080074ac40199fdb3aa0f7c5a071",
+        "cache-control": "no-store"
+      },
+      "response_body": {
+        "access_token": "[REDACTED]",
+        "token_type": "bearer",
+        "expires_in": 900,
+        "issuer": "derexi-dev"
+      }
+    },
+    {
+      "timestamp": "2026-11-18T19:03:31.070841+00:00",
+      "method": "GET",
+      "url": "http://127.0.0.1:8041/policies",
+      "request_headers": {
+        "Accept": "application/json",
+        "Authorization": "[REDACTED]"
+      },
+      "request_body": null,
+      "status_code": 200,
+      "response_headers": {
+        "content-type": "application/json",
+        "x-request-id": "6a9d45979cc84775aedcb1d7cfce5d0d",
+        "cache-control": "no-store"
+      },
+      "response_body": [
+        {
+          "id": 1,
+          "title": "Unrelated fixture policy",
+          "summary": null,
+          "status": "approved",
+          "category_id": null,
+          "category": null,
+          "owner_id": 12,
+          "owner": "Rachel Sampson",
+          "latest_version": "1.0",
+          "review_date": null,
+          "requires_review": false,
+          "created_at": "2026-11-18T18:05:44.147108",
+          "updated_at": "2026-11-18T18:05:44.147116"
+        },
+        {
+          "id": 48,
+          "title": "Employee Leave",
+          "summary": null,
+          "status": "approved",
+          "category_id": null,
+          "category": null,
+          "owner_id": 9,
+          "owner": "Jordan Rivera",
+          "latest_version": "1.0",
+          "review_date": null,
+          "requires_review": false,
+          "created_at": "2026-11-18T18:05:44.147121",
+          "updated_at": "2026-11-18T18:05:44.147126"
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-11-18T19:03:31.078925+00:00",
+      "method": "GET",
+      "url": "http://127.0.0.1:8041/policies/48",
+      "request_headers": {
+        "Accept": "application/json",
+        "Authorization": "[REDACTED]"
+      },
+      "request_body": null,
+      "status_code": 200,
+      "response_headers": {
+        "content-type": "application/json",
+        "x-request-id": "5058de7c957c453faeb92ee95e3fbb66",
+        "cache-control": "no-store"
+      },
+      "response_body": {
+        "id": 48,
+        "title": "Employee Leave",
+        "summary": null,
+        "status": "approved",
+        "category_id": null,
+        "category": null,
+        "owner_id": 9,
+        "owner": "Jordan Rivera",
+        "latest_version": "1.0",
+        "review_date": null,
+        "requires_review": false,
+        "created_at": "2026-11-18T18:05:44.147121",
+        "updated_at": "2026-11-18T18:05:44.147126",
+        "versions": [
+          {
+            "id": 2,
+            "version_no": "1.0",
+            "title": "Fixture policy",
+            "body": "Fixture body",
+            "effective_date": null,
+            "review_date": null,
+            "requires_review": false,
+            "created_at": "2026-11-18T18:05:44.147985"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-11-18T19:03:31.098382+00:00",
+      "method": "POST",
+      "url": "http://127.0.0.1:8041/ask",
+      "request_headers": {
+        "Accept": "application/json",
+        "Content-Type": "application/json",
+        "Authorization": "[REDACTED]"
+      },
+      "request_body": {
+        "question": "How should I handle a hypothetical policy exception?"
+      },
+      "status_code": 200,
+      "response_headers": {
+        "content-type": "application/json",
+        "x-request-id": "eb8e430fb54f4f0f994df80732afbaff",
+        "cache-control": "no-store"
+      },
+      "response_body": {
+        "conversation_id": 1,
+        "user_message_id": 1,
+        "derexi_message_id": 2,
+        "answer": "The policy library does not contain enough information to answer this confidently, so I have routed it to a policy owner for clarification rather than guess.",
+        "citations": [],
+        "needs_clarification": true,
+        "clarification_request_id": 1,
+        "assigned_to": null,
+        "triage": true,
+        "confidence": 0.0
+      }
+    },
+    {
+      "timestamp": "2026-11-18T19:03:31.107477+00:00",
+      "method": "GET",
+      "url": "http://127.0.0.1:8041/conversations/1",
+      "request_headers": {
+        "Accept": "application/json",
+        "Authorization": "[REDACTED]"
+      },
+      "request_body": null,
+      "status_code": 200,
+      "response_headers": {
+        "content-type": "application/json",
+        "x-request-id": "409e53f6c2a741379ec62be9b101d8bd",
+        "cache-control": "no-store"
+      },
+      "response_body": {
+        "id": 1,
+        "user_id": 8,
+        "topic": "How should I handle a hypothetical policy exception?",
+        "status": "open",
+        "created_at": "2026-11-18T19:03:31.088603",
+        "messages": [
+          {
+            "id": 1,
+            "sender": "user",
+            "body": "How should I handle a hypothetical policy exception?",
+            "created_at": "2026-11-18T19:03:31.090218",
+            "citations": []
+          },
+          {
+            "id": 2,
+            "sender": "derexi",
+            "body": "The policy library does not contain enough information to answer this confidently, so I have routed it to a policy owner for clarification rather than guess.",
+            "created_at": "2026-11-18T19:03:31.091229",
+            "citations": []
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-11-18T19:03:31.111585+00:00",
+      "method": "POST",
+      "url": "http://127.0.0.1:8041/ask",
+      "request_headers": {
+        "Accept": "application/json",
+        "Content-Type": "application/json",
+        "Authorization": "[REDACTED]"
+      },
+      "request_body": {
+        "question": "   "
+      },
+      "status_code": 422,
+      "response_headers": {
+        "content-type": "application/json",
+        "x-request-id": "4b6fc173787449a3b00416734d726aad",
+        "cache-control": "no-store"
+      },
+      "response_body": {
+        "detail": "Check the submitted fields and try again."
+      }
+    },
+    {
+      "timestamp": "2026-11-18T19:03:31.115381+00:00",
+      "method": "POST",
+      "url": "http://127.0.0.1:8041/ask",
+      "request_headers": {
+        "Accept": "application/json",
+        "Content-Type": "application/json",
+        "Authorization": "[REDACTED]"
+      },
+      "request_body": {
+        "question": "How should I handle a hypothetical policy exception?",
+        "user_id": 2
+      },
+      "status_code": 403,
+      "response_headers": {
+        "content-type": "application/json",
+        "x-request-id": "cecdb8e40b8340f594858388b39c5b52",
+        "cache-control": "no-store"
+      },
+      "response_body": {
+        "detail": "Identity mismatch"
+      }
+    },
+    {
+      "timestamp": "2026-11-18T19:03:31.117518+00:00",
+      "method": "POST",
+      "url": "http://127.0.0.1:8041/dev-auth/token",
+      "request_headers": {
+        "Accept": "application/json",
+        "Content-Type": "application/json"
+      },
+      "request_body": {
+        "user_id": 3
+      },
+      "status_code": 200,
+      "response_headers": {
+        "content-type": "application/json",
+        "x-request-id": "7f37593dbb68465faa14a51e4dac6923",
+        "cache-control": "no-store"
+      },
+      "response_body": {
+        "access_token": "[REDACTED]",
+        "token_type": "bearer",
+        "expires_in": 900,
+        "issuer": "derexi-dev"
+      }
+    },
+    {
+      "timestamp": "2026-11-18T19:03:31.121275+00:00",
+      "method": "GET",
+      "url": "http://127.0.0.1:8041/conversations/1",
+      "request_headers": {
+        "Accept": "application/json",
+        "Authorization": "[REDACTED]"
+      },
+      "request_body": null,
+      "status_code": 404,
+      "response_headers": {
+        "content-type": "application/json",
+        "x-request-id": "0b217aaa0189453883af2373e67f5663",
+        "cache-control": "no-store"
+      },
+      "response_body": {
+        "detail": "Conversation not found"
+      }
+    },
+    {
+      "timestamp": "2026-11-18T19:03:35.412590+00:00",
+      "method": "GET",
+      "url": "http://127.0.0.1:8041/api/pulse?limit=5",
+      "request_headers": {
+        "Accept": "application/json"
+      },
+      "request_body": null,
+      "status_code": 200,
+      "response_headers": {
+        "content-type": "application/json",
+        "x-request-id": "aa2141b6bdba4ac78ec7b244a67dc281"
+      },
+      "response_body": {
+        "articles": [
+          {
+            "id": "federal-register-2026-23453",
+            "title": "Reserve Requirements of Depository Institutions",
+            "url": "https://www.federalregister.gov/documents/2026/11/18/2026-23453/reserve-requirements-of-depository-institutions",
+            "published": "2026-11-18",
+            "summary": "The Board is amending Regulation D, Reserve Requirements of Depository Institutions, to reflect the annual indexing of the reserve requirement exemption amount and the low reserve tranche for 2027. The annual indexation of these amounts is required notwithstanding the Board's action in March 2020 of setting all\u2026",
+            "source": "Federal Register",
+            "agency": "Federal Reserve System",
+            "category": "Regulations",
+            "status": "Final Rule",
+            "doc_type": "Rule",
+            "classified_by": "source",
+            "score": 92.0
+          },
+          {
+            "id": "federal-register-2026-23417",
+            "title": "Proposed Third-Party Risk Management Guide for Traditional Community Banking Organizations",
+            "url": "https://www.federalregister.gov/documents/2026/11/18/2026-23417/proposed-third-party-risk-management-guide-for-traditional-community-banking-organizations",
+            "published": "2026-11-18",
+            "summary": "On September 15, 2026, the Board of Governors of the Federal Reserve System (Board) published in the Federal Register a proposed guide for traditional community banking organizations on managing risks associated with third-party relationships. The proposal provided for a comment period ending on November 16, 2026. The\u2026",
+            "source": "Federal Register",
+            "agency": "Federal Reserve System",
+            "category": "Banking & Finance",
+            "status": "Notice",
+            "doc_type": "Notice",
+            "classified_by": "source",
+            "score": 60.0
+          },
+          {
+            "id": "federal-register-2026-23416",
+            "title": "Proposed Third-Party Risk Management Guidance; Extension of Comment Period",
+            "url": "https://www.federalregister.gov/documents/2026/11/18/2026-23416/proposed-third-party-risk-management-guidance-extension-of-comment-period",
+            "published": "2026-11-18",
+            "summary": "On September 15, 2026, the OCC, Board, FDIC, and NCUA (collectively, the agencies) published in the Federal Register a proposed interagency guidance and request for comment on third-party risk management. The proposed guidance would reflect the agencies' supervisory experience and lessons learned through examining\u2026",
+            "source": "Federal Register",
+            "agency": "Treasury Department, Comptroller of the Currency, Federal Reserve System, Federal Deposit Insurance Corporation\u2026",
+            "category": "Banking & Finance",
+            "status": "Notice",
+            "doc_type": "Notice",
+            "classified_by": "source",
+            "score": 60.0
+          },
+          {
+            "id": "fdic-70459728",
+            "title": "FDIC Encourages Comment on FinCEN-Proposed Rulemaking to Strengthen and Modernize Customer Due Diligence Requirements",
+            "url": "https://content.govdelivery.com/accounts/USFDIC/bulletins/4332150",
+            "published": "2026-11-17",
+            "summary": "The U.S. Department of the Treasury\u2019s Financial Crimes Enforcement Network (FinCEN) today issued a notice of proposed rulemaking to strengthen and modernize customer due diligence (CDD) requirements under the Bank Secrecy Act (BSA). The BSA refers to the statutory framework imposing various anti-money\u2026",
+            "source": "FDIC",
+            "agency": "Federal Deposit Insurance Corporation",
+            "category": "Banking & Finance",
+            "status": "General News",
+            "doc_type": "Press release",
+            "classified_by": "inferred",
+            "score": 51.5
+          },
+          {
+            "id": "fdic-70448480",
+            "title": "FDIC Board of Directors Approve New Actions",
+            "url": "https://content.govdelivery.com/accounts/USFDIC/bulletins/432f560",
+            "published": "2026-11-17",
+            "summary": "By notational vote, the Federal Deposit Insurance Corporation's Board of Directors today unanimously approved the following matters. Materials and information related to these Board actions are available on the Board Matters webpage. Notice of Proposed Rulemaking: Implementing the 21st Century ROAD to Housing Act \u2013\u2026",
+            "source": "FDIC",
+            "agency": "Federal Deposit Insurance Corporation",
+            "category": "Banking & Finance",
+            "status": "General News",
+            "doc_type": "Press release",
+            "classified_by": "inferred",
+            "score": 51.5
+          }
+        ],
+        "total_normalized": 92,
+        "sources": {
+          "Federal Register": {
+            "ok": true,
+            "count": 43,
+            "error": null
+          },
+          "FDIC": {
+            "ok": true,
+            "count": 25,
+            "error": null
+          },
+          "NIST": {
+            "ok": true,
+            "count": 9,
+            "error": null
+          },
+          "Federal Reserve": {
+            "ok": true,
+            "count": 15,
+            "error": null
+          }
+        },
+        "generated_at": "2026-11-18T19:03:35Z",
+        "checked_at": "2026-11-18T19:03:35Z",
+        "categories": [
+          "Banking & Finance",
+          "Regulations",
+          "Cybersecurity",
+          "Privacy & Data Protection",
+          "Supervisory Guidance"
+        ],
+        "statuses": [
+          "Proposed Rule",
+          "Final Rule",
+          "Notice",
+          "Supervisory Guidance",
+          "Standards Draft",
+          "General News"
+        ],
+        "radar": [
+          {
+            "id": "federal-register-2026-23453",
+            "label": "Worth Monitoring",
+            "note": "Federal Reserve System published a final rule. Effective dates and scope are stated in the rule itself."
+          }
+        ]
+      }
+    }
+  ],
+  "passed": 15,
+  "failed": 0
+}
