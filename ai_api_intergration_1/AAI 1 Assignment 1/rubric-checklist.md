@@ -1,28 +1,35 @@
-# AI API Integration 1 - final rubric checklist
+# Assignment 1 — final rubric checklist
 
-Reviewed November 18, 2026. These are evidence-based completion statuses, not an
-instructor grade. The local course screenshot shows only the assignment heading;
-the mapping uses the four supplied criteria already recorded in this coursework.
-Confirm any expanded LMS conditions separately.
+Finalized November 19, 2026 using existing coursework evidence only.
+**4/4 supplied criteria supported (PASS within the stated verification scope).**
+This is a review status, not an instructor grade. The local LMS screenshot exposes
+only the assignment header; the original task supplied the complete four criteria below.
 
-| Item | Final status | Concrete evidence | Remaining qualification |
+| Supplied criterion | Status | Concrete implementation and evidence | Mandatory remaining requirement |
 |---|---|---|---|
-| 1. At least two distinct HTTP methods | **DEFERRED - report/manual captures** | GET `/policies`, POST `/ask`: H04/H07-H09, B02/B06; originals preserved | [Manual Network/Payload/Response checklist](README.md); no final Item 1 report created |
-| 2. Format and display API data | **COMPLETE** | [Supplied one-page report](../AAI%201%20Assignment%202/AI_API_Integration_1_Rubric_02_Report.pdf), B01/B03-B05; Library/Assistant/Pulse captures | Verified local display and point-in-time public data; supplied PDF retained unchanged |
-| 3. Structured methods, URLs, headers, bodies, JSON and statuses | **COMPLETE** | [Two-page report](../AAI%201%20Assignment%203/AI_API_Integration_1_Rubric_03_Report.pdf), [full exchanges](api-evidence.md), [source/lifecycle notes](../AAI%201%20Assignment%203/README.md); H02-H12 | Report excerpts explicitly select fields; complete captured bodies remain linked; optional documentation screenshot not required by supplied criterion |
-| 4. Working open or secured API with friendly output | **COMPLETE - stated scope** | [Supplied one-page report](../AAI%201%20Assignment%204/AI_API_Integration_1_Rubric_04_Report.pdf); actual 200/401/403/404 and public source records, readable UI | Signed development bearer, synthetic SQLite; production and external AI unverified |
+| Demonstrate at least 2 distinct RESTful HTTP methods to fetch/send data. | **PASS — local scope** | GET `/policies` + POST `/ask`; retained H04/H07–H09, B02/B06. [Two-page report](AI_API_Integration_1_Rubric_01_Report.pdf), [actual exchanges](api-evidence.md), [HTTP JSON](evidence/20261118-api/http-results.json). | None; no new success screenshot required |
+| Format and display API data using at least one HTTP method. | **PASS** | B01/B03–B05, readable original Library/Assistant/Pulse, [actual captures](evidence/20261118-api/README.md), [Assignment 2 PDF](../AAI%201%20Assignment%202/AI_API_Integration_1_Rubric_02_Report.pdf). | None |
+| Document structured requests/responses: HTTP method, endpoint/URL, headers, request body (if applicable), response, and status code. | **PASS** | [api-evidence.md](api-evidence.md), retained JSON, [Assignment 3 PDF](../AAI%201%20Assignment%203/AI_API_Integration_1_Rubric_03_Report.pdf). GET body absent; POST body shown; 200/401/422/403/404 explicitly distinguished. | None |
+| Demonstrate a working public or secured API with user-friendly output. | **PASS — stated scope** | Existing local signed bearer/RBAC; H02/H03/H11/H12 and original UI. Historical public JSON H13–H15; [Assignment 4 PDF](../AAI%201%20Assignment%204/AI_API_Integration_1_Rubric_04_Report.pdf). | None; production and external AI remain outside the verified scope |
 
-## Evidence boundaries and review
+## Evidence interpretation
 
-- Existing functional evidence: **22 PASS / 0 FAIL**, 15 HTTP + 7 browser checks; reused, not rerun.
-- Four upstream 200 responses are separate source observations, not four additional tests.
-- Search is mocked; AI/email disabled. Deterministic clarification is not an LLM response.
-- Items 2/4 PDFs were already supplied in the correct folders; visually reviewed, not regenerated.
-- Item 3 report uses actual sanitized transcripts and inspected current `main.py`/`schemas.py`.
-- All 11 fixture source hashes match after CRLF-to-LF normalization. Raw hashes differ due to checkout line endings; no byte-identical cross-platform claim is made.
-- [Finalization review and validation](../AAI%201%20Assignment%203/evidence/finalization-review.md) records page counts, report checks, hashes and remaining submission actions.
-- No application/UI/RBAC/database/secret change, production write, dependency install, commit or push.
+- **Reused, not rerun:** 22 PASS / 0 FAIL = 15 HTTP + 7 browser checks, November 18.
+- **200 success:** authenticated GET returns resources; POST creates fixture records
+  and returns guidance; follow-up GET verifies persistence only in disposable SQLite.
+- **401 rejection:** retained H02 proves missing bearer authentication is rejected.
+  User-referenced Swagger 401 images are not located/embedded; their status must
+  never be converted into a success claim. [Availability and review](evidence/finalization-20261119/README.md).
+- **422/403/404:** invalid fields, body identity mismatch and private-record denial.
+- **Mocked/disabled:** PostgreSQL ranking mocked to no matches; external AI/email
+  disabled. Deterministic clarification is not a generated provider answer.
+- **Unverified:** production Supabase/authentication and live AI-provider responses.
+  No supplied criterion requires those when the existing secured/public API is demonstrated.
+- The four retained public 200 observations are not four added test cases or a
+  guarantee of current feed availability; RSS alone does not establish two REST methods.
 
-Earlier failures remain in the original attempt folders. The old document audit's
-hashes describe documents before this finalization; its result is historical, not
-an assertion that edited README/checklist files retain their old hashes.
+The former “deferred” Item 1 status is closed by the new report and already adequate
+transcripts/UI evidence. No application change, API rerun or additional screenshot
+is mandatory. Assignment 2–4 reports and historical evidence remain unchanged.
+[Current offline artifact verification](evidence/finalization-20261119/validation.json)
+is separate from the original application tests.

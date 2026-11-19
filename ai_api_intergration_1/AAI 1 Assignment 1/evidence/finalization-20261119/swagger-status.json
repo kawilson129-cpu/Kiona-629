@@ -1,0 +1,14 @@
+{
+  "scope": "Existing image availability review, not a new API test",
+  "status": "NOT_LOCATED",
+  "user_description": "Existing Swagger screenshots demonstrating authentication enforcement and HTTP 401",
+  "reviewed_locations": [
+    "Assignment 1 and course image inventory",
+    "Desktop and Downloads screenshot file locations"
+  ],
+  "incorporated": false,
+  "substitute_existing_evidence": "evidence/20261118-api/http-results.json / H02 actual HTTP401 transcript",
+  "new_screenshots_requested": false,
+  "new_api_tests_executed": false,
+  "mandatory_rubric_gap": false
+}

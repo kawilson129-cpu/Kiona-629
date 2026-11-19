@@ -22,3 +22,13 @@ Screenshots are 1440×1000 Chrome captures with an added scope label. No synthet
 article data was substituted into Pulse and no product CSS was changed. The
 Assistant's clarification does not demonstrate a live LLM response. No production
 records, raw tokens, browser profiles or secret files are included.
+
+## Assignment 1 report finalization — November 19, 2026
+
+The [new two-page report](../../AI_API_Integration_1_Rubric_01_Report.pdf) reuses the
+existing 200 GET/POST results, original UI images and separate 401 authentication
+rejection. **No API tests or captures rerun.** User-referenced Swagger images were
+not located and are not fabricated or counted as success evidence.
+[Current finalization index](../finalization-20261119/README.md) and
+[offline artifact checks](../finalization-20261119/validation.json).
+Original machine results/images and their historical manifests remain unchanged.

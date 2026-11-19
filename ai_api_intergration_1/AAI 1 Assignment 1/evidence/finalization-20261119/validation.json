@@ -1,0 +1,124 @@
+{
+  "timestamp": "2026-11-19T18:24:36.483839+00:00",
+  "scope": "Offline report/document/evidence audit only. No API tests, app startup or public requests executed.",
+  "reused_application_results": {
+    "passed": 22,
+    "failed": 0,
+    "test_date": "2026-11-18"
+  },
+  "passed": 15,
+  "failed": 0,
+  "checks": [
+    {
+      "name": "All Assignment 2\u20134 reports/supporting files preserved byte-for-byte",
+      "status": "PASS",
+      "detail": {
+        "files": 12,
+        "changed": []
+      }
+    },
+    {
+      "name": "Retained API results, screenshots and historical attempts unchanged",
+      "status": "PASS",
+      "detail": {
+        "files": 19,
+        "changed": []
+      }
+    },
+    {
+      "name": "Retained 15 HTTP + 7 browser PASS, zero FAIL",
+      "status": "PASS",
+      "detail": "Reused November 18 results; not re-executed"
+    },
+    {
+      "name": "Distinct successful GET/POST with complete exchange fields",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Separate 401 transcript proves missing bearer rejection",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Assignment 1 report is exactly two Letter pages",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Report covers methods, URLs, headers, JSON, statuses and honest reuse scope",
+      "status": "PASS",
+      "detail": []
+    },
+    {
+      "name": "Report distinguishes Swagger401 rejection from prior200 success",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Both offline PDF QA renders exist",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Report embeds existing original UI images only",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Assignment 1 document/evidence links resolve",
+      "status": "PASS",
+      "detail": {
+        "links": 61,
+        "broken": []
+      }
+    },
+    {
+      "name": "Missing Swagger images disclosed, never misrepresented",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Current docs close prior deferral without requiring new captures/tests",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "No JWT/private-key material in retained transcripts/report/doc text",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "No tracked application changes",
+      "status": "PASS",
+      "detail": ""
+    }
+  ],
+  "rubric": {
+    "1": "PASS \u2014 existing evidence, stated local scope",
+    "2": "PASS \u2014 existing evidence, stated local scope",
+    "3": "PASS \u2014 existing evidence, stated local scope",
+    "4": "PASS \u2014 existing evidence, stated local scope"
+  },
+  "mandatory_unresolved_requirements": [],
+  "incorporation_limitation": "User-referenced Swagger401 screenshot files were not located; authentic prior401 transcript used, not fabricated screenshots.",
+  "report": {
+    "path": "AI_API_Integration_1_Rubric_01_Report.pdf",
+    "pages": 2,
+    "sha256": "ebc30996c6dfb2edc69fb8b38ac9301c9c36f139a7c11d194278a360dba98af5"
+  },
+  "preserved_assignment_2_to_4_hashes": {
+    "ai_api_intergration_1/AAI 1 Assignment 2/AI_API_Integration_1_Rubric_02_Report.pdf": "971efa0b3925f93b02992d287c4571907e5e2bd8d23f1a09be5f2bbcebbdc5c0",
+    "ai_api_intergration_1/AAI 1 Assignment 3/README.md": "ad2bbe2c944ca26926b807a0c91590f9c4847fbc73670f7bef9dbd904d480a8d",
+    "ai_api_intergration_1/AAI 1 Assignment 3/AI_API_Integration_1_Rubric_03_Report.pdf": "edbf2bab5d47f91b2b615726c6d469cea358e2af92a35fffd399cee876265b41",
+    "ai_api_intergration_1/AAI 1 Assignment 3/evidence/item03-review-2.png": "a7c566ee43411a51f303a97cafcb2d3b9bc3579616f7dd7497555480a557ba9a",
+    "ai_api_intergration_1/AAI 1 Assignment 3/evidence/item03-review-1.png": "44b69e9ff9c418a15358611ce21042d13d2f18118ef48aacf472f2ff10ece386",
+    "ai_api_intergration_1/AAI 1 Assignment 3/evidence/finalization-review.md": "3bb46bd3225070965a9ffa9d8ca88d95d256cf6966ac552e019138f664b92c55",
+    "ai_api_intergration_1/AAI 1 Assignment 3/evidence/item02-review.png": "57d39e557fe8a3b2a75e1913b4bfcc286c68e5d19c6303ac12028b0d66e0f130",
+    "ai_api_intergration_1/AAI 1 Assignment 3/evidence/finalization-validation.json": "38cb88f61ec651d02079f78d0016dfce7c31699d6dc83e9eaea96fd9c4093689",
+    "ai_api_intergration_1/AAI 1 Assignment 3/evidence/item04-review.png": "e35287fbb04f3da2f85aa7cc9be3a21900142073a8b6c941fcd220652bc4ddea",
+    "ai_api_intergration_1/AAI 1 Assignment 3/src/build_report.py": "ac567524ea7d2a46b62fc661e53bebd0b9996749f5444c1114566680986056e9",
+    "ai_api_intergration_1/AAI 1 Assignment 3/src/validate_finalization.py": "de09d417c460ac390ad606f7513f54b42db060d42ef1d653cad0ed37e8131eac",
+    "ai_api_intergration_1/AAI 1 Assignment 4/AI_API_Integration_1_Rubric_04_Report.pdf": "b419d4b9b3c18dc64b052d1aa0813e1410d92ac2534d7ae445a000c45775a51f"
+  }
+}

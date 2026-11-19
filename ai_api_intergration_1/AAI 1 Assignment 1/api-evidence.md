@@ -1,5 +1,15 @@
 # Structured API evidence
 
+## Assignment 1 finalization — November 19, 2026
+
+The [new two-page report](AI_API_Integration_1_Rubric_01_Report.pdf) packages these
+existing exchanges. **No API transaction below was rerun for finalization.**
+The 200 GET/POST results are from November 18 automated HTTP/browser verification.
+The separate H02 401 result proves rejection of absent credentials; it does not
+prove successful retrieval or submission. User-referenced Swagger 401 images were
+not located in available files, so no Swagger screenshot is claimed or fabricated.
+[Finalization index](evidence/finalization-20261119/README.md).
+
 Captured November 18, 2026 using actual loopback socket requests to the existing
 DeRexi FastAPI application. Synthetic in-memory SQLite, existing development
 bearer authentication and actual RBAC; PostgreSQL ranking is MOCKED to no matches.

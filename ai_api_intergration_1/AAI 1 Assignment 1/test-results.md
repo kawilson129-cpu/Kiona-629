@@ -1,15 +1,19 @@
 # Test results — November 18, 2026
 
-## Report finalization (same date)
+## Assignment 1 finalization — November 19, 2026
 
-The 22 successful HTTP/browser checks below are **reused, not rerun**. Items 2/4
-supplied one-page PDFs were located and reviewed unchanged; Item 3 has a matching
-two-page report. Item 1 final report is deferred pending manual Network/Payload/
-Response captures. Current artifact/page/link/source checks are recorded separately
-in [finalization review](../AAI%201%20Assignment%203/evidence/finalization-review.md).
-The earlier validation.json describes pre-finalization documentation hashes.
+The existing **22 PASS / 0 FAIL** below were reused without rerunning HTTP, UI,
+public feeds or authentication. Assignment 1 now has a matching two-page report;
+Assignment 2–4 reports remain unchanged. The previous manual-screenshot deferral
+is superseded: the supplied rubric is already supported by original transcripts
+and UI captures. User-referenced Swagger 401 images were not located and are not
+claimed embedded; the actual retained H02 transcript supplies 401 evidence.
 
-**Current result: 22 PASS / 0 FAIL**: 15 real socket HTTP checks + 7 browser checks.
+New verification is limited to offline document/PDF/page-count/link/hash checks:
+[finalization validation](evidence/finalization-20261119/validation.json).
+These checks are not new API tests and are not added to the 22-pass total.
+
+**Retained application result: 22 PASS / 0 FAIL**: 15 real socket HTTP checks + 7 browser checks.
 No production verification is included in this total. The documentation/links/hash
 audit is recorded separately in the evidence validation file.
 
@@ -63,19 +67,14 @@ app change was needed.
   corrected harness assertions and settled-animation captures supersede the earlier
   browser attempts. Earlier attempts are not counted again or erased.
 
-## Exact reproduction commands
+## Existing commands — reference only
 
-Run from repository root with the dedicated fixture active. Use a fresh evidence
-directory each time; the scripts refuse to overwrite current run result files.
+Original executed commands remain in [commands.txt](evidence/20261118-api/commands.txt).
+They document the historical test run and cleanup; none were repeated now.
+Because coursework was subsequently organized under `AAI 1 Assignment 1/`, old
+output paths describe the earlier directory layout. No rerun is required for the
+supplied rubric. Any separately requested future rerun must use a new output folder
+inside this assignment, the isolated fixture and the appropriate local interpreter.
 
-```sh
-# Terminal 1
-derexi-policy-pilot/.venv/bin/python -B derexi-policy-pilot/backend/tests/api_integration_evidence.py serve --output ai_api_intergration_1/evidence/recheck-01 --live-public
-# Terminal 2
-derexi-policy-pilot/.venv/bin/python -B derexi-policy-pilot/backend/tests/api_integration_evidence.py http --output ai_api_intergration_1/evidence/recheck-01 --live-public
-# After starting dedicated Chrome as documented in README.md
-node derexi-policy-pilot/backend/tests/test_api_integration_browser.mjs ai_api_intergration_1/evidence/recheck-01
-```
-
-See [README](README.md) for the complete Chrome command, safe curl requests,
-cleanup instructions and exact per-rubric screenshot steps.
+See [README](README.md) for final report/evidence scope; no application service was
+started for this finalization.

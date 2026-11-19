@@ -1,71 +1,68 @@
-# AI API Integration 1 - submission guide
+# AI API Integration 1 — Assignment 1
 
-Existing DeRexi project; original course spelling `ai_api_intergration_1/` preserved.
-Finalized November 18, 2026. Instructor grading is separate from these evidence statuses.
+**Finalized November 19, 2026. All four supplied rubric criteria are supported.**
+The assessment is evidence-based, not an instructor-awarded grade.
 
-| Item | Status | Final report / evidence |
+Submit the matching two-page [Assignment 1 report](AI_API_Integration_1_Rubric_01_Report.pdf).
+[Editable report source](AI_API_Integration_1_Rubric_01_Report.html),
+[rubric checklist](rubric-checklist.md), [full API evidence](api-evidence.md),
+[test results](test-results.md), and [finalization index](evidence/finalization-20261119/README.md).
+
+| Item | Status | Existing implementation and coursework evidence |
 |---|---|---|
-| 2. Format and Display API Data | **COMPLETE - verified local display** | [Supplied one-page report](../AAI%201%20Assignment%202/AI_API_Integration_1_Rubric_02_Report.pdf); B01/B03-B05 and screenshots 01/02/03 |
-| 3. Structuring API Requests and Responses | **COMPLETE - documented exchange** | [Two-page report](../AAI%201%20Assignment%203/AI_API_Integration_1_Rubric_03_Report.pdf); [lifecycle/source notes](../AAI%201%20Assignment%203/README.md); actual GET/POST and 401/422/403/404 transcripts |
-| 4. Implement Open or Secured APIs | **COMPLETE - stated verified scope** | [Supplied one-page report](../AAI%201%20Assignment%204/AI_API_Integration_1_Rubric_04_Report.pdf); H02-H15 and B01-B07 |
-| 1. GET/POST demonstration | **DEFERRED - final report not created** | Existing GET/POST tests preserved; manual screenshots listed below |
+| 1. Demonstrate two distinct RESTful HTTP methods | **PASS — verified local scope** | GET `/policies` retrieves policy resources; POST `/ask` submits JSON and creates fixture conversation/clarification records. H04/H07–H09 and B02/B06; new report packages existing evidence. |
+| 2. Format/display API data | **PASS** | Original Library/Assistant/Pulse UI; B01/B03–B05 and actual Nov 18 screenshots. [Completed Assignment 2 report](../AAI%201%20Assignment%202/AI_API_Integration_1_Rubric_02_Report.pdf), preserved. |
+| 3. Document structured requests/responses | **PASS** | Full URLs, methods, selected headers, body/no-body, JSON and statuses in api-evidence.md and original transcripts. [Completed Assignment 3 report](../AAI%201%20Assignment%203/AI_API_Integration_1_Rubric_03_Report.pdf), preserved. |
+| 4. Working public or secured API and friendly output | **PASS — stated scope** | Existing signed development bearer/RBAC, actual local HTTP and readable output; retained public JSON feeds. [Completed Assignment 4 report](../AAI%201%20Assignment%204/AI_API_Integration_1_Rubric_04_Report.pdf), preserved. |
 
-The supplied Item 2/4 PDFs were found in their existing folders, visually checked
-and retained unchanged. All three reports use a consistent cream/espresso/gold
-presentation and are within 1-2 pages. See [rubric mapping](rubric-checklist.md),
-[full sanitized API exchanges](api-evidence.md), [test results](test-results.md)
-and [report review / artifact validation](../AAI%201%20Assignment%203/evidence/finalization-review.md).
+## What was reused
 
-## What the evidence actually proves
+**22 PASS / 0 FAIL** from November 18: 15 actual socket HTTP checks + 7 existing-UI
+browser checks. Original requests, statuses, JSON, screenshot images and earlier
+failed attempts remain unchanged. No API tests, public-feed downloads, login or
+production calls were executed during this finalization. New report rendering and
+artifact checks are separate from the reused application test results.
 
-**Reused: 22 PASS / 0 FAIL** (15 real loopback HTTP checks + 7 original-UI browser
-checks, November 18). No application tests or public-feed requests were rerun for
-report finalization. The original application, UI and signed development bearer
-identity/RBAC were exercised with synthetic, disposable SQLite records.
-PostgreSQL search was **MOCKED to no matches**; external AI/email were **DISABLED**.
+The earlier verified GET `/policies` and POST `/ask` both returned **200 OK** with
+JSON. H09 subsequently retrieved the created fixture conversation. H02 records a
+separate unauthenticated GET with **401**, `WWW-Authenticate: Bearer`, and
+`{"detail":"Authentication required"}`. H10–H12 record 422/403/404 outcomes.
+A 401 screenshot cannot be presented as a successful 200 request.
 
-Public feeds separately returned 4/4 HTTP 200 at their recorded times: Federal
-Register/NIST JSON and FDIC/Federal Reserve RSS. These are retained point-in-time
-public-live observations, not fresh availability or four extra test cases.
-Production Supabase/authentication and AI-provider responses remain **UNVERIFIED**.
-[Original JSON, actual screenshots and scope labels](evidence/20261118-api/README.md).
+Policy data is synthetic, disposable SQLite; PostgreSQL search was mocked to no
+matches and external AI/email disabled. The answer is deterministic clarification,
+not a live LLM answer. Production Supabase/auth and AI-provider connectivity remain
+**UNVERIFIED**; these are not missing requirements in the four supplied criteria.
+Public JSON/RSS source observations are retained, not current availability claims.
+RSS alone is not used to satisfy two REST methods.
 
-The available course screenshot contains the assignment header, not expanded
-rubric rows. Completion mapping follows the supplied criteria already documented
-here and the requested scope; confirm any additional LMS wording before submission.
+## Swagger image availability and evidence distinction
 
-## Item 1 - brief manual screenshot checklist
+The user referenced existing Swagger screenshots of authentication enforcement and
+401 responses. Those images were not present in the Assignment 1/course image
+inventory or the inspected Desktop/Downloads locations at finalization. Only their
+existing location was requested; no additional capture or API rerun was requested.
+They have **not** been fabricated, embedded, or labelled as visually verified.
+The report explicitly records their availability limitation and uses the authentic
+retained 401 transcript instead. The three Nov 18 UI captures are present and linked.
 
-Use only the disposable fixture on **127.0.0.1:8041**, never the normal application
-on 8000 or production. Keep the scope label: **local fixture / synthetic SQLite /
-search mocked / AI off**. Open DevTools Network, filter Fetch/XHR and enable
-Preserve log. Never capture Authorization, cookies, a token response, raw HAR or secrets.
+If the existing Swagger files become available, their proper caption is
+**user-supplied Swagger capture / 401 authentication rejection**, not **200 success**.
+The saved original 200 transcripts independently establish successful GET/POST.
+Their absence is an incorporation limitation, not a mandatory gap in the supplied
+rubric: no new screenshot or test is required to substantiate its four criteria.
 
-- [ ] **GET:** reload `/ui/?as=8#library`; capture the Network table with Method/Name/Status showing GET `/policies` 200 beside the readable Library.
-- [ ] **POST request:** ask `How should I handle a hypothetical policy exception?`; capture POST `/ask` 200, its General URL/method/status and JSON Payload. Collapse Request Headers.
-- [ ] **POST response:** capture that same request's Response JSON beside the Assistant guidance. IDs must belong to this capture, not be copied from old evidence.
-- [ ] Optional: GET Response JSON and GET/POST together in one Network table.
+## Original rubric and preserved reports
 
-Save manual images beneath the existing `evidence/` directory with a new name.
-Current UI screenshots 01/02 already exist; these additional captures document
-HTTP details. No Item 1 final PDF is included.
+The [existing LMS image](../Screenshot%202026-11-17%20at%202.44.17%E2%80%AFPM.png)
+contains the course/assignment header, not expanded rubric rows. The original four
+requirements supplied in the task are transcribed in [rubric-checklist.md](rubric-checklist.md);
+no unseen LMS condition is invented. There is no evidence-based mandatory unresolved
+requirement under that supplied rubric. Additional manual Network/Payload/Response
+screenshots in the older checklist are optional presentation material, not blockers.
 
-## Optional fixture reproduction
-
-Only if a manual capture is needed. Existing recorded commands and cleanup scope:
-[evidence commands](evidence/20261118-api/commands.txt). Use an unused output path.
-On this Windows checkout, from the repository root:
-
-```powershell
-& derexi-policy-pilot/.venv/Scripts/python.exe -B derexi-policy-pilot/backend/tests/api_integration_evidence.py serve --output "ai_api_intergration_1/AAI 1 Assignment 1/evidence/manual-01"
-```
-
-This offline fixture is sufficient for Item 1 GET/POST captures; public-feed health
-is not implied. Open the original UI manually, wait for entry animations to settle,
-and stop only the dedicated fixture terminal with Ctrl+C. Do not restart or change
-an existing application service. No need to repeat the successful full suite.
-
-Item 3 needs no additional runtime test evidence. An optional documentation capture
-can show [api-evidence.md](api-evidence.md) beside sanitized `http-results.json`
-with URL, method, selected headers, body, status and response; this is a document
-capture, not a newly verified API transaction.
+The completed Assignment 2–4 reports and all their supporting files were preserved
+byte-for-byte against the baseline in the finalization folder. Their older Item 1
+“deferred” notes describe the previous state and are superseded here, not rewritten.
+The application, database, RBAC, secret files and pre-existing unrelated work were
+untouched. No commit, push, dependency install or API execution.
