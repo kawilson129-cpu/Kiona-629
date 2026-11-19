@@ -1,7 +1,14 @@
 # MEMORY.md
 
 ## Last Updated
-November 12, 2026
+November 18, 2026
+
+## Latest session - AI API Integration 1 report finalization
+- Reviewed/linked supplied one-page Item 2 and Item 4 PDFs unchanged; created matching two-page Item 3 report and lifecycle notes in existing ai_api_intergration_1/AAI 1 Assignment 3/.
+- Items 2/3/4 COMPLETE within supplied criteria. Item 1 final report deferred with manual Network/Payload/Response captures. Expanded LMS rubric rows are absent from the local screenshot; confirm before submission.
+- Reused 15 HTTP + 7 browser PASS results without rerunning app/public APIs. New offline artifact QA: 100 PASS / 0 FAIL. All 11 source hashes match after CRLF-to-LF normalization; screenshot/transcript provenance checked. AI disabled, search mocked; production/Supabase/provider responses unverified.
+- Updated existing Assignment 1 README/checklist/API evidence/test-results. New report/evidence/scripts stay in the course folder. No app/UI/RBAC/database/secret changes, installs, production writes, commit or push. See Assignment 3/evidence/finalization-review.md.
+
 
 ## Latest session (Nov 10) - SDLC Week 10 Testing & Quality Assurance
 Prepared Tested MVP evidence in existing `semester_5/DeRexi_Week 10/`. Latest executed checks: **379 PASS / 0 FAIL / 0 automated blocked** (342 backend/unit/integration + 37 browser UAT); 7 live workflow verifications remain blocked. Fixed UI feedback that never persisted, non-answer feedback acceptance, and Pulse publisher-host spoofing. All writes used isolated SQLite/private temp files; provider/feed mocked; no live Supabase access or configuration/schema/RLS/Auth changes. Agent-executed UAT only, human sign-off pending. No commit/push; unrelated concurrent file moves preserved.

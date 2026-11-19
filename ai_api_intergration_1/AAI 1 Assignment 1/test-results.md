@@ -1,5 +1,14 @@
 # Test results — November 18, 2026
 
+## Report finalization (same date)
+
+The 22 successful HTTP/browser checks below are **reused, not rerun**. Items 2/4
+supplied one-page PDFs were located and reviewed unchanged; Item 3 has a matching
+two-page report. Item 1 final report is deferred pending manual Network/Payload/
+Response captures. Current artifact/page/link/source checks are recorded separately
+in [finalization review](../AAI%201%20Assignment%203/evidence/finalization-review.md).
+The earlier validation.json describes pre-finalization documentation hashes.
+
 **Current result: 22 PASS / 0 FAIL**: 15 real socket HTTP checks + 7 browser checks.
 No production verification is included in this total. The documentation/links/hash
 audit is recorded separately in the evidence validation file.

@@ -1,36 +1,28 @@
-# AI API Integration 1 — rubric gap analysis
+# AI API Integration 1 - final rubric checklist
 
-Existing course folder: `ai_api_intergration_1/` (original spelling retained).
-Implementation: canonical `derexi-policy-pilot/`; no separate application.
+Reviewed November 18, 2026. These are evidence-based completion statuses, not an
+instructor grade. The local course screenshot shows only the assignment heading;
+the mapping uses the four supplied criteria already recorded in this coursework.
+Confirm any expanded LMS conditions separately.
 
-| Item | Existing implementation/evidence | Gap before this session | Initial status |
+| Item | Final status | Concrete evidence | Remaining qualification |
 |---|---|---|---|
-| 1. Two distinct RESTful HTTP methods | GET `/policies`, POST `/ask`, prior Week 10 isolated tests | Course-specific real socket HTTP transcripts and scope labels | UNVERIFIED for this course |
-| 2. Format/display API data | Library formats GET JSON as rows; Assistant displays POST JSON answer | Fresh rendered-output assertions/captures | UNVERIFIED for this course |
-| 3. Structured request/response documentation | Existing FastAPI schemas/OpenAPI | Course method/URL/headers/body/status/response examples and curl | PARTIAL |
-| 4. Working public or secured API and friendly output | Server-verified bearer identity/RBAC, Library/Assistant, public Pulse JSON | Current real HTTP, security and browser evidence; upstream checks separate | UNVERIFIED for this course |
+| 1. At least two distinct HTTP methods | **DEFERRED - report/manual captures** | GET `/policies`, POST `/ask`: H04/H07-H09, B02/B06; originals preserved | [Manual Network/Payload/Response checklist](README.md); no final Item 1 report created |
+| 2. Format and display API data | **COMPLETE** | [Supplied one-page report](../AAI%201%20Assignment%202/AI_API_Integration_1_Rubric_02_Report.pdf), B01/B03-B05; Library/Assistant/Pulse captures | Verified local display and point-in-time public data; supplied PDF retained unchanged |
+| 3. Structured methods, URLs, headers, bodies, JSON and statuses | **COMPLETE** | [Two-page report](../AAI%201%20Assignment%203/AI_API_Integration_1_Rubric_03_Report.pdf), [full exchanges](api-evidence.md), [source/lifecycle notes](../AAI%201%20Assignment%203/README.md); H02-H12 | Report excerpts explicitly select fields; complete captured bodies remain linked; optional documentation screenshot not required by supplied criterion |
+| 4. Working open or secured API with friendly output | **COMPLETE - stated scope** | [Supplied one-page report](../AAI%201%20Assignment%204/AI_API_Integration_1_Rubric_04_Report.pdf); actual 200/401/403/404 and public source records, readable UI | Signed development bearer, synthetic SQLite; production and external AI unverified |
 
-Pulse's RSS downloads alone are not evidence of two REST methods. The primary
-demonstration uses DeRexi's JSON resource GET and request-processing POST.
-Public Federal Register/NIST JSON, RSS aggregation and optional OpenAI-compatible
-AI calls are separate integrations with separate connectivity claims.
+## Evidence boundaries and review
 
-## Final rubric mapping — November 18, 2026
+- Existing functional evidence: **22 PASS / 0 FAIL**, 15 HTTP + 7 browser checks; reused, not rerun.
+- Four upstream 200 responses are separate source observations, not four additional tests.
+- Search is mocked; AI/email disabled. Deterministic clarification is not an LLM response.
+- Items 2/4 PDFs were already supplied in the correct folders; visually reviewed, not regenerated.
+- Item 3 report uses actual sanitized transcripts and inspected current `main.py`/`schemas.py`.
+- All 11 fixture source hashes match after CRLF-to-LF normalization. Raw hashes differ due to checkout line endings; no byte-identical cross-platform claim is made.
+- [Finalization review and validation](../AAI%201%20Assignment%203/evidence/finalization-review.md) records page counts, report checks, hashes and remaining submission actions.
+- No application/UI/RBAC/database/secret change, production write, dependency install, commit or push.
 
-| Rubric item | Final status | Implemented behavior / actual evidence | Tests | Remaining gap |
-|---|---|---|---|---|
-| 1. At least two distinct RESTful HTTP methods fetch/send data | **PASS — isolated app** | Existing GET `/policies` retrieves resources; POST `/ask` submits JSON and creates fixture conversation/clarification. [Transcripts](evidence/20261118-api/http-results.json), [structured examples](api-evidence.md) | H04, H07–H09; B02/B06 | No production write demonstration, intentionally |
-| 2. Format and display API data via at least one method | **PASS** | Original Library formats GET response; Assistant displays POST answer; Pulse formats public data. [Actual captures](evidence/20261118-api/README.md) | B01, B03–B05 | No UI implementation gap found |
-| 3. Document method, endpoint/URL, headers, body, response and status | **PASS** | [api-evidence.md](api-evidence.md) includes complete actual GET/POST examples, errors and headers; [README](README.md) supplies curl and capture steps | Machine transcripts record all required fields; documentation audit recorded separately | Optional documentation-panel screenshot not captured; written requirement complete |
-| 4. Working public or secured API with friendly output | **PASS — stated scope** | Existing signed development bearer/RBAC path over real HTTP; readable guidance/rows; live public JSON feeds. [Results](test-results.md) | H02/H03/H07/H11–H15; B01–B07 | Production auth/Supabase and live AI-provider connectivity UNVERIFIED |
-
-**22 PASS / 0 FAIL**: 15 real HTTP checks plus 7 browser checks. Real public
-collection: 4/4 HTTP 200, including two JSON sources. Search ranking is explicitly
-mocked, AI disabled, policy data synthetic. This supports the four supplied items;
-it does not award an instructor grade or claim production readiness.
-
-Minimum implementation decision: **no runtime app changes**. Added only reusable
-verification harnesses in the canonical backend test directory and coursework
-material in this existing course folder. No secrets, schema, RBAC, production
-data or existing UI were changed; no dependencies installed or commit/push.
-[Exact screenshot instructions for each criterion](README.md).
+Earlier failures remain in the original attempt folders. The old document audit's
+hashes describe documents before this finalization; its result is historical, not
+an assertion that edited README/checklist files retain their old hashes.

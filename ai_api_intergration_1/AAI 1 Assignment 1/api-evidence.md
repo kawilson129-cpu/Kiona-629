@@ -92,12 +92,16 @@ uncategorized policy rows render; no live bank content is shown.
 }
 ```
 
-POST `/ask` processes a submitted question, creates a conversation/messages and
+The observed clarification branch of POST `/ask` processes a submitted question, creates a conversation/messages and
 clarification resource, then returns guidance and their identifiers. Its existing
 contract uses 200 rather than 201; the coursework does not change that behavior.
 It is not a pure read. **Run this write demonstration only in the disposable
 fixture, never against the normal server or production.** A subsequent real
 `GET /conversations/1` confirms persistence in that fixture (H09).
+
+The current handler also has incident-assistance and confident-policy branches;
+those were not exercised by this transcript. Their response shapes must not be
+inferred from the clarification example. [Item 3 lifecycle/report](../AAI%201%20Assignment%203/README.md).
 
 The Assistant renders `answer` plus a human-routing card and helpfulness controls.
 [Actual screenshot](evidence/20261118-api/screenshots/02-post-assistant.png).

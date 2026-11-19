@@ -1,0 +1,608 @@
+{
+  "timestamp": "2026-11-19T03:39:29.122339+00:00",
+  "scope": "New offline artifact checks only; 22 application checks reused, not rerun",
+  "passed": 100,
+  "failed": 0,
+  "checks": [
+    {
+      "name": "Retained HTTP successful result count",
+      "status": "PASS",
+      "detail": "15 reused; not rerun"
+    },
+    {
+      "name": "Retained Browser successful result count",
+      "status": "PASS",
+      "detail": "7 reused; not rerun"
+    },
+    {
+      "name": "Four retained public HTTP 200 responses",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Fixture explicitly labels mocked search and disabled AI",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "GET transcript contains all required fields",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "GET JSON response/no-store headers",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "POST transcript contains all required fields",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "POST JSON response/no-store headers",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "GET has no request body; POST carries question",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Captured authentication/validation/authorization/private-record statuses",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "POST captures clarification rather than a provider answer",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Sensitive field redacted: access_token",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Sensitive field redacted: Authorization",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Sensitive field redacted: Authorization",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Sensitive field redacted: Authorization",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Sensitive field redacted: Authorization",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Sensitive field redacted: Authorization",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Sensitive field redacted: Authorization",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Sensitive field redacted: access_token",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Sensitive field redacted: Authorization",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Sensitive field redacted: Authorization",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Sensitive field redacted: Authorization",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Sensitive field redacted: Authorization",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "No JWT-shaped token in http-results.json",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "No JWT-shaped token in browser-results.json",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "LF-normalized source matches fixture: derexi-policy-pilot/backend/main.py",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "LF-normalized source matches fixture: derexi-policy-pilot/backend/ai.py",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "LF-normalized source matches fixture: derexi-policy-pilot/backend/security.py",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "LF-normalized source matches fixture: derexi-policy-pilot/backend/dev_auth.py",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "LF-normalized source matches fixture: derexi-policy-pilot/backend/static/app.js",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "LF-normalized source matches fixture: derexi-policy-pilot/backend/static/pulse.js",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "LF-normalized source matches fixture: derexi-policy-pilot/backend/pulse/routes.py",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "LF-normalized source matches fixture: derexi-policy-pilot/backend/pulse/sources.py",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "LF-normalized source matches fixture: derexi-policy-pilot/backend/pulse/service.py",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "LF-normalized source matches fixture: derexi-policy-pilot/backend/tests/messaging_fixture.py",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "LF-normalized source matches fixture: derexi-policy-pilot/backend/tests/api_integration_evidence.py",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Retained evidence matches prior manifest: fixture.json",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Retained evidence matches prior manifest: http-results.json",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Retained evidence matches prior manifest: browser-results.json",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Retained evidence matches prior manifest: public-network.json",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Retained evidence matches prior manifest: screenshots/01-get-library.png",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Retained evidence matches prior manifest: screenshots/02-post-assistant.png",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Retained evidence matches prior manifest: screenshots/03-get-pulse.png",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Item 2 page limit",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Item 2 honest scope labels",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Item 2 embeds the existing actual screenshot",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Item 3 page limit",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Item 3 honest scope labels",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Item 3 required content: http://127.0.0.1:8041/policies",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Item 3 required content: http://127.0.0.1:8041/ask",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Item 3 required content: Content-Type: application/json",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Item 3 required content: Authorization: Bearer [REDACTED]",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Item 3 required content: 401",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Item 3 required content: 422",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Item 3 required content: 403",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Item 3 required content: 404",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Item 3 required content: How should I handle a hypothetical policy exception?",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Item 3 required content: 2-1,000",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Item 3 selected response fields match actual transcript",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Item 4 page limit",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Item 4 honest scope labels",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Item 4 embeds the existing actual screenshot",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "No final Item 1 PDF created",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Local link README.md -> ../AAI%201%20Assignment%202/AI_API_Integration_1_Rubric_02_Report.pdf",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Local link README.md -> ../AAI%201%20Assignment%203/AI_API_Integration_1_Rubric_03_Report.pdf",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Local link README.md -> ../AAI%201%20Assignment%203/README.md",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Local link README.md -> ../AAI%201%20Assignment%204/AI_API_Integration_1_Rubric_04_Report.pdf",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Local link README.md -> rubric-checklist.md",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Local link README.md -> api-evidence.md",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Local link README.md -> test-results.md",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Local link README.md -> ../AAI%201%20Assignment%203/evidence/finalization-review.md",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Local link README.md -> evidence/20261118-api/README.md",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Local link README.md -> evidence/20261118-api/commands.txt",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Local link README.md -> api-evidence.md",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Local link rubric-checklist.md -> README.md",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Local link rubric-checklist.md -> ../AAI%201%20Assignment%202/AI_API_Integration_1_Rubric_02_Report.pdf",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Local link rubric-checklist.md -> ../AAI%201%20Assignment%203/AI_API_Integration_1_Rubric_03_Report.pdf",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Local link rubric-checklist.md -> api-evidence.md",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Local link rubric-checklist.md -> ../AAI%201%20Assignment%203/README.md",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Local link rubric-checklist.md -> ../AAI%201%20Assignment%204/AI_API_Integration_1_Rubric_04_Report.pdf",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Local link rubric-checklist.md -> ../AAI%201%20Assignment%203/evidence/finalization-review.md",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Local link api-evidence.md -> evidence/20261118-api/http-results.json",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Local link api-evidence.md -> evidence/20261118-api/browser-results.json",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Local link api-evidence.md -> evidence/20261118-api/screenshots/01-get-library.png",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Local link api-evidence.md -> ../AAI%201%20Assignment%203/README.md",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Local link api-evidence.md -> evidence/20261118-api/screenshots/02-post-assistant.png",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Local link api-evidence.md -> evidence/20261118-api/public-network.json",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Local link api-evidence.md -> evidence/20261118-api/screenshots/03-get-pulse.png",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Local link test-results.md -> ../AAI%201%20Assignment%203/evidence/finalization-review.md",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Local link test-results.md -> evidence/20261118-api/http-results.json",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Local link test-results.md -> evidence/20261118-api/browser-results.json",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Local link test-results.md -> evidence/20261118-api/public-network.json",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Local link test-results.md -> README.md",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Local link README.md -> AI_API_Integration_1_Rubric_03_Report.pdf",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Local link README.md -> ../AAI%201%20Assignment%201/api-evidence.md",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Local link README.md -> ../AAI%201%20Assignment%201/evidence/20261118-api/http-results.json",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Local link README.md -> ../../derexi-policy-pilot/backend/main.py",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Local link README.md -> ../../derexi-policy-pilot/backend/schemas.py",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Local link README.md -> ../AAI%201%20Assignment%201/evidence/20261118-api/README.md",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Local link README.md -> evidence/finalization-review.md",
+      "status": "PASS",
+      "detail": null
+    }
+  ],
+  "reports": {
+    "2": {
+      "path": "AAI 1 Assignment 2\\AI_API_Integration_1_Rubric_02_Report.pdf",
+      "pages": 1,
+      "sha256": "971efa0b3925f93b02992d287c4571907e5e2bd8d23f1a09be5f2bbcebbdc5c0",
+      "visual_review": "Passed manual inspection of final rendered pages"
+    },
+    "3": {
+      "path": "AAI 1 Assignment 3\\AI_API_Integration_1_Rubric_03_Report.pdf",
+      "pages": 2,
+      "sha256": "edbf2bab5d47f91b2b615726c6d469cea358e2af92a35fffd399cee876265b41",
+      "visual_review": "Passed manual inspection of final rendered pages"
+    },
+    "4": {
+      "path": "AAI 1 Assignment 4\\AI_API_Integration_1_Rubric_04_Report.pdf",
+      "pages": 1,
+      "sha256": "b419d4b9b3c18dc64b052d1aa0813e1410d92ac2534d7ae445a000c45775a51f",
+      "visual_review": "Passed manual inspection of final rendered pages"
+    }
+  },
+  "source_and_document_hashes": {
+    "derexi-policy-pilot/backend/main.py": {
+      "raw": "d0fdb884bdee72b4ef59a21ca669f8d77b23b410016c342f38d225cca76d43fc",
+      "lf_normalized": "cdef2664b2b6bf27056dd127ed9a60a49b198bbdd80f6d1a204d3e518964a95b",
+      "fixture": "cdef2664b2b6bf27056dd127ed9a60a49b198bbdd80f6d1a204d3e518964a95b"
+    },
+    "derexi-policy-pilot/backend/ai.py": {
+      "raw": "53d46c3848d3609e62d0b5f54f80b824956fe092c3a19187f9fb2af3c09ddca6",
+      "lf_normalized": "0501e2ad83869219c27b346eaa87839b92bc7243b70c53e22ca4a7a73528a49e",
+      "fixture": "0501e2ad83869219c27b346eaa87839b92bc7243b70c53e22ca4a7a73528a49e"
+    },
+    "derexi-policy-pilot/backend/security.py": {
+      "raw": "79c061268d5641812788de37a31551d3ecf8a9c1e2eb1d5940706d91173fad4d",
+      "lf_normalized": "c0ca629a4004cb5715ff437626b30917038fd8dfb5829491057eb8d22d980a58",
+      "fixture": "c0ca629a4004cb5715ff437626b30917038fd8dfb5829491057eb8d22d980a58"
+    },
+    "derexi-policy-pilot/backend/dev_auth.py": {
+      "raw": "5e04ea1207f075e1acd7c9cebff798309a2970f9d47db2fe4047a896df041b9a",
+      "lf_normalized": "b30a3fb48b1f27f1f9cc2376fe78f3eb5202d7ae0faec5226d0a561794ac7fb0",
+      "fixture": "b30a3fb48b1f27f1f9cc2376fe78f3eb5202d7ae0faec5226d0a561794ac7fb0"
+    },
+    "derexi-policy-pilot/backend/static/app.js": {
+      "raw": "da096e0438f8574695102ce3610e06cee118a703733400035bc6025d9d62c082",
+      "lf_normalized": "dd140564ed8ccc759332969f2aee5d1be3baa7672bff6d67848a479819de3a82",
+      "fixture": "dd140564ed8ccc759332969f2aee5d1be3baa7672bff6d67848a479819de3a82"
+    },
+    "derexi-policy-pilot/backend/static/pulse.js": {
+      "raw": "8359438dc7d4491cc20a688eb12fbef344e31217c9a7f4e29c51e673358a3107",
+      "lf_normalized": "7b2dd2249f4d4a1e1ed9e4508bd2a8c51112e3c238613ca1877ce57f61b691a1",
+      "fixture": "7b2dd2249f4d4a1e1ed9e4508bd2a8c51112e3c238613ca1877ce57f61b691a1"
+    },
+    "derexi-policy-pilot/backend/pulse/routes.py": {
+      "raw": "86130a961458638ed6d1249f1b72c7143f5a5abe73a8cfc4f7f4872e04d48d4d",
+      "lf_normalized": "7d9a85ffd3ae457a2f1f30e6aea44c5520cb162f78d8c0ed5935ebc5475fd9c2",
+      "fixture": "7d9a85ffd3ae457a2f1f30e6aea44c5520cb162f78d8c0ed5935ebc5475fd9c2"
+    },
+    "derexi-policy-pilot/backend/pulse/sources.py": {
+      "raw": "60407c7d9663d3cca7be12b816b03def5c23c41a0f8ceb87461526ff8ae87b35",
+      "lf_normalized": "019a4d1b84d0786dbe4fbe83a3cb155ffa3ae7ed4ab26e8049bda8b15997adef",
+      "fixture": "019a4d1b84d0786dbe4fbe83a3cb155ffa3ae7ed4ab26e8049bda8b15997adef"
+    },
+    "derexi-policy-pilot/backend/pulse/service.py": {
+      "raw": "2ebd8acc109d513ef6e2f3c1eb9df01af5cc47dff687e0f1a23b1470a09d98dd",
+      "lf_normalized": "dce92f929d58543ecb5a56782faf9f3383ca6e5ebeb447d2055277b3c2acdb5d",
+      "fixture": "dce92f929d58543ecb5a56782faf9f3383ca6e5ebeb447d2055277b3c2acdb5d"
+    },
+    "derexi-policy-pilot/backend/tests/messaging_fixture.py": {
+      "raw": "0a36c32917cfc3109b02934306ef925b58fefce0f50cd90a9d8ffd92ad996454",
+      "lf_normalized": "043c6c93715d8269aefc74f6ebcde2ee968a8fef9fe4f52c8b9ef3d59a1b3f47",
+      "fixture": "043c6c93715d8269aefc74f6ebcde2ee968a8fef9fe4f52c8b9ef3d59a1b3f47"
+    },
+    "derexi-policy-pilot/backend/tests/api_integration_evidence.py": {
+      "raw": "a8e3b50a28c7243fa80c102b6fd8b7fe4bfc8ce707831aeb82c418bdd1527525",
+      "lf_normalized": "259722b0141f1af6ff592e330942c61a3af27448897c24af5d40bcc62a0e3ad0",
+      "fixture": "259722b0141f1af6ff592e330942c61a3af27448897c24af5d40bcc62a0e3ad0"
+    },
+    "ai_api_intergration_1\\AAI 1 Assignment 1\\README.md": {
+      "raw": "387eaeb703826c061beffec50a16191df4f53202b316df239739b1fd1ced24ee"
+    },
+    "ai_api_intergration_1\\AAI 1 Assignment 1\\rubric-checklist.md": {
+      "raw": "05d642f4800cf3bd35bc771c2a6cd744acf3f5052ce6e5878f9f485902c0aea3"
+    },
+    "ai_api_intergration_1\\AAI 1 Assignment 1\\api-evidence.md": {
+      "raw": "9897bbfbd487e4faca1afec764bf3b61037c2c2b9b4ca9d3c175aef0877b9705"
+    },
+    "ai_api_intergration_1\\AAI 1 Assignment 1\\test-results.md": {
+      "raw": "a51ec94c224ecccc5ba511865e5c79dd5824a1d193c8af8ce6f6419c38892836"
+    },
+    "ai_api_intergration_1\\AAI 1 Assignment 3\\README.md": {
+      "raw": "ad2bbe2c944ca26926b807a0c91590f9c4847fbc73670f7bef9dbd904d480a8d"
+    },
+    "ai_api_intergration_1\\AAI 1 Assignment 3\\evidence\\finalization-review.md": {
+      "raw": "3bb46bd3225070965a9ffa9d8ca88d95d256cf6966ac552e019138f664b92c55"
+    }
+  },
+  "gaps": [
+    "Item 1 final report deferred and manual HTTP captures pending",
+    "Expanded official LMS rubric rows not present in supplied screenshot",
+    "Production/Supabase/external AI response unverified; not claimed"
+  ]
+}
