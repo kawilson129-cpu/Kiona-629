@@ -1,0 +1,53 @@
+{
+  "captured_at": "2026-11-19T19:35:03.147948+00:00",
+  "sources": [
+    {
+      "path": "derexi-policy-pilot/backend/static/index.html",
+      "start_line": 1,
+      "end_line": 5,
+      "source_sha256": "fcd5be839d3bc617f0f00a8ab3859f0d46ba4e2d20a357e0088d72df254f5db1",
+      "excerpt": "<!doctype html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n",
+      "purpose": "Document language and metadata"
+    },
+    {
+      "path": "derexi-policy-pilot/backend/static/index.html",
+      "start_line": 18,
+      "end_line": 18,
+      "source_sha256": "fcd5be839d3bc617f0f00a8ab3859f0d46ba4e2d20a357e0088d72df254f5db1",
+      "excerpt": "  <header class=\"letterhead\" aria-label=\"Document letterhead\">\n",
+      "purpose": "Class and accessible landmark name"
+    },
+    {
+      "path": "derexi-policy-pilot/backend/static/index.html",
+      "start_line": 38,
+      "end_line": 48,
+      "source_sha256": "fcd5be839d3bc617f0f00a8ab3859f0d46ba4e2d20a357e0088d72df254f5db1",
+      "excerpt": "      <nav class=\"nav-links\" aria-label=\"Primary\">\n        <a href=\"#assist\" data-view=\"assist\" class=\"nav-link is-current\">Policy Assistant</a>\n        <a href=\"#library\" data-view=\"library\" class=\"nav-link\">Policy Library</a>\n        <a href=\"#messages\" data-view=\"messages\" class=\"nav-link\">Messages<span class=\"nav-badge is-hidden js-msg-badge\" aria-label=\"Unread messages\">0</span></a>\n        <a href=\"#dashboard\" data-view=\"dashboard\" class=\"nav-link js-gov-link is-hidden\">Dashboard</a>\n        <a href=\"#governance\" data-view=\"governance\" class=\"nav-link js-gov-link is-hidden\">Governance</a>\n        <a href=\"#pulse\" data-view=\"pulse\" class=\"nav-link\">Pulse</a>\n        <a href=\"#routing\" data-view=\"routing\" class=\"nav-link js-routing-link is-hidden\">Technical Routing</a>\n      </nav>\n\n      <button type=\"button\" class=\"notify-btn js-notify\" id=\"notify-btn\" aria-label=\"Notifications\" aria-expanded=\"false\">\n",
+      "purpose": "Link, data, button and state attributes"
+    },
+    {
+      "path": "derexi-policy-pilot/backend/static/index.html",
+      "start_line": 55,
+      "end_line": 65,
+      "source_sha256": "fcd5be839d3bc617f0f00a8ab3859f0d46ba4e2d20a357e0088d72df254f5db1",
+      "excerpt": "      <button type=\"button\" id=\"signout-btn\" class=\"btn btn-ghost is-hidden\">Sign out</button>\n      <div class=\"persona\">\n        <label class=\"persona-label\" for=\"persona-select\">Signed in as</label>\n        <div class=\"select-shell\">\n          <select id=\"persona-select\" class=\"select persona-select\" aria-label=\"Signed-in employee\" disabled>\n            <option>Sign-in required</option>\n          </select>\n        </div>\n        <button type=\"button\" class=\"btn btn-ghost btn-recon is-hidden\" title=\"Choose an authorized identity\" aria-label=\"Choose a different identity\">\n          Change\n        </button>\n",
+      "purpose": "Labels, select, boolean disabled and title"
+    },
+    {
+      "path": "derexi-policy-pilot/backend/static/index.html",
+      "start_line": 83,
+      "end_line": 83,
+      "source_sha256": "fcd5be839d3bc617f0f00a8ab3859f0d46ba4e2d20a357e0088d72df254f5db1",
+      "excerpt": "  <main id=\"app\" tabindex=\"-1\"></main>\n",
+      "purpose": "Main focus attribute"
+    },
+    {
+      "path": "derexi-policy-pilot/backend/static/index.html",
+      "start_line": 95,
+      "end_line": 98,
+      "source_sha256": "fcd5be839d3bc617f0f00a8ab3859f0d46ba4e2d20a357e0088d72df254f5db1",
+      "excerpt": "  <script src=\"governance.js\"></script>\n  <script src=\"support.js\"></script>\n  <script src=\"app.js\"></script>\n  <script src=\"pulse.js\"></script>\n",
+      "purpose": "Script source attributes"
+    }
+  ]
+}

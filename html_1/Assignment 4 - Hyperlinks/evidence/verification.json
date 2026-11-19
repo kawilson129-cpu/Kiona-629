@@ -1,0 +1,75 @@
+{
+  "timestamp": "2026-11-19T19:41:51.767497+00:00",
+  "assignment": 4,
+  "scope": "New read-only source/markup/evidence checks; historical app tests reused, not rerun.",
+  "passed": 11,
+  "failed": 0,
+  "checks": [
+    {
+      "name": "Exact original source hashes, line ranges and excerpt text match",
+      "status": "PASS",
+      "details": []
+    },
+    {
+      "name": "Existing images/test evidence copied byte-for-byte",
+      "status": "PASS",
+      "details": []
+    },
+    {
+      "name": "Historical browser evidence remains 7 PASS / 0 FAIL, not rerun",
+      "status": "PASS",
+      "details": {
+        "original_timestamp": "2026-11-18T19:06:58.935Z",
+        "scope": "REAL Chromium + unmodified DeRexi UI + loopback HTTP; synthetic SQLite, mocked PostgreSQL search, AI disabled; live Pulse sources"
+      }
+    },
+    {
+      "name": "Original Pulse helper creates actual DOM nodes and attributes",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "name": "Original publication anchors use HTTPS destination, new context and safe rel",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "name": "Actual retained publication destination is a separate HTTPS document",
+      "status": "PASS",
+      "details": {
+        "source": "ai_api_intergration_1/AAI 1 Assignment 1/evidence/20261118-api/browser-results.json",
+        "url": "https://www.federalregister.gov/documents/2026/11/18/2026-23453/reserve-requirements-of-depository-institutions",
+        "live_reachability": "NOT TESTED"
+      }
+    },
+    {
+      "name": "SPA fragments explicitly distinguished from separate documents",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "name": "Literal demo anchor leads to an existing distinct HTML document",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "name": "Destination is standalone HTML with return link and no script dependencies",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "name": "Actual local demo link click and return verified in Chromium",
+      "status": "PASS",
+      "details": "New coursework-demo check only; not a DeRexi API or publisher availability test"
+    },
+    {
+      "name": "Report and README source/evidence links resolve",
+      "status": "PASS",
+      "details": {
+        "links": 19,
+        "missing": []
+      }
+    }
+  ],
+  "completion_status": "Complete"
+}

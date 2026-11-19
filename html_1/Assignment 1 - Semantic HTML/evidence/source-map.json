@@ -1,0 +1,29 @@
+{
+  "captured_at": "2026-11-19T19:35:03.147948+00:00",
+  "sources": [
+    {
+      "path": "derexi-policy-pilot/backend/static/index.html",
+      "start_line": 18,
+      "end_line": 23,
+      "source_sha256": "fcd5be839d3bc617f0f00a8ab3859f0d46ba4e2d20a357e0088d72df254f5db1",
+      "excerpt": "  <header class=\"letterhead\" aria-label=\"Document letterhead\">\n    <span>AURUM&nbsp;CAPITAL&nbsp;BANK</span>\n    <span class=\"lh-sub\">Policy &amp; Governance Division</span>\n    <span class=\"lh-date js-today\">\u2014</span>\n    <span class=\"lh-class\">INTERNAL</span>\n  </header>\n",
+      "purpose": "Header letterhead"
+    },
+    {
+      "path": "derexi-policy-pilot/backend/static/index.html",
+      "start_line": 38,
+      "end_line": 46,
+      "source_sha256": "fcd5be839d3bc617f0f00a8ab3859f0d46ba4e2d20a357e0088d72df254f5db1",
+      "excerpt": "      <nav class=\"nav-links\" aria-label=\"Primary\">\n        <a href=\"#assist\" data-view=\"assist\" class=\"nav-link is-current\">Policy Assistant</a>\n        <a href=\"#library\" data-view=\"library\" class=\"nav-link\">Policy Library</a>\n        <a href=\"#messages\" data-view=\"messages\" class=\"nav-link\">Messages<span class=\"nav-badge is-hidden js-msg-badge\" aria-label=\"Unread messages\">0</span></a>\n        <a href=\"#dashboard\" data-view=\"dashboard\" class=\"nav-link js-gov-link is-hidden\">Dashboard</a>\n        <a href=\"#governance\" data-view=\"governance\" class=\"nav-link js-gov-link is-hidden\">Governance</a>\n        <a href=\"#pulse\" data-view=\"pulse\" class=\"nav-link\">Pulse</a>\n        <a href=\"#routing\" data-view=\"routing\" class=\"nav-link js-routing-link is-hidden\">Technical Routing</a>\n      </nav>\n",
+      "purpose": "Primary navigation"
+    },
+    {
+      "path": "derexi-policy-pilot/backend/static/index.html",
+      "start_line": 82,
+      "end_line": 90,
+      "source_sha256": "fcd5be839d3bc617f0f00a8ab3859f0d46ba4e2d20a357e0088d72df254f5db1",
+      "excerpt": "  <!-- App ------------------------------------------------------------------->\n  <main id=\"app\" tabindex=\"-1\"></main>\n\n  <!-- Letterhead footer ----------------------------------------------------->\n  <footer class=\"foot\" aria-label=\"Page footer\">\n    <span>AURUM&nbsp;CAPITAL&nbsp;BANK</span>\n    <span class=\"regs\">Policy content follows federal banking regulation: GLBA / Reg&nbsp;P, Safeguards Rule, BSA/AML, CIP, SAR, OFAC, UDAAP, Reg&nbsp;Z, Reg&nbsp;B, Reg&nbsp;E&nbsp;&amp;&nbsp;CC.</span>\n    <span class=\"js-recon-mode\">Live register</span>\n  </footer>\n",
+      "purpose": "Main mount point and footer"
+    }
+  ]
+}

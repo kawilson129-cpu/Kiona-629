@@ -1,0 +1,45 @@
+{
+  "captured_at": "2026-11-19T19:35:03.147948+00:00",
+  "sources": [
+    {
+      "path": "derexi-policy-pilot/backend/static/index.html",
+      "start_line": 38,
+      "end_line": 46,
+      "source_sha256": "fcd5be839d3bc617f0f00a8ab3859f0d46ba4e2d20a357e0088d72df254f5db1",
+      "excerpt": "      <nav class=\"nav-links\" aria-label=\"Primary\">\n        <a href=\"#assist\" data-view=\"assist\" class=\"nav-link is-current\">Policy Assistant</a>\n        <a href=\"#library\" data-view=\"library\" class=\"nav-link\">Policy Library</a>\n        <a href=\"#messages\" data-view=\"messages\" class=\"nav-link\">Messages<span class=\"nav-badge is-hidden js-msg-badge\" aria-label=\"Unread messages\">0</span></a>\n        <a href=\"#dashboard\" data-view=\"dashboard\" class=\"nav-link js-gov-link is-hidden\">Dashboard</a>\n        <a href=\"#governance\" data-view=\"governance\" class=\"nav-link js-gov-link is-hidden\">Governance</a>\n        <a href=\"#pulse\" data-view=\"pulse\" class=\"nav-link\">Pulse</a>\n        <a href=\"#routing\" data-view=\"routing\" class=\"nav-link js-routing-link is-hidden\">Technical Routing</a>\n      </nav>\n",
+      "purpose": "SPA hash anchors explicitly excluded from separate-page proof"
+    },
+    {
+      "path": "derexi-policy-pilot/backend/static/pulse.js",
+      "start_line": 71,
+      "end_line": 92,
+      "source_sha256": "7b2dd2249f4d4a1e1ed9e4508bd2a8c51112e3c238613ca1877ce57f61b691a1",
+      "excerpt": "  function el(tag, props, kids) {\n    var node = document.createElement(tag);\n    if (props) {\n      Object.keys(props).forEach(function (key) {\n        var value = props[key];\n        if (value === null || value === undefined) return;\n        if (key === 'class') node.className = value;\n        else if (key === 'text') node.textContent = value;\n        // innerHTML is used only for constant icon markup, never feed content.\n        else if (key === 'html') node.innerHTML = value;\n        else if (key === 'on') Object.keys(value).forEach(function (evt) {\n          node.addEventListener(evt, value[evt]);\n        });\n        else node.setAttribute(key, value);\n      });\n    }\n    if (kids !== undefined && kids !== null) {\n      if (typeof kids === 'string' || typeof kids === 'number') node.textContent = kids;\n      else if (kids.forEach) kids.forEach(function (child) { if (child) node.appendChild(child); });\n      else node.appendChild(kids);\n    }\n    return node;\n",
+      "purpose": "Original anchor creation and attribute helper"
+    },
+    {
+      "path": "derexi-policy-pilot/backend/static/pulse.js",
+      "start_line": 128,
+      "end_line": 131,
+      "source_sha256": "7b2dd2249f4d4a1e1ed9e4508bd2a8c51112e3c238613ca1877ce57f61b691a1",
+      "excerpt": "  function externalLink(url) {\n    // Defence in depth: the API already guarantees https, but never trust it.\n    return /^https:\\/\\//i.test(String(url || ''));\n  }\n",
+      "purpose": "Existing HTTPS destination guard"
+    },
+    {
+      "path": "derexi-policy-pilot/backend/static/pulse.js",
+      "start_line": 243,
+      "end_line": 253,
+      "source_sha256": "7b2dd2249f4d4a1e1ed9e4508bd2a8c51112e3c238613ca1877ce57f61b691a1",
+      "excerpt": "    var title = el('h2', { class: 'lead-title' });\n    if (externalLink(article.url)) {\n      title.appendChild(el('a', {\n        href: article.url,\n        target: '_blank',\n        rel: 'noopener noreferrer',\n        text: article.title\n      }));\n    } else {\n      title.textContent = article.title;\n    }\n",
+      "purpose": "Featured publication hyperlink"
+    },
+    {
+      "path": "derexi-policy-pilot/backend/static/pulse.js",
+      "start_line": 264,
+      "end_line": 272,
+      "source_sha256": "7b2dd2249f4d4a1e1ed9e4508bd2a8c51112e3c238613ca1877ce57f61b691a1",
+      "excerpt": "    var cta = el('div', { class: 'lead-cta-row' });\n    if (externalLink(article.url)) {\n      cta.appendChild(el('a', {\n        class: 'lead-cta',\n        href: article.url,\n        target: '_blank',\n        rel: 'noopener noreferrer',\n        html: 'Read the original publication' + ARROW\n      }));\n",
+      "purpose": "Read the original publication anchor"
+    }
+  ]
+}

@@ -1,0 +1,428 @@
+{
+  "timestamp": "2026-11-19T19:41:51.771067+00:00",
+  "scope": "Offline markup/source/evidence audit, not a re-execution of existing app/API tests",
+  "passed": 52,
+  "failed": 0,
+  "checks": [
+    {
+      "name": "Exact original source hashes, line ranges and excerpt text match",
+      "status": "PASS",
+      "details": [],
+      "assignment": 1
+    },
+    {
+      "name": "Existing images/test evidence copied byte-for-byte",
+      "status": "PASS",
+      "details": [],
+      "assignment": 1
+    },
+    {
+      "name": "Historical browser evidence remains 7 PASS / 0 FAIL, not rerun",
+      "status": "PASS",
+      "details": {
+        "original_timestamp": "2026-11-18T19:06:58.935Z",
+        "scope": "REAL Chromium + unmodified DeRexi UI + loopback HTTP; synthetic SQLite, mocked PostgreSQL search, AI disabled; live Pulse sources"
+      },
+      "assignment": 1
+    },
+    {
+      "name": "Literal <header> exists in original DeRexi HTML",
+      "status": "PASS",
+      "details": {
+        "source": "derexi-policy-pilot/backend/static/index.html",
+        "lines": [
+          18
+        ]
+      },
+      "assignment": 1
+    },
+    {
+      "name": "Literal <main> exists in original DeRexi HTML",
+      "status": "PASS",
+      "details": {
+        "source": "derexi-policy-pilot/backend/static/index.html",
+        "lines": [
+          83
+        ]
+      },
+      "assignment": 1
+    },
+    {
+      "name": "Literal <footer> exists in original DeRexi HTML",
+      "status": "PASS",
+      "details": {
+        "source": "derexi-policy-pilot/backend/static/index.html",
+        "lines": [
+          86
+        ]
+      },
+      "assignment": 1
+    },
+    {
+      "name": "Literal <nav> exists in original DeRexi HTML",
+      "status": "PASS",
+      "details": {
+        "source": "derexi-policy-pilot/backend/static/index.html",
+        "lines": [
+          38
+        ]
+      },
+      "assignment": 1
+    },
+    {
+      "name": "Original HTML has one main landmark",
+      "status": "PASS",
+      "details": null,
+      "assignment": 1
+    },
+    {
+      "name": "Report and README source/evidence links resolve",
+      "status": "PASS",
+      "details": {
+        "links": 16,
+        "missing": []
+      },
+      "assignment": 1
+    },
+    {
+      "name": "Exact original source hashes, line ranges and excerpt text match",
+      "status": "PASS",
+      "details": [],
+      "assignment": 2
+    },
+    {
+      "name": "Existing images/test evidence copied byte-for-byte",
+      "status": "PASS",
+      "details": [],
+      "assignment": 2
+    },
+    {
+      "name": "Historical browser evidence remains 7 PASS / 0 FAIL, not rerun",
+      "status": "PASS",
+      "details": {
+        "original_timestamp": "2026-11-18T19:06:58.935Z",
+        "scope": "REAL Chromium + unmodified DeRexi UI + loopback HTTP; synthetic SQLite, mocked PostgreSQL search, AI disabled; live Pulse sources"
+      },
+      "assignment": 2
+    },
+    {
+      "name": "DeRexi already contains literal <a>",
+      "status": "PASS",
+      "details": null,
+      "assignment": 2
+    },
+    {
+      "name": "DeRexi already contains literal <div>",
+      "status": "PASS",
+      "details": null,
+      "assignment": 2
+    },
+    {
+      "name": "Existing DeRexi case-study source contains literal <a>",
+      "status": "PASS",
+      "details": null,
+      "assignment": 2
+    },
+    {
+      "name": "Existing DeRexi case-study source contains literal <div>",
+      "status": "PASS",
+      "details": null,
+      "assignment": 2
+    },
+    {
+      "name": "Existing DeRexi case-study source contains literal <img>",
+      "status": "PASS",
+      "details": null,
+      "assignment": 2
+    },
+    {
+      "name": "Existing DeRexi case-study source contains literal <ul>",
+      "status": "PASS",
+      "details": null,
+      "assignment": 2
+    },
+    {
+      "name": "Source-first search supports the image fallback (SVG not counted as img)",
+      "status": "PASS",
+      "details": [],
+      "assignment": 2
+    },
+    {
+      "name": "Original image has alt text and correct existing Liquid asset",
+      "status": "PASS",
+      "details": null,
+      "assignment": 2
+    },
+    {
+      "name": "Copied original image is an actual PNG asset",
+      "status": "PASS",
+      "details": null,
+      "assignment": 2
+    },
+    {
+      "name": "Runtime ol is documented as JS-created, not literal source HTML",
+      "status": "PASS",
+      "details": null,
+      "assignment": 2
+    },
+    {
+      "name": "Report and README source/evidence links resolve",
+      "status": "PASS",
+      "details": {
+        "links": 19,
+        "missing": []
+      },
+      "assignment": 2
+    },
+    {
+      "name": "Exact original source hashes, line ranges and excerpt text match",
+      "status": "PASS",
+      "details": [],
+      "assignment": 3
+    },
+    {
+      "name": "Existing images/test evidence copied byte-for-byte",
+      "status": "PASS",
+      "details": [],
+      "assignment": 3
+    },
+    {
+      "name": "Historical browser evidence remains 7 PASS / 0 FAIL, not rerun",
+      "status": "PASS",
+      "details": {
+        "original_timestamp": "2026-11-18T19:06:58.935Z",
+        "scope": "REAL Chromium + unmodified DeRexi UI + loopback HTTP; synthetic SQLite, mocked PostgreSQL search, AI disabled; live Pulse sources"
+      },
+      "assignment": 3
+    },
+    {
+      "name": "At least seven distinct names (ten declared)",
+      "status": "PASS",
+      "details": null,
+      "assignment": 3
+    },
+    {
+      "name": "Actual attribute lang on its recorded element/line",
+      "status": "PASS",
+      "details": {
+        "name": "lang",
+        "tag": "html",
+        "value": "en",
+        "line": 2,
+        "purpose": "Declares the document language"
+      },
+      "assignment": 3
+    },
+    {
+      "name": "Actual attribute class on its recorded element/line",
+      "status": "PASS",
+      "details": {
+        "name": "class",
+        "tag": "header",
+        "value": "letterhead",
+        "line": 18,
+        "purpose": "Connects markup to existing CSS"
+      },
+      "assignment": 3
+    },
+    {
+      "name": "Actual attribute href on its recorded element/line",
+      "status": "PASS",
+      "details": {
+        "name": "href",
+        "tag": "a",
+        "value": "#assist",
+        "line": 39,
+        "purpose": "Specifies the anchor destination"
+      },
+      "assignment": 3
+    },
+    {
+      "name": "Actual attribute type on its recorded element/line",
+      "status": "PASS",
+      "details": {
+        "name": "type",
+        "tag": "button",
+        "value": "button",
+        "line": 48,
+        "purpose": "Specifies button behavior"
+      },
+      "assignment": 3
+    },
+    {
+      "name": "Actual attribute id on its recorded element/line",
+      "status": "PASS",
+      "details": {
+        "name": "id",
+        "tag": "button",
+        "value": "notify-btn",
+        "line": 48,
+        "purpose": "Uniquely identifies the control"
+      },
+      "assignment": 3
+    },
+    {
+      "name": "Actual attribute for on its recorded element/line",
+      "status": "PASS",
+      "details": {
+        "name": "for",
+        "tag": "label",
+        "value": "persona-select",
+        "line": 57,
+        "purpose": "Associates the label with its select"
+      },
+      "assignment": 3
+    },
+    {
+      "name": "Actual attribute disabled on its recorded element/line",
+      "status": "PASS",
+      "details": {
+        "name": "disabled",
+        "tag": "select",
+        "value": "present (boolean)",
+        "line": 59,
+        "purpose": "Disables the initial unselected control"
+      },
+      "assignment": 3
+    },
+    {
+      "name": "Actual attribute title on its recorded element/line",
+      "status": "PASS",
+      "details": {
+        "name": "title",
+        "tag": "button",
+        "value": "Choose an authorized identity",
+        "line": 63,
+        "purpose": "Adds advisory information"
+      },
+      "assignment": 3
+    },
+    {
+      "name": "Actual attribute tabindex on its recorded element/line",
+      "status": "PASS",
+      "details": {
+        "name": "tabindex",
+        "tag": "main",
+        "value": "-1",
+        "line": 83,
+        "purpose": "Allows programmatic focus without sequential tab entry"
+      },
+      "assignment": 3
+    },
+    {
+      "name": "Actual attribute src on its recorded element/line",
+      "status": "PASS",
+      "details": {
+        "name": "src",
+        "tag": "script",
+        "value": "governance.js",
+        "line": 95,
+        "purpose": "Names the existing script resource"
+      },
+      "assignment": 3
+    },
+    {
+      "name": "Label for references actual select id",
+      "status": "PASS",
+      "details": null,
+      "assignment": 3
+    },
+    {
+      "name": "Report and README source/evidence links resolve",
+      "status": "PASS",
+      "details": {
+        "links": 22,
+        "missing": []
+      },
+      "assignment": 3
+    },
+    {
+      "name": "Exact original source hashes, line ranges and excerpt text match",
+      "status": "PASS",
+      "details": [],
+      "assignment": 4
+    },
+    {
+      "name": "Existing images/test evidence copied byte-for-byte",
+      "status": "PASS",
+      "details": [],
+      "assignment": 4
+    },
+    {
+      "name": "Historical browser evidence remains 7 PASS / 0 FAIL, not rerun",
+      "status": "PASS",
+      "details": {
+        "original_timestamp": "2026-11-18T19:06:58.935Z",
+        "scope": "REAL Chromium + unmodified DeRexi UI + loopback HTTP; synthetic SQLite, mocked PostgreSQL search, AI disabled; live Pulse sources"
+      },
+      "assignment": 4
+    },
+    {
+      "name": "Original Pulse helper creates actual DOM nodes and attributes",
+      "status": "PASS",
+      "details": null,
+      "assignment": 4
+    },
+    {
+      "name": "Original publication anchors use HTTPS destination, new context and safe rel",
+      "status": "PASS",
+      "details": null,
+      "assignment": 4
+    },
+    {
+      "name": "Actual retained publication destination is a separate HTTPS document",
+      "status": "PASS",
+      "details": {
+        "source": "ai_api_intergration_1/AAI 1 Assignment 1/evidence/20261118-api/browser-results.json",
+        "url": "https://www.federalregister.gov/documents/2026/11/18/2026-23453/reserve-requirements-of-depository-institutions",
+        "live_reachability": "NOT TESTED"
+      },
+      "assignment": 4
+    },
+    {
+      "name": "SPA fragments explicitly distinguished from separate documents",
+      "status": "PASS",
+      "details": null,
+      "assignment": 4
+    },
+    {
+      "name": "Literal demo anchor leads to an existing distinct HTML document",
+      "status": "PASS",
+      "details": null,
+      "assignment": 4
+    },
+    {
+      "name": "Destination is standalone HTML with return link and no script dependencies",
+      "status": "PASS",
+      "details": null,
+      "assignment": 4
+    },
+    {
+      "name": "Actual local demo link click and return verified in Chromium",
+      "status": "PASS",
+      "details": "New coursework-demo check only; not a DeRexi API or publisher availability test",
+      "assignment": 4
+    },
+    {
+      "name": "Report and README source/evidence links resolve",
+      "status": "PASS",
+      "details": {
+        "links": 19,
+        "missing": []
+      },
+      "assignment": 4
+    },
+    {
+      "assignment": "scope",
+      "name": "Original app/Pages/evidence/root-memory/LMS screenshot hashes unchanged",
+      "status": "PASS",
+      "details": []
+    },
+    {
+      "assignment": "scope",
+      "name": "All working-tree writes confined to html_1",
+      "status": "PASS",
+      "details": []
+    }
+  ]
+}

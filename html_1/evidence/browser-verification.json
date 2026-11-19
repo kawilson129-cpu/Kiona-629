@@ -1,0 +1,43 @@
+{
+  "timestamp": "2026-11-19T19:41:44.536Z",
+  "scope": "NEW static coursework-demo navigation only. Original DeRexi/API and external publisher not visited. HTTP/HTTPS blocked for the page.",
+  "browser": "Chrome/157.0.8103.79",
+  "checks": [
+    {
+      "name": "Initial document is the coursework reading desk",
+      "status": "PASS"
+    },
+    {
+      "name": "Actual DOM anchor has a separate-file href rather than a hash",
+      "status": "PASS",
+      "detail": {
+        "href": "publication.html",
+        "current": "/Users/adult/Desktop/Kiona-629/html_1/Assignment%204%20-%20Hyperlinks/index.html",
+        "fragment": ""
+      }
+    },
+    {
+      "name": "Click opens a different HTML document with the retained article heading",
+      "status": "PASS",
+      "detail": {
+        "title": "DeRexi · Publication brief · Separate coursework page",
+        "path": "/Users/adult/Desktop/Kiona-629/html_1/Assignment%204%20-%20Hyperlinks/publication.html",
+        "fragment": "",
+        "heading": "Reserve Requirements of Depository Institutions"
+      }
+    },
+    {
+      "name": "Return anchor navigates back to the original separate file",
+      "status": "PASS"
+    },
+    {
+      "name": "Demo contains no API scripts and no runtime exceptions",
+      "status": "PASS",
+      "detail": []
+    }
+  ],
+  "passed": 5,
+  "failed": 0,
+  "screenshot": "Assignment 4 - Hyperlinks/evidence/demo-separate-page.png",
+  "screenshot_label": "New static coursework DEMONSTRATION, not production app or original publisher"
+}

@@ -1,0 +1,29 @@
+HTML 1 coursework — actual executed verification commands, November 19, 2026
+
+1. python3 -B html_1/build_coursework.py
+   Created four course packages only inside html_1, from existing source/evidence.
+   This one-time builder refuses to overwrite existing assignment folders.
+
+2. Dedicated Chrome invocation:
+   "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless=new --disable-gpu --disable-background-networking --disable-sync --no-first-run --no-default-browser-check --remote-debugging-address=127.0.0.1 --remote-debugging-port=9251 --user-data-dir="/Users/adult/Desktop/Kiona-629/html_1/.runtime/demo-browser" about:blank
+   Only local coursework file pages were visited. The test blocked http://* and
+   https://* page requests. No application/API server was started.
+
+3. node html_1/verify_demo.mjs
+   Exit 0: {"passed":5,"failed":0}
+   Actual click index.html -> publication.html and return; separate pathname,
+   expected heading, no app scripts/exceptions. Captured an actual DEMO screenshot.
+   This script preserves the first browser-verification.json and refuses overwrite.
+   Future manual rechecks can simply open Assignment 4/index.html and follow links.
+
+4. python3 -B html_1/verify_coursework.py
+   Exit 0: {"passed":52,"failed":0,"failures":[]}
+   Source hashes/line excerpts, literal tags/attributes, copied artifacts, image,
+   links and write scope. Per-assignment: 9, 14, 16, 11 PASS plus 2 scope checks.
+
+5. node --check html_1/verify_demo.mjs
+   Exit 0. Syntax only, not an extra app test.
+
+Cleanup: dedicated Chrome on 9251 closed via Browser.close, exit 0. Only its
+verified task-created .runtime/demo-browser profile removed. Other browsers,
+apps, databases and servers were untouched. No commit/push or external page test.

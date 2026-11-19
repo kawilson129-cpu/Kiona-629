@@ -1,0 +1,18 @@
+{
+  "captured_at": "2026-11-19T19:35:03.147948+00:00",
+  "items": [
+    {
+      "original_path": "ai_api_intergration_1/AAI 1 Assignment 1/evidence/20261118-api/screenshots/03-get-pulse.png",
+      "copy": "evidence/reused-pulse-ui.png",
+      "sha256": "eaa1039e35df7bd959b3ccf27301e5941795a84edc63bdd840ff0b638fe64de2",
+      "scope": "Original Nov 18 DeRexi browser capture; reused, not recaptured"
+    },
+    {
+      "original_path": "ai_api_intergration_1/AAI 1 Assignment 1/evidence/20261118-api/browser-results.json",
+      "copy": "evidence/reused-browser-results.json",
+      "sha256": "c3045aa4f9f0dc1e1e63148bd4de4c2e05df56ec0d2aae9c5ef857ddf69a202f",
+      "scope": "Original seven passing browser checks; contextual evidence, not new HTML-tag tests"
+    }
+  ],
+  "limits": "Historical UI fixture: synthetic SQLite; search mocked; AI disabled. No app or API tests rerun."
+}

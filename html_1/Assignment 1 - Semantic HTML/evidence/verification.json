@@ -1,0 +1,81 @@
+{
+  "timestamp": "2026-11-19T19:41:51.737287+00:00",
+  "assignment": 1,
+  "scope": "New read-only source/markup/evidence checks; historical app tests reused, not rerun.",
+  "passed": 9,
+  "failed": 0,
+  "checks": [
+    {
+      "name": "Exact original source hashes, line ranges and excerpt text match",
+      "status": "PASS",
+      "details": []
+    },
+    {
+      "name": "Existing images/test evidence copied byte-for-byte",
+      "status": "PASS",
+      "details": []
+    },
+    {
+      "name": "Historical browser evidence remains 7 PASS / 0 FAIL, not rerun",
+      "status": "PASS",
+      "details": {
+        "original_timestamp": "2026-11-18T19:06:58.935Z",
+        "scope": "REAL Chromium + unmodified DeRexi UI + loopback HTTP; synthetic SQLite, mocked PostgreSQL search, AI disabled; live Pulse sources"
+      }
+    },
+    {
+      "name": "Literal <header> exists in original DeRexi HTML",
+      "status": "PASS",
+      "details": {
+        "source": "derexi-policy-pilot/backend/static/index.html",
+        "lines": [
+          18
+        ]
+      }
+    },
+    {
+      "name": "Literal <main> exists in original DeRexi HTML",
+      "status": "PASS",
+      "details": {
+        "source": "derexi-policy-pilot/backend/static/index.html",
+        "lines": [
+          83
+        ]
+      }
+    },
+    {
+      "name": "Literal <footer> exists in original DeRexi HTML",
+      "status": "PASS",
+      "details": {
+        "source": "derexi-policy-pilot/backend/static/index.html",
+        "lines": [
+          86
+        ]
+      }
+    },
+    {
+      "name": "Literal <nav> exists in original DeRexi HTML",
+      "status": "PASS",
+      "details": {
+        "source": "derexi-policy-pilot/backend/static/index.html",
+        "lines": [
+          38
+        ]
+      }
+    },
+    {
+      "name": "Original HTML has one main landmark",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "name": "Report and README source/evidence links resolve",
+      "status": "PASS",
+      "details": {
+        "links": 16,
+        "missing": []
+      }
+    }
+  ],
+  "completion_status": "Complete"
+}

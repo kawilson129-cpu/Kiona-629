@@ -1,0 +1,76 @@
+{
+  "source": "derexi-policy-pilot/backend/static/index.html",
+  "distinct_attribute_names": 10,
+  "attributes": [
+    {
+      "name": "lang",
+      "tag": "html",
+      "value": "en",
+      "line": 2,
+      "purpose": "Declares the document language"
+    },
+    {
+      "name": "class",
+      "tag": "header",
+      "value": "letterhead",
+      "line": 18,
+      "purpose": "Connects markup to existing CSS"
+    },
+    {
+      "name": "href",
+      "tag": "a",
+      "value": "#assist",
+      "line": 39,
+      "purpose": "Specifies the anchor destination"
+    },
+    {
+      "name": "type",
+      "tag": "button",
+      "value": "button",
+      "line": 48,
+      "purpose": "Specifies button behavior"
+    },
+    {
+      "name": "id",
+      "tag": "button",
+      "value": "notify-btn",
+      "line": 48,
+      "purpose": "Uniquely identifies the control"
+    },
+    {
+      "name": "for",
+      "tag": "label",
+      "value": "persona-select",
+      "line": 57,
+      "purpose": "Associates the label with its select"
+    },
+    {
+      "name": "disabled",
+      "tag": "select",
+      "value": "present (boolean)",
+      "line": 59,
+      "purpose": "Disables the initial unselected control"
+    },
+    {
+      "name": "title",
+      "tag": "button",
+      "value": "Choose an authorized identity",
+      "line": 63,
+      "purpose": "Adds advisory information"
+    },
+    {
+      "name": "tabindex",
+      "tag": "main",
+      "value": "-1",
+      "line": 83,
+      "purpose": "Allows programmatic focus without sequential tab entry"
+    },
+    {
+      "name": "src",
+      "tag": "script",
+      "value": "governance.js",
+      "line": 95,
+      "purpose": "Names the existing script resource"
+    }
+  ]
+}

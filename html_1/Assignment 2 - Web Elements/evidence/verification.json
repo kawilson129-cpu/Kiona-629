@@ -1,0 +1,86 @@
+{
+  "timestamp": "2026-11-19T19:41:51.754232+00:00",
+  "assignment": 2,
+  "scope": "New read-only source/markup/evidence checks; historical app tests reused, not rerun.",
+  "passed": 14,
+  "failed": 0,
+  "checks": [
+    {
+      "name": "Exact original source hashes, line ranges and excerpt text match",
+      "status": "PASS",
+      "details": []
+    },
+    {
+      "name": "Existing images/test evidence copied byte-for-byte",
+      "status": "PASS",
+      "details": []
+    },
+    {
+      "name": "Historical browser evidence remains 7 PASS / 0 FAIL, not rerun",
+      "status": "PASS",
+      "details": {
+        "original_timestamp": "2026-11-18T19:06:58.935Z",
+        "scope": "REAL Chromium + unmodified DeRexi UI + loopback HTTP; synthetic SQLite, mocked PostgreSQL search, AI disabled; live Pulse sources"
+      }
+    },
+    {
+      "name": "DeRexi already contains literal <a>",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "name": "DeRexi already contains literal <div>",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "name": "Existing DeRexi case-study source contains literal <a>",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "name": "Existing DeRexi case-study source contains literal <div>",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "name": "Existing DeRexi case-study source contains literal <img>",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "name": "Existing DeRexi case-study source contains literal <ul>",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "name": "Source-first search supports the image fallback (SVG not counted as img)",
+      "status": "PASS",
+      "details": []
+    },
+    {
+      "name": "Original image has alt text and correct existing Liquid asset",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "name": "Copied original image is an actual PNG asset",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "name": "Runtime ol is documented as JS-created, not literal source HTML",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "name": "Report and README source/evidence links resolve",
+      "status": "PASS",
+      "details": {
+        "links": 19,
+        "missing": []
+      }
+    }
+  ],
+  "completion_status": "Complete"
+}

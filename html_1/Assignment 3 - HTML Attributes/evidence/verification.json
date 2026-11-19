@@ -1,0 +1,156 @@
+{
+  "timestamp": "2026-11-19T19:41:51.760432+00:00",
+  "assignment": 3,
+  "scope": "New read-only source/markup/evidence checks; historical app tests reused, not rerun.",
+  "passed": 16,
+  "failed": 0,
+  "checks": [
+    {
+      "name": "Exact original source hashes, line ranges and excerpt text match",
+      "status": "PASS",
+      "details": []
+    },
+    {
+      "name": "Existing images/test evidence copied byte-for-byte",
+      "status": "PASS",
+      "details": []
+    },
+    {
+      "name": "Historical browser evidence remains 7 PASS / 0 FAIL, not rerun",
+      "status": "PASS",
+      "details": {
+        "original_timestamp": "2026-11-18T19:06:58.935Z",
+        "scope": "REAL Chromium + unmodified DeRexi UI + loopback HTTP; synthetic SQLite, mocked PostgreSQL search, AI disabled; live Pulse sources"
+      }
+    },
+    {
+      "name": "At least seven distinct names (ten declared)",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "name": "Actual attribute lang on its recorded element/line",
+      "status": "PASS",
+      "details": {
+        "name": "lang",
+        "tag": "html",
+        "value": "en",
+        "line": 2,
+        "purpose": "Declares the document language"
+      }
+    },
+    {
+      "name": "Actual attribute class on its recorded element/line",
+      "status": "PASS",
+      "details": {
+        "name": "class",
+        "tag": "header",
+        "value": "letterhead",
+        "line": 18,
+        "purpose": "Connects markup to existing CSS"
+      }
+    },
+    {
+      "name": "Actual attribute href on its recorded element/line",
+      "status": "PASS",
+      "details": {
+        "name": "href",
+        "tag": "a",
+        "value": "#assist",
+        "line": 39,
+        "purpose": "Specifies the anchor destination"
+      }
+    },
+    {
+      "name": "Actual attribute type on its recorded element/line",
+      "status": "PASS",
+      "details": {
+        "name": "type",
+        "tag": "button",
+        "value": "button",
+        "line": 48,
+        "purpose": "Specifies button behavior"
+      }
+    },
+    {
+      "name": "Actual attribute id on its recorded element/line",
+      "status": "PASS",
+      "details": {
+        "name": "id",
+        "tag": "button",
+        "value": "notify-btn",
+        "line": 48,
+        "purpose": "Uniquely identifies the control"
+      }
+    },
+    {
+      "name": "Actual attribute for on its recorded element/line",
+      "status": "PASS",
+      "details": {
+        "name": "for",
+        "tag": "label",
+        "value": "persona-select",
+        "line": 57,
+        "purpose": "Associates the label with its select"
+      }
+    },
+    {
+      "name": "Actual attribute disabled on its recorded element/line",
+      "status": "PASS",
+      "details": {
+        "name": "disabled",
+        "tag": "select",
+        "value": "present (boolean)",
+        "line": 59,
+        "purpose": "Disables the initial unselected control"
+      }
+    },
+    {
+      "name": "Actual attribute title on its recorded element/line",
+      "status": "PASS",
+      "details": {
+        "name": "title",
+        "tag": "button",
+        "value": "Choose an authorized identity",
+        "line": 63,
+        "purpose": "Adds advisory information"
+      }
+    },
+    {
+      "name": "Actual attribute tabindex on its recorded element/line",
+      "status": "PASS",
+      "details": {
+        "name": "tabindex",
+        "tag": "main",
+        "value": "-1",
+        "line": 83,
+        "purpose": "Allows programmatic focus without sequential tab entry"
+      }
+    },
+    {
+      "name": "Actual attribute src on its recorded element/line",
+      "status": "PASS",
+      "details": {
+        "name": "src",
+        "tag": "script",
+        "value": "governance.js",
+        "line": 95,
+        "purpose": "Names the existing script resource"
+      }
+    },
+    {
+      "name": "Label for references actual select id",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "name": "Report and README source/evidence links resolve",
+      "status": "PASS",
+      "details": {
+        "links": 22,
+        "missing": []
+      }
+    }
+  ],
+  "completion_status": "Complete"
+}

@@ -1,0 +1,53 @@
+{
+  "captured_at": "2026-11-19T19:35:03.147948+00:00",
+  "sources": [
+    {
+      "path": "derexi-policy-pilot/backend/static/index.html",
+      "start_line": 26,
+      "end_line": 46,
+      "source_sha256": "fcd5be839d3bc617f0f00a8ab3859f0d46ba4e2d20a357e0088d72df254f5db1",
+      "excerpt": "  <div class=\"topbar-wrap\">\n    <div class=\"topbar\">\n      <div class=\"wordmark\" role=\"presentation\">\n        <svg class=\"wm-seal\" viewBox=\"0 0 32 32\" aria-hidden=\"true\">\n          <circle cx=\"16\" cy=\"16\" r=\"14.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\"/>\n          <circle cx=\"16\" cy=\"16\" r=\"10.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"0.6\"/>\n          <path d=\"M16 9.5v13M9.5 16h13\" stroke=\"currentColor\" stroke-width=\"1.1\" stroke-linecap=\"round\"/>\n        </svg>\n        <span class=\"wm-name\"><i>De</i><b>Rexi</b></span>\n        <span class=\"wm-region\">Policy &amp; Governance</span>\n      </div>\n\n      <nav class=\"nav-links\" aria-label=\"Primary\">\n        <a href=\"#assist\" data-view=\"assist\" class=\"nav-link is-current\">Policy Assistant</a>\n        <a href=\"#library\" data-view=\"library\" class=\"nav-link\">Policy Library</a>\n        <a href=\"#messages\" data-view=\"messages\" class=\"nav-link\">Messages<span class=\"nav-badge is-hidden js-msg-badge\" aria-label=\"Unread messages\">0</span></a>\n        <a href=\"#dashboard\" data-view=\"dashboard\" class=\"nav-link js-gov-link is-hidden\">Dashboard</a>\n        <a href=\"#governance\" data-view=\"governance\" class=\"nav-link js-gov-link is-hidden\">Governance</a>\n        <a href=\"#pulse\" data-view=\"pulse\" class=\"nav-link\">Pulse</a>\n        <a href=\"#routing\" data-view=\"routing\" class=\"nav-link js-routing-link is-hidden\">Technical Routing</a>\n      </nav>\n",
+      "purpose": "DeRexi div containers and anchor tags"
+    },
+    {
+      "path": "derexi-policy-pilot/backend/static/governance.js",
+      "start_line": 5,
+      "end_line": 9,
+      "source_sha256": "f92291a84751cc4d61605db30c3b6a17804fe41f0962b14af30e70566c97a443",
+      "excerpt": "  function el(tag, text, cls) {\n    var n = document.createElement(tag);\n    if (text !== null && text !== undefined) n.textContent = text;\n    if (cls) n.className = cls;\n    return n;\n",
+      "purpose": "Original DOM element helper"
+    },
+    {
+      "path": "derexi-policy-pilot/backend/static/governance.js",
+      "start_line": 100,
+      "end_line": 105,
+      "source_sha256": "f92291a84751cc4d61605db30c3b6a17804fe41f0962b14af30e70566c97a443",
+      "excerpt": "      var templates=el('section',null,'gw-template-card');templates.appendChild(el('p','A structured beginning','view-kicker'));\n      templates.appendChild(el('h3','Create from a template'));\n      templates.appendChild(el('p','A consistent foundation for new policies, security requirements and operating procedures.'));\n      var templateAction=button('Create from Template',chooseTemplate,'btn btn-ghost');templates.appendChild(templateAction);\n      templates.appendChild(button('Write a policy',function(){editor(null);},'gw-text-action'));\n      var steps=el('ol',null,'gw-steps');['Draft with purpose','Independent peer review','Final approval','Controlled publication'].forEach(function(x){steps.appendChild(el('li',x));});templates.appendChild(steps);creation.appendChild(templates);\n",
+      "purpose": "DeRexi creates an ordered list at runtime"
+    },
+    {
+      "path": "docs/derexi-policy-pilot.md",
+      "start_line": 24,
+      "end_line": 28,
+      "source_sha256": "e3e1d25c926c25ee6545bda90dc06953fd550102db4dfdf18e7e8ce4f9f8c28d",
+      "excerpt": "  <div class=\"project-image-wrap\" style=\"aspect-ratio: 16/9;\">\n    <img\n      src=\"{{ '/assets/images/derexi-policy-pilot-hero.png' | relative_url }}\"\n      alt=\"DeRexi Policy Pilot Project\">\n  </div>\n",
+      "purpose": "Literal image on the existing DeRexi case-study page"
+    },
+    {
+      "path": "docs/derexi-policy-pilot.md",
+      "start_line": 63,
+      "end_line": 88,
+      "source_sha256": "e3e1d25c926c25ee6545bda90dc06953fd550102db4dfdf18e7e8ce4f9f8c28d",
+      "excerpt": "    <div>\n      <span class=\"eyebrow\">Project Details</span>\n\n      <ul style=\"list-style: none; font-size: 0.875rem; color: var(--text-secondary);\">\n\n        <li style=\"margin-bottom: 1rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem;\">\n          Focus: Information Security\n        </li>\n\n        <li style=\"margin-bottom: 1rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem;\">\n          Area: Policy Governance\n        </li>\n\n        <li style=\"margin-bottom: 1rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem;\">\n          Security Component: Incident Assistance\n        </li>\n\n        <li style=\"margin-bottom: 1rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem;\">\n          Status: MVP In Development\n        </li>\n\n        <li style=\"margin-bottom: 1rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem;\">\n          Year: 2026\n        </li>\n\n      </ul>\n",
+      "purpose": "Literal unordered project-details list"
+    },
+    {
+      "path": "docs/derexi-policy-pilot.md",
+      "start_line": 327,
+      "end_line": 331,
+      "source_sha256": "e3e1d25c926c25ee6545bda90dc06953fd550102db4dfdf18e7e8ce4f9f8c28d",
+      "excerpt": "  <a href=\"{{ '/projects.html' | relative_url }}\"\n     style=\"text-decoration: none; color: var(--text-color); font-weight: 500;\n     border-bottom: 1px solid var(--text-color);\">\n    \u2190 Back to Projects\n  </a>\n",
+      "purpose": "Case-study anchor back to Projects"
+    }
+  ]
+}
