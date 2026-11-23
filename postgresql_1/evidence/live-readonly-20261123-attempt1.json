@@ -1,0 +1,16 @@
+{
+  "timestamp": "2026-11-23T18:07:58.886087+00:00",
+  "status": "BLOCKED",
+  "scope": "Live PostgreSQL SELECT/catalog queries inside enforced READ ONLY transaction; always rolled back.",
+  "mutations_executed": false,
+  "queries": {},
+  "checks": [],
+  "configured_sslmode": "require",
+  "blocker": {
+    "stage": "connection",
+    "exception_class": "OperationalError",
+    "message": "Connection/configuration or read-only query unavailable; private provider details suppressed."
+  },
+  "passed": 0,
+  "failed": 0
+}

@@ -1,0 +1,41 @@
+{
+  "source": "evidence/live-readonly-20261123.json",
+  "timestamp": "2026-11-23T18:09:25.866139+00:00",
+  "scope": "Live PostgreSQL SELECT/catalog queries inside enforced READ ONLY transaction; always rolled back.",
+  "transaction_read_only": "on",
+  "transaction_end": "ROLLED BACK",
+  "mutations_executed": false,
+  "queries": {
+    "filter_sort": {
+      "sql": "SELECT id, title, status FROM public.policies WHERE status = 'approved' ORDER BY title ASC, id ASC LIMIT 5;",
+      "status": "VERIFIED",
+      "rows": [
+        {
+          "id": 14,
+          "title": "Acceptable Use & Remote Work",
+          "status": "approved"
+        },
+        {
+          "id": 27,
+          "title": "Anti-Harassment & Complaint Reporting",
+          "status": "approved"
+        },
+        {
+          "id": 3,
+          "title": "Anti-Money Laundering (BSA/AML) Program",
+          "status": "approved"
+        },
+        {
+          "id": 44,
+          "title": "Appraisals & Valuation Independence",
+          "status": "approved"
+        },
+        {
+          "id": 33,
+          "title": "Artificial Intelligence Acceptable Use & Governance",
+          "status": "approved"
+        }
+      ]
+    }
+  }
+}

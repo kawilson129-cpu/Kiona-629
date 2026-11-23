@@ -1,0 +1,413 @@
+{
+  "source": "evidence/live-readonly-20261123.json",
+  "timestamp": "2026-11-23T18:09:25.866139+00:00",
+  "scope": "Live PostgreSQL SELECT/catalog queries inside enforced READ ONLY transaction; always rolled back.",
+  "transaction_read_only": "on",
+  "transaction_end": "ROLLED BACK",
+  "mutations_executed": false,
+  "queries": {
+    "columns": {
+      "sql": "SELECT table_schema, table_name, ordinal_position, column_name,\n        data_type, udt_name, is_nullable, column_default, is_identity, identity_generation\n        FROM information_schema.columns WHERE table_schema = 'public'\n        AND table_name IN ('departments','roles','users','policies','clarification_reads')\n        ORDER BY table_name, ordinal_position",
+      "status": "VERIFIED",
+      "rows": [
+        {
+          "table_schema": "public",
+          "table_name": "clarification_reads",
+          "ordinal_position": 1,
+          "column_name": "request_id",
+          "data_type": "bigint",
+          "udt_name": "int8",
+          "is_nullable": "NO",
+          "column_default": null,
+          "is_identity": "NO",
+          "identity_generation": null
+        },
+        {
+          "table_schema": "public",
+          "table_name": "clarification_reads",
+          "ordinal_position": 2,
+          "column_name": "user_id",
+          "data_type": "bigint",
+          "udt_name": "int8",
+          "is_nullable": "NO",
+          "column_default": null,
+          "is_identity": "NO",
+          "identity_generation": null
+        },
+        {
+          "table_schema": "public",
+          "table_name": "clarification_reads",
+          "ordinal_position": 3,
+          "column_name": "last_read_at",
+          "data_type": "timestamp with time zone",
+          "udt_name": "timestamptz",
+          "is_nullable": "NO",
+          "column_default": "now()",
+          "is_identity": "NO",
+          "identity_generation": null
+        },
+        {
+          "table_schema": "public",
+          "table_name": "departments",
+          "ordinal_position": 1,
+          "column_name": "id",
+          "data_type": "bigint",
+          "udt_name": "int8",
+          "is_nullable": "NO",
+          "column_default": null,
+          "is_identity": "YES",
+          "identity_generation": "BY DEFAULT"
+        },
+        {
+          "table_schema": "public",
+          "table_name": "departments",
+          "ordinal_position": 2,
+          "column_name": "name",
+          "data_type": "text",
+          "udt_name": "text",
+          "is_nullable": "NO",
+          "column_default": "''::text",
+          "is_identity": "NO",
+          "identity_generation": null
+        },
+        {
+          "table_schema": "public",
+          "table_name": "departments",
+          "ordinal_position": 3,
+          "column_name": "created_at",
+          "data_type": "timestamp with time zone",
+          "udt_name": "timestamptz",
+          "is_nullable": "NO",
+          "column_default": "now()",
+          "is_identity": "NO",
+          "identity_generation": null
+        },
+        {
+          "table_schema": "public",
+          "table_name": "policies",
+          "ordinal_position": 1,
+          "column_name": "id",
+          "data_type": "bigint",
+          "udt_name": "int8",
+          "is_nullable": "NO",
+          "column_default": null,
+          "is_identity": "YES",
+          "identity_generation": "BY DEFAULT"
+        },
+        {
+          "table_schema": "public",
+          "table_name": "policies",
+          "ordinal_position": 2,
+          "column_name": "title",
+          "data_type": "text",
+          "udt_name": "text",
+          "is_nullable": "NO",
+          "column_default": "''::text",
+          "is_identity": "NO",
+          "identity_generation": null
+        },
+        {
+          "table_schema": "public",
+          "table_name": "policies",
+          "ordinal_position": 3,
+          "column_name": "summary",
+          "data_type": "text",
+          "udt_name": "text",
+          "is_nullable": "YES",
+          "column_default": null,
+          "is_identity": "NO",
+          "identity_generation": null
+        },
+        {
+          "table_schema": "public",
+          "table_name": "policies",
+          "ordinal_position": 4,
+          "column_name": "category_id",
+          "data_type": "bigint",
+          "udt_name": "int8",
+          "is_nullable": "YES",
+          "column_default": null,
+          "is_identity": "NO",
+          "identity_generation": null
+        },
+        {
+          "table_schema": "public",
+          "table_name": "policies",
+          "ordinal_position": 5,
+          "column_name": "owner_id",
+          "data_type": "bigint",
+          "udt_name": "int8",
+          "is_nullable": "YES",
+          "column_default": null,
+          "is_identity": "NO",
+          "identity_generation": null
+        },
+        {
+          "table_schema": "public",
+          "table_name": "policies",
+          "ordinal_position": 6,
+          "column_name": "status",
+          "data_type": "text",
+          "udt_name": "text",
+          "is_nullable": "NO",
+          "column_default": "'draft'::text",
+          "is_identity": "NO",
+          "identity_generation": null
+        },
+        {
+          "table_schema": "public",
+          "table_name": "policies",
+          "ordinal_position": 7,
+          "column_name": "created_at",
+          "data_type": "timestamp with time zone",
+          "udt_name": "timestamptz",
+          "is_nullable": "NO",
+          "column_default": "now()",
+          "is_identity": "NO",
+          "identity_generation": null
+        },
+        {
+          "table_schema": "public",
+          "table_name": "policies",
+          "ordinal_position": 8,
+          "column_name": "updated_at",
+          "data_type": "timestamp with time zone",
+          "udt_name": "timestamptz",
+          "is_nullable": "NO",
+          "column_default": "now()",
+          "is_identity": "NO",
+          "identity_generation": null
+        },
+        {
+          "table_schema": "public",
+          "table_name": "roles",
+          "ordinal_position": 1,
+          "column_name": "id",
+          "data_type": "bigint",
+          "udt_name": "int8",
+          "is_nullable": "NO",
+          "column_default": null,
+          "is_identity": "YES",
+          "identity_generation": "BY DEFAULT"
+        },
+        {
+          "table_schema": "public",
+          "table_name": "roles",
+          "ordinal_position": 2,
+          "column_name": "name",
+          "data_type": "text",
+          "udt_name": "text",
+          "is_nullable": "NO",
+          "column_default": "''::text",
+          "is_identity": "NO",
+          "identity_generation": null
+        },
+        {
+          "table_schema": "public",
+          "table_name": "roles",
+          "ordinal_position": 3,
+          "column_name": "created_at",
+          "data_type": "timestamp with time zone",
+          "udt_name": "timestamptz",
+          "is_nullable": "NO",
+          "column_default": "now()",
+          "is_identity": "NO",
+          "identity_generation": null
+        },
+        {
+          "table_schema": "public",
+          "table_name": "users",
+          "ordinal_position": 1,
+          "column_name": "id",
+          "data_type": "bigint",
+          "udt_name": "int8",
+          "is_nullable": "NO",
+          "column_default": null,
+          "is_identity": "YES",
+          "identity_generation": "BY DEFAULT"
+        },
+        {
+          "table_schema": "public",
+          "table_name": "users",
+          "ordinal_position": 2,
+          "column_name": "first_name",
+          "data_type": "text",
+          "udt_name": "text",
+          "is_nullable": "NO",
+          "column_default": "''::text",
+          "is_identity": "NO",
+          "identity_generation": null
+        },
+        {
+          "table_schema": "public",
+          "table_name": "users",
+          "ordinal_position": 3,
+          "column_name": "last_name",
+          "data_type": "text",
+          "udt_name": "text",
+          "is_nullable": "NO",
+          "column_default": "''::text",
+          "is_identity": "NO",
+          "identity_generation": null
+        },
+        {
+          "table_schema": "public",
+          "table_name": "users",
+          "ordinal_position": 4,
+          "column_name": "email",
+          "data_type": "text",
+          "udt_name": "text",
+          "is_nullable": "NO",
+          "column_default": "''::text",
+          "is_identity": "NO",
+          "identity_generation": null
+        },
+        {
+          "table_schema": "public",
+          "table_name": "users",
+          "ordinal_position": 5,
+          "column_name": "department_id",
+          "data_type": "bigint",
+          "udt_name": "int8",
+          "is_nullable": "NO",
+          "column_default": null,
+          "is_identity": "NO",
+          "identity_generation": null
+        },
+        {
+          "table_schema": "public",
+          "table_name": "users",
+          "ordinal_position": 6,
+          "column_name": "role_id",
+          "data_type": "bigint",
+          "udt_name": "int8",
+          "is_nullable": "NO",
+          "column_default": null,
+          "is_identity": "NO",
+          "identity_generation": null
+        },
+        {
+          "table_schema": "public",
+          "table_name": "users",
+          "ordinal_position": 7,
+          "column_name": "created_at",
+          "data_type": "timestamp with time zone",
+          "udt_name": "timestamptz",
+          "is_nullable": "NO",
+          "column_default": "now()",
+          "is_identity": "NO",
+          "identity_generation": null
+        }
+      ]
+    },
+    "constraints": {
+      "sql": "SELECT rel.relname AS table_name, c.conname AS constraint_name,\n        c.contype AS constraint_type, pg_get_constraintdef(c.oid) AS definition\n        FROM pg_constraint c JOIN pg_class rel ON rel.oid = c.conrelid\n        JOIN pg_namespace n ON n.oid = rel.relnamespace\n        WHERE n.nspname = 'public' AND rel.relname IN\n        ('departments','roles','users','policies','clarification_reads')\n        AND c.contype IN ('p','f','u','c') ORDER BY rel.relname, c.conname",
+      "status": "VERIFIED",
+      "rows": [
+        {
+          "table_name": "clarification_reads",
+          "constraint_name": "clarification_reads_pkey",
+          "constraint_type": "p",
+          "definition": "PRIMARY KEY (request_id, user_id)"
+        },
+        {
+          "table_name": "clarification_reads",
+          "constraint_name": "clarification_reads_request_id_fkey",
+          "constraint_type": "f",
+          "definition": "FOREIGN KEY (request_id) REFERENCES clarification_requests(id) ON DELETE CASCADE"
+        },
+        {
+          "table_name": "clarification_reads",
+          "constraint_name": "clarification_reads_user_id_fkey",
+          "constraint_type": "f",
+          "definition": "FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE"
+        },
+        {
+          "table_name": "departments",
+          "constraint_name": "departments_name_key",
+          "constraint_type": "u",
+          "definition": "UNIQUE (name)"
+        },
+        {
+          "table_name": "departments",
+          "constraint_name": "departments_pkey",
+          "constraint_type": "p",
+          "definition": "PRIMARY KEY (id)"
+        },
+        {
+          "table_name": "policies",
+          "constraint_name": "policies_category_id_fkey",
+          "constraint_type": "f",
+          "definition": "FOREIGN KEY (category_id) REFERENCES policy_categories(id)"
+        },
+        {
+          "table_name": "policies",
+          "constraint_name": "policies_owner_id_fkey",
+          "constraint_type": "f",
+          "definition": "FOREIGN KEY (owner_id) REFERENCES users(id)"
+        },
+        {
+          "table_name": "policies",
+          "constraint_name": "policies_pkey",
+          "constraint_type": "p",
+          "definition": "PRIMARY KEY (id)"
+        },
+        {
+          "table_name": "policies",
+          "constraint_name": "policies_status_check",
+          "constraint_type": "c",
+          "definition": "CHECK ((status = ANY (ARRAY['draft'::text, 'in_review'::text, 'approved'::text, 'retired'::text])))"
+        },
+        {
+          "table_name": "policies",
+          "constraint_name": "policies_title_key",
+          "constraint_type": "u",
+          "definition": "UNIQUE (title)"
+        },
+        {
+          "table_name": "roles",
+          "constraint_name": "roles_created_at_key",
+          "constraint_type": "u",
+          "definition": "UNIQUE (created_at)"
+        },
+        {
+          "table_name": "roles",
+          "constraint_name": "roles_name_key",
+          "constraint_type": "u",
+          "definition": "UNIQUE (name)"
+        },
+        {
+          "table_name": "roles",
+          "constraint_name": "roles_pkey",
+          "constraint_type": "p",
+          "definition": "PRIMARY KEY (id)"
+        },
+        {
+          "table_name": "users",
+          "constraint_name": "users_department_id_fkey",
+          "constraint_type": "f",
+          "definition": "FOREIGN KEY (department_id) REFERENCES departments(id)"
+        },
+        {
+          "table_name": "users",
+          "constraint_name": "users_email_key",
+          "constraint_type": "u",
+          "definition": "UNIQUE (email)"
+        },
+        {
+          "table_name": "users",
+          "constraint_name": "users_pkey",
+          "constraint_type": "p",
+          "definition": "PRIMARY KEY (id)"
+        },
+        {
+          "table_name": "users",
+          "constraint_name": "users_role_id_fkey",
+          "constraint_type": "f",
+          "definition": "FOREIGN KEY (role_id) REFERENCES roles(id)"
+        }
+      ]
+    }
+  },
+  "unexecuted_sql": "CREATE TABLE example not rerun"
+}

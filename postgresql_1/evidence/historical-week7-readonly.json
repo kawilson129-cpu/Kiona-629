@@ -1,0 +1,55 @@
+{
+  "mode": "PostgreSQL default_transaction_read_only=on; SELECT only",
+  "tls": {
+    "client_to_pooler_encrypted": true,
+    "protocol": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "key_bits": "256"
+  },
+  "read_models": [
+    {
+      "role": "Employee",
+      "folder": "requests",
+      "list": "PASS",
+      "notifications": "PASS",
+      "preview_count": 1,
+      "counts_nonnegative": true
+    },
+    {
+      "role": "Policy Owner",
+      "folder": "requests",
+      "list": "PASS",
+      "notifications": "PASS",
+      "preview_count": 1,
+      "counts_nonnegative": true
+    },
+    {
+      "role": "System Administrator",
+      "folder": "all",
+      "list": "PASS",
+      "notifications": "PASS",
+      "preview_count": 1,
+      "counts_nonnegative": true
+    }
+  ],
+  "blocked": [],
+  "unverified": [
+    "Browser HTTPS deployment",
+    "Database certificate/hostname verification",
+    "Provider storage/backup encryption",
+    "Direct-client RLS behaviour",
+    "Production Supabase user sign-in",
+    "Pooler-to-Postgres transport: backend reports no TLS; topology/provider protection unverified"
+  ],
+  "configured_sslmode": "require",
+  "transaction_read_only": "on",
+  "postgres_backend_connection": {
+    "ssl": false,
+    "version": null,
+    "cipher": null,
+    "bits": null
+  },
+  "backend_uses_local_socket": false,
+  "clarification_reads_exists": true,
+  "employee_count": 12
+}

@@ -1,0 +1,125 @@
+{
+  "mode": "explicit READ ONLY transaction, rolled back",
+  "mutations": false,
+  "read_only": true,
+  "owner_coverage": [
+    {
+      "department_id": 1,
+      "department": "Compliance",
+      "owners": 1
+    },
+    {
+      "department_id": 2,
+      "department": "Information Technology",
+      "owners": 1
+    },
+    {
+      "department_id": 3,
+      "department": "Operations",
+      "owners": 1
+    },
+    {
+      "department_id": 4,
+      "department": "Human Resources",
+      "owners": 1
+    },
+    {
+      "department_id": 5,
+      "department": "Marketing",
+      "owners": 0
+    },
+    {
+      "department_id": 6,
+      "department": "Lending",
+      "owners": 1
+    },
+    {
+      "department_id": 7,
+      "department": "Wealth Management",
+      "owners": 1
+    }
+  ],
+  "owner_coverage_ready": false,
+  "required_tables": {
+    "governance_drafts": false,
+    "governance_events": false,
+    "technical_routes": false,
+    "technical_routing_grants": false,
+    "support_requests": false,
+    "support_audit": false
+  },
+  "auth_user_count": 0,
+  "rls_tables": [
+    {
+      "relname": "clarification_reads",
+      "rls_enabled": true
+    },
+    {
+      "relname": "clarification_replies",
+      "rls_enabled": true
+    },
+    {
+      "relname": "clarification_requests",
+      "rls_enabled": true
+    },
+    {
+      "relname": "conversations",
+      "rls_enabled": true
+    },
+    {
+      "relname": "departments",
+      "rls_enabled": true
+    },
+    {
+      "relname": "feedback",
+      "rls_enabled": true
+    },
+    {
+      "relname": "incident_categories",
+      "rls_enabled": true
+    },
+    {
+      "relname": "incident_reports",
+      "rls_enabled": true
+    },
+    {
+      "relname": "messages",
+      "rls_enabled": true
+    },
+    {
+      "relname": "policies",
+      "rls_enabled": true
+    },
+    {
+      "relname": "policy_categories",
+      "rls_enabled": true
+    },
+    {
+      "relname": "policy_citations",
+      "rls_enabled": true
+    },
+    {
+      "relname": "policy_versions",
+      "rls_enabled": true
+    },
+    {
+      "relname": "roles",
+      "rls_enabled": true
+    },
+    {
+      "relname": "users",
+      "rls_enabled": true
+    }
+  ],
+  "direct_client_table_grants": 90,
+  "authenticated_select_policies": 15,
+  "backend_bypasses_rls": true,
+  "backend_tls": [
+    {
+      "ssl": false,
+      "version": null,
+      "cipher": null
+    }
+  ],
+  "status": "READ_ONLY_INVENTORY_COMPLETE"
+}

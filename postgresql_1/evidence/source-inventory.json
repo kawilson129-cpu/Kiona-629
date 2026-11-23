@@ -1,0 +1,24 @@
+{
+  "timestamp": "2026-11-23T18:11:53.484993+00:00",
+  "sources": {
+    "derexi-policy-pilot/backend/database.py": "47762db9baf75da41893dbedb856a763e268cf6c22e8c508d3691e5eceb76128",
+    "derexi-policy-pilot/backend/transport.py": "adf5b4b5b05191572af263022c6d5726db421a807d4a9997ac306b4cc1e14390",
+    "derexi-policy-pilot/backend/models.py": "589b6d695b30dcb4c3888695004a01c3aae1c3f89b17dc6b8dd31f1b27973284",
+    "derexi-policy-pilot/backend/main.py": "cdef2664b2b6bf27056dd127ed9a60a49b198bbdd80f6d1a204d3e518964a95b",
+    "derexi-policy-pilot/backend/dev_auth.py": "b30a3fb48b1f27f1f9cc2376fe78f3eb5202d7ae0faec5226d0a561794ac7fb0",
+    "derexi-policy-pilot/backend/tests/messaging_fixture.py": "043c6c93715d8269aefc74f6ebcde2ee968a8fef9fe4f52c8b9ef3d59a1b3f47",
+    "semester_3/DeRexi_Week 3/database-design.md": "b047290f78952ff2b33f26a0a5ac6bb60aeb28b272c6ad0a66793c45d94dfe31",
+    "derexi-policy-pilot/backend/migrations/2026-11-05_week7_messaging_rollback.sql": "9199f491c7fa880b8ef226b3396eda3db13bfe86859e407a348914cca15f2169",
+    "derexi-policy-pilot/backend/migrations/2026-11-05_week7_messaging.sql": "bc21a522b4528c7508fbb9f0f930d410c85f049caafb40d2dbd391ca362fdf14",
+    "derexi-policy-pilot/backend/migrations/2026-11-10_week8_governance.sql": "f1aee5cd5800982752ed0ac463b18dd839affbb90f136f71e452370feea6ab78",
+    "derexi-policy-pilot/backend/migrations/2026-11-10_week8_owner_seed.sql": "94272b787393749a5eccaf73ebb72abf5a4fd4fd51c16b40181bd055661124ea",
+    "derexi-policy-pilot/backend/migrations/2026-11-12_support_routing.sql": "2340b017f9e2d8c2353cd9aa5bdc8a00b638c8e15df2b58850eb5f52587ca4f6",
+    "semester_4/DeRexi_Week 7/evidence/readonly-diagnostics.json": "8e4c8806b184b35f8b07545a18e1cbb00b7b5ef8829377b3b23d693bd5efabb7",
+    "semester_5/DeRexi_Week 11/evidence/final-integration-20261112/live-readonly-preflight.json": "73ccd1f75028e79e37de8f80ac421e32faa8bc610c3c03bded34f49de9254a2b",
+    "ai_api_intergration_1/AAI 1 Assignment 1/evidence/20261118-api/http-results.json": "4bf0f3825253e650d08fe67f8bb3561dbe11832065f6c4bbbd7dffb7cf0aac86"
+  },
+  "historical_copies": {
+    "semester_4/DeRexi_Week 7/evidence/readonly-diagnostics.json": "historical-week7-readonly.json",
+    "semester_5/DeRexi_Week 11/evidence/final-integration-20261112/live-readonly-preflight.json": "historical-week11-preflight.json"
+  }
+}

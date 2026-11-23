@@ -1,0 +1,22 @@
+{
+  "source": "evidence/live-readonly-20261123.json",
+  "timestamp": "2026-11-23T18:09:25.866139+00:00",
+  "scope": "Live PostgreSQL SELECT/catalog queries inside enforced READ ONLY transaction; always rolled back.",
+  "transaction_read_only": "on",
+  "transaction_end": "ROLLED BACK",
+  "mutations_executed": false,
+  "queries": {
+    "connection": {
+      "sql": "SELECT 1 AS connection_check, current_database() AS database_name, current_schema() AS schema_name, current_setting('server_version_num') AS server_version_num",
+      "status": "VERIFIED",
+      "rows": [
+        {
+          "connection_check": 1,
+          "database_name": "postgres",
+          "schema_name": "public",
+          "server_version_num": "170006"
+        }
+      ]
+    }
+  }
+}

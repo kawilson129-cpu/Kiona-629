@@ -1,0 +1,609 @@
+{
+  "timestamp": "2026-11-23T18:09:25.866139+00:00",
+  "status": "VERIFIED",
+  "scope": "Live PostgreSQL SELECT/catalog queries inside enforced READ ONLY transaction; always rolled back.",
+  "mutations_executed": false,
+  "queries": {
+    "connection": {
+      "sql": "SELECT 1 AS connection_check, current_database() AS database_name, current_schema() AS schema_name, current_setting('server_version_num') AS server_version_num",
+      "status": "VERIFIED",
+      "rows": [
+        {
+          "connection_check": 1,
+          "database_name": "postgres",
+          "schema_name": "public",
+          "server_version_num": "170006"
+        }
+      ]
+    },
+    "columns": {
+      "sql": "SELECT table_schema, table_name, ordinal_position, column_name,\n        data_type, udt_name, is_nullable, column_default, is_identity, identity_generation\n        FROM information_schema.columns WHERE table_schema = 'public'\n        AND table_name IN ('departments','roles','users','policies','clarification_reads')\n        ORDER BY table_name, ordinal_position",
+      "status": "VERIFIED",
+      "rows": [
+        {
+          "table_schema": "public",
+          "table_name": "clarification_reads",
+          "ordinal_position": 1,
+          "column_name": "request_id",
+          "data_type": "bigint",
+          "udt_name": "int8",
+          "is_nullable": "NO",
+          "column_default": null,
+          "is_identity": "NO",
+          "identity_generation": null
+        },
+        {
+          "table_schema": "public",
+          "table_name": "clarification_reads",
+          "ordinal_position": 2,
+          "column_name": "user_id",
+          "data_type": "bigint",
+          "udt_name": "int8",
+          "is_nullable": "NO",
+          "column_default": null,
+          "is_identity": "NO",
+          "identity_generation": null
+        },
+        {
+          "table_schema": "public",
+          "table_name": "clarification_reads",
+          "ordinal_position": 3,
+          "column_name": "last_read_at",
+          "data_type": "timestamp with time zone",
+          "udt_name": "timestamptz",
+          "is_nullable": "NO",
+          "column_default": "now()",
+          "is_identity": "NO",
+          "identity_generation": null
+        },
+        {
+          "table_schema": "public",
+          "table_name": "departments",
+          "ordinal_position": 1,
+          "column_name": "id",
+          "data_type": "bigint",
+          "udt_name": "int8",
+          "is_nullable": "NO",
+          "column_default": null,
+          "is_identity": "YES",
+          "identity_generation": "BY DEFAULT"
+        },
+        {
+          "table_schema": "public",
+          "table_name": "departments",
+          "ordinal_position": 2,
+          "column_name": "name",
+          "data_type": "text",
+          "udt_name": "text",
+          "is_nullable": "NO",
+          "column_default": "''::text",
+          "is_identity": "NO",
+          "identity_generation": null
+        },
+        {
+          "table_schema": "public",
+          "table_name": "departments",
+          "ordinal_position": 3,
+          "column_name": "created_at",
+          "data_type": "timestamp with time zone",
+          "udt_name": "timestamptz",
+          "is_nullable": "NO",
+          "column_default": "now()",
+          "is_identity": "NO",
+          "identity_generation": null
+        },
+        {
+          "table_schema": "public",
+          "table_name": "policies",
+          "ordinal_position": 1,
+          "column_name": "id",
+          "data_type": "bigint",
+          "udt_name": "int8",
+          "is_nullable": "NO",
+          "column_default": null,
+          "is_identity": "YES",
+          "identity_generation": "BY DEFAULT"
+        },
+        {
+          "table_schema": "public",
+          "table_name": "policies",
+          "ordinal_position": 2,
+          "column_name": "title",
+          "data_type": "text",
+          "udt_name": "text",
+          "is_nullable": "NO",
+          "column_default": "''::text",
+          "is_identity": "NO",
+          "identity_generation": null
+        },
+        {
+          "table_schema": "public",
+          "table_name": "policies",
+          "ordinal_position": 3,
+          "column_name": "summary",
+          "data_type": "text",
+          "udt_name": "text",
+          "is_nullable": "YES",
+          "column_default": null,
+          "is_identity": "NO",
+          "identity_generation": null
+        },
+        {
+          "table_schema": "public",
+          "table_name": "policies",
+          "ordinal_position": 4,
+          "column_name": "category_id",
+          "data_type": "bigint",
+          "udt_name": "int8",
+          "is_nullable": "YES",
+          "column_default": null,
+          "is_identity": "NO",
+          "identity_generation": null
+        },
+        {
+          "table_schema": "public",
+          "table_name": "policies",
+          "ordinal_position": 5,
+          "column_name": "owner_id",
+          "data_type": "bigint",
+          "udt_name": "int8",
+          "is_nullable": "YES",
+          "column_default": null,
+          "is_identity": "NO",
+          "identity_generation": null
+        },
+        {
+          "table_schema": "public",
+          "table_name": "policies",
+          "ordinal_position": 6,
+          "column_name": "status",
+          "data_type": "text",
+          "udt_name": "text",
+          "is_nullable": "NO",
+          "column_default": "'draft'::text",
+          "is_identity": "NO",
+          "identity_generation": null
+        },
+        {
+          "table_schema": "public",
+          "table_name": "policies",
+          "ordinal_position": 7,
+          "column_name": "created_at",
+          "data_type": "timestamp with time zone",
+          "udt_name": "timestamptz",
+          "is_nullable": "NO",
+          "column_default": "now()",
+          "is_identity": "NO",
+          "identity_generation": null
+        },
+        {
+          "table_schema": "public",
+          "table_name": "policies",
+          "ordinal_position": 8,
+          "column_name": "updated_at",
+          "data_type": "timestamp with time zone",
+          "udt_name": "timestamptz",
+          "is_nullable": "NO",
+          "column_default": "now()",
+          "is_identity": "NO",
+          "identity_generation": null
+        },
+        {
+          "table_schema": "public",
+          "table_name": "roles",
+          "ordinal_position": 1,
+          "column_name": "id",
+          "data_type": "bigint",
+          "udt_name": "int8",
+          "is_nullable": "NO",
+          "column_default": null,
+          "is_identity": "YES",
+          "identity_generation": "BY DEFAULT"
+        },
+        {
+          "table_schema": "public",
+          "table_name": "roles",
+          "ordinal_position": 2,
+          "column_name": "name",
+          "data_type": "text",
+          "udt_name": "text",
+          "is_nullable": "NO",
+          "column_default": "''::text",
+          "is_identity": "NO",
+          "identity_generation": null
+        },
+        {
+          "table_schema": "public",
+          "table_name": "roles",
+          "ordinal_position": 3,
+          "column_name": "created_at",
+          "data_type": "timestamp with time zone",
+          "udt_name": "timestamptz",
+          "is_nullable": "NO",
+          "column_default": "now()",
+          "is_identity": "NO",
+          "identity_generation": null
+        },
+        {
+          "table_schema": "public",
+          "table_name": "users",
+          "ordinal_position": 1,
+          "column_name": "id",
+          "data_type": "bigint",
+          "udt_name": "int8",
+          "is_nullable": "NO",
+          "column_default": null,
+          "is_identity": "YES",
+          "identity_generation": "BY DEFAULT"
+        },
+        {
+          "table_schema": "public",
+          "table_name": "users",
+          "ordinal_position": 2,
+          "column_name": "first_name",
+          "data_type": "text",
+          "udt_name": "text",
+          "is_nullable": "NO",
+          "column_default": "''::text",
+          "is_identity": "NO",
+          "identity_generation": null
+        },
+        {
+          "table_schema": "public",
+          "table_name": "users",
+          "ordinal_position": 3,
+          "column_name": "last_name",
+          "data_type": "text",
+          "udt_name": "text",
+          "is_nullable": "NO",
+          "column_default": "''::text",
+          "is_identity": "NO",
+          "identity_generation": null
+        },
+        {
+          "table_schema": "public",
+          "table_name": "users",
+          "ordinal_position": 4,
+          "column_name": "email",
+          "data_type": "text",
+          "udt_name": "text",
+          "is_nullable": "NO",
+          "column_default": "''::text",
+          "is_identity": "NO",
+          "identity_generation": null
+        },
+        {
+          "table_schema": "public",
+          "table_name": "users",
+          "ordinal_position": 5,
+          "column_name": "department_id",
+          "data_type": "bigint",
+          "udt_name": "int8",
+          "is_nullable": "NO",
+          "column_default": null,
+          "is_identity": "NO",
+          "identity_generation": null
+        },
+        {
+          "table_schema": "public",
+          "table_name": "users",
+          "ordinal_position": 6,
+          "column_name": "role_id",
+          "data_type": "bigint",
+          "udt_name": "int8",
+          "is_nullable": "NO",
+          "column_default": null,
+          "is_identity": "NO",
+          "identity_generation": null
+        },
+        {
+          "table_schema": "public",
+          "table_name": "users",
+          "ordinal_position": 7,
+          "column_name": "created_at",
+          "data_type": "timestamp with time zone",
+          "udt_name": "timestamptz",
+          "is_nullable": "NO",
+          "column_default": "now()",
+          "is_identity": "NO",
+          "identity_generation": null
+        }
+      ]
+    },
+    "constraints": {
+      "sql": "SELECT rel.relname AS table_name, c.conname AS constraint_name,\n        c.contype AS constraint_type, pg_get_constraintdef(c.oid) AS definition\n        FROM pg_constraint c JOIN pg_class rel ON rel.oid = c.conrelid\n        JOIN pg_namespace n ON n.oid = rel.relnamespace\n        WHERE n.nspname = 'public' AND rel.relname IN\n        ('departments','roles','users','policies','clarification_reads')\n        AND c.contype IN ('p','f','u','c') ORDER BY rel.relname, c.conname",
+      "status": "VERIFIED",
+      "rows": [
+        {
+          "table_name": "clarification_reads",
+          "constraint_name": "clarification_reads_pkey",
+          "constraint_type": "p",
+          "definition": "PRIMARY KEY (request_id, user_id)"
+        },
+        {
+          "table_name": "clarification_reads",
+          "constraint_name": "clarification_reads_request_id_fkey",
+          "constraint_type": "f",
+          "definition": "FOREIGN KEY (request_id) REFERENCES clarification_requests(id) ON DELETE CASCADE"
+        },
+        {
+          "table_name": "clarification_reads",
+          "constraint_name": "clarification_reads_user_id_fkey",
+          "constraint_type": "f",
+          "definition": "FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE"
+        },
+        {
+          "table_name": "departments",
+          "constraint_name": "departments_name_key",
+          "constraint_type": "u",
+          "definition": "UNIQUE (name)"
+        },
+        {
+          "table_name": "departments",
+          "constraint_name": "departments_pkey",
+          "constraint_type": "p",
+          "definition": "PRIMARY KEY (id)"
+        },
+        {
+          "table_name": "policies",
+          "constraint_name": "policies_category_id_fkey",
+          "constraint_type": "f",
+          "definition": "FOREIGN KEY (category_id) REFERENCES policy_categories(id)"
+        },
+        {
+          "table_name": "policies",
+          "constraint_name": "policies_owner_id_fkey",
+          "constraint_type": "f",
+          "definition": "FOREIGN KEY (owner_id) REFERENCES users(id)"
+        },
+        {
+          "table_name": "policies",
+          "constraint_name": "policies_pkey",
+          "constraint_type": "p",
+          "definition": "PRIMARY KEY (id)"
+        },
+        {
+          "table_name": "policies",
+          "constraint_name": "policies_status_check",
+          "constraint_type": "c",
+          "definition": "CHECK ((status = ANY (ARRAY['draft'::text, 'in_review'::text, 'approved'::text, 'retired'::text])))"
+        },
+        {
+          "table_name": "policies",
+          "constraint_name": "policies_title_key",
+          "constraint_type": "u",
+          "definition": "UNIQUE (title)"
+        },
+        {
+          "table_name": "roles",
+          "constraint_name": "roles_created_at_key",
+          "constraint_type": "u",
+          "definition": "UNIQUE (created_at)"
+        },
+        {
+          "table_name": "roles",
+          "constraint_name": "roles_name_key",
+          "constraint_type": "u",
+          "definition": "UNIQUE (name)"
+        },
+        {
+          "table_name": "roles",
+          "constraint_name": "roles_pkey",
+          "constraint_type": "p",
+          "definition": "PRIMARY KEY (id)"
+        },
+        {
+          "table_name": "users",
+          "constraint_name": "users_department_id_fkey",
+          "constraint_type": "f",
+          "definition": "FOREIGN KEY (department_id) REFERENCES departments(id)"
+        },
+        {
+          "table_name": "users",
+          "constraint_name": "users_email_key",
+          "constraint_type": "u",
+          "definition": "UNIQUE (email)"
+        },
+        {
+          "table_name": "users",
+          "constraint_name": "users_pkey",
+          "constraint_type": "p",
+          "definition": "PRIMARY KEY (id)"
+        },
+        {
+          "table_name": "users",
+          "constraint_name": "users_role_id_fkey",
+          "constraint_type": "f",
+          "definition": "FOREIGN KEY (role_id) REFERENCES roles(id)"
+        }
+      ]
+    },
+    "counts": {
+      "sql": "SELECT (SELECT count(*) FROM public.departments) AS departments,\n        (SELECT count(*) FROM public.roles) AS roles,\n        (SELECT count(*) FROM public.users) AS users,\n        (SELECT count(*) FROM public.policies) AS policies",
+      "status": "VERIFIED",
+      "rows": [
+        {
+          "departments": 7,
+          "roles": 3,
+          "users": 12,
+          "policies": 49
+        }
+      ]
+    },
+    "select": {
+      "sql": "SELECT id, name FROM public.departments ORDER BY id;",
+      "status": "VERIFIED",
+      "rows": [
+        {
+          "id": 1,
+          "name": "Compliance"
+        },
+        {
+          "id": 2,
+          "name": "Information Technology"
+        },
+        {
+          "id": 3,
+          "name": "Operations"
+        },
+        {
+          "id": 4,
+          "name": "Human Resources"
+        },
+        {
+          "id": 5,
+          "name": "Marketing"
+        },
+        {
+          "id": 6,
+          "name": "Lending"
+        },
+        {
+          "id": 7,
+          "name": "Wealth Management"
+        }
+      ]
+    },
+    "filter_sort": {
+      "sql": "SELECT id, title, status FROM public.policies WHERE status = 'approved' ORDER BY title ASC, id ASC LIMIT 5;",
+      "status": "VERIFIED",
+      "rows": [
+        {
+          "id": 14,
+          "title": "Acceptable Use & Remote Work",
+          "status": "approved"
+        },
+        {
+          "id": 27,
+          "title": "Anti-Harassment & Complaint Reporting",
+          "status": "approved"
+        },
+        {
+          "id": 3,
+          "title": "Anti-Money Laundering (BSA/AML) Program",
+          "status": "approved"
+        },
+        {
+          "id": 44,
+          "title": "Appraisals & Valuation Independence",
+          "status": "approved"
+        },
+        {
+          "id": 33,
+          "title": "Artificial Intelligence Acceptable Use & Governance",
+          "status": "approved"
+        }
+      ]
+    },
+    "join": {
+      "sql": "SELECT d.name AS department, r.name AS role, count(u.id) AS user_count\nFROM public.users AS u\nJOIN public.departments AS d ON d.id = u.department_id\nJOIN public.roles AS r ON r.id = u.role_id\nGROUP BY d.name, r.name\nORDER BY d.name ASC, r.name ASC;",
+      "status": "VERIFIED",
+      "rows": [
+        {
+          "department": "Compliance",
+          "role": "Policy Owner",
+          "user_count": 1
+        },
+        {
+          "department": "Compliance",
+          "role": "System Administrator",
+          "user_count": 1
+        },
+        {
+          "department": "Human Resources",
+          "role": "Employee",
+          "user_count": 1
+        },
+        {
+          "department": "Human Resources",
+          "role": "Policy Owner",
+          "user_count": 1
+        },
+        {
+          "department": "Information Technology",
+          "role": "Employee",
+          "user_count": 1
+        },
+        {
+          "department": "Information Technology",
+          "role": "Policy Owner",
+          "user_count": 1
+        },
+        {
+          "department": "Information Technology",
+          "role": "System Administrator",
+          "user_count": 1
+        },
+        {
+          "department": "Lending",
+          "role": "Employee",
+          "user_count": 1
+        },
+        {
+          "department": "Lending",
+          "role": "Policy Owner",
+          "user_count": 1
+        },
+        {
+          "department": "Operations",
+          "role": "Employee",
+          "user_count": 1
+        },
+        {
+          "department": "Operations",
+          "role": "Policy Owner",
+          "user_count": 1
+        },
+        {
+          "department": "Wealth Management",
+          "role": "Policy Owner",
+          "user_count": 1
+        }
+      ]
+    }
+  },
+  "checks": [
+    {
+      "name": "Read-only transaction enforced",
+      "status": "PASS"
+    },
+    {
+      "name": "PostgreSQL responds to SELECT 1",
+      "status": "PASS"
+    },
+    {
+      "name": "Real PostgreSQL version reported",
+      "status": "PASS"
+    },
+    {
+      "name": "Public table/column names verified before examples",
+      "status": "PASS"
+    },
+    {
+      "name": "Four preferred tables have catalog primary keys",
+      "status": "PASS"
+    },
+    {
+      "name": "SELECT returns actual department rows",
+      "status": "PASS"
+    },
+    {
+      "name": "WHERE returns only approved rows within limit",
+      "status": "PASS"
+    },
+    {
+      "name": "JOIN aggregates all users without exporting personal fields",
+      "status": "PASS"
+    }
+  ],
+  "configured_sslmode": "require",
+  "transaction_read_only": "on",
+  "client_tls": {
+    "encrypted": true,
+    "protocol": "TLSv1.3"
+  },
+  "schema_names_verified_before_data_queries": true,
+  "transaction_end": "ROLLED BACK",
+  "passed": 8,
+  "failed": 0
+}

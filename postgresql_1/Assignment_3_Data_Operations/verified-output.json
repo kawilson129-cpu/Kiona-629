@@ -1,0 +1,57 @@
+{
+  "source": "evidence/live-readonly-20261123.json",
+  "timestamp": "2026-11-23T18:09:25.866139+00:00",
+  "scope": "Live PostgreSQL SELECT/catalog queries inside enforced READ ONLY transaction; always rolled back.",
+  "transaction_read_only": "on",
+  "transaction_end": "ROLLED BACK",
+  "mutations_executed": false,
+  "queries": {
+    "select": {
+      "sql": "SELECT id, name FROM public.departments ORDER BY id;",
+      "status": "VERIFIED",
+      "rows": [
+        {
+          "id": 1,
+          "name": "Compliance"
+        },
+        {
+          "id": 2,
+          "name": "Information Technology"
+        },
+        {
+          "id": 3,
+          "name": "Operations"
+        },
+        {
+          "id": 4,
+          "name": "Human Resources"
+        },
+        {
+          "id": 5,
+          "name": "Marketing"
+        },
+        {
+          "id": 6,
+          "name": "Lending"
+        },
+        {
+          "id": 7,
+          "name": "Wealth Management"
+        }
+      ]
+    },
+    "counts": {
+      "sql": "SELECT (SELECT count(*) FROM public.departments) AS departments,\n        (SELECT count(*) FROM public.roles) AS roles,\n        (SELECT count(*) FROM public.users) AS users,\n        (SELECT count(*) FROM public.policies) AS policies",
+      "status": "VERIFIED",
+      "rows": [
+        {
+          "departments": 7,
+          "roles": 3,
+          "users": 12,
+          "policies": 49
+        }
+      ]
+    }
+  },
+  "unexecuted_sql": "INSERT example DOCUMENTED ONLY; not executed"
+}

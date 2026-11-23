@@ -1,0 +1,131 @@
+{
+  "timestamp": "2026-11-23T18:13:56.317114+00:00",
+  "scope": "Offline artifact validation; not added to the eight live read-only checks.",
+  "passed": 23,
+  "failed": 0,
+  "checks": [
+    {
+      "name": "Fresh read-only result is VERIFIED, 8 PASS/0 FAIL, rolled back",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "name": "Reused implementation/migrations/seed/tests/original evidence unchanged",
+      "status": "PASS",
+      "details": []
+    },
+    {
+      "name": "Historical copy historical-week7-readonly.json",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "name": "Historical copy historical-week11-preflight.json",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "name": "Verifier fixed SQL allowlist contains SELECT only",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "name": "A1 required report/SQL/evidence/output files",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "name": "A1 saved outputs exactly match actual shared record",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "name": "A1 example includes exact server-executed SELECT",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "name": "A2 required report/SQL/evidence/output files",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "name": "A2 saved outputs exactly match actual shared record",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "name": "A2 DDL is verbatim original migration excerpt and explicitly unexecuted",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "name": "A3 required report/SQL/evidence/output files",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "name": "A3 saved outputs exactly match actual shared record",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "name": "A3 INSERT explicitly unexecuted/local-only, no invented output",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "name": "A4 required report/SQL/evidence/output files",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "name": "A4 saved outputs exactly match actual shared record",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "name": "A4 example includes exact server-executed SELECT",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "name": "A5 required report/SQL/evidence/output files",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "name": "A5 saved outputs exactly match actual shared record",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "name": "A5 example includes exact server-executed SELECT",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "name": "JOIN/report relationships match actual public FK catalog",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "name": "Course Markdown links resolve",
+      "status": "PASS",
+      "details": {
+        "links": 68,
+        "broken": []
+      }
+    },
+    {
+      "name": "JSON parses; no JWT/credential-bearing DSN patterns",
+      "status": "PASS",
+      "details": []
+    }
+  ],
+  "sql_validation": {
+    "A1_A4_A5": "Exact SELECTs executed successfully by PostgreSQL 17.6 inside READ ONLY",
+    "A2": "Existing DDL excerpt/catalog comparison; no new DDL execution/parser claim",
+    "A3": "Source/metadata-reviewed documentation only; INSERT not executed or server-parsed"
+  }
+}

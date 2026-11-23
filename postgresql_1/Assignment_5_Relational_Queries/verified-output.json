@@ -1,0 +1,88 @@
+{
+  "source": "evidence/live-readonly-20261123.json",
+  "timestamp": "2026-11-23T18:09:25.866139+00:00",
+  "scope": "Live PostgreSQL SELECT/catalog queries inside enforced READ ONLY transaction; always rolled back.",
+  "transaction_read_only": "on",
+  "transaction_end": "ROLLED BACK",
+  "mutations_executed": false,
+  "queries": {
+    "join": {
+      "sql": "SELECT d.name AS department, r.name AS role, count(u.id) AS user_count\nFROM public.users AS u\nJOIN public.departments AS d ON d.id = u.department_id\nJOIN public.roles AS r ON r.id = u.role_id\nGROUP BY d.name, r.name\nORDER BY d.name ASC, r.name ASC;",
+      "status": "VERIFIED",
+      "rows": [
+        {
+          "department": "Compliance",
+          "role": "Policy Owner",
+          "user_count": 1
+        },
+        {
+          "department": "Compliance",
+          "role": "System Administrator",
+          "user_count": 1
+        },
+        {
+          "department": "Human Resources",
+          "role": "Employee",
+          "user_count": 1
+        },
+        {
+          "department": "Human Resources",
+          "role": "Policy Owner",
+          "user_count": 1
+        },
+        {
+          "department": "Information Technology",
+          "role": "Employee",
+          "user_count": 1
+        },
+        {
+          "department": "Information Technology",
+          "role": "Policy Owner",
+          "user_count": 1
+        },
+        {
+          "department": "Information Technology",
+          "role": "System Administrator",
+          "user_count": 1
+        },
+        {
+          "department": "Lending",
+          "role": "Employee",
+          "user_count": 1
+        },
+        {
+          "department": "Lending",
+          "role": "Policy Owner",
+          "user_count": 1
+        },
+        {
+          "department": "Operations",
+          "role": "Employee",
+          "user_count": 1
+        },
+        {
+          "department": "Operations",
+          "role": "Policy Owner",
+          "user_count": 1
+        },
+        {
+          "department": "Wealth Management",
+          "role": "Policy Owner",
+          "user_count": 1
+        }
+      ]
+    },
+    "counts": {
+      "sql": "SELECT (SELECT count(*) FROM public.departments) AS departments,\n        (SELECT count(*) FROM public.roles) AS roles,\n        (SELECT count(*) FROM public.users) AS users,\n        (SELECT count(*) FROM public.policies) AS policies",
+      "status": "VERIFIED",
+      "rows": [
+        {
+          "departments": 7,
+          "roles": 3,
+          "users": 12,
+          "policies": 49
+        }
+      ]
+    }
+  }
+}
