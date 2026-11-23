@@ -1,0 +1,492 @@
+{
+  "reviewed_at": "2026-11-23T18:49:27.882196+00:00",
+  "scope": "Read-only source/evidence audit; no runtime execution or network calls",
+  "sources": {
+    "S01": {
+      "path": "semester_2/EDU_Project_Design_Doc_Final V.1.docx",
+      "sha256": "385421dc558f4242093bfdf2550a4ecc954d361f0fbd9f77accc5a512270d29c",
+      "purpose": "Original Aug 13 design: purpose, proposed tools and goals",
+      "assignments": [
+        1,
+        2,
+        3,
+        5,
+        7,
+        10,
+        13
+      ]
+    },
+    "S02": {
+      "path": "semester_2/EDU_Project_Design_Excel_Final V.1 .xlsx",
+      "sha256": "3a5cbf79eaad27c18021bdd8e07b9e1433808a1b9f1d875d9d0fca2412163ce2",
+      "purpose": "Original 12-week SDLC outcomes; cells extracted read-only",
+      "assignments": [
+        1,
+        10
+      ]
+    },
+    "S03": {
+      "path": "derexi-policy-pilot/README.md",
+      "sha256": "ceef419400757dfe147055d62c8c6bd533d1d706849c4f3a07731c65d08ee4e0",
+      "purpose": "Canonical app, architecture, endpoint inventory and operational caveats",
+      "assignments": [
+        1,
+        2,
+        3,
+        6,
+        7,
+        13
+      ]
+    },
+    "S04": {
+      "path": "derexi-policy-pilot/backend/main.py",
+      "sha256": "cdef2664b2b6bf27056dd127ed9a60a49b198bbdd80f6d1a204d3e518964a95b",
+      "purpose": "Actual /ask, retrieval gates, directory, feedback and safe-error middleware",
+      "assignments": [
+        1,
+        4,
+        5,
+        6,
+        8,
+        9,
+        11,
+        12
+      ]
+    },
+    "S05": {
+      "path": "derexi-policy-pilot/backend/schemas.py",
+      "sha256": "b0d759d109df61cf983e5fc9375b8eea123d9a1e6427ffa3dc0b4e7cc12b8c52",
+      "purpose": "Request validation and body fields",
+      "assignments": [
+        1,
+        7,
+        8,
+        9,
+        11
+      ]
+    },
+    "S06": {
+      "path": "derexi-policy-pilot/backend/security.py",
+      "sha256": "c0ca629a4004cb5715ff437626b30917038fd8dfb5829491057eb8d22d980a58",
+      "purpose": "Verified identity, database-derived roles and access boundaries",
+      "assignments": [
+        1,
+        4,
+        6,
+        7,
+        8,
+        9,
+        11
+      ]
+    },
+    "S07": {
+      "path": "derexi-policy-pilot/backend/governance.py",
+      "sha256": "e732155586f049bf97cb092b6e7b99d0d4418b47e70666fb00918ea3d30fd83f",
+      "purpose": "Draft/review/approval/publication and schema-availability behavior",
+      "assignments": [
+        1,
+        4,
+        6,
+        7,
+        10,
+        11
+      ]
+    },
+    "S08": {
+      "path": "derexi-policy-pilot/backend/incident_assistance.py",
+      "sha256": "839600de0610cb0422af048768b35d4fb31c3d2b573a003e8f47357df7eb4e4e",
+      "purpose": "Event detection, reviewed confirmation, explicit dispatch and OFF-by-default SMTP",
+      "assignments": [
+        1,
+        4,
+        6,
+        7,
+        8,
+        9,
+        11,
+        13
+      ]
+    },
+    "S09": {
+      "path": "derexi-policy-pilot/backend/models.py",
+      "sha256": "589b6d695b30dcb4c3888695004a01c3aae1c3f89b17dc6b8dd31f1b27973284",
+      "purpose": "Implemented ORM entities and relationships; not proof all tables are deployed",
+      "assignments": [
+        1,
+        6,
+        7
+      ]
+    },
+    "S10": {
+      "path": "derexi-policy-pilot/backend/database.py",
+      "sha256": "47762db9baf75da41893dbedb856a763e268cf6c22e8c508d3691e5eceb76128",
+      "purpose": "SQLAlchemy engine/session and private configuration loading",
+      "assignments": [
+        1,
+        7,
+        8,
+        11
+      ]
+    },
+    "S11": {
+      "path": "derexi-policy-pilot/backend/ai.py",
+      "sha256": "0501e2ad83869219c27b346eaa87839b92bc7243b70c53e22ca4a7a73528a49e",
+      "purpose": "Optional OpenAI-compatible rewriting and failure fallback",
+      "assignments": [
+        1,
+        6,
+        7,
+        8,
+        9,
+        11,
+        13
+      ]
+    },
+    "S12": {
+      "path": "derexi-policy-pilot/backend/pulse/sources.py",
+      "sha256": "019a4d1b84d0786dbe4fbe83a3cb155ffa3ae7ed4ab26e8049bda8b15997adef",
+      "purpose": "Four actual source endpoints: two JSON and two RSS",
+      "assignments": [
+        1,
+        6,
+        7,
+        11,
+        13
+      ]
+    },
+    "S13": {
+      "path": "derexi-policy-pilot/backend/pulse/service.py",
+      "sha256": "dce92f929d58543ecb5a56782faf9f3383ca6e5ebeb447d2055277b3c2acdb5d",
+      "purpose": "Source normalization, provenance, cache and degraded-source states",
+      "assignments": [
+        1,
+        6,
+        7,
+        11,
+        13
+      ]
+    },
+    "S14": {
+      "path": "derexi-policy-pilot/backend/messaging.py",
+      "sha256": "04bad18f53570abd196e96567f81cd21bb55edb42a6ee12e3cae8c7d24cc2682",
+      "purpose": "Participant-scoped messages, assignments, replies and notifications",
+      "assignments": [
+        1,
+        4,
+        6,
+        7,
+        11
+      ]
+    },
+    "S15": {
+      "path": "derexi-policy-pilot/backend/document_intake.py",
+      "sha256": "81b655c71424540b8aa8e336a7cb476c140bba0a94287ebc76c102fbe969dc61",
+      "purpose": "Bounded document intake and private-original controls",
+      "assignments": [
+        1,
+        6,
+        7,
+        11,
+        13
+      ]
+    },
+    "S16": {
+      "path": "derexi-policy-pilot/requirements.txt",
+      "sha256": "b49873eadaf26fddca62bdc23a4243aa7151544606b51f5db4e918a2f3d4a96b",
+      "purpose": "Declared runtime dependencies/ranges, not an installed-version lock",
+      "assignments": [
+        1,
+        7,
+        13
+      ]
+    },
+    "S17": {
+      "path": "semester_5/DeRexi_Week 10/test-report.md",
+      "sha256": "30571c19e17eaa40f573600a04221ae78720d600cb3513676b50cc7b54d3be67",
+      "purpose": "379 isolated passes; feedback/publisher fixes, mocks and seven unexecuted live workflows",
+      "assignments": [
+        1,
+        4,
+        5,
+        6,
+        10,
+        11,
+        12
+      ]
+    },
+    "S18": {
+      "path": "semester_5/DeRexi_Week 11/final-integration-results.md",
+      "sha256": "ae159a6212663a3548e1160c2e33a60f47ba3c8d6dc8ee9aabd778b553749a36",
+      "purpose": "November 12 final isolated results, native Windows probes and scope",
+      "assignments": [
+        1,
+        4,
+        5,
+        6,
+        10,
+        11,
+        12
+      ]
+    },
+    "S19": {
+      "path": "semester_5/DeRexi_Week 11/evidence/final-integration-20261112/final-summary.json",
+      "sha256": "491d2f37dc03f07bd23c260788d31981ee2088d7391569a5a95153b49341c5d7",
+      "purpose": "Machine-recorded 622 PASS, 0 FAIL, 14 platform skips; live UAT pending",
+      "assignments": [
+        1,
+        6,
+        10,
+        12
+      ]
+    },
+    "S20": {
+      "path": "semester_5/DeRexi_Week 11/evidence/final-integration-20261112/live-readonly-preflight.json",
+      "sha256": "73ccd1f75028e79e37de8f80ac421e32faa8bc610c3c03bded34f49de9254a2b",
+      "purpose": "Nov 12 schema/owner/Auth/grant metadata; dated observation only",
+      "assignments": [
+        1,
+        4,
+        6,
+        7,
+        10,
+        11,
+        12,
+        13
+      ]
+    },
+    "S21": {
+      "path": "postgresql_1/evidence/live-readonly-20261123.json",
+      "sha256": "ba80b9c50ef93d1624539983b32ef180036ae04491ffa972b8e8f848325f2271",
+      "purpose": "Earlier Nov 23 read-only PostgreSQL 17.6 core-schema/count/JOIN evidence",
+      "assignments": [
+        1,
+        6,
+        7,
+        10,
+        11,
+        12
+      ]
+    },
+    "S22": {
+      "path": "semester_3/DeRexi_Week 3/database-design.md",
+      "sha256": "b047290f78952ff2b33f26a0a5ac6bb60aeb28b272c6ad0a66793c45d94dfe31",
+      "purpose": "Historical relational design and migration/seed narrative",
+      "assignments": [
+        1,
+        3,
+        7,
+        10
+      ]
+    },
+    "S23": {
+      "path": "semester_5/DeRexi_Week 11/final-integration-approval-checklist.md",
+      "sha256": "7b3cb4d41057ce2e7e711f88c33c8868970ec372b5287096f296a00e34e48934",
+      "purpose": "Ordered release approval, validation and recovery gates",
+      "assignments": [
+        1,
+        4,
+        6,
+        10,
+        11,
+        12,
+        13
+      ]
+    },
+    "S24": {
+      "path": "semester_5/DeRexi_Week 11/employee-guide.md",
+      "sha256": "11eeb75c47289d591c8fd88dd3c60b23a8b54b4355c99275e353e77802a393f6",
+      "purpose": "Employee questions, feedback, messaging and reviewed incident flow",
+      "assignments": [
+        1,
+        4,
+        6
+      ]
+    },
+    "S25": {
+      "path": "semester_5/DeRexi_Week 11/policy-owner-guide.md",
+      "sha256": "4632b5b088c4fa4bdb463e4e9ae4d1c3c846146f108375d158114fe26ccd42d3",
+      "purpose": "Independent review and Owner workflow; no self-approval or OCR claim",
+      "assignments": [
+        1,
+        4,
+        6
+      ]
+    },
+    "S26": {
+      "path": "semester_5/DeRexi_Week 11/system-admin-guide.md",
+      "sha256": "dfb43800f2892a9a441a4af1da5749cdc415c7cc6ea19e8ca69ad3e35b8ab664",
+      "purpose": "Admin scope, explicit publication and operational duties",
+      "assignments": [
+        1,
+        4,
+        6,
+        11,
+        13
+      ]
+    },
+    "S27": {
+      "path": "semester_5/DeRexi_Week 9/security-findings.json",
+      "sha256": "d7be71c624d8c552dd806c40e83cd8534fd1b8de745e8e6b4e24dcfd1e5fc99f",
+      "purpose": "Historical security risks, fixes and remaining deployment limits",
+      "assignments": [
+        1,
+        11,
+        13
+      ]
+    },
+    "S28": {
+      "path": "ai_api_intergration_1/AAI 1 Assignment 1/evidence/20261118-api/http-results.json",
+      "sha256": "4bf0f3825253e650d08fe67f8bb3561dbe11832065f6c4bbbd7dffb7cf0aac86",
+      "purpose": "15 real loopback HTTP checks; synthetic SQLite/search mock/AI off",
+      "assignments": [
+        1,
+        4,
+        6,
+        8,
+        12
+      ]
+    },
+    "S29": {
+      "path": "ai_api_intergration_1/AAI 1 Assignment 1/evidence/20261118-api/browser-results.json",
+      "sha256": "c3045aa4f9f0dc1e1e63148bd4de4c2e05df56ec0d2aae9c5ef857ddf69a202f",
+      "purpose": "Seven original-UI checks; actual retained screenshots and DOM/response evidence",
+      "assignments": [
+        1,
+        4,
+        6,
+        12
+      ]
+    },
+    "S30": {
+      "path": "derexi-policy-pilot/backend/migrations/2026-11-12_support_routing.sql",
+      "sha256": "2340b017f9e2d8c2353cd9aa5bdc8a00b638c8e15df2b58850eb5f52587ca4f6",
+      "purpose": "Approval-only routing/support schema, rollback-default proposal",
+      "assignments": [
+        1,
+        6,
+        7,
+        10,
+        11
+      ]
+    },
+    "S31": {
+      "path": "derexi-policy-pilot/backend/session_auth.py",
+      "sha256": "8aa4d1ea3bcc59e8229e82f2ee338cc3354da8c5f8e3ffe4dadcf9ce4cd4df98",
+      "purpose": "Browser session/CSRF/provider integration code; not real onboarding proof",
+      "assignments": [
+        1,
+        4,
+        6,
+        7,
+        11
+      ]
+    },
+    "S32": {
+      "path": "derexi-policy-pilot/design/Meet the DeRexi Users.pdf",
+      "sha256": "0db6e565013c73c9c0239492a26f7b5a8addb40688ce22944c42aedc17ff5b1e",
+      "purpose": "Historical persona concept; differs from current fixture authorization roles",
+      "assignments": [
+        1,
+        4
+      ]
+    },
+    "S33": {
+      "path": "semester_4/DeRexi_Week 6/DeRexi_Week6_Employee_UI_Validation_Report_FINAL.pdf",
+      "sha256": "4cd7ef1e2e69f43e757d204b7e6e714d4ed1f17dad7dcfec040339cafb6ea975",
+      "purpose": "Sep 30 employee UI checkpoint; later feedback persistence fix supersedes early save claims",
+      "assignments": [
+        1,
+        6,
+        10
+      ]
+    },
+    "S34": {
+      "path": "semester_5/DeRexi_Week 11/employee-messages-walkthrough.md",
+      "sha256": "f3691790d3c2ac5542ff8ddc384b0b85257ffc6e3d6175552540d1e6d5232780",
+      "purpose": "Illustrative Sam/Jordan/administrator use-case walkthrough, not human sign-off",
+      "assignments": [
+        1,
+        4
+      ]
+    },
+    "S35": {
+      "path": "derexi-policy-pilot/docs/deployment.md",
+      "sha256": "69f985598ee8b0728e6c1ac14c914322ac31fb2d3e6e5041acc06cea68c0479d",
+      "purpose": "Runtime setup and staged release/backup/rollback requirements",
+      "assignments": [
+        1,
+        7,
+        10,
+        11,
+        13
+      ]
+    },
+    "S36": {
+      "path": "derexi-policy-pilot/backend/static/app.js",
+      "sha256": "dd140564ed8ccc759332969f2aee5d1be3baa7672bff6d67848a479819de3a82",
+      "purpose": "Existing UI components, API calls, saved-feedback behavior and Library",
+      "assignments": [
+        1,
+        4,
+        6,
+        7,
+        8
+      ]
+    },
+    "S37": {
+      "path": "derexi-policy-pilot/backend/static/index.html",
+      "sha256": "fcd5be839d3bc617f0f00a8ab3859f0d46ba4e2d20a357e0088d72df254f5db1",
+      "purpose": "Existing HTML application shell and entry points",
+      "assignments": [
+        1,
+        7
+      ]
+    },
+    "S38": {
+      "path": "semester_4/DeRexi_Week 8/README.md",
+      "sha256": "01ed95952dfac3736ef3bff70d2bd31ead6f1ea2048f74c4c73a5651ab86ac74",
+      "purpose": "Governance lifecycle, unchanged Library and unexecuted activation proposals",
+      "assignments": [
+        1,
+        4,
+        6,
+        10,
+        11
+      ]
+    },
+    "S39": {
+      "path": "semester_3/DeRexi_Week 4/DeRexi_Week4_Document_Management_Validation_Report.pdf",
+      "sha256": "9c0fc1dbf411dddf1af6fbcd6e2bac5bc35c8ee1bddcb06e58c0bee69c05a3fc",
+      "purpose": "Historical policy storage/retrieval/version checkpoint; not full secure file intake",
+      "assignments": [
+        1,
+        6,
+        10
+      ]
+    },
+    "S40": {
+      "path": "postgresql_1/Assignment_2_Schema_Design/README.md",
+      "sha256": "b59d6d8f65fd2c0c6faeb54376158824afe6d8d0e9444ff1febb684bde57a3b5",
+      "purpose": "Nov 23 drift: roles.created_at UNIQUE, absent users.job_title; no remediation performed",
+      "assignments": [
+        1,
+        7,
+        11,
+        13
+      ]
+    },
+    "S41": {
+      "path": "cyber_threats_and_vulnerabilities_2/CT+V 2 Assignment 3/evidence/concurrent-source-drift.json",
+      "sha256": "0ae5ab563d29e4677c8fe839e0afce183b306fa67b239f5911ed6cb9a6d8ea32",
+      "purpose": "Historical Nov 10 Pulse source drift: audit limited to original hashes; not a current integrity verdict",
+      "assignments": [
+        1,
+        6,
+        11,
+        13
+      ]
+    }
+  },
+  "protected_root_memory_sha256": "4383c8ac97d7595018dc263ad6d3594601668ecf01a5960d66303b7dea72630f",
+  "original_course_screenshot_sha256": "df4d2be4d40be10f839c9541136bb58654a0e7abd13d6d3df2d5651fcd3159d5"
+}

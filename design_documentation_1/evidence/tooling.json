@@ -1,0 +1,9 @@
+{
+  "checked_at": "2026-11-23T18:44:01.509215+00:00",
+  "mermaid_cli_available": false,
+  "mermaid_local_package_available": false,
+  "graphviz_dot_available": false,
+  "mermaid_vscode_extension_found": false,
+  "rendering": "No installed Mermaid engine located; no install/network renderer used. Editable mmd and embedded Mermaid supplied.",
+  "validation_scope": "Local structural subset checks only, not an official Mermaid parser."
+}

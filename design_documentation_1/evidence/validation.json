@@ -1,0 +1,593 @@
+{
+  "timestamp": "2026-11-23T18:55:06.955558+00:00",
+  "scope": "OFFLINE coursework artifact, source-hash and simple Mermaid-subset checks ONLY",
+  "application_tests_executed": false,
+  "network_calls": false,
+  "passed": 111,
+  "failed": 0,
+  "markdown_files": 30,
+  "local_links_checked": 474,
+  "source_files_hashed": 41,
+  "checks": [
+    {
+      "name": "Exactly 13 requested assignment directories",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "assignment_01_design_document/README.md: substantive Markdown",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "assignment_01_design_document/DELIVERABLE.md: substantive Markdown",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "assignment_02_project_summary/README.md: substantive Markdown",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "assignment_02_project_summary/DELIVERABLE.md: substantive Markdown",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "assignment_03_problem_statement/README.md: substantive Markdown",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "assignment_03_problem_statement/DELIVERABLE.md: substantive Markdown",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "assignment_04_use_case/README.md: substantive Markdown",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "assignment_04_use_case/DELIVERABLE.md: substantive Markdown",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "assignment_05_goals_objectives/README.md: substantive Markdown",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "assignment_05_goals_objectives/DELIVERABLE.md: substantive Markdown",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "assignment_06_key_features/README.md: substantive Markdown",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "assignment_06_key_features/DELIVERABLE.md: substantive Markdown",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "assignment_07_tech_stack/README.md: substantive Markdown",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "assignment_07_tech_stack/DELIVERABLE.md: substantive Markdown",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "assignment_08_algorithm/README.md: substantive Markdown",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "assignment_08_algorithm/DELIVERABLE.md: substantive Markdown",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "assignment_09_flowchart/README.md: substantive Markdown",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "assignment_09_flowchart/DELIVERABLE.md: substantive Markdown",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "assignment_10_timeline/README.md: substantive Markdown",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "assignment_10_timeline/DELIVERABLE.md: substantive Markdown",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "assignment_11_risk_mitigation/README.md: substantive Markdown",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "assignment_11_risk_mitigation/DELIVERABLE.md: substantive Markdown",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "assignment_12_evaluation_criteria/README.md: substantive Markdown",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "assignment_12_evaluation_criteria/DELIVERABLE.md: substantive Markdown",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "assignment_13_future_considerations/README.md: substantive Markdown",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "assignment_13_future_considerations/DELIVERABLE.md: substantive Markdown",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Course README.md exists",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Course RUBRIC_CHECKLIST.md exists",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Course EVIDENCE_MAP.md exists",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Master: all 13 numbered self-contained sections",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Master: substantive supporting content embedded",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Master: 12 supporting assignment links",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Summary: purpose, audience, importance and at least two sentences",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Problem: banking context and defined governance problem",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Use cases: three verified role workflows and fixture limits",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Goals: at least two measurable targets with expected outcomes",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Features: all eight requested areas and status distinctions",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Stack: verified choices, environments and proposal limits",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Algorithm: editable pseudocode matches submission and master",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Algorithm: decisions/error handling, thresholds and commit caveat",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "policy-assistance.mmd: flowchart header",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "policy-assistance.mmd: supported edge/shape subset",
+      "status": "PASS",
+      "detail": "[]"
+    },
+    {
+      "name": "policy-assistance.mmd: all node references declared",
+      "status": "PASS",
+      "detail": "[]"
+    },
+    {
+      "name": "Primary flow: every declared node reachable from Start",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Primary flow: every node can reach End",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Primary flow: four rubric shape types",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Primary flow: decisions have labelled alternatives",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Primary flow: exception paths retained",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "architecture.mmd: flowchart header",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "architecture.mmd: supported edge/shape subset",
+      "status": "PASS",
+      "detail": "[]"
+    },
+    {
+      "name": "architecture.mmd: all node references declared",
+      "status": "PASS",
+      "detail": "[]"
+    },
+    {
+      "name": "Diagrams: editable source equals embedded Markdown/master",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Diagram scope: no false official-parser or render claim",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Original workbook: all twelve weeks extracted",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Timeline: twelve weeks mapped into three relative months",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Timeline: monthly milestones, original targets and delays separated",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Risks: at least one complete assessed risk with role/validation",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Evaluation: at least three indicators, measurement and targets",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Future: maintenance plus proposed feature rationale/implementation",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Markdown: all local evidence/navigation links resolve",
+      "status": "PASS",
+      "detail": "474 local links; failures=[]"
+    },
+    {
+      "name": "Markdown: code fences balanced",
+      "status": "PASS",
+      "detail": "[]"
+    },
+    {
+      "name": "Markdown: no unresolved citation tokens or placeholders",
+      "status": "PASS",
+      "detail": "[]"
+    },
+    {
+      "name": "S01: inspected evidence exists and hash unchanged",
+      "status": "PASS",
+      "detail": "semester_2/EDU_Project_Design_Doc_Final V.1.docx"
+    },
+    {
+      "name": "S02: inspected evidence exists and hash unchanged",
+      "status": "PASS",
+      "detail": "semester_2/EDU_Project_Design_Excel_Final V.1 .xlsx"
+    },
+    {
+      "name": "S03: inspected evidence exists and hash unchanged",
+      "status": "PASS",
+      "detail": "derexi-policy-pilot/README.md"
+    },
+    {
+      "name": "S04: inspected evidence exists and hash unchanged",
+      "status": "PASS",
+      "detail": "derexi-policy-pilot/backend/main.py"
+    },
+    {
+      "name": "S05: inspected evidence exists and hash unchanged",
+      "status": "PASS",
+      "detail": "derexi-policy-pilot/backend/schemas.py"
+    },
+    {
+      "name": "S06: inspected evidence exists and hash unchanged",
+      "status": "PASS",
+      "detail": "derexi-policy-pilot/backend/security.py"
+    },
+    {
+      "name": "S07: inspected evidence exists and hash unchanged",
+      "status": "PASS",
+      "detail": "derexi-policy-pilot/backend/governance.py"
+    },
+    {
+      "name": "S08: inspected evidence exists and hash unchanged",
+      "status": "PASS",
+      "detail": "derexi-policy-pilot/backend/incident_assistance.py"
+    },
+    {
+      "name": "S09: inspected evidence exists and hash unchanged",
+      "status": "PASS",
+      "detail": "derexi-policy-pilot/backend/models.py"
+    },
+    {
+      "name": "S10: inspected evidence exists and hash unchanged",
+      "status": "PASS",
+      "detail": "derexi-policy-pilot/backend/database.py"
+    },
+    {
+      "name": "S11: inspected evidence exists and hash unchanged",
+      "status": "PASS",
+      "detail": "derexi-policy-pilot/backend/ai.py"
+    },
+    {
+      "name": "S12: inspected evidence exists and hash unchanged",
+      "status": "PASS",
+      "detail": "derexi-policy-pilot/backend/pulse/sources.py"
+    },
+    {
+      "name": "S13: inspected evidence exists and hash unchanged",
+      "status": "PASS",
+      "detail": "derexi-policy-pilot/backend/pulse/service.py"
+    },
+    {
+      "name": "S14: inspected evidence exists and hash unchanged",
+      "status": "PASS",
+      "detail": "derexi-policy-pilot/backend/messaging.py"
+    },
+    {
+      "name": "S15: inspected evidence exists and hash unchanged",
+      "status": "PASS",
+      "detail": "derexi-policy-pilot/backend/document_intake.py"
+    },
+    {
+      "name": "S16: inspected evidence exists and hash unchanged",
+      "status": "PASS",
+      "detail": "derexi-policy-pilot/requirements.txt"
+    },
+    {
+      "name": "S17: inspected evidence exists and hash unchanged",
+      "status": "PASS",
+      "detail": "semester_5/DeRexi_Week 10/test-report.md"
+    },
+    {
+      "name": "S18: inspected evidence exists and hash unchanged",
+      "status": "PASS",
+      "detail": "semester_5/DeRexi_Week 11/final-integration-results.md"
+    },
+    {
+      "name": "S19: inspected evidence exists and hash unchanged",
+      "status": "PASS",
+      "detail": "semester_5/DeRexi_Week 11/evidence/final-integration-20261112/final-summary.json"
+    },
+    {
+      "name": "S20: inspected evidence exists and hash unchanged",
+      "status": "PASS",
+      "detail": "semester_5/DeRexi_Week 11/evidence/final-integration-20261112/live-readonly-preflight.json"
+    },
+    {
+      "name": "S21: inspected evidence exists and hash unchanged",
+      "status": "PASS",
+      "detail": "postgresql_1/evidence/live-readonly-20261123.json"
+    },
+    {
+      "name": "S22: inspected evidence exists and hash unchanged",
+      "status": "PASS",
+      "detail": "semester_3/DeRexi_Week 3/database-design.md"
+    },
+    {
+      "name": "S23: inspected evidence exists and hash unchanged",
+      "status": "PASS",
+      "detail": "semester_5/DeRexi_Week 11/final-integration-approval-checklist.md"
+    },
+    {
+      "name": "S24: inspected evidence exists and hash unchanged",
+      "status": "PASS",
+      "detail": "semester_5/DeRexi_Week 11/employee-guide.md"
+    },
+    {
+      "name": "S25: inspected evidence exists and hash unchanged",
+      "status": "PASS",
+      "detail": "semester_5/DeRexi_Week 11/policy-owner-guide.md"
+    },
+    {
+      "name": "S26: inspected evidence exists and hash unchanged",
+      "status": "PASS",
+      "detail": "semester_5/DeRexi_Week 11/system-admin-guide.md"
+    },
+    {
+      "name": "S27: inspected evidence exists and hash unchanged",
+      "status": "PASS",
+      "detail": "semester_5/DeRexi_Week 9/security-findings.json"
+    },
+    {
+      "name": "S28: inspected evidence exists and hash unchanged",
+      "status": "PASS",
+      "detail": "ai_api_intergration_1/AAI 1 Assignment 1/evidence/20261118-api/http-results.json"
+    },
+    {
+      "name": "S29: inspected evidence exists and hash unchanged",
+      "status": "PASS",
+      "detail": "ai_api_intergration_1/AAI 1 Assignment 1/evidence/20261118-api/browser-results.json"
+    },
+    {
+      "name": "S30: inspected evidence exists and hash unchanged",
+      "status": "PASS",
+      "detail": "derexi-policy-pilot/backend/migrations/2026-11-12_support_routing.sql"
+    },
+    {
+      "name": "S31: inspected evidence exists and hash unchanged",
+      "status": "PASS",
+      "detail": "derexi-policy-pilot/backend/session_auth.py"
+    },
+    {
+      "name": "S32: inspected evidence exists and hash unchanged",
+      "status": "PASS",
+      "detail": "derexi-policy-pilot/design/Meet the DeRexi Users.pdf"
+    },
+    {
+      "name": "S33: inspected evidence exists and hash unchanged",
+      "status": "PASS",
+      "detail": "semester_4/DeRexi_Week 6/DeRexi_Week6_Employee_UI_Validation_Report_FINAL.pdf"
+    },
+    {
+      "name": "S34: inspected evidence exists and hash unchanged",
+      "status": "PASS",
+      "detail": "semester_5/DeRexi_Week 11/employee-messages-walkthrough.md"
+    },
+    {
+      "name": "S35: inspected evidence exists and hash unchanged",
+      "status": "PASS",
+      "detail": "derexi-policy-pilot/docs/deployment.md"
+    },
+    {
+      "name": "S36: inspected evidence exists and hash unchanged",
+      "status": "PASS",
+      "detail": "derexi-policy-pilot/backend/static/app.js"
+    },
+    {
+      "name": "S37: inspected evidence exists and hash unchanged",
+      "status": "PASS",
+      "detail": "derexi-policy-pilot/backend/static/index.html"
+    },
+    {
+      "name": "S38: inspected evidence exists and hash unchanged",
+      "status": "PASS",
+      "detail": "semester_4/DeRexi_Week 8/README.md"
+    },
+    {
+      "name": "S39: inspected evidence exists and hash unchanged",
+      "status": "PASS",
+      "detail": "semester_3/DeRexi_Week 4/DeRexi_Week4_Document_Management_Validation_Report.pdf"
+    },
+    {
+      "name": "S40: inspected evidence exists and hash unchanged",
+      "status": "PASS",
+      "detail": "postgresql_1/Assignment_2_Schema_Design/README.md"
+    },
+    {
+      "name": "S41: inspected evidence exists and hash unchanged",
+      "status": "PASS",
+      "detail": "cyber_threats_and_vulnerabilities_2/CT+V 2 Assignment 3/evidence/concurrent-source-drift.json"
+    },
+    {
+      "name": "Protected root MEMORY.md unchanged",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Original LMS screenshot unchanged",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Original plan extraction matches hashed workbook",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Retained summary: 622/0/14 reconciles to suites, UAT/delivery pending",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Retained API evidence: 15 + 7 passes, mocked search/AI-off scope",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Retained PostgreSQL observation: eight read-only passes, no mutations",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Working tree: changes confined to this course",
+      "status": "PASS",
+      "detail": "41 changed/untracked paths; no commit or push"
+    }
+  ],
+  "mermaid": {
+    "structural_subset": "checked",
+    "official_parser": "UNAVAILABLE",
+    "rendered_image": "NOT GENERATED; no installed renderer; conditional requirement"
+  },
+  "coursework_coverage": {
+    "assignment_01_design_document": "COMPLETE",
+    "assignment_02_project_summary": "COMPLETE",
+    "assignment_03_problem_statement": "COMPLETE",
+    "assignment_04_use_case": "COMPLETE",
+    "assignment_05_goals_objectives": "COMPLETE",
+    "assignment_06_key_features": "COMPLETE",
+    "assignment_07_tech_stack": "COMPLETE",
+    "assignment_08_algorithm": "COMPLETE",
+    "assignment_09_flowchart": "COMPLETE",
+    "assignment_10_timeline": "COMPLETE",
+    "assignment_11_risk_mitigation": "COMPLETE",
+    "assignment_12_evaluation_criteria": "COMPLETE",
+    "assignment_13_future_considerations": "COMPLETE"
+  },
+  "remaining_evidence_gaps": [
+    "No new application verification: retained tests are dated, scoped observations.",
+    "Real production identity/schema/ACL/RLS, delivery, human UAT, representative retrieval accuracy and latency remain unverified.",
+    "Mermaid image export/full engine parsing unavailable; editable diagrams supplied."
+  ]
+}

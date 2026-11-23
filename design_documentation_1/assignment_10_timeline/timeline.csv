@@ -1,0 +1,13 @@
+relative_month,week,original_target_summary,observed_evidence,delivery_difference_or_limit,source_id
+1,1,"Requirements, scope, users and 12-week plan",Original design/Week 1 mockup exists; precise completion date not established,Artifact/documented; no invented calendar deadline,S01
+1,2,"Research, personas, architecture and wireframes",Existing personas/design artifacts reviewed; roles evolved; proposed stack not all adopted,"Historical design, not current role directory",S32
+1,3,Database/backend design and setup,Relational design and earlier Nov 23 core PostgreSQL catalog/connectivity verified,Existing foundation verified; later check is not proof of meeting original week deadline,S21
+1,4,Document-management upload/extraction/metadata,Week 4 report proves policy storage/retrieval/version metadata; secure DOCX/PDF intake evidenced later,Partial original target at early checkpoint; bounded intake matured in Weeks 8–10,S39
+2,5,Grounded AI search/retrieval and citations,"Lexical pg_trgm, 0.22/keyword gate and optional rewrite implemented",Method changed from vector proposal; representative accuracy unmeasured,S04
+2,6,Employee UI and source/owner visibility,Sep 30 UI report exists; actual feedback persistence repair documented in Week 10,UI checkpoint verified historically; early saved-feedback assurance superseded,S33
+2,7,Feedback/email previews and owner notifications,Messages/clarification implemented; saved-feedback repair and handoffs tested Nov 10,Internal messaging supplies primary loop; planned general email workflow not fully delivered,S17
+2,8,Administrator/policy-management dashboard,"Independent lifecycle, Dashboard and document intake implemented/tested in fixtures",Live Governance schema/peer-owner prerequisites pending at Nov 12 inventory,S38
+3,9,"Authentication, least privilege, validation and logging",JWT/session/RBAC/security code and isolated tests exist,"Real provider onboarding, direct-client ACL/RLS and intended-host acceptance unverified",S27
+3,10,Unit/integration/usability/UAT and defect correction,Nov 10 report: 379 PASS/0 FAIL; later isolated Nov 12 summary: 622/0 with 14 platform skips,Not additive totals; seven live handoffs/human acceptance not completed,S17
+3,11,"Release documentation, guides and installation preparation","Nov 11–12 guides, deployment/recovery plan and reviewed incident/routing integration prepared","Documentation/local work delivered; activation, real SMTP and production gates remain",S18
+3,12,"Deploy, present, collect feedback and lessons learned",Week 12 demo/runbook exists; no reviewed proof of final live deployment or human sign-off,Planned/pending; no completion date or successful presentation invented,S23

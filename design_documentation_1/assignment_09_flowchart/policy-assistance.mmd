@@ -1,0 +1,35 @@
+flowchart TD
+    S([Start]) --> Q[/Employee submits policy question/]
+    Q --> A{Identity and session authorized?}
+    A -->|No| AE[/Safe 401 or 403 or configuration error/]
+    AE --> E([End])
+    A -->|Yes| V{Payload valid and actor agrees?}
+    V -->|No| VE[/Safe 422 or 403 rejection/]
+    VE --> E
+    V -->|Yes| U[Load authenticated user]
+    U --> X{User exists?}
+    X -->|No| NF[/404 user not found/]
+    NF --> E
+    X -->|Yes| C[Classify reported event versus policy question]
+    C -->|Unsafe content| VE
+    C --> I{Potential incident?}
+    I -->|Yes| IG[/Return safety guidance; no automatic report or email/]
+    IG --> E
+    I -->|No| W[Stage conversation and user message]
+    W --> R[Retrieve approved current policy versions; top three]
+    R --> G{Score at least 0.22 and keyword evidence?}
+    G -->|Yes| AI{Optional AI returns usable text?}
+    AI -->|Yes| AT[Use context-grounded rewrite and reference]
+    AI -->|No key or provider failure| FB[Use deterministic policy guidance and reference]
+    AT --> P[Save answer and citations; commit]
+    FB --> P
+    G -->|No| O[Choose top policy owner if available; otherwise triage]
+    O --> CL[Save uncertainty answer and clarification; commit]
+    P --> OUT[/Return JSON guidance and resource IDs to Assistant/]
+    CL --> OUT
+    OUT --> E
+    U -->|Database failure| ERR[/Safe 500 with request ID; do not claim success/]
+    R -->|Database failure| ERR
+    P -->|Save or commit failure| ERR
+    CL -->|Save or commit failure| ERR
+    ERR --> E

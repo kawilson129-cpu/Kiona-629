@@ -1,0 +1,11 @@
+{
+  "source": "semester_2/EDU_Project_Design_Doc_Final V.1.docx",
+  "source_sha256": "385421dc558f4242093bfdf2550a4ecc954d361f0fbd9f77accc5a512270d29c",
+  "version_date_in_document": "08/13/2026",
+  "review_findings": [
+    "Original architecture proposed alternatives, including Flask/FastAPI, SQLite/PostgreSQL, vector store, SMTP/Graph and future Entra; these are not all implemented.",
+    "Original timeline is 12 relative project weeks; no authoritative project-start calendar date was established.",
+    "Original ticket-creation/email goals must be distinguished from later internal messaging and disabled-by-default SMTP handoff."
+  ],
+  "extracted_text_characters": 23568
+}

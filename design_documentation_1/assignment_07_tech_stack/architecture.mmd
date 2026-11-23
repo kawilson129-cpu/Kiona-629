@@ -1,0 +1,10 @@
+flowchart LR
+    B[Existing HTML CSS JavaScript UI] --> API[FastAPI REST and session boundary]
+    API --> ID[JWT verification and database role checks]
+    API --> DB[(Supabase PostgreSQL)]
+    API --> AI[Optional OpenAI-compatible rewrite]
+    FEED[Government JSON and RSS] --> PULSE[Pulse validation normalization and cache]
+    PULSE --> API
+    API --> STORE[Optional private original-document storage]
+    API --> MAIL[Explicit reviewed SMTP dispatch; default OFF]
+    MAIL --> IT[Existing institutional IT and Security process]

@@ -1,0 +1,27 @@
+POLICY_ASSISTANCE(request, submitted_body):
+    Framework validates JSON and resolves the verified actor/session.
+    Reject missing/invalid credentials, invalid origin or configuration safely.
+    Trim question; enforce 2..1000 characters and optional-field limits.
+    If legacy body user_id differs from actor.user_id: return 403.
+    Load actor's application user; if absent: return 404.
+    Classify actual event versus policy/hypothetical question; unsafe input -> 422.
+    If potential incident:
+        return 200 with immediate guidance and reviewed-intake details.
+        Do not create a report or send email in this branch.
+    Stage a new conversation and the employee message.
+    Query current versions of approved policies, returning the top 3 lexical scores.
+    confident = top score >= 0.22 AND substantive keyword/singular evidence exists.
+    If confident:
+        Build context from rows meeting the threshold.
+        Try optional context-grounded AI rewrite.
+        If key missing, provider fails or text is empty: use deterministic guidance.
+        Append top policy title/version reference.
+        Save answer and citations; COMMIT; return 200 with IDs and score.
+    Else:
+        Choose top candidate policy/owner if available; otherwise unassigned triage.
+        Save honest uncertainty answer, clarification and requester read watermark.
+        COMMIT; return 200 with clarification/triage state and IDs.
+    On handled validation/access errors: return the defined safe HTTP error.
+    On unhandled/database error: middleware returns generic 500 + request ID.
+    Close the request session; uncommitted work is discarded.
+    Do not infer a failed commit acknowledgement means no records were saved.

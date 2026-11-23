@@ -1,0 +1,67 @@
+{
+  "source": "semester_2/EDU_Project_Design_Excel_Final V.1 .xlsx",
+  "source_sha256": "3a5cbf79eaad27c18021bdd8e07b9e1433808a1b9f1d875d9d0fca2412163ce2",
+  "method": "Read-only OOXML shared-string/cell extraction; not schedule execution evidence",
+  "weeks": [
+    {
+      "week": "Week 1",
+      "original_outcome": "Planning & Requirements Gathering: The project's purpose, intended users, stakeholders, functional needs, non-functional needs, scope, and 12-week timeline are clearly defined.",
+      "original_sdlc_stage": "Planning & Requirements Gathering: Establish the foundation of the project by defining the problem the Policy Assistant will solve, who will use it, what the system should accomplish, and what can realistically be completed within the project timeline."
+    },
+    {
+      "week": "Week 2",
+      "original_outcome": "Research & System Design: Research RAG, AI governance, document-search methods, and policy-management systems. Complete user personas, use cases, initial system architecture, and UI wireframes in Figma.",
+      "original_sdlc_stage": "Research & System Design: Determine how the proposed solution should work before development begins. Research appropriate technologies and translate project requirements into user workflows, interface designs, and a high-level technical architecture."
+    },
+    {
+      "week": "Week 3",
+      "original_outcome": "Database & Backend Design: Complete the database structure for users, policies, departments, policy owners, employee directory information, feedback, and audit logs. Set up the development environment, GitHub repository, and Flask/FastAPI project structure.",
+      "original_sdlc_stage": "System Design & Development Preparation: Design how project data will be organized and how the backend will support the application. Establish the technical environment and repository needed to begin building the working system."
+    },
+    {
+      "week": "Week 4",
+      "original_outcome": "Document Management Module: Develop administrator functionality for uploading company policies, extracting text from PDFs, categorizing documents, storing policy metadata, and associating policies with the appropriate department or owner.",
+      "original_sdlc_stage": "Implementation \u2013 Document Management: Begin development of the application's core functionality by creating the process that turns company policy documents into organized, searchable information that the system can use."
+    },
+    {
+      "week": "Week 5",
+      "original_outcome": "AI Search & Policy Retrieval: Implement document indexing and Retrieval-Augmented Generation (RAG), allowing the system to locate relevant policy information and return source-backed answers with policy citations and confidence indicators.",
+      "original_sdlc_stage": "Implementation \u2013 AI & Retrieval: Build the central intelligence of the application. Connect employee questions to approved company documents so AI responses are grounded in organizational policy rather than generated without an authoritative source."
+    },
+    {
+      "week": "Week 6",
+      "original_outcome": "Employee User Interface: Complete the employee-facing dashboard where users can enter questions, receive policy guidance, view citations and confidence information, and identify the department and policy owner responsible for the information.",
+      "original_sdlc_stage": "Implementation \u2013 User Interface: Build the primary way employees interact with the system and connect the frontend experience to the policy-retrieval functionality developed in previous weeks."
+    },
+    {
+      "week": "Week 7",
+      "original_outcome": "Feedback & Email Workflow: Implement thumbs-up/thumbs-down feedback, employee clarification requests with email preview, and a separate policy-owner notification when unclear or incomplete policy language is identified.",
+      "original_sdlc_stage": "Implementation \u2013 Feedback & Escalation: Build the communication loop between employees, the assistant, and policy owners. The system should not only identify uncertainty but provide a structured way to request clarification and alert policy owners to potential documentation gaps."
+    },
+    {
+      "week": "Week 8",
+      "original_outcome": "Administrator Dashboard: Complete an administrator portal for managing uploaded policies, departments, employee directory information, policy owners, feedback reports, and unresolved clarification requests.",
+      "original_sdlc_stage": "Implementation \u2013 Administration: Provide authorized administrators with the tools necessary to maintain the information that powers the system and review feedback or policy issues identified through employee use."
+    },
+    {
+      "week": "Week 9",
+      "original_outcome": "Security & User Authentication: Implement secure login, role-based access control (RBAC), password protection, input validation, audit logging, and restrictions separating employee and administrative permissions.",
+      "original_sdlc_stage": "Security Implementation: Apply security controls to protect company information and restrict system functionality based on user roles. Incorporate principles such as authentication, authorization, least privilege, secure input handling, and accountability."
+    },
+    {
+      "week": "Week 10",
+      "original_outcome": "Testing & Quality Assurance: Conduct unit, integration, usability, and user acceptance testing. Test policy retrieval accuracy, feedback functions, email workflows, permissions, and system performance while documenting and correcting defects.",
+      "original_sdlc_stage": "Testing & Quality Assurance: Evaluate whether individual components and the complete application work as intended. Verify that the system meets established requirements, identify bugs or security issues, and correct problems before release."
+    },
+    {
+      "week": "Week 11",
+      "original_outcome": "Deployment Preparation: Finalize technical documentation and user guides, create installation instructions, optimize the database and interface, resolve remaining issues, and prepare the application for deployment.",
+      "original_sdlc_stage": "Deployment Preparation: Move the tested application toward release by completing documentation, finalizing the user experience, optimizing the system, and confirming that the MVP is stable enough to deploy."
+    },
+    {
+      "week": "Week 12",
+      "original_outcome": "Deployment & Final Presentation: Deploy the completed MVP, conduct the final demonstration, present the system architecture and major features, discuss future enhancements, collect feedback, and document lessons learned.",
+      "original_sdlc_stage": "Release & Deployment: Release the working MVP and demonstrate that it meets the project's original objectives. Evaluate the completed product, document lessons learned, gather stakeholder feedback, and identify opportunities for future development."
+    }
+  ]
+}
