@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A standalone DeRexi practice calculator for exploring incident-priority decisions.">
+  <title>DeRexi · Priority Practice</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#calculator">Skip to calculator</a>
+  <header class="masthead">
+    <a class="wordmark" href="#top" aria-label="DeRexi Priority Practice home"><i>De</i>Rexi<span class="brand-dot" aria-hidden="true"></span></a>
+    <span class="masthead-caption">Policy &amp; governance</span>
+    <span class="practice-label">Practice edition</span>
+  </header>
+
+  <main id="top">
+    <section class="introduction" aria-labelledby="page-title">
+      <h1 id="page-title">A clearer way to<br>weigh a concern.</h1>
+      <div class="introduction-copy">
+        <p>Explore how impact, likelihood and context can change a priority. Set a fictional scenario and see the reasoning behind the result.</p>
+        <a href="#scoring-rules">Understand the scoring rules <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+
+    <div class="workspace" id="calculator">
+      <section class="scenario" aria-labelledby="scenario-title">
+        <div class="section-heading"><h2 id="scenario-title">Shape your scenario</h2><span>All inputs stay in this page</span></div>
+        <form id="priority-form">
+          <div class="field">
+            <label for="policy-area">Policy area</label>
+            <select id="policy-area" name="policyArea" required>
+              <option value="Data handling">Data handling</option>
+              <option value="Account access">Account access</option>
+              <option value="Policy clarification">Policy clarification</option>
+              <option value="Remote work">Remote work</option>
+            </select>
+          </div>
+          <div class="field-pair">
+            <div class="field">
+              <label for="impact-level">Potential impact</label>
+              <select id="impact-level" name="impactLevel" aria-describedby="impact-help" required>
+                <option value="1">1 · Minimal</option>
+                <option value="2" selected>2 · Limited</option>
+                <option value="3">3 · Moderate</option>
+                <option value="4">4 · Major</option>
+                <option value="5">5 · Severe</option>
+              </select>
+              <p class="field-help" id="impact-help">How serious could the effect be?</p>
+            </div>
+            <div class="field">
+              <label for="likelihood-level">Likelihood</label>
+              <select id="likelihood-level" name="likelihoodLevel" aria-describedby="likelihood-help" required>
+                <option value="1">1 · Rare</option>
+                <option value="2" selected>2 · Unlikely</option>
+                <option value="3">3 · Possible</option>
+                <option value="4">4 · Likely</option>
+                <option value="5">5 · Very likely</option>
+              </select>
+              <p class="field-help" id="likelihood-help">How likely is the concern to occur?</p>
+            </div>
+          </div>
+          <fieldset class="context-fields">
+            <legend>Consider the context</legend>
+            <label class="check-row" for="sensitive-data">
+              <input id="sensitive-data" name="sensitiveData" type="checkbox">
+              <span>Sensitive data is involved<small>Fictional personal or confidential information.</small></span>
+            </label>
+            <label class="check-row" for="ongoing-incident">
+              <input id="ongoing-incident" name="ongoingIncident" type="checkbox">
+              <span>The scenario is still unfolding<small>An ongoing event takes immediate priority.</small></span>
+            </label>
+          </fieldset>
+          <div class="form-actions">
+            <button class="primary-button" type="submit">Calculate priority <span aria-hidden="true">→</span></button>
+            <button class="reset-button" type="reset">Reset</button>
+          </div>
+          <p id="form-error" class="form-error" role="alert" hidden></p>
+        </form>
+      </section>
+
+      <aside class="result-panel" aria-labelledby="result-title">
+        <h2 id="result-title">Your assessment</h2>
+        <div id="result" role="status" aria-live="polite" aria-atomic="true" data-priority="empty">
+          <p class="result-context" id="result-context">Ready when you are</p>
+          <h3 id="priority-label">A little context.<br>A clearer next step.</h3>
+          <p class="calculation" id="calculation" hidden></p>
+          <p class="score-caption" id="score-caption" hidden>Impact × likelihood · maximum 25</p>
+          <p class="decision-reason" id="decision-reason">Choose your inputs, then calculate to see a priority and its explanation.</p>
+          <div class="next-step" id="next-step-section" hidden>
+            <h4>Suggested practice response</h4>
+            <p id="next-step"></p>
+          </div>
+        </div>
+        <p class="practice-note">Illustrative training rules only. For an actual incident, use your organization’s established reporting channel.</p>
+      </aside>
+    </div>
+
+    <details class="methodology" id="scoring-rules">
+      <summary>How the practice score works</summary>
+      <p>Impact × likelihood produces an integer from 1 to 25. The policy area supplies context and does not change the score. These are classroom rules, not a validated risk model.</p>
+      <table>
+        <caption>Rules are evaluated from top to bottom; the first match wins.</caption>
+        <thead><tr><th scope="col">Condition</th><th scope="col">Priority</th></tr></thead>
+        <tbody>
+          <tr><td>Ongoing event, or sensitive data with impact ≥ 3</td><td>Immediate attention</td></tr>
+          <tr><td>Score ≥ 15 without the override</td><td>High priority</td></tr>
+          <tr><td>Score 6–14 without the override</td><td>Review soon</td></tr>
+          <tr><td>Score 1–5 without the override</td><td>Routine review</td></tr>
+        </tbody>
+      </table>
+    </details>
+    <noscript><p class="noscript-note">Enable JavaScript to calculate a priority. The scoring rules above remain available.</p></noscript>
+  </main>
+
+  <footer><span>DeRexi · Priority Practice</span><span>JavaScript 1 final project · Synthetic scenarios only</span></footer>
+</body>
+</html>

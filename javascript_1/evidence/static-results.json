@@ -1,0 +1,116 @@
+{
+  "timestamp": "2026-11-23T19:43:48.566928+00:00",
+  "mode": "Static file/syntax checks only",
+  "passed": 12,
+  "failed": 0,
+  "checks": [
+    {
+      "name": "S01 Node syntax check",
+      "status": "PASS",
+      "detail": {
+        "command": "node --check javascript_1/final_project/script.js",
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "S02 Exactly one JavaScript file in the course",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "S03 Exactly one external script, deferred, no inline handlers/code",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "S04 Linked stylesheet exists and no remote asset references",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "S05 Unique HTML IDs and every label targets an existing control",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "S06 Core calculation, actual DOM and console output present",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "S07 No backend calls, browser storage or dynamic HTML injection",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "S08 Reviewed DeRexi files, root memory and original rubric unchanged",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "S09 Eight separate reports and root documentation complete",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "S10 All cited implementation line ranges exist and appear in reports",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "S11 Documentation evidence/source links resolve",
+      "status": "PASS",
+      "detail": {
+        "local_links": 92,
+        "broken_links": []
+      }
+    },
+    {
+      "name": "S12 Application variables and parameters have descriptive multi-character names",
+      "status": "PASS",
+      "detail": [
+        "assessment",
+        "calculationOutput",
+        "decisionReason",
+        "decisionReasonOutput",
+        "escalationThreshold",
+        "event",
+        "formError",
+        "hasCalculated",
+        "impactInput",
+        "impactLevel",
+        "likelihoodInput",
+        "likelihoodLevel",
+        "nextStep",
+        "nextStepOutput",
+        "nextStepSection",
+        "ongoingIncident",
+        "ongoingIncidentInput",
+        "option",
+        "policyArea",
+        "policyAreaInput",
+        "priorityForm",
+        "priorityLabel",
+        "priorityLabelOutput",
+        "priorityScore",
+        "priorityTone",
+        "resultContainer",
+        "resultContext",
+        "reviewThreshold",
+        "scoreCaption",
+        "sensitiveData",
+        "sensitiveDataInput",
+        "validNumbers",
+        "validPolicyArea",
+        "withinRange"
+      ]
+    }
+  ],
+  "application_sha256": {
+    "index.html": "2441e71e241e5210eaff64cc98cdf49f3ff8bc6b3c4124d82df19ed688c30a35",
+    "script.js": "86f4eaba6c476bb966fdbc0c4cfa44574045b6fb3bfc0d81cf1ef8c84ea1e202",
+    "styles.css": "a9e76ca9db5cba8826ea1ab67cb53f62215ea60c20b921518cff28931cc79e8d"
+  }
+}

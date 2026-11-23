@@ -1,0 +1,417 @@
+{
+  "timestamp": "2026-11-23T19:38:25.003Z",
+  "mode": "REAL local Chrome/CDP; actual standalone page and script; no DOM mocks or backend",
+  "passed": 31,
+  "failed": 2,
+  "checks": [
+    {
+      "name": "B01 Initial state has no fabricated calculated result",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "B02 Submit renders 2 × 2 = 4 and Routine review",
+      "status": "PASS",
+      "detail": {
+        "score": "2 × 2 = 4",
+        "priority": "Routine review",
+        "tone": "routine"
+      }
+    },
+    {
+      "name": "B03 Real console.log matches displayed result",
+      "status": "PASS",
+      "detail": {
+        "policyArea": "Data handling",
+        "impactLevel": 2,
+        "likelihoodLevel": 2,
+        "sensitiveData": false,
+        "ongoingIncident": false,
+        "priorityScore": 4,
+        "priorityLabel": "Routine review"
+      }
+    },
+    {
+      "name": "B04 Live variables include String, integer Number and Boolean",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "B05 All 100 score/flag combinations match the reference matrix",
+      "status": "PASS",
+      "detail": {
+        "cases": 100
+      }
+    },
+    {
+      "name": "B06 Lower threshold: score 5 is routine",
+      "status": "PASS",
+      "detail": {
+        "score": "1 × 5 = 5",
+        "priority": "Routine review",
+        "tone": "routine"
+      }
+    },
+    {
+      "name": "B07 Upper threshold: score 6 is review",
+      "status": "PASS",
+      "detail": {
+        "score": "2 × 3 = 6",
+        "priority": "Review soon",
+        "tone": "review"
+      }
+    },
+    {
+      "name": "B08 Score 12 remains review",
+      "status": "PASS",
+      "detail": {
+        "score": "3 × 4 = 12",
+        "priority": "Review soon",
+        "tone": "review"
+      }
+    },
+    {
+      "name": "B09 Score 15 becomes high",
+      "status": "PASS",
+      "detail": {
+        "score": "3 × 5 = 15",
+        "priority": "High priority",
+        "tone": "high"
+      }
+    },
+    {
+      "name": "B10 Maximum score 25 is high without override",
+      "status": "PASS",
+      "detail": {
+        "score": "5 × 5 = 25",
+        "priority": "High priority",
+        "tone": "high"
+      }
+    },
+    {
+      "name": "B11 OR: ongoing event overrides minimum score",
+      "status": "PASS",
+      "detail": {
+        "score": "1 × 1 = 1",
+        "priority": "Immediate attention",
+        "tone": "immediate"
+      }
+    },
+    {
+      "name": "B12 AND: sensitive data plus impact 3 overrides low score",
+      "status": "PASS",
+      "detail": {
+        "score": "3 × 1 = 3",
+        "priority": "Immediate attention",
+        "tone": "immediate"
+      }
+    },
+    {
+      "name": "B13 Sensitive data alone below impact 3 does not override",
+      "status": "PASS",
+      "detail": {
+        "score": "2 × 1 = 2",
+        "priority": "Routine review",
+        "tone": "routine"
+      }
+    },
+    {
+      "name": "B14 Both flags still select immediate priority",
+      "status": "PASS",
+      "detail": {
+        "score": "5 × 5 = 25",
+        "priority": "Immediate attention",
+        "tone": "immediate"
+      }
+    },
+    {
+      "name": "B15 Changed input recomputes displayed result",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "B16 Policy area updates context without changing score",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "B17 Invalid Number/Boolean inputs are rejected",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "B18 Invalid UI input shows error and clears stale result",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "B19 Reset restores defaults, clears error/result and returns focus",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "B20 Keyboard Tab reaches impact control",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "B21 Keyboard changes native select value",
+      "status": "FAIL",
+      "detail": null
+    },
+    {
+      "name": "B22 Keyboard focus has visible outline",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "B23 Keyboard Enter calculates result",
+      "status": "FAIL",
+      "detail": null
+    },
+    {
+      "name": "B24 Native scoring-rules disclosure opens",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "B25 Runtime page has exactly one local external script",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "B26 Controls have labels and results are announced politely",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "B27 Desktop has no horizontal overflow",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "B28 Mobile 390px has no overflow and stacks form/result",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "B29 Mobile controls retain 48px targets",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "B30 Narrow 320px viewport has no horizontal overflow",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "B31 Reduced-motion preference disables smooth scroll/transition",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "B32 No external assets or API requests",
+      "status": "PASS",
+      "detail": [
+        "http://127.0.0.1:62581/",
+        "http://127.0.0.1:62581/styles.css",
+        "http://127.0.0.1:62581/script.js"
+      ]
+    },
+    {
+      "name": "B33 No browser runtime exceptions",
+      "status": "PASS",
+      "detail": []
+    }
+  ],
+  "consoleEvents": [
+    {
+      "type": "log",
+      "args": [
+        {
+          "type": "string",
+          "value": "DeRexi practice result"
+        },
+        {
+          "type": "object",
+          "description": "Object"
+        }
+      ]
+    },
+    {
+      "type": "log",
+      "args": [
+        {
+          "type": "string",
+          "value": "DeRexi practice result"
+        },
+        {
+          "type": "object",
+          "description": "Object"
+        }
+      ]
+    },
+    {
+      "type": "log",
+      "args": [
+        {
+          "type": "string",
+          "value": "DeRexi practice result"
+        },
+        {
+          "type": "object",
+          "description": "Object"
+        }
+      ]
+    },
+    {
+      "type": "log",
+      "args": [
+        {
+          "type": "string",
+          "value": "DeRexi practice result"
+        },
+        {
+          "type": "object",
+          "description": "Object"
+        }
+      ]
+    },
+    {
+      "type": "log",
+      "args": [
+        {
+          "type": "string",
+          "value": "DeRexi practice result"
+        },
+        {
+          "type": "object",
+          "description": "Object"
+        }
+      ]
+    },
+    {
+      "type": "log",
+      "args": [
+        {
+          "type": "string",
+          "value": "DeRexi practice result"
+        },
+        {
+          "type": "object",
+          "description": "Object"
+        }
+      ]
+    },
+    {
+      "type": "log",
+      "args": [
+        {
+          "type": "string",
+          "value": "DeRexi practice result"
+        },
+        {
+          "type": "object",
+          "description": "Object"
+        }
+      ]
+    },
+    {
+      "type": "log",
+      "args": [
+        {
+          "type": "string",
+          "value": "DeRexi practice result"
+        },
+        {
+          "type": "object",
+          "description": "Object"
+        }
+      ]
+    },
+    {
+      "type": "log",
+      "args": [
+        {
+          "type": "string",
+          "value": "DeRexi practice result"
+        },
+        {
+          "type": "object",
+          "description": "Object"
+        }
+      ]
+    },
+    {
+      "type": "log",
+      "args": [
+        {
+          "type": "string",
+          "value": "DeRexi practice result"
+        },
+        {
+          "type": "object",
+          "description": "Object"
+        }
+      ]
+    },
+    {
+      "type": "log",
+      "args": [
+        {
+          "type": "string",
+          "value": "DeRexi practice result"
+        },
+        {
+          "type": "object",
+          "description": "Object"
+        }
+      ]
+    },
+    {
+      "type": "log",
+      "args": [
+        {
+          "type": "string",
+          "value": "DeRexi practice result"
+        },
+        {
+          "type": "object",
+          "description": "Object"
+        }
+      ]
+    },
+    {
+      "type": "log",
+      "args": [
+        {
+          "type": "string",
+          "value": "DeRexi practice result"
+        },
+        {
+          "type": "object",
+          "description": "Object"
+        }
+      ]
+    },
+    {
+      "type": "log",
+      "args": [
+        {
+          "type": "string",
+          "value": "DeRexi practice result"
+        },
+        {
+          "type": "object",
+          "description": "Object"
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "requests": [
+    "http://127.0.0.1:62581/",
+    "http://127.0.0.1:62581/styles.css",
+    "http://127.0.0.1:62581/script.js"
+  ]
+}

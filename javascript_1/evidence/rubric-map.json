@@ -1,0 +1,183 @@
+[
+  {
+    "criterion": 1,
+    "folder": "01_centralized_javascript",
+    "title": "Centralized JavaScript",
+    "references": [
+      {
+        "path": "final_project/index.html",
+        "start": 10,
+        "end": 10
+      },
+      {
+        "path": "final_project/script.js",
+        "start": 1,
+        "end": 134
+      }
+    ],
+    "checks": [
+      "S01",
+      "S02",
+      "S03",
+      "B25"
+    ]
+  },
+  {
+    "criterion": 2,
+    "folder": "02_interactive_webpage",
+    "title": "Interactive Webpage",
+    "references": [
+      {
+        "path": "final_project/index.html",
+        "start": 32,
+        "end": 82
+      },
+      {
+        "path": "final_project/script.js",
+        "start": 119,
+        "end": 134
+      }
+    ],
+    "checks": [
+      "B02",
+      "B15",
+      "B19",
+      "B20",
+      "B21",
+      "B23",
+      "B24",
+      "B28"
+    ]
+  },
+  {
+    "criterion": 3,
+    "folder": "03_descriptive_variables",
+    "title": "Descriptive Variables",
+    "references": [
+      {
+        "path": "final_project/script.js",
+        "start": 4,
+        "end": 19
+      },
+      {
+        "path": "final_project/script.js",
+        "start": 66,
+        "end": 70
+      }
+    ],
+    "checks": [
+      "S12",
+      "B03",
+      "B04"
+    ]
+  },
+  {
+    "criterion": 4,
+    "folder": "04_distinct_data_types",
+    "title": "Distinct Data Types",
+    "references": [
+      {
+        "path": "final_project/script.js",
+        "start": 66,
+        "end": 70
+      },
+      {
+        "path": "final_project/script.js",
+        "start": 23,
+        "end": 26
+      }
+    ],
+    "checks": [
+      "B04",
+      "B17"
+    ]
+  },
+  {
+    "criterion": 5,
+    "folder": "05_mathematical_operations",
+    "title": "Mathematical Operations",
+    "references": [
+      {
+        "path": "final_project/script.js",
+        "start": 29,
+        "end": 31
+      },
+      {
+        "path": "final_project/script.js",
+        "start": 85,
+        "end": 85
+      }
+    ],
+    "checks": [
+      "B02",
+      "B05",
+      "B06",
+      "B07",
+      "B09",
+      "B10"
+    ]
+  },
+  {
+    "criterion": 6,
+    "folder": "06_decision_structures",
+    "title": "Decision Structures",
+    "references": [
+      {
+        "path": "final_project/script.js",
+        "start": 37,
+        "end": 59
+      }
+    ],
+    "checks": [
+      "B05",
+      "B06",
+      "B07",
+      "B09",
+      "B11"
+    ]
+  },
+  {
+    "criterion": 7,
+    "folder": "07_logical_operators",
+    "title": "Logical Operators",
+    "references": [
+      {
+        "path": "final_project/script.js",
+        "start": 23,
+        "end": 25
+      },
+      {
+        "path": "final_project/script.js",
+        "start": 37,
+        "end": 37
+      }
+    ],
+    "checks": [
+      "B05",
+      "B11",
+      "B12",
+      "B13",
+      "B14",
+      "B17"
+    ]
+  },
+  {
+    "criterion": 8,
+    "folder": "08_javascript_output",
+    "title": "JavaScript Output",
+    "references": [
+      {
+        "path": "final_project/script.js",
+        "start": 82,
+        "end": 97
+      }
+    ],
+    "checks": [
+      "B02",
+      "B03",
+      "B15",
+      "B18",
+      "B19"
+    ]
+  }
+]

@@ -1,0 +1,26 @@
+{
+  "scope": "Read-only review; production code and existing rubric preserved. Original screenshot contains submission heading only; detailed rubric supplied by user.",
+  "sources": [
+    {
+      "path": "derexi-policy-pilot/backend/static/style.css",
+      "sha256": "1188011173b681f8df8fd2cacf9a94da5483b5747c6fa76eb0edcaa9ec274912"
+    },
+    {
+      "path": "derexi-policy-pilot/backend/static/index.html",
+      "sha256": "fcd5be839d3bc617f0f00a8ab3859f0d46ba4e2d20a357e0088d72df254f5db1"
+    },
+    {
+      "path": "derexi-policy-pilot/backend/static/app.js",
+      "sha256": "dd140564ed8ccc759332969f2aee5d1be3baa7672bff6d67848a479819de3a82"
+    },
+    {
+      "path": "MEMORY.md",
+      "sha256": "4383c8ac97d7595018dc263ad6d3594601668ecf01a5960d66303b7dea72630f"
+    },
+    {
+      "path": "javascript_1/Screenshot 2026-11-17 at 2.43.40\u202fPM.png",
+      "sha256": "75ebeddc49ce5ab9a2b20b60d9a9359c78984bb3f4102a406edece896287395d"
+    }
+  ],
+  "unrelated_existing_changes": "Pre-existing Design Documentation 1 PDF move preserved; no changes made by this course."
+}
