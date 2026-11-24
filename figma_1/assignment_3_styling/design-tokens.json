@@ -1,0 +1,72 @@
+{
+  "status": "PROPOSED IMPORT-KIT VALUES; not recovered original Figma styles",
+  "inspiration": "Observed green/gold/ivory Stay Data Stay portfolio artwork; original typeface identities not established.",
+  "primitive": {
+    "colors": {
+      "forest": "#10291F",
+      "ivory": "#F7F4EC",
+      "gold": "#B38B4B",
+      "muted": "#4D6446",
+      "white": "#FFFFFF",
+      "rule": "#D8DFD2",
+      "ink": "#17251C"
+    },
+    "spacing": [
+      8,
+      16,
+      24,
+      32,
+      64
+    ],
+    "radii": [
+      0,
+      12
+    ]
+  },
+  "semantic": {
+    "canvas": "ivory",
+    "text": "ink",
+    "branding": "forest",
+    "accent": "gold",
+    "muted_text": "muted",
+    "surface": "white",
+    "divider": "rule"
+  },
+  "component": {
+    "account_row": {
+      "width": 600,
+      "height": 88,
+      "background": "surface",
+      "text": "text",
+      "border": "divider",
+      "radius": 12
+    }
+  },
+  "typography": {
+    "Display": {
+      "family": "Georgia",
+      "weight": 400,
+      "size": 48,
+      "line_height": 56
+    },
+    "Heading": {
+      "family": "Georgia",
+      "weight": 400,
+      "size": 30,
+      "line_height": 38
+    },
+    "Body": {
+      "family": "Arial",
+      "weight": 400,
+      "size": 18,
+      "line_height": 28
+    },
+    "Meta": {
+      "family": "Arial",
+      "weight": 400,
+      "size": 14,
+      "line_height": 20
+    }
+  },
+  "font_note": "Check availability and preserve editable text after Figma import; these are proposed families, not identification of the original artwork font."
+}

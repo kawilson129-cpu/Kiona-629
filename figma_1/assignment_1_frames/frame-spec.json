@@ -1,0 +1,44 @@
+{
+  "status": "PROPOSED; not a verified native Figma frame",
+  "name": "SDS / Account summary",
+  "width": 1440,
+  "height": 960,
+  "purpose": "Show recorded account selections and a checkout privacy reminder from existing CLI workflow.",
+  "layout": {
+    "outer_margin": 64,
+    "header_rule_y": 112,
+    "left_column": {
+      "x": 64,
+      "width": 568
+    },
+    "right_column": {
+      "x": 712,
+      "width": 600
+    },
+    "image": {
+      "x": 64,
+      "y": 374,
+      "width": 568,
+      "height": 355.2686,
+      "source": "docs/assets/images/stay-data-stay-project.png",
+      "mode": "contain; preserve original aspect ratio"
+    },
+    "account_rows": {
+      "x": 712,
+      "y": [
+        308,
+        412,
+        516
+      ],
+      "width": 600,
+      "height": 88
+    },
+    "footer_rule_y": 848
+  },
+  "native_figma_type": "UNVERIFIED",
+  "original_board_export_bounds": {
+    "width": 7081.873046875,
+    "height": 6580,
+    "note": "FigJam render_coordinates envelope, NOT a design-frame size."
+  }
+}

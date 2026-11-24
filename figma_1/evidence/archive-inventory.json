@@ -1,0 +1,161 @@
+[
+  {
+    "path": "figma_1/Baby's First Algorithm.jam",
+    "sha256": "1ce4e7f012957e91c5617f91431da2082e91facbe51e6b37401b7c6ebf0ecb47",
+    "metadata": {
+      "client_meta": {
+        "background_color": {
+          "r": 0.11764705926179886,
+          "g": 0.11764705926179886,
+          "b": 0.11764705926179886,
+          "a": 1
+        },
+        "thumbnail_size": {
+          "width": 400,
+          "height": 188
+        },
+        "render_coordinates": {
+          "x": -5022,
+          "y": -1066.7215576171875,
+          "width": 6270,
+          "height": 2940.7216796875
+        }
+      },
+      "file_name": "Baby's First Algorithm",
+      "developer_related_links": [],
+      "exported_at": "2026-07-20T17:43:13.036Z"
+    },
+    "members": [
+      {
+        "name": "canvas.fig",
+        "bytes": 79959
+      },
+      {
+        "name": "thumbnail.png",
+        "bytes": 14424
+      },
+      {
+        "name": "meta.json",
+        "bytes": 362
+      },
+      {
+        "name": "images/",
+        "bytes": 0
+      },
+      {
+        "name": "images/8ac5ff95566b0360f49f922739e341af35d84bf8",
+        "bytes": 182813
+      },
+      {
+        "name": "images/40c586688db2c79b08d68b99cc8db71431af776e",
+        "bytes": 59440
+      }
+    ]
+  },
+  {
+    "path": "figma_1/Stay Data Stay.jam",
+    "sha256": "406b9f3d182a5815d7e297c2e017c7f1a7aa75f6fdbf2d27ac07f73842a2751a",
+    "metadata": {
+      "client_meta": {
+        "background_color": {
+          "r": 0.9607843160629272,
+          "g": 0.9607843160629272,
+          "b": 0.9607843160629272,
+          "a": 1
+        },
+        "thumbnail_size": {
+          "width": 400,
+          "height": 372
+        },
+        "render_coordinates": {
+          "x": -1934,
+          "y": -530,
+          "width": 7081.873046875,
+          "height": 6580
+        }
+      },
+      "file_name": "Stay Data Stay",
+      "developer_related_links": [],
+      "exported_at": "2026-07-20T17:43:31.982Z"
+    },
+    "members": [
+      {
+        "name": "canvas.fig",
+        "bytes": 112901
+      },
+      {
+        "name": "thumbnail.png",
+        "bytes": 18199
+      },
+      {
+        "name": "meta.json",
+        "bytes": 335
+      },
+      {
+        "name": "images/",
+        "bytes": 0
+      },
+      {
+        "name": "images/8ac5ff95566b0360f49f922739e341af35d84bf8",
+        "bytes": 182813
+      },
+      {
+        "name": "images/b8c2ff71bf12327bdc2a2b5e2f3aa2a9eddf7994",
+        "bytes": 11010
+      },
+      {
+        "name": "images/40c586688db2c79b08d68b99cc8db71431af776e",
+        "bytes": 59440
+      },
+      {
+        "name": "images/e129cdc99c2b55de242fcc30e6554994dd2d61df",
+        "bytes": 27974
+      }
+    ]
+  },
+  {
+    "path": "figma_1/VirtualCloset.jam",
+    "sha256": "dc668e73841b32a0b671accb8caeb52ec10fb3e7248869fa155b991e54ff45a0",
+    "metadata": {
+      "client_meta": {
+        "background_color": {
+          "r": 0.9607843160629272,
+          "g": 0.9607843160629272,
+          "b": 0.9607843160629272,
+          "a": 1
+        },
+        "thumbnail_size": {
+          "width": 400,
+          "height": 216
+        },
+        "render_coordinates": {
+          "x": -350.875,
+          "y": -247.4517059326172,
+          "width": 493.75933837890625,
+          "height": 267.08807373046875
+        }
+      },
+      "file_name": "VirtualCloset",
+      "developer_related_links": [],
+      "exported_at": "2026-07-20T17:43:39.014Z"
+    },
+    "members": [
+      {
+        "name": "canvas.fig",
+        "bytes": 43990
+      },
+      {
+        "name": "thumbnail.png",
+        "bytes": 11744
+      },
+      {
+        "name": "meta.json",
+        "bytes": 369
+      },
+      {
+        "name": "images/",
+        "bytes": 0
+      }
+    ]
+  }
+]

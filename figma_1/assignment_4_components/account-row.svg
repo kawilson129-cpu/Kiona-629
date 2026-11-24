@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="600" height="88" viewBox="0 0 600 88">
+<title>Stay Data Stay account summary row — SVG group, not a native Figma component</title>
+<desc>Prepared editable-layer candidate for Create component in Figma. Existing program account-menu pattern; all displayed data is synthetic.</desc>
+<g id="AccountRow" transform="translate(0 0)">
+<rect id="Background" x="0.5" y="0.5" width="599" height="87" rx="12" fill="#FFFFFF" stroke="#D8DFD2"/>
+<g id="Marker"><circle cx="40" cy="44" r="18" fill="#F7F4EC"/><text x="40" y="50" text-anchor="middle" font-family="Arial" font-size="16" fill="#10291F">1</text></g>
+<g id="Content"><text id="AccountName" x="76" y="39" font-family="Arial" font-size="18" fill="#17251C">Netflix</text><text x="76" y="61" font-family="Arial" font-size="14" fill="#4D6446">Selected for this stay</text></g>
+<g id="Status"><rect x="466" y="28" width="110" height="32" rx="4" fill="#F7F4EC"/><text x="521" y="49" text-anchor="middle" font-family="Arial" font-size="14" fill="#10291F">Recorded</text></g>
+</g>
+</svg>

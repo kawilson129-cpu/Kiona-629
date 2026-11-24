@@ -1,0 +1,38 @@
+{
+  "reviewed_at": "2026-11-24T17:27:07.759937+00:00",
+  "sources": [
+    {
+      "path": "figma_1/VirtualCloset.jam",
+      "sha256": "dc668e73841b32a0b671accb8caeb52ec10fb3e7248869fa155b991e54ff45a0"
+    },
+    {
+      "path": "figma_1/Stay Data Stay.jam",
+      "sha256": "406b9f3d182a5815d7e297c2e017c7f1a7aa75f6fdbf2d27ac07f73842a2751a"
+    },
+    {
+      "path": "figma_1/Baby's First Algorithm.jam",
+      "sha256": "1ce4e7f012957e91c5617f91431da2082e91facbe51e6b37401b7c6ebf0ecb47"
+    },
+    {
+      "path": "python_1/stay_data_stay.py",
+      "sha256": "31b66462ef545693c87eea23ff2e9bfb4f05c220cded48a32ff68c0685bbdc3a"
+    },
+    {
+      "path": "docs/stay-data-stay.md",
+      "sha256": "fb07dd28a71c6e96d2480674af35c62527cbe35b84c7f3400513e92380ca9148"
+    },
+    {
+      "path": "docs/assets/images/stay-data-stay-hero.png",
+      "sha256": "0d47815f49aa3adc8b31d23939134335270eab16061aa003b2bb61dd27849106"
+    },
+    {
+      "path": "docs/assets/images/stay-data-stay-project.png",
+      "sha256": "b6e79d96b6e16708e758864fdbaacf93c4787766bfcc059e2fb2391d6dc7c144"
+    },
+    {
+      "path": "MEMORY.md",
+      "sha256": "4383c8ac97d7595018dc263ad6d3594601668ecf01a5960d66303b7dea72630f"
+    }
+  ],
+  "scope": "Read-only archive/source review. Original program not imported/executed; no login material reproduced. Other coursework scripts were compared by hash only."
+}
