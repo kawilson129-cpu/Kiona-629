@@ -1,0 +1,255 @@
+{
+  "timestamp": "2026-11-24T17:48:00.890034+00:00",
+  "scope": "Offline coursework artifact/source/provenance checks; no app or participant testing; does not refetch web sources",
+  "passed": 47,
+  "failed": 0,
+  "checks": [
+    {
+      "name": "Exactly five requested assignment folders",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "assignment_01_empathy_map required supporting files",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "assignment_02_documented_research required supporting files",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "assignment_03_purpose_statement required supporting files",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "assignment_04_brainstormed_ideas required supporting files",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "assignment_05_conversational_prototype required supporting files",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Empathy map is a complete valid visual with unique region IDs",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "All six visual regions explicitly marked as assumptions",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Map dimensions and text origins fit the canvas",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "New map is labelled synthesis, not a Figma export",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Three distinct credible primary-source publishers/URLs recorded",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Every research source has reviewed content, finding, scope and design influence",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Research identifies secondary method, uncertainty and excluded blocked source",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Purpose contains no more than two complete sentences",
+      "status": "PASS",
+      "detail": {
+        "sentences": 2
+      }
+    },
+    {
+      "name": "Purpose explicitly identifies what, who and why",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "A3 statement appears verbatim in A3 explanation and A5",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Three distinct brainstormed alternatives documented",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Ideas include problem, benefits, limitations and reasoned preference",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "New ideation is distinguished from historic meetings or feedback",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Prototype screen reuses existing asset byte for byte",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Existing concept screen retains its 1440x960 visual",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Authentic FigJam thumbnail extracted unchanged",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Original metadata preserved without invented Figma activity",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "A5 includes A2 research, visual provenance and all three sources",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Conversational prototype has seven prompts and exception/feedback planning",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Feedback form contains no represented participant outcomes",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Protected original unchanged: design_1/stay_data_stay.py",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Protected original unchanged: python_1/stay_data_stay.py",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Protected original unchanged: figma_1/Stay Data Stay.jam",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Protected original unchanged: figma_1/evidence/stay-data-stay-original-thumbnail.png",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Protected original unchanged: figma_1/assignment_1_frames/stay-data-stay-frame.svg",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Protected original unchanged: figma_1/assignment_1_frames/README.md",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Protected original unchanged: figma_1/COURSE_INDEX.md",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Protected original unchanged: docs/stay-data-stay.md",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Protected original unchanged: docs/assets/images/stay-data-stay-hero.png",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Protected original unchanged: docs/assets/images/stay-data-stay-project.png",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Protected original unchanged: MEMORY.md",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "README.md balanced code fences",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "assignment_05_conversational_prototype/feedback-form.md balanced code fences",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "assignment_05_conversational_prototype/walkthrough.md balanced code fences",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "assignment_02_documented_research/research.md balanced code fences",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "assignment_03_purpose_statement/README.md balanced code fences",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "assignment_04_brainstormed_ideas/ideas.md balanced code fences",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "assignment_01_empathy_map/README.md balanced code fences",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "All local links resolve",
+      "status": "PASS",
+      "detail": {
+        "checked": 48,
+        "broken": []
+      }
+    },
+    {
+      "name": "Root index covers all five criteria, citations, evidence and gaps",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "All working-tree changes stay inside existing Design 1 course",
+      "status": "PASS",
+      "detail": {
+        "paths": 16,
+        "outside_course": []
+      }
+    }
+  ],
+  "rubric_coverage": "5/5 supplied design deliverables supported",
+  "human_study": "NOT RUN",
+  "application_tests": "NOT RUN",
+  "new_figma_activity": "NONE"
+}

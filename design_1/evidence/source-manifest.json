@@ -1,0 +1,50 @@
+{
+  "timestamp": "2026-11-24T17:42:57.872897+00:00",
+  "scope": "Read-only source review; original program not executed; all authored work stays inside design_1.",
+  "sources": [
+    {
+      "path": "design_1/stay_data_stay.py",
+      "sha256": "6e51e0fe28800c3fc7b85385e50c77e7e6e781695d851433b6163989fcab4905"
+    },
+    {
+      "path": "python_1/stay_data_stay.py",
+      "sha256": "31b66462ef545693c87eea23ff2e9bfb4f05c220cded48a32ff68c0685bbdc3a"
+    },
+    {
+      "path": "figma_1/Stay Data Stay.jam",
+      "sha256": "406b9f3d182a5815d7e297c2e017c7f1a7aa75f6fdbf2d27ac07f73842a2751a"
+    },
+    {
+      "path": "figma_1/evidence/stay-data-stay-original-thumbnail.png",
+      "sha256": "96bda86e829398c030836fc77c27960aa2bd5f78cf572cbb16b2bd7d90bb4d95"
+    },
+    {
+      "path": "figma_1/assignment_1_frames/stay-data-stay-frame.svg",
+      "sha256": "d20165da1faa405d6a02a703fb1e58f58d46d219eba00a88ef56df536a175abf"
+    },
+    {
+      "path": "figma_1/assignment_1_frames/README.md",
+      "sha256": "5663eb9dc86320840f9306049f994002c41e9ba82e039c76d4b2ea1d96fa96ce"
+    },
+    {
+      "path": "figma_1/COURSE_INDEX.md",
+      "sha256": "437262c729d15c59a25126b3d41da6f2ac68e547ff03980a500651029bdd98bb"
+    },
+    {
+      "path": "docs/stay-data-stay.md",
+      "sha256": "fb07dd28a71c6e96d2480674af35c62527cbe35b84c7f3400513e92380ca9148"
+    },
+    {
+      "path": "docs/assets/images/stay-data-stay-hero.png",
+      "sha256": "0d47815f49aa3adc8b31d23939134335270eab16061aa003b2bb61dd27849106"
+    },
+    {
+      "path": "docs/assets/images/stay-data-stay-project.png",
+      "sha256": "b6e79d96b6e16708e758864fdbaacf93c4787766bfcc059e2fb2391d6dc7c144"
+    },
+    {
+      "path": "MEMORY.md",
+      "sha256": "4383c8ac97d7595018dc263ad6d3594601668ecf01a5960d66303b7dea72630f"
+    }
+  ]
+}

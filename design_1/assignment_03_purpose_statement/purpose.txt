@@ -1,0 +1,1 @@
+Stay Data Stay is a checkout checklist for travelers who use shared accommodation devices. It is designed to help them remember which accounts they accessed and review sign-out actions before leaving, without collecting service passwords or claiming to sign accounts out automatically.

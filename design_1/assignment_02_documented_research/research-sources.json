@@ -1,0 +1,55 @@
+{
+  "checked_at": "2026-11-24T17:45:20.414865+00:00",
+  "method": "Secondary desk research; no participant study",
+  "sources": [
+    {
+      "id": "R1",
+      "publisher": "Netflix",
+      "title": "How to use Netflix on your hotel TV",
+      "url": "https://help.netflix.com/en/node/25814",
+      "verification": "Opened and relevant page content reviewed",
+      "sections": [
+        "Account security",
+        "Sign Out of Netflix"
+      ],
+      "finding": "For the described supported hotel offering, information clears at checkout and manual sign-out is available.",
+      "scope": "Selected hotel integrations; not every TV or rental.",
+      "design_inference": "D1: do not label recorded accounts as verified active or signed out."
+    },
+    {
+      "id": "R2",
+      "publisher": "Google Account Help",
+      "title": "See devices with account access",
+      "url": "https://support.google.com/accounts/answer/3067630?hl=en",
+      "verification": "Opened and relevant page content reviewed",
+      "sections": [
+        "Review devices",
+        "What is a session?",
+        "Sign out on a device you no longer use"
+      ],
+      "finding": "Device/session review and sign-out are available; session names and activity require interpretation.",
+      "scope": "Google accounts only.",
+      "design_inference": "D2: provider-specific guidance, not universal session detection."
+    },
+    {
+      "id": "R3",
+      "publisher": "Australian Government Smartraveller",
+      "title": "Cyber security when travelling overseas",
+      "url": "https://www.smartraveller.gov.au/while-overseas/protecting-yourself-crime/cyber-security-when-travelling-overseas",
+      "verification": "Opened and relevant page content reviewed",
+      "sections": [
+        "Virtual safety",
+        "Using shared devices"
+      ],
+      "finding": "Sign out after use, avoid remembered logins and avoid sensitive personal logins on shared computers.",
+      "scope": "Broad overseas-travel advice, not evidence of app effectiveness.",
+      "design_inference": "D3: preventive manual review without service-password collection."
+    }
+  ],
+  "excluded_sources": [
+    {
+      "url": "https://www.cisa.gov/sites/default/files/publications/Cybersecurity%20While%20Traveling.pdf",
+      "result": "Open attempt returned HTTP 403; not used to satisfy the three-source requirement."
+    }
+  ]
+}
