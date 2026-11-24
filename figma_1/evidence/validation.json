@@ -1,0 +1,287 @@
+{
+  "timestamp": "2026-11-24T17:35:08.870999+00:00",
+  "scope": "OFFLINE artifact validation ONLY; no Figma imports/editor actions or screenshot claims",
+  "passed": 49,
+  "failed": 0,
+  "checks": [
+    {
+      "name": "Exactly four requested assignment folders",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "assignment_1_frames README, sources, status and rubric checklist",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "assignment_2_images README, sources, status and rubric checklist",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "assignment_3_styling README, sources, status and rubric checklist",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "assignment_4_components README, sources, status and rubric checklist",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Course index and concise native implementation handoff exist",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Original hash unchanged: figma_1/VirtualCloset.jam",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Original hash unchanged: figma_1/Stay Data Stay.jam",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Original hash unchanged: figma_1/Baby's First Algorithm.jam",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Original hash unchanged: python_1/stay_data_stay.py",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Original hash unchanged: docs/stay-data-stay.md",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Original hash unchanged: docs/assets/images/stay-data-stay-hero.png",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Original hash unchanged: docs/assets/images/stay-data-stay-project.png",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Original hash unchanged: MEMORY.md",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "All three existing native FigJam archives inventoried",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Baby's First Algorithm.jam ZIP integrity",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Baby's First Algorithm.jam metadata and original thumbnail size",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Stay Data Stay.jam ZIP integrity",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Stay Data Stay.jam metadata and original thumbnail size",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "VirtualCloset.jam ZIP integrity",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "VirtualCloset.jam metadata and original thumbnail size",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Primary archive is FigJam format, not inferred Design frame",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Primary historical thumbnail preserved byte for byte",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Four original embedded image entries, not four assumed unique subjects",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "embedded-flowchart-reference.png matches original archived image",
+      "status": "PASS",
+      "detail": {
+        "width_height": [
+          938,
+          734
+        ]
+      }
+    },
+    {
+      "name": "embedded-account-log.png matches original archived image",
+      "status": "PASS",
+      "detail": {
+        "width_height": [
+          868,
+          274
+        ]
+      }
+    },
+    {
+      "name": "stay-data-stay-frame.svg valid SVG root and unique layer IDs",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "stay-data-stay-frame.svg no executable elements or remote image links",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "style-reference.svg valid SVG root and unique layer IDs",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "style-reference.svg no executable elements or remote image links",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "account-row.svg valid SVG root and unique layer IDs",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "account-row.svg no executable elements or remote image links",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Prepared screen dimensions match proposed frame spec",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Prepared image embeds unchanged existing project artwork",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Prepared image preserves PNG aspect ratio and stays inside screen",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Row candidate matches 600x88 spec and required named layers",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Three prepared row copies identified as groups, not native instances",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Proposed primitive, semantic and component tokens complete",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "All authored SVG fills/strokes use proposed palette",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Tool limitation honestly recorded",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Coverage preserves native gaps and FigJam/Design distinction",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "COURSE_INDEX.md balanced code fences",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "FIGMA_HANDOFF.md balanced code fences",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "README.md balanced code fences",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "README.md balanced code fences",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "README.md balanced code fences",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "README.md balanced code fences",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Local source/evidence/navigation links resolve",
+      "status": "PASS",
+      "detail": {
+        "checked": 57,
+        "broken": []
+      }
+    },
+    {
+      "name": "Scope: Figma coursework plus preserved observed concurrent PDF move",
+      "status": "PASS",
+      "detail": {
+        "changed_paths": 12,
+        "observed_concurrent_paths": [
+          "python_2/Python_2_Assignment_06_lists.pdf",
+          "python_2/assignment_06_lists/Python_2_Assignment_06_lists.pdf"
+        ],
+        "course_task_edits": "figma_1 only"
+      }
+    }
+  ],
+  "rubric_status": {
+    "frames": "PARTIAL",
+    "images": "VERIFIED_ARCHIVED_FIGJAM_ONLY",
+    "styling": "PARTIAL",
+    "components": "PARTIAL"
+  },
+  "verified_existing_evidence_criteria": 1,
+  "native_design_criteria_verified": 0,
+  "not_tested": [
+    "Figma native import",
+    "native frame properties",
+    "native editable font/style properties",
+    "component creation/instance propagation"
+  ]
+}

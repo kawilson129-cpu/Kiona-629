@@ -3,5 +3,13 @@
   "figma_specific_tools_discovered": 0,
   "connected_document_sessions": [],
   "observation": "Document-control session listing returned no connected Codex document sessions. No authorized Figma editor/API session available.",
-  "action": "Prepare SVG assets and native-Figma completion instructions; no Figma actions, imports, frames or components claimed."
+  "action": "Prepare SVG assets and native-Figma completion instructions; no Figma actions, imports, frames or components claimed.",
+  "rechecks": [
+    {
+      "checked_at": "2026-11-24T17:35:08.626233+00:00",
+      "figma_specific_tools_discovered": 0,
+      "connected_document_sessions": [],
+      "result": "No connected Codex document sessions found; native Figma editing remains unavailable."
+    }
+  ]
 }
