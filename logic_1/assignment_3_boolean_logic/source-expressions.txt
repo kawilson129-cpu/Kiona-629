@@ -1,0 +1,7 @@
+OR + NOT — security.require_owner_or_admin, line 224
+not (identity.is_admin or identity.is_policy_owner)
+
+OR + AND + NOT — main.create_feedback, line 782
+not conversation or (
+        conversation.user_id != identity.user_id and not identity.is_admin
+    )

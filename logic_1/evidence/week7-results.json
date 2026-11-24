@@ -1,0 +1,307 @@
+{
+  "suite": "test_week7_messaging.py",
+  "timestamp": "2026-11-24T18:10:58.216664+00:00",
+  "python": "3.9.6",
+  "passed": 73,
+  "failed": 0,
+  "checks": [
+    {
+      "name": "auth config exposes development mode only with opt-in",
+      "pass": true
+    },
+    {
+      "name": "dev roster returns seeded users",
+      "pass": true
+    },
+    {
+      "name": "anonymous /messages is rejected",
+      "pass": true
+    },
+    {
+      "name": "anonymous /ask is rejected",
+      "pass": true
+    },
+    {
+      "name": "body identity cannot impersonate another user",
+      "pass": true
+    },
+    {
+      "name": "employee cannot open admin triage folder",
+      "pass": true
+    },
+    {
+      "name": "employee cannot open all-threads folder",
+      "pass": true
+    },
+    {
+      "name": "fixture policy is owned by Jordan",
+      "pass": true
+    },
+    {
+      "name": "employee can request clarification from an answer",
+      "pass": true
+    },
+    {
+      "name": "request routes to the policy owner",
+      "pass": true
+    },
+    {
+      "name": "thread exposes the owner contact record",
+      "pass": true
+    },
+    {
+      "name": "escalation starts as awaiting the owner",
+      "pass": true
+    },
+    {
+      "name": "originating question is preserved",
+      "pass": true
+    },
+    {
+      "name": "originating answer is preserved",
+      "pass": true
+    },
+    {
+      "name": "policy citation is preserved",
+      "pass": true
+    },
+    {
+      "name": "requester copy starts read",
+      "pass": true
+    },
+    {
+      "name": "timestamps are present",
+      "pass": true
+    },
+    {
+      "name": "duplicate open request is refused",
+      "pass": true
+    },
+    {
+      "name": "owner inbox contains the thread",
+      "pass": true
+    },
+    {
+      "name": "new assignment is unread for the owner",
+      "pass": true
+    },
+    {
+      "name": "owner receives an in-app assignment notification",
+      "pass": true
+    },
+    {
+      "name": "owner can reply",
+      "pass": true
+    },
+    {
+      "name": "reply moves thread to in_progress",
+      "pass": true
+    },
+    {
+      "name": "employee sees the owner reply",
+      "pass": true
+    },
+    {
+      "name": "escalation moves to awaiting the employee",
+      "pass": true
+    },
+    {
+      "name": "employee thread is unread after the reply",
+      "pass": true
+    },
+    {
+      "name": "employee receives a reply notification",
+      "pass": true
+    },
+    {
+      "name": "employee can mark the thread read",
+      "pass": true
+    },
+    {
+      "name": "unread clears after marking read",
+      "pass": true
+    },
+    {
+      "name": "employee can reply",
+      "pass": true
+    },
+    {
+      "name": "owner is notified of the employee reply",
+      "pass": true
+    },
+    {
+      "name": "employee reply hands the thread back to the owner",
+      "pass": true
+    },
+    {
+      "name": "owner can resolve",
+      "pass": true
+    },
+    {
+      "name": "resolved thread reports the resolved escalation state",
+      "pass": true
+    },
+    {
+      "name": "owner can close a resolved thread",
+      "pass": true
+    },
+    {
+      "name": "closed thread reports the closed escalation state",
+      "pass": true
+    },
+    {
+      "name": "reply to a resolved thread is refused",
+      "pass": true
+    },
+    {
+      "name": "requester can reopen",
+      "pass": true
+    },
+    {
+      "name": "reopen is recorded in history",
+      "pass": true
+    },
+    {
+      "name": "reopened thread awaits the owner again",
+      "pass": true
+    },
+    {
+      "name": "status filter selects threads awaiting the owner",
+      "pass": true
+    },
+    {
+      "name": "status filter excludes threads that are no longer resolved",
+      "pass": true
+    },
+    {
+      "name": "unknown escalation status is rejected",
+      "pass": true
+    },
+    {
+      "name": "search matches the thread question",
+      "pass": true
+    },
+    {
+      "name": "unrelated owner cannot read the thread",
+      "pass": true
+    },
+    {
+      "name": "unrelated owner cannot reply",
+      "pass": true
+    },
+    {
+      "name": "unrelated owner cannot resolve",
+      "pass": true
+    },
+    {
+      "name": "policy owner cannot use admin assign",
+      "pass": true
+    },
+    {
+      "name": "spoofed sender_id is rejected",
+      "pass": true
+    },
+    {
+      "name": "administrator can read any thread",
+      "pass": true
+    },
+    {
+      "name": "administrator sees the organisation-wide list",
+      "pass": true
+    },
+    {
+      "name": "administrator can list the governance queue",
+      "pass": true
+    },
+    {
+      "name": "employee cannot list the governance queue",
+      "pass": true
+    },
+    {
+      "name": "missing owner leaves the thread unassigned",
+      "pass": true
+    },
+    {
+      "name": "unassigned thread appears in admin triage",
+      "pass": true
+    },
+    {
+      "name": "admin can assign a triage thread to a policy owner",
+      "pass": true
+    },
+    {
+      "name": "assigned owner receives the thread",
+      "pass": true
+    },
+    {
+      "name": "empty reply is rejected",
+      "pass": true
+    },
+    {
+      "name": "unknown folder is rejected",
+      "pass": true
+    },
+    {
+      "name": "uncited policy is rejected",
+      "pass": true
+    },
+    {
+      "name": "short context is rejected",
+      "pass": true
+    },
+    {
+      "name": "another user's conversation is not disclosed",
+      "pass": true
+    },
+    {
+      "name": "conversation read requires auth",
+      "pass": true
+    },
+    {
+      "name": "employee can read own conversation",
+      "pass": true
+    },
+    {
+      "name": "Policy Assistant still answers/routes with auth",
+      "pass": true
+    },
+    {
+      "name": "policy library still lists policies",
+      "pass": true
+    },
+    {
+      "name": "policy search still works",
+      "pass": true
+    },
+    {
+      "name": "categories still work",
+      "pass": true
+    },
+    {
+      "name": "governance dashboard is governance-only",
+      "pass": true
+    },
+    {
+      "name": "Pulse health endpoint is unaffected",
+      "pass": true
+    },
+    {
+      "name": "staff directory requires auth",
+      "pass": true
+    },
+    {
+      "name": "staff emails are admin-only",
+      "pass": true
+    },
+    {
+      "name": "notification payload has no bearer token",
+      "pass": true
+    }
+  ],
+  "scope": "Existing real in-process routes; isolated SQLite with PostgreSQL syntax adapter; search no-match stub; synthetic development identities; AI/outbound off; dotenv loader mocked; network forbidden",
+  "network_attempts": [],
+  "stdout": "PASS  auth config exposes development mode only with opt-in\nPASS  dev roster returns seeded users\nPASS  anonymous /messages is rejected\nPASS  anonymous /ask is rejected\nPASS  body identity cannot impersonate another user\nPASS  employee cannot open admin triage folder\nPASS  employee cannot open all-threads folder\nPASS  fixture policy is owned by Jordan\nPASS  employee can request clarification from an answer\nPASS  request routes to the policy owner\nPASS  thread exposes the owner contact record\nPASS  escalation starts as awaiting the owner\nPASS  originating question is preserved\nPASS  originating answer is preserved\nPASS  policy citation is preserved\nPASS  requester copy starts read\nPASS  timestamps are present\nPASS  duplicate open request is refused\nPASS  owner inbox contains the thread\nPASS  new assignment is unread for the owner\nPASS  owner receives an in-app assignment notification\nPASS  owner can reply\nPASS  reply moves thread to in_progress\nPASS  employee sees the owner reply\nPASS  escalation moves to awaiting the employee\nPASS  employee thread is unread after the reply\nPASS  employee receives a reply notification\nPASS  employee can mark the thread read\nPASS  unread clears after marking read\nPASS  employee can reply\nPASS  owner is notified of the employee reply\nPASS  employee reply hands the thread back to the owner\nPASS  owner can resolve\nPASS  resolved thread reports the resolved escalation state\nPASS  owner can close a resolved thread\nPASS  closed thread reports the closed escalation state\nPASS  reply to a resolved thread is refused\nPASS  requester can reopen\nPASS  reopen is recorded in history\nPASS  reopened thread awaits the owner again\nPASS  status filter selects threads awaiting the owner\nPASS  status filter excludes threads that are no longer resolved\nPASS  unknown escalation status is rejected\nPASS  search matches the thread question\nPASS  unrelated owner cannot read the thread\nPASS  unrelated owner cannot reply\nPASS  unrelated owner cannot resolve\nPASS  policy owner cannot use admin assign\nPASS  spoofed sender_id is rejected\nPASS  administrator can read any thread\nPASS  administrator sees the organisation-wide list\nPASS  administrator can list the governance queue\nPASS  employee cannot list the governance queue\nPASS  missing owner leaves the thread unassigned\nPASS  unassigned thread appears in admin triage\nPASS  admin can assign a triage thread to a policy owner\nPASS  assigned owner receives the thread\nPASS  empty reply is rejected\nPASS  unknown folder is rejected\nPASS  uncited policy is rejected\nPASS  short context is rejected\nPASS  another user's conversation is not disclosed\nPASS  conversation read requires auth\nPASS  employee can read own conversation\nPASS  Policy Assistant still answers/routes with auth\nPASS  policy library still lists policies\nPASS  policy search still works\nPASS  categories still work\nPASS  governance dashboard is governance-only\nPASS  Pulse health endpoint is unaffected\nPASS  staff directory requires auth\nPASS  staff emails are admin-only\nPASS  notification payload has no bearer token\n\n73 passed, 0 failed, 73 checks\n",
+  "stderr": "{\"timestamp\":\"2026-11-24T18:10:57.825132+00:00\",\"event\":\"authentication_failure\",\"request_id\":\"7aba12f6a51144afafb23a500f1e209a\",\"method\":\"GET\",\"route\":\"/messages\",\"status\":401,\"actor_id\":null,\"role\":null}\n{\"timestamp\":\"2026-11-24T18:10:57.831763+00:00\",\"event\":\"authentication_failure\",\"request_id\":\"c858d24cb086400c862cbb0f97c2b109\",\"method\":\"POST\",\"route\":\"/ask\",\"status\":401,\"actor_id\":null,\"role\":null}\n{\"timestamp\":\"2026-11-24T18:10:57.837492+00:00\",\"event\":\"sensitive_change\",\"request_id\":\"d21b0a99dcd043d9bf3e20bcebaa1679\",\"method\":\"POST\",\"route\":\"/dev-auth/token\",\"status\":200,\"actor_id\":null,\"role\":null}\n{\"timestamp\":\"2026-11-24T18:10:57.842183+00:00\",\"event\":\"access_denied\",\"request_id\":\"beaac6102c7849249304f38e5c113f40\",\"method\":\"POST\",\"route\":\"/ask\",\"status\":403,\"actor_id\":8,\"role\":\"Employee\"}\n{\"timestamp\":\"2026-11-24T18:10:57.846009+00:00\",\"event\":\"access_denied\",\"request_id\":\"03ecdf3c07fa42408820737bfbb103d2\",\"method\":\"GET\",\"route\":\"/messages\",\"status\":403,\"actor_id\":8,\"role\":\"Employee\"}\n{\"timestamp\":\"2026-11-24T18:10:57.849691+00:00\",\"event\":\"access_denied\",\"request_id\":\"a9cc0da19956409ea5b544e554ef3382\",\"method\":\"GET\",\"route\":\"/messages\",\"status\":403,\"actor_id\":8,\"role\":\"Employee\"}\n{\"timestamp\":\"2026-11-24T18:10:57.870759+00:00\",\"event\":\"sensitive_change\",\"request_id\":\"0c06b09e433f4a6d8d0ee9146b9ba497\",\"method\":\"POST\",\"route\":\"/clarifications\",\"status\":201,\"actor_id\":8,\"role\":\"Employee\"}\n{\"timestamp\":\"2026-11-24T18:10:57.878437+00:00\",\"event\":\"request_rejected\",\"request_id\":\"c1efe0b55d7f4838bdee4192218d29fc\",\"method\":\"POST\",\"route\":\"/clarifications\",\"status\":409,\"actor_id\":8,\"role\":\"Employee\"}\n{\"timestamp\":\"2026-11-24T18:10:57.882124+00:00\",\"event\":\"sensitive_change\",\"request_id\":\"89083ae719a346b7b9b5f18457d3c678\",\"method\":\"POST\",\"route\":\"/dev-auth/token\",\"status\":200,\"actor_id\":null,\"role\":null}\n{\"timestamp\":\"2026-11-24T18:10:57.907548+00:00\",\"event\":\"sensitive_change\",\"request_id\":\"33c87b8c72914e8bbe88e99bb09a4181\",\"method\":\"POST\",\"route\":\"/clarifications/{request_id}/replies\",\"status\":201,\"actor_id\":9,\"role\":\"Policy Owner\"}\n{\"timestamp\":\"2026-11-24T18:10:57.924102+00:00\",\"event\":\"sensitive_change\",\"request_id\":\"d3cd54c5fb814984915578216d36e3c0\",\"method\":\"POST\",\"route\":\"/clarifications/{request_id}/read\",\"status\":200,\"actor_id\":8,\"role\":\"Employee\"}\n{\"timestamp\":\"2026-11-24T18:10:57.937557+00:00\",\"event\":\"sensitive_change\",\"request_id\":\"fcf4a57a8f684c768715f6a7b79b23ac\",\"method\":\"POST\",\"route\":\"/clarifications/{request_id}/replies\",\"status\":201,\"actor_id\":8,\"role\":\"Employee\"}\n{\"timestamp\":\"2026-11-24T18:10:57.958325+00:00\",\"event\":\"sensitive_change\",\"request_id\":\"7621705eeb3844e7a0461c048e6ff9d1\",\"method\":\"POST\",\"route\":\"/clarifications/{request_id}/resolve\",\"status\":200,\"actor_id\":9,\"role\":\"Policy Owner\"}\n{\"timestamp\":\"2026-11-24T18:10:57.970940+00:00\",\"event\":\"sensitive_change\",\"request_id\":\"3e0b1b7312994e948d1b87f123ec4c3a\",\"method\":\"POST\",\"route\":\"/clarifications/{request_id}/close\",\"status\":200,\"actor_id\":9,\"role\":\"Policy Owner\"}\n{\"timestamp\":\"2026-11-24T18:10:57.983071+00:00\",\"event\":\"request_rejected\",\"request_id\":\"3d0698015f1a44d6a79cf45eb7ac2f88\",\"method\":\"POST\",\"route\":\"/clarifications/{request_id}/replies\",\"status\":409,\"actor_id\":8,\"role\":\"Employee\"}\n{\"timestamp\":\"2026-11-24T18:10:57.991645+00:00\",\"event\":\"sensitive_change\",\"request_id\":\"18020f1d6af040d48e56394497c5c694\",\"method\":\"POST\",\"route\":\"/clarifications/{request_id}/reopen\",\"status\":200,\"actor_id\":8,\"role\":\"Employee\"}\n{\"timestamp\":\"2026-11-24T18:10:58.017509+00:00\",\"event\":\"request_rejected\",\"request_id\":\"43825070a192472aa9ae9cb4953a3cfb\",\"method\":\"GET\",\"route\":\"/messages\",\"status\":422,\"actor_id\":8,\"role\":\"Employee\"}\n{\"timestamp\":\"2026-11-24T18:10:58.027695+00:00\",\"event\":\"sensitive_change\",\"request_id\":\"2ff72fa307b94dd5a08f5ddd270c91ea\",\"method\":\"POST\",\"route\":\"/dev-auth/token\",\"status\":200,\"actor_id\":null,\"role\":null}\n{\"timestamp\":\"2026-11-24T18:10:58.032385+00:00\",\"event\":\"access_denied\",\"request_id\":\"f239fafebadb44f78e5e8f252bf787e2\",\"method\":\"GET\",\"route\":\"/clarifications/{request_id}\",\"status\":404,\"actor_id\":12,\"role\":\"Policy Owner\"}\n{\"timestamp\":\"2026-11-24T18:10:58.036537+00:00\",\"event\":\"access_denied\",\"request_id\":\"6d626c09dbfa48ed8546536390394c52\",\"method\":\"POST\",\"route\":\"/clarifications/{request_id}/replies\",\"status\":404,\"actor_id\":12,\"role\":\"Policy Owner\"}\n{\"timestamp\":\"2026-11-24T18:10:58.040331+00:00\",\"event\":\"access_denied\",\"request_id\":\"6b58f54adb6e40ec802e07e068bb7073\",\"method\":\"POST\",\"route\":\"/clarifications/{request_id}/resolve\",\"status\":404,\"actor_id\":12,\"role\":\"Policy Owner\"}\n{\"timestamp\":\"2026-11-24T18:10:58.045737+00:00\",\"event\":\"access_denied\",\"request_id\":\"574cb4d0e69d49c89c2f45873474636c\",\"method\":\"POST\",\"route\":\"/clarifications/{request_id}/assign\",\"status\":403,\"actor_id\":9,\"role\":\"Policy Owner\"}\n{\"timestamp\":\"2026-11-24T18:10:58.049671+00:00\",\"event\":\"access_denied\",\"request_id\":\"c3ce076cb1b24c1584c12d9f1090cf38\",\"method\":\"POST\",\"route\":\"/clarifications/{request_id}/replies\",\"status\":403,\"actor_id\":8,\"role\":\"Employee\"}\n{\"timestamp\":\"2026-11-24T18:10:58.052621+00:00\",\"event\":\"sensitive_change\",\"request_id\":\"677b0af7872d4e0a9188d23594e74fcd\",\"method\":\"POST\",\"route\":\"/dev-auth/token\",\"status\":200,\"actor_id\":null,\"role\":null}\n{\"timestamp\":\"2026-11-24T18:10:58.080892+00:00\",\"event\":\"access_denied\",\"request_id\":\"d60f56cefd2943ecb4d0385c53c1d723\",\"method\":\"GET\",\"route\":\"/clarifications\",\"status\":403,\"actor_id\":8,\"role\":\"Employee\"}\n{\"timestamp\":\"2026-11-24T18:10:58.092572+00:00\",\"event\":\"sensitive_change\",\"request_id\":\"0781bac296854838b21d2a93e244520f\",\"method\":\"POST\",\"route\":\"/clarifications\",\"status\":201,\"actor_id\":8,\"role\":\"Employee\"}\n{\"timestamp\":\"2026-11-24T18:10:58.110297+00:00\",\"event\":\"administrative_action\",\"request_id\":\"d644004d85334d35a5510841d40b54cd\",\"method\":\"POST\",\"route\":\"/clarifications/{request_id}/assign\",\"status\":200,\"actor_id\":2,\"role\":\"System Administrator\"}\n{\"timestamp\":\"2026-11-24T18:10:58.122210+00:00\",\"event\":\"request_rejected\",\"request_id\":\"4835e58f2cfa4b549900e374a96e376e\",\"method\":\"POST\",\"route\":\"/clarifications/{request_id}/replies\",\"status\":422,\"actor_id\":8,\"role\":\"Employee\"}\n{\"timestamp\":\"2026-11-24T18:10:58.126119+00:00\",\"event\":\"request_rejected\",\"request_id\":\"58def2d81d864ff6b4f52ca34338d920\",\"method\":\"GET\",\"route\":\"/messages\",\"status\":422,\"actor_id\":8,\"role\":\"Employee\"}\n{\"timestamp\":\"2026-11-24T18:10:58.130974+00:00\",\"event\":\"request_rejected\",\"request_id\":\"c2ffee7e46db4a98a50cc4f4fb0881c9\",\"method\":\"POST\",\"route\":\"/clarifications\",\"status\":422,\"actor_id\":8,\"role\":\"Employee\"}\n{\"timestamp\":\"2026-11-24T18:10:58.134688+00:00\",\"event\":\"request_rejected\",\"request_id\":\"be63f8f01f844b789c690079addb351c\",\"method\":\"POST\",\"route\":\"/clarifications\",\"status\":422,\"actor_id\":8,\"role\":\"Employee\"}\n{\"timestamp\":\"2026-11-24T18:10:58.138589+00:00\",\"event\":\"access_denied\",\"request_id\":\"8ea8dc51650f42d58b73bdf4cd68ff32\",\"method\":\"POST\",\"route\":\"/clarifications\",\"status\":404,\"actor_id\":12,\"role\":\"Policy Owner\"}\n{\"timestamp\":\"2026-11-24T18:10:58.142835+00:00\",\"event\":\"authentication_failure\",\"request_id\":\"75332035e9d34bbc86fd4b57cdf4a820\",\"method\":\"GET\",\"route\":\"/conversations/{conversation_id}\",\"status\":401,\"actor_id\":null,\"role\":null}\n{\"timestamp\":\"2026-11-24T18:10:58.161301+00:00\",\"event\":\"sensitive_change\",\"request_id\":\"87c03d7077ec4e39a6dcd55b82a5609a\",\"method\":\"POST\",\"route\":\"/ask\",\"status\":200,\"actor_id\":8,\"role\":\"Employee\"}\n{\"timestamp\":\"2026-11-24T18:10:58.190855+00:00\",\"event\":\"access_denied\",\"request_id\":\"973b907818894c179862a55d9a2b35e4\",\"method\":\"GET\",\"route\":\"/dashboard/policy-health\",\"status\":403,\"actor_id\":8,\"role\":\"Employee\"}\n{\"timestamp\":\"2026-11-24T18:10:58.202547+00:00\",\"event\":\"authentication_failure\",\"request_id\":\"7a6bc68d8f1047e9bf306c9c042cd3ee\",\"method\":\"GET\",\"route\":\"/users\",\"status\":401,\"actor_id\":null,\"role\":null}\n",
+  "command": "derexi-policy-pilot/.venv/bin/python -B logic_1/verify_logic.py --child-suite week7",
+  "exit_code": 0
+}

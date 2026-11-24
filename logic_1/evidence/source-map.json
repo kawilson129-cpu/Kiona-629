@@ -1,0 +1,94 @@
+{
+  "1": [
+    {
+      "path": "derexi-policy-pilot/backend/main.py",
+      "function": "ask",
+      "start": 423,
+      "end": 575
+    },
+    {
+      "path": "derexi-policy-pilot/backend/main.py",
+      "function": "contains_keyword",
+      "start": 210,
+      "end": 217
+    },
+    {
+      "path": "derexi-policy-pilot/backend/schemas.py",
+      "function": "AskRequest",
+      "start": 49,
+      "end": 56
+    },
+    {
+      "path": "derexi-policy-pilot/backend/security.py",
+      "function": "get_identity",
+      "start": 142,
+      "end": 158
+    },
+    {
+      "path": "derexi-policy-pilot/backend/incident_assistance.py",
+      "function": "classify",
+      "start": 65,
+      "end": 88
+    },
+    {
+      "path": "derexi-policy-pilot/backend/main.py",
+      "function": "add_security_headers",
+      "start": 106,
+      "end": 133
+    },
+    {
+      "path": "derexi-policy-pilot/backend/database.py",
+      "function": "get_db",
+      "start": 57,
+      "end": 63
+    }
+  ],
+  "2": [
+    {
+      "path": "derexi-policy-pilot/backend/main.py",
+      "function": "ask",
+      "start": 423,
+      "end": 575
+    },
+    {
+      "path": "derexi-policy-pilot/backend/database.py",
+      "function": "get_db",
+      "start": 57,
+      "end": 63
+    }
+  ],
+  "3": [
+    {
+      "path": "derexi-policy-pilot/backend/security.py",
+      "function": "require_owner_or_admin",
+      "start": 223,
+      "end": 226
+    },
+    {
+      "path": "derexi-policy-pilot/backend/security.py",
+      "function": "Identity",
+      "start": 46,
+      "end": 66
+    },
+    {
+      "path": "derexi-policy-pilot/backend/main.py",
+      "function": "create_feedback",
+      "start": 770,
+      "end": 807
+    }
+  ],
+  "4": [
+    {
+      "path": "derexi-policy-pilot/backend/messaging.py",
+      "function": "list_notifications",
+      "start": 518,
+      "end": 579
+    },
+    {
+      "path": "derexi-policy-pilot/backend/messaging.py",
+      "function": "_unread_count",
+      "start": 143,
+      "end": 152
+    }
+  ]
+}

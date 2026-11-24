@@ -1,0 +1,7 @@
+{
+  "mermaid_cli_found": false,
+  "local_mermaid_package_found": false,
+  "local_mermaid_cli_package_found": false,
+  "limitation": "No installed Mermaid renderer/parser discovered; editable Mermaid and embedded diagrams provided. No dependency install or fabricated export.",
+  "available_test_runtime": "derexi-policy-pilot/.venv/bin/python (3.9.6), existing FastAPI/SQLAlchemy/httpx/JWT packages available."
+}

@@ -1,0 +1,330 @@
+{
+  "timestamp": "2026-11-24T18:18:02.149632+00:00",
+  "scope": "Offline file, source, graph-subset and reference checks; not official Mermaid parsing or image export",
+  "passed": 53,
+  "failed": 0,
+  "checks": [
+    {
+      "name": "Four requested course deliverables",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "assignment_1_algorithms README and evidence",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "assignment_2_flowcharts README and evidence",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "assignment_3_boolean_logic README and evidence",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "assignment_4_conditional_logic README and evidence",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Algorithm has fourteen ordered steps, exceeding six",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Algorithm identifies inputs, outputs, source, branches and cleanup",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "policy-assistance.mmd supported structural subset",
+      "status": "PASS",
+      "detail": []
+    },
+    {
+      "name": "policy-assistance.mmd declared node references",
+      "status": "PASS",
+      "detail": []
+    },
+    {
+      "name": "policy-assistance.mmd all nodes on a Start-to-Stop path",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "policy-assistance.mmd true/false decision branches",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "rbac-guard.mmd supported structural subset",
+      "status": "PASS",
+      "detail": []
+    },
+    {
+      "name": "rbac-guard.mmd declared node references",
+      "status": "PASS",
+      "detail": []
+    },
+    {
+      "name": "rbac-guard.mmd all nodes on a Start-to-Stop path",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "rbac-guard.mmd true/false decision branches",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "feedback-access.mmd supported structural subset",
+      "status": "PASS",
+      "detail": []
+    },
+    {
+      "name": "feedback-access.mmd declared node references",
+      "status": "PASS",
+      "detail": []
+    },
+    {
+      "name": "feedback-access.mmd all nodes on a Start-to-Stop path",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "feedback-access.mmd true/false decision branches",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "notification-kind.mmd supported structural subset",
+      "status": "PASS",
+      "detail": []
+    },
+    {
+      "name": "notification-kind.mmd declared node references",
+      "status": "PASS",
+      "detail": []
+    },
+    {
+      "name": "notification-kind.mmd all nodes on a Start-to-Stop path",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "notification-kind.mmd true/false decision branches",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "A2 has six distinct symbol families",
+      "status": "PASS",
+      "detail": [
+        "data_store",
+        "decision",
+        "input_output",
+        "predefined_process",
+        "process",
+        "terminator"
+      ]
+    },
+    {
+      "name": "A2 matches A1 evidence, incident, fallback and cleanup paths",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "A2 Start and Stop are actual terminators",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "A4 source genuinely contains if, elif and else",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "A4 source excerpt matches original conditional exactly",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "A4 pseudocode preserves scoped unread precondition, branch order and fallback",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "All 23 source decisions passed in actual execution",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Twelve Boolean cases include source and equivalent truth decisions",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Six conditional samples are actual successful extracted-branch cases",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Existing regression results reconcile: 73 + 42 = 115",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "week7 no network attempt and successful process",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "week10 no network attempt and successful process",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Original hash unchanged: logic_1/stay_data_stay.py",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Original hash unchanged: derexi-policy-pilot/backend/main.py",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Original hash unchanged: derexi-policy-pilot/backend/security.py",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Original hash unchanged: derexi-policy-pilot/backend/messaging.py",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Original hash unchanged: derexi-policy-pilot/backend/incident_assistance.py",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Original hash unchanged: derexi-policy-pilot/backend/database.py",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Original hash unchanged: derexi-policy-pilot/backend/schemas.py",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Original hash unchanged: derexi-policy-pilot/backend/tests/messaging_fixture.py",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Original hash unchanged: derexi-policy-pilot/backend/tests/test_week7_messaging.py",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Original hash unchanged: derexi-policy-pilot/backend/tests/test_week10_integration.py",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Original hash unchanged: design_documentation_1/assignment_08_algorithm/DELIVERABLE.md",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Original hash unchanged: design_documentation_1/assignment_09_flowchart/policy-assistance.mmd",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Original hash unchanged: MEMORY.md",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "All source references have valid line ranges",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "All local evidence/source/navigation links resolve",
+      "status": "PASS",
+      "detail": {
+        "checked": 96,
+        "broken": []
+      }
+    },
+    {
+      "name": "Markdown code fences balanced",
+      "status": "PASS",
+      "detail": []
+    },
+    {
+      "name": "Verification script syntax valid without bytecode writes",
+      "status": "PASS",
+      "detail": []
+    },
+    {
+      "name": "Changes confined to existing Logic 1 course",
+      "status": "PASS",
+      "detail": {
+        "paths": 32,
+        "outside_course": []
+      }
+    }
+  ],
+  "diagrams": {
+    "policy-assistance.mmd": {
+      "nodes": 34,
+      "edges": 46,
+      "symbol_families": [
+        "data_store",
+        "decision",
+        "input_output",
+        "predefined_process",
+        "process",
+        "terminator"
+      ]
+    },
+    "rbac-guard.mmd": {
+      "nodes": 6,
+      "edges": 6,
+      "symbol_families": [
+        "decision",
+        "input_output",
+        "terminator"
+      ]
+    },
+    "feedback-access.mmd": {
+      "nodes": 7,
+      "edges": 8,
+      "symbol_families": [
+        "decision",
+        "input_output",
+        "terminator"
+      ]
+    },
+    "notification-kind.mmd": {
+      "nodes": 9,
+      "edges": 10,
+      "symbol_families": [
+        "decision",
+        "input_output",
+        "process",
+        "terminator"
+      ]
+    }
+  },
+  "mermaid_engine_parse": "NOT VERIFIED; unavailable",
+  "image_export": "NOT GENERATED; renderer unavailable"
+}

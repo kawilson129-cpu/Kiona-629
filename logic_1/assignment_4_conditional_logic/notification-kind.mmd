@@ -1,0 +1,11 @@
+flowchart TD
+    START([Start]) --> INPUT[/Authorized query row; unread count greater than zero/]
+    INPUT --> TRIAGE{Unassigned AND caller is admin?}
+    TRIAGE -->|True| SETTRIAGE[kind triage; actor requester name]
+    TRIAGE -->|False| ASSIGNED{Assigned to caller AND reply count zero?}
+    ASSIGNED -->|True| SETASSIGNED[kind assigned; actor requester name]
+    ASSIGNED -->|False| SETREPLY[kind reply; actor first truthy sender or assignee or requester name]
+    SETTRIAGE --> OUTPUT[/Append notification item with kind and actor/]
+    SETASSIGNED --> OUTPUT
+    SETREPLY --> OUTPUT
+    OUTPUT --> STOP([Stop])

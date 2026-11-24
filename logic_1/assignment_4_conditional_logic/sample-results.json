@@ -1,0 +1,161 @@
+{
+  "scope": "Synthetic inputs; actual original classification branch, not HTTP response examples",
+  "cases": [
+    {
+      "name": "N1 triage precedence",
+      "status": "PASS",
+      "inputs": {
+        "row": {
+          "assigned_to": null,
+          "reply_count": 3,
+          "requester_name": "Requester",
+          "last_reply_sender_name": "Responder",
+          "assignee_name": "Assignee"
+        },
+        "caller": {
+          "is_admin": true,
+          "user_id": 2
+        },
+        "precondition": "caller-scoped unread row"
+      },
+      "expected": {
+        "kind": "triage",
+        "actor": "Requester"
+      },
+      "actual": {
+        "kind": "triage",
+        "actor": "Requester"
+      }
+    },
+    {
+      "name": "N2 new assignment",
+      "status": "PASS",
+      "inputs": {
+        "row": {
+          "assigned_to": 8,
+          "reply_count": null,
+          "requester_name": "Requester",
+          "last_reply_sender_name": null,
+          "assignee_name": "Assignee"
+        },
+        "caller": {
+          "is_admin": false,
+          "user_id": 8
+        },
+        "precondition": "caller-scoped unread row"
+      },
+      "expected": {
+        "kind": "assigned",
+        "actor": "Requester"
+      },
+      "actual": {
+        "kind": "assigned",
+        "actor": "Requester"
+      }
+    },
+    {
+      "name": "N3 reply sender",
+      "status": "PASS",
+      "inputs": {
+        "row": {
+          "assigned_to": 9,
+          "reply_count": 2,
+          "requester_name": "Requester",
+          "last_reply_sender_name": "Responder",
+          "assignee_name": "Assignee"
+        },
+        "caller": {
+          "is_admin": false,
+          "user_id": 8
+        },
+        "precondition": "caller-scoped unread row"
+      },
+      "expected": {
+        "kind": "reply",
+        "actor": "Responder"
+      },
+      "actual": {
+        "kind": "reply",
+        "actor": "Responder"
+      }
+    },
+    {
+      "name": "N4 assignee fallback",
+      "status": "PASS",
+      "inputs": {
+        "row": {
+          "assigned_to": 9,
+          "reply_count": 1,
+          "requester_name": "Requester",
+          "last_reply_sender_name": null,
+          "assignee_name": "Assignee"
+        },
+        "caller": {
+          "is_admin": false,
+          "user_id": 8
+        },
+        "precondition": "caller-scoped unread row"
+      },
+      "expected": {
+        "kind": "reply",
+        "actor": "Assignee"
+      },
+      "actual": {
+        "kind": "reply",
+        "actor": "Assignee"
+      }
+    },
+    {
+      "name": "N5 requester fallback",
+      "status": "PASS",
+      "inputs": {
+        "row": {
+          "assigned_to": null,
+          "reply_count": 1,
+          "requester_name": "Requester",
+          "last_reply_sender_name": null,
+          "assignee_name": null
+        },
+        "caller": {
+          "is_admin": false,
+          "user_id": 8
+        },
+        "precondition": "caller-scoped unread row"
+      },
+      "expected": {
+        "kind": "reply",
+        "actor": "Requester"
+      },
+      "actual": {
+        "kind": "reply",
+        "actor": "Requester"
+      }
+    },
+    {
+      "name": "N6 admin assigned to self",
+      "status": "PASS",
+      "inputs": {
+        "row": {
+          "assigned_to": 2,
+          "reply_count": 0,
+          "requester_name": "Requester",
+          "last_reply_sender_name": null,
+          "assignee_name": "Assignee"
+        },
+        "caller": {
+          "is_admin": true,
+          "user_id": 2
+        },
+        "precondition": "caller-scoped unread row"
+      },
+      "expected": {
+        "kind": "assigned",
+        "actor": "Requester"
+      },
+      "actual": {
+        "kind": "assigned",
+        "actor": "Requester"
+      }
+    }
+  ]
+}

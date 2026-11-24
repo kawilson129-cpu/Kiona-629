@@ -1,0 +1,7 @@
+flowchart TD
+    START([Start]) --> INPUT[/Already authenticated identity: A and O flags/]
+    INPUT --> GUARD{NOT A AND NOT O?}
+    GUARD -->|True| DENY[/403 Policy owner access required/]
+    GUARD -->|False| ALLOW[/Return identity; coarse role guard passed/]
+    DENY --> STOP([Stop])
+    ALLOW --> STOP

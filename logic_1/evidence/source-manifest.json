@@ -1,0 +1,58 @@
+{
+  "reviewed_at": "2026-11-24T18:08:39.257457+00:00",
+  "scope": "Existing Logic 1 has one legacy Python submission and no separate course-specific instruction file; supplied four criteria treated as four deliverables of one final project.",
+  "sources": [
+    {
+      "path": "logic_1/stay_data_stay.py",
+      "sha256": "6e51e0fe28800c3fc7b85385e50c77e7e6e781695d851433b6163989fcab4905"
+    },
+    {
+      "path": "derexi-policy-pilot/backend/main.py",
+      "sha256": "cdef2664b2b6bf27056dd127ed9a60a49b198bbdd80f6d1a204d3e518964a95b"
+    },
+    {
+      "path": "derexi-policy-pilot/backend/security.py",
+      "sha256": "c0ca629a4004cb5715ff437626b30917038fd8dfb5829491057eb8d22d980a58"
+    },
+    {
+      "path": "derexi-policy-pilot/backend/messaging.py",
+      "sha256": "04bad18f53570abd196e96567f81cd21bb55edb42a6ee12e3cae8c7d24cc2682"
+    },
+    {
+      "path": "derexi-policy-pilot/backend/incident_assistance.py",
+      "sha256": "839600de0610cb0422af048768b35d4fb31c3d2b573a003e8f47357df7eb4e4e"
+    },
+    {
+      "path": "derexi-policy-pilot/backend/database.py",
+      "sha256": "47762db9baf75da41893dbedb856a763e268cf6c22e8c508d3691e5eceb76128"
+    },
+    {
+      "path": "derexi-policy-pilot/backend/schemas.py",
+      "sha256": "b0d759d109df61cf983e5fc9375b8eea123d9a1e6427ffa3dc0b4e7cc12b8c52"
+    },
+    {
+      "path": "derexi-policy-pilot/backend/tests/messaging_fixture.py",
+      "sha256": "043c6c93715d8269aefc74f6ebcde2ee968a8fef9fe4f52c8b9ef3d59a1b3f47"
+    },
+    {
+      "path": "derexi-policy-pilot/backend/tests/test_week7_messaging.py",
+      "sha256": "6cfa90e72eda14f03b66268bae7ef010db5ac9c674caed9092b7c47b06d54ead"
+    },
+    {
+      "path": "derexi-policy-pilot/backend/tests/test_week10_integration.py",
+      "sha256": "ad6ef49771c078c6543e1862c755f7c5bc3dce75effff655c108f20ac4ad6f6d"
+    },
+    {
+      "path": "design_documentation_1/assignment_08_algorithm/DELIVERABLE.md",
+      "sha256": "f863e923fa5c104ecc9464e1df122613b9ca7acc3628374d21508b82d3ac5fd1"
+    },
+    {
+      "path": "design_documentation_1/assignment_09_flowchart/policy-assistance.mmd",
+      "sha256": "89be14104dea5339a117f3af4a940756eca1c43defcbc7c1d5195887b87673f9"
+    },
+    {
+      "path": "MEMORY.md",
+      "sha256": "4383c8ac97d7595018dc263ad6d3594601668ecf01a5960d66303b7dea72630f"
+    }
+  ]
+}

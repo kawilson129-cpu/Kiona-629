@@ -1,0 +1,61 @@
+PASS I01 Assistant persists uncertain answer and clarification
+PASS I02 New Assistant thread reaches requester Messaging
+PASS I03 Unmatched policy reaches administrator triage
+PASS I04 Unrelated owner cannot open Assistant thread
+PASS I05 Administrator routes thread to Jordan
+PASS I06 Assigned owner receives notification
+PASS I07 Owner response persists through Messaging
+PASS I08 Employee sees owner response with original question
+PASS I09 Owner reply notifies employee
+PASS I10 Empty Assistant input rejected
+PASS I11 Answer feedback accepted
+PASS I12 Administrator dashboard counts saved helpful feedback
+PASS I13 Department owner dashboard includes cited feedback
+PASS I14 Other department cannot see cited feedback
+PASS I15 Re-rating updates existing row
+PASS I16 Another employee cannot rate private answer
+PASS I17 Non-boolean rating rejected
+PASS I18 Employee questions cannot pollute answer feedback
+PASS I19 Employee incident report accepted
+PASS I20 Incident reaches authorized administrator
+PASS I21 Owner cannot triage incident
+PASS I22 Administrator triage and assignment persist
+PASS I23 Explicit handler sees assigned incident
+PASS I24 Other department incident access denied
+PASS I25 Employee dashboard denied
+PASS I26 Publisher binding FDIC https://www.fdic.gov/news/example
+PASS I26 Publisher binding FDIC https://fdic.gov/news/example
+PASS I26 Publisher binding FDIC https://content.govdelivery.com/accounts/USFDIC/bulletins/abc
+PASS I26 Publisher binding FDIC https://content.govdelivery.com/accounts/OTHER/bulletins/abc
+PASS I26 Publisher binding FDIC https://content.govdelivery.com/accounts/USFDIC/bulletins/../../OTHER/bulletins/abc
+PASS I26 Publisher binding FDIC https://content.govdelivery.com/accounts/USFDIC/bulletins/%2e%2e/OTHER
+PASS I26 Publisher binding FDIC https://secure-fdic-verification.example/login
+PASS I26 Publisher binding FDIC https://www.fdic.gov.evil.example/login
+PASS I26 Publisher binding FDIC https://evilfdic.gov/login
+PASS I26 Publisher binding FDIC https://www.fdic.gov:444/login
+PASS I26 Publisher binding FDIC https://www.fdic.gov:bad/login
+PASS I26 Publisher binding FDIC https://www.fdic.gov\@evil.example/login
+PASS I26 Publisher binding FDIC https://user@www.fdic.gov/news
+PASS I26 Publisher binding NIST https://csrc.nist.gov/pubs/example
+PASS I26 Publisher binding Federal Register https://www.federalregister.gov/documents/example
+PASS I26 Publisher binding Federal Reserve https://www.federalreserve.gov/newsevents/example
+PASS I26 Publisher binding Unknown https://www.fdic.gov/news/example
+{"timestamp":"2026-11-24T18:10:59.206809+00:00","event":"sensitive_change","request_id":"855e7569ce4243cfa25fea34b55a4e46","method":"POST","route":"/dev-auth/token","status":200,"actor_id":null,"role":null}
+{"timestamp":"2026-11-24T18:10:59.210441+00:00","event":"sensitive_change","request_id":"8208d11c7d6c48ceb379e03b0ce7a33d","method":"POST","route":"/dev-auth/token","status":200,"actor_id":null,"role":null}
+{"timestamp":"2026-11-24T18:10:59.213617+00:00","event":"sensitive_change","request_id":"0fa4b608fe4d4f1cbc61392d0d5b968a","method":"POST","route":"/dev-auth/token","status":200,"actor_id":null,"role":null}
+{"timestamp":"2026-11-24T18:10:59.217198+00:00","event":"sensitive_change","request_id":"1858d2ddb9f8483e88e87a3ab1212182","method":"POST","route":"/dev-auth/token","status":200,"actor_id":null,"role":null}
+{"timestamp":"2026-11-24T18:10:59.220535+00:00","event":"sensitive_change","request_id":"be51c4afcc2b4eb1abd9833be64eb074","method":"POST","route":"/dev-auth/token","status":200,"actor_id":null,"role":null}
+{"timestamp":"2026-11-24T18:10:59.240997+00:00","event":"sensitive_change","request_id":"e57f1a03bc44426c9b5022ef46638ee0","method":"POST","route":"/ask","status":200,"actor_id":8,"role":"Employee"}
+{"timestamp":"2026-11-24T18:10:59.267031+00:00","event":"access_denied","request_id":"ff12c29e6ef84476962b505bdd02708f","method":"GET","route":"/clarifications/{request_id}","status":404,"actor_id":12,"role":"Policy Owner"}
+{"timestamp":"2026-11-24T18:10:59.279803+00:00","event":"administrative_action","request_id":"d3e6140d55e8412489a4a0936de3969f","method":"POST","route":"/clarifications/{request_id}/assign","status":200,"actor_id":2,"role":"System Administrator"}
+{"timestamp":"2026-11-24T18:10:59.297415+00:00","event":"sensitive_change","request_id":"6eb3ad518c7141a4a87cd604931e584b","method":"POST","route":"/clarifications/{request_id}/replies","status":201,"actor_id":9,"role":"Policy Owner"}
+{"timestamp":"2026-11-24T18:10:59.311859+00:00","event":"request_rejected","request_id":"91eeb8de73db493ea3abea0c6f0854c7","method":"POST","route":"/ask","status":422,"actor_id":8,"role":"Employee"}
+{"timestamp":"2026-11-24T18:10:59.323132+00:00","event":"sensitive_change","request_id":"5c25fda5a1b54e39875416e95ac2a853","method":"POST","route":"/feedback","status":201,"actor_id":8,"role":"Employee"}
+{"timestamp":"2026-11-24T18:10:59.360984+00:00","event":"sensitive_change","request_id":"c6d7c472e16d4dfb884a7237c1645d09","method":"POST","route":"/feedback","status":201,"actor_id":8,"role":"Employee"}
+{"timestamp":"2026-11-24T18:10:59.370934+00:00","event":"access_denied","request_id":"9aed9de740864bc99ee30eb59fe83e60","method":"POST","route":"/feedback","status":404,"actor_id":4,"role":"Policy Owner"}
+{"timestamp":"2026-11-24T18:10:59.374447+00:00","event":"request_rejected","request_id":"08a68771e5ed4f7fbe5c99df711435c4","method":"POST","route":"/feedback","status":422,"actor_id":8,"role":"Employee"}
+{"timestamp":"2026-11-24T18:10:59.378641+00:00","event":"request_rejected","request_id":"3f814a46771949db9febbd566913f9f5","method":"POST","route":"/feedback","status":422,"actor_id":8,"role":"Employee"}
+{"timestamp":"2026-11-24T18:10:59.386420+00:00","event":"sensitive_change","request_id":"0ec3cf7e4de0443eb660b907082edbb5","method":"POST","route":"/incidents","status":201,"actor_id":8,"role":"Employee"}
+{"timestamp":"2026-11-24T18:10:59.397329+00:00","event":"access_denied","request_id":"62dd1f298a4c493d94fd11c3a218a6ca","method":"PATCH","route":"/incidents/{incident_id}","status":403,"actor_id":9,"role":"Policy Owner"}
+{"timestamp":"2026-11-24T18:10:59.405884+00:00","event":"administrative_action","request_id":"96c4f35fc74c4b21a652872f6b7fdb7a","method":"PATCH","route":"/incidents/{incident_id}","status":200,"actor_id":2,"role":"System Administrator"}
+{"timestamp":"2026-11-24T18:10:59.423298+00:00","event":"access_denied","request_id":"c88968aa32d044b286069c99b6f8ce7b","method":"GET","route":"/dashboard/policy-health","status":403,"actor_id":8,"role":"Employee"}

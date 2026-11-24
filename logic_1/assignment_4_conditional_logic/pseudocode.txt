@@ -1,0 +1,16 @@
+CLASSIFY_VISIBLE_UNREAD_NOTIFICATION(row, identity):
+    PRECONDITION: row came from the caller-scoped notification query.
+    PRECONDITION: _unread_count(row, identity) > 0; earlier loop skips other rows.
+    IF row.assigned_to IS NONE AND identity.is_admin:
+        kind = "triage"
+        actor = row.requester_name
+    ELIF row.assigned_to == identity.user_id AND int(row.reply_count OR 0) == 0:
+        kind = "assigned"
+        actor = row.requester_name
+    ELSE:
+        kind = "reply"
+        actor = first truthy value of row.last_reply_sender_name,
+                row.assignee_name, row.requester_name
+    Append the ordinary notification item including kind and actor.
+    The surrounding endpoint stops after 20 items; it queried at most 100 rows.
+    This pseudocode describes the classification fragment, not the entire endpoint.

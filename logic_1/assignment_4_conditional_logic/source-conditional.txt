@@ -1,0 +1,10 @@
+# Verbatim original branch fragment; source starts at line 547
+if row["assigned_to"] is None and identity.is_admin:
+            kind = "triage"
+            actor = row["requester_name"]
+        elif row["assigned_to"] == identity.user_id and int(row["reply_count"] or 0) == 0:
+            kind = "assigned"
+            actor = row["requester_name"]
+        else:
+            kind = "reply"
+            actor = row["last_reply_sender_name"] or row["assignee_name"] or row["requester_name"]

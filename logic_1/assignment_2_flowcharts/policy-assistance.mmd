@@ -1,0 +1,47 @@
+flowchart TD
+    START([Start]) --> INPUT[/Policy question and request credentials/]
+    INPUT --> FRAMEWORK[[Resolve identity and validate request schema]]
+    FRAMEWORK --> VALID{Identity and payload accepted?}
+    VALID -->|False| REJECT[/Safe authentication or validation error/]
+    REJECT --> CLEANUP[[Close request session if opened]]
+    VALID -->|True| ACTOR{Legacy user ID absent or matches actor?}
+    ACTOR -->|False| FORBIDDEN[/403 identity mismatch/]
+    FORBIDDEN --> CLEANUP
+    ACTOR -->|True| USER[Load application user]
+    USER --> EXISTS{User exists?}
+    EXISTS -->|False| MISSING[/404 user not found/]
+    MISSING --> CLEANUP
+    EXISTS -->|True| CLASSIFY[[Protect text and classify reported event]]
+    CLASSIFY -->|Unsafe input| UNSAFE[/422 safe input rejection/]
+    UNSAFE --> CLEANUP
+    CLASSIFY --> INCIDENT{Potential incident?}
+    INCIDENT -->|True| SAFETY[/200 incident guidance; no automatic report or email/]
+    SAFETY --> CLEANUP
+    INCIDENT -->|False| STAGE[Stage conversation and user message]
+    STAGE --> SEARCH[[Query top three current approved policy versions]]
+    SEARCH --> POLICYDB[(PostgreSQL policies and policy versions)]
+    POLICYDB --> SCORE{Results exist AND top score at least 0.22?}
+    SCORE -->|False| OWNER[Choose top policy owner if available; otherwise triage]
+    SCORE -->|True| KEYWORDS{Substantive keywords AND matching evidence?}
+    KEYWORDS -->|False| OWNER
+    KEYWORDS -->|True| CONTEXT[Build context from results meeting threshold]
+    CONTEXT --> REWRITE[[Attempt optional AI rewrite]]
+    REWRITE --> USABLE{Usable AI answer returned?}
+    USABLE -->|True| ANSWER[Use rewrite with appended policy reference]
+    USABLE -->|False| FALLBACK[Use deterministic guidance with policy reference]
+    ANSWER --> SAVEANSWER[Save assistant message and citations; commit]
+    FALLBACK --> SAVEANSWER
+    SAVEANSWER --> ANSWERDB[(Conversation messages and citations)]
+    ANSWERDB --> GUIDANCE[/200 answer and IDs; clarification false/]
+    GUIDANCE --> CLEANUP
+    OWNER --> SAVECLARIFY[Save uncertainty answer; clarification; read watermark; commit]
+    SAVECLARIFY --> CLARIFYDB[(Conversation and clarification records)]
+    CLARIFYDB --> CLARIFICATION[/200 clarification IDs; triage iff no assignee/]
+    CLARIFICATION --> CLEANUP
+    USER -->|Unhandled database error| ERROR[/500 generic error with request ID/]
+    STAGE -->|Unhandled persistence error| ERROR
+    SEARCH -->|Unhandled database error| ERROR
+    SAVEANSWER -->|Unhandled persistence error| ERROR
+    SAVECLARIFY -->|Unhandled persistence error| ERROR
+    ERROR --> CLEANUP
+    CLEANUP --> STOP([Stop])

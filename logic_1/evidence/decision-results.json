@@ -1,0 +1,467 @@
+{
+  "timestamp": "2026-11-24T18:14:45.500516+00:00",
+  "mode": "Original AST expressions/branch fragment executed unchanged; synthetic inputs; no app import or mocks of decision results",
+  "passed": 23,
+  "failed": 0,
+  "cases": [
+    {
+      "name": "RBAC 00",
+      "status": "PASS",
+      "inputs": {
+        "A_admin": "0",
+        "O_owner": "0",
+        "DENY": "1",
+        "ALLOW": "0"
+      },
+      "expected": {
+        "deny": true,
+        "allow": false,
+        "equivalent_deny": true
+      },
+      "actual": {
+        "deny": true,
+        "allow": false,
+        "equivalent_deny": true
+      }
+    },
+    {
+      "name": "RBAC 01",
+      "status": "PASS",
+      "inputs": {
+        "A_admin": "0",
+        "O_owner": "1",
+        "DENY": "0",
+        "ALLOW": "1"
+      },
+      "expected": {
+        "deny": false,
+        "allow": true,
+        "equivalent_deny": false
+      },
+      "actual": {
+        "deny": false,
+        "allow": true,
+        "equivalent_deny": false
+      }
+    },
+    {
+      "name": "RBAC 10",
+      "status": "PASS",
+      "inputs": {
+        "A_admin": "1",
+        "O_owner": "0",
+        "DENY": "0",
+        "ALLOW": "1"
+      },
+      "expected": {
+        "deny": false,
+        "allow": true,
+        "equivalent_deny": false
+      },
+      "actual": {
+        "deny": false,
+        "allow": true,
+        "equivalent_deny": false
+      }
+    },
+    {
+      "name": "RBAC 11",
+      "status": "PASS",
+      "inputs": {
+        "A_admin": "1",
+        "O_owner": "1",
+        "DENY": "0",
+        "ALLOW": "1"
+      },
+      "expected": {
+        "deny": false,
+        "allow": true,
+        "equivalent_deny": false
+      },
+      "actual": {
+        "deny": false,
+        "allow": true,
+        "equivalent_deny": false
+      }
+    },
+    {
+      "name": "Feedback 000",
+      "status": "PASS",
+      "inputs": {
+        "C_conversation": "0",
+        "S_self": "0",
+        "A_admin": "0",
+        "DENY": "1",
+        "ALLOW": "0"
+      },
+      "expected": {
+        "deny": true,
+        "allow": false,
+        "equivalent_allow": false
+      },
+      "actual": {
+        "deny": true,
+        "allow": false,
+        "equivalent_allow": false
+      }
+    },
+    {
+      "name": "Feedback 001",
+      "status": "PASS",
+      "inputs": {
+        "C_conversation": "0",
+        "S_self": "0",
+        "A_admin": "1",
+        "DENY": "1",
+        "ALLOW": "0"
+      },
+      "expected": {
+        "deny": true,
+        "allow": false,
+        "equivalent_allow": false
+      },
+      "actual": {
+        "deny": true,
+        "allow": false,
+        "equivalent_allow": false
+      }
+    },
+    {
+      "name": "Feedback 010",
+      "status": "PASS",
+      "inputs": {
+        "C_conversation": "0",
+        "S_self": "1",
+        "A_admin": "0",
+        "DENY": "1",
+        "ALLOW": "0"
+      },
+      "expected": {
+        "deny": true,
+        "allow": false,
+        "equivalent_allow": false
+      },
+      "actual": {
+        "deny": true,
+        "allow": false,
+        "equivalent_allow": false
+      }
+    },
+    {
+      "name": "Feedback 011",
+      "status": "PASS",
+      "inputs": {
+        "C_conversation": "0",
+        "S_self": "1",
+        "A_admin": "1",
+        "DENY": "1",
+        "ALLOW": "0"
+      },
+      "expected": {
+        "deny": true,
+        "allow": false,
+        "equivalent_allow": false
+      },
+      "actual": {
+        "deny": true,
+        "allow": false,
+        "equivalent_allow": false
+      }
+    },
+    {
+      "name": "Feedback 100",
+      "status": "PASS",
+      "inputs": {
+        "C_conversation": "1",
+        "S_self": "0",
+        "A_admin": "0",
+        "DENY": "1",
+        "ALLOW": "0"
+      },
+      "expected": {
+        "deny": true,
+        "allow": false,
+        "equivalent_allow": false
+      },
+      "actual": {
+        "deny": true,
+        "allow": false,
+        "equivalent_allow": false
+      }
+    },
+    {
+      "name": "Feedback 101",
+      "status": "PASS",
+      "inputs": {
+        "C_conversation": "1",
+        "S_self": "0",
+        "A_admin": "1",
+        "DENY": "0",
+        "ALLOW": "1"
+      },
+      "expected": {
+        "deny": false,
+        "allow": true,
+        "equivalent_allow": true
+      },
+      "actual": {
+        "deny": false,
+        "allow": true,
+        "equivalent_allow": true
+      }
+    },
+    {
+      "name": "Feedback 110",
+      "status": "PASS",
+      "inputs": {
+        "C_conversation": "1",
+        "S_self": "1",
+        "A_admin": "0",
+        "DENY": "0",
+        "ALLOW": "1"
+      },
+      "expected": {
+        "deny": false,
+        "allow": true,
+        "equivalent_allow": true
+      },
+      "actual": {
+        "deny": false,
+        "allow": true,
+        "equivalent_allow": true
+      }
+    },
+    {
+      "name": "Feedback 111",
+      "status": "PASS",
+      "inputs": {
+        "C_conversation": "1",
+        "S_self": "1",
+        "A_admin": "1",
+        "DENY": "0",
+        "ALLOW": "1"
+      },
+      "expected": {
+        "deny": false,
+        "allow": true,
+        "equivalent_allow": true
+      },
+      "actual": {
+        "deny": false,
+        "allow": true,
+        "equivalent_allow": true
+      }
+    },
+    {
+      "name": "N1 triage precedence",
+      "status": "PASS",
+      "inputs": {
+        "row": {
+          "assigned_to": null,
+          "reply_count": 3,
+          "requester_name": "Requester",
+          "last_reply_sender_name": "Responder",
+          "assignee_name": "Assignee"
+        },
+        "caller": {
+          "is_admin": true,
+          "user_id": 2
+        },
+        "precondition": "caller-scoped unread row"
+      },
+      "expected": {
+        "kind": "triage",
+        "actor": "Requester"
+      },
+      "actual": {
+        "kind": "triage",
+        "actor": "Requester"
+      }
+    },
+    {
+      "name": "N2 new assignment",
+      "status": "PASS",
+      "inputs": {
+        "row": {
+          "assigned_to": 8,
+          "reply_count": null,
+          "requester_name": "Requester",
+          "last_reply_sender_name": null,
+          "assignee_name": "Assignee"
+        },
+        "caller": {
+          "is_admin": false,
+          "user_id": 8
+        },
+        "precondition": "caller-scoped unread row"
+      },
+      "expected": {
+        "kind": "assigned",
+        "actor": "Requester"
+      },
+      "actual": {
+        "kind": "assigned",
+        "actor": "Requester"
+      }
+    },
+    {
+      "name": "N3 reply sender",
+      "status": "PASS",
+      "inputs": {
+        "row": {
+          "assigned_to": 9,
+          "reply_count": 2,
+          "requester_name": "Requester",
+          "last_reply_sender_name": "Responder",
+          "assignee_name": "Assignee"
+        },
+        "caller": {
+          "is_admin": false,
+          "user_id": 8
+        },
+        "precondition": "caller-scoped unread row"
+      },
+      "expected": {
+        "kind": "reply",
+        "actor": "Responder"
+      },
+      "actual": {
+        "kind": "reply",
+        "actor": "Responder"
+      }
+    },
+    {
+      "name": "N4 assignee fallback",
+      "status": "PASS",
+      "inputs": {
+        "row": {
+          "assigned_to": 9,
+          "reply_count": 1,
+          "requester_name": "Requester",
+          "last_reply_sender_name": null,
+          "assignee_name": "Assignee"
+        },
+        "caller": {
+          "is_admin": false,
+          "user_id": 8
+        },
+        "precondition": "caller-scoped unread row"
+      },
+      "expected": {
+        "kind": "reply",
+        "actor": "Assignee"
+      },
+      "actual": {
+        "kind": "reply",
+        "actor": "Assignee"
+      }
+    },
+    {
+      "name": "N5 requester fallback",
+      "status": "PASS",
+      "inputs": {
+        "row": {
+          "assigned_to": null,
+          "reply_count": 1,
+          "requester_name": "Requester",
+          "last_reply_sender_name": null,
+          "assignee_name": null
+        },
+        "caller": {
+          "is_admin": false,
+          "user_id": 8
+        },
+        "precondition": "caller-scoped unread row"
+      },
+      "expected": {
+        "kind": "reply",
+        "actor": "Requester"
+      },
+      "actual": {
+        "kind": "reply",
+        "actor": "Requester"
+      }
+    },
+    {
+      "name": "N6 admin assigned to self",
+      "status": "PASS",
+      "inputs": {
+        "row": {
+          "assigned_to": 2,
+          "reply_count": 0,
+          "requester_name": "Requester",
+          "last_reply_sender_name": null,
+          "assignee_name": "Assignee"
+        },
+        "caller": {
+          "is_admin": true,
+          "user_id": 2
+        },
+        "precondition": "caller-scoped unread row"
+      },
+      "expected": {
+        "kind": "assigned",
+        "actor": "Requester"
+      },
+      "actual": {
+        "kind": "assigned",
+        "actor": "Requester"
+      }
+    },
+    {
+      "name": "P1 boundary evidence",
+      "status": "PASS",
+      "inputs": {
+        "score": 0.22,
+        "title": "Protect confidential data",
+        "question": "confidential data"
+      },
+      "expected": true,
+      "actual": true
+    },
+    {
+      "name": "P2 below boundary",
+      "status": "PASS",
+      "inputs": {
+        "score": 0.21999,
+        "title": "Protect confidential data",
+        "question": "confidential data"
+      },
+      "expected": false,
+      "actual": false
+    },
+    {
+      "name": "P3 unrelated high score",
+      "status": "PASS",
+      "inputs": {
+        "score": 0.9,
+        "title": "Remote access",
+        "question": "wire threshold"
+      },
+      "expected": false,
+      "actual": false
+    },
+    {
+      "name": "P4 generic words only",
+      "status": "PASS",
+      "inputs": {
+        "score": 0.9,
+        "title": "Policy guidance",
+        "question": "what is the policy"
+      },
+      "expected": false,
+      "actual": false
+    },
+    {
+      "name": "P5 empty results",
+      "status": "PASS",
+      "inputs": {
+        "score": 0,
+        "title": null,
+        "question": "confidential data"
+      },
+      "expected": false,
+      "actual": false
+    }
+  ]
+}

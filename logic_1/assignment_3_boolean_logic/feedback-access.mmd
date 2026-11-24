@@ -1,0 +1,9 @@
+flowchart TD
+    START([Start]) --> INPUT[/Message found; conversation C; self S; admin A/]
+    INPUT --> EXISTS{C: conversation exists?}
+    EXISTS -->|False| DENY[/404 Message not found/]
+    EXISTS -->|True| ACCESS{S OR A?}
+    ACCESS -->|False| DENY
+    ACCESS -->|True| CONTINUE[/Continue to sender check and feedback handling/]
+    DENY --> STOP([Stop])
+    CONTINUE --> STOP
