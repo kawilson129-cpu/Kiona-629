@@ -1,0 +1,64 @@
+{
+  "reviewed_at": "2026-11-24T17:11:25.813187+00:00",
+  "scope": "Read-only Python source review; no imports of app, configuration reads, database connections, API calls or dependency installs.",
+  "sources": [
+    {
+      "path": "derexi-policy-pilot/backend/main.py",
+      "sha256": "cdef2664b2b6bf27056dd127ed9a60a49b198bbdd80f6d1a204d3e518964a95b"
+    },
+    {
+      "path": "derexi-policy-pilot/backend/database.py",
+      "sha256": "47762db9baf75da41893dbedb856a763e268cf6c22e8c508d3691e5eceb76128"
+    },
+    {
+      "path": "derexi-policy-pilot/backend/models.py",
+      "sha256": "589b6d695b30dcb4c3888695004a01c3aae1c3f89b17dc6b8dd31f1b27973284"
+    },
+    {
+      "path": "derexi-policy-pilot/backend/schemas.py",
+      "sha256": "b0d759d109df61cf983e5fc9375b8eea123d9a1e6427ffa3dc0b4e7cc12b8c52"
+    },
+    {
+      "path": "derexi-policy-pilot/backend/security.py",
+      "sha256": "c0ca629a4004cb5715ff437626b30917038fd8dfb5829491057eb8d22d980a58"
+    },
+    {
+      "path": "derexi-policy-pilot/backend/ai.py",
+      "sha256": "0501e2ad83869219c27b346eaa87839b92bc7243b70c53e22ca4a7a73528a49e"
+    },
+    {
+      "path": "derexi-policy-pilot/backend/transport.py",
+      "sha256": "adf5b4b5b05191572af263022c6d5726db421a807d4a9997ac306b4cc1e14390"
+    },
+    {
+      "path": "derexi-policy-pilot/backend/document_intake.py",
+      "sha256": "81b655c71424540b8aa8e336a7cb476c140bba0a94287ebc76c102fbe969dc61"
+    },
+    {
+      "path": "derexi-policy-pilot/backend/document_limits.py",
+      "sha256": "cc8dcf309e6e9e1a2735cc7f71d6db1bd47ad1129b67cb7c4cf16cccbf611d4b"
+    },
+    {
+      "path": "derexi-policy-pilot/backend/governance.py",
+      "sha256": "e732155586f049bf97cb092b6e7b99d0d4418b47e70666fb00918ea3d30fd83f"
+    },
+    {
+      "path": "derexi-policy-pilot/backend/pulse/sources.py",
+      "sha256": "019a4d1b84d0786dbe4fbe83a3cb155ffa3ae7ed4ab26e8049bda8b15997adef"
+    },
+    {
+      "path": "derexi-policy-pilot/backend/pulse/service.py",
+      "sha256": "dce92f929d58543ecb5a56782faf9f3383ca6e5ebeb447d2055277b3c2acdb5d"
+    },
+    {
+      "path": "MEMORY.md",
+      "sha256": "4383c8ac97d7595018dc263ad6d3594601668ecf01a5960d66303b7dea72630f"
+    },
+    {
+      "path": "python_2/Screenshot 2026-11-17 at 2.43.26\u202fPM.png",
+      "sha256": "d8fd9210effb80cb671efbcbdca5b5d816025064affd4e3be5845d2bb476f3bd"
+    }
+  ],
+  "original_rubric": "Existing screenshot displays course/submission heading, not detailed rows. The eight detailed criteria were supplied by the user.",
+  "baseline_working_tree": "Clean before this task. Only python_2 additions authorized; root memory is preserved."
+}

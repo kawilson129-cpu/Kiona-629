@@ -1,0 +1,23 @@
+{
+  "assignment": "assignment_03_while_loops",
+  "command": "python3 -B python_2/assignment_03_while_loops/demo.py",
+  "exit_code": 0,
+  "status": "PASS",
+  "stdout": "{\n  \"populated\": {\n    \"processed\": [\n      \"Data handling?\",\n      \"Remote access?\"\n    ],\n    \"iterations\": 2,\n    \"pending\": []\n  },\n  \"initially_empty\": {\n    \"processed\": [],\n    \"iterations\": 0,\n    \"pending\": []\n  }\n}\n",
+  "stderr": "",
+  "payload": {
+    "populated": {
+      "processed": [
+        "Data handling?",
+        "Remote access?"
+      ],
+      "iterations": 2,
+      "pending": []
+    },
+    "initially_empty": {
+      "processed": [],
+      "iterations": 0,
+      "pending": []
+    }
+  }
+}

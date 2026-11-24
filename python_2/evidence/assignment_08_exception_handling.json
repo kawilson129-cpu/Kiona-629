@@ -1,0 +1,55 @@
+{
+  "assignment": "assignment_08_exception_handling",
+  "command": "python3 -B python_2/assignment_08_exception_handling/demo.py",
+  "exit_code": 0,
+  "status": "PASS",
+  "stdout": "{\n  \"valid\": {\n    \"status\": \"success\",\n    \"interval_days\": 30,\n    \"error_type\": null,\n    \"events\": [\n      \"try\",\n      \"else\",\n      \"finally\"\n    ],\n    \"resource_state\": \"closed\"\n  },\n  \"invalid_number\": {\n    \"status\": \"error\",\n    \"interval_days\": null,\n    \"error_type\": \"ValueError\",\n    \"events\": [\n      \"try\",\n      \"except\",\n      \"finally\"\n    ],\n    \"resource_state\": \"closed\"\n  },\n  \"nonpositive\": {\n    \"status\": \"error\",\n    \"interval_days\": null,\n    \"error_type\": \"ValueError\",\n    \"events\": [\n      \"try\",\n      \"except\",\n      \"finally\"\n    ],\n    \"resource_state\": \"closed\"\n  },\n  \"missing_file\": {\n    \"status\": \"error\",\n    \"interval_days\": null,\n    \"error_type\": \"FileNotFoundError\",\n    \"events\": [\n      \"try\",\n      \"except\",\n      \"finally\"\n    ],\n    \"resource_state\": \"not_opened\"\n  },\n  \"temporary_directory_removed\": true\n}\n",
+  "stderr": "",
+  "payload": {
+    "valid": {
+      "status": "success",
+      "interval_days": 30,
+      "error_type": null,
+      "events": [
+        "try",
+        "else",
+        "finally"
+      ],
+      "resource_state": "closed"
+    },
+    "invalid_number": {
+      "status": "error",
+      "interval_days": null,
+      "error_type": "ValueError",
+      "events": [
+        "try",
+        "except",
+        "finally"
+      ],
+      "resource_state": "closed"
+    },
+    "nonpositive": {
+      "status": "error",
+      "interval_days": null,
+      "error_type": "ValueError",
+      "events": [
+        "try",
+        "except",
+        "finally"
+      ],
+      "resource_state": "closed"
+    },
+    "missing_file": {
+      "status": "error",
+      "interval_days": null,
+      "error_type": "FileNotFoundError",
+      "events": [
+        "try",
+        "except",
+        "finally"
+      ],
+      "resource_state": "not_opened"
+    },
+    "temporary_directory_removed": true
+  }
+}

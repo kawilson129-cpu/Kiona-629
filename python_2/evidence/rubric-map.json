@@ -1,0 +1,248 @@
+[
+  {
+    "criterion": 1,
+    "folder": "assignment_01_constants",
+    "requirement": "Define and apply a descriptively named constant in Python.",
+    "references": [
+      {
+        "path": "derexi-policy-pilot/backend/main.py",
+        "name": "CONFIDENCE_THRESHOLD",
+        "start": 65,
+        "end": 65
+      },
+      {
+        "path": "derexi-policy-pilot/backend/main.py",
+        "name": "ask",
+        "start": 423,
+        "end": 575
+      },
+      {
+        "path": "python_2/assignment_01_constants/demo.py",
+        "name": "safe demonstration",
+        "start": 1,
+        "end": 19
+      }
+    ],
+    "unit_test_numbers": [
+      1,
+      2
+    ],
+    "status": "VERIFIED"
+  },
+  {
+    "criterion": 2,
+    "folder": "assignment_02_conditionals",
+    "requirement": "Use if-else logic to control execution based on a condition.",
+    "references": [
+      {
+        "path": "derexi-policy-pilot/backend/main.py",
+        "name": "ask",
+        "start": 423,
+        "end": 575
+      },
+      {
+        "path": "derexi-policy-pilot/backend/main.py",
+        "name": "contains_keyword",
+        "start": 210,
+        "end": 217
+      },
+      {
+        "path": "python_2/assignment_02_conditionals/demo.py",
+        "name": "safe demonstration",
+        "start": 1,
+        "end": 30
+      }
+    ],
+    "unit_test_numbers": [
+      3,
+      4
+    ],
+    "status": "VERIFIED"
+  },
+  {
+    "criterion": 3,
+    "folder": "assignment_03_while_loops",
+    "requirement": "Demonstrate a while loop using a boolean condition.",
+    "references": [
+      {
+        "path": "derexi-policy-pilot/backend/document_limits.py",
+        "name": "_supervise_mac",
+        "start": 29,
+        "end": 58
+      },
+      {
+        "path": "python_2/assignment_03_while_loops/demo.py",
+        "name": "safe demonstration",
+        "start": 1,
+        "end": 24
+      }
+    ],
+    "unit_test_numbers": [
+      5,
+      6,
+      7
+    ],
+    "status": "VERIFIED"
+  },
+  {
+    "criterion": 4,
+    "folder": "assignment_04_for_loops",
+    "requirement": "Demonstrate a for loop iterating through a collection or range.",
+    "references": [
+      {
+        "path": "derexi-policy-pilot/backend/main.py",
+        "name": "contains_keyword",
+        "start": 210,
+        "end": 217
+      },
+      {
+        "path": "python_2/assignment_04_for_loops/demo.py",
+        "name": "safe demonstration",
+        "start": 1,
+        "end": 24
+      }
+    ],
+    "unit_test_numbers": [
+      8,
+      9,
+      10,
+      26
+    ],
+    "status": "VERIFIED"
+  },
+  {
+    "criterion": 5,
+    "folder": "assignment_05_functions",
+    "requirement": "Use functions accepting arguments, including a function returning a computed value.",
+    "references": [
+      {
+        "path": "derexi-policy-pilot/backend/pulse/service.py",
+        "name": "relevance_score",
+        "start": 399,
+        "end": 415
+      },
+      {
+        "path": "derexi-policy-pilot/backend/pulse/service.py",
+        "name": "STATUS_WEIGHT",
+        "start": 371,
+        "end": 378
+      },
+      {
+        "path": "derexi-policy-pilot/backend/pulse/service.py",
+        "name": "RECENCY_POINTS",
+        "start": 395,
+        "end": 395
+      },
+      {
+        "path": "python_2/assignment_05_functions/demo.py",
+        "name": "safe demonstration",
+        "start": 1,
+        "end": 24
+      }
+    ],
+    "unit_test_numbers": [
+      11,
+      12,
+      13,
+      14,
+      26
+    ],
+    "status": "VERIFIED"
+  },
+  {
+    "criterion": 6,
+    "folder": "assignment_06_lists",
+    "requirement": "Access and modify list elements and process individual elements using loops.",
+    "references": [
+      {
+        "path": "derexi-policy-pilot/backend/pulse/service.py",
+        "name": "get_feed",
+        "start": 748,
+        "end": 798
+      },
+      {
+        "path": "derexi-policy-pilot/backend/pulse/service.py",
+        "name": "score_articles",
+        "start": 418,
+        "end": 422
+      },
+      {
+        "path": "python_2/assignment_06_lists/demo.py",
+        "name": "safe demonstration",
+        "start": 1,
+        "end": 23
+      }
+    ],
+    "unit_test_numbers": [
+      15,
+      16,
+      17
+    ],
+    "status": "VERIFIED"
+  },
+  {
+    "criterion": 7,
+    "folder": "assignment_07_file_operations",
+    "requirement": "Demonstrate both file reading and writing.",
+    "references": [
+      {
+        "path": "derexi-policy-pilot/backend/document_intake.py",
+        "name": "retain",
+        "start": 219,
+        "end": 236
+      },
+      {
+        "path": "derexi-policy-pilot/backend/governance.py",
+        "name": "original_document",
+        "start": 366,
+        "end": 379
+      },
+      {
+        "path": "python_2/assignment_07_file_operations/demo.py",
+        "name": "safe demonstration",
+        "start": 1,
+        "end": 29
+      }
+    ],
+    "unit_test_numbers": [
+      18,
+      19,
+      25
+    ],
+    "status": "VERIFIED"
+  },
+  {
+    "criterion": 8,
+    "folder": "assignment_08_exception_handling",
+    "requirement": "Demonstrate try, except, else and finally on successful and exception-producing paths.",
+    "references": [
+      {
+        "path": "derexi-policy-pilot/backend/database.py",
+        "name": "get_db",
+        "start": 57,
+        "end": 63
+      },
+      {
+        "path": "derexi-policy-pilot/backend/document_intake.py",
+        "name": "parse_bounded",
+        "start": 129,
+        "end": 146
+      },
+      {
+        "path": "python_2/assignment_08_exception_handling/demo.py",
+        "name": "safe demonstration",
+        "start": 1,
+        "end": 51
+      }
+    ],
+    "unit_test_numbers": [
+      20,
+      21,
+      22,
+      23,
+      24,
+      25
+    ],
+    "status": "VERIFIED"
+  }
+]

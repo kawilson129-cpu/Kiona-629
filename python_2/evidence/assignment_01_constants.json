@@ -1,0 +1,22 @@
+{
+  "assignment": "assignment_01_constants",
+  "command": "python3 -B python_2/assignment_01_constants/demo.py",
+  "exit_code": 0,
+  "status": "PASS",
+  "stdout": "{\n  \"constant\": \"CONFIDENCE_THRESHOLD\",\n  \"value\": 0.22,\n  \"scores\": [\n    0.21,\n    0.22,\n    0.3\n  ],\n  \"meets_numeric_gate\": [\n    false,\n    true,\n    true\n  ]\n}\n",
+  "stderr": "",
+  "payload": {
+    "constant": "CONFIDENCE_THRESHOLD",
+    "value": 0.22,
+    "scores": [
+      0.21,
+      0.22,
+      0.3
+    ],
+    "meets_numeric_gate": [
+      false,
+      true,
+      true
+    ]
+  }
+}

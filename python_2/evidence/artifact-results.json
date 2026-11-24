@@ -1,0 +1,113 @@
+{
+  "timestamp": "2026-11-24T17:16:18.628467+00:00",
+  "mode": "Offline document/source/artifact validation only",
+  "passed": 18,
+  "failed": 0,
+  "checks": [
+    {
+      "name": "Eight requested assignment directories",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "assignment_01_constants complete required files",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "assignment_02_conditionals complete required files",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "assignment_03_while_loops complete required files",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "assignment_04_for_loops complete required files",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "assignment_05_functions complete required files",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "assignment_06_lists complete required files",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "assignment_07_file_operations complete required files",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "assignment_08_exception_handling complete required files",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Root submission and evidence navigation",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Original and demo line references valid",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Markdown local links resolve",
+      "status": "PASS",
+      "detail": {
+        "checked": 259,
+        "broken": []
+      }
+    },
+    {
+      "name": "Reviewed backend, root memory and original screenshot unchanged",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "No disposable exercise files retained",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "All course Python syntax compiles without bytecode writes",
+      "status": "PASS",
+      "detail": []
+    },
+    {
+      "name": "All eight literal rubric constructs present in executed/reference code",
+      "status": "PASS",
+      "detail": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "name": "Recorded passes and both exception lifecycle outcomes reconcile",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Working tree changes confined to existing Python 2 course",
+      "status": "PASS",
+      "detail": {
+        "changed_paths": 52,
+        "outside_course": []
+      }
+    }
+  ]
+}

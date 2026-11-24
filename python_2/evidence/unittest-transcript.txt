@@ -1,0 +1,31 @@
+test_01_constant_value (__main__.CourseworkBehavior) ... ok
+test_02_constant_applied_at_boundary (__main__.CourseworkBehavior) ... ok
+test_03_if_matching_at_threshold (__main__.CourseworkBehavior) ... ok
+test_04_else_low_score_absent_or_empty_keywords (__main__.CourseworkBehavior) ... ok
+test_05_while_progress_and_order (__main__.CourseworkBehavior) ... ok
+test_06_while_initial_false (__main__.CourseworkBehavior) ... ok
+test_07_while_input_not_consumed (__main__.CourseworkBehavior) ... ok
+test_08_for_matches_first_and_later_elements (__main__.CourseworkBehavior) ... ok
+test_09_for_singular_fallback (__main__.CourseworkBehavior) ... ok
+test_10_for_empty_and_absent_matches (__main__.CourseworkBehavior) ... ok
+test_11_function_returns_computed_same_day_score (__main__.CourseworkBehavior) ... ok
+test_12_function_recency_and_optional_argument (__main__.CourseworkBehavior) ... ok
+test_13_function_invalid_date_fallback (__main__.CourseworkBehavior) ... ok
+test_14_function_unknown_metadata_defaults (__main__.CourseworkBehavior) ... ok
+test_15_list_indexed_edit_and_append (__main__.CourseworkBehavior) ... ok
+test_16_list_empty_input (__main__.CourseworkBehavior) ... ok
+test_17_list_preserves_input_and_duplicates (__main__.CourseworkBehavior) ... ok
+test_18_file_unicode_read_write_and_handles (__main__.CourseworkBehavior) ... ok
+test_19_empty_file_round_trip_and_cleanup (__main__.CourseworkBehavior) ... ok
+test_20_exception_success_else_and_finally (__main__.CourseworkBehavior) ... ok
+test_21_exception_invalid_number_except_finally (__main__.CourseworkBehavior) ... ok
+test_22_exception_missing_file_finally_without_open_handle (__main__.CourseworkBehavior) ... ok
+test_23_exception_nonpositive_interval (__main__.CourseworkBehavior) ... ok
+test_24_exception_directory_oserror (__main__.CourseworkBehavior) ... ok
+test_25_file_demonstrations_remove_temporary_directories (__main__.CourseworkBehavior) ... ok
+test_26_original_functions_keep_original_source_filename (__main__.CourseworkBehavior) ... ok
+
+----------------------------------------------------------------------
+Ran 26 tests in 0.034s
+
+OK

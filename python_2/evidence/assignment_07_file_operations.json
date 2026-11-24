@@ -1,0 +1,15 @@
+{
+  "assignment": "assignment_07_file_operations",
+  "command": "python3 -B python_2/assignment_07_file_operations/demo.py",
+  "exit_code": 0,
+  "status": "PASS",
+  "stdout": "{\n  \"written_characters\": 39,\n  \"read_text\": \"Practice policy: protéger les données.\\n\",\n  \"writer_closed\": true,\n  \"reader_closed\": true,\n  \"temporary_directory_removed\": true\n}\n",
+  "stderr": "",
+  "payload": {
+    "written_characters": 39,
+    "read_text": "Practice policy: protéger les données.\n",
+    "writer_closed": true,
+    "reader_closed": true,
+    "temporary_directory_removed": true
+  }
+}

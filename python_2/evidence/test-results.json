@@ -1,0 +1,192 @@
+{
+  "timestamp": "2026-11-24T17:12:27.196167+00:00",
+  "python": "3.9.6",
+  "mode": "Actual offline Python execution; selected original functions, synthetic in-memory and temporary-file inputs; no mocks, app startup, DB or API calls",
+  "unit_tests": 26,
+  "unit_failures": 0,
+  "unit_errors": 0,
+  "unit_skipped": 0,
+  "demo_passed": 8,
+  "demo_failed": 0,
+  "executions": [
+    {
+      "assignment": "assignment_01_constants",
+      "command": "python3 -B python_2/assignment_01_constants/demo.py",
+      "exit_code": 0,
+      "status": "PASS",
+      "stdout": "{\n  \"constant\": \"CONFIDENCE_THRESHOLD\",\n  \"value\": 0.22,\n  \"scores\": [\n    0.21,\n    0.22,\n    0.3\n  ],\n  \"meets_numeric_gate\": [\n    false,\n    true,\n    true\n  ]\n}\n",
+      "stderr": "",
+      "payload": {
+        "constant": "CONFIDENCE_THRESHOLD",
+        "value": 0.22,
+        "scores": [
+          0.21,
+          0.22,
+          0.3
+        ],
+        "meets_numeric_gate": [
+          false,
+          true,
+          true
+        ]
+      }
+    },
+    {
+      "assignment": "assignment_02_conditionals",
+      "command": "python3 -B python_2/assignment_02_conditionals/demo.py",
+      "exit_code": 0,
+      "status": "PASS",
+      "stdout": "{\n  \"matching_at_threshold\": \"Provide source-backed guidance\",\n  \"below_threshold\": \"Request clarification\",\n  \"high_score_without_evidence\": \"Request clarification\",\n  \"empty_keywords\": \"Request clarification\"\n}\n",
+      "stderr": "",
+      "payload": {
+        "matching_at_threshold": "Provide source-backed guidance",
+        "below_threshold": "Request clarification",
+        "high_score_without_evidence": "Request clarification",
+        "empty_keywords": "Request clarification"
+      }
+    },
+    {
+      "assignment": "assignment_03_while_loops",
+      "command": "python3 -B python_2/assignment_03_while_loops/demo.py",
+      "exit_code": 0,
+      "status": "PASS",
+      "stdout": "{\n  \"populated\": {\n    \"processed\": [\n      \"Data handling?\",\n      \"Remote access?\"\n    ],\n    \"iterations\": 2,\n    \"pending\": []\n  },\n  \"initially_empty\": {\n    \"processed\": [],\n    \"iterations\": 0,\n    \"pending\": []\n  }\n}\n",
+      "stderr": "",
+      "payload": {
+        "populated": {
+          "processed": [
+            "Data handling?",
+            "Remote access?"
+          ],
+          "iterations": 2,
+          "pending": []
+        },
+        "initially_empty": {
+          "processed": [],
+          "iterations": 0,
+          "pending": []
+        }
+      }
+    },
+    {
+      "assignment": "assignment_04_for_loops",
+      "command": "python3 -B python_2/assignment_04_for_loops/demo.py",
+      "exit_code": 0,
+      "status": "PASS",
+      "stdout": "{\n  \"later_match\": true,\n  \"singular_match\": true,\n  \"no_match\": false,\n  \"empty_collection\": false\n}\n",
+      "stderr": "",
+      "payload": {
+        "later_match": true,
+        "singular_match": true,
+        "no_match": false,
+        "empty_collection": false
+      }
+    },
+    {
+      "assignment": "assignment_05_functions",
+      "command": "python3 -B python_2/assignment_05_functions/demo.py",
+      "exit_code": 0,
+      "status": "PASS",
+      "stdout": "{\n  \"same_day\": 92.0,\n  \"fifteen_days_old\": 84.0,\n  \"without_date_argument\": 68.0,\n  \"invalid_date\": 68.0,\n  \"unknown_metadata\": 6.0\n}\n",
+      "stderr": "",
+      "payload": {
+        "same_day": 92.0,
+        "fifteen_days_old": 84.0,
+        "without_date_argument": 68.0,
+        "invalid_date": 68.0,
+        "unknown_metadata": 6.0
+      }
+    },
+    {
+      "assignment": "assignment_06_lists",
+      "command": "python3 -B python_2/assignment_06_lists/demo.py",
+      "exit_code": 0,
+      "status": "PASS",
+      "stdout": "{\n  \"original\": [\n    \" data handling \",\n    \"ACCOUNT access\"\n  ],\n  \"first_before\": \" data handling \",\n  \"first_after\": \"Data Handling\",\n  \"prepared\": [\n    \"Data Handling\",\n    \"Account Access\",\n    \"Incident Response\"\n  ]\n}\n",
+      "stderr": "",
+      "payload": {
+        "original": [
+          " data handling ",
+          "ACCOUNT access"
+        ],
+        "first_before": " data handling ",
+        "first_after": "Data Handling",
+        "prepared": [
+          "Data Handling",
+          "Account Access",
+          "Incident Response"
+        ]
+      }
+    },
+    {
+      "assignment": "assignment_07_file_operations",
+      "command": "python3 -B python_2/assignment_07_file_operations/demo.py",
+      "exit_code": 0,
+      "status": "PASS",
+      "stdout": "{\n  \"written_characters\": 39,\n  \"read_text\": \"Practice policy: protéger les données.\\n\",\n  \"writer_closed\": true,\n  \"reader_closed\": true,\n  \"temporary_directory_removed\": true\n}\n",
+      "stderr": "",
+      "payload": {
+        "written_characters": 39,
+        "read_text": "Practice policy: protéger les données.\n",
+        "writer_closed": true,
+        "reader_closed": true,
+        "temporary_directory_removed": true
+      }
+    },
+    {
+      "assignment": "assignment_08_exception_handling",
+      "command": "python3 -B python_2/assignment_08_exception_handling/demo.py",
+      "exit_code": 0,
+      "status": "PASS",
+      "stdout": "{\n  \"valid\": {\n    \"status\": \"success\",\n    \"interval_days\": 30,\n    \"error_type\": null,\n    \"events\": [\n      \"try\",\n      \"else\",\n      \"finally\"\n    ],\n    \"resource_state\": \"closed\"\n  },\n  \"invalid_number\": {\n    \"status\": \"error\",\n    \"interval_days\": null,\n    \"error_type\": \"ValueError\",\n    \"events\": [\n      \"try\",\n      \"except\",\n      \"finally\"\n    ],\n    \"resource_state\": \"closed\"\n  },\n  \"nonpositive\": {\n    \"status\": \"error\",\n    \"interval_days\": null,\n    \"error_type\": \"ValueError\",\n    \"events\": [\n      \"try\",\n      \"except\",\n      \"finally\"\n    ],\n    \"resource_state\": \"closed\"\n  },\n  \"missing_file\": {\n    \"status\": \"error\",\n    \"interval_days\": null,\n    \"error_type\": \"FileNotFoundError\",\n    \"events\": [\n      \"try\",\n      \"except\",\n      \"finally\"\n    ],\n    \"resource_state\": \"not_opened\"\n  },\n  \"temporary_directory_removed\": true\n}\n",
+      "stderr": "",
+      "payload": {
+        "valid": {
+          "status": "success",
+          "interval_days": 30,
+          "error_type": null,
+          "events": [
+            "try",
+            "else",
+            "finally"
+          ],
+          "resource_state": "closed"
+        },
+        "invalid_number": {
+          "status": "error",
+          "interval_days": null,
+          "error_type": "ValueError",
+          "events": [
+            "try",
+            "except",
+            "finally"
+          ],
+          "resource_state": "closed"
+        },
+        "nonpositive": {
+          "status": "error",
+          "interval_days": null,
+          "error_type": "ValueError",
+          "events": [
+            "try",
+            "except",
+            "finally"
+          ],
+          "resource_state": "closed"
+        },
+        "missing_file": {
+          "status": "error",
+          "interval_days": null,
+          "error_type": "FileNotFoundError",
+          "events": [
+            "try",
+            "except",
+            "finally"
+          ],
+          "resource_state": "not_opened"
+        },
+        "temporary_directory_removed": true
+      }
+    }
+  ]
+}

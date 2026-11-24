@@ -1,0 +1,15 @@
+{
+  "assignment": "assignment_05_functions",
+  "command": "python3 -B python_2/assignment_05_functions/demo.py",
+  "exit_code": 0,
+  "status": "PASS",
+  "stdout": "{\n  \"same_day\": 92.0,\n  \"fifteen_days_old\": 84.0,\n  \"without_date_argument\": 68.0,\n  \"invalid_date\": 68.0,\n  \"unknown_metadata\": 6.0\n}\n",
+  "stderr": "",
+  "payload": {
+    "same_day": 92.0,
+    "fifteen_days_old": 84.0,
+    "without_date_argument": 68.0,
+    "invalid_date": 68.0,
+    "unknown_metadata": 6.0
+  }
+}

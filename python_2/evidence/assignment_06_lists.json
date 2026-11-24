@@ -1,0 +1,21 @@
+{
+  "assignment": "assignment_06_lists",
+  "command": "python3 -B python_2/assignment_06_lists/demo.py",
+  "exit_code": 0,
+  "status": "PASS",
+  "stdout": "{\n  \"original\": [\n    \" data handling \",\n    \"ACCOUNT access\"\n  ],\n  \"first_before\": \" data handling \",\n  \"first_after\": \"Data Handling\",\n  \"prepared\": [\n    \"Data Handling\",\n    \"Account Access\",\n    \"Incident Response\"\n  ]\n}\n",
+  "stderr": "",
+  "payload": {
+    "original": [
+      " data handling ",
+      "ACCOUNT access"
+    ],
+    "first_before": " data handling ",
+    "first_after": "Data Handling",
+    "prepared": [
+      "Data Handling",
+      "Account Access",
+      "Incident Response"
+    ]
+  }
+}

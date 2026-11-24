@@ -1,0 +1,14 @@
+{
+  "assignment": "assignment_02_conditionals",
+  "command": "python3 -B python_2/assignment_02_conditionals/demo.py",
+  "exit_code": 0,
+  "status": "PASS",
+  "stdout": "{\n  \"matching_at_threshold\": \"Provide source-backed guidance\",\n  \"below_threshold\": \"Request clarification\",\n  \"high_score_without_evidence\": \"Request clarification\",\n  \"empty_keywords\": \"Request clarification\"\n}\n",
+  "stderr": "",
+  "payload": {
+    "matching_at_threshold": "Provide source-backed guidance",
+    "below_threshold": "Request clarification",
+    "high_score_without_evidence": "Request clarification",
+    "empty_keywords": "Request clarification"
+  }
+}

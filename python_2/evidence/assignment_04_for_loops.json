@@ -1,0 +1,14 @@
+{
+  "assignment": "assignment_04_for_loops",
+  "command": "python3 -B python_2/assignment_04_for_loops/demo.py",
+  "exit_code": 0,
+  "status": "PASS",
+  "stdout": "{\n  \"later_match\": true,\n  \"singular_match\": true,\n  \"no_match\": false,\n  \"empty_collection\": false\n}\n",
+  "stderr": "",
+  "payload": {
+    "later_match": true,
+    "singular_match": true,
+    "no_match": false,
+    "empty_collection": false
+  }
+}
